@@ -10,24 +10,6 @@ ms.date: 07/30/2020
 ms.author: aahi
 ---
 
-
-# Quickstart: [Product Name] client library for JavaScript
-
-Get started with the [Product Name] client library. Follow these steps to install the package and try out the example code for basic tasks. 
-
-<!-- 
-    After the above line, briefly describe the service. You can often use the first line of the service's docs landing page for this.
-
-    Next, add a bulleted list of the most common tasks supported by the library, prefaced with "Use the [Product Name] client library for [Language] to:". You provide code snippets for these tasks in the Code examples section later in the Quickstart. Keep the list short but include those tasks most developers need to perform with the library.
-
-    Lastly, include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, for example NuGet instead of PyPi:
--->
-
-Use the [Product Name] client library for JavaScript to:
-
-* TBD
-* TBD
-
 <!--
     Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
 -->
@@ -129,40 +111,23 @@ These code snippets show you how to do the following with the [Product Name] cli
 * [Example task 3 (anchor link)](#)
 
 ## Authenticate the client
-<!--
 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
-
--->
-
-Instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
-
+In a new method, instantiate a client with your endpoint and key. Create an object with your key, and use it with your endpoint to create an [ApiClient]() object.
 
 ```javascript
 
 ```
 
-## Example task 1
+## Add a data feed from a sample or data source
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+## Check ingestion status
 
-```javascript
-```
+##	Setup detection configuration and alert configuration
 
-<!-- 
-    Show the application output from each task, if output exists
-    If this code sample is in a function, tell the reader to call it. For example:
+##	Query anomaly detection results
 
-    Call the `example()` function.
+##	Diagnose anomalies
 
--->
-
-## Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
-
-```javascript
-```
 
 ## Run the application
 

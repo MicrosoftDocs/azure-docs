@@ -10,51 +10,17 @@ ms.date: 07/30/2020
 ms.author: aahi
 ---
 
-# Quickstart: [Product Name] client library for .NET
-
-Get started with the [Product Name] client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.
-
-<!-- 
-    After the above line, briefly describe the service. You can often use the first line of the service's docs landing page for this.
-
-    Next, add a bulleted list of the most common tasks supported by the library, prefaced with "Use the [Product Name] client library for [Language] to:". You provide code snippets for these tasks in the Code examples section later in the Quickstart. Keep the list short but include those tasks most developers need to perform with the library.
-
-    Lastly, include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, for example NuGet instead of PyPi:
--->
-
-Use the [Product Name] client library for .NET to:
-
-* TBD
-* TBD
-
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
 [Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-<!-- this <a> link opens the Azure portal in a new tab/window. Replace the link with one to your service's resource create blade-->
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a [Product Name] resource"  target="_blank">create a [Product Name] resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to [Product Name]. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-    
-
-
+   
 ## Setting up
-
-### Create a new C# application
-
-<!--
-Use your knowledge of your audience to determine whether CLI and/or Visual Studio instructions are best suited for your quickstart.
--->
-
-#### [Visual Studio IDE](#tab/visual-studio)
-
-Using Visual Studio, create a new .NET Core application. 
 
 ### Install the client library 
 
@@ -87,11 +53,10 @@ Build succeeded.
 ### Install the client library 
 
 Within the application directory, install the [Product Name] client library for .NET with the following command:
-<!-- consider displaying the --version parameter to prevent code breakages after library updates -->
+
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.[Product Name] --version x.y
 ```
-
 
 ---
 
@@ -121,10 +86,6 @@ private static readonly Uri endpoint = new Uri("<replace-with-your-[product-name
 
 in the application’s `main()` method, add calls for the methods used in this quickstart. You will create these later.
 
-<!-- 
-    Be sure the main method calls the example task functions in this quickstart. The inline comment helps inform customers to implement the quickstart methods, in case they initially see "undefined method" errors.
--->
-
 ```csharp
 static void Main(string[] args){
     // You will create the below methods later in the quickstart
@@ -134,18 +95,7 @@ static void Main(string[] args){
 
 ## Object model
 
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
-
 ## Code examples
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 These code snippets show you how to do the following tasks with the [Product Name] client library for .NET:
 
@@ -156,39 +106,22 @@ These code snippets show you how to do the following tasks with the [Product Nam
 
 ## Authenticate the client
 
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
-
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
+In a new method, instantiate a client with your endpoint and key. Create an object with your key, and use it with your endpoint to create an [ApiClient]() object.
 
 ```csharp
 
 ```
 
-## Example task 1
+## Add a data feed from a sample or data source
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+## Check ingestion status
 
-```csharp
+##	Setup detection configuration and alert configuration
 
-```
+##	Query anomaly detection results
 
-<!-- 
-    Show the application output from each task, if output exists
-    If this code sample is in a function, tell the reader to call it. For example:
+##	Diagnose anomalies
 
-    Call the `example()` function.
-
--->
-
-## Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
-
-```csharp
-
-```
 
 ## Run the application
 
