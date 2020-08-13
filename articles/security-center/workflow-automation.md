@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
 ---
 
@@ -40,7 +40,8 @@ This article describes the workflow automation feature of Azure Security Center.
 
     [![List of workflow automations](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    From this page you can create new automation rules, as well as enable, disable, or delete existing ones.  
+    From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
+
 1. To define a new workflow, click **Add workflow automation**. 
 
     A pane appears with the options for your new automation. Here you can enter:
@@ -82,9 +83,9 @@ This article describes the workflow automation feature of Azure Security Center.
 
 ## Manually trigger a Logic App
 
-You can also run Logic Apps manually when viewing a security alert or any recommendation that offers [Quick Fix remediation](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+You can also run Logic Apps manually when viewing any security alert or recommendation.
 
-To manually run a Logic App, open an alert or a recommendation that supports Quick Fix remediation and click **Trigger Logic App**:
+To manually run a Logic App, open an alert or a recommendation and click **Trigger Logic App**:
 
 [![Manually trigger a Logic App](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
