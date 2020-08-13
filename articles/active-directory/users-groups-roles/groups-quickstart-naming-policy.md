@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Naming policy for groups in Azure Active Directory
 
-In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Office 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
+In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Microsoft 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
 
 * Communicate the function of a group, membership, geographic region, or who created the group.
 * Help categorize groups in the address book.
