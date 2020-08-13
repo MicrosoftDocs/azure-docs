@@ -247,6 +247,9 @@ build.wait_for_completion(show_output=True)
 
 It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. And setting the optional parameter `pushImageToWorkspaceAcr = True` will push the resulting image into the Azure ML workspace container registry. 
 
+> [!WARNING]
+>  Changing the order of dependencies or channels in an environment will result in a new environment and will require a new image build.
+
 ## Enable Docker
 
 Docker container provides an efficient way to encapsulate the dependencies. When you enable Docker, Azure ML builds a Docker image and creates a Python environment within that container, given your specifications. The Docker images are cached and reused: the first run in a new environment typically takes longer as the image is build.

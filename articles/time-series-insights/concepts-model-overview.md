@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
 ---
 
@@ -70,7 +70,7 @@ These components are combined to specify a time series model and to organize you
 
 [![Time Series Model overview chart](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-A time series model can be created and managed through the [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+A time series model can be created and managed through the [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## Time Series Model instances
 
@@ -124,7 +124,7 @@ Instances have the following JSON representation:
 ```
 
 > [!TIP]
-> For Instance API create, read, update, and delete (CRUD) support, read the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> For Instance API create, read, update, and delete (CRUD) support, read the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## Time Series Model hierarchies
 
@@ -181,7 +181,7 @@ In the previous JSON example:
 * `ManufactureDate` defines a hierarchy with parent `year` and child `month`. Each `ManufactureDate` can have multiple `years`, which in turn can have multiple `months`.
 
 > [!TIP]
-> For Hierarchy API create, read, update, and delete (CRUD) support, read the [Data querying](concepts-query-overview.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> For Hierarchy API create, read, update, and delete (CRUD) support, read the [Data querying](concepts-query-overview.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### Hierarchy example
 
@@ -226,7 +226,7 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 [![Time Series Model type example](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> For Types API create, read, update, and delete (CRUD) support, read the [Data querying](concepts-query-overview.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> For Types API create, read, update, and delete (CRUD) support, read the [Data querying](concepts-query-overview.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### Type properties
 
@@ -283,7 +283,7 @@ Time Series Model types can have many variables that specify formula and computa
 
 ## Next steps
 
-* Read the [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) reference documentation for more information on how to edit the model via APIs.
+* Read the [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) reference documentation for more information on how to edit the model via APIs.
 
 * Explore the formulas and computations you can create with [Time Series Model variables](./concepts-variables.md)
 
