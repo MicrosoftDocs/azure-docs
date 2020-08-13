@@ -24,7 +24,7 @@ The framework is based on a user or an administrator giving consent to an applic
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications--such as on a phone, tablet, server, or a web application--and gain access to the required resources.
 
-For more info about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](v2-oauth2-auth-code-flow.md) and [Authentication scenarios for Azure AD](./authentication-vs-authorization.md). For info about getting authorized access to Office 365 through Microsoft Graph, see [App authentication with Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+For more info about using the consent framework with OAuth2.0 authorization grants, see [Authorize access to web applications using OAuth 2.0 and Azure AD](v2-oauth2-auth-code-flow.md) and [Authentication scenarios for Azure AD](./authentication-vs-authorization.md). For info about getting authorized access to Office 365 through Microsoft Graph, see [App authentication with Microsoft Graph](/graph/).
 
 ## Consent experience - an example
 
