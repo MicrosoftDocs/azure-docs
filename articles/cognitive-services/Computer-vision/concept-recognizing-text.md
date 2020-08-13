@@ -45,7 +45,7 @@ The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/serv
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+|Operation-Location | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## The Get Read Results operation
 
