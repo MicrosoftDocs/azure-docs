@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -233,7 +233,7 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Yes?
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -380,9 +380,9 @@ Azure role-based access control (RBAC) allows you to manage access to Azure reso
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: N/A
+**Responsibility**: Customer
 
 ### 3.2: Change default passwords where applicable
 
@@ -421,33 +421,33 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32725.).
 
-**Guidance**: Not applicable
+**Guidance**: Not applicable; Event Grid service doesn't support SSO.
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Not Applicable
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32726.).
 
-**Guidance**: Not applicable
+**Guidance**: Not applicable; Event Grid service doesn't use multi-factor authentication
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not Applicable
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32727.).
 
-**Guidance**: Not applicable.
+**Guidance**: Not applicable; no Event Grid scenarios requires Privileged Access Workstations. 
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not Applicable
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
@@ -552,11 +552,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32734.).
 
-**Guidance**: Currently not available; Customer Lockbox not yet supported for Azure Event Grid.
+**Guidance**: Not applicable; Event Grid service doesn't support Customer Lockbox currently.
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Not Applicable
 
 ## Data protection
 
@@ -607,7 +607,7 @@ Azure remains secure, Microsoft has implemented and maintains a suite of robust
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Shared
 
 ### 4.4: Encrypt all sensitive information in transit
 
