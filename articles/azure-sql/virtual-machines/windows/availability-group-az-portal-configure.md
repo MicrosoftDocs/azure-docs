@@ -79,7 +79,8 @@ If you already have a cluster configured in your SQL Server VM environment, you 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Onboard an existing cluster from the High Availability page on your SQL virtual machines resource":::
 
-1. 
+1. Review the VMs that are part of the cluster and will be onboarded to the cluster group in the resource provider cluster metadata. 
+1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
 
 
 ## Create availability group
