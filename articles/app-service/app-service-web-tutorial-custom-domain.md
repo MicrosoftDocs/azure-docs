@@ -6,7 +6,7 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/13/2020
 ms.custom: mvc, seodec18
 ---
 
@@ -121,11 +121,11 @@ If you have a subdomain other than `www`, replace `www` with your subdomain (for
 
 #### Create the CNAME record
 
-Map a subdomain to the app's default domain name (`<app_name>.azurewebsites.net`, where `<app_name>` is the name of your app). To create a CNAME mapping for the `www` subdomain, create two records:
+Map a subdomain to the app's default domain name (`<app-name>.azurewebsites.net`, where `<app-name>` is the name of your app). To create a CNAME mapping for the `www` subdomain, create two records:
 
 | Record type | Host | Value | Comments |
 | - | - | - |
-| CNAME | `www` | `<app_name>.azurewebsites.net` | The domain mapping itself. |
+| CNAME | `www` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
 | TXT | `asuid.www` | [The verification ID you got earlier](#get-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 After you add the CNAME and TXT records, the DNS records page looks like the following example:
@@ -206,7 +206,7 @@ To map an A record to an app, usually to the root domain, create two records:
 > | Record type | Host | Value |
 > | - | - | - |
 > | A | `www` | IP address from [Copy the app's IP address](#info) |
-> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
 >
 
 When the records are added, the DNS records page looks like the following example:
@@ -258,9 +258,14 @@ In the tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/
 
 #### Create the CNAME record
 
-Add a CNAME record to map a wildcard name to the app's default domain name (`<app_name>.azurewebsites.net`).
+Map a wildcard name `*` to the app's default domain name (`<app-name>.azurewebsites.net`, where `<app-name>` is the name of your app). To map the wildcard name, create two records:
 
-For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app_name>.azurewebsites.net`.
+| Record type | Host | Value | Comments |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+| TXT | `asuid` | [The verification ID you got earlier](#get-domain-verification-id) | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
+
+For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app-name>.azurewebsites.net`.
 
 When the CNAME is added, the DNS records page looks like the following example:
 
@@ -268,7 +273,7 @@ When the CNAME is added, the DNS records page looks like the following example:
 
 #### Enable the CNAME record mapping in the app
 
-You can now add any subdomain that matches the wildcard name to the app (for example, `sub1.contoso.com` and `sub2.contoso.com` match `*.contoso.com`).
+You can now add any subdomain that matches the wildcard name to the app (for example, `sub1.contoso.com` and `sub2.contoso.com` both match `*.contoso.com`).
 
 In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
@@ -338,7 +343,7 @@ The following command adds a configured custom DNS name to an App Service app.
 
 ```bash 
 az webapp config hostname add \
-    --webapp-name <app_name> \
+    --webapp-name <app-name> \
     --resource-group <resource_group_name> \
     --hostname <fully_qualified_domain_name>
 ``` 
@@ -353,9 +358,9 @@ The following command adds a configured custom DNS name to an App Service app.
 
 ```powershell  
 Set-AzWebApp `
-    -Name <app_name> `
+    -Name <app-name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
+    -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
 ```
 
 For more information, see [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md).
