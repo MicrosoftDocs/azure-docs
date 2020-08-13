@@ -126,7 +126,7 @@ Enter **dist** press **Enter**.
 
 Clear the box and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-artifact.png" alt-text="App files path ":::
+:::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path ":::
 
 ---
 
