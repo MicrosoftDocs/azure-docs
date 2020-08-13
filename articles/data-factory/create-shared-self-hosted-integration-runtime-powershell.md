@@ -151,7 +151,7 @@ The response contains the authentication key for this self-hosted integration ru
 #### Create another data factory
 
 > [!NOTE]  
-> This step is optional. If you already have the data factory that you want to share with, skip this step.
+> This step is optional. If you already have the data factory that you want to share with, skip this step. But in order to add or remove role assignments to other data factory, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

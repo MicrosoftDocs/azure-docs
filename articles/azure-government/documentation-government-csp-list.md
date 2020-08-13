@@ -230,13 +230,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
 |[NCI](https://www.nciinc.com/)|
-|[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
+|[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](https://www.newwave.io)|
 |[NexustTek](https://www.nexustek.com/)|
 |[Nihilent Inc](https://nihilent.com)|
 |[Norseman, Inc](https://www.norseman.com)|
-|[Northern Sky Technologies, Inc](https://www.northernskytech.com)|
+|[Northern Sky Technologies, Inc]|
 |[Nortrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
@@ -362,7 +362,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Vology Inc.](https://www.vology.com/)|
-|[vSolvIT](http://www.vsolvit.com/)|
+|[vSolvIT]|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WWT](https://www2.wwt.com)|

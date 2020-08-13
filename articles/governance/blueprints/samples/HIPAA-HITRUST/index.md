@@ -1,7 +1,7 @@
 ---
 title: HIPAA HITRUST blueprint sample overview
 description: Overview of the HIPAA HITRUST blueprint sample. This blueprint sample helps customers assess specific HIPAA HITRUST controls.
-ms.date: 12/3/2019
+ms.date: 08/03/2020
 ms.topic: sample
 ---
 # Overview of the HIPAA HITRUST blueprint sample
