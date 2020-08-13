@@ -43,9 +43,6 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 6. Click **Review and create**.
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
-
 #### [CLI](#tab/Azure-CLI)
 ## Provision a service instance using the Azure CLI extension
 The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -57,8 +54,6 @@ Sign in to your Azure subscription.  Install the Azure Spring Cloud extension fo
 ```azurecli
 az extension add --name spring-cloud
 ```
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ### Provision a service instance
 
@@ -94,11 +89,10 @@ az extension add --name spring-cloud
         az configure --defaults group=<resource group name>
         az configure --defaults spring-cloud=<service instance name>
     ```
+---
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
-
----
 
 > [!div class="nextstepaction"]
 ## Next steps
