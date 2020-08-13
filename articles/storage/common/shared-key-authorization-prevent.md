@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/12/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -198,7 +198,9 @@ Disallowing Shared Key authorization is supported for storage accounts that use 
 
 For the preview, Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures (SAS). The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**.
 
-For more information about how Azure Storage responds to a SAS when the **AllowSharedKeyAccess** property is set to **false**, see [Understanding authorization for shared access signatures (SAS)](#understanding-authorization-for-shared-access-signatures-sas).
+When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may report requests made with a user delegation SAS.
+
+For more information about how Azure Storage responds to a SAS when the **AllowSharedKeyAccess** property is set to **false**, see [Understand authorization for shared access signatures (SAS)](#understand-authorization-for-shared-access-signatures-sas).
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
