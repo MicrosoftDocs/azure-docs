@@ -4,7 +4,7 @@ description: The Azure Monitor security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -356,7 +356,7 @@ Use Azure Active Directory security reports and monitoring to detect when suspic
 
 - [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
