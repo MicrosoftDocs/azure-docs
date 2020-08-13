@@ -27,7 +27,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 ## Prerequisites
 
 
-- Any Azure AD license (Free/O365/P1/P2) can integrate with Azure Monitor and ingest sign-in logs into Azure Sentinel. Additional per gigabyte charges will apply for Azure Monitor or Azure Sentinel.
+- Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest sign-in logs into Azure Sentinel. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 
