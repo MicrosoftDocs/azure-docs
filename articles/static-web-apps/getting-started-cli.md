@@ -104,7 +104,7 @@ az staticwebapp create \
 
 - `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
 
-- `<LOCATION>`: Replace this value with the location nearest you. Options include: `CentralUS`, `EastAsia`, `EastUS2`, `WestEurope`, and `WestUS2`.
+- `<LOCATION>`: Replace this value with the location nearest you. Options include: _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_, and _WestUS2_.
 
 - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated.
 
