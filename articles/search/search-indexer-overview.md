@@ -74,13 +74,15 @@ An indexer extracts text from a source field and sends it to a destination field
 
 ### Stage 3: Skillset execution
 
-Azure Cognitive Search allows you to perform AI enrichments and transformations as part of the ingestion process. We call extraction and enrichment steps cognitive skills. A set of cognitive skills is called a [skillset](cognitive-search-defining-skillset.md), and it gets executed after the field mapping stage. Learn how to [create a skillset](cognitive-search-quickstart-blob.md).
+Skillset execution is an optional step that invokes built-in or custom AI processing. You might need it for optical character recognition (OCR) in the form of image analysis, or you might need language translation. Whatever the transformation, skillset execution is where enrichment occurs. If an indexer is a pipeline, you can think of a [skillset](cognitive-search-defining-skillset.md) as a "pipeline within the pipeline". A skillset has its own sequence of steps called skills.
 
 ### Stage 4: Output field mappings
 
 The output of a skillset is really a tree of information called the enriched document. Output field mappings allow you to select which parts of this tree to map into fields in your index. Learn how to [define output field mappings](cognitive-search-output-field-mapping.md).
 
-The next image shows a sample indexer debug session representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
+Just like field mappings that associate verbatim values from source to destination fields, output field mappings tell the indexer how to associate the transformed values in the enriched document to destination fields in the index. Unlike field mappings, which are considered optional, you will always need to define an output field mapping for any transformed content that needs to reside in an index.
+
+The next image shows a sample indexer [debug session](cognitive-search-debug-session.md) representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
 
 :::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug session" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
