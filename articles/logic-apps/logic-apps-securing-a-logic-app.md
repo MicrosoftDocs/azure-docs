@@ -235,7 +235,7 @@ To enable Azure AD OAuth in the ARM template for deploying your logic app, in th
 ],
 ```
 
-For more information about the `accessControl` section, see [Restrict inbound IP ranges in Azure Resource Manager template](#restrict-inbound-ip-template) and [Microsoft.Logic workflows template reference](/templates/microsoft.logic/2019-05-01/workflows).
+For more information about the `accessControl` section, see [Restrict inbound IP ranges in Azure Resource Manager template](#restrict-inbound-ip-template) and [Microsoft.Logic workflows template reference](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
 <a name="restrict-inbound-ip"></a>
 
