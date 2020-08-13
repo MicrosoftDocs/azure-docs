@@ -93,7 +93,7 @@
     items:
     - name: Best practices
       href: data-encryption-best-practices.md
-    - name: Data encryption-at-rest
+    - name: Data encryption at rest
       href: encryption-atrest.md
     - name: Data encryption models
       href: encryption-models.md

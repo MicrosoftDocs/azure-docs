@@ -5,7 +5,6 @@ services: security
 documentationcenter: na
 author: msmbaldwin
 manager: rkarlin
-editor: TomSh
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ---
 # Data Encryption Models
@@ -60,7 +59,7 @@ Client Encryption model refers to encryption that is performed outside of the Re
 
 ## Server-side encryption using service-managed keys
 
-For many customers, the essential requirement is to ensure that the data is encrypted whenever it is at rest. Server-side encryption using service-managed Keys enables this model by allowing customers to mark the specific resource (Storage Account, SQL DB, etc.) for encryption and leaving all key management aspects such as key issuance, rotation, and backup to Microsoft. Most Azure Services that support encryption at rest typically support this model of offloading the management of the encryption keys to Azure. The Azure resource provider creates the keys, places them in secure  storage, and retrieves them when needed. This means that the service has full access to the keys and the service has full control over the credential lifecycle management.
+For many customers, the essential requirement is to ensure that the data is encrypted whenever it is at rest. Server-side encryption using service-managed Keys enables this model by allowing customers to mark the specific resource (Storage Account, SQL DB, etc.) for encryption and leaving all key management aspects such as key issuance, rotation, and backup to Microsoft. Most Azure services that support encryption at rest typically support this model of offloading the management of the encryption keys to Azure. The Azure resource provider creates the keys, places them in secure  storage, and retrieves them when needed. This means that the service has full access to the keys and the service has full control over the credential lifecycle management.
 
 ![managed](./media/encryption-models/azure-security-encryption-atrest-fig4.png)
 
@@ -115,11 +114,11 @@ To obtain a key for use in encrypting or decrypting data at rest the service ide
 
 ## Server-side encryption using customer-managed keys in customer-controlled hardware
 
-Some Azure services enable the Host Your Own Key (HYOK) key management model. This management mode is useful in scenarios where there is a need to encrypt the data at rest and manage the keys in a proprietary repository outside of Microsoft's control. In this model, the service must retrieve the key from an external site. Performance and availability guarantees are impacted, and configuration is more complex. Additionally, since the service does have access to the DEK during the encryption and decryption operations the overall security guarantees of this model are similar to when the keys are customer-managed in Azure Key Vault.  As a result, this model is not appropriate for most organizations unless they have specific key management requirements. Due to these limitations, most Azure Services do not support server-side encryption using server-managed keys in customer-controlled hardware.
+Some Azure services enable the Host Your Own Key (HYOK) key management model. This management mode is useful in scenarios where there is a need to encrypt the data at rest and manage the keys in a proprietary repository outside of Microsoft's control. In this model, the service must retrieve the key from an external site. Performance and availability guarantees are impacted, and configuration is more complex. Additionally, since the service does have access to the DEK during the encryption and decryption operations the overall security guarantees of this model are similar to when the keys are customer-managed in Azure Key Vault.  As a result, this model is not appropriate for most organizations unless they have specific key management requirements. Due to these limitations, most Azure services do not support server-side encryption using server-managed keys in customer-controlled hardware.
 
 ### Key Access
 
-When server-side encryption using service-managed keys in customer-controlled hardware is used the keys are maintained on a system configured by the customer. Azure services that support this model provide a means of establishing a secure connection to a customer supplied key store.
+When server-side encryption using service-managed keys in customer-controlled hardware is used, the keys are maintained on a system configured by the customer. Azure services that support this model provide a means of establishing a secure connection to a customer supplied key store.
 
 **Advantages**
 
@@ -177,9 +176,9 @@ The Azure services that support each encryption model:
 | App Service                      | Yes                | Yes\*\*            | -                  |
 | Automation                       | Yes                | Yes\*\*            | -                  |
 | Azure Functions                  | Yes                | Yes\*\*            | -                  |
-| Azure Portal                     | Yes                | Yes\*\*            | -                  |
+| Azure portal                     | Yes                | Yes\*\*            | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
-| Azure Managed Applications       | Yes                | Yes\*\*            | -                  |
+| Azure-managed applications       | Yes                | Yes\*\*            | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |
 | Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
@@ -239,4 +238,6 @@ The Azure services that support each encryption model:
 \*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
 
 ## Next steps
-Learn how Azure uses [double encryption](double-encryption.md) to mitigate threats that come with encrypting data
+
+- Learn how [encryption is used in Azure](encryption-overview.md).
+- Learn how Azure uses [double encryption](double-encryption.md) to mitigate threats that come with encrypting data.
