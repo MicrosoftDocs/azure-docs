@@ -59,7 +59,7 @@ In our use case, the rental cars are equipped with IoT devices that regularly se
 }
 ```
 
-We'll use in-vehicle device telemetry to to track the movement and location of rental cars. We want to execute geofencing rules. And, we want to respond whenever we receive an event indicating the car has moved. To do so, we'll subscribe to the device telemetry events from IoT Hub via Event Grid.
+We'll use in-vehicle device telemetry to track the movement and location of rental cars. We want to execute geofencing rules. And, we want to respond whenever we receive an event indicating the car has moved. To do so, we'll subscribe to the device telemetry events from IoT Hub via Event Grid.
 
 There are several ways to subscribe to Event Grid, in this tutorial we use Azure Functions. Azure Functions reacts to events published in the Event Grid. It also implements car rental business logic, which is based on Azure Maps spatial analytics. 
 
@@ -82,7 +82,7 @@ To complete the steps in this tutorial, you first need to create a resource grou
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Resource groups**.
- 
+
    ![Resource groups](./media/tutorial-iot-hub-maps/resource-group.png)
 
 3. Under **Resource groups**, select **Add**.
@@ -104,34 +104,32 @@ To implement business logic based on Azure Maps spatial analytics, we need to cr
 
 ### Create a storage account
 
-To log event data, we'll create a general-purpose **v2storage** that  provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks.  We'll need to place this storage account in the "ContosoRental" resource group to store data as blobs. To create a storage account, follow instruction in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Next we'll need to create a container to store blobs. Follow the steps below to do so:
+To log event data, we'll create a **BlockBlobStorage** account.  We'll need to place this blob storage account in the "ContosoRental" resource group. To create a block blob storage account, follow the instructions in [create a block blob storage account](https://docs.microsoft.com/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portall). Once we've created the blog storage account, we'll then need to create a container to store the blobs. Follow the steps below to do so:
 
-1. In your "storage account - blob, file, table, queue", navigate to Containers.
+1. In your storage account, click on **Containers** in the Essentials section.
 
-    ![blobs](./media/tutorial-iot-hub-maps/blobs.png)
+    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Containers for blob storage":::
 
-2. Click the container button at the top left and name your container "contoso-rental-logs" and click "OK".
+2. Click the **+ Container** button in the upper left hand corner. A panel will display on the right side of the browser. Name your container "contoso-rental-logs" and click **Create**.
 
-    ![blob-container](./media/tutorial-iot-hub-maps/blob-container.png)
+     :::image type="content" source="./media/tutorial-iot-hub-maps/blob-container.png" alt-text="Create a blob container":::
 
-3. Navigate to the **Access keys** blade in your storage account and copy the "storage account name" and "access key". They're needed in a later step.
+3. Navigate to the **Access keys** blade in your storage account and copy the **Storage account name** and the **Key** value in the **key1 section. We'll use these later in the tutorial.
 
-    ![access-keys](./media/tutorial-iot-hub-maps/access-keys.png)
+    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Copy storage account name and key":::
 
-
-Now, we have a storage account and a container to log event data. Next, we'll create an IoT hub.
+Since we've created a blob storage account and a container to store logging data, we'll next create an IoT hub.
 
 ### Create an IoT Hub
 
-The IoT Hub is a managed service in the cloud. The IoT Hub acts as a central message hub for bi-directional communication between an IoT application and the devices managed by it. In order to route device telemetry messages to an Event Grid, create an IoT Hub within the "ContosoRental" resource group. Set up a message route integration where we will filter messages based on the car's engine status. We will also send device telemetry messages to the Event Grid whenever the car is moving.
+Azure IoT Hub is a managed service in the cloud. The IoT Hub acts as a central message hub for bi-directional communication between an IoT application and the devices managed by it. In order to route device telemetry messages to an Event Grid, create an IoT Hub within the "ContosoRental" resource group. Set up a message route integration where we will filter messages based on the car's engine status. We will also send device telemetry messages to the Event Grid whenever the car is moving.
 
-> [!Note] 
-> IoT Hub's functionality to publish device telemetry events on Event Grid is in Public preview. Public preview features are available in all regions except **East US, West US, West Europe, Azure Government, Azure China 21Vianet,** and **Azure Germany**. 
+> [!NOTE] 
+> IoT Hub's functionality to publish device telemetry events on Event Grid is in Public preview. Public preview features are available in all regions except **East US, West US, West Europe, Azure Government, Azure China 21Vianet,** and **Azure Germany**.
 
-Create an Iot Hub by following the steps in [create an IoT Hub section](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
+To create an Iot Hub, follow the steps in [create an IoT Hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
 
-
-### Register a device 
+### Register a device
 
 In order to connect to the IoT Hub, a device must be registered. To register a device with IoT hub, follow the steps below:
 
