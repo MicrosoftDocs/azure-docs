@@ -25,7 +25,7 @@ Same as member users     | Guests have the same access to Azure aD resources as 
 Limited access (default) | Guests can see membership of all non-hidden groups
 Restricted access (new)  | Guests can't see membership of any groups
 
-When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/default-user-premissions.md).
+When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
 
 ## Permissions and licenses
 
@@ -158,6 +158,6 @@ Are there any license requirements for this feature? | No, there are no new lice
 
 ## Next steps
 
-- To learn more about existing guest permissions in Azure AD, see [What are the default user permissions in Azure Active Directory?](../fundamentals/default-user-permissions.md).
+- To learn more about existing guest permissions in Azure AD, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
 - To see the Microsoft Graph API methods for restricting guest access, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
 - To revoke all access for a user, see [Revoke user access in Azure AD](users-revoke-access.md).
