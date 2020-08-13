@@ -109,6 +109,21 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
 
 
+## FAQ - Inventory
+
+### Why aren't all of my subscriptions, machines, storage accounts, etc shown?
+
+Shows all resources from a CSPM view
+All rec from the resources 
+
+
+
+### How do I query my tags in Azure Resource Graph Explorer?
+
+
+
+
+
 
 
 ## Next steps
