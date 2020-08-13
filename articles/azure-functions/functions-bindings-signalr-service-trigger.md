@@ -6,6 +6,7 @@ ms.topic: reference
 ms.custom devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
+
 ---
 
 # SignalR Service trigger binding for Azure Functions
