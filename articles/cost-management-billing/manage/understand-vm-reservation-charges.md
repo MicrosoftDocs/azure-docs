@@ -50,7 +50,7 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## Discount applies to matching ServiceType only
 
@@ -83,7 +83,7 @@ When the setting is on, reservation discounts automatically apply to matching VM
 
 Check the *ConsumedService* value in your usage data to determine if the usage is eligible for reservation discounts.
 
-For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 
 ## Need help? Contact us

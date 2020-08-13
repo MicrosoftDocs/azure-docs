@@ -487,7 +487,7 @@ As pricing model you have several different pricing options that list like:
 The pricing of each of the different offers with different service offers around operating systems and different regions is available on the site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For details and flexibility of one year and three year reserved instances, check these articles:
 
 - [What are Azure Reservations?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Virtual machine size flexibility with Reserved VM Instances](../../windows/reserved-vm-instance-size-flexibility.md)
+- [Virtual machine size flexibility with Reserved VM Instances](../../reserved-vm-instance-size-flexibility.md)
 - [How the Azure reservation discount is applied to virtual machines](../../../cost-management-billing/manage/understand-vm-reservation-charges.md) 
 
 For more information on spot pricing, read the article [Azure Spot Virtual Machines](https://azure.microsoft.com/pricing/spot/). Pricing of the same VM type can also be different between different Azure regions. For some customers, it was worth to deploy into a less expensive Azure region.

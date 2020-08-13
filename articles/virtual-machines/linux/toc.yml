@@ -294,7 +294,7 @@
       - name: What are Azure reservations?
         href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
       - name: VM instance size flexibility
-        href: reserved-vm-instance-size-flexibility.md
+        href: ../reserved-vm-instance-size-flexibility.md
     - name: Spot VMs
       displayName: pre-empt, preempt
       href: spot-vms.md
@@ -317,7 +317,7 @@
       - name: What are Azure reservations?
         href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
       - name: VM instance size flexibility
-        href: reserved-vm-instance-size-flexibility.md
+        href: ../reserved-vm-instance-size-flexibility.md
     - name: Benchmark scores
       href: compute-benchmark-scores.md
   - name: Endorsed distros
