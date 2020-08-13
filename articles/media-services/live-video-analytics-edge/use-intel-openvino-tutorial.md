@@ -52,15 +52,14 @@ In order to build complex, high-performance live video analytics solutions, the 
 
 In the initial release of this inference server, you have access to the following [models](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models):
 
-1. Vehicle Detection (inference URL: http://{module-name}:4000/vehicleDetection)
-1. Person/Vehicle/Bike Detection (inference URL: http://{module-name}:4000/personVehicleBikeDetection)
-1. Vehicle Classification (inference URL: http://{module-name}:4000/vehicleClassification)
-1. Face Detection (inference URL: http://{module-name}:4000/faceDetection)
+- Vehicle Detection (inference URL: http://{module-name}:4000/vehicleDetection)
+- Person/Vehicle/Bike Detection (inference URL: http://{module-name}:4000/personVehicleBikeDetection)
+- Vehicle Classification (inference URL: http://{module-name}:4000/vehicleClassification)
+- Face Detection (inference URL: http://{module-name}:4000/faceDetection)
 
 > [!NOTE]
 > By downloading and using the Edge module: OpenVINO™ Model Server – AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).
 > Intel is committed to respecting human rights and avoiding complicity in human rights abuses. See [Intel’s Global Human Rights Principles](https://www.intel.com/content/www/us/en/policy/policy-human-rights.html). Intel’s products and software are intended only to be used in applications that do not cause or contribute to a violation of an internationally recognized human right.
-
 
 ## Create and deploy the media graph
 
