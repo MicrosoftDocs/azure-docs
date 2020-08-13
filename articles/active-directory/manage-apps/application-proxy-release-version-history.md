@@ -1,12 +1,11 @@
 ---
-title: Azure AD Application Proxy: Version release history
+title: 'Azure AD Application Proxy: Version release history'
 description: This article lists all releases of Azure AD Application Proxy and describes new features and fixed issues
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.workload: identity
 ms.date: 07/22/2020
