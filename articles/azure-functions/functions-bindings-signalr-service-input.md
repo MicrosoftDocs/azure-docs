@@ -6,6 +6,7 @@ ms.topic: reference
 ms.custom devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
+
 ---
 
 # SignalR Service input binding for Azure Functions
