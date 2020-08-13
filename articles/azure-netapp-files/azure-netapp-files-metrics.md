@@ -22,7 +22,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
-<!-- 
+<!-- ANF-252
 - *Pool Provisioned Size*  
     The logical space (GiB) the capacity pool is provisioned with.  
     This size is the size you selected during capacity pool creation. 
@@ -32,14 +32,14 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     This size is the size you selected during volume creation.  
 - *Pool Consumed Size*  
     The total of logical space (GiB) used across volumes in a capacity pool.  
-<!-- 
+<!-- ANF-252
 - *Pool Consumed Snapshot Size*  
     The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
 -->
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
-<!--
+<!-- ANF-252
 - *Volume Quota Size*    
     The quota size (GiB) the volume is provisioned with.   
     This size is the size you selected during capacity pool creation. 
@@ -64,6 +64,18 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Read throughput in bytes per second.
 - *Write MiB/s*   
     Write throughput in bytes per second.
+
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*	  
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; future
+- *Pool Consumed Throughput*	
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
 
 
 ## Next steps
