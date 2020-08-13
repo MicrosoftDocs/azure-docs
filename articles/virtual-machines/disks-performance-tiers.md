@@ -54,43 +54,46 @@ You must get the feature enabled for your subscriptions before you can use perfo
 
 1. Create an empty data disk with a tier higher than the baseline tier or update the tier of a disk higher than the baseline tier using the sample template [CreateUpdateDataDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)
 
- ```cli
- subscriptionId=dd80b94e-0463-4a65-8d04-c94f403879dc
- resourceGroupName=perftiertesting
- diskName=myDataDiskwithperftier1
- diskSize=128
- performanceTier=P50
- region=EastUS2EUAP
-
- az login
-
- az account set --subscription $subscriptionId
-
- az group deployment create -g $resourceGroupName \
- --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
- --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
- ```
+     ```cli
+     subscriptionId=dd80b94e-0463-4a65-8d04-c94f403879dc
+     resourceGroupName=perftiertesting
+     diskName=myDataDiskwithperftier1
+     diskSize=128
+     performanceTier=P50
+     region=EastUS2EUAP
+    
+     az login
+    
+     az account set --subscription $subscriptionId
+    
+     az group deployment create -g $resourceGroupName \
+     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
+     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
+     ```
 
 1. Confirm the tier of the disk
-```cli
-az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
- ```
+
+    ```cli
+    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
+     ```
+
 ## Create/update a OS disk with a tier higher than the baseline tier
 
 1. Create an OS disk from a marketplace image or update the tier of a OS disk higher than the baseline tier using the sample template [CreateUpdateOSDiskWithTier.json](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
 
- ```cli
- resourceGroupName=perftiertesting
- diskName=myOSdiskwithperftier1
- performanceTier=P30
- region=EastUS2EUAP
-
- az group deployment create -g $resourceGroupName \
- --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
- --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
- ```
+     ```cli
+     resourceGroupName=perftiertesting
+     diskName=myOSdiskwithperftier1
+     performanceTier=P30
+     region=EastUS2EUAP
+    
+     az group deployment create -g $resourceGroupName \
+     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
+     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
+     ```
  
  1. Confirm the tier of the disk
- ```cli
- az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
- ```
+ 
+     ```cli
+     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
+     ```
