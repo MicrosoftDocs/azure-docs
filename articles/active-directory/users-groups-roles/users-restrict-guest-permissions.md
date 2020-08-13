@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/10/2020
+ms.date: 08/13/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 "Directory objects" should be "Azure AD resources"
 
 Azure Active Directory (Azure AD) now allows you to restrict external guest users to view only user and group information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access.
-When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. This setting does not restrict access to groups in other Microsoft services like Microsoft Teams. For more information about Microsoft Teams Guest access, see [What the guest experience is like](https://docs.microsoft.com/microsoftteams/guest-experience#can-guests-access-microsoft-graph) in Microsoft Teams documentation.
+When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/default-user-premissions.md).
 
 ![Table explaining the guest user access values](./media/users-restrict-guest-permissions/restricted-access-values.png)
 
@@ -41,17 +41,10 @@ We’ve made changes to the existing Azure portal controls for guest user permis
 
 1. Select **Save**. The changes can take up to 15 minutes to take effect for guest users.
 
-## Supported permission values
-
-There are now three supported values for configuring guest permissions in the directory using the Microsoft Graph or PowerShell cmdlets:
-
-* Same as member users (existing) - a0b1b346-4d3e-4e8b-98f8-753987be4970
-* Limited (existing default) - 10dae51f-b6af-4016-8d66-8c2a99b929b3
-* Restricted (new) - 2af84b1e-32c8-42b7-82bc-daa82404023b
-
 ## Update with the Microsoft Graph API
 
-We’ve added a new Microsoft Graph API to configure the restricted guest permissions. The following API calls can be made.
+We’ve added a new Microsoft Graph API to configure the restricted guest permissions. The following API calls can be made. The value for guestUserRoleId used here is for the new Restricted user setting.
+For more information about using the Microsoft Graph to set guest permissions, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
 
 ### Configuring for the first time
 
@@ -130,15 +123,38 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 > [!NOTE]
 > You must enter authorizationPolicy as the ID when requested.
 
+## Supported Microsoft 365 services
+
+### Supported services
+
+By supported we mean that the experience is as expected; specifically, that it is same as current guest experience.This setting does not restrict access to groups in other Microsoft services like Microsoft Teams. For more information about Microsoft Teams Guest access, see [What the guest experience is like](https://docs.microsoft.com/microsoftteams/guest-experience#can-guests-access-microsoft-graph) in Microsoft Teams documentation.
+
+- Teams
+- Outlook (OWA)
+- SharePoint
+
+### Services currently without support
+
+Service without current support might have compatibility issues with the new guest restriction setting.
+
+- Planner in Teams
+- Planner app
+- Project
+- Forms
+
 ## Frequently Asked Questions
 
 Question | Answer
 -------- | ------
 Where do these permissions apply? | These directory level permissions are enforced across Azure AD services and portals including the Microsoft Graph, PowerShell v2, the Azure portal, and My Apps portal. Microsoft 365 services leveraging Office 365 groups for collaboration scenarios are also affected, specifically Outlook, Microsoft Teams, and SharePoint.
-Do I need a special URL for this feature to work in the My Apps portal? | No. If you configure the setting via the Azure admin portal, MS Graph or PowerShell, the My Apps portal will honor it automatically.
 Which parts of the My Apps portal will this feature affect? | The groups functionality in the My Apps portal will honor these new permissions. This includes all paths to view the groups list and group memberships in My Apps. No changes were made to the group tile availability. The group tile availability is still controlled by the existing group setting in the Azure admin portal.
-Why do I still see the old settings in the Azure admin portal? | Verify that you are using the https://aka.ms/AADRestrictedGuests URL. As mentioned above, you can configure the permissions from three places. However, if you can only see the new UI when using the specific URL. If you configure via Graph or PowerShell, it will be honored by the portal, however, the new settings can only be viewed using the specific URL.
 Do these permissions override SharePoint or Microsoft Teams guest settings? | No. Those existing settings still control the experience and access in those applications. For example, if you see issues in SharePoint, double check your external sharing settings.
 Will my existing guest permissions be changed in my tenant? | No changes were made to your current settings. We maintain backward compatibility with your existing settings. You decide when you want make changes.
 Will these permissions be set by default? | No. The existing default permissions remain unchanged. You can optionally set the permissions to be more restrictive.
 Are there any license requirements for this feature? | No, there are no new licensing requirements with this feature.
+
+## Next steps
+
+- To learn more about existing guest permissions in Azure AD, see [What are the default user permissions in Azure Active Directory?](../fundamentals/default-user-premissions.md).
+- To see the Microsoft Graph API methods for restricting guest access, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- To revoke all access for a user, see [Revoke user access in Azure AD](users-revokce-access.md).
