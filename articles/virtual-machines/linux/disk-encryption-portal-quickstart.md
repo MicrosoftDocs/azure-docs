@@ -23,22 +23,21 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 1. In the New page, under Popular, select **Ubuntu Server 18.04 LTS**.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected.
-1. For **Resource group**, select the resource group you created when making your key vault above (e.g., **myResourceGroup**).
+1. In the Basics tab, under Project details, verify sure the correct subscription is selected.
+1. For "Resource Group", select **Create new**. Enter *myResourceGroup* as the name and select **Ok**.
 1. For **Virtual machine name**, enter *MyVM*.
-1. For **Region**, select the same region you used when making your key vault above (e.g., **East US**).
+1. For **Region**, select *(US) East US*.
 1. Make sure the **Size** is *Standard D2s v3*.
-1. Under **Administrator account**, select **Password**. Enter a user name and a password.
+1. Under **Administrator account**, select *Password* as the **Authentication type**. Enter a user name and a password.
 
-    :::image type="content" source="./media/disk-encryption/portal-qs-vm-creation.png" alt-text="ResourceGroup creation screen":::
-
+    :::image type="content" source="./media/disk-encryption/portal-qs-linux-vm-creation.png" alt-text="Linux VM creation screen":::
 
     > [!WARNING]
-    > The "Disks" tab features an "Encryption Type" field under **Disk options**. This field is used to specify encryption options for [Managed Disks](managed-disks-overview.md) + CMK, not for Azure Disk Encryption. 
+    > The "Disks" tab features an "Encryption Type" field under **Disk options**. This field is used to specify encryption options for [Managed Disks](managed-disks-overview.md) + CMK, **not** for Azure Disk Encryption.
     >
-    > To avoid confusion, we suggest you skip the *Disks* tab entirely while completing this tutorial. 
+    > To avoid confusion, we suggest you skip the *Disks* tab entirely while completing this tutorial.
 
-1. Select the "Management" tab and verify that you have a Diagnostics Storage Account. If you have no storage accounts, select "Create New", give your new account a name, and select "Ok"
+1. Select the "Management" tab and verify that you have a Diagnostics Storage Account. If you have no storage accounts, select *Create New*, name your storage account *myStorageAccount*, and select "Ok"
 
     :::image type="content" source="./media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="ResourceGroup creation screen":::
 
