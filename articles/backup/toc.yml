@@ -287,8 +287,10 @@
     items:
     - name: Overview
       href: offline-backup-overview.md
-    - name: Offline Backup with Azure Data Box
+    - name: Offline Backup with Azure Data Box (MARS)
       href: offline-backup-azure-data-box.md
+    - name: Offline Backup with Azure Data Box (DPM/MABS)
+      href: offline-backup-azure-data-box-dpm-mabs.md
     - name: Offline Backup with Import/Export (MARS)
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)

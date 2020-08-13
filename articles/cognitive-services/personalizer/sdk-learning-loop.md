@@ -43,4 +43,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is Personalizer?](what-is-personalizer.md)
 * [Where can you use Personalizer?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer).
