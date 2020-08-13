@@ -188,8 +188,8 @@ The following table shows how each type of SAS is authorized and how Azure Stora
 
 | Type of SAS | Type of authorization | Behavior when AllowSharedKeyAccess is false |
 |-|-|-|
-| User delegation SAS | Azure AD | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
-| Service SAS | Shared Key | Request is denied. |
+| User delegation SAS (Blob storage only) | Azure AD | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
+| Service SAS | Shared Key | Request is denied for Blob storage. Request is permitted for Queue and Table storage and for Azure Files. For more information, see [Shared access signatures are permitted for queues, tables, and files when AllowSharedKeyAccess is false](#shared-access-signatures-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false) in the **About the preview** section. |
 | Account SAS | Shared Key | Request is denied. |
 
 For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
@@ -213,12 +213,20 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 The preview for disallowing Shared Key authorization is available in Azure Public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
-For the preview, Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**.
+> [!IMPORTANT]
+> This preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
+The preview includes the limitations described in the following sections.
+
+### Metrics and logging report all requests made with a SAS regardless of how they are authorized
+
+Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures in the preview. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**.
 
 When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS. For more information about how Azure Storage responds to a SAS when the **AllowSharedKeyAccess** property is set to **false**, see [Understand authorization for shared access signatures](#understand-authorization-for-shared-access-signatures).
 
-> [!IMPORTANT]
-> This preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+### Shared access signatures are permitted for queues, tables, and files when AllowSharedKeyAccess is false
+
+
 
 ## Next steps
 
