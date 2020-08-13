@@ -14,11 +14,9 @@ ms.reviewer: fryu
 
 # Prevent Shared Key authorization for an Azure Storage account (preview)
 
-Every request for data in an Azure Storage account must be authorized, with the exception of anonymous requests when public access is permitted for a container. Requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Microsoft recommends using Azure AD to authorize requests to blob and queue data for superior security and ease of use. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Azure AD provides superior security and ease of use over Shared Key authorization. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
 
-By default, a storage account permits access to blob and queue data via either Shared Key or Azure AD authorization. To require clients to use Azure AD to authorize requests, you can disallow access requests to the storage account that are authorized with Shared Key (preview). Microsoft recommends that you disallow Shared Key authorization to storage accounts containing blob and queue data to help prevent data breaches.
-
-When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed.
+Microsoft recommends that you disallow Shared Key authorization when possible to help prevent data breaches. When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to control Shared Key authorization for your storage accounts.
 
