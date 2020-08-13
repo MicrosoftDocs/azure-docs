@@ -13,7 +13,7 @@ ms.date: 08/12/2020
 ms.reviewer: arvinh
 ---
 
-# Known issues: application provisioning
+# Known issues: Application provisioning
 Known issues to be aware of when working with app provisioning. You can provide feedback about the application provisioning service on UserVoice, see [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). We closely watch UserVoice so we can improve the service. 
 
 > [!NOTE]
