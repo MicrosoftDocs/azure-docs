@@ -91,7 +91,7 @@ Add the client libraries to the python file.
     ```python
     def quickstart(): 
 
-        // add calls here, remember to indent properly
+        # add calls here, remember to indent properly
     
     quickstart()
     ```
