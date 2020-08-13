@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 8/12/2020
+ms.date: 8/13/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
