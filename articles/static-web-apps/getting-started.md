@@ -88,7 +88,7 @@ Place your mouse over the _Static Web Apps_ label and click on the the **plus si
 
 The command palate opens at the top of the editor and prompts you to name your application. Type **my-first-static-web-app** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-create.png" alt-text="Create Static Web App":::
+:::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
 Next, select the **master** branch and press **Enter**.
 
@@ -108,25 +108,25 @@ Next, you select the location where files are built for production in your app.
 
 Enter **dist/angular-basic** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-app-artifact-angular.png" alt-text="App files path ":::
+:::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="App files path ":::
 
 # [React](#tab/react)
 
 Enter **build** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-app-artifact-react.png" alt-text="App files path ":::
+:::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="App files path ":::
 
 # [Vue](#tab/vue)
 
 Enter **dist** press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-app-artifact-vue.png" alt-text="App files path ":::
+:::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
 
 # [No Framework](#tab/vanilla-javascript)
 
 Clear the box and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-app-artifact.png" alt-text="App files path ":::
+:::image type="content" source="media/getting-started/extension-artifact.png" alt-text="App files path ":::
 
 ---
 
