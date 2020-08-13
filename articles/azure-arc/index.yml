@@ -48,8 +48,8 @@ productDirectory:
           text: Connect machines at scale using a service principal
         - url: ./servers/onboard-dsc.md
           text: Connect machines to Azure with PowerShell DSC
-        - url: ./servers/learn/quick-enable-hybrid-vm.md
-          text: Enable Arc enabled servers agent
+        - url: ./servers/index.yml
+          text: See more
     # Card
     - title: Azure Arc enabled Kubernetes
       imageSrc: ./media/containers-101-kubernetes-services.svg
@@ -58,6 +58,8 @@ productDirectory:
           text: Connect cluster
         - url: ./kubernetes/use-gitops-connected-cluster.md
           text: Deploy configurations using GitOps
+        - url: ./kubernetes/index.yml
+          text: See more
 
 # conceptualContent section (optional)
 conceptualContent:
@@ -68,9 +70,9 @@ conceptualContent:
     # Card
     - title: Azure Arc enabled servers (preview)
       links:
-        - url: ./servers/overview.md
-          itemType: overview
-          text: What is Azure Arc for servers (preview)?
+        - url: ./servers/learn/quick-enable-hybrid-vm.md
+          itemType: get-started
+          text: Enable Arc enabled servers agent
         - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
           text: Monitor a hybrid machine with Azure Monitor for VMs
