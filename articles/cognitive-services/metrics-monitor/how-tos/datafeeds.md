@@ -22,7 +22,7 @@ Learn how to create data feeds in Metrics Monitor to pull your time series data 
 
 Partial data is caused by inconsistencies between the data stored in Metrics Monitor and the data source. This can happen when the data source is updated after Metrics Monitor has finished pulling data.
 
-For example, you have a Daily Active Users (DAU) metric from three different markets: A, B, and C, which are dimensions in Metrics monitor.
+For example, suppose you have a Daily Active Users (DAU) metric from three different markets: A, B, and C, which are dimensions in Metrics monitor.
 When Metrics monitor tries to pull the metric for 2019-11-04, if only DAU from market A is ready, Project "Gualala" will only retrieve the DAU metric of market A.
 After that, data from markets B and C is generated and stored to the data source with the same date 2019-11-04. Yet Project "Gualala" won't pull those updates any more.
 Moreover, if DAU for 2019-11-04 from market A is updated after that ingestion, the update won't take effect in Project "Gualala".

@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Metrics Monitor documentation
+summary: 'Metrics Monitor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
+
+metadata:
+  title: Metrics Monitor Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: 'Metrics Monitor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: aahi
+
+landingContent:
+- title: About Metrics Monitor
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Metrics Monitor?
+          url: overview.md
+    - linkListType: quickstart
+      links:
+        - text: Create a Metrics monitor instance
+          url: quickstarts/create-instance.md    
+        - text: Build your first monitor 
+          url: quickstarts/build-first-monitor.md
+        - text: Use the REST API and Client libraries
+          url: quickstarts/rest-api-and-client-library.md
+    - linkListType: how-to-guide
+      links:
+        - text: Add a data feed
+          url: how-tos/datafeed.md    
