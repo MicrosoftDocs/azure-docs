@@ -83,6 +83,9 @@ A PRT is renewed in two different methods:
    * An app requests WAM for an access token silently but there’s no refresh token available for that app. In this case, WAM uses the PRT to request a token for the app and gets back a new PRT in the response.
    * An app requests WAM for an access token but the PRT is invalid or Azure AD requires additional authorization (for example, Azure Multi-Factor Authentication). In this scenario, WAM initiates an interactive logon requiring the user to reauthenticate or provide additional verification and a new PRT is issued on successful authentication.
 
+With ADFS environments, direct line of sight to the Domain Controller is not required to renew the PRT. This requires /adfs/services/trust/2005/usernamemixed
+/adfs/services/trust/13/usernamemixed endpoints enabled on proxy.
+
 ### Key considerations
 
 * A PRT is only issued and renewed during native app authentication. A PRT is not renewed or issued during a browser session.
