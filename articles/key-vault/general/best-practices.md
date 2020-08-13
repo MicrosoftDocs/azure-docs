@@ -1,6 +1,6 @@
 ---
 title: Best Practices to use Key Vault - Azure Key Vault | Microsoft Docs
-description: This document explains some of the best practices to use Key Vault
+description: Learn about best practices for Azure Key Vault, including controlling access, when to use separate key vaults, backing up, logging, and recovery options.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
