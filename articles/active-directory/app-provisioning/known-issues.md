@@ -14,7 +14,7 @@ ms.reviewer: arvinh
 ---
 
 # Known issues: application provisioning
-Known issues to be aware of when working with app provisioning. You can provide feedback about the application provisioning service on UserVoice, see [Azure AD Application Provision UserVoice](#). We closely watch UserVoice so we can improve the service. 
+Known issues to be aware of when working with app provisioning. You can provide feedback about the application provisioning service on UserVoice, see [Azure AD Application Provision UserVoice](https://aka.ms/appprovisioningfeaturerequest). We closely watch UserVoice so we can improve the service. 
 
 > [!NOTE]
 > This isn’t a comprehensive list of known issues. If you know of an issue that is not listed, provide feedback at the bottom of the page.
@@ -23,7 +23,7 @@ Known issues to be aware of when working with app provisioning. You can provide 
 
 **Unable to save after successful connection test**
 
-If you can successfully test a connection, but can’t save. The issue happens when you've exceeded the allowable storage limit for credentials.  
+If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](application-provisioning-config-problem-storage-limit.md).
 
 **Unable to save**
 
@@ -38,11 +38,11 @@ After you have configured provisioning for the first time, you’ll notice that 
 
 **Attribute SamAccountName or userType not available as a source attribute**
 
-The attribute SamAccountName and userType aren't available as a source attribute by default. Extend your schema to add the attribute. You can add the attributes to the list of available source attributes by extending your schema.   
+The attributes SamAccountName and userType aren't available as a source attribute by default. Extend your schema to add the attribute. You can add the attributes to the list of available source attributes by extending your schema. To learn more, see [Missing source attribute](user-provisioning-sync-attributes-for-mapping.md). 
 
 **Source attribute dropdown missing for schema extension**
 
-Extensions to your schema can sometimes be missing from the source attribute dropdown in the UI. Go into the advanced settings of your attribute mappings and manually add the attributes. 
+Extensions to your schema can sometimes be missing from the source attribute dropdown in the UI. Go into the advanced settings of your attribute mappings and manually add the attributes. To learn more, see [Customize attribute mappings](customize-application-attributes.md).
 
 **Null attribute can't be provisioned**
 
