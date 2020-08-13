@@ -16,9 +16,9 @@ ms.reviewer: fryu
 
 Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
 
-Microsoft recommends that you disallow Shared Key authorization when possible to help prevent data breaches. When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+Microsoft recommends that you disallow Shared Key authorization when possible to help improve storage account security and to enable auditing with identity information. When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
-This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to control Shared Key authorization for your storage accounts.
+This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
 
 ## Detect the type of authorization used by client applications
 
@@ -50,7 +50,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
     1. Set the **Property** value to *Authentication*.
     1. Set the **Operator** field to the equal sign (=).
     1. In the **Values** field, select *Account Key* and *SAS*.
-1. In the upper-right corner, select the time interval over which you want to view the metric. You can also indicate how granular the aggregation of requests should be, by specifying intervals anywhere from 1 minute to 1 month.
+1. In the upper-right corner, select the time range for which you want to view the metric. You can also indicate how granular the aggregation of requests should be, by specifying intervals anywhere from 1 minute to 1 month. For example, set the **Time range** to 30 days and the **Time granularity** to 1 day to see requests aggregated by day over the past 30 days.
 
 After you have configured the metric, requests to your storage account will begin to appear on the graph. The following image shows requests that were authorized with Shared Key or made with a SAS token. Requests are aggregated over the past thirty minutes.
 
@@ -71,7 +71,7 @@ Azure Storage logging in Azure Monitor supports using log queries to analyze log
 To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
 
 1. Enroll in the [Azure Storage logging in Azure Monitor preview](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
 1. In the Monitoring section, select **Diagnostic settings (preview)**.
 1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
@@ -112,7 +112,21 @@ When you are confident that you can safely reject requests that are authorized w
 
 The **AllowSharedKeyAccess** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests that are authorized with Shared Key when the property value is **null** or when it is **true**.
 
-The following example shows how to set the **AllowSharedKeyAccess** property with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
+# [Azure portal](#tab/portal)
+
+To disallow Shared Key authorization for a storage account in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Locate the **Configuration** setting under **Settings**.
+1. Set **Allow shared key access** to **Disabled**.
+
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot showing how to disallow Shared Key access for account":::
+
+# [Azure CLI](#tab/azure-cli)
+
+To disallow Shared Key authorization for a storage account with Azure CLI, install Azure CLI version 2.9.1 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowSharedKeyAccess** property for a new or existing storage account.
+
+The following example shows how to set the **allowSharedKeyAccess** property with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -134,7 +148,9 @@ az resource show \
     --output tsv
 ```
 
-After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden).
+---
+
+After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns error indicating that key-based authorization is not permitted on the storage account.
 
 ### Verify that Shared Key access is not allowed
 
@@ -195,7 +211,7 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 ## About the preview
 
-Disallowing Shared Key authorization is supported for storage accounts that use the Azure Resource Manager deployment model only.
+The preview for disallowing Shared Key authorization is available in Azure Public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
 For the preview, Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**.
 
