@@ -1,0 +1,44 @@
+---
+author: craigshoemaker
+ms.service: static-web-apps
+ms.topic: include
+ms.date: 08/13/2020
+ms.author: cshoe
+---
+
+## Create a repository
+
+This article uses GitHub template repositories to make it easy for you to get started. The templates feature starter apps built with different front-end frameworks.
+
+# [No Framework](#tab/vanilla-javascript)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vanilla-basic/generate
+- Name your repository **my-first-static-web-app**
+
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
+
+# [Angular](#tab/angular)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/angular-basic/generate
+- Name your repository **my-first-static-web-app**
+
+# [React](#tab/react)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/react-basic/generate
+- Name your repository **my-first-static-web-app**
+
+# [Vue](#tab/vue)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vue-basic/generate
+- Name your repository **my-first-static-web-app**
+
+---
+
+Click the **Create repository from template** button.
+
+:::image type="content" source="../../articles/static-web-apps/getting-started/media/getting-started/create-template.png" alt-text="Create repository from template":::

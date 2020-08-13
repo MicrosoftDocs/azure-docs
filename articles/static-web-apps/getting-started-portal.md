@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure Portal"
-description: Learn to build an Azure Static Web Apps instance with the Azure Portal.
+title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure portal"
+description: Learn to build an Azure Static Web Apps instance with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  quickstart
-ms.date: 08/05/2020
+ms.date: 08/13/2020
 ms.author: cshoe
 ---
 
-# Quickstart: Building your first static web app in the Azure Portal
+# Quickstart: Building your first static web app in the Azure portal
 
-Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework from a GitHub repository.
+Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -20,42 +20,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
 
-## Create a repository
-
-This article uses GitHub template repositories to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
-
-# [No Framework](#tab/vanilla-javascript)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-web-app**
-
-> [!NOTE]
-> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
-
-# [Angular](#tab/angular)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/angular-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [React](#tab/react)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/react-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [Vue](#tab/vue)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vue-basic/generate
-- Name your repository **my-first-static-web-app**
-
----
-
-Click the **Create repository from template** button.
-
-:::image type="content" source="media/getting-started-portal/create-template.png" alt-text="Create repository from template":::
+[!INCLUDE [create repository from template](../../includes/static-web-apps-getting-started-create-repo.md)]
 
 ## Create a static web app
 

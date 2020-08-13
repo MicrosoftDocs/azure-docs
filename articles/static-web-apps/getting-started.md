@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  quickstart
-ms.date: 05/08/2020
+ms.date: 08/13/2020
 ms.author: cshoe
 ---
 
@@ -22,52 +22,9 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Azure Static Web Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
 
-## Create a repository
+[!INCLUDE [create repository from template](../../includes/static-web-apps-getting-started-create-repo.md)]
 
-This article uses GitHub template repositories to make it easy for you to get started. The templates feature starter apps built with different front-end frameworks.
-
-# [No Framework](#tab/vanilla-javascript)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-web-app**
-
-> [!NOTE]
-> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
-
-# [Angular](#tab/angular)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/angular-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [React](#tab/react)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/react-basic/generate
-- Name your repository **my-first-static-web-app**
-
-# [Vue](#tab/vue)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vue-basic/generate
-- Name your repository **my-first-static-web-app**
-
----
-
-Click the **Create repository from template** button.
-
-:::image type="content" source="media/getting-started/create-template.png" alt-text="Create repository from template":::
-
-## Clone the repository to your machine
-
-With the repository created in your GitHub account, the next step is to  clone it to your local machine using the following command.
-
-Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your GitHub username.
-
-```bash
-git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app.git
-```
+[!INCLUDE [clone the repository](../../includes/static-web-apps-getting-started-clone-repo.md)]
 
 Now that the code cloned locally, open Visual Studio Code and go to **File > Open Folder** to open the repository in the editor.
 
@@ -82,7 +39,7 @@ Inside Visual Studio Code, click on the Azure logo in the Activity Bar to open t
 > [!NOTE]
 > If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
 
-Place your mouse over the _Static Web Apps_ label and click on the the **plus sign**.
+Place your mouse over the _Static Web Apps_ label and click on the **plus sign**.
 
 :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 
@@ -98,7 +55,7 @@ Select **/** as the location for the application code and press **Enter**.
 
 :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application code location":::
 
-Next, the extension is looking for the location of the API in your application. This quickstart doesn't implement an API for your app, so select **Skip for now** and press **Enter**.
+Next, the extension is looking for the location of the API in your application. This quickstart doesn't implement an API, so select **Skip for now** and press **Enter**.
 
 :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
 
@@ -124,7 +81,7 @@ Enter **build** and press **Enter**.
 
 # [Vue](#tab/vue)
 
-Enter **dist** press **Enter**.
+Enter **dist** and press **Enter**.
 
 :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
 
@@ -152,9 +109,9 @@ If you're not going to continue to use this application, you can delete the Azur
 
 1. Open the [Azure portal](https://portal.azure.com)
 1. Search for **my-first-web-static-app** from the top search bar
-1. Click on the app name
-1. Click on the **Delete** button
-1. Click **Yes** to confirm the delete action
+1. Select the app name
+1. Select the **Delete** button
+1. Select **Yes** to confirm the delete action
 
 ## Next steps
 
