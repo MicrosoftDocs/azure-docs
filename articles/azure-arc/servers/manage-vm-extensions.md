@@ -1,5 +1,5 @@
 ---
-title: VM extension management with Azure Arc enabled servers
+title: VM extension management with Azure Arc enabled servers (preview)
 description: Azure Arc enabled servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
 ms.date: 06/17/2020
 ms.topic: conceptual
