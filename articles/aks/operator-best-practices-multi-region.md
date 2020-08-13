@@ -89,7 +89,7 @@ Geo-replication is a feature of *Premium* SKU container registries. For informat
 
 State can be either externalized or colocated with the code that manipulates the state. Typically, you externalize state by using a database or other data store that runs on different machines over the network or that runs out of process on the same machine.
 
-Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Database for MySQL, Azure Database for PostgreSQL, or Azure SQL Database.
+Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL or Azure SQL Database.
 
 To build portable applications, see the following guidelines:
 
