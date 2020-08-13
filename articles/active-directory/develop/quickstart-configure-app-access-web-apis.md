@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 08/14/2020
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
 # Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
 ---

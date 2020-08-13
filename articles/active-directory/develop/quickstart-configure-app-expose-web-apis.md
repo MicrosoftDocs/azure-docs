@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 08/14/2020
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 # Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
@@ -34,7 +34,7 @@ To provide scoped access to the resources in your web API, you first need to reg
 1. Skip the **Add a redirect URI** and **Configure platform settings** sections. You don't need to configure a redirect URI for a web API since no user is logged in interactively.
 1. Skip the **Add credentials** section for now. Only if your API accesses a downstream API would it need its own credentials, and isn't covered in this quickstart.
 
-With your web API registered, you're ready to add the scopes that your API's code can use to grant granular permission to consumers of your API.
+With your web API registered, you're ready to add the scopes that your API's code can use to grant granular permission to consumers of your API. You can add a scope by using the [Expose an API](#add-a-scope---ui) UI in the Azure portal, or by editing the [application manifest](#add-a-scope---app-manifest) - instructions for both follow.
 
 ## Add a scope - UI
 
@@ -46,7 +46,7 @@ To add a scope by using the **Expose an API** UI in the Azure portal:
 1. Select **Expose an API** > **Add a scope**.
     :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-01-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
-1. You're prompted to set an **Application ID URI** if you haven't yet configured one. This application ID URI forms the first part of the full scope name, and should reflect the location where your API is accessible. For example, `https://contoso.com/api`.
+1. You're prompted to set an **Application ID URI** if you haven't yet configured one. The application ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`. In the latter case, for example, in your API's code you'd reference a scope named `Employees.Read.All` by its full scope value of `https://contoso.com/api/Employees.Read.All`.
 
 1. When the **Add a scope** page appears, enter your scope's information:
 
