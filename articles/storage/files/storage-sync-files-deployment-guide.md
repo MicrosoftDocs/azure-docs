@@ -584,14 +584,14 @@ A globally distributed company has branch offices in the US and in India. In the
 
 ### Enable a server endpoint to proactively recall what changed in an Azure file share
 
-# [Portal](#tab/azure-portal)
+# [Portal](#tab/proactive-portal)
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, select the correct sync group and then identify the server endpoint for which you want to closely track changes in the Azure file share (cloud endpoint).
 1. In the cloud tiering section, find the "Azure file share download" topic. You will see the currently selected mode and can change it to track Azure file share changes more closely and proactively recall them to the server.
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="An image showing the Azure file share download behavior for a server endpoint currently in effect and a button to open a menu that allows to change it.":::
 
-# [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/proactive-powershell)
 
 You can modify server endpoint properties in PowerShell through the [Set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) cmdlet.
 
