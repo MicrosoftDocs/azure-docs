@@ -113,3 +113,54 @@ landingContent:
           - text: Azure SQL Database 
             url: ../../sql-database/security-baseline.md
 
+  # Card  
+  - title: Networking security baselines
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application Gateway
+            url: ../../application-gateway/security-baseline.md
+          - text: DDOS Protection
+            url: ../fundamentals/ddos-protection-security-baseline.md
+          - text: Azure ExpressRoute
+            url: ../../expressroute/security-baseline.md
+          - text: Azure Firewall
+            url: ../../firewall/security-baseline.md
+          - text: Network Watcher
+            url: ../../network-watcher/security-baseline.md
+
+  # Card  
+  - title: Security baselines
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Key Vault
+            url: ../../key-vault/security-baseline.md
+          - text: Security Center
+            url: ../../security-center/security-baseline.md
+          - text: Customer Lockbox
+            url: ../fundamentals/customer-lockbox-security-baseline.md
+          - text: Azure Policy
+            url: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+
+  # Card  
+  - title: Management and Governance
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Automation
+            url: ../../automation/security-baseline.md
+          - text: Backup
+            url: ../../backup/security-baseline.md
+
+  # Card  
+  - title: Integration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: API Management
+            url: ../../api-management/security-baseline.md
+          - text: Event Grid
+            url: ../../event-grid/security-baseline.md
+          - text: Logic Apps
+            url: ../../logic-apps/security-baseline.md
