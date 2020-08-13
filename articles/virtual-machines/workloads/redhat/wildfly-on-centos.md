@@ -1,17 +1,12 @@
 ---
-title: Quickstart - WildFly on CentOS | Microsoft Docs
-description: Deploy enterprise Java applications to WildFly on a CentOS VM.
-documentationcenter: ''
+title: Quickstart - WildFly on Azure CentOS VM
+description: How to deploy enterprise Java applications to WildFly on an Azure CentOS VM.
 author: theresa-nguyen
-manager: westonh
-ms.assetid: 6b66b71f-c8c8-4372-921e-5aaadb3ea8c3
-ms.service: virtual-machines-linux
-ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 08/12/2020
 ms.author: bicnguy
+ms.topic: quickstart
+ms.service: virtual-machine-linux
+ms.assetid: 6b66b71f-c8c8-4372-921e-5aaadb3ea8c3
+ms.date: 08/13/2020
 ---
 
 # Quickstart: WildFly on CentOS 8
