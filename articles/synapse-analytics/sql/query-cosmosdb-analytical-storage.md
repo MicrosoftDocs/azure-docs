@@ -54,7 +54,7 @@ from openrowset(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        EcdcCases
-    ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
 Look at the [rules for type mappings](#type-mappings) at the end of the document for more information about the sql types that should be used for CosmosDB value.
@@ -68,16 +68,13 @@ to read the values from these complex types:
 SELECT
     title = JSON_VALUE(metadata, '$.title'),
     authors = JSON_QUERY(metadata, '$.authors'),
-    first_author_name = JSON_VALUE(metadata, '$.authors[0].first'),
-    body_text = JSON_VALUE(body_text, '$.text')
+    first_author_name = JSON_VALUE(metadata, '$.authors[0].first')
 FROM
     OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        Cord19
-    WITH ( metadata varchar(MAX),
-           body_text varchar(MAX)
-    ) AS docs;
+    WITH ( metadata varchar(MAX) ) AS docs;
 ```
 
 As an alternative, you can specify paths to nested objects in `WITH` clause:
@@ -90,9 +87,8 @@ FROM
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        Cord19
-    WITH ( title varchar(100) '$.metadata.title',
-           authors varchar(max) '$.metadata.authors',
-           body_text varchar(max) '$.metadata.text'
+    WITH ( title varchar(1000) '$.metadata.title',
+           authors varchar(max) '$.metadata.authors'
     ) AS docs;
 ```
 
@@ -113,16 +109,14 @@ FROM
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        Cord19
-    WITH ( title varchar(100) '$.metadata.title',
-           authors varchar(max) '$.metadata.authors',
-           body_text varchar(max) '$.metadata.text'
-    ) AS docs
-    CROSS APPLY OPENJSON ( authors )
-                WITH (
+    ) WITH ( title varchar(1000) '$.metadata.title',
+             authors varchar(max) '$.metadata.authors' ) AS docs
+      CROSS APPLY OPENJSON ( authors )
+                  WITH (
                        first varchar(50),
                        last varchar(50),
                        affiliation nvarchar(max) as json
-                ) AS a
+                  ) AS a
 ```
 
 ## Type mappings
@@ -136,9 +130,9 @@ choose sql types that match these values if you are using `WITH` clause. See bel
 | Decimal | float |
 | Integer | bigint |
 | Date time (unix timestamp) | datetime2 |
-| Date time (ISO format) | varchar(40) |
+| Date time (ISO format) | varchar(30) |
 | String | varchar \*(UTF8 collation) |
-| Nested object | varchar(max), serialized into JSON |
+| Nested object | varchar(max), serialized as JSON text |
 
 ## Next steps
 
