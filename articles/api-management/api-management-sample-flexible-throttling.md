@@ -25,7 +25,7 @@ Being able to throttle incoming requests is a key role of Azure API Management. 
 Rate limits and quotas are used for different purposes:
 
 * **Rate limits** are usually used to protect against short and intense volume bursts. For example, if you know your backend service has a bottleneck at its database with a high call volume, you could set a `rate-limit-by-key` policy to not allow high call volume by using this setting.
-* **Quotas** are usually used for controlling call rates over a longer period of time. For example, they can set the total number of calls that a particular subscriber can make within a given month. For monetizing your API, quotas can also be set differently for tier-based subscriptions. For example a Basic tier subscription might be able to make no more than 10,000 calls a month but a Premium tier could go up to 100,000,000 calls each month.
+* **Quotas** are usually used for controlling call rates over a longer period of time. For example, they can set the total number of calls that a particular subscriber can make within a given month. For monetizing your API, quotas can also be set differently for tier-based subscriptions. For example, a Basic tier subscription might be able to make no more than 10,000 calls a month but a Premium tier could go up to 100,000,000 calls each month.
 
 Within Azure API Management, rate limits are typically propagated faster across the nodes to protect against spikes. In contrast, usage quota information is used over a longer term and hence its implementation is different.
 
