@@ -12359,6 +12359,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/security-policy.md",
+      "redirect_url": "/azure/virtual-machines/security-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/security-policy.md",
+      "redirect_url": "/azure/virtual-machines/security-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
       "redirect_document_id": true

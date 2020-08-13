@@ -357,7 +357,7 @@
   - name: Security
     items:
     - name: Security and policy
-      href: security-policy.md
+      href: ../security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Security controls by Azure Policy

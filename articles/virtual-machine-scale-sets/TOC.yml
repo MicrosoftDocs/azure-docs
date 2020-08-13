@@ -201,7 +201,7 @@
   - name: Security
     items:
     - name: Security and policy
-      href: ../virtual-machines/windows/security-policy.md
+      href: ../virtual-machines/security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Azure security baseline
