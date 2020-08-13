@@ -23,7 +23,7 @@
     href: data-catalog-adopting-data-catalog.md
   - name: FAQ
     href: data-catalog-frequently-asked-questions.md
-- name: How to
+- name: How-to guides
   items:
   - name: Register data sources
     href: data-catalog-how-to-register.md
