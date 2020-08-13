@@ -140,7 +140,8 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
 
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 #### [IntelliJ](#tab/IntelliJ)
 ## IntelliJ deployment
@@ -237,7 +238,8 @@ You will have to edit the previous configuration for both the `auth-service` and
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
 
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 ---
 
 ## Next steps

@@ -54,7 +54,8 @@ Sign in to your Azure subscription.  Install the Azure Spring Cloud extension fo
 ```azurecli
 az extension add --name spring-cloud
 ```
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ### Provision a service instance
 
@@ -90,9 +91,11 @@ az extension add --name spring-cloud
         az configure --defaults group=<resource group name>
         az configure --defaults spring-cloud=<service instance name>
     ```
----
 
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
+
+---
 
 > [!div class="nextstepaction"]
 ## Next steps
