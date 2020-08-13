@@ -102,9 +102,9 @@ This step is required to produce meaningful output in the console. When printing
 
 1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
-1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
+1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. In Hotel.Methods.cs, copy [lines 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68).
+1. In Hotel.Methods.cs, copy [lines 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## 1 - Create index
 
