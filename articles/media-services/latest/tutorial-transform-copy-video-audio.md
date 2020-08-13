@@ -30,8 +30,6 @@ This tutorial shows you how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-<iframe scrolling="yes" src="https://review.docs.microsoft.com/en-us/azure/media-services/latest/delete-me-code?branch=pr-en-us-125767"></iframe>
-
 ## Prerequisites
 
 - [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
