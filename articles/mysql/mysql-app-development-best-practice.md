@@ -51,15 +51,15 @@ When building any application, you would need to debug performance issues with y
 You can enable [slow query logs](https://docs.microsoft.com/azure/mysql/concepts-server-logs) and [audit logs](https://docs.microsoft.com/azure/mysql/concepts-audit-logs) on your server. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting. Audit logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account as well.  See [how to troubleshoot query performance issues](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-query-performance).
 
 ### Use connection pooling
-Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goal should be to reduce the number of times connections are established and time for establishing connections in key code paths.  Use [connection pooling](https://docs.microsoft.com/azure/mysql/concepts-connectivity#access-databases-by-using-connection-pooling-recommended) to connect to Azure Database for MySQL to improve resiliency and performance. 
+Managing database connections can have a significant impact on the performance of the application as a whole. For optimizing performance you must reduce the number of times connections are established and time for establishing connections in key code paths.  Use [connection pooling](https://docs.microsoft.com/azure/mysql/concepts-connectivity#access-databases-by-using-connection-pooling-recommended) to connect to Azure Database for MySQL to improve resiliency and performance. 
 
-[ProxySQL](https://proxysql.com/) which is a connection pooler can be efficiently used to manage connections. Using a connection pooler can decrease idle connections and reuse existing connections will help avoid issues. See [How to setup ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) to learn more. 
+[ProxySQL](https://proxysql.com/), which is a connection pooler can be efficiently used to manage connections. Using a connection pooler can decrease idle connections and reuse existing connections will help avoid issues. See [How to setup ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) to learn more. 
 
 ### Retry logic to handle transient errors
 There could be [transient errors](https://docs.microsoft.com/azure/mysql/concepts-connectivity#handling-transient-errors) when you see connections being dropped or lost intermittently. Typically in such situations, the server is up and running after one to two retry in 5-10 seconds. A good pattern to follow with retry is to wait for 5 seconds before your first retry and then follow each retry by increasing the wait gradually upto 60 seconds. Limit the max number of retries at which point your application considers the operation failed so you can then further investigate. See [how to troubleshoot connection errors](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) to learn more. 
 
 ### Enable read replication to mitigate failovers
-You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When using read replicas, there is no automated failover between master and replica servers. Since replication is asynchronous, there is lag between the master and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes.
+You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When using read replicas, there is no automated failover between master and replica servers. Since replication is asynchronous, there is lag between the master and the replica. Network lag can be influenced by a many factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes.
 
 ## Database Deployment 
 
@@ -68,14 +68,14 @@ You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-d
 Database changes are not that often but sometimes needed based on your application. You can create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom script against your database.
 
 ### Manual Database deployment 
-If you are looking to do manual database deployment for your production application, then here is a good pattern to follow to reduce downtime and have a way to roll back changes if the deployment fails: 
+To perform a manual database deployment, here is a good pattern to follow to minimize downtime or reduce risk of failed deployment: 
 
 1. Create a copy of production database on a new database using [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [MySQL workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) 
 2. Update the new database with your new schema changes or updates needed for your database. 
 3. Put the production database on read-only state. You should not have write operations being performed on the production database until deployment is completed. 
 4. Test your application with the newly updated database from step 1.
-5. Deploy your application changes and make sure the application is now using the new database which has all the database updates needed. 
-6. Keep the old production database so that you can roll back the changes. At a later date you can evaluate to either delete the old production database or export it on Azure storage if needed. 
+5. Deploy your application changes and make sure the application is now using the new database that has the latest updates. 
+6. Keep the old production database so that you can roll back the changes. You can then evaluate to either delete the old production database or export it on Azure storage if needed. 
 
 >{!NOTE]
 >  - If the application is like ecommerce app where you might not be able to put it in read-only state, then deploy the changes directly on the production database after making a backup.  Theses change should occur during the off-peak hours with low traffic to the app to minimze the impact as some users may experience a failed requests. 
