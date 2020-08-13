@@ -15,12 +15,20 @@ ms.subservice: B2C
 
 # Billing model for Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) usage is billed to a linked Azure subscription and uses a monthly active users (MAU) billing model. Learn how to link an Azure AD B2C resource to a subscription and how the MAU billing model works in the following sections.
+Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU). This billing model applies to both Azure AD B2C tenants and Azure AD B2B collaboration. The MAU model helps you reduce costs by offering a free tier and flexible, predictable pricing. Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features. After that, billing is based on the usage and features you need. In this article, learn about the MAU billing model, how to link to a subscription to your Azure AD B2C tenant, and how to change your pricing tier.
+
+## What do I need to do?
+
+To take advantage of MAU billing, you'll need to link your Azure AD B2C tenant to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD Premium P2 features, like Identity Protection and risk-based Conditional Access.
+
+- **If you're an existing Azure AD B2C customer already billed on a per-MAU basis**, no action is required. You'll automatically transition to this simpler and more affordable meter. You'll gain new premium features, while continuing to enjoy the first 50,000 MAU free at every tier and incremental users billed at a low, flat rate.
+- **If you want to use premium features** like multi-factor authentication (MFA), Conditional Access, or Identity Protection, you might need to select a different pricing tier for your Azure AD B2C tenant.  
+- **If your Azure AD B2C tenant isn't linked to a subscription yet**, you'll need to do so to take advantage of MAU billing. 
 
 > [!IMPORTANT]
 > This article does not contain pricing information. For the latest information about usage billing and pricing, see [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
-## Monthly active users (MAU) billing
+## About the monthly active users (MAU) billing model
 
 Azure AD B2C billing is metered on the count of unique users with authentication activity within a calendar month, known as monthly active users (MAU) billing.
 
@@ -31,10 +39,12 @@ If you have an existing Azure AD B2C tenant that was linked to a subscription pr
 * Upgrade to the monthly active users (MAU) billing model, or
 * Stay on the per-authentication billing model
 
-### Switch to the new monthly active users billing model (recommended)
 
-This is recommended because it's more cost-effective for you...
+## Switch to the new monthly active users billing model (recommended)
 
+
+Switching to the MAU helps you reduce costs by offering a free tier and flexible, predictable pricing beyond. Your first 50,000 MAUs per month are free for both Premium P1 and Premium P2 features. After that, you pay only for what you use.
+ 
 Azure subscription owners that have administrative access to the Azure AD B2C resource can switch to the MAU billing model. Billing options are configured in your Azure AD B2C resource.
 
 The switch to monthly active users (MAU) billing is **irreversible**. Once you convert an Azure AD B2C resource to the MAU-based billing model, you cannot revert that resource to the per-authentication billing model.
@@ -123,7 +133,7 @@ To change your pricing tier, follow these steps.
 
 1. Select the pricing tier that includes the features you want to enable.
 
-### Manage your Azure AD B2C tenant resources
+## Manage your Azure AD B2C tenant resources
 
 After you create the Azure AD B2C resource in an Azure subscription, you should see a new resource of the type "B2C tenant" appear with your other Azure resources.
 
