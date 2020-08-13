@@ -1,4 +1,4 @@
-- name: HDInsight documentation
+- name: Azure HDInsight documentation
   href: index.yml
 - name: HDInsight service
   expanded: true

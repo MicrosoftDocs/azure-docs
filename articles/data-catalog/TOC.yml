@@ -1,4 +1,4 @@
-- name: Data Catalog documentation
+- name: Azure Data Catalog documentation
   href: index.yml
 - name: Overview
   items:
