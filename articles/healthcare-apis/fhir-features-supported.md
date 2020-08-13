@@ -2,12 +2,12 @@
 title: Supported FHIR features in Azure - Azure API for FHIR 
 description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Features
@@ -98,7 +98,7 @@ All search parameter types are supported.
 | `_count`                | Yes       | Yes       | Yes       |         |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
 | `_include`              | No        | Yes       | No        |         |
-| `_revinclude`           | No        | No        | No        |         |
+| `_revinclude`           | No        | Yes       | No        | Included items are limited to 100. |
 | `_contained`            | No        | No        | No        |         |
 | `_elements`             | No        | No        | No        |         |
 

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive, tracking-python
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ---
 
 # Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight
