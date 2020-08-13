@@ -4,7 +4,7 @@ description: The Azure Sentinel security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -670,9 +670,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: &lt;&lt; For service owner review &gt;&gt;
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
