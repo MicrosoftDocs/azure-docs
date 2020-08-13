@@ -258,9 +258,7 @@ In the tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/
 
 #### Create the CNAME record
 
-Add a CNAME record to map a wildcard name to the app's default domain name (`<app_name>.azurewebsites.net`).
-
-Map a wildcard name `*` to the app's default domain name (`<app_name>.azurewebsites.net`, where `<app_name>` is the name of your app). To create a CNAME mapping for the wildcard `*` domain, create two records:
+Map a wildcard name `*` to the app's default domain name (`<app_name>.azurewebsites.net`, where `<app_name>` is the name of your app). To map the wildcard name, create two records:
 
 | Record type | Host | Value | Comments |
 | - | - | - |
