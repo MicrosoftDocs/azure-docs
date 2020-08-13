@@ -57,7 +57,7 @@
   - name: VM startup is stuck
     href: troubleshoot-vm-boot-configure-update.md
   - name: VM lifecycle and states
-    href: ../windows/states-lifecycle.md
+    href: ../states-lifecycle.md
 - name: VM is not booting
   items:
   - name: Linux
