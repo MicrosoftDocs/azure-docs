@@ -41,4 +41,4 @@ This article uses GitHub template repositories to make it easy for you to get st
 
 Click the **Create repository from template** button.
 
-:::image type="content" source="../../articles/static-web-apps/getting-started/media/create-template.png" alt-text="Create repository from template":::
+:::image type="content" source="../articles/static-web-apps/getting-started/media/create-template.png" alt-text="Create repository from template":::
