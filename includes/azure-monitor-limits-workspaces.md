@@ -50,7 +50,7 @@ ms.custom: "include file"
 | Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
 | Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
-| Maximum request rate | 200 requests per 30 seconds per AAD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
+| Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
 
 **General workspace limits**
 
