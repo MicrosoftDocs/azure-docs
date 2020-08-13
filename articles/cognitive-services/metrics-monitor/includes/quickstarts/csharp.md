@@ -100,11 +100,12 @@ static void Main(string[] args){
 These code snippets show you how to do the following tasks with the [Product Name] client library for .NET:
 
 * [Authenticate the client](#)
-* [Example task 1 (anchor link)](#)
-* [Example task 2 (anchor link)](#)
-* [Example task 3 (anchor link)](#)
+* [Check ingestion status](#)
+* [Setup detection configuration and alert configuration](#)
+* [Query anomaly detection results](#)
+* [Diagnose Anomalies](#)
 
-## Authenticate the client
+### Authenticate the client
 
 In a new method, instantiate a client with your endpoint and key. Create an object with your key, and use it with your endpoint to create an [ApiClient]() object.
 
@@ -112,15 +113,15 @@ In a new method, instantiate a client with your endpoint and key. Create an obje
 
 ```
 
-## Add a data feed from a sample or data source
+### Add a data feed from a sample or data source
 
-## Check ingestion status
+### Check ingestion status
 
-##	Setup detection configuration and alert configuration
+###	Setup detection configuration and alert configuration
 
-##	Query anomaly detection results
+###	Query anomaly detection results
 
-##	Diagnose anomalies
+###	Diagnose anomalies
 
 
 ## Run the application

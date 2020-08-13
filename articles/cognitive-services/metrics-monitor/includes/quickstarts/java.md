@@ -97,12 +97,13 @@ static void Main(string[] args){
 
 These code snippets show you how to do the following tasks with the [Product Name] client library for Java:
 
-* [Authenticate the client](#authenticate-the-client)
-* [link to example task 1]()
-* [link to example task 2]()
-* [link to example task 3]()
+* [Authenticate the client](#)
+* [Check ingestion status](#)
+* [Setup detection configuration and alert configuration](#)
+* [Query anomaly detection results](#)
+* [Diagnose Anomalies](#)
 
-## Authenticate the client
+### Authenticate the client
 
 In a new method, instantiate a client with your endpoint and key. Create an object with your key, and use it with your endpoint to create an [ApiClient]() object.
 
@@ -110,17 +111,15 @@ In a new method, instantiate a client with your endpoint and key. Create an obje
 
 ```
 
-## Add a data feed from a sample or data source
+### Add a data feed from a sample or data source
 
-## Check ingestion status
+### Check ingestion status
 
-##	Setup detection configuration and alert configuration
+###	Setup detection configuration and alert configuration
 
-##	Query anomaly detection results
+###	Query anomaly detection results
 
-##	Diagnose anomalies
-
-## Run the application
+###	Diagnose anomalies
 
 You can build the app with:
 
