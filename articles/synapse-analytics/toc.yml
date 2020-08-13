@@ -474,7 +474,7 @@
         href: ./synapse-link/how-to-copy-to-sql-pool.md
     - name: Synapse SQL
       items:
-      - name: Query data in storage
+      - name: Query external data
         items:
         - name: Overview
           href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -486,6 +486,8 @@
           href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query JSON files
           href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Query CosmosDB documents
+          href: sql/query-cosmosdb-analytical-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Query folders and multiple files
           href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Use file metadata
