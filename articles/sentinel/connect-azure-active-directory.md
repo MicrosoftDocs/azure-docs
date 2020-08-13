@@ -26,7 +26,7 @@ Azure Sentinel enables you to collect data from [Azure Active Directory](../acti
 
 ## Prerequisites
 
-- If you want to export sign-in data from Azure AD, you must have an Azure AD P1 or P2 license.
+- Any Azure AD license (Free/O365/P1/P2) can integrate with Azure Monitor and ingest sign-in logs into Azure Sentinel. Additional per gigabyte charges will apply for Azure Monitor or Azure Sentinel.
 
 - User with global admin or security admin permissions on the tenant you want to stream the logs from.
 
