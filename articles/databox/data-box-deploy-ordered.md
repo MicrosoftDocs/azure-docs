@@ -1,6 +1,6 @@
 ---
 title: Tutorial to order Azure Data Box | Microsoft Docs
-description: Learn the deployment prerequisites and how to order an Azure Data Box
+description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
 author: priestlg
 

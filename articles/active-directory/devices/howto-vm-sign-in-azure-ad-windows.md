@@ -170,7 +170,7 @@ After a few moments, the security principal is assigned the role at the selected
 
 ### Using the Azure Cloud Shell experience
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal RBAC inheritance permissions apply. For more information, see [Role-Based Access Controls](../../virtual-machines/linux/login-using-aad.md).
+The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the scope is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -185,11 +185,11 @@ az role assignment create \
 > [!NOTE]
 > If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the `--assignee-object-id`, not just the username for `--assignee`. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-For more information on how to use RBAC to manage access to your Azure subscription resources, see the following articles:
+For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
-- [Manage access to Azure resources using RBAC and Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [Manage access to Azure resources using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal)
-- [Manage access to Azure resources using RBAC and Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Add or remove Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [Add or remove Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+- [Add or remove Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## Using Conditional Access
 

@@ -350,10 +350,10 @@ In this section, you'll learn how to receive and process messages after you rece
 
 ## Next steps
 
-* Learn more about [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
-* Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Learn more about the [Logic Apps feature of Azure App Service](https://docs.microsoft.com/azure/logic-apps/).
-* Learn more about [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+* Learn more about [Azure Event Grid](../event-grid/index.yml).
+* Learn more about [Azure Functions](../azure-functions/index.yml).
+* Learn more about the [Logic Apps feature of Azure App Service](../logic-apps/index.yml).
+* Learn more about [Azure Service Bus](/azure/service-bus/).
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

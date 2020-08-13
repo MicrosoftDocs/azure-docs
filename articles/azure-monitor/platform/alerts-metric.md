@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
@@ -82,6 +82,7 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 6. Click **Done** to save your edits.
 
+
 ## With Azure CLI
 
 The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). For this article, we will use Cloud Shell.
@@ -127,6 +128,23 @@ The previous sections described how to create, view, and manage metric alert rul
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## With PowerShell
+
+Metric alert rules have dedicated PowerShell cmdlets available:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): Create a new metric alert rule or update an existing one.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Get one or more metric alert rules.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Delete a metric alert rule.
+
+## With REST API
+
+- [Create Or Update](/rest/api/monitor/metricalerts/createorupdate): Create a new metric alert rule or update an existing one.
+- [Get](/rest/api/monitor/metricalerts/get): Get a specific metric alert rule.
+- [List By Resource Group](/rest/api/monitor/metricalerts/listbyresourcegroup): Get a list of metric alert rules in a specific resource group.
+- [List By Subscription](/rest/api/monitor/metricalerts/listbysubscription): Get a list of metric alert rules in a specific subscription.
+- [Update](/rest/api/monitor/metricalerts/update): Update a metric alert rule.
+- [Delete](/rest/api/monitor/metricalerts/delete): Delete a metric alert rule.
 
 ## Next steps
 
