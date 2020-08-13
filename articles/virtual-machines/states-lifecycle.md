@@ -108,9 +108,9 @@ The following table provides a  description of each instance state and indicates
    ```json
    "statuses": [
     {
-     "code": "PowerState/stopping",
-     "level": "Info",
-     "displayStatus": "VM stopping"
+    "code": "PowerState/stopping",
+    "level": "Info",
+    "displayStatus": "VM stopping"
     }
    ]
   ```
@@ -186,7 +186,7 @@ The following table provides a  description of each instance state and indicates
    :::column-end:::
    :::column span="":::
 
-   VM is starting up.
+   The VM has been stopped successfully and removed from the host.
 
    ```json
    "statuses": [
@@ -246,7 +246,7 @@ Here are the transitional operation states after the platform has accepted a use
    :::column-end:::
    :::column span="2":::
 
-   ```json
+  ```json
    "statuses": [
     {
     "code": "ProvisioningState/creating",
