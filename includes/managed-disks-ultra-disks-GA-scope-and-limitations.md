@@ -39,7 +39,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |Australia East    |Three zones        |
 |Canada Central*    |Three zones        |
 
-* Contact your Microsoft sales or customer representative, or open a technical support request to get access to Availability Zones
+\* Contact your Microsoft sales or customer representative, or open a technical support request to get access to Availability Zones.
 
 - Are only supported on the following VM series:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
