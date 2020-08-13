@@ -3,7 +3,6 @@ title: 'Tutorial: Access data with managed identity'
 description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply it to other Azure services.
 
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: "devx-track-csharp, mvc, cli-validate"
