@@ -3,9 +3,10 @@ title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
+ms.custom: devx-track-javascript, devx-track-azurecli
 ---
 
 # Configure time to live in Azure Cosmos DB
@@ -29,7 +30,7 @@ Use the following steps to enable time to live on a container with no expiration
    * Select **On (no default)** or select **On** and set a TTL value
    * Click **Save** to save the changes.
 
-   ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configure Time to live in Azure portal":::
 
 * When DefaultTimeToLive is null then your Time to Live is Off
 * When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
@@ -138,7 +139,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 {
     Id = "container",
     PartitionKeyPath = "/myPartitionKey",
-    DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+    DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 });
 ```
 ---

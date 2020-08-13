@@ -1,6 +1,6 @@
 ---
 title: Organize your invoice based on your needs - Azure
-description: Learn how to organize cost on your invoice.
+description: Learn how to organize costs on your invoice. You can customize your billing account by creating billing profiles and invoice sections.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing

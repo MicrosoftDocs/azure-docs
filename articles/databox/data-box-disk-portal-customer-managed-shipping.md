@@ -6,7 +6,7 @@ author: priestlg
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
 ---
@@ -24,6 +24,7 @@ Self-managed shipping is available as an option when you [Order Azure Data Box D
 * Japan
 * Singapore
 * South Korea
+* India (Preview)
 
 ## Use self-managed shipping
 
@@ -39,7 +40,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    ![Self-managed shipping](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Once the device has been prepared, you can schedule a pickup. In your Azure Data Box Disk order, go to **Overview** and then select **Schedule pickup**.
+4. Once the device has been prepared and you received an email notification, you can schedule a pickup. In your Azure Data Box Disk order, go to **Overview** and then select **Schedule pickup**.
 
    ![Ordering a Data Box device for pickup](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -53,11 +54,11 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
 
    Make a note of this **Authorization code**.
 
-   As per the security requirements, at the time of scheduling pick-up and drop off, it is necessary to present the name of the person who would arrive for pick-up and drop off.
+   As per the security requirements, at the time of scheduling pick-up, it is necessary to present the name of the person who will be arriving for pick-up.
 
    You also need to provide details of who will be going to the datacenter for pickup. You or the point of contact must carry a Government approved photo ID that will be validated at the datacenter.
 
-   Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is validated at the datacenter time of pickup.
+   Additionally, the person who is picking up the device also needs to have the **Authorization code**. The authorization code is unique for a pickup or a drop off and is validated at the datacenter.
 
 7. Your order automatically moves to the **Picked up** state once the device has been picked up from the datacenter.
 

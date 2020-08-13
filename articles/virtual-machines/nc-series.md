@@ -1,12 +1,12 @@
 ---
- title: NC-series - Azure Virtual Machines
- description: Specifications for the NC-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NC-series - Azure Virtual Machines
+description: Specifications for the NC-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # NC-series

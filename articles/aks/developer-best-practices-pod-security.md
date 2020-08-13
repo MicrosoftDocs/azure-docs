@@ -2,9 +2,8 @@
 title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
 description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: zr-msft
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/28/2020
 ms.author: zarhoads
 ---
 
@@ -44,18 +43,19 @@ The following example pod YAML manifest sets security context settings to define
 ```yaml
 apiVersion: v1
 kind: Pod
-metadata:
+metadata:
   name: security-context-demo
-spec:
+spec:
+  securityContext:
+    fsGroup: 2000
   containers:
     - name: security-context-demo
       image: nginx:1.15.5
-    securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
-      allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
+      securityContext:
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
 Work with your cluster operator to determine what security context settings you need. Try to design your applications to minimize additional permissions and access the pod requires. There are additional security features to limit access using AppArmor and seccomp (secure computing) that can be implemented by cluster operators. For more information, see [Secure container access to resources][apparmor-seccomp].
@@ -109,7 +109,7 @@ This article focused on how to secure your pods. To implement some of these area
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
 [aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
-[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#selinuxoptions-v1-core
 [aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->

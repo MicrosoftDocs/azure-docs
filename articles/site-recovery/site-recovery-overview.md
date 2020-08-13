@@ -15,7 +15,7 @@ As an organization you need to adopt a business continuity and disaster recovery
 Azure Recovery Services contributes to your BCDR strategy:
 
 - **Site Recovery service**: Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines (VMs) from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
-- **Backup service**: The [Azure Backup](/azure/backup/) service keeps your data safe and recoverable.
+- **Backup service**: The [Azure Backup](../backup/index.yml) service keeps your data safe and recoverable.
 
 Site Recovery can manage replication for:
 

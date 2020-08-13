@@ -1,6 +1,6 @@
 ---
 title: Connect Barracuda data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Barracuda data to Azure Sentinel.
+description: Learn how to use the Barracuda Web Application Firewall (WAF) connector to connect Barracuda logs with Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin

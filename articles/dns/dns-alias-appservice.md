@@ -4,7 +4,7 @@ description: Use an Azure DNS alias record to host load-balanced web apps at the
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ---

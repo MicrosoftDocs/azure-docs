@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Blob versioning (preview)
@@ -19,6 +20,8 @@ You can enable Blob storage versioning (preview) to automatically maintain previ
 Blob versioning is enabled on the storage account and applies to all blobs in the storage account. After you enable blob versioning for a storage account, Azure Storage automatically maintains versions for every blob in the storage account.
 
 Microsoft recommends using blob versioning to maintain previous versions of a blob for superior data protection. When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application.
+
+To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 > [!IMPORTANT]
 > Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
@@ -174,8 +177,8 @@ The following table shows which RBAC actions support deleting a blob or a blob v
 
 | Description | Blob service operation | RBAC data action required | RBAC built-in role support |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete/actionDeleting** | Storage Blob Data Contributor |
-| Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/** | Storage Blob Data Owner |
+| Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob Data Contributor |
+| Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Storage Blob Data Owner |
 
 ### Shared access signature (SAS) parameters
 
@@ -191,11 +194,16 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Blob versioning is available in preview in the following regions:
 
+- East US 2
+- Central US
+- North Europe
+- West Europe
 - France Central
 - Canada East
 - Canada Central
 
-The preview is intended for non-production use only.
+> [!IMPORTANT]
+> The blob versioning preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
@@ -217,7 +225,7 @@ To enroll in the blob versioning preview, use PowerShell or Azure CLI to submit 
 
 # [PowerShell](#tab/powershell)
 
-To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
 
 ```powershell
 # Register for blob versioning (preview)
@@ -233,8 +241,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -257,8 +265,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---

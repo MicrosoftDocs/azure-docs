@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 ---
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)
@@ -211,7 +212,8 @@ Use this table to determine which speaking styles are supported for each neural 
 
 | Voice                   | Style                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | A formal, confident and authoritative tone for news delivery|
+|                         | `style="newscast-casual"` | A versatile and casual tone for general news delivery       |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
@@ -325,7 +327,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Universal Phone Set</a></li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
@@ -398,7 +400,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
 
-It's important to note, that you cannot directly set the pronunciation of a word using the custom lexicon. If you need to set the pronunciation for an, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
+It's important to note, that you cannot directly set the pronunciation of a word using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>

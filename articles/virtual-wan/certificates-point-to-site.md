@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
 

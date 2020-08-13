@@ -95,7 +95,7 @@ The gradient boosting method can also be used for classification problems by red
 
 After training is complete:
 
-+ To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
++ To use the model for scoring, connect [Train Model](train-model.md) to [Score Model](./score-model.md), to predict values for new input examples.
 
 + To save a snapshot of the trained model, select **Outputs** tab in the right panel of **Trained model** and click **Register dataset** icon. The copy of the trained model will be saved as a module in the module tree and will not be updated on successive runs of the pipeline.
 

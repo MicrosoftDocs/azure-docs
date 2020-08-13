@@ -1,6 +1,6 @@
 ---
 title: Set up your environment for Blueprint Operator
-description: Learn how to configure your Azure environment for use with the Blueprint Operator built-in role-based access control (RBAC) role.
+description: Learn how to configure your Azure environment for use with the Blueprint Operator Azure built-in role.
 ms.date: 05/06/2020
 ms.topic: how-to
 ---

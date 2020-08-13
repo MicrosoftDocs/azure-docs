@@ -1,21 +1,26 @@
 ---
-title: 'Connect using MySQL Workbench - Azure Database for MySQL'
+title: 'Quickstart: Connect - MySQL Workbench - Azure Database for MySQL'
 description: This Quickstart provides the steps to use MySQL Workbench to connect and query data from Azure Database for MySQL.
 author: ajlam 
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 5/26/2020
 ---
 
-# Azure Database for MySQL: Use MySQL Workbench to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL using the MySQL Workbench application. 
+# Quickstart: Use MySQL Workbench to connect and query data in Azure Database for MySQL
+
+This quickstart demonstrates how to connect to an Azure Database for MySQL using the MySQL Workbench application.
 
 ## Prerequisites
+
 This quickstart uses the resources created in either of these guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install MySQL Workbench
 Download and install MySQL Workbench on your computer from [the MySQL website](https://dev.mysql.com/downloads/workbench/).

@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 08/11/2020
 ---
 
 # Mapping data flow video tutorials
@@ -32,6 +32,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
 
+[Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
+
 ## Transformation overviews
 
 [Aggregate transformation](http://youtu.be/jdL75xIr98I)
@@ -46,6 +48,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Lookup Transformation Updates & Tips](https://youtu.be/MBskWoeuTLw)
+
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Pivot transformation: mapping drifted columns](https://youtu.be/5MygzCX0wnM)
@@ -53,6 +57,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Select transformation](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Select transformation: Rule-based mapping](https://youtu.be/5lf1lh1qMwU)
+
+[Select transformation: Large Datasets](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Surrogate key transformation](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
@@ -109,6 +115,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Azure Integration Runtimes for Data Flows](https://mssqldude.wordpress.com/)
 
 ## Mapping data flow scenarios
 

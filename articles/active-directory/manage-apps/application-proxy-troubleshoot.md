@@ -3,20 +3,18 @@ title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017; it-pro
-
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
@@ -37,13 +35,13 @@ You may have problems with your application rendering or functioning incorrectly
 
 For example, if you publish the path `https://yourapp/app` but the application calls images in `https://yourapp/media`, they won't be rendered. Make sure that you publish the application using the highest level path you need to include all relevant content. In this example, it would be `http://yourapp/`.
 
-If you change your path to include referenced content, but still need users to land on a deeper link in the path, see the blog post [Setting the right link for Application Proxy applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
-
 ## Connector errors
 
 If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**, or run the following Windows PowerShell command:
 
-    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```powershell
+Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+```
 
 Once you find the Connector error from the event log, use this table of common errors to resolve the problem:
 

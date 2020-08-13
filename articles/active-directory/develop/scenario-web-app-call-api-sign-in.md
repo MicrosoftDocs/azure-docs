@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2019
+ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
@@ -27,7 +27,7 @@ To clear the token-cache entry associated with the account that signed out, your
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web takes care of implementing sign-out for you.
+Microsoft.Identity.Web takes care of implementing sign-out for you. For details see [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L168-L176)
 
 # [ASP.NET](#tab/aspnet)
 
@@ -48,21 +48,21 @@ The Python sample doesn't remove accounts from the cache on global sign-out.
 # [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Acquire a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
+> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Acquire a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
+> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
 
 # [Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Acquire a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
+> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=java)
 
 # [Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Acquire a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
+> [Acquire a token for the web app](./scenario-web-app-call-api-acquire-token.md?tabs=python)
 
 ---

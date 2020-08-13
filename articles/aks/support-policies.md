@@ -48,9 +48,12 @@ Because worker nodes are sensitive, Microsoft takes great care to limit their ba
 
 Microsoft provides technical support for the following:
 
+> [!NOTE]
+> Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
+
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes master nodes, API server, etcd, and kube-dns, for example).
-* Etcd. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to customers or users. They ensure data reliability and consistency.
+* Etcd. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to customers or users. They ensure data reliability and consistency. Etcd. on demand roll back or restore is not supported as a feature.
 * Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI).
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and kube-dns.
 * Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
@@ -69,7 +72,7 @@ Microsoft doesn't provide technical support for the following:
   > Microsoft can provide best-effort support for third-party open-source projects such as Helm and Kured. Where the third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs, Microsoft supports examples and applications from Microsoft documentation.
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Issues about multicloud or multivendor build-outs. For example, Microsoft doesn't support issues related to running a federated multipublic cloud vendor solution.
-* Network customizations other than those listed in the [AKS documentation](https://docs.microsoft.com/azure/aks/).
+* Network customizations other than those listed in the [AKS documentation](./index.yml).
   > [!NOTE]
   > Microsoft does support issues and bugs related to network security groups (NSGs). For example, Microsoft Support can answer questions about an NSG failure to update or an unexpected NSG or load balancer behavior.
 
@@ -131,7 +134,7 @@ Although customers can sign in to and change worker nodes, doing this is discour
 
 ## Network ports, access, and NSGs
 
-As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and whitelisting URLs can make your cluster unsupportable.
+As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and adding URLs to an allow list can make your cluster unsupportable.
 
 > [!NOTE]
 > Currently, AKS doesn't allow you to completely lock down egress traffic from your cluster. To control the list of URLs and ports your cluster can use for outbound traffic see  [limit egress traffic](limit-egress-traffic.md).

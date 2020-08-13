@@ -2,7 +2,8 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/08/2020 
+ms.custom: "devx-track-csharp, devx-track-azurecli"
 ---
 
 # How to disable functions in Azure Functions
@@ -117,7 +118,8 @@ or
 
 In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
 
-You can edit the file in the Azure portal or use the **Enable** and **Disable** buttons on the function's **Overview** page. The portal switch works by changing the *function.json* file.
+>[!IMPORTANT]  
+>The portal now uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
 
 
 ## Next steps

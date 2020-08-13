@@ -1,10 +1,10 @@
 ---
-title: Connect with Java - Azure Database for PostgreSQL - Single Server
+title: 'Quickstart: Connect with Java - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a Java code sample you can use to connect and query data from Azure Database for PostgreSQL  - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: ["mvc", "seo-java-august2019"]
+ms.custom: ["mvc", "seo-java-august2019", "devx-track-java"]
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019

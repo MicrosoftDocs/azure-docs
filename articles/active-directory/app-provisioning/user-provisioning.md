@@ -1,19 +1,19 @@
 ---
-title: Automated SaaS app user provisioning in Azure AD
+title: What is automated SaaS app user provisioning in Azure AD
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh, celested
 ---
 
-# Automate user provisioning and deprovisioning to applications with Azure AD
+# What is automated SaaS app user provisioning in Azure AD?
 
 In Azure Active Directory (Azure AD), the term **app provisioning** refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), and more.
 
@@ -89,11 +89,8 @@ For pre-integrated applications listed in the gallery, step-by-step guidance is 
 For other applications that support SCIM 2.0, follow the steps in the article [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
 
-## Related articles
+## Next steps
 
 - [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
 - [Customizing attribute mappings for user provisioning](customize-application-attributes.md)
-- [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
-- [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md)
-- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)

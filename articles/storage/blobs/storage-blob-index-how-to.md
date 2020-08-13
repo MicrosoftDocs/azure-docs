@@ -6,8 +6,8 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
 ms.service: storage
-ms.subservice: common
-ms.topic: conceptual
+ms.subservice: blobs
+ms.topic: how-to
 ms.reviewer: hux
 ---
 
@@ -18,7 +18,7 @@ Blob Index tags categorize data in your storage account utilizing key-value tag 
 To learn more about the Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> Blob Index is in public preview, and is available in the **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+> Blob Index is in public preview, and is available in the **Canada Central**, **Canada East**, **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 ## Prerequisites
 # [Portal](#tab/azure-portal)
@@ -28,11 +28,9 @@ To learn more about the Blob Index, see [Manage and find data on Azure Blob Stor
 # [.NET](#tab/net)
 As Blob Index is in public preview, the .NET storage package is released in the preview NuGet feed. This library is subject to change between now and when it becomes official. 
 
-1. In Visual Studio, add the URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` to your NuGet package sources. 
+1. Set up your Visual Studio project to get started with the Azure Blob storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
 
-   To learn how, see [package sources](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
-
-2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.5.0-dev.20200422.2** to your project. You can also run the command ```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2```
+2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.5.0-preview.6** or newer to your project. You can also run the command ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    To learn how, see [Find and install a package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
@@ -66,7 +64,9 @@ using System.Threading.Tasks;
 ![Upload data with blob index tags](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
 
 # [.NET](#tab/net)
+
 The following example shows how to create an append blob with tags set during creation.
+
 ```csharp
 static async Task BlobIndexTagsOnCreate()
    {
@@ -80,7 +80,7 @@ static async Task BlobIndexTagsOnCreate()
 
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
-         
+
           // Blob Index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>

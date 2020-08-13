@@ -97,6 +97,13 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ![Public access from all networks][acr-access-all-networks]
 
+## Troubleshoot
+
+If a public network rule is set, or public access to the registry is denied, attempts to login to the registry from a disallowed public network will fail. Client access from behind an HTTPS proxy will also fail if an access rule for the proxy is not set. You will see an error message similar to `Error response from daemon: login attempt failed with status: 403 Forbidden` or `Looks like you don't have access to registry`.
+
+These errors can also occur if you use an HTTPS proxy that is allowed by a network access rule, but the proxy isn't properly configured in the client environment. Check that both your Docker client and the Docker daemon are configured for proxy behavior. For details, see [HTTP/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) in the Docker documentation.
+
+
 ## Next steps
 
 * To restrict access to a registry using a private endpoint in a virtual network, see [Configure Azure Private Link for an Azure container registry](container-registry-private-link.md).

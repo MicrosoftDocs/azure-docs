@@ -32,7 +32,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Voice assistants
 
-Voice assistants using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. Additionally, voice assistants can be created using the [Custom Voice Portal](https://aka.ms/customvoice) to create a unique voice experience.
+[Voice assistants](voice-assistants.md) using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. Additionally, voice assistants can use custom voices created in the [Custom Voice Portal](https://aka.ms/customvoice) to add a unique voice output experience.
 
 #### Keyword spotting
 
@@ -120,5 +120,5 @@ Custom text-to-speech, also known as Custom Voice is a set of online tools that 
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 * [See how to recognize speech in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

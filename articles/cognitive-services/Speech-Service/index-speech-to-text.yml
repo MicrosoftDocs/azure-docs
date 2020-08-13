@@ -24,7 +24,7 @@ landingContent:
         url: batch-transcription.md
       - text: Speech recognition basics
         url: speech-to-text-basics.md
-      - text: Use SPX for speech-to-text with no code
+      - text: Use the Speech CLI for speech-to-text with no code
         url: spx-overview.md
     - linkListType: quickstart
       links:

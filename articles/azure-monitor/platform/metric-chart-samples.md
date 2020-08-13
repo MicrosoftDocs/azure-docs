@@ -12,7 +12,7 @@ ms.subservice: metrics
 
 # Metric chart examples 
 
-The Azure platform offers [over a thousand metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), many of which have dimensions. By using [dimension filters](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), applying [splitting](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) and explains the necessary steps to configure each of these charts.
+The Azure platform offers [over a thousand metrics](./metrics-supported.md), many of which have dimensions. By using [dimension filters](./metrics-charts.md), applying [splitting](./metrics-charts.md), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](./metrics-charts.md) and explains the necessary steps to configure each of these charts.
 
 Want to share your great charts examples with the world? Contribute to this page on GitHub and share your own chart examples here!
 
@@ -34,7 +34,7 @@ View your application's availability by region to identify which geographic loca
 
 ### How to configure this chart?
 
-You first need to turn on [Application Insights availability](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
+You first need to turn on [Application Insights availability](../app/monitor-web-app-availability.md) monitoring for your website. After that, pick your Application Insights resource and select the Availability metric. Apply splitting on the **Run location** dimension.
 
 ## Volume of storage account transactions by API name
 
@@ -48,5 +48,6 @@ In the metric picker, select your storage account and the **Transactions** metri
 
 ## Next steps
 
-* Learn about Azure Monitor [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+* Learn about Azure Monitor [Workbooks](./workbooks-overview.md)
 * Learn more about [Metric Explorer](metrics-charts.md)
+

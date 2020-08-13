@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -114,6 +114,6 @@ Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL 
 - [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-- [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

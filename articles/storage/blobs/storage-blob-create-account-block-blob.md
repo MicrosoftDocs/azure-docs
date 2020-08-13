@@ -5,10 +5,11 @@ author: tamram
 services: storage
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a BlockBlobStorage account

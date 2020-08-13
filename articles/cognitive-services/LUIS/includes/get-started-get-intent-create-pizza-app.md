@@ -5,7 +5,7 @@ services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 05/18/2020
+ms.date: 06/03/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
@@ -23,7 +23,7 @@ ms.author: roy-har
 
 The app will be imported.
 
-If you see a dialog **How to create an effective LUIS app**, close the dialog.
+If you see the dialog **How to create an effective LUIS app**, close the dialog.
 
 ## Train and publish the Pizza app
 
@@ -37,7 +37,7 @@ Your Pizza app is now ready to use.
 
 ## Record the app ID, prediction key, and prediction endpoint of your Pizza app
 
-To use your new Pizza app, you will need the app ID, prediction key, and endpoint of your Pizza app.
+To use your new Pizza app, you will need the app ID, prediction key, and prediction endpoint of your Pizza app.
 
 To find these values:
 

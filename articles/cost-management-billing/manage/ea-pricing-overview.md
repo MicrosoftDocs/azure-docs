@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.author: banders
 
 ---
@@ -20,7 +20,7 @@ This section provides details on how usage is calculated. It answers many freque
 
 ### Price protection
 
-As a customer or a channel partner, you're guaranteed to receive prices at or below prices shown on your Customer Price Sheet (CPS) or the price in effect on the effective date of your Azure purchase. This price is referred to as the baseline price. For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. This price protection applies for the duration of your commitment term - one or three years depending upon your Enterprise Agreement.
+As a customer or a channel partner, you're guaranteed to receive prices at or below prices shown on your Customer Price Sheet (CPS) or the price in effect on the effective date of your Azure purchase. This price is referred to as the baseline price. For services introduced after your Azure purchase, you're charged the price that's in effect at the applicable level discount when the service is first introduced. This price protection applies for the duration of your Prepayment term - one or three years depending upon your Enterprise Agreement.
 
 ### Price changes
 

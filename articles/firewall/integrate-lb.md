@@ -4,7 +4,7 @@ description: You can integrate an Azure Firewall into a virtual network with an 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: victorh
 ---

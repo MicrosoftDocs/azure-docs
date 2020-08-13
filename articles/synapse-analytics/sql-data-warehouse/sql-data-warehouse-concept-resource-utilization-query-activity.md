@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
@@ -37,14 +37,11 @@ The following metrics are available in the Azure portal for Synapse SQL. These m
 | Cache hit percentage    | (cache hits / cache miss) * 100  where cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes | Avg, Min, Max    |
 | Cache used percentage   | (cache used / cache capacity) * 100 where cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes | Avg, Min, Max    |
 | Local tempdb percentage | Local tempdb utilization across all compute nodes - values are emitted every five minutes | Avg, Min, Max    |
-| Data Storage Size (GB) | Total size of the database. This includes used, reserved, and unallocated space. Unallocated space is kept for the database to optimize query and load performance. | Sum |
-| Disaster Recovery Size (GB) | Total size of the geo-backup taken every 24 hours | Sum |
-| Snapshot Storage size (GB) | Total size of snapshots taken to provide database restore points. This includes automated and user-defined snapshots. | Sum |
 
 Things to consider when viewing metrics and setting alerts:
 
 - DWU used represents only a **high-level representation of usage** across the SQL pool and is not meant to be a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, tempdb, and adaptive cache capacity. We recommend [running your workload at different DWU settings](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
-- Failed and successful connections are reported for a particular data warehouse - not for the logical server
+- Failed and successful connections are reported for a particular data warehouse - not for the server itself.
 - Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
 
 ## Query activity

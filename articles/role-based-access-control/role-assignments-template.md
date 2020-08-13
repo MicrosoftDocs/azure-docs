@@ -8,10 +8,10 @@ manager: mtillman
 
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -63,7 +63,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 In Azure RBAC, to grant access, you add a role assignment.
 
-### Resource group (without parameters)
+### Resource group scope (without parameters)
 
 The following template shows a basic way to add a role assignment. Some values are specified within the template. The following template demonstrates:
 
@@ -106,7 +106,7 @@ The following shows an example of the Reader role assignment to a user for a res
 
 ![Role assignment at resource group scope](./media/role-assignments-template/role-assignment-template.png)
 
-### Resource group or subscription
+### Resource group or subscription scope
 
 The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. The following template demonstrates:
 
@@ -190,7 +190,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### Resource
+### Resource scope
 
 If you need to add a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
 
@@ -353,6 +353,15 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 The following shows an example of the Contributor role assignment to a new managed identity service principal after deploying the template.
 
 ![Role assignment for a new managed identity service principal](./media/role-assignments-template/role-assignment-template-msi.png)
+
+## Remove a role assignment
+
+In Azure RBAC, to remove access to an Azure resource, you remove the role assignment. There isn't a way to remove a role assignment using a template. To remove a role assignment, you must use other tools such as:
+
+- [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
+- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## Next steps
 

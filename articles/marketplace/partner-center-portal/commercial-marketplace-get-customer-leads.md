@@ -1,12 +1,12 @@
 ---
 title: Lead management from Microsoft commercial marketplace
 description: Learn about generating and receiving customer leads from your Microsoft AppSource and Azure Marketplace offers
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Customer leads from your commercial marketplace offer
@@ -82,16 +82,18 @@ The customer's information is sent via multiple fields. The following example sh
 
 ## Best practices for lead management
 
+Here are some recommendations for driving leads through your sales cycle:
+
 - **Process**: Define a clear sales process, with milestones, analytics, and clear team ownership.
 - **Qualification**: Define prerequisites, which indicate whether a lead was fully qualified. Make sure sales or marketing representatives qualify leads carefully before taking them through the full sales process.
-- **Follow-up**: Don't forget to follow up. Expect the typical transaction to require 5 to 12 follow-up calls.
-- **Nurture**: Nurture your leads to get you on the way to a higher profit margin.
+- **Follow-up**: Don't forget to follow up within 24 hours. You will get the lead in your CRM of choice immediately after the customer deploys a test drive; email them within while they are still warm. Request scheduling a phone call to better understand if your product is a good solution for their problem. Expect the typical transaction to require numerous follow-up calls.
+- **Nurture**: Nurture your leads to get you on the way to a higher profit margin. Check in, but don't bombard them. We recommend you email leads at least a few times before you close them out; don't give up after the first attempt. Remember, these customers directly engaged with your product and spent time in a free trial; they are great prospects.
 
 ## Common questions about lead management
 
 ### Where can I get help in setting up my lead destination?
 
-Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
+Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
 
 ### Am I required to configure a lead destination in order to publish an offer in the commercial marketplace?
 
@@ -99,21 +101,24 @@ The answer depends on the type of offer you're publishing. Software as a service
 
 ### How can I find the test lead?
 
-Search for `"MSFT_TEST"` in your lead destination. Here's a sample test lead from Microsoft:
+Search for `"MSFT_TEST"` in your lead destination. Below is a sample test lead from Microsoft. Note that the format of the test lead varies depending on the lead destination.
 
 ```
-company = MSFT_TEST_636573304831318844
-country = US
-description = MSFT_TEST_636573304831318844
-email = MSFT_TEST_636573304831318844@test.com
-encoding = UTF-8
-encoding = UTF-8
-first_name = MSFT_TEST_636573304831318844
-last_name = MSFT_TEST_636573304831318844
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name>
-oid = 00Do0000000ZHog
-phone = 1234567890
-title = MSFT_TEST_636573304831318844
+{
+    "UserDetails": {
+      "FirstName": "MSFT_TEST_636573304831318844",
+      "LastName": "MSFT_TEST_636573304831318844",
+      "Email": "MSFT_TEST_636573304831318844@test.com",
+      "Phone": "1234567890",
+      "Country": "US",
+      "Company": "MSFT_TEST_636573304831318844",
+      "Title": "MSFT_TEST_636573304831318844"
+    },
+    "LeadSource": "AzureMarketplace",
+    "ActionCode": "INS",
+    "OfferTitle": "Contoso Test"
+    "Description": "MSFT_TEST_636573304831318844"
+}
 ```
 
 ### I have a live offer, but why am I not seeing any leads?
@@ -128,7 +133,7 @@ Azure Blob storage is no longer supported as a lead destination, so you're missi
 
 ### I received an email from the commercial marketplace, but why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1).
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport).
 
 ### I configured an Azure table as my lead destination. How can I view the leads?
 

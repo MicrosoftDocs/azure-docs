@@ -1,13 +1,8 @@
 ---
 title: Event hub as an event handler for Azure Event Grid events
 description: Describes how you can use event hubs as event handlers for Azure Event Grid events.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Event hub as an event handler for Azure Event Grid events
@@ -35,6 +30,52 @@ If you use an **event hub** as an event handler for events from Event Grid, set 
 | aeg-data-version | <p>Data version of the event.</p><p>Example: "1".</p><p>For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply.</p> |
 | aeg-output-event-id | ID of the Event Grid event. |
 
+## REST examples (for PUT)
+
+
+### Event hub
+
+```json
+{
+	"properties": 
+	{
+		"destination": 
+		{
+			"endpointType": "EventHub",
+			"properties": 
+			{
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
+### Event hub - delivery with managed identity
+
+```json
+{
+	"properties": {
+		"deliveryWithResourceIdentity": 
+		{
+			"identity": 
+			{
+				"type": "SystemAssigned"
+			},
+			"destination": 
+			{
+				"endpointType": "EventHub",
+				"properties": 
+				{
+					"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUBS NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>"
+				}
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

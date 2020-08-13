@@ -14,7 +14,26 @@ ms.author: trbye
 
 # Prepare data for Custom Speech
 
-When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them.
+When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data a custom speech model needs.
+
+## Data diversity
+
+Text and audio used to test and train a custom model need to include samples from a diverse set of speakers and scenarios you need your model to recognize.
+Consider these factors when gathering data for custom model testing and training:
+
+* Your text and speech audio data need to cover the kinds of verbal statements your users will make when interacting with your model. For example, a model that raises and lowers the temperature needs training on statements people might make to request such changes.
+* Your data need to include all speech variances your model will need to recognize. Many factors can vary speech, including accents, dialects, language-mixing, age, gender, voice pitch, stress level, and time of day.
+* You must include samples from different environments (indoor, outdoor, road noise) where your model will be used.
+* Audio must be gathered using hardware devices the production system will use. If your model needs to identify speech recorded on recording devices of varying quality, the audio data you provide to train your model must also represent these diverse scenarios.
+* You can add more data to your model later, but take care to keep the dataset diverse and representative of your project needs.
+* Including data that is *not* within your custom model recognition needs can harm recognition quality overall, so do not include data that your model does not need to transcribe.
+
+A model trained on a subset of scenarios can only perform well in those scenarios. Carefully choose data that represents the full scope of scenarios you need your custom model to recognize.
+
+> [!TIP]
+> Start with small sets of sample data that match the language and acoustics your model will encounter.
+> For example, record a small but representative sample of audio on the same hardware and in the same acoustic environment your model will find in production scenarios.
+> Small datasets of representative data can expose problems before you have invested in gathering a much larger datasets for training.
 
 ## Data types
 

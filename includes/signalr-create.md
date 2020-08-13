@@ -32,4 +32,4 @@ ms.custom: "include file"
 
     The connection string will have the following form:
     
-        Endpoint=<service_endpoint>;AccessKey=<access_key>;
+    `Endpoint=<service_endpoint>;AccessKey=<access_key>;`

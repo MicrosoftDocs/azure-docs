@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 06/16/2020
 
 ---
 # Nodes and pools in Azure Batch
@@ -22,6 +22,8 @@ All compute nodes in Batch also include:
 - A standard [folder structure](files-and-directories.md) and associated [environment variables](jobs-and-tasks.md) that are available for reference by tasks.
 - **Firewall** settings that are configured to control access.
 - [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes.
+
+By default, nodes can communicate with each other, but they can't communicate with virtual machines that are not part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. These public IP addresses are created by Batch and may change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they won't change unexpectedly.
 
 ## Pools
 
@@ -73,7 +75,7 @@ As with worker roles within Cloud Services, you can specify an *OS Version* (for
 
 ### Node Agent SKUs
 
-When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU IDs to their OS Image references by calling the [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) operation.
+When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU IDs to their OS Image references by calling the [List Supported Node Agent SKUs](/rest/api/batchservice/list-supported-node-agent-skus) operation.
 
 ### Custom images for Virtual Machine pools
 
@@ -104,7 +106,7 @@ For pricing information for both low-priority and dedicated nodes, see [Batch Pr
 
 ## Node size
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes. 
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes. 
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 
@@ -112,7 +114,7 @@ For more information, see [Choose a VM size for compute nodes in an Azure Batch 
 
 For dynamic workloads, you can apply an automatic scaling policy to a pool. The Batch service will periodically evaluate your formula and dynamically adjusts the number of nodes within the pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
 
-You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#automatic-scaling-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
+You enable automatic scaling by writing an [automatic scaling formula](batch-automatic-scaling.md#autoscale-formulas) and associating that formula with a pool. The Batch service uses the formula to determine the target number of nodes in the pool for the next scaling interval (an interval that you can configure). You can specify the automatic scaling settings for a pool when you create it, or enable scaling on a pool later. You can also update the scaling settings on a scaling-enabled pool.
 
 As an example, perhaps a job requires that you submit a large number of tasks to be executed. You can assign a scaling formula to the pool that adjusts the number of nodes in the pool based on the current number of queued tasks and the completion rate of the tasks in the job. The Batch service periodically evaluates the formula and resizes the pool, based on workload and your other formula settings. The service adds nodes as needed when there are a large number of queued tasks, and removes nodes when there are no queued or running tasks.
 
@@ -122,7 +124,7 @@ A scaling formula can be based on the following metrics:
 - **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 - **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Note that setting the node deallocation option as `taskcompletion` or `retaineddata` will prevent pool resize operations until all tasks have completed, or all task retention periods have expired, respectively.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Note that setting the node deallocation option as `taskcompletion` or `retaineddata` will prevent pool resize operations until all tasks have completed, or all task retention periods have expired, respectively.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
@@ -157,13 +159,16 @@ For more information about using application packages to deploy your application
 
 ## Virtual network (VNet) and firewall configuration
 
-When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).  
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 ### VNet requirements
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 For more information about setting up a Batch pool in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
+
+> [!TIP]
+> To ensure that the public IP addresses used to access nodes don't change, you can [create a pool with specified public IP addresses that you control](create-pool-public-ip.md).
 
 ## Pool and compute node lifetime
 
@@ -179,7 +184,7 @@ A combined approach is typically used for handling a variable but ongoing load. 
 
 You typically need to use certificates when you encrypt or decrypt sensitive information for tasks, like the key for an [Azure Storage account](accounts.md#azure-storage-accounts). To support this, you can install certificates on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
 
-You use the [Add certificate](https://docs.microsoft.com/rest/api/batchservice/certificate/add) operation (Batch REST) or [CertificateOperations.CreateCertificate](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate with a new or existing pool.
+You use the [Add certificate](/rest/api/batchservice/certificate/add) operation (Batch REST) or [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate with a new or existing pool.
 
 When a certificate is associated with a pool, the Batch service installs the certificate on each node in the pool. The Batch service installs the appropriate certificates when the node starts up, before launching any tasks (including the [start task](jobs-and-tasks.md#start-task) and [job manager task](jobs-and-tasks.md#job-manager-task)).
 

@@ -27,7 +27,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 The following example shows a self-asserted technical profile for email sign-up:
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -37,7 +37,7 @@ The following example shows a self-asserted technical profile for email sign-up:
 
 In a self-asserted technical profile, you can use the **InputClaims** and **InputClaimsTransformations** elements to prepopulate the value of the claims that appear on the self-asserted page (display claims). For example, in the edit profile policy, the user journey first reads the user profile from the Azure AD B2C directory service, then the self-asserted technical profile sets the input claims with the user data stored in the user profile. These claims are collected from the user profile and then presented to the user who can then edit the existing data.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -68,7 +68,7 @@ The following example `TechnicalProfile` illustrates the use of display claims w
 * The fifth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -90,7 +90,7 @@ If you specify one or more **DisplayClaim** elements in a self-asserted technica
 
 Consider the following example in which an `age` claim is defined as an **output** claim in a base policy. Before adding any display claims to the self-asserted technical profile, the `age` claim is displayed on the screen for data collection from the user:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -100,7 +100,7 @@ Consider the following example in which an `age` claim is defined as an **output
 
 If a leaf policy that inherits that base subsequently specifies `officeNumber` as a **display** claim:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -137,7 +137,7 @@ Use output claims when:
 
 The following example demonstrates the use of a self-asserted technical profile that uses both display claims and output claims.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
