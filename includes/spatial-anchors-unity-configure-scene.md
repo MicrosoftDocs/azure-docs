@@ -11,4 +11,4 @@ The next step is to configure the app to use your account information. You copie
 
 In the **Project** pane, navigate to `Assets\AzureSpatialAnchors.SDK\Resources`. Select `SpatialAnchorConfig`. Then, in the **Inspector** pane, enter the `Account Key` as the value for `Spatial Anchors Account Key`, the `Account ID` as the value for `Spatial Anchors Account Id`, and the `Account Domain` as the value for `Spatial Anchors Account Domain`.
 
-Save the scene by selecting **File** > **Save**.
+Save your changes by selecting **File** > **Save**.
