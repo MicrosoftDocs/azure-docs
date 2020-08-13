@@ -17,8 +17,8 @@ ms.author: kacruz
     }
   ],
   "dependencies": {
+    "com.microsoft.azure.spatial-anchors-sdk.windows": "2.5.0"
     "com.microsoft.azure.spatial-anchors-sdk.android": "2.5.0",
     "com.microsoft.azure.spatial-anchors-sdk.ios": "2.5.0",
-    "com.microsoft.azure.spatial-anchors-sdk.windows": "2.5.0"
   }
 }
