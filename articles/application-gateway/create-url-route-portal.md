@@ -207,4 +207,4 @@ When no longer needed, delete the resource group and all related resources. To d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enabling end to end TLS on Azure Application Gateway](application-gateway-backend-ssl.md)
+> [Enable end to end TLS on Azure Application Gateway](application-gateway-backend-ssl.md)
