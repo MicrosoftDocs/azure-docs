@@ -40,7 +40,7 @@ productDirectory:
     # Card
     - title: Azure Arc enabled servers
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/azure.svg
+      imageSrc: ./media/manage-450-machinesazurearc.svg
       links:
         - url: ./servers/onboard-portal.md
           text: Connect machines to Azure Arc from the Azure portal
@@ -51,8 +51,8 @@ productDirectory:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           text: Enable Arc enabled servers agent
     # Card
-    - title: Kubernetes
-      imageSrc: ./media/kubernetes.png
+    - title: Azure Arc enabled Kubernetes
+      imageSrc: ./media/containers-101-kubernetes-services.svg
       links:
         - url: ./kubernetes/connect-cluster.md
           text: Connect cluster
