@@ -128,6 +128,15 @@ FROM
                   ) AS a
 ```
 
+The result of this query might look like:
+
+| title | authors | first | last | affiliation |
+| --- | --- | --- | --- | --- |
+| Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"MÃƒÂ©lade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien | MÃƒÂ©lade | `	{"laboratory":"Centre de Recher…` |
+Supplementary Information An eco-epidemi… | `[{"first":"Julien","last":"MÃƒÂ©lade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Nicolas | 4# |`{"laboratory":"","institution":"U…` | 
+| Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"MÃƒÂ©lade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Beza | Ramazindrazana |	`{"laboratory":"Centre de Recher…` |
+| Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"MÃƒÂ©lade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |		
+
 ## Type mappings
 
 CosmosDB contains JSON document with numbers, strings, logical values, nested objects or arrays. You would need to
