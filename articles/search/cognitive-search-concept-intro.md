@@ -54,7 +54,7 @@ A [skillset](cognitive-search-defining-skillset.md) that's assembled using built
 
 Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include [Forms Recognizer](/azure/cognitive-services/form-recognizer/overview), integration of the [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example), and [custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-<a name="enrichment-steps"> ## Steps in an enrichment pipeline </a>
+## Steps in an enrichment pipeline <a name="enrichment-steps"></a>
 
 An enrichment pipeline is based on [*indexers*](search-indexer-overview.md). Indexers populate an index based on field-to-field mappings between the index and your data source for document cracking. Skills, now attached to indexers, intercept and enrich documents according to the skillset(s) you define. Once indexed, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
 

@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 07/14/2020
 ms.author: apimpm
 ---
 # API Management cross domain policies
@@ -62,6 +62,8 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
 
 CORS allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (i.e. XMLHttpRequests calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
+
+You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./api-management-howto-developer-portal.md#cors) for details.
 
 ### Policy statement
 

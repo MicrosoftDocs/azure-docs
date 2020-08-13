@@ -304,7 +304,7 @@ If you downloaded the software package to a different server, copy the files to 
    * **Database**: **DatabaseName** should be **ReportServer$\<SQLInstanceName>**.
    * **Web Portal URL**: **Virtual Directory** should be **Reports_\<SQLInstanceName>**.
 
-   [Learn more](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
+   [Learn more](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
 
    > [!NOTE]
    > [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) governs the licensing for SQL Server used as the database for Azure Backup Server. According to OST, SQL Server bundled with Azure Backup Server can be used only as the database for Azure Backup Server.
@@ -314,7 +314,7 @@ If you downloaded the software package to a different server, copy the files to 
 1. Provide a location for the installation of Microsoft Azure Backup Server files, and select **Next**.
 
    > [!NOTE]
-   > The scratch location is required for backup to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured after the installation is finished. For more information about storage pools, see [Configure storage pools and disk storage](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+   > The scratch location is required for backup to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured after the installation is finished. For more information about storage pools, see [Configure storage pools and disk storage](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    ![Microsoft Azure Backup Setup Installation Settings](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -388,4 +388,3 @@ Continue to the next tutorial to learn how to configure backup of VMware VMs run
 
 > [!div class="nextstepaction"]
 > [Configure backup of Azure VMware Solution VMs](backup-avs-vms-with-mabs.md)
-

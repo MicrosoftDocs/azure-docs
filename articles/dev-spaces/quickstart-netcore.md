@@ -96,7 +96,7 @@ This command prepares your project to run in Azure Dev Spaces by generating a Do
 
 Click on the *Debug* icon on the left and click *.NET Core Launch (AZDS)* at the top.
 
-![](media/get-started-netcore/debug-configuration.png)
+![The screenshot is of the upper-left corner of the Visual Studio Code window. The debug icon is highlighted, the left panel is titled "DEBUG", and a drop-down list to the right of the title shows "dot NET Core Launch (A Z D S).](media/get-started-netcore/debug-configuration.png)
 
 This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running in Azure Dev Spaces. The *Debug Console* shows the log output.
 
@@ -149,7 +149,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![](media/common/debug-action-refresh.png)
+![The Debug toolbar is a small pane at the top center of the page (just below the page title). The Restart button displays a circular arrow, and is highlighted. The hover image for the button is "Restart (control + shift + f 5)".](media/common/debug-action-refresh.png)
 
 Open your service in a browser and notice your updated message is displayed.
 
@@ -163,10 +163,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## Next steps
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
+Learn more about how Azure Dev Spaces works.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](multi-service-netcore.md)
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

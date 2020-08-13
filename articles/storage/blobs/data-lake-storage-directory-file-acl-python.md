@@ -8,7 +8,7 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
@@ -190,6 +190,8 @@ def manage_directory_permissions():
     except Exception as e:
      print(e) 
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, call the **FileSystemClient._get_root_directory_client** method.
 
 ## Upload a file to a directory 
 

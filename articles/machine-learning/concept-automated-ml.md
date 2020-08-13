@@ -135,7 +135,7 @@ Enable this setting with:
 
 + Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization]((how-to-configure-auto-features.md). 
++ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble"></a> Ensemble models
 
@@ -288,7 +288,7 @@ How to articles provide additional detail into what functionality AutoML offers.
 
 ### Jupyter notebook samples 
 
-Review detailed code examples and use cases in the [Github notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
 ### Python SDK reference 
 

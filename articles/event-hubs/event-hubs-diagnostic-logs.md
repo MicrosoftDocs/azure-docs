@@ -228,7 +228,7 @@ Customer-managed key user log JSON includes elements listed in the following tab
 
 
 ## Next steps
-- [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Introduction to Event Hubs](./event-hubs-about.md)
 - [Event Hubs samples](sdks.md)
 - Get started with Event Hubs
     - [.NET Core](get-started-dotnet-standard-send-v2.md)

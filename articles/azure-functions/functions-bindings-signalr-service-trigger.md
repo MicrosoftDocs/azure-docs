@@ -38,7 +38,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### With Traditional model
 
-Traditional model obeys the convention of Azure Function developed by C#. If you're not familiar with it, you can learn from [documents](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library).
+Traditional model obeys the convention of Azure Function developed by C#. If you're not familiar with it, you can learn from [documents](./functions-dotnet-class-library.md).
 
 ```cs
 [FunctionName("SignalRTest")]

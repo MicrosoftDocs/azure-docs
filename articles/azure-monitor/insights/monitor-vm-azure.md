@@ -25,7 +25,7 @@ This article describes how to use Azure Monitor to collect and analyze monitorin
 - You can create [diagnostic settings](../platform/diagnostic-settings.md) for a virtual machine to send platform metrics to other destinations such as storage and event hubs, but you can't configure these diagnostic settings in the Azure portal. 
 
 ## Monitoring data
-Virtual machines in Azure in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown the following diagram.
+Virtual machines in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) as shown in the following diagram.
 
 ![Overview](media/monitor-vm-azure/logs-metrics.png)
 
@@ -129,12 +129,12 @@ Once you configure collection of monitoring data for a virtual machine, you have
 | Menu option | Description |
 |:---|:---|
 | Overview | Displays [platform metrics](../platform/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../platform/metrics-getting-started.md). |
-| Activity log | [Activity log](../platform/activity-log-view.md) entries filtered for the current virtual machine. |
-| Insights | Opens [Azure Monitor for VMs](../insights/vminsights-overview.md) with the map for the current virtual machine selected. |
+| Activity log | [Activity log](../platform/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
+| Insights | Opens [Azure Monitor for VMs](./vminsights-overview.md) with the map for the current virtual machine selected. |
 | Alerts | Views [alerts](../platform/alerts-overview.md) for the current virtual machine.  |
 | Metrics | Open [metrics explorer](../platform/metrics-getting-started.md) with the scope set to the current virtual machine. |
 | Diagnostic settings | Enable and configure [diagnostics extension](../platform/diagnostics-extension-overview.md) for the current virtual machine. |
-| Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](/azure/advisor/). |
+| Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml). |
 | Logs | Open [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) with the [scope](../log-query/scope.md) set to the current virtual machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-preview.md) to monitor connections between the current virtual machine and other virtual machines. |
 
@@ -222,7 +222,7 @@ Event
 
 
 ## System Center Operations Manager
-System Center Operations Manager (SCOM) provides granular monitoring of workloads on virtual machines. See the [Cloud Monitoring Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/) for a comparison of monitoring platforms and different strategies for implementation.
+System Center Operations Manager (SCOM) provides granular monitoring of workloads on virtual machines. See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a comparison of monitoring platforms and different strategies for implementation.
 
 If you have an existing SCOM environment that you intend to keep using, you can integrate it with Azure Monitor to provide additional functionality. The Log Analytics agent used by Azure Monitor is the same one used for SCOM so that you have monitored virtual machines send data to both. You still need to add the agent to Azure Monitor for VMs and configure the workspace to collect additional data as specified above, but the virtual machines can continue to run their existing management packs in a SCOM environment without modification.
 

@@ -23,7 +23,7 @@ This article provides steps to resolve issues where the disk cannot be read in a
 
 ## Symptoms
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays a prompt with the message "A disk read error occurred. Press Ctrl+Alt+Del to restart".
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you will see that the screenshot displays a prompt with the message "A disk read error occurred. Press Ctrl+Alt+Del to restart".
 
    ![Error message: A disk read error occurred. Press Ctrl+Alt+Del to restart.](./media/disk-read-error-occurred/1.png)
 
@@ -47,7 +47,7 @@ This error message indicates that the disk structure is corrupted and unreadable
 
 ### Create and access a repair VM
 
-1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Use steps 1-3 of the [VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 1. Using Remote Desktop Connection, connect to the Repair VM.
 
 ### Set partition status to active
@@ -139,4 +139,4 @@ Generation 1 VMs should first verify that the OS partition which holds the BCD s
    
 ### Rebuild the VM
 
-Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to rebuild the VM.
+Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to rebuild the VM.

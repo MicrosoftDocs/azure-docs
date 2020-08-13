@@ -5,8 +5,8 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 # Prevent unexpected charges with Azure billing and cost management

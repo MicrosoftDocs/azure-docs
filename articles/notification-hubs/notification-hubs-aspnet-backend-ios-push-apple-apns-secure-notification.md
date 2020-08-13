@@ -118,7 +118,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 4. Now we have to handle the incoming notification and use the method above to retrieve the content to display. First, we have to enable your iOS app to run in the background when receiving a push notification. In **XCode**, select your app project on the left panel, then click your main app target in the **Targets** section from the central pane.
 5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
 
-    ![][IOS1]
+    ![Screenshot of XCode, with the app project selected and the Capabilities tab open. The Remote notifications check box is selected.][IOS1]
 
 6. In `AppDelegate.m` add the following method to handle push notifications:
 

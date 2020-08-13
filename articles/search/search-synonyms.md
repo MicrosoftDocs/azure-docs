@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 07/12/2020
 ---
 # Synonyms in Azure Cognitive Search
 

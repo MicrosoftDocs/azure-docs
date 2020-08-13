@@ -32,9 +32,9 @@ $fw = New-AzFirewall -Name <firewall name> -ResourceGroupName $rgName `
      -VirtualHubId $vHubId 
 ```
 
-### Delete a public IP address
+### Update a public IP address
 
-You can use Azure PowerShell to delete a public IP address from an Azure Firewall. The following example deletes one public IP address from a firewall. It starts with three public IP addresses.
+You can use Azure PowerShell to update a public IP address for an Azure Firewall. The following example deletes one public IP address from a firewall. It starts with three public IP addresses.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <subscription ID>

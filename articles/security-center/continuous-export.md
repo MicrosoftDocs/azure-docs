@@ -24,18 +24,16 @@ Using these tools you can:
 
 
 
-
 ## Availability
 
-- Release state: **Generally Available**
-- Required roles and permissions:
-    - **Reader** on the subscription containing the export configuration
-    - **Security admin role** on the resource group (or **Owner**)
-    - Must also have write permissions for the target resource
-- Clouds: 
-    - ✔ Commercial clouds
-    - ✔ US Gov
-    - ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Free tier|
+|Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
 
 
 ## Setting up a continuous export

@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage the twin graph with relationships](how-to-manage-graph.md).
+This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md).
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -38,14 +38,14 @@ To create a digital twin, you need to provide:
 
 Optionally, you can provide initial values for all properties of the digital twin. 
 
-> [!TIP]
-> Only properties that have been set at least once are returned when you retrieve a twin with GetDigitalTwin.  
-
 The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-created twins if you need an instant response. 
 
 ### Initialize properties
 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Concepts: Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin.
 
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
@@ -92,7 +92,10 @@ object result = await client.GetDigitalTwin(id);
 
 This call returns twin data as a JSON string. 
 
-To retrieve multiple twins using a single API call, see the query API examples in [How-to: Query the twin graph](how-to-query-graph.md).
+> [!TIP]
+> Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+
+To retrieve multiple twins using a single API call, see the query API examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
 
 Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a *Moon*:
 
@@ -169,13 +172,18 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-You can read more about the serialization helper classes in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
+You can read more about the serialization helper classes in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
 ## Update a digital twin
 
 To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
 
 Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
@@ -338,13 +346,13 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### Delete all digital twins
 
-For an example of how to delete all twins at once, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
+For an example of how to delete all twins at once, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
 
 ## Manage twins with CLI
 
-Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [How-to: Manage the twin graph with relationships](how-to-manage-graph.md)
+* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)

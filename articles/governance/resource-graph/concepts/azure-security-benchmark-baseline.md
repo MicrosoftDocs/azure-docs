@@ -24,7 +24,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](../.
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure Resource Graph provides access to resource types and properties based on role-based access controls (RBAC). Audit and review the access granted to security principals (users, groups, and service accounts) on a regular basis to make sure that queries return results for the appropriate resources.
+**Guidance**: Azure Resource Graph provides access to resource types and properties based on Azure role-based access control (Azure RBAC). Audit and review the access granted to security principals (users, groups, and service accounts) on a regular basis to make sure that queries return results for the appropriate resources.
 
 * [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 

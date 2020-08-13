@@ -49,7 +49,7 @@ To create an AKS cluster, complete the following steps:
 
 5. On the **Authentication** page, configure the following options:
     - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
-    - Enable the option for Kubernetes role-based access controls (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
+    - Enable the option for Kubernetes role-based access control (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     Alternatively, you can use a managed identity instead of a service principal. See [use managed identities](use-managed-identity.md) for more information.
 
@@ -93,7 +93,7 @@ A Kubernetes manifest file defines a desired state for the cluster, such as what
 > [!TIP]
 > In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
 
-In the Cloud Shell, use either the `nano azure-vote.yaml` or `vi azure-vote.yaml` command to create a file named `azure-vote.yaml`. Then copy in the following YAML definition:
+In the Cloud Shell, use an editor to create a file named `azure-vote.yaml`, such as `code azure-vote.yaml`, `nano azure-vote.yaml` or `vi azure-vote.yaml`. Then copy in the following YAML definition:
 
 ```yaml
 apiVersion: apps/v1

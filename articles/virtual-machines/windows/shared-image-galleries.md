@@ -21,4 +21,4 @@ ms.reviewer: cynthn
 
 ## Next steps
 
-Learn how to [deploy shared images using Azure PowerShell](shared-images.md).
+Learn how to [deploy shared images using Azure PowerShell](../shared-images-powershell.md).

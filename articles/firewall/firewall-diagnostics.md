@@ -92,5 +92,4 @@ Browse to an Azure Firewall, under **Monitoring** select **Metrics**. To view th
 
 Now that you've configured your firewall to collect logs, you can explore Azure Monitor logs to view your data.
 
-> [!div class="nextstepaction"]
-> [Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)
+[Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)

@@ -40,7 +40,7 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Microsoft 365
+      - name: Office 365
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
@@ -79,15 +79,35 @@
       - name: F5 BIG-IP
         href: connect-f5-big-ip.md
       - name: Forcepoint DLP
-        href: connect-forcepoint-dlp.md 
-      - name: Perimeter 81 logs
+        href: connect-forcepoint-dlp.md
+      - name: Infoblox NIOS
+        href: connect-infoblox.md
+      - name: Okta SSO
+        href: connect-okta-single-sign-on.md
+      - name: Orca Security
+        href: connect-orca-security-alerts.md
+      - name: Perimeter 81
         href: connect-perimeter-81-logs.md
+      - name: Proofpoint TAP
+        href: connect-proofpoint-tap.md
+      - name: Pulse Connect Secure
+        href: connect-pulse-connect-secure.md
+      - name: Qualys VM
+        href: connect-qualys-vm.md
+      - name: Sophos XG Firewall
+        href: connect-sophos-xg-firewall.md
       - name: Squadra Technologies secRMM
         href: connect-squadra-secrmm.md
       - name: Symantec ICDX
         href: connect-symantec.md
+      - name: Symantec Proxy SG
+        href: connect-symantec-proxy-sg.md
+      - name: Symantec VIP
+        href: connect-symantec-vip.md
       - name: Syslog
         href: connect-syslog.md
+      - name: VMware Carbon Black Cloud Endpoint Standard
+        href: connect-vmware-carbon-black.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
       - name: CEF-based solutions
@@ -112,6 +132,8 @@
             href: connect-forcepoint-casb-ngfw.md
           - name: Fortinet
             href: connect-fortinet.md
+          - name: Illusive Networks AMS
+            href: connect-illusive-attack-management-system.md
           - name: One Identity Safeguard
             href: connect-one-identity.md
           - name: Palo Alto Networks
@@ -134,6 +156,8 @@
     href: customer-managed-keys.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
+  - name: Manage your SOC better with incident metrics
+    href: manage-soc-with-incident-metrics.md
   - name: Hunting
     href: hunting.md
     items:

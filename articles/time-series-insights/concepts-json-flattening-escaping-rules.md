@@ -1,6 +1,6 @@
 ---
-title: 'JSON flattening and escaping rules - Azure Time Series Insights | Microsoft Docs'
-description: Learn about JSON flattening, escaping, and array handling in Azure Time Series Insights.
+title: 'JSON flattening and escaping rules - Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Learn about JSON flattening, escaping, and array handling in Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,14 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
+ms.date: 07/07/2020
 ---
 
 # Ingestion Rules
 ### JSON Flattening, Escaping, and Array Handling
 
-Your Azure Time Series Insights environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
+Your Azure Time Series Insights Gen2 environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
 
 > [!IMPORTANT]
 >
@@ -23,8 +22,8 @@ Your Azure Time Series Insights environment will dynamically create the columns 
 
 | Rule | Example JSON |Column name in storage |
 |---|---|---|
-| The TSI data type is appended to the end of your column name as "_\<dataType\>" | ```"type": "Accumulated Heat"``` | type_string |
-| The event source [timestamp property](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) will be saved in TSI as “timestamp” in storage, and the value stored in UTC. You can customize your event source(s) timestamp property to meet the needs of your solution, but the column name in warm and cold storage is "timestamp". Other datetime JSON properties that are not the event source timestamp will be saved with "_datetime" in the column name, as mentioned in the rule above.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
+| The Azure Time Series Insights Gen2 data type is appended to the end of your column name as "_\<dataType\>" | ```"type": "Accumulated Heat"``` | type_string |
+| The event source [timestamp property](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) will be saved in Azure Time Series Insights Gen2 as “timestamp” in storage, and the value stored in UTC. You can customize your event source(s) timestamp property to meet the needs of your solution, but the column name in warm and cold storage is "timestamp". Other datetime JSON properties that are not the event source timestamp will be saved with "_datetime" in the column name, as mentioned in the rule above.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
 | JSON property names that include the special characters . [  \ and ' are escaped using [' and ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | ['id.wasp']_string |
 | Within [' and '] there's additional escaping of single quotes and backslashes. A single quote will be written as \’ and a backslash will be written as \\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo\'s Law Value']_double |
 | Nested JSON objects are flattened with a period as the separator. Nesting up to 10 levels is supported. |  ```"series": {"value" : 316 }``` | series.value_long |
@@ -181,4 +180,4 @@ The configuration and payload above will produce three columns and one event
 
 ## Next steps
 
-* Understand your environment's [throughput limitations](concepts-streaming-throughput-limitations.md)
+* Understand your environment's [throughput limitations](./concepts-streaming-ingress-throughput-limits.md)

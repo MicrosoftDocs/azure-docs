@@ -6,8 +6,9 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-
+ms.custom: devx-track-java
 ---
+
 # Tutorial: How to monitor Spring Cloud resources using alerts and action groups
 
 Azure Spring Cloud alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.

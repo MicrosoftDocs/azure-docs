@@ -24,13 +24,15 @@ The global reliable service configuration is specified in the cluster manifest f
 
 In Azure ARM or on-premises JSON template, the example below shows how to change the shared transaction log that gets created to back any reliable collections for stateful services.
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### Sample local developer cluster manifest section
 If you want to change this on your local development environment, you need to edit the local clustermanifest.xml file.

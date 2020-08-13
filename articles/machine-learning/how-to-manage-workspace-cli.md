@@ -5,11 +5,11 @@ description: Learn how to use the Azure CLI to create a new Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -55,7 +55,13 @@ az extension add -n azure-cli-ml
 The Azure Machine Learning workspace relies on the following Azure services or entities:
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it has both Azure Blob and Azure File capabilities enabled, and that Hierarchical Namespace (ADLS Gen 2) is disabled. You can always attach your own storage account later after the workspace is created as datastores.
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
+>
+> * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
+> * Both Azure Blob and Azure File capabilities enabled
+> * Hierarchical Namespace (ADLS Gen 2) is disabled
+>
+> These requirements are only for the _default_ storage account used by the workspace.
 
 | Service | Parameter to specify an existing instance |
 | ---- | ---- |
@@ -131,6 +137,49 @@ The output of this command is similar to the following JSON:
 }
 ```
 
+### Virtual network and private endpoint
+
+> [!IMPORTANT]
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
+> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
+
+* `--pe-name`: The name of the private endpoint that is created.
+* `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
+* `--pe-resource-group`: The resource group to create the private endpoint in. Must be the same group that contains the virtual network.
+* `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
+* `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
+
+For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-enable-virtual-network.md).
+
+### Customer-managed key and high business impact workspace
+
+By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 
+
+If you are creating an __Enterprise__ version of Azure Machine Learning, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
+
+> [!IMPORTANT]
+> Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
+>
+> 1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.
+> 1. Follow the steps in [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk) to:
+>     * Register the Azure Cosmos DB provider
+>     * Create and configure an Azure Key Vault
+>     * Generate a key
+>
+>     You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-resource-group-name>_<GUID>`.
+>
+> You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.
+
+To limit the data that Microsoft collects on your workspace, use the `--hbi-workspace` parameter. 
+
+> [!IMPORTANT]
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
+
+For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+
 ### Use existing resources
 
 To create a workspace that uses existing resources, you must provide the ID for the resources. Use the following commands to get the ID for the services:
@@ -143,6 +192,9 @@ To create a workspace that uses existing resources, you must provide the ID for 
     The response from this command is similar to the following text, and is the ID for your storage account:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 + **Azure Application Insights**:
 

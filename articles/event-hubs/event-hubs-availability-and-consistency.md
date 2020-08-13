@@ -136,5 +136,5 @@ This example sends your event to one of the available partitions in your event h
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs service overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs service overview](./event-hubs-about.md)
 * [Create an event hub](event-hubs-create.md)

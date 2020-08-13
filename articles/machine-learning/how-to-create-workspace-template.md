@@ -5,11 +5,12 @@ description: Learn how to use an Azure Resource Manager template to create a new
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
+ms.date: 07/27/2020
+
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
@@ -27,7 +28,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Workspace Resource Manager template
 
@@ -116,6 +117,9 @@ New-AzResourceGroupDeployment `
 
 By default, all of the resources created as part of the template are new. However, you also have the option of using existing resources. By providing additional parameters to the template, you can use existing resources. For example, if you want to use an existing storage account set the **storageAccountOption** value to **existing** and provide the name of your storage account in the **storageAccountName** parameter.
 
+> [!IMPORTANT]
+> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace.
+
 # [Azure CLI](#tab/azcli)
 
 ```azurecli
@@ -151,6 +155,9 @@ The following example template demonstrates how to create a workspace with three
 * Enable high confidentiality settings for the workspace
 * Enable encryption for the workspace
 * Uses an existing Azure Key Vault to retrieve customer-managed keys
+
+> [!IMPORTANT]
+> Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
 For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
@@ -351,6 +358,9 @@ An additional configuration you can provide for your data is to set the **confid
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
 
+    > [!IMPORTANT]
+    > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
+
   For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 ## Deploy workspace behind a virtual network
@@ -365,10 +375,12 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 
 ### Only deploy workspace behind private endpoint
 
-If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint.
+If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> The deployment is only valid in regions which support private endpoints.
+> Using Azure Private Link to create a private endpoint for Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
+> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # [Azure CLI](#tab/azcli)
 
@@ -740,7 +752,34 @@ To avoid this problem, we recommend one of the following approaches:
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
     ```
 
+### Virtual network not linked to private DNS zone
+
+When creating a workspace with a private endpoint, the template creates a Private DNS Zone named __privatelink.api.azureml.ms__. A __virtual network link__ is automatically added to this private DNS zone. The link is only added for the first workspace and private endpoint you create in a resource group; if you create another virtual network and workspace with a private endpoint in the same resource group, the second virtual network may not get added to the private DNS zone.
+
+To view the virtual network links that already exist for the private DNS zone, use the following Azure CLI command:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+To add the virtual network that contains another workspace and private endpoint, use the following steps:
+
+1. To find the virtual network ID for the network that you want to add, use the following command:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    This command returns a value similar to `"/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"'. Save this value and use it in the next step.
+
+2. To add a virtual network link to the privatelink.api.azureml.ms Private DNS Zone, use the following command. For the `--virtual-network` parameter, use the output of the previous command:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
+    ```
+
 ## Next steps
 
 * [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
 * [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [For other templates related to Azure Machine Learning, see the Azure Quickstart Templates repository](https://github.com/Azure/azure-quickstart-templates)

@@ -27,7 +27,7 @@ Security Center standard tier includes:
 ## Detecting unprotected resources
 Security Center automatically detects any Azure subscriptions or workspaces not enabled for Security Center Standard. This includes Azure subscriptions using Security Center Free and workspaces that do not have the Security solution enabled.
 
-You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all supported resources within the subscription. Applying the Standard tier to a workspace applies to all resources reporting to the workspace.
+You can upgrade an entire Azure subscription to the standard tier, which is inherited by all supported resources within the subscription. Applying the standard tier to a workspace applies to all resources reporting to the workspace.
 
 > [!NOTE]
 > You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace. If you are using solution targeting, Security Center lists the workspace as not having a solution.

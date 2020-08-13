@@ -1,8 +1,8 @@
 ---
 title: Creating a commercial ready Azure Remote Rendering application
 description: Strategies and considerations for creating a commercial ready application using Azure Remote Rendering
-author: m-the-hoff
-ms.author: v-michof
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---

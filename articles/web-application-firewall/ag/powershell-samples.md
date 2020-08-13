@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell examples for Azure Application Gateway
+title: Azure Application Gateway examples in Azure PowerShell
 description: Azure PowerShell examples for Azure Application Gateway
 services: web-application-firewall
 author: vhorne
@@ -9,7 +9,7 @@ ms.date: 09/30/2019
 ms.author: victorh
 
 ---
-# Azure PowerShell examples for Azure Application Gateway
+# Azure PowerShell script examples for Azure Application Gateway
 
 The following table includes links to Azure PowerShell script examples for Azure Application Gateway.
 

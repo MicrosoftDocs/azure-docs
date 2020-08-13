@@ -215,7 +215,7 @@ Disable NPS extension:
 -	Determine if primary authentication for VPN is successful.
 
 Once the service has recovered and you are ready to enforce MFA on your users again, enable the NPS extension: 
--	Important the registry key from backup HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-	Import the registry key from backup HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
 -	Restart the Network Policy Service (IAS) service for the changes to take effect 
 -	Determine if primary authentication as well as secondary authentication for VPN is successful.
 -	Review NPS server and the VPN log to determine which users have signed in during the emergency window.

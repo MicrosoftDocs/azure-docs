@@ -45,19 +45,19 @@ The Azure drive enables easy discovery and navigation of Azure resources such as
 You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources regardless of the drive you are in.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are reflected in the Azure drive.  You can run `dir -Force` to refresh your resources.
 
-![](media/features-powershell/azure-drive.png)
+![Screenshot of an Azure Cloud Shell being initialized and a list of directory resources.](media/features-powershell/azure-drive.png)
 
 ### Manage Exchange Online
 
 PowerShell in Cloud Shell contains a private build of the Exchange Online module.  Run `Connect-EXOPSSession` to get your Exchange cmdlets.
 
-![](media/features-powershell/exchangeonline.png)
+![Screenshot of an Azure Cloud Shell running the commands Connect-EXOPSSession and Get-User.](media/features-powershell/exchangeonline.png)
 
  Run `Get-Command -Module tmp_*`
 > [!NOTE]
 > The module name should begin with `tmp_`, if you have installed modules with the same prefix, their cmdlets will also be surfaced. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Screenshot of an Azure Cloud Shell running the command Get-Command -Module tmp_*.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### Deep integration with open-source tooling
 

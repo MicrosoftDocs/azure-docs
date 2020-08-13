@@ -27,7 +27,7 @@ For the details on how enterprise customers and Pay-As-You-Go customers are char
 
 The size of reservation should be based on the total amount of memory size used by the existing or soon-to-be-deployed cache within a specific region and using the same service tier.
 
-For example, let's suppose that you are running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13 GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either 1 P1 cache and 1 P2 cache or 3 P1 caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
+For example, let's suppose that you are running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13 GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either 1 P2 cache and 1 P3 cache or 3 P2 caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
 
 
 ## Buy Azure Cache for Redis reserved capacity
@@ -50,7 +50,7 @@ The following table describes required fields.
 | Region | The Azure region that’s covered by the Azure Cache for Redis reserved capacity reservation.
 | Pricing tier | The service tier for the Azure Cache for Redis servers.
 | Term | One year or three years
-| Quantity | The amount of compute resources being purchased within the Azure Cache for Redis reserved capacity reservation. The quantity is a number of caches in the selected Azure region and service tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Cache for Redis servers with the total cache capacity of 26 GB in the East US region, then you would specify quantity as 26 to maximize the benefit for all caches.
+| Quantity | The amount of compute resources being purchased within the Azure Cache for Redis reserved capacity reservation. The quantity is a number of caches in the selected Azure region and service tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Cache for Redis servers with the total cache capacity of 26 GB in the East US region, then you would specify quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches. This could be 1 P3 or 2 P2 caches.
 
 ## Cancel, exchange, or refund reservations
 
