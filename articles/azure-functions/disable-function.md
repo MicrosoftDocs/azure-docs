@@ -42,6 +42,21 @@ You can also use the **Enable** and **Disable** buttons on the function's **Over
 > [!NOTE]  
 > The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
 
+## local.settings.json
+
+Functions can be disabled in the same way when running locally. To disable a function named `HttpExample`, add an entry to the Values collection in the local.settings.json file, as follows:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+	"AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
+
 ## Other methods
 
 While the application setting method is recommended for all languages and all runtime versions, there are several other ways to disable functions. These methods, which vary by language and runtime version, are maintained for backward compatibility. 
