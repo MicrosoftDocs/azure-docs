@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-# Train a model using a custom Docker base image
+# Train a model using a custom Docker image
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to use a custom Docker base image when training models with Azure Machine Learning. 
@@ -55,7 +55,7 @@ myenv.docker.enabled = True
 ```
 
 This specified base image supports the fastai library which allows for distributed deep learning capabilities. 
-When you are using your custom Docker image, you might already have your Python environment properly set up. In that case, set the `user_managed_dependencies` flag to True in order to disable Conda.
+When you are using your custom Docker image, you might already have your Python environment properly set up. In that case, set the `user_managed_dependencies` flag to True in order to leverage your custom image's built-in python environment.
 
 ```python
 myenv.docker.base_image = "fastdotai/fastai2:latest"
