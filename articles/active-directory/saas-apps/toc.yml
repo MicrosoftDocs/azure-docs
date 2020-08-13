@@ -79,6 +79,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altamira HRM
+        href: altamira-hrm-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
@@ -1718,6 +1720,8 @@
         href: velpicsaml-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
+      - name: VeraSMART
+        href: verasmart-tutorial.md
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
       - name: Verkada Command
