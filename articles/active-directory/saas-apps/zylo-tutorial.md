@@ -81,15 +81,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://api.zylo.com/saml/sso/azuread/<CUSTOMER_NAME>`
-
-    b. In the **Identifier** text box, type the value: 
-    `zylo` 
+    In the **Reply URL** text box, type a URL using the following pattern:
+    `https://api.zylo.com/saml/sso/azuread/<CUSTOMER_NAME>` 
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type the URL:
     `https://app.zylo.com/login`
 
 	> [!NOTE]
