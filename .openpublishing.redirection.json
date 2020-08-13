@@ -901,11 +901,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/how-to-configure-private-link.md",
-      "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -12339,6 +12334,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-lifecycle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-lifecycle",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
       "redirect_document_id": true
@@ -18028,6 +18033,11 @@
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
       "redirect_url": "/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
@@ -39379,6 +39389,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-portal/admin-timeout.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#change-the-directory-timeout-setting-admin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/azure-portal-change-theme-high-contrast.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#choose-a-theme-or-enable-high-contrast",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/azure-portal-export-delete-settings.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#export-user-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
       "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
       "redirect_document_id": false
@@ -39581,6 +39606,26 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech/async-synthesis-long-form-audio.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/long-audio-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-audio-file.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
     },
     {
@@ -55457,6 +55502,41 @@
     },
     {
       "source_path": "articles/dev-spaces/how-to/share-dev-spaces.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-cli.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-existing-helm-chart.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-team-development.md",
       "redirect_url": "/azure/dev-spaces/",
       "redirect_document_id": false
     },

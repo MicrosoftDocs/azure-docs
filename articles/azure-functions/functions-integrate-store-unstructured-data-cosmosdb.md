@@ -4,7 +4,7 @@ description: Store unstructured data using Azure Functions and Cosmos DB
 
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
 
