@@ -75,31 +75,11 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
     }
     ```
 #### [Portal](#tab/Azure-portal)
-## Provision a service instance using the Azure portal
-The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
-
-1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
-
-2. From the top search box, search for **Azure Spring Cloud**.
-
-3. Select **Azure Spring Cloud** from the results.
-
-    ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
-
-4. On the Azure Spring Cloud page, click **+ Add**.
-
-    ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
-
-5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
-    - **Subscription**: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
-    - **Resource group**: Creating new resource groups for new resources is a best practice.
-    - **Service Details/Name**: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-    - **Location**: Select the location for your service instance. Currently supported locations include East US, West US 2, West Europe, and Southeast Asia.
-
-    ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+[!INCLUDE [provision-cli](spring-cloud-quickstart-provision-service.md#provision-an-instance-using-the-azure-portal.md)]
 
 #### [CLI](#tab/Azure-CLI)
-[!INCLUDE [provision-cli](spring-cloud-tutorial-intellij-deploy-apps.md#provision-a-service-instance-using-the-azure-cliextension.md)]
+[!INCLUDE [provision-cli](spring-cloud-quickstart-provision-service.md#provision-a-service-instance-using-the-azure-cli-extension)]
+---
 
 ## Build and deploy the application
 Make sure you are executing the following command at the root of the project.
