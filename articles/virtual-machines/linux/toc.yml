@@ -418,7 +418,7 @@
     - name: Migration Overview
       href: migration-classic-resource-manager-overview.md
     - name: Deep dive on migration
-      href: migration-classic-resource-manager-deep-dive.md
+      href: ../migration-classic-resource-manager-deep-dive.md
     - name: Plan for migration
       href: migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
