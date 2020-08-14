@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 08/14/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure
+## Prerequisites
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
