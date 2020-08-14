@@ -34,29 +34,6 @@ az vm list-skus
     --output table
 ```
 
-As of April 2020, these SKUs are available in the following regions and availability zones:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
-```
-
 For a more detailed view of the above sizes, run the following command:
 
 ```azurecli-interactive
@@ -97,7 +74,7 @@ Azure confidential computing doesn't support zone-redundancy via Availability Zo
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-To learn about Azure Resource Manager templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
+To learn about ARM templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
 
 To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
