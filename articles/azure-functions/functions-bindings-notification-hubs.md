@@ -4,6 +4,7 @@ description: Understand how to use Azure Notification Hub binding in Azure Funct
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ---

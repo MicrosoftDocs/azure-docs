@@ -5,6 +5,7 @@ description: Authenticate to Azure App Configuration using managed identities
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
