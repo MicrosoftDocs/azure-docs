@@ -41,8 +41,8 @@ On the **Plan listing** tab, you can define the plan name and description as you
    > [!NOTE]
    > This name will appear in the marketplace as the title of your offer's software plan.
 
-2. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
-3. Select **Save draft** before continuing to the next tab: **Pricing and availability**.
+1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
+1. Select **Save draft** before continuing to the next tab: **Pricing and availability**.
 
 ## Define markets, pricing, and availability
 

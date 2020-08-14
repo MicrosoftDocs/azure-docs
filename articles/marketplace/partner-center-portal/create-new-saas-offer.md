@@ -4,6 +4,8 @@ description: How to create a Software as a Service (SaaS) offer for listing or s
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen-ms 
+ms.author: mingshen
 ms.date: 07/22/2020
 ---
 
