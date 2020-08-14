@@ -1,6 +1,6 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
-description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc for servers (preview) from the Azure portal.
+description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers (preview) from the Azure portal.
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Connect hybrid machines to Azure from the Azure portal
 
-You can enable Azure Arc for servers (preview) for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of both agents.
+You can enable Azure Arc enabled servers (preview) for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of both agents.
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
@@ -29,7 +29,7 @@ The script to automate the download and installation, and to establish the conne
 1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored.
 
     >[!NOTE]
-    >Azure Arc for servers (preview) supports only the following regions:
+    >Azure Arc enabled servers (preview) supports only the following regions:
     >- EastUS
     >- WestUS2
     >- WestEurope
@@ -142,7 +142,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc enabled servers (preview), go to the Azure portal to verify that the server has successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

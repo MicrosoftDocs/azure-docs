@@ -4,6 +4,7 @@ description: Add feature flags to ASP.NET Core apps and manage them using Azure 
 author: lisaguthrie
 
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
