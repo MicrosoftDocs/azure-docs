@@ -23,7 +23,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
+    + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
   + **azureml-automl-core**
     + AutoML raises a new error code from dataprep when content is modified while being read.
   + **azureml-automl-runtime**
