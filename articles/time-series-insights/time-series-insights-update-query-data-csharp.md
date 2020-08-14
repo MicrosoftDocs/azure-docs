@@ -18,7 +18,7 @@ ms.custom: seodec18
 This C# example demonstrates how to query data from the [Gen2 Data Access APIs](https://docs.microsoft.com/rest/api/time-series-insights/preview) in Azure Time Series Insights Gen2 environments.
 
 > [!TIP]
-> View Gen2 C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+> View Gen2 C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
 
 ## Summary
 
@@ -45,7 +45,7 @@ Complete the following steps before you compile and run the sample code:
 
 1. [Provision a Gen2 Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) environment.
 1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). 
-1. Run the [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) as specified in the [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) to generate the Azure Time Series Insights Gen2 client dependencies.
+1. Run the [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) as specified in the [Readme.md](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) to generate the Azure Time Series Insights Gen2 client dependencies.
 1. Open the `TSIPreviewDataPlaneclient.sln` solution and set `DataPlaneClientSampleApp` as the default project in Visual Studio.
 1. Install the required project dependencies using the steps described [below](#project-dependencies) and compile the example to an executable `.exe` file.
 1. Run the `.exe` file by double-clicking on it.
@@ -56,7 +56,7 @@ It's recommended that you use the newest version of Visual Studio:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
 
-The sample code has several required dependencies which can be viewed in the [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) file.
+The sample code has several required dependencies which can be viewed in the [packages.config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/packages.config) file.
 
 Download the packages in Visual Studio 2019 by selecting the **Build** > **Build Solution** option. 
 
