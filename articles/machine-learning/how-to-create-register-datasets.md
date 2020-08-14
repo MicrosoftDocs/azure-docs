@@ -231,7 +231,7 @@ To create a dataset in the studio:
 
 [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the studio.
 
-Learn how to create [Azure Machine Learning Datasets from Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+Learn how to create [Azure Machine Learning Datasets from Azure Open Datasets](../open-datasets/how-to-create-azure-ml-dataset-from-open-datasets.md). 
 
 ## Train with datasets
 

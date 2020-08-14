@@ -931,6 +931,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-create-dataset-from-open-dataset.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-azure-ml-dataset-from-open-dataset",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-define-task-type.md",
       "redirect_url": "/azure/machine-learning/concept-automated-ml",
       "redirect_document_id": false
