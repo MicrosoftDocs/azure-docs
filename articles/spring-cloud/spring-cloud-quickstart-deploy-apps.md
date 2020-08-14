@@ -236,14 +236,14 @@ The gateway application needs a public facing endpoint to access the application
 az spring-cloud app update -n gateway --is-public true
 ```
 
-1. Query the **gateway** application for its public IP so you can verify that the application is running:
+2. Query the **gateway** application for its public IP so you can verify that the application is running:
 
 ```azurecli
 az spring-cloud app show --name gateway --query properties.url
 ```
 
 
-1. Use the URL returned from the previous command to navigate to the URL in browser.
+3. Use the URL returned from the previous command to navigate to the URL in browser.
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
   
