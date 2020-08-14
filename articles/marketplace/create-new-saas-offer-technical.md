@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/31/2020
 ---
 
 # Provide technical details for your SaaS offer
@@ -19,7 +19,7 @@ On the **Technical configuration** tab, you'll define the technical details that
 > [!NOTE]
 > This tab is not visible if you choose to process transactions independently instead of selling your offer through Microsoft. If so, go to [Marketing options](create-new-saas-offer-marketing.md).
 
-For details about these settings, see [Technical configuration](plan-saas-offer.md#gather-information-for-the-technical-configuration-tab).
+For details about these settings, see [Technical configuration](plan-saas-offer.md#gather-technical-information).
 
 - **Landing page URL** (required) – Define the SaaS website URL (for example: `https://contoso.com/signup`) that customers will land on after acquiring your offer from the marketplace and triggering the configuration process from the newly created SaaS subscription.
 

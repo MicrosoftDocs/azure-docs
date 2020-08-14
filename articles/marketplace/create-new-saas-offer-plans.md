@@ -58,7 +58,7 @@ Every plan must be available in at least one market. On the **Pricing and availa
 
 ## Define a pricing model
 
-You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more informatio, see [Pricing models](plan-saas-offer.md#pricing-models).
+You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [Pricing models](plan-saas-offer.md#pricing-models).
 
 > [!IMPORTANT]
 > After your offer is published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.

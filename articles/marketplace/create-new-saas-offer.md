@@ -19,7 +19,7 @@ As a commercial marketplace publisher, you can create a software as a service (S
 If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). It will help you understand the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer.
 
 > [!IMPORTANT]
-> Unless you plan to publish a simple listing (**Contact me** call-to-action) in the commercial marketplace, your SaaS application must meet technical requirements around authentication. For detailed information, see [Plan a SaaS offer](plan-saas-offer.md) and [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
+> Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication. For detailed information, see [Plan a SaaS offer](plan-saas-offer.md) and [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 
 ## Create a new SaaS offer
 
@@ -42,7 +42,7 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 ## Configure your SaaS offer setup details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#call-to-action-options) and [Determine your publishing option](determine-your-listing-type.md).
+On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
 
 1. To sell through Microsoft and have us host transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 
@@ -69,7 +69,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 Connect your Customer Relationship Management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product. You can modify this connection at any time during or after you create the offer.
 
-You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** call to action option. For detailed guidance, see [Lead management for commercial marketplace](lead-management-for-cloud-marketplace.md).
+You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Lead management for commercial marketplace](lead-management-for-cloud-marketplace.md).
 
 **To configure the connection details in Partner Center**
 1.	Under **Customer leads**, select the **Connect** link.

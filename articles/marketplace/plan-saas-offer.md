@@ -42,7 +42,7 @@ After your offer is published, the listing option you chose for your offer appea
 
 The technical requirements differ depending on the listing option you choose for your offer.
 
-The _Contact me_ call-to-action option has no technical requirements. You have the option to connect a CRM system to manage customer leads, which is described in the [Customer leads](#customer-leads) section, later in this article.
+The _Contact me_ listing option has no technical requirements. You have the option to connect a CRM system to manage customer leads, which is described in the [Customer leads](#customer-leads) section, later in this article.
 
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
@@ -52,7 +52,7 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing opti
   - [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
   - [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
 
-These technical requirements apply to the Sell through Microsoft call-to-action only:
+These technical requirements apply to the Sell through Microsoft listing option only:
 
 - Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use with the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with the Azure Marketplace. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
@@ -220,7 +220,6 @@ Offers sold through Microsoft (transactable offers) require at least one plan. A
 **Call-out descriptions**
 1. Software plan
 1. Description
-
 
 The **Plan overview** tab of Partner Center will take you to additional tabs where you complete all details for one or more plans.
 
