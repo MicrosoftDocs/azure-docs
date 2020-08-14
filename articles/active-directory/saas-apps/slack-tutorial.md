@@ -88,14 +88,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://< DOMAIN NAME>.slack.com/sso/saml/start`
+    `https://<DOMAIN NAME>.slack.com/sso/saml/start`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `https://slack.com`
+    c. For **Reply URL**, enter one of the following URL:
+
+	| Reply URL|
+	|----------|
+	| `https://<DOMAIN NAME>.slack.com/sso/saml` |
+	| `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` | 
 
 	> [!NOTE]
-	> The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-	
+	> These values aren't real. You need to update these values with the actual sign-on URL and reply URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
 	> [!NOTE]
 	> The value for **Identifier (Entity ID)** can be a variable if you have more than one Slack instance that you need to integrate with the tenant. Use the pattern `https://<DOMAIN NAME>.slack.com`. In this scenario, you also must pair with another setting in Slack by using the same value.
 
