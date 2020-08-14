@@ -11,4 +11,4 @@ ms.author: erhopf
 This quickstart requires:
 
 * [Python 2.7.x or 3.x](https://www.python.org/downloads/)
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
