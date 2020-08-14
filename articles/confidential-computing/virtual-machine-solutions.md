@@ -34,29 +34,6 @@ az vm list-skus `
     --output table
 ```
 
-As of July 2020, these SKUs are available in the following regions and availability zones:
-
-```output
-Name              Locations      AZ_a    AZ_b    AZ_c
-----------------  -------------  ------  ------  ------
-Standard_DC8_v2   eastus         1       2       3
-Standard_DC1s_v2  eastus         1       2       3
-Standard_DC2s_v2  eastus         1       2       3
-Standard_DC4s_v2  eastus         1       2       3
-Standard_DC8_v2   westeurope     3
-Standard_DC1s_v2  westeurope     3
-Standard_DC2s_v2  westeurope     3
-Standard_DC4s_v2  westeurope     3
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-```
-
 For a more detailed view of the above sizes, run the following command:
 
 ```azurecli-interactive
@@ -98,7 +75,7 @@ Azure confidential computing doesn't support zone-redundancy via Availability Zo
 
 ## Deploying via an Azure Resource Manager (ARM) Template 
 
-Azure Resource Manager (ARM) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You can use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You can use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 To learn about ARM templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
 
