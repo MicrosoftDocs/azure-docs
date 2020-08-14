@@ -192,30 +192,21 @@ We recommend that your documentation on your site at a minimum include the follo
 When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 
-
-
-
 ## Submit your app (Step 5)
-
-Submit your application listing and partner with Microsoft to create documentation on Microsoft’s site.
 
 After you've tested that your application integration works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-If the following page appears after you sign in, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. A business email address such as [name@yourbusiness.com](mailto:name@yourbusiness.com) is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
+The first time you try to sign into the portal you will be presented with one of two screens. 
 
-![Access request message on SharePoint portal](./media/howto-app-gallery-listing/errorimage.png)
+If you receive a message that "That didn't work" then you will need to contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
 
-After the account is added, you can sign in to the Microsoft Application Network portal.
+If you see a "Request Access" page then fill in the business justification and select **Request Access**.
 
-If the following page appears after you sign in, provide a business justification for needing access in the text box. Then select **Request Access**.
-
-  ![Business justification box on SharePoint portal](./media/howto-app-gallery-listing/accessrequest.png)
-
-Our team reviews the details and gives you access accordingly. After your request is approved, you can sign in to the portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page.
+After the account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page.
 
 ![Submit Request (ISV) tile on home page](./media/howto-app-gallery-listing/homepage.png)
 
-## Issues on logging into portal
+### Issues on logging into portal
 
 If you are seeing this error while logging in then here are the detail on the issue and this is how you can fix it.
 
@@ -251,42 +242,33 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-
-## Request user provisioning
-
-The Azure AD app gallery is for apps that are available to all customers. When you fill in the form to have your app listed, you need to make the request to have users provisioned. See the following image to request user provisioning.
+If you are implementing a SCIM 2.0 endpoint for user provisioning, select the option as shown. 
 
    ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
 
-
-
 ### Update or remove an existing listing
 
-To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account, such as Outlook or Hotmail, to sign in.
+You can update or remove an existing gallery app in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-- Select the appropriate option as shown in the following image.
+![Listing a SAML application in the gallery](./media/howto-app-gallery-listing/updateorremove.png)
 
-    ![Listing a SAML application in the gallery](./media/howto-app-gallery-listing/updateorremove.png)
-
-    * To update an existing application, select the appropriate option as per your requirement.
-    * To remove an existing application from the Azure AD app gallery, select **Remove my application listing from the gallery**.
-    * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> [!NOTE]
+> If you have any issues with access, review the previous section on creating your account. If that doesn't work, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 
 ### Timelines
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7 to 10 business days.
 
-  ![Timeline for listing a SAML application in the gallery](./media/howto-app-gallery-listing/timeline.png)
+![Timeline for listing a SAML application in the gallery](./media/howto-app-gallery-listing/timeline.png)
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2 to 5 business days.
 
-  ![Timeline for listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/timeline2.png)
+![Timeline for listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/timeline2.png)
 
 ### Escalations
 
-For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com) at SaaSApplicationIntegrations@service.microsoft.com, and we'll respond as soon as possible.
-
+For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and we'll respond as soon as possible.
 
 
 ## Join the Microsoft partner network (Step 6)
