@@ -26,7 +26,7 @@ This article describes the differences between self-hosted and managed versions 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="migrate-from-legacy"></a> Migrate from the legacy portal
+## <a name="migrate-from-legacy"></a> Migration from the legacy portal
 
 The new developer portal addresses many limitations of the legacy portal. It features a visual drag-and-drop editor for editing content and a dedicated panel for designers to style the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](#automate). Lastly, the portal's codebase is open-source, so [you can extend it with custom functionality](#managed-vs-self-hosted).
 
