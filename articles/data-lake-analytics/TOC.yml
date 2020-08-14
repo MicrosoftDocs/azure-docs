@@ -1,4 +1,4 @@
-- name: Data Lake Analytics Documentation
+- name: Data Lake Analytics documentation
   href: index.yml
 - name: Overview
   items:
@@ -32,7 +32,7 @@
       href: ./security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
-- name: How to
+- name: How-to guides
   items:
   - name: Manage Data Lake Analytics
     items:
