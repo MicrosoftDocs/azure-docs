@@ -139,7 +139,7 @@ Let's now use the Update() loop to check if there is an Action queued. If so, we
 
 ## [Via Unity Package Manager (UPM) Package](#tab/UPMPackage)
 
-This method is compatible with Unity versions 2019.3.4f1+ and 2020.1.0a25+.
+This method is compatible with Unity versions 2019.1+.
 
 ### Add the registry to your Unity project
 
