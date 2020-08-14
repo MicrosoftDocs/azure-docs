@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -79,14 +79,15 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32528.).
 
-**Guidance**: Enable DDoS Protection Standard on the virtual networks
-associated with your Machine Learning instance to guard against distributed
-denial-of-service (DDoS) attacks. Use Azure Security Center Integrated threat detection
-to detect communications with known malicious or unused Internet IP addresses.Deploy Azure Firewall at each of the organization's network
-boundaries with threat intelligence-based filtering enabled and configured to
-- ["Alert and deny" for malicious network traffic.How to configure DDoS protection](/azure/virtual-network/manage-ddos-protectionUse) workspace behind Azure Firewall for Azure Machine
-- [Learning](how-to-access-azureml-behind-firewall.mdFor) more information about the Azure Security Center threat
-- [detection](/azure/security-center/security-center-alerts-service-layer)
+**Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Machine Learning instance to guard against distributed denial-of-service (DDoS) attacks. Use Azure Security Center Integrated threat detection to detect communications with known malicious or unused Internet IP addresses.
+
+Deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.
+
+- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
+
+- [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
+
+- [For more information about the Azure Security Center threat detection](/azure/security-center/security-center-alerts-service-layer)
 
 **Azure Security Center monitoring**: Yes
 
@@ -607,11 +608,15 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32561.).
 
-**Guidance**: &lt;--- no information available on how sensitive info is classified in Machine Learning, needs service owner input ---&gt;
+**Guidance**: Use a third-party solution from Azure Marketplace in network perimeters to monitor for unauthorized transfer of sensitive information and block such transfers while alerting information security professionals. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities. 
 
-**Responsibility**: <--- ? --->
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center monitoring**: Not Applicable
+
+**Responsibility**: Customer
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -757,7 +762,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: ???Customer
+**Responsibility**: Customer
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
