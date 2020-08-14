@@ -1,5 +1,25 @@
-# FortiGate Deployment Guide
+---
+title: 'FortiGate Deployment Guide | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and FortiGate SSL VPN.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: mtillman
+ms.reviewer: barbkess
 
+ms.assetid: 18a3d9d5-d81c-478c-be7e-ef38b574cb88
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.topic: tutorial
+ms.date: 08/11/2020
+ms.author: jeedes
+
+ms.collection: M365-identity-device-management
+---
+
+# FortiGate Deployment Guide
 
 ## Contents
 
