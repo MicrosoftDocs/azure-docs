@@ -20,7 +20,6 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 ## Deployment procedures
 
 #### [CLI](#tab/Azure-CLI)
-## Azure CLI deployment
 To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
 
 ```azurecli

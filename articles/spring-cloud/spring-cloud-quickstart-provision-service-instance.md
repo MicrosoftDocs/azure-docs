@@ -20,7 +20,7 @@ You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI. 
 ## Provision an instance of Azure Spring Cloud
 
 #### [Portal](#tab/Azure-portal)
-## Provision a service instance using the Azure portal
+
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
