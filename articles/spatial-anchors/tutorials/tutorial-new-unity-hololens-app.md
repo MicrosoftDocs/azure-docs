@@ -142,10 +142,11 @@ Let's now use the Update() loop to check if there is an Action queued. If so, we
 This method is compatible with Unity versions 2019.3.4f1+ and 2020.1.0a25+.
 
 ### Add the registry to your Unity project
+
 1. In a file explorer, navigate to your Unity project's `Packages` folder. Open the project manifest file, `manifest.json`, in a text editor.
 2. At the top of the file, at the same level as the `dependencies` section, add the following entry to include the Azure Spatial Anchors registry to your project. The `scopedRegistries` entry tells Unity where to look for the Azure Spatial Anchors SDK packages.
 
-[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=10-18)]
+[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=10-18)]
 
 ### Add the SDK package to your Unity project
 
@@ -155,7 +156,7 @@ This method is compatible with Unity versions 2019.3.4f1+ and 2020.1.0a25+.
 
 2. Save and close the `manifest.json` file. When you return to Unity, Unity should automatically detect the project manifest change and retrieve the specified packages. You can expand the `Packages` folder in your Project view to verify that the right packages have been imported.
 
-## [Via Unity Package](#tab/UnityPackage)
+## [Via Unity Asset Package](#tab/UnityAssetPackage)
 
 > [!WARNING]
 > The Unity Asset Package distribution of the Azure Spatial Anchors SDK will be deprecated after SDK version 2.5.0.
@@ -163,8 +164,6 @@ This method is compatible with Unity versions 2019.3.4f1+ and 2020.1.0a25+.
 We'll now download the Azure Spatial Anchors SDK. Go to the [Azure Spatial Anchors GitHub releases page](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under **Assets**, download the **AzureSpatialAnchors.unitypackage**. In Unity, go to **Assets**, select **Import Package** > **Custom Package...**. Navigate to the package and select **Open**.
 
 In the new **Import Unity Package** window that pops up, unselect **Plugins** and then select **Import** in the bottom-right corner.
-
-We now need to restore NuGet packages in order to get Azure Spatial Anchors SDK. Build from **Unity**, and then open and build the resulting **Visual Studio** solution, as detailed in [Trying it out](#trying-it-out).
 
 ---
 
@@ -206,7 +205,7 @@ Finally, let's hook everything together. In your `SpawnNewAnchoredObject()` meth
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Run your app from **Visual Studio** once more. Move around your head and then air tap to place your sphere. Once we have enough frames, the sphere will turn into yellow, and the cloud upload will start. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the Output window inside **Visual Studio** to monitor the log messages your app is sending. You can watch the `RecommendedForCreateProgress`, and once the upload is completed, you'll be able to see the anchor identifier returned from the cloud.
+Run your app from **Visual Studio** once more. Move around your head and then air tap to place your sphere. Once we have enough frames, the sphere will turn yellow, and the cloud upload will start. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the Output window inside **Visual Studio** to monitor the log messages your app is sending. You can watch the `RecommendedForCreateProgress`, and once the upload is completed, you'll be able to see the anchor identifier returned from the cloud.
 
 > [!NOTE]
 > If you get "DllNotFoundException: Unable to load DLL 'AzureSpatialAnchors': The specified module could not be found.", you should **Clean** and **Build** your solution again.
@@ -234,6 +233,6 @@ Now lets add code that will create & place a green sphere once the CloudSpatialA
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-That's it! Run your app from **Visual Studio** one last time to try out the whole scenario end to end. Move around your device, and place your white sphere. Then, keep moving your head to capture environment data until the sphere turns yellow. Your local anchor will be uploaded, and your sphere will turn blue. Finally, tap your screen once more to remove your local anchor and begin a query for its cloud counterpart. Continue moving your device around until your cloud spatial anchor is located. A green sphere should appear in the correct location, and you can rinse & repeat the whole scenario again.
+That's it! Run your app from **Visual Studio** one last time to try out the whole scenario end to end. Move around your device, and place your white sphere. Then, keep moving your head to capture environment data until the sphere turns yellow. Your local anchor will be uploaded, and your sphere will turn blue. Finally, tap your screen once more to remove your local anchor and begin a query for its cloud counterpart. Continue moving your device around until your cloud spatial anchor is located. A green sphere should appear in the correct location, and you can repeat the whole scenario again.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

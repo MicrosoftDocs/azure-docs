@@ -10,7 +10,7 @@ ms.author: kacruz
   "scopedRegistries": [
     {
       "name": "Azure Mixed Reality Services",
-      "url": "https://my.internal.registry.com",
+      "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM",
       "scopes": [
         "com.microsoft.azure.spatial-anchors-sdk"
       ]

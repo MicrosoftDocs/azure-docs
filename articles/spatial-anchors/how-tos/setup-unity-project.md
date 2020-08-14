@@ -23,9 +23,10 @@ Azure Spatial Anchors currently supports Unity 2019.4 (LTS) with the following c
 
 ### [Add the Unity Package Manager packages to your project](#tab/UPMPackage)
 
-Azure Spatial Anchors for Unity is currently distributed using Unity Package Manager (UPM) Packages. These packages can be found in our [BinTray registry](https://bintray.com/microsoft/AzureSpatialAnchors).
+Azure Spatial Anchors for Unity is currently distributed using Unity Package Manager (UPM) Packages. These packages can be found in our [NPM registry](https://bintray.com/microsoft/AzureMixedReality-NPM). To learn more about working with scoped package registries in a Unity project, see the official Unity documentation [here](https://docs.unity3d.com/Manual/upm-scoped.html).
 
 #### Add the registry to your Unity project
+
 1. In a file explorer, navigate to your Unity project's `Packages` folder. Open the project manifest file, `manifest.json`, in a text editor.
 2. At the top of the file, at the same level as the `dependencies` section, add the following entry to include the Azure Spatial Anchors registry to your project. The `scopedRegistries` entry tells Unity where to look for the Azure Spatial Anchors SDK packages.
 
@@ -69,6 +70,8 @@ When it's all done, your `dependencies` section should look something like this:
 
 1. Download the `AzureSpatialAnchors.unitypackage` file for the version you want to target from the [GitHub releases](https://github.com/Azure/azure-spatial-anchors-samples/releases).	
 2. Follow the instructions [here](https://docs.unity3d.com/Manual/AssetPackagesImport.html) to import the Unity asset package into your project.	
+
+---
 
 ## Next steps
 
