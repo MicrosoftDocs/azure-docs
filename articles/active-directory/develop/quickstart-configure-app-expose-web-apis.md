@@ -40,7 +40,7 @@ You can add a scope by using the [Expose an API](#add-a-scope) pane in the Azure
 
 ## Add a scope
 
-The code in a client application requests permission to perform operations defined by your web API's scopes by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
+The code in a client application requests permission to perform operations defined by your web API by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
 
 To add a scope by using the **Expose an API** pane in the Azure portal:
 
@@ -125,9 +125,9 @@ For example, if your web API's application ID URI is `https://contoso.com/api` a
 
 ## Using the exposed scopes
 
-In the next article in the series, you configure a client app's registration with access to your web API and the scopes you defined by following the steps this article.
+In the next article in the series, you will configure an app's registration to give it access to the web API and scopes you defined in this article.
 
-Once a client app registration is granted permission to access your web API, the client can be issued an OAuth 2.0 access token by the Microsoft identity platform. When the client calls the web API, it presents an access token whose scope (`scp`) claim is set to the permissions you've specified in the client's app registration.
+Once an app is granted permission to access your web API, the app can be issued an OAuth 2.0 access token by the Microsoft identity platform. When the app calls the web API, it presents an access token whose scope (`scp`) claim is set to the permissions you've specified in the app's registration.
 
 You can expose additional scopes later as necessary. Consider that your web API can expose multiple scopes associated with several operations. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the OAuth 2.0 access token it receives.
 
