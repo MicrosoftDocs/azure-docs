@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
 ---
@@ -27,7 +27,7 @@ Use this article to find the limits for the size, and rates that you can send da
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Applies to Text Analytics for health container. |
 | Maximum size of entire request | 1 MB |
 
 The maximum number of documents you can send in a single request will depend on the API version and feature you're using.
