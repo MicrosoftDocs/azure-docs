@@ -4,7 +4,7 @@ description: Learn about date and time SQL system functions in Azure Cosmos DB t
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/09/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -18,6 +18,7 @@ The following scalar functions allow you to get the current UTC date and time in
 
 * [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
 * [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
+* [GetCurrentTicks](sql-query-getcurrentticks.md)
 
 ## Functions to work with DateTime values
 
@@ -26,6 +27,8 @@ The following functions allow you to easily manipulate DateTime values:
 * [DateTimeAdd](sql-query-datetimeadd.md)
 * [DateTimeDiff](sql-query-datetimediff.md)
 * [DateTimeFromParts](sql-query-datetimefromparts.md)
+* [DateTimePart](sql-query-datetimepart.md)
+* [DateTimeToTicks](sql-query-datetimetoticks.md)
 
 ## Next steps
 
