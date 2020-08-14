@@ -1496,6 +1496,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/sdk-authoring.md",
+      "redirect_url": "/azure/cognitive-services/luis/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/sdk-query-prediction-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/luis/quickstart-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-keys.md",
       "redirect_url": "/azure/cognitive-services/luis/luis-how-to-azure-subscription",
       "redirect_document_id": false
@@ -9310,7 +9320,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-dotnet-cli-nodejs.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -9385,7 +9395,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-dotnet-get-started.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -9555,7 +9565,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-dotnet-portal.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -9970,7 +9980,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-dotnet.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -11020,7 +11030,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-create-web-app-using-vscode.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -28084,7 +28094,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/app-service-web-get-started-dotnet",
+      "source_path": "articles/app-service/app-service-web-get-started-dotnet.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },    
@@ -43760,7 +43770,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/sdk-csharp-3x.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/sdk-authoring",
+      "redirect_url": "/azure/cognitive-services/LUIS/quickstart-sdk",
       "redirect_document_id": false
     },
     {
