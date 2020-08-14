@@ -42,7 +42,7 @@ In addition, there are many benefits when your customers use Azure AD as an iden
 - Add security and convenience when users sign on to applications by using Azure AD SSO and removing the need for separate credentials.
 
 > [!TIP]
-> When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
+> When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For an overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
 
 > [!IMPORTANT]
 > To publish your app in the Azure AD gallery you must agree to specific terms and conditions. Before you begin, make sure to read and agree to the [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
@@ -112,11 +112,12 @@ Password-based SSO, also referred to as password vaulting, enables you to manage
 ## Step 2 - Implement single sign-on in your app
 Every app in the gallery must implement one of the supported single sign-on options. To learn more about the supported options, see [SSO options](../manage-apps/sso-options.md).
 
-For specific guidance, see [guidance on authentication patterns](v2-app-types.md) and [Azure active Directory code samples](sample-v2-code.md) for OIDC and OAuth protocols.
+For OAuth and OIDC, see [guidance on authentication patterns](v2-app-types.md) and [Azure active Directory code samples](sample-v2-code.md).
 
-Your application must have the capability to do SAML/WS-Fed SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request. 
+For SAML and WS-Fed, your application must have the capability to do SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request. 
 
-For federated applications (OpenID and SAML/WS-Fed), the application must support the software-as-a-service (SaaS) model for getting listed in the Azure AD app gallery. The enterprise gallery applications must support multiple customer configurations and not any specific customer.
+> [!IMPORTANT]
+> For federated applications (OpenID and SAML/WS-Fed), the app must support the Software as a Service (SaaS) model. Azure AD gallery applications must support multiple customer configurations and should not be specific to any single customer.
 
 ### Implement OAuth 2.0 and OpenID Connect
 
