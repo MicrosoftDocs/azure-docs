@@ -157,6 +157,9 @@ This method is compatible with Unity versions 2019.3.4f1+ and 2020.1.0a25+.
 
 ## [Via Unity Package](#tab/UnityPackage)
 
+> [!WARNING]
+> The Unity Asset Package distribution of the Azure Spatial Anchors SDK will be deprecated after SDK version 2.5.0.
+
 We'll now download the Azure Spatial Anchors SDK. Go to the [Azure Spatial Anchors GitHub releases page](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under **Assets**, download the **AzureSpatialAnchors.unitypackage**. In Unity, go to **Assets**, select **Import Package** > **Custom Package...**. Navigate to the package and select **Open**.
 
 In the new **Import Unity Package** window that pops up, unselect **Plugins** and then select **Import** in the bottom-right corner.
