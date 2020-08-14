@@ -1,3 +1,15 @@
+---
+title: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
+description: Migrate from an Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
+author: sakthi-vetrivel
+ms.author: suvetriv
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 08/13/2020
+keywords: migration, aro, openshift, red hat
+#Customer intent: As a customer, I want to migrate from an existing Azure Red Hat OpenShift 3.11 cluster to an Azure Red Hat OpenShift 4 cluster.
+---
+
 # Migrate from Azure Red Hat OpenShift 3.11 to Azure Red Hat Openshift 4
 
 Azure Red Hat OpenShift on OpenShift 4 brings Kubernetes 1.16 on Red Hat Core OS, private clusters, bring your own virtual network support, and full cluster admin role. In addition, many new features are now available such as support for the operator framework, the Operator Hub, and OpenShift Service Mesh.
