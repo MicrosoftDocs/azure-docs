@@ -27,7 +27,13 @@ We recommend reading [Azure Files networking considerations](storage-files-netwo
 - If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Create a private endpoint
+## Restrict access to the public endpoint
+You can restrict access to the public endpoint using the storage account firewall settings. In general, most firewall policies for a storage account will restrict networking access to one or more virtual networks. There are two approaches to restricting access to a storage account to a virtual network:
+
+- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
+- Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
+
+### Create a private endpoint
 Creating a private endpoint for your storage account will result in the following Azure resources being deployed:
 
 - **A private endpoint**: An Azure resource representing the storage account's private endpoint. You can think of this as a resource that connects a storage account and a network interface.
@@ -115,13 +121,9 @@ Address: 192.168.0.5
 
 ---
 
-## Restrict access to the public endpoint
-You can restrict access to the public endpoint using the storage account firewall settings. In general, most firewall policies for a storage account will restrict networking access to one or more virtual networks. There are two approaches to restricting access to a storage account to a virtual network:
+### Restrict public endpoint access
 
-- [Create one or more private endpoints for the storage account](#create-a-private-endpoint)  and restrict all access to the public endpoint. This ensures that only traffic originating from within the desired virtual networks can access the Azure file shares within the storage account.
-- Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account via a service endpoint, you are still accessing the storage account via the public IP address.
-
-### Disable access to the public endpoint
+#### Disable access to the public endpoint
 When access to the public endpoint is disabled, the storage account can still be accessed through its private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected. 
 
 # [Portal](#tab/azure-portal)
@@ -135,7 +137,7 @@ When access to the public endpoint is disabled, the storage account can still be
 
 ---
 
-### Restrict access to the public endpoint to specific virtual networks
+#### Restrict access to the public endpoint to specific virtual networks
 When you restrict the storage account to specific virtual networks, you are allowing requests to the public endpoint from within the specified virtual networks. This works by using a capability of the virtual network called *service endpoints*. This can be used with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
