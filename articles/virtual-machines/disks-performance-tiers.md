@@ -1,15 +1,16 @@
 ---
-title: Create an incremental snapshot - Azure portal 
-description: Learn about incremental snapshots for managed disks, including how to create them using the Azure portal.
+title: Change a managed disk performance tier
+description: Learn about performance tiers for managed disks, as well as how to temporarily upgrade performance tiers for existing disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/13/2020
+ms.date: 08/14/2020
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
-# Performance tiers for premium SSDs (preview)
+# Performance tiers for managed disks (preview)
 
 Azure Disk Storage currently offers built-in bursting capabilities to achieve higher performance for handling short-term unexpected traffic. For an event like Black Friday, performance testing, running a training environment, you need to achieve consistently higher performance for a few days or hours and then return to the normal performance levels. Premium SSDs now have the flexibility to temporarily increase disk performance without increasing the disk size, allowing you to match your workload performance needs and reduce costs.
 
@@ -47,6 +48,7 @@ You must get the feature enabled for your subscriptions before you can use perfo
 
 ## Restrictions
 
+- Currently only supported for premium SSDs.
 - Disks should not be attached to running VMs while changing tier.
 - You have to resize a disk to size greater than 4096 GiB to use P60, P70, P80 tiers. 
 
