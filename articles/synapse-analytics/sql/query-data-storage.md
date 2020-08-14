@@ -87,7 +87,7 @@ WITH (
 ```
 
 For every column, you need to specify column name and type in `WITH` clause.
-For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
+For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#return-a-subset-of-columns).
 
 ## Schema inference
 

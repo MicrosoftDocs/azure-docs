@@ -117,7 +117,7 @@ Then make sure your redirect URL is set to your external URL:
 1. Select the link next to **Redirect URIs**, showing the number of redirect URIs set up for web and public clients. The **\<application name> - Authentication** page appears.
 1. Check whether the external URL that you assigned to your application earlier is in the **Redirect URIs** list. If it isn't, add the external URL now, using a redirect URI type of **Web**, and select **Save**.
 
-In addition to the external URL, an authorize endpoint of Azure Active Directory on ethe xternal URL should be added to the Redirect URIs list.
+In addition to the external URL, an authorize endpoint of Azure Active Directory on the external URL should be added to the Redirect URIs list.
 
 `https://*.msappproxy.net/pa/oidc/cb`
 `https://*.msappproxy.net/`

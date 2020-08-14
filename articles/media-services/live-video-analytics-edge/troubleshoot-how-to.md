@@ -230,7 +230,7 @@ Live Video Analytics via the HTTP extension processor can extend the media graph
 
     ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub.png)
 
-* Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the [parameter](http://yolov3/score) or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).  
+* Check to see whether you're sending events to the correct URL endpoint. The external AI container exposes a URL and a port through which it receives and returns the data from POST requests. This URL is specified as an `endpoint: url` property for the HTTP extension processor. As seen in the [topology URL](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), the endpoint is set to the inferencing URL parameter. Ensure that the default value for the parameter or the passed-in value is accurate. You can test to see whether it's working by using Client URL (cURL).  
 
     As an example, here is a Yolo v3 container that's running on local machine with an IP address of 172.17.0.3. Use Docker inspect to find the IP address.
 

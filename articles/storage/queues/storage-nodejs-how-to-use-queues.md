@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-september2019
+ms.custom: seo-javascript-september2019, devx-track-javascript
 ---
 
 # Use Azure Queue Service to create and delete queues from Node.js
@@ -32,7 +32,7 @@ deleting queues**.
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Node.js Application
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## Configure Your Application to Access Storage
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
@@ -207,7 +207,7 @@ each message using a for loop. It also sets the invisibility timeout to five min
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
-    for(var index in result){
+    for(var index in results){
       // text is available in result[index].messageText
       var message = results[index];
       queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){
@@ -355,7 +355,7 @@ to learn about more complex storage tasks.
 
 [Azure Portal]: https://portal.azure.com
 
-[Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
+[Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md)
 
 [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 

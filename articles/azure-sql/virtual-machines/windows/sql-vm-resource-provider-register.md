@@ -12,7 +12,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurecli
 
 ---
 # Register a SQL Server VM in Azure with the SQL VM resource provider (RP)

@@ -10,7 +10,7 @@ ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
 ms.date: 07/16/2020
-ms.custom: Build2020, tracking-python
+ms.custom: Build2020, devx-track-python
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
