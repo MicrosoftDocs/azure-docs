@@ -11,6 +11,11 @@ ms.author: mirequa
 Starting in LSF 10.1 FixPack 9 (10.1.0.9) Azure CycleCloud is a native provider
 for Resource Connector. IBM provides [documentation](https://www.ibm.com/support/knowledgecenter/en/SSWRJV_10.1.0/lsf_resource_connector/lsf_rc_cycle_config.html). These resources provide instruction on configuring the LSF Master node to connect to CycleCloud.
 
+LSF is an IBM licensed product; using LSF in CycleCloud requires an entitlement file that IBM provides to their customers.
+> [!NOTE]
+> LSF is an IBM licensed product; using LSF in CycleCloud requires an entitlement file that IBM provides to its customers. The LSF binaries and entitlement file must be added to the blobs/ directory to use the fully automated cluster or the VM image builder in this project.
+To use the fully automated cluster, or the vm image builder in this project LSF binaries and entitlement file must be added to the blobs/ directory.
+
 ## Supported Scenarios of the CycleCloud LSF Cluster type
 
 LSF can "borrow" hosts from Azure to run jobs in an on-demand way, adding and 
