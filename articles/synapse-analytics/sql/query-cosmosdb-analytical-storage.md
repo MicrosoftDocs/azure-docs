@@ -13,7 +13,9 @@ ms.reviewer: jrasnick
 
 # Query CosmosDB documents using SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) that will read documents from  files.
+In this article, you'll learn how to write a query using SQL on-demand (preview) that will read documents from  CosmosDB collections.
+Synapse SQL on-demand enables you to analyze CosmosDB documents from built-in analytical storage where analytic don't imapct CosmosDB
+resource units (RU) that are used on main transactional storage.
 
 `OPENROWSET` function enables you to read the CosmosDB documents from CosmosDB analytical storage.
 
@@ -86,7 +88,13 @@ FROM
     WITH ( metadata varchar(MAX) ) AS docs;
 ```
 
-As an alternative, you can specify paths to nested objects in `WITH` clause:
+the result of this query might look like:
+
+| title | authors | first_autor_name |
+| --- | --- | --- |
+| Supplementary Information An eco-epidemi… |	`[{"first":"Julien","last":"MÃƒÂ©lade","suffix":"","affiliation":{"laboratory":"Centre de Recher…` | Julien |	
+
+As an alternative, you can specify the paths to nested values in the objects using `WITH` clause:
 
 ```sql
 SELECT
