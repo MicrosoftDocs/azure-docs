@@ -117,30 +117,16 @@
   items:
     - name: Text-to-speech documentation
       href: index-text-to-speech.yml
-    - name: Overview
-      items:
-        - name: What is text-to-speech?
-          href: text-to-speech.md
-        - name: Text-to-speech basics
-          href: text-to-speech-basics.md
-    - name: Quickstart
-      items:
-        - name: Synthesize speech to a speaker
-          href: quickstarts/text-to-speech.md
-        - name: Synthesize speech into an audio file
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Synthesize speech with long-form audio
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: What is text-to-speech?
+      href: text-to-speech.md
+    - name: Text-to-speech quickstart
+      href: get-started-text-to-speech.md
     - name: How-to guides
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
-        - name: Get a list of voices with REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Convert text-to-speech with REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Customization
       items:
         - name: Responsible deployment
