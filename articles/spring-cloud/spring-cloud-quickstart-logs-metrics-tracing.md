@@ -15,7 +15,7 @@ With the distributed tracing tools in Azure Spring Cloud, you can debug and moni
 
 ## Set up logs following deployment in the Azure portal
 
-This example is based on the procedure [provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md#provision-a-service-instance-using-the-azure-portal).
+This example is based on the procedure [provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
 
 1. Click the **Diagnostic Setting** tab to open the following dialog.
 
@@ -41,7 +41,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 
 ## Set up logs following CLI deployment
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-deploy-apps.md#azure-cli-deployment) to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-deploy-apps.md) to provision and run an Azure Spring Cloud service.
     
 ### Add dependencies
 
