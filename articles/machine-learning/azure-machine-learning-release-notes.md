@@ -35,7 +35,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed bool sparse matrix handling when computing explanations after AutoML
   + **azureml-core**
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
-    + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
+    + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
     + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) at once.
     + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type
