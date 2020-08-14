@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 08/13/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -28,14 +28,15 @@ Here's a video that provides a quick overview of access reviews:
 
 ## Why are access reviews important?
 
-Azure AD enables you to collaborate internally within your organization and with users from external organizations, such as partners. Users can join groups, invite guests, connect to cloud apps, and work remotely from their work or personal devices. The convenience of leveraging the power of self-service has led to a need for better access management capabilities.
+Azure AD enables you to collaborate with users from inside your organization and with external users. Users can join groups, invite guests, connect to cloud apps, and work remotely from their work or personal devices. The convenience of using self-service has led to a need for better access management capabilities.
 
-- As new employees join, how do you ensure they have the right access to be productive?
-- As people move teams or leave the company, how do you ensure their old access is removed, especially when it involves guests?
-- Excessive access rights can lead to audit findings and compromises as they indicate a lack of control over access.
+- As new employees join, how do you ensure they have the access they need to be productive?
+- As people move teams or leave the company, how do you make sure that their old access is removed?
+- Excessive access rights can lead to compromises.
+- Excessive access right may also lead audit findings as they indicate a lack of control over access.
 - You have to proactively engage with resource owners to ensure they regularly review who has access to their resources.
 
-## When to use access reviews?
+## When should you use access reviews?
 
 - **Too many users in privileged roles:** It's a good idea to check how many users have administrative access, how many of them are Global Administrators, and if there are any invited guests or partners that have not been removed after being assigned to do an administrative task. You can recertify the role assignment users in [Azure AD roles](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as Global Administrators, or [Azure resources roles](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as User Access Administrator in the [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experience.
 - **When automation is infeasible:** You can create rules for dynamic membership on security groups or Office 365 Groups, but what if the HR data is not in Azure AD or if users still need access after leaving the group to train their replacement? You can then create a review on that group to ensure those who still need access should have continued access.
@@ -55,40 +56,6 @@ Depending on what you want to review, you will create your access review in Azur
 | Assigned to a connected app | Specified reviewers</br>Self-review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
 | Azure AD role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 | Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
-
-
-## Create access reviews
-
-To create an access reviews, follow these steps:
-
-1. Go to the [Azure portal](https://portal.azure.com) to manage access reviews and sign in as a Global administrator or User administrator.
-
-1. Search for and select **Azure Active Directory**.
-
-      ![Azure portal search for Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
-
-1. Select **Identity Governance**.
-
-1. On the Getting started page, click the **Create an access review** button.
-
-   ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
-
-### Creating access review on a group that can be assigned to Azure AD role
-If you are on the newest version of Access Reviews (your reviewers are directed to **My Access** by default) , then only Global Administrator can create access review on role-assignable groups. However, if you are on older version of Access Reviews (your reviewers are directed to the **Access Panel** by default), then both Global Administrator and User Administrator can create access review on role-assignable groups.  
-
-The new experience will be rolled out to all customers on August 1st, 2020 but if you’d like to upgrade sooner, please make a request here - [Azure AD Access Reviews - Updated reviewer experience in My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
-
-[Learn more about assigning groups to Azure AD roles](https://go.microsoft.com/fwlink/?linkid=2103037).
-
-## Learn about access reviews
-
-To learn more about creating and performing access reviews, watch this short demo:
-
->[!VIDEO https://www.youtube.com/embed/6KB3TZ8Wi40]
-
-If you are ready to deploy access reviews in your organization, follow these steps in the video to onboard, train your administrators, and create your first access review!
-
->[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
 ## License requirements
 
