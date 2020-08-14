@@ -69,7 +69,7 @@ In this phase, you need to go through the steps deploying the VM(s) to install H
 	-  [SAP support note #2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Select the Azure storage type for SAP HANA. In this step, you need to decide on storage layout for SAP HANA installation. You are going to use either attached Azure disks or native Azure NFS shares. The Azure storage types that or supported and combinations of different Azure storage types that can be used, are documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). Take the configurations documented as starting point. For non-production systems, you might be able to configure lower throughput or IOPS. For production purposes, you might need to configure a bit more throughput and IOPS.
-2. Make sure that you configured [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md) for your volumes that contain the DBMS transaction logs or redo logs when you are using M-Series or Mv2-Series VMs. Be aware of the limitations for Write Accelerator as documented.
+2. Make sure that you configured [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for your volumes that contain the DBMS transaction logs or redo logs when you are using M-Series or Mv2-Series VMs. Be aware of the limitations for Write Accelerator as documented.
 2. Check whether [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VM(s) deployed.
 
 > [!NOTE]

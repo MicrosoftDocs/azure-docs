@@ -1,16 +1,17 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: msraiye
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 11/27/2019
- ms.author: raiye
- ms.custom: include file
+title: Azure Write Accelerator 
+description: Documentation on how to enable and use Write Accelerator
+author: raiye
+manager: markkie
+ms.service: virtual-machines
+ms.topic: how-to
+ms.workload: infrastructure
+ms.date: 2/20/2019
+ms.author: raiye
+ms.subservice: disks
 ---
 
-
+# Enable Write Accelerator
 
 Write Accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks exclusively. As the name states, the purpose of the functionality is to improve the I/O latency of writes against Azure Premium Storage. Write Accelerator is ideally suited where log file updates are required to persist to disk in a highly performant manner for modern databases.
 

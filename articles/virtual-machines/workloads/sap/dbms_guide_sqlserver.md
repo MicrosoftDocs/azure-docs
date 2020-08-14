@@ -353,7 +353,7 @@ The diagram above displays a simple case. As eluded to in the article [Considera
 
 
 ### Special for M-Series VMs
-For Azure M-Series VM, the latency writing into the transaction log can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the SQL Server transaction log. Details can be read in the document [Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
+For Azure M-Series VM, the latency writing into the transaction log can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the SQL Server transaction log. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
   
 
 ### Formatting the disks
