@@ -139,6 +139,10 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
    ```
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
+1. Navigate to the URL in browser.
+
+    ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
+  
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
@@ -224,17 +228,22 @@ You will have to edit the previous configuration for both the `auth-service` and
 
 ### Assign public URL to gateway app
 
-1. If the app URL is not shown in the output window, get it from the Azure portal. Navigate from your resource group to the instance of Azure Spring Cloud.  
-1. Click **Apps**.  The running apps will be listed.
+The gateway application needs a public facing endpoint to access the application via a web browser. Open the terminal window from IntelliJ.
 
-    ![Veiw apps in portal](media/spring-cloud-intellij-howto/revision-apps-in-portal.png)
+1. Assign the endpoint using the following command:
 
-1. Click the *gateway* app to open its dialog
-1. Click **Assign endpoint** to set a public URL.
+```azurecli
+az spring-cloud app update -n gateway --is-public true
+```
 
-    ![Assign public URL](media/spring-cloud-intellij-howto/revision-assign-public-url.png)
+1. Query the **gateway** application for its public IP so you can verify that the application is running:
 
-1. Navigate to the URL in browser.
+```azurecli
+az spring-cloud app show --name gateway --query properties.url
+```
+
+
+1. Use the URL returned from the previous command to navigate to the URL in browser.
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
   
