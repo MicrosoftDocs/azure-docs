@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/20/2020
+ms.date: 08/10/2020
 ---
 
 # Build expressions in mapping data flow

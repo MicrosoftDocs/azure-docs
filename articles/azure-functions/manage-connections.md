@@ -2,8 +2,10 @@
 title: Manage connections in Azure Functions
 description: Learn how to avoid performance problems in Azure Functions by using static connection clients.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-#Customer intent: As a developer, I want to know how to write my Azure Functions code so that I efficiently use connections and avoid potential bottlenecks.
+
+# Customer intent: As a developer, I want to know how to write my Azure Functions code so that I efficiently use connections and avoid potential bottlenecks.
 ---
 
 # Manage connections in Azure Functions
