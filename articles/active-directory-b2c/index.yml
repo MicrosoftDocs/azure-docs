@@ -108,7 +108,7 @@ landingContent:
             url: data-residency.md
           - text: Regulations
             url: overview.md
-          - text: Manage user access and terms of use
+          - text: User access and terms of use
             url: manage-user-access.md
 
   # Card
@@ -116,7 +116,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure DevOps
+          - text: CI/CD pipeline
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
