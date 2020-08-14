@@ -34,7 +34,7 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 
 #### Add the SDK package(s) to your Unity project
 
-| Platform | Package Name                                    |
+| Platform | Package name                                    |
 |----------|-------------------------------------------------|
 | Android  | com.microsoft.azure.spatial-anchors-sdk.android |
 | iOS      | com.microsoft.azure.spatial-anchors-sdk.ios     |
