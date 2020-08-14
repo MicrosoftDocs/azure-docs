@@ -13,7 +13,7 @@ ms.date: 08/14/2020
 
 # Tutorial: Assign Directory Readers role to an Azure AD group and manage role assignments
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
 > The **Directory Readers** role assignment to a group in this article is in **public preview**. 
