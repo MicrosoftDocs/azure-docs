@@ -28,46 +28,6 @@ This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze
 [!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/prerequisites.md)]
 ::: zone-end
 
-## Review the sample video
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [review-sample-video](includes/analyze-live-video-your-grpc-model-quickstart/csharp/review-sample-video.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [review-sample-video](includes/analyze-live-video-your-grpc-model-quickstart/python/review-sample-video.md)]
-::: zone-end
-
-## Overview
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [overview](includes/analyze-live-video-your-grpc-model-quickstart/csharp/overview.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [overview](includes/analyze-live-video-your-grpc-model-quickstart/python/overview.md)]
-::: zone-end
-
-## Create and deploy the media graph
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [create-deploy-media-graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [create-deploy-media-graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
-::: zone-end
-
-## Interpret results
-
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [interpret-results](includes/analyze-live-video-your-grpc-model-quickstart/csharp/interpret-results.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [interpret-results](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
-::: zone-end
-
 ## Clean up resources
 
 If you intend to try other quickstarts, keep the resources you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and delete all the resources.
