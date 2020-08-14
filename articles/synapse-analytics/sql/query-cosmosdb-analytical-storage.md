@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) that will read documents from  CosmosDB collections.
 Synapse SQL on-demand enables you to analyze CosmosDB documents from built-in analytical storage where analytic don't impact CosmosDB
-resource units (RU) that are used on main transactional storage.
+resource units (RU) that are used on the main transactional storage.
 
 `OPENROWSET` function enables you to read and analyze the documents from CosmosDB analytical storage.
 
@@ -55,7 +55,7 @@ from openrowset(
 ## Explicitly specify schema
 
 `OPENROWSET` enables you to explicitly specify what columns you want to read from the collection and to specify their types. 
-Let's imagine that we have imported some documents from [ECDC Covid data set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/)with the following structure:
+Let's imagine that we have imported some documents from [ECDC Covid data set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) with the following structure:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -63,7 +63,7 @@ Let's imagine that we have imported some documents from [ECDC Covid data set](ht
 {"date_rep":"2020-08-11","cases":163,"countries_and_territories":"Serbia","geo_id":"RS"}
 ```
 
-`OPENROWSET` function enables you to specify subset of columns that you want to read and the exact column types in `WITH` clause:
+These are the flat documents that can be represented as a set of rows in Synapse SQL. `OPENROWSET` function enables you to specify subset of columns that you want to read and the exact column types in `WITH` clause:
 
 ```sql
 select top 10 *
@@ -86,7 +86,21 @@ Look at the [rules for type mappings](#type-mappings) at the end of the document
 
 ## Nested values
 
-Nested objects and arrays from CosmosDB documents are formatted as JSON string. You can use SQL JSON functions
+Some documents in cosmosDB might have nested structure. For example, the [CORD-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) documents have the following structure:
+
+```json
+{
+    "paper_id": <str>,                      # 40-character sha1 of the PDF
+    "metadata": {
+        "title": <str>,
+        "authors": <array of objects>                        # list of author dicts, in order
+        ...
+     }
+     ...
+}
+```
+
+The nested objects and arrays from CosmosDB documents are formatted as JSON strings when `OPENROWSET` function reads them. You can use SQL JSON functions
 to read the values from these complex types:
 
 ```sql
@@ -102,7 +116,7 @@ FROM
     WITH ( metadata varchar(MAX) ) AS docs;
 ```
 
-the result of this query might look like:
+The result of this query might look like:
 
 | title | authors | first_autor_name |
 | --- | --- | --- |
@@ -122,6 +136,8 @@ FROM
            authors varchar(max) '$.metadata.authors'
     ) AS docs;
 ```
+
+Learn more about analyzing [complex schemas in Synapse workspace](../how-to-analyze-complex-schema.md) and [nested structures in SQL on-demand](query-parquet-nested-types.md).
 
 ## Flattening nested arrays
 
