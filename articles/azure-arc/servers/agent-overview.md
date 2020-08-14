@@ -1,13 +1,13 @@
 ---
 title:  Overview of the Connected Machine Windows agent
-description: This article provides a detailed overview of the Azure Arc for servers (preview) agent available, which supports monitoring virtual machines hosted in hybrid environments.
+description: This article provides a detailed overview of the Azure Arc enabled servers (preview) agent available, which supports monitoring virtual machines hosted in hybrid environments.
 ms.date: 08/06/2020
 ms.topic: conceptual
 ---
 
-# Overview of Azure Arc for servers (preview) agent
+# Overview of Azure Arc enabled servers (preview) agent
 
-The Azure Arc for servers (preview) Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+The Azure Arc enabled servers (preview) Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
 ## Agent component details
 
@@ -60,7 +60,7 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Azure subscription and service limits
 
-Before configuring your machines with Azure Arc for servers (preview), review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+Before configuring your machines with Azure Arc enabled servers (preview), review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
 ### Transport Layer Security 1.2 protocol
 
@@ -100,7 +100,7 @@ The URLs in the previous table are required in addition to the Service Tag IP ad
 
 ### Register Azure resource providers
 
-Azure Arc for servers (preview) depends on the following Azure resource providers in your subscription in order to use this service:
+Azure Arc enabled servers (preview) depends on the following Azure resource providers in your subscription in order to use this service:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -243,4 +243,4 @@ After installing the Connected Machine agent for Linux, the following additional
 
 ## Next steps
 
-To begin evaluating Azure Arc for servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+To begin evaluating Azure Arc enabled servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).

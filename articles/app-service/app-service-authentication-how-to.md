@@ -293,6 +293,9 @@ Your auth settings can optionally be configured via a file that is provided by y
     2.	Set `isAuthFromFile` to "true"
     3.	Set `authFilePath` to the name of the file (for example, "auth.json")
 
+> [!NOTE]
+> The format for `authFilePath` varies between platforms. On Windows, both relative and absolute paths are supported. Relative is recommended. For Linux, only absolute paths are supported currently, so the value of the setting should be "/home/site/wwwroot/auth.json" or similar.
+
 Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to Azure Resource Manager configuration, you can do so by setting `isAuthFromFile` back to "false".
 
 ### Configuration file reference
