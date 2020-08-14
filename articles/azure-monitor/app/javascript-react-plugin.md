@@ -16,7 +16,7 @@ React plugin for the Application Insights JavaScript SDK, enables:
 - Tracking of route changes
 - React components usage statistics
 
-## Getting Started
+## Getting started
 
 Install npm package:
 
@@ -62,7 +62,7 @@ export default withAITracking(reactPlugin,appInsights, MyComponent);
 
 | Name    | Default | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
-| history | null    | React router history. For more information, see the [react-router package documentation][https://reactrouter.com/web/api/history]. To learn how to access the history object outside of components, see the  [React-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
+| history | null    | React router history. For more information, see the [react-router package documentation](https://reactrouter.com/web/api/history). To learn how to access the history object outside of components, see the [React-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
 ### React components usage tracking
 

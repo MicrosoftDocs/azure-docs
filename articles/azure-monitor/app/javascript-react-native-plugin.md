@@ -21,7 +21,7 @@ The Native React plugin for Application Insights JavaScript SDK collects device 
 
 You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin will only work in react-native apps. It will not work with [apps using the Expo framework](https://docs.expo.io/), therefore it will not work with Create React Native App.
 
-## Getting Started
+## Getting started
 
 Install and link the [react-native-device-info](https://www.npmjs.com/package/react-native-device-info) package. Keep the `react-native-device-info` package up to date to collect the latest device names using your app.
 

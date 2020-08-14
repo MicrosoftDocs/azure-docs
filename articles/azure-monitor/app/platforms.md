@@ -33,7 +33,7 @@ ms.reviewer: olegan
 * [Python](./opencensus-python.md)
 * [Universal Windows app](../learn/mobile-center-quickstart.md) (App Center)
 * [Windows desktop applications, services, and worker roles](./windows-desktop.md)
-* [React](./(javascript-react-plugin.md)
+* [React](./javascript-react-plugin.md)
 * [React Native](./javascript-react-native-plugin.md)
 
 ## Logging frameworks
