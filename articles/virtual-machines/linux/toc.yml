@@ -954,7 +954,7 @@
       href: detach-disk.md
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager, ARM
-      href: using-managed-disks-template-deployments.md
+      href: ../using-managed-disks-template-deployments.md
     - name: Enable shared disks
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
