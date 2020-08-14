@@ -19,7 +19,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Configure an application to expose a web API
 
-In this quickstart, you register a web API with the Microsoft identity platform and expose it to client apps by adding an example scope. By registering your web API and exposing it through scopes, you can provide permissions-based access to its resources to authenticated users or client apps that access your API.
+In this quickstart, you register a web API with the Microsoft identity platform and expose it to client apps by adding an example scope. By registering your web API and exposing it through scopes, you can provide permissions-based access to its resources to authorized users and client apps that access your API.
 
 ## Prerequisites
 
@@ -34,13 +34,13 @@ To provide scoped access to the resources in your web API, you first need to reg
 1. Skip the **Add a redirect URI** and **Configure platform settings** sections. You don't need to configure a redirect URI for a web API since no user is logged in interactively.
 1. Skip the **Add credentials** section for now. Only if your API accesses a downstream API would it need its own credentials, and isn't covered in this quickstart.
 
-With your web API registered, you're ready to add the scopes that your API's code can use to grant granular permission to consumers of your API. You can add a scope by using the [Expose an API](#add-a-scope---ui) UI in the Azure portal, or by editing the [application manifest](#add-a-scope---app-manifest) - instructions for both follow.
+With your web API registered, you're ready to add the scopes that your API's code can use to provide granular permission to consumers of your API.
+
+You can add a scope by using the [Expose an API](#add-a-scope) pane in the Azure portal, or by editing the [application manifest](#add-a-scope---app-manifest) directly. Instructions for both methods follow.
 
 ## Add a scope
 
-The code in a client application specifies scopes by passing an access token along with its requests to the protected resource, your web API. Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
-
-In this section, you add a scope by using the **Expose an API** pane in the Azure portal. You can also add a scope by [editing the application manifest](#add-a-scope---app-manifest) directly.
+The code in a client application requests permission to perform operations defined by your web API's scopes by passing an access token along with its requests to the protected resource (the web API). Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
 
 To add a scope by using the **Expose an API** pane in the Azure portal:
 
