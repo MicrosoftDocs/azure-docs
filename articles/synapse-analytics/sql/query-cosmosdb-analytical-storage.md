@@ -14,10 +14,16 @@ ms.reviewer: jrasnick
 # Query CosmosDB documents using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) that will read documents from  CosmosDB collections.
-Synapse SQL on-demand enables you to analyze CosmosDB documents from built-in analytical storage where analytic don't imapct CosmosDB
+Synapse SQL on-demand enables you to analyze CosmosDB documents from built-in analytical storage where analytic don't impact CosmosDB
 resource units (RU) that are used on main transactional storage.
 
-`OPENROWSET` function enables you to read the CosmosDB documents from CosmosDB analytical storage.
+`OPENROWSET` function enables you to read and analyze the documents from CosmosDB analytical storage.
+
+## Data set
+
+This example uses a data from [European Centre for Disease Prevention and Control (ECDC) Covid-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). Assumption is that you have CosmosDB collections `EcdcCases` and `Cord19` where you have imported samples from these data sets.
+
+See the licence and the structure of data on these page.
 
 ## Read CosmosDB documents
 
@@ -48,7 +54,16 @@ from openrowset(
 
 ## Explicitly specify schema
 
-`OPENROWSET` enables you to explicitly specify what columns you want to read from the collection and to specify their types using `WITH` clause:
+`OPENROWSET` enables you to explicitly specify what columns you want to read from the collection and to specify their types. 
+Let's imagine that we have imported some documents from [ECDC Covid data set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/)with the following structure:
+
+```json
+{"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
+{"date_rep":"2020-08-12","cases":235,"countries_and_territories":"Serbia","geo_id":"RS"}
+{"date_rep":"2020-08-11","cases":163,"countries_and_territories":"Serbia","geo_id":"RS"}
+```
+
+`OPENROWSET` function enables you to specify subset of columns that you want to read and the exact column types in `WITH` clause:
 
 ```sql
 select top 10 *
@@ -63,10 +78,9 @@ The result of this query might look like:
 
 | date_rep | cases | geo_id |
 | --- | --- | --- |
-| 2020-06-28 | 165 | AF |
-| 2020-07-08 | 210 | AF |
-| 2020-07-06 | 279 | AF |
-| 2020-07-05 | 348 | AF |
+| 2020-08-13 | 254 | RS |
+| 2020-08-12 | 235 | RS |
+| 2020-08-11 | 163 | RS |
 
 Look at the [rules for type mappings](#type-mappings) at the end of the document for more information about the sql types that should be used for CosmosDB value.
 
@@ -109,14 +123,33 @@ FROM
     ) AS docs;
 ```
 
-> [!IMPORTANT]
-> This example uses a file from [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
-> See ths licence and the structure of data on this page.
-
 ## Flattening nested arrays
 
-CosmosDB documents might have nested subarrays, and you might need to "join" the properties from the document with all
-elements of the array. Synapse enables you to flatten nested structure by applying OPENJSON function on the nested array:
+CosmosDB documents might have nested subarrays like the authors array from [Cord19])(https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data set:
+
+```json
+{
+    "paper_id": <str>,                      # 40-character sha1 of the PDF
+    "metadata": {
+        "title": <str>,
+        "authors": [                        # list of author dicts, in order
+            {
+                "first": <str>,
+                "middle": <list of str>,
+                "last": <str>,
+                "suffix": <str>,
+                "affiliation": <dict>,
+                "email": <str>
+            },
+            ...
+        ],
+        ...
+}
+```
+
+In some cases, you might need to "join" the properties from the document (metadata) with all
+elements of the array (authors). Synapse SQL enables you to flatten nested structure by applying
+OPENJSON function on the nested array:
 
 ```sql
 SELECT
@@ -155,7 +188,7 @@ choose sql types that match these values if you are using `WITH` clause. See bel
 | Logical | bit |
 | Decimal | float |
 | Integer | bigint |
-| Date time (unix timestamp) | datetime2 |
+| Date time (unix timestamp) | bigint |
 | Date time (ISO format) | varchar(30) |
 | String | varchar \*(UTF8 collation) |
 | Nested object | varchar(max), serialized as JSON text |
