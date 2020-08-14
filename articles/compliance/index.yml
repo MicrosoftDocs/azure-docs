@@ -458,7 +458,7 @@ additionalContent:
             - text: NZ GCIO cloud computing considerations
               url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
             - text: PCI DSS 3.2.1 responsibility matrix
-              url: https://gallery.technet.microsoft.com/Azure-PCI-DSS-Responsibilit-02d4b4b2
+              url: https://docs.microsoft.com/azure/governance/blueprints/samples/pci-dss-3.2.1
             - text: SCI guidance
               url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
             - text: SOX guidance

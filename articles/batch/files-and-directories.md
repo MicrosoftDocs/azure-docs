@@ -7,11 +7,13 @@ ms.date: 08/03/2020
 ---
 # Files and directories in Azure Batch
 
-In Azure Batch, each task has a working directory under which it creates zero or more files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
+In Azure Batch, each task has a working directory under which it can create files and directories. This working directory can be used for storing the program that is run by the task, the data that it processes, and the output of the processing it performs. All files and directories of a task are owned by the task user.
 
 The Batch service exposes a portion of the file system on a node as the *root directory*. This root directory is located on the temporary storage drive of the VM, not directly on the OS drive.
 
 Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` environment variable. For more information about using environment variables, see [Environment settings for tasks](jobs-and-tasks.md#environment-settings-for-tasks).
+
+## Root directory structure
 
 The root directory contains the following directory structure:
 

@@ -10,7 +10,7 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Deploy your existing model with Azure Machine Learning
@@ -23,7 +23,7 @@ For more information on the concepts and terms in this article, see [Manage, dep
 ## Prerequisites
 
 * [An Azure Machine Learning workspace](how-to-manage-workspace.md)
-  + Python examples assume that the `ws` variable is set to your Azure Machine Learning workspace.
+  + Python examples assume that the `ws` variable is set to your Azure Machine Learning workspace. For more information about how to connect to workspace, please refer to the [Azure Machine Learning SDK for Python documentation](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#workspace).
   
   + CLI examples use placeholders of `myworkspace` and `myresourcegroup`, which you should replace with the name of your workspace and the resource group that contains it.
 
