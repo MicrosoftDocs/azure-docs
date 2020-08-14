@@ -59,7 +59,7 @@ The following limits have changed in v3 of the API. Exceeding the limits below w
 
 ## Rate limits
 
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container.
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
