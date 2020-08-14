@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Integrate with Logic Apps
 titleSuffix: Azure Digital Twins
-description: See how to use Logic Apps to update Azure Digital Twins
+description: See how to connect Logic Apps to Azure Digital Twins, using a custom connector
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/14/2020
@@ -15,11 +15,13 @@ ms.reviewer: baanders
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Logic Apps to update Azure Digital Twins
+# Integrate with Logic Apps using a custom connector
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is a cloud service that helps you automate workflows across apps and services. By connecting Logic Apps to the Azure Digital Twins APIs, you can create such automated flows around Azure Digital Twins and their data.
 
-In this article, you will connect Logic Apps to an Azure Digital Twins instance, in such a way that events triggered by a timer will automatically update a twin in your Azure Digital Twins instance. You will complete these steps using the [Azure portal](https://portal.azure.com).
+Azure Digital Twins does not currently have a certified (pre-built) connector for Logic Apps. Instead, the current process for using Logic Apps with Azure Digital Twins is to create a [**custom Logic Apps connector**](../logic-apps/custom-connector-overview.md), using a [custom Azure Digital Twins Swagger file](https://msazure.visualstudio.com/One/_git/Azure-IoT-DigitalTwins-Main?version=GBdev%2Fbriancr%2Flogic-apps-swagger&path=%2Fproducts%2Fswagger%2Flogic-apps-data-plane%2Fpreview%2F2020-05-31-preview%2Fdigitaltwins.json) that has been modified to work with Logic Apps.
+
+In this article, you will use the [Azure portal](https://portal.azure.com) to **create a custom connector** that can be used to connect Logic Apps to an Azure Digital Twins instance. You will then **create a logic app** that uses this connection for an example scenario, in which events triggered by a timer will automatically update a twin in your Azure Digital Twins instance. 
 
 ## Prerequisites
 
