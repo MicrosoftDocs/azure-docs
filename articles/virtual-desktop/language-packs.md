@@ -14,7 +14,7 @@ Windows Virtual Desktop is a service that your users can deploy anytime, anywher
 There are two ways you can accommodate the language needs of your users:
 
 - Build dedicated host pools with a customized image for each language.
-- Have users with different langauge and localization requirements in the same host pool, but customize their images to ensure they can select whichever language they need.
+- Have users with different language and localization requirements in the same host pool, but customize their images to ensure they can select whichever language they need.
 
 The latter method is a lot more efficient and cost-effective. However, it's up to you to decide which method best suits your needs. This article will show you how to customize languages for your images.
 
@@ -27,11 +27,11 @@ You need the following things to customize your Windows 10 Enterprise Multi-sess
 - The Language ISO and Feature on Demand (FOD) Disk 1 of the OS version the image uses. You can download them here:
      
      - Language ISO:
-        - [Windows 10, version 1903 and 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
         - [Windows 10, version 2004 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - FOD Disk 1 ISO:
-        - [Windows 10, version 1903 and 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Windows 10, version 2004 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
@@ -62,7 +62,7 @@ To create the content repository for language packages and FODs:
 
 5. Set the permissions on the language content repository share so that you have read access from the VM you'll use to build the custom image.
 
-## Create a custom Windows 10 Enterprise multi-session image
+## Create a custom Windows 10 Enterprise multi-session image manually
 
 To create a custom Windows 10 Enterprise multi-session image manually:
 
@@ -71,7 +71,9 @@ To create a custom Windows 10 Enterprise multi-session image manually:
 3. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
 4. Connect to the language package and FOD file share repository and mount it to a letter drive (for example, drive E).
 
-If you'd rather install languages through an automated process, you can set up a script in PowerShell. You can use the following script sample to install the Spanish (Spain), French (France), and Chinese (PRC) language packs and satellite packages for Windows 10 Enterprise multi-session, version 2004. However, you can modify this script to install other languages. Just make sure to run the script from an elevated PowerShell session, or else it won't work.
+## Create a custom Windows 10 Enterprise multi-session image automatically
+
+If you'd rather install languages through an automated process, you can set up a script in PowerShell. You can use the following script sample to install the Spanish (Spain), French (France), and Chinese (PRC) language packs and satellite packages for Windows 10 Enterprise multi-session, version 2004. The script integrates the language interface pack and all necessary satellite packages into the image. However, you can also modify this script to install other languages. Just make sure to run the script from an elevated PowerShell session, or else it won't work.
 
 ```powershell
 ########################################################
@@ -149,11 +151,7 @@ Set-WinUserLanguageList $LanguageList -force
 >[!IMPORTANT]
 >Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_\<language-code\>.cab` package file.
 
-- The script integrates the language interface pack and all necessary satellite packages into the image
-
-- To install more or fewer languages, you can copy/delete and adjust this script sample as required
-
-- The integration of the languages might take a while, depending on the amount of languages.
+The script might take a while depending on the number of languages you need to install.
 
 - Verify if the languages are installed as desired by opening the settings app at **Start** > **Settings** > **Time & Language** > **Language**.
 
