@@ -11,13 +11,23 @@ ms.author: jovanpop
 ms.reviewer: jrasnick
 ---
 
-# Query Azure Cosmos DB documents using SQL on-demand (preview) in Azure Synapse Analytics
+# Query Azure Cosmos DB analytical storage using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) that will read [items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) from Azure Cosmos DB [containers](https://docs.microsoft.com/azure/cosmos-db/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers).
 Synapse SQL on-demand enables you to analyze Azure Cosmos DB items from built-in analytical storage where analytic don't impact Azure Cosmos DB
 resource units (RU) that are used on the main transactional storage.
 
-`OPENROWSET` function enables you to read and analyze the documents from Azure Cosmos DB analytical storage.
+`OPENROWSET` function enables you to read and analyze the documents from Azure Cosmos DB analytical storage. The following `OPENROWSET` syntax is used to query Azure Cosmos DB analytical storage:
+
+```sqlsyntax
+openrowset( 
+       'CosmosDB',
+       <Azure Cosmos DB connection string>,
+       <Container name>)
+       [ < with clause > ]
+```
+
+
 
 ## Data set
 
@@ -56,7 +66,7 @@ from openrowset(
 ## Explicitly specify schema
 
 `OPENROWSET` enables you to explicitly specify what columns you want to read from the container and to specify their types. 
-Let's imagine that we have imported some items from [ECDC Covid data set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) with the following structure:
+Let's imagine that we have imported some items from [ECDC COVID data set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) with the following structure:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
