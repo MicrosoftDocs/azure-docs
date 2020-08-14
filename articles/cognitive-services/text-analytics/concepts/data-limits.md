@@ -27,8 +27,8 @@ Use this article to find the limits for the size, and rates that you can send da
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Applies to Text Analytics for health container. |
-| Maximum size of entire request | 1 MB |
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Applies to the Text Analytics for health container. |
+| Maximum size of entire request | 1 MB. Applies to the Text Analytics for health container. |
 
 The maximum number of documents you can send in a single request will depend on the API version and feature you're using.
 
@@ -44,7 +44,7 @@ The following limits have changed in v3 of the API. Exceeding the limits below w
 | Key Phrase Extraction | 10 |
 | Named Entity Recognition | 5 |
 | Entity Linking | 5 |
-
+| Text Analytics for health | 1000 |
 #### [Version 2](#tab/version-2)
 
 | Feature | Max Documents Per Request | 
@@ -59,7 +59,7 @@ The following limits have changed in v3 of the API. Exceeding the limits below w
 
 ## Rate limits
 
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API.
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
