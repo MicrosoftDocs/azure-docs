@@ -25,7 +25,7 @@ Learn about the architecture, terms, and concepts for Azure Machine Learning.
 :::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Azure Machine Learning architecture":::
 
 A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning.  The workspace is the centralized place to:
-* Manage resources you use for training and deployment of models, such as [computes]
+* Manage resources you use for training and deployment of models, such as [computes](#compute-instance)
 * Store assets you create when you use Azure Machine Learning, including:
   * [Environments](#environments)
   * [Runs](#runs)
@@ -51,16 +51,15 @@ You can share a workspace with others.
 + Web experience for [automated machine learning](concept-automated-ml.md)
 + [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label of your data
 
-## <a name="compute-instance"></a> Computes
+##  Computes
 
 <a name="compute-targets"></a>
 A [compute target](concept-compute-target.md) is the machine or set of machines where you run your training script or host your service deployment. This location may be your local machine or any of the compute resources below.
 
-|Term  |Description  |
-|---------|---------|
-|[Compute instances](concept-compute-instance.md)     |   Fully managed cloud-based workstation.  A virtual machine (VM) that includes multiple tools and environments installed for machine learning. Use a compute instance to start running sample notebooks with no setup required. Can also be used as a compute target for training and inferencing jobs.     |
-|[Compute clusters](how-to-set-up-training-targets.md#amlcompute)    |  Fully managed cluster of VMs with multi-node scaling capabilities.  Scales up automatically when a job is submitted.  Better suited for compute targets for large jobs and production.  
-| [Attached compute](how-to-set-up-training-targets.md#portal-reuse)  |    Attach a VM created outside the Azure Machine Learning workspace to make it available to your workspace. |
+Azure Machine Learning includes two special compute resources that are set up for machine learning tasks:
+
+* <a name="compute-instance"></a> **Compute instance**: Fully managed cloud-based workstation. A compute instance is a virtual machine (VM) that includes multiple tools and environments installed for machine learning. Use a compute instance to start running sample notebooks with no setup required. Can also be used as a compute target for training and inferencing jobs.
+* **Compute clusters**: Fully managed cluster of VMs with multi-node scaling capabilities. Scales up automatically when a job is submitted. Better suited for compute targets for large jobs and production. Use as a training compute target or for dev/test deployment.
 
 ## Datasets and datastores
 
@@ -103,7 +102,7 @@ For an example of registering a model, see [Train an image classification model 
 
 [Workspace](#workspace) > **Environments**
 
-An [environment](concept-environments.md) is the encapsulation of the environment where training of your machine learning model happens. The environment specifies the Python packages, environment variables, and software settings around your training and scoring scripts.
+An [environment](concept-environments.md) is the encapsulation of the environment where training or scoring of your machine learning model happens. The environment specifies the Python packages, environment variables, and software settings around your training and scoring scripts.
 
 For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
 
@@ -176,11 +175,11 @@ For more information, see [Git integration for Azure Machine Learning](concept-t
 
 ## Deployment
 
-You deploy a [registered model](#register-model) as a service endpoint. You need the following components to:
+You deploy a [registered model](#register-model) as a service endpoint. You need the following components:
 
-* **Inference environment**. This environment encapsulates the dependencies required to run your model for inference.
+* **Environment**. This environment encapsulates the dependencies required to run your model for inference.
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
-* **Inference configuration**. The inference configuration specifies the environment configuration, entry script, and other components needed to run the model as a service.
+* **Inference configuration**. The inference configuration specifies the environment, entry script, and other components needed to run the model as a service.
 
 For more information about these components, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -207,10 +206,6 @@ A deployed IoT module endpoint is a Docker container that includes your model an
 If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
 
 Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it.
-
-## Monitor 
-
-Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to retrain the model with new training data.
 . 
 ## Automation
 
