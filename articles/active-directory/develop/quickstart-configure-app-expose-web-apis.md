@@ -36,11 +36,13 @@ To provide scoped access to the resources in your web API, you first need to reg
 
 With your web API registered, you're ready to add the scopes that your API's code can use to grant granular permission to consumers of your API. You can add a scope by using the [Expose an API](#add-a-scope---ui) UI in the Azure portal, or by editing the [application manifest](#add-a-scope---app-manifest) - instructions for both follow.
 
-## Add a scope - UI
+## Add a scope
 
 The code in a client application specifies scopes by passing an access token along with its requests to the protected resource, your web API. Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
 
-To add a scope by using the **Expose an API** UI in the Azure portal:
+In this section, you add a scope using by using **Expose an API** in the Azure portal. You can also add a scope by [editing the application manifest](#add-a-scope---app-manifest) directly.
+
+To add a scope by using the **Expose an API** pane in the Azure portal:
 
 1. Select your application in **App registrations** in the Azure portal.
 1. Select **Expose an API** > **Add a scope**.
@@ -84,11 +86,11 @@ The application manifest serves as a mechanism for updating the application enti
 To add a scope by editing the application manifest:
 
 1. Select your application in **App registrations** in the Azure portal.
-1. Select **Manifest**.
+1. Under **Manage**, select **Manifest**.
 
-    A web-based manifest editor is displayed, allowing you to edit the manifest in the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
+    A web-based manifest editor is displayed allowing you to edit the manifest in the portal. You can optionally **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
 
-    The following example exposes a scope named `Employees.Read.All` by adding the specified JSON element to the `oauth2Permissions` collection.
+    The following example JSON snippet exposes a scope named `Employees.Read.All` by adding an element to the `oauth2Permissions` collection.
 
     Generate the `id` value programmatically or by using a GUID generation tool like [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
 
