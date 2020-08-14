@@ -12,7 +12,7 @@ ms.date: 08/31/2020
 
 # Create a SaaS offer in the commercial marketplace
 
-As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create and publish a SaaS offer to the Microsoft commercial marketplace.
+As a commercial marketplace publisher, you can create a software as a service (SaaS) offer so potential customers can buy your SaaS-based technical solution. This article explains the process to create a SaaS offer to the Microsoft commercial marketplace.
 
 ## Before you begin
 
@@ -29,9 +29,9 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
    :::image type="content" source="partner-center-portal/media/new-offer-saas.png" alt-text="Illustrates the left-navigation menu and the New offer list.":::
 
-1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable.
-   + Each offer in your account must have a unique offer ID. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores.
-   + Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+   + Each offer in your account must have a unique offer ID.
+   + Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
    + The offer ID can't be changed after you select **Create**.
 
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -42,7 +42,7 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 ## Configure your SaaS offer setup details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
+On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_, which means that Microsoft bills and collects the money. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
 
 1. To sell through Microsoft and have us host transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 
@@ -50,9 +50,6 @@ On the **Offer setup** tab, under **Setup details**, you’ll choose whether to 
    + To provide a free subscription for your offer, select **Get it now (Free)**. Then in the **Offer URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/saas-app`.
    + To provide a 30-day free trial, select **Free trial**, and then in the **Trial URL** box that appears, enter the URL (beginning with *http* or *https*) where customers can access your free trial through [one-click authentication by using Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/trial/saas-app`.
    + To have potential customers contact you to purchase your offer, select **Contact me**.
-
-> [!NOTE]
-> You create and manage offers on your own service that you transact independently. Only offers that are sold through Microsoft are hosted or managed by us.
 
 ### Enable a test drive (optional)
 
@@ -67,9 +64,9 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 ### Configure lead management
 
-Connect your Customer Relationship Management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product. You can modify this connection at any time during or after you create the offer.
+Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product. You can modify this connection at any time during or after you create the offer.
 
-You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Lead management for commercial marketplace](lead-management-for-cloud-marketplace.md).
+You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Lead management for the commercial marketplace](lead-management-for-cloud-marketplace.md).
 
 **To configure the connection details in Partner Center**
 1.	Under **Customer leads**, select the **Connect** link.
@@ -87,19 +84,14 @@ You must configure lead management if you’re selling your offer through Micros
 
 ## Configure your SaaS offer properties
 
-On the **Properties** tab, you'll define the following:
-
-- Categories and industries used to group your offer on the marketplaces.
-   > [!TIP]
-   > Based on the categories you select, we determine which storefronts to list your offer on. Either Azure Marketplace, Microsoft AppSource, or both.
-- Your app version. Customers will see this on the details page of the offer listing.
-- The legal contracts that support your offer.
-
-Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
+On the **Properties** tab, you'll you define the categories and industries applicable to your offer, your app version, and legal contracts. Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
 
 ### Select a category for your offer
 
 - Under **Category**, select at least one and up to two categories for grouping your offer into the appropriate marketplace search areas.
+
+ > [!TIP]
+   > Based on the categories you select, we determine which storefronts to list your offer on: either Azure Marketplace, Microsoft AppSource, or both.
 
 ### Select Industries (optional)
 
