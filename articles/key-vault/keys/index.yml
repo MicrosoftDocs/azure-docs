@@ -52,20 +52,18 @@ landingContent:
             url: hsm-protected-keys.md
 
 # Card
-    - title: Client libraries for Key Vault Certificates
-      links:
-        - url: http://dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
-          itemType: reference
-          text:  .NET client library
-        - url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
-          itemType: reference
-          text:  Python client library
-        - url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
-          itemType: reference
-          text:  Java client library
-        - url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
-          itemType: reference
-          text:  Node.js client library
+  - title: Client libraries for Key Vault Certificates
+    linkLists:
+      - linkListType: reference
+        links:
+          - text:  .NET client library
+            url: http://dotnet/api/azure.security.keyvault.keys?view=azure-dotnet
+          - text:  Python client library
+            url: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+          - text:  Java client library
+            url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
+          - text:  Node.js client library
+            url: /javascript/api/@azure/keyvault-keys/?view=azure-node-latest
 
 
   # Card
