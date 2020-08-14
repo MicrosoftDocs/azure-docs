@@ -19,7 +19,7 @@ ms.author: jmprieur
 
 As with any confidential client application, you need to add a secret or certificate to act as that application's *credentials* so it can authenticate as itself, without user interaction.
 
-You can add credentials to your client app's registration by using the [Azure portal](#add-client-credentials-by-using-the-azure-portal) or by using a command-line tool like [PowerShell](#create-client-credentials-by-using-powershell).
+You can add credentials to your client app's registration by using the [Azure portal](#add-client-credentials-by-using-the-azure-portal) or by using a command-line tool like [PowerShell](#add-client-credentials-by-using-powershell).
 
 ### Add client credentials by using the Azure portal
 
