@@ -99,7 +99,7 @@ To add a scope by editing the application manifest:
         {
           "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
           "adminConsentDisplayName": "Read-only access to Employee records",
-          "id": "5555-5555-5555-5555-5555",
+          "id": "55555555-5555-5555-5555-555555555555",
           "isEnabled": true,
           "type": "User",
           "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
