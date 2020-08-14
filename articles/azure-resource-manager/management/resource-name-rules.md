@@ -387,6 +387,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
 
 ## Microsoft.IoTCentral
@@ -690,6 +691,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
+> | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  | 
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
 > | sites | global | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
