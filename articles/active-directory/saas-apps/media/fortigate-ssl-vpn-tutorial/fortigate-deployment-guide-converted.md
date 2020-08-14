@@ -123,6 +123,7 @@ _Set a Static Public IP Address_
 3. Click **Static** and then click **Save**
 
 _Assign a Fully Qualified Domain Name_
+
 If you own a publicly routable domain name for the environment into which the FortiGate VM is
 being deployed, create a Host (A) record for the VM that maps to the public IP address that is
 statically assigned above.
@@ -348,14 +349,14 @@ _Perform Command Line Configuration for SAML Authentication_
 
     `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1`
 
-To provide this in the Serial Console, proceed by typing
+    To provide this in the Serial Console, proceed by typing
 
-```
-set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
-```
-Then type CTRL+V,
+    ```
+    set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
+    ```
+    Then type CTRL+V,
 
-Then paste the rest of the URL in to complete the line
+    Then paste the rest of the URL in to complete the line
 
     ```
     set idp-single-logout-url
@@ -388,8 +389,7 @@ _Perform Command Line Configuration for Group Matching_
     next
     ```
 
-Repeat these command from edit `group 1 name` but for each additional group that will
-have a different portal experience in FortiGate
+    Repeat these command from edit `group 1 name` but for each additional group that will have a different portal experience in FortiGate
 
 _Perform Command Line Configuration for Authentication Time Out_
 
