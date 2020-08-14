@@ -14,13 +14,13 @@ ms.date: 08/31/2020
 
 This article explains the different options and requirements for publishing a software-as-a-service (SaaS) offer to the Microsoft commercial marketplace. Software as a service (SaaS) is a way to deliver and license software that’s accessed online via a subscription instead of being installed on individual computers. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
-## Call to action options
+## Listing options
 
-You will define your _call to action_ option on the **Offer setup** tab, as explained in [Create a SaaS offer in the commercial marketplace](create-new-saas-offer.md). The call to action you choose when you create an offer determines what additional information you need to provide.
+You will define your _listing_ option on the **Offer setup** tab, as explained in [Create a SaaS offer in the commercial marketplace](create-new-saas-offer.md). The listing option you choose when you create an offer determines what additional information you need to provide.
 
-When you publish a SaaS offer, it will be listed in the storefront of Microsoft AppSource, Azure Marketplace, or both. Your offer can be listed in the commercial marketplace with a variety of call-to-action options as shown in the following table.
+When you publish a SaaS offer, it will be listed in the storefront of Microsoft AppSource, Azure Marketplace, or both. Your offer can be listed in the commercial marketplace with a variety of listing options as shown in the following table.
 
-| Call-to-action | Transaction process |
+| Listing option | Transaction process |
 | ------------ | ------------- |
 | Contact me | The customer contacts you directly from information in your listing.``*`` |
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*`` |
@@ -30,21 +30,21 @@ When you publish a SaaS offer, it will be listed in the storefront of Microsoft 
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
 
-For more information about these call to action options, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
+For more information about these listing options, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-After your offer is published, the call to action option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in the Azure Marketplace storefront with the **Contact me** and **Test drive** buttons.
+After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in the Azure Marketplace storefront with the **Contact me** and **Test drive** buttons.
 
-***Figure 1: Example of call to action buttons in an offer listing***
+***Figure 1: Example of listing option buttons in an offer listing***
 
 ![Illustrates an offer listing in the storefront.](./media/listing-options.png)
 
-### Technical requirements
+## Technical requirements
 
-The technical requirements differ depending on the call to action item you choose for your offer.
+The technical requirements differ depending on the listing option you choose for your offer.
 
 The _Contact me_ call-to-action option has no technical requirements. You have the option to connect a CRM system to manage customer leads, which is described in the [Customer leads](#customer-leads) section, later in this article.
 
-The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ call-to-action options have the following technical requirements:
+The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
 - Your SaaS application must be a multitenant solution.
 - You can enable both Microsoft Accounts (MSA) and [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for authenticating users.
@@ -57,7 +57,7 @@ These technical requirements apply to the Sell through Microsoft call-to-action 
 - Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use with the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with the Azure Marketplace. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 
-## Additional requirements for selling through Microsoft
+### Additional requirements for selling through Microsoft
 
 To sell your SaaS offer through Microsoft, you must meet these additional requirements.
 
@@ -67,7 +67,7 @@ To sell your SaaS offer through Microsoft, you must meet these additional requir
 | Cancellation | Your offer is cancelable by the customer at any time. |
 |||
 
-## Gather information for the Technical configuration tab
+### Gather technical information
 
 You need to gather the following information that you’ll need for the Technical configuration tab, only if you’re creating a transactable offer. If you choose to process transactions independently instead of creating a transactable offer, skip this section and go to [Test drives](#test-drives).
 
@@ -95,7 +95,7 @@ You need to gather the following information that you’ll need for the Technica
   > [!NOTE]
   > If the publisher has two or more different accounts in Partner Center, two or more different Azure AD app IDs should be used, each for one of the accounts. Each partner account in Partner Center should use unique Azure AD app ID for all the SaaS offers that are published via this account.
 
-### Test drives
+## Test drives
 You can choose to enable a test drive for your SaaS app. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
 
 > [!TIP]
@@ -293,7 +293,6 @@ This is a sample breakdown of costs and payouts to demonstrate the agency model.
 | Microsoft pays you 80% of your license cost<br>`*` For qualified SaaS apps, Microsoft pays 90% of your license cost| $80.00 per month<br>``*`` $90.00 per month |
 |||
 
- 
 **`*` Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps and any other qualified transactable IaaS offers made available through the commercial marketplace.
 
 ## Additional sales opportunities

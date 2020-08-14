@@ -191,4 +191,4 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 ## Next steps
 
-- [Configure your SaaS offer listing details](create-new-saas-offer-listing.md)
+- [Configure your SaaS offer properties](create-new-saas-offer-properties.md)
