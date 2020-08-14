@@ -68,7 +68,7 @@ ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 Once connected to your VM, you're ready to attach a disk. First, find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses dmesg to filter on *SCSI* disks:
 
 ```bash
-dmesg | grep SCSI
+fdisk -l | grep '^Disk'
 ```
 
 The output is similar to the following example:
