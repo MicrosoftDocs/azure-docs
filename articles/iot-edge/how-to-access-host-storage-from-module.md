@@ -3,8 +3,8 @@ title: Use IoT Edge device local storage from a module - Azure IoT Edge | Micros
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 11/18/2019
+ms.author: kgremban/
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -77,6 +77,14 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## Encrypted data in module storage
+
+Modules that generate encrypted data use an encryption key that is based on the module ID and module's generation ID. A generation ID is used to protect secrets if another module with the same module ID is later deployed to the same device. You can view a module's generation id using the Azure CLI command [az iot hub module-identity show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+
+If you want to share files between modules across deployments, they must not contain any secrets or they will fail to be decrypted.
+
+The two runtime modules, edgeAgent and edgeHub, both encrypt secrets in their storage directory. Therefore, you cannot use a storage directory created by a previous generation of the runtime. For example, if you have IoT Edge deployed and the runtime modules are mounted to a storage directory those modules are generating encrypted data. If you upgrade the runtime modules or create deployments to add or update custom modules, the generation ID is not affected. However, if you remove IoT Edge from the device and then install it again, the runtime modules are given new generation IDs and cannot access data from their predecessors.
 
 ## Next steps
 
