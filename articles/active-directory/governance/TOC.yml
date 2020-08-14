@@ -85,7 +85,10 @@
       - name: Request access
         href: entitlement-management-request-access.md
   - name: Access reviews
-    items:
+    items: 
+
+    - name: Plan Access review deployment
+      href: deploy-access-reviews.md
     - name: Access packages
       items:
         - name: Create an access review
