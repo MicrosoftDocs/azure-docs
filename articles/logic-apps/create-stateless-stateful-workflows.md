@@ -311,7 +311,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
 ## Debug and test your workflow
 
-1. If you built a stateless workflow, you can [enable run history](#enable-run-history) for easier debugging.
+1. To help you more easily debug stateless workflows, you can [enable the run history capability on the workflow](#enable-run-history).
 
 1. On the Visual Studio Code toolbar, on the **Run** menu, select **Start Debugging** (F5).
 
@@ -327,7 +327,9 @@ To add your own code that you can directly call and run from your workflow app, 
 
       ![Screenshot that shows your workflow's overview page with callback URL](./media/create-stateless-stateful-workflows/find-callback-url.png)
 
-1. To test the callback URL by triggering the workflow, open your tool for creating and sending requests. This example continues with the [Postman](https://www.postman.com/downloads/) tool. For more information, see [Postman Getting Started](https://learning.postman.com/docs/getting-started/introduction/).
+1. To test the callback URL by triggering the workflow, open [Postman](https://www.postman.com/downloads/) or your preferred tool for creating and sending requests.
+
+   This example continues by using Postman. For more information, see [Postman Getting Started](https://learning.postman.com/docs/getting-started/introduction/).
 
    1. On the Postman toolbar, select **New**.
 
