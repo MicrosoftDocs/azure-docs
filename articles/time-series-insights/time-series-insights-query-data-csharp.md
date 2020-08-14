@@ -18,7 +18,7 @@ ms.custom: seodec18
 This C# example demonstrates how to use the [Gen1 Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) to query data from Azure Time Series Insights Gen1 environments.
 
 > [!TIP]
-> View Gen1 C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> View Gen1 C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
 
 ## Summary
 
