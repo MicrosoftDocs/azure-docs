@@ -39,10 +39,6 @@ Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtai
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
-## Configure the account identifier and key
-
-In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsLocalSharedDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
 In the **Project** pane, navigate to `Assets\AzureSpatialAnchors.Examples\Resources`. Select `SpatialAnchorSamplesConfig`. Then, in the **Inspector** pane, enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.

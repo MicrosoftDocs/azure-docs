@@ -61,7 +61,7 @@ implementation('com.microsoft.appcenter:appcenter-analytics:[1.10.0]')
 
 When it's all done, your `dependencies` section should look something like this:
 
-[!code-gradle[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-android-gradle-setup.md?range=9-13&highlight=11-12)]
+[!code-gradle[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-android-gradle-setup.md?range=9-13&highlight=3-4)]
 
 ### [Import the asset package](#tab/UnityAssetPackage)
 
