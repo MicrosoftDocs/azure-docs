@@ -69,7 +69,7 @@ Alternatively, add each package using [NuGet 2.12+](https://www.nuget.org/). For
 The C# sample code may be found at [csharpquery-example](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample)
 
 > [!NOTE]
-
+>
 > * The code sample can be executed without altering the default environment variables.
 > * The code sample will compile to a .NET executable console app.
 

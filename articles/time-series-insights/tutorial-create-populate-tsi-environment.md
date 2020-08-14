@@ -7,7 +7,7 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 08/14/2020
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
 ---
@@ -33,9 +33,9 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 ## Review video
 
-### Learn how to use an Azure IoT solution accelerator to generate data and get started with Azure Time Series Insights. </br>
+Learn how to use an Azure IoT solution accelerator to generate data and get started with Azure Time Series Insights.
 
-> [!VIDEO <https://www.youtube.com/embed/6ehNf6AJkFo>]
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## Overview
 
