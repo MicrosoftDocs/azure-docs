@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Query Azure Cosmos DB documents using SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) that will read [items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) from Azure Cosmos DB [containers](https://docs.microsoft.com/azure/cosmos-db/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers.
+In this article, you'll learn how to write a query using SQL on-demand (preview) that will read [items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) from Azure Cosmos DB [containers](https://docs.microsoft.com/azure/cosmos-db/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers).
 Synapse SQL on-demand enables you to analyze Azure Cosmos DB items from built-in analytical storage where analytic don't impact Azure Cosmos DB
 resource units (RU) that are used on the main transactional storage.
 
@@ -25,7 +25,7 @@ This example uses a data from [European Centre for Disease Prevention and Contro
 
 See the license and the structure of data on these pages, and also sample data for [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) data sets.
 
-You can import data into Azure Cosmos DB container using [Data Explorer](/azure/cosmos-db/data-explorer.md) or [Data Migration Tool](/azure/cosmos-db/import-data.md#JSON)
+You can import data into Azure Cosmos DB container using [Data Explorer](/azure/cosmos-db/data-explorer.md) or [Data Migration Tool](/azure/cosmos-db/import-data.md#JSON).
 
 ## Explore Azure Cosmos DB data
 
@@ -91,10 +91,10 @@ Some items in Azure Cosmos DB might have nested structure. For example, the [COR
 
 ```json
 {
-    "paper_id": <str>,                      # 40-character sha1 of the PDF
+    "paper_id": <str>,                   # 40-character sha1 of the PDF
     "metadata": {
         "title": <str>,
-        "authors": <array of objects>                        # list of author dicts, in order
+        "authors": <array of objects>    # list of author dicts, in order
         ...
      }
      ...
@@ -142,12 +142,12 @@ Learn more about analyzing [complex schemas in Synapse workspace](../how-to-anal
 
 > [!IMPORTANT]
 > If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade` then your database collation is not set to [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation. 
-> [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF8 collation using some SQL statement like `ALTER DATABASE MyOptionsTest COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`
+> [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF8 collation using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 
 ## Flattening nested arrays
 
-Azure Cosmos DB items might have nested subarrays like the authors array from [Cord19])(https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data set:
+Azure Cosmos DB items might have nested subarrays like the authors array from [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data set:
 
 ```json
 {
@@ -202,7 +202,7 @@ Supplementary Information An eco-epidemi… | `[{"first":"Julien","last":"Mélad
 
 > [!IMPORTANT]
 > If you see unexpected characters in your text like `MÃƒÂ©lade` instead of `Mélade` then your database collation is not set to [UTF8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) collation. 
-> [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF8 collation using some SQL statement like `ALTER DATABASE MyOptionsTest COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`
+> [Change collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) to some UTF8 collation using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## Type mappings
 
