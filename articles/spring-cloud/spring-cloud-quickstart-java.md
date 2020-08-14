@@ -74,7 +74,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
     
     }
     ```
-
+#### [Portal](#tab/Azure-portal)
 ## Provision a service instance using the Azure portal
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
@@ -97,6 +97,9 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
     - **Location**: Select the location for your service instance. Currently supported locations include East US, West US 2, West Europe, and Southeast Asia.
 
     ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+#### [CLI](#tab/Azure-CLI)
+[!INCLUDE [provision-cli](spring-cloud-tutorial-intellij-deploy-apps.md#provision-a-service-instance-using-the-azure-cliextension.md)]
 
 ## Build and deploy the application
 Make sure you are executing the following command at the root of the project.
