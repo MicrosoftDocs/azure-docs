@@ -14,7 +14,7 @@ ms.author: JenCook
 
 This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Guard Extension](https://software.intel.com/sgx) (Intel SGX). 
 
-## Azure confidential computing VM Sizes
+## Azure confidential computing VM sizes
 
 Azure confidential computing virtual machines are designed to protect the confidentiality and the integrity of your data and code while it's processed in the cloud 
 
@@ -73,7 +73,7 @@ When using virtual machines in Azure, you're responsible for implementing a high
 
 Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
-## Deploying via an Azure Resource Manager (ARM) Template 
+## Deployment with Azure Resource Manager (ARM) Template
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You can use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
@@ -81,7 +81,7 @@ To learn about ARM templates, see [Template deployment overview](../azure-resour
 
 To deploy a DCsv2-Series VM in an ARM template, you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). Ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
-### VM Size
+### VM size
 
 Specify one of the following sizes in your ARM template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
 
@@ -94,7 +94,7 @@ Specify one of the following sizes in your ARM template in the Virtual Machine r
       ],
 ```
 
-### Gen2 OS Image
+### Gen2 OS image
 
 Under **properties**, you will also have to reference an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
@@ -125,7 +125,7 @@ Under **properties**, you will also have to reference an image under **storagePr
       }
 ```
 
-## Next Steps 
+## Next steps 
 
 In this article, you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Microsoft Azure Marketplace to deploy a DCsv2-Series VM.
 
