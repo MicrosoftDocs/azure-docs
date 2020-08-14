@@ -13,7 +13,7 @@ ms.date: 08/13/2020
 Azure Cosmos DB serverless lets you use your Azure Cosmos account in a real consumption-based fashion where you only get charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode as it eliminates the concept of provisioned capacity.
 
 > [!IMPORTANT] 
-> Got any feedback about serverless? We want to hear it! Feel free to drop a line to the Azure Cosmos DB team: [azurecosmosdbserverless@service.microsoft.com](azurecosmosdbserverless@service.microsoft.com).
+> Got any feedback about serverless? We want to hear it! Feel free to drop a line to the Azure Cosmos DB team: [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
 
 When using Azure Cosmos DB, any database operation has an associated cost expressed in [Request Units](request-units.md). How this cost is charged to you depends on the type of Azure Cosmos account you are using:
 
@@ -80,7 +80,7 @@ Serverless resources yield specific performance characteristics that are differe
 > [!NOTE]
 > As any Azure preview, Azure Cosmos DB serverless is excluded from Service Level Agreements (SLA). The performance characteristics mentioned above are provided as a preview of what this offer will deliver when generally available.
 
-# Next steps
+## Next steps
 
 Get started with serverless with the following articles:
 
