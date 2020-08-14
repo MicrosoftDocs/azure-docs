@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: mblythe
   ms.author: mblythe
-  ms.date: 12/19/2019
+  ms.date: 08/05/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -87,7 +87,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Turn on high contrast
-            url: azure-portal-change-theme-high-contrast.md
+            url: set-preferences.md#choose-a-theme-or-enable-high-contrast
  
 
    # Card

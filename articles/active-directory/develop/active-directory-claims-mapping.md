@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -256,13 +256,15 @@ To control what claims are emitted and where the data comes from, use the proper
 **Data type:** JSON blob with one or more claim schema entries
 
 **Summary:** This property defines which claims are present in the tokens affected by the policy, in addition to the basic claim set and the core claim set.
-For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value** or **Source/ID pair**), and which claim the data is emitted as (**Claim Type**).
+For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value**, **Source/ID pair**, or **Source/ExtensionID pair**), and which claim the data is emitted as (**Claim Type**).
 
 ### Claim schema entry elements
 
 **Value:** The Value element defines a static value as the data to be emitted in the claim.
 
-**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from. 
+**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.  
+
+**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
 
 Set the Source element to one of the following values: 
 
@@ -322,7 +324,7 @@ The ID element identifies which property on the source provides the value for th
 | User | facsimiletelephonenumber | Facsimile Telephone Number |
 | User | assignedroles | list of App roles assigned to user|
 | application, resource, audience | displayname | Display Name |
-| application, resource, audience | objected | ObjectID |
+| application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
 | Company | tenantcountry | Tenant's country/region |
 
@@ -411,7 +413,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use: 
 

@@ -1,6 +1,6 @@
 ---
 title: Remote Monitoring access control - Azure | Microsoft Docs
-description: This article provides information about how you can configure role-based access controls (RBAC) in the Remote Monitoring solution accelerator
+description: This article provides information about how you can configure role-based access control (RBAC) in the Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -13,9 +13,9 @@ ms.custom: has-adal-ref
 # As an administrator, I want to understand how I can configure access rights in the Remote Monitoring solution accelerator.
 ---
 
-# Configure role-based access controls in the Remote Monitoring solution accelerator
+# Configure role-based access control in the Remote Monitoring solution accelerator
 
-This article provides information about how to configure role-based access controls in the Remote Monitoring solution accelerator. Role-based access controls let you restrict access for individual users to specific features in the solution.
+This article provides information about how to configure role-based access control in the Remote Monitoring solution accelerator. Role-based access control lets you restrict access for individual users to specific features in the solution.
 
 ## Default settings
 
@@ -241,7 +241,7 @@ public async Task DeleteAsync(string id)
 
 ## Next steps
 
-In this article, you learned how role-based access controls are implemented in the Remote Monitoring solution accelerator.
+In this article, you learned how role-based access control is implemented in the Remote Monitoring solution accelerator.
 
 See [Configure access controls for the Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) for information about managing access to the Time Series Insights explorer in the Remote Monitoring solution accelerator.
 

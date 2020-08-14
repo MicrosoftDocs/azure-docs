@@ -1,6 +1,6 @@
 ---
 title: Perform Azure Queue storage actions in PowerShell
-description: How to perform operations on Azure Queue storage with PowerShell
+description: Make operations on Azure Queue storage with PowerShell. With Azure Queue storage, you can store large numbers of messages that are accessible by HTTP/HTTPS.
 author: mhopkins-msft
 
 ms.author: mhopkins
