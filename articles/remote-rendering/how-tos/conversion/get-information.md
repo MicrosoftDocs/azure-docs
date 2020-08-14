@@ -11,7 +11,7 @@ ms.topic: how-to
 
 ## Information about a conversion: The result file
 
-When the conversion service converts an asset, it writes a summary of any issues encountered into a "result file". 
+When the conversion service converts an asset, it writes a summary of any issues into a "result file". 
 For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.result.json`.
 
 The result file lists any errors and warnings that occurred during the conversion and gives a result summary, which is one of `succeeded`, `failed` or `succeeded with warnings`.
@@ -32,7 +32,7 @@ However, since there was a missing texture, the resulting arrAsset may not be as
 
 ## Information about a converted model: The info file
 
-The arrAsset file produced by the conversion service is solely intended for consumption by the rendering service. There may be times, however, when you want to access information about a model without starting a rendering session. Therefore, the conversion service places a JSON file beside the arrAsset file in the output container. For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.info.json` beside the converted asset `buggy.arrAsset`. It contains information about the source model, the converted model, and about the conversion itself.
+The arrAsset file produced by the conversion service is solely intended for consumption by the rendering service. There may be times, however, when you want to access information about a model without starting a rendering session. To support this workflow, the conversion service places a JSON file beside the arrAsset file in the output container. For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.info.json` beside the converted asset `buggy.arrAsset`. It contains information about the source model, the converted model, and about the conversion itself.
 
 ## Example *info* file
 
@@ -146,8 +146,8 @@ This section records information calculated from the converted asset.
 ## Deprecated features
 
 The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these had been the only source of warnings and errors.
-These files should now be considered deprecated and, instead, 
-[result files](#Information-about-a-conversion-The-result-file) should be used for this purpose.
+These files are now deprecated. Instead, please use
+[result files](#Information-about-a-conversion-The-result-file) for this purpose.
 
 ## Next steps
 
