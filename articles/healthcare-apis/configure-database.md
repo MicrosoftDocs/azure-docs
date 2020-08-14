@@ -22,6 +22,8 @@ Throughput must be provisioned to ensure that sufficient system resources are av
 ## Update throughput
 To change this setting in the Azure portal, navigate to your Azure API for FHIR and open the Database blade. Next, change the Provisioned throughput to the desired value depending on your performance needs. You can change the value up to a maximum of 10,000 RU/s. If you need a higher value, contact Azure support.
 
+If the database throughput is higher than 10,000 RU/s, or if the data stored in the database exceeds 50GB, your client application must be capable of handling continuation tokens. A new partition will be created in the database for every 10,000 RU/s increase in throughput or if your data grows beyond 50GB, resulting in multi-page response where pagination is implemented using the continuation tokens.
+
 > [!NOTE] 
 > Higher value means higher Azure API for FHIR throughput and higher cost of the service.
 
