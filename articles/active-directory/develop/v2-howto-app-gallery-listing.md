@@ -18,13 +18,20 @@ ms.custom: aaddev
 
 This article shows how to list an application in the Azure Active Directory (Azure AD) application gallery, implement single sign-on (SSO), and manage the listing.
 
-## What is the Azure AD application gallery?
+## What is the Azure AD app gallery?
+The Azure AD app gallery is a collection of apps that are pre-configured to use Azure AD as an identity provider. Using Azure AD as an identity provider provides single sign-on to users. To learn more about single sign-on, see [What is single sign-on?](../manage-apps/what-is-single-sign-on.md). To learn more about how customers manage apps in Azure AD, see [What is application management?](manage-apps/what-is-application-management.md).
 
-- Customers find the best possible single sign-on experience.
+There are many benefits to adding your app to the Azure AD gallery. Some of these include:
+
+- Customers find the best possible single sign-on experience for your app.
 - Configuration of the application is simple and minimal.
 - A quick search finds your application in the gallery.
 - Free, Basic, and Premium Azure AD customers can all use this integration.
 - Mutual customers get a step-by-step configuration tutorial.
+
+
+In addition, there are many benefits when your customers use Azure AD as an identity provider for your app. Some of these include:
+
 - Your application can be discoverable in the Office 365 App Gallery, the Office 365 App Launcher and within Microsoft Search on Office.com
 - Your application can use the Microsoft Graph REST API to access the data that drives user productivity that is available from the Microsoft Graph.
 - You reduce support costs by making it easier for your customers.
@@ -36,8 +43,8 @@ This article shows how to list an application in the Azure Active Directory (Azu
 - You increase your marketability and adoptability. Many large organizations require that (or aspire to) their employees have seamless SSO experiences across all applications. Making SSO easy is important.
 - You reduce end-user friction, which may increase end-user usage and increase your revenue.
 - Customers who use the System for Cross-domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) can use provisioning for the same app.
-- When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
-- Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on. [See Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md).
+- When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
+- Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure AD and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application.
 
 
 ## Prerequisites
@@ -93,38 +100,32 @@ The guest user is federated to a home tenant which is also an Azure AD. The gues
 > [!NOTE]
 > If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-
-
-
-------------------------------------------------------------------------------------------------------------
-
 ## How to enable Single Sign-on in your published application
 
-1. [Choose the right federation protocol for your multi-tenant application](isv-choose-multi-tenant-federation.md).
-1. Implement SSO in your application
-   - ‎See [guidance on authentication patterns](../develop/v2-app-types.md)
-   - See [Azure active Directory code samples](../develop/sample-v2-code.md) for OIDC and OAuth protocols
-1. [Create your Azure Tenant](isv-tenant-multi-tenant-app.md) and test your application
-1. [Create and publish SSO documentation on your site](isv-create-sso-documentation.md).
-1. [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)  and partner with Microsoft to create documentation on Microsoft’s site.
+1. Choose the right federation protocol for your multi-tenant application.
+1. Implement SSO in your application.
+   - ‎See [guidance on authentication patterns](v2-app-types.md).
+   - See [Azure active Directory code samples](sample-v2-code.md) for OIDC and OAuth protocols.
+1. Create your Azure Tenant and test your application.
+1. Create and publish SSO documentation on your site.
+1. Submit your application listing and partner with Microsoft to create documentation on Microsoft’s site.
 1. [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial#gtm).
 
 
-# Create an Azure tenant for a multi-tenant application  
+## Create an Azure tenant for a multi-tenant application  
 
-To provide access to your multi-tenant application you must create an Azure Active Directory tenant to register the application and enable the federation of your customer’s identities. See [Choosing the right federation protocol for your multi-tenant application](isv-choose-multi-tenant-federation.md). This tenant will allow you to test your application and the federation in an environment that is similar to your customers Azure AD environments.
-
-
+To provide access to your multi-tenant application you must create an Azure Active Directory tenant to register the application and enable the federation of your customer’s identities. This tenant will allow you to test your application and the federation in an environment that is similar to your customers Azure AD environments.
 
 ## Implement SSO by using the federation protocol
 
 To list an application in the Azure AD app gallery, you first need to implement one of the following federation protocols supported by Azure AD. You also need to agree to the Azure AD application gallery terms and conditions. Read the terms and conditions of the Azure AD application gallery on [this website](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
+
 ### Choose the right federation protocol for your multi-tenant application
 
 When you develop your software as a service (SaaS) application, you must select the federation protocol that best meets your and your customers’ needs. This decision is based on your development platform, and your desire to integrate with data available within your customers’ Office 365 and Azure AD ecosystem.
 
-See the complete list of [protocols available for SSO integrations](what-is-single-sign-on.md) with Azure Active Directory.
+See the complete list of [protocols available for SSO integrations](../manage-apps/sso-options.md) with Azure Active Directory.
 The following table compares 
 * Open Authentication 2.0 (OAuth 2.0)
 * Open ID Connect (OIDC)
@@ -167,19 +168,15 @@ Additionally, using these protocols enables your customers to use Conditional Ac
 
 You register your application with Microsoft Identity, which is an OAuth 2.0 provider. You could then also register your OAuth 2.0-based application with any other Identity Provider that you wish to integrate with. 
 
-For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](../develop/sample-v2-code.md).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
+For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](sample-v2-code.md).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
 
-* [Android](../develop/quickstart-v2-android.md)
-
-* [iOS](../develop/quickstart-v2-ios.md)
-
-* [Universal Windows Platform](../develop/quickstart-v2-uwp.md)
-
-
+* [Android](quickstart-v2-android.md)
+* [iOS](quickstart-v2-ios.md)
+* [Universal Windows Platform](quickstart-v2-uwp.md)
 
 
 ### SAML 2.0** or **WS-Fed**
-If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by following the [instructions to add a custom application](../manage-apps/view-applications-portal.md).
+If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by following the [instructions to add a custom application](../manage-apps/configure-saml-single-sign-on.md).
 
   ![Listing a SAML 2.0 or WS-Fed application in the gallery](./media/howto-app-gallery-listing/saml.png)
 
@@ -188,7 +185,7 @@ If your app supports SAML 2.0, you can integrate it directly with an Azure AD te
   * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 
-Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) for an overview. 
+Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](active-directory-saml-protocol-reference.md) for an overview. 
 
 Web Services Federation (WSFed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
 
@@ -204,18 +201,14 @@ When using SAML 2.0 or WSFed protocols for mobile applications, certain Conditio
 
 Microsoft does not provide libraries for SAML implementation or recommend specific libraries. There are many open-source libraries available.
 
-
-
 ### Implement SSO by using the password SSO
 
-Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../manage-apps/what-is-single-sign-on.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
+Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../manage-apps/sso-options.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
 * If you want to add your application to list in the gallery by using password SSO, select **Password SSO** as shown.
 * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
-
-
 
 ## SSO and Using Microsoft Graph Rest API 
 
@@ -224,11 +217,6 @@ Microsoft Graph is the data fabric across all of Microsoft 365, including Office
 Using any of the above protocols for SSO enables your application’s access to the rich data available through the Microsoft Graph REST API. This  enables your customers  to get more value from their investment in Microsoft 365. For example,  your application can call the Microsoft Graph API to integrate with your customers’ Office 365 instance and surface users’ Microsoft Office and SharePoint items within your application. 
 
 If you are using Open ID Connect  to authenticate, then your development experience is seamless  because you will use OAuth2, the foundation of Open ID Connect, to acquire tokens can be used for invoking Microsoft Graph APIs. If your application is using SAML or WSFed, you must add additional code within your application to get these OAuth2 to acquire the tokens  required to  invoking Microsoft Graph APIs. 
-
-
-------------------------------------------------------------------------------------------------------------
-
-
 
 
 ## Request for user provisioning
@@ -245,15 +233,15 @@ You can create your Azure subscription and Azure active directory for free, and 
 
 ## Create your tenant
 
-1. Create your Tenant. See [Set up a dev environment](../develop/quickstart-create-new-tenant.md).
+1. Create your Tenant. See [Set up a dev environment](quickstart-create-new-tenant.md).
 
 2. Enable and test single sign-on access to your application,
 
-   a. **For OIDC or Oath applications**, [Register your application](../develop/quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types
+   a. **For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types
 
-   b. **For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](configure-saml-single-sign-on.md) applications using a generic SAML template in Azure AD.
+   b. **For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](../manage-apps/configure-saml-single-sign-on.md) applications using a generic SAML template in Azure AD.
 
-You can also [convert a single-tenant application to multi-tenant](../develop/howto-convert-app-to-be-multi-tenant.md) if necessary.
+You can also [convert a single-tenant application to multi-tenant](howto-convert-app-to-be-multi-tenant.md) if necessary.
 
 
 ## Update or remove an existing listing
@@ -301,31 +289,18 @@ Ease of adoption is a significant factor in enterprise software decisions. Clear
 We recommend that your documentation on your site at a minimum include the following items.
 
 * Introduction to your SSO functionality
-
   * Protocols supported
-
   * Version and SKU
-
   * Supported Identity Providers list with documentation links
-
 * Licensing information for your application
-
 * Role-based access control for configuring SSO
-
 * SSO Configuration Steps
-
   * UI configuration elements for SAML with expected values from the provider
-
   * Service provider information to be passed to identity providers
-
 * If OIDC/OAuth
-
   * List of permissions required for consent with business justifications
-
 * Testing steps for pilot users
-
 * Troubleshooting information, including error codes and messages
-
 * Support mechanisms for customers
 
 ### Documentation on the Microsoft Site
@@ -335,8 +310,3 @@ When you list your application with the Azure Active Directory Application Galle
 ## Next steps
 
 For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md).
-
-[Integrate SSO in your application](isv-sso-content.md)
-[List your application in the Azure AD Application Gallery](https://docs.microsoft.com/Azure/active-directory/develop/howto-app-gallery-listing)
-[Enable SSO for your multi-tenant application](isv-sso-content.md)
-[Create documentation for your multi-tenant application](isv-create-sso-documentation.md)
