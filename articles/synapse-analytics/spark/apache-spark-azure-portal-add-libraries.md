@@ -96,7 +96,7 @@ Packages can be added or modified anytime between sessions. When a new package c
 To update or uninstall a library:
 1. Navigate to your Azure Synapse Analytics workspace. 
 
-2. Using the Azure Portal or the Azure Synapse workspace, select the **Apache Spark pool** that you would like to update.
+2. Using the Azure portal or the Azure Synapse workspace, select the **Apache Spark pool** that you would like to update.
 
 3. Navigate to the **Packages** section and upload a new environment configuration file
    
