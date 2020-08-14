@@ -78,7 +78,7 @@ The HTTP extension processor node enables you to connect your own IoT Edge modul
 
 #### gRPC extension processor
 
-add content
+<!--add content-->
 
 #### Signal gate processor  
 
