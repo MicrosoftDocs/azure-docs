@@ -39,7 +39,6 @@ Roles and Scopes | Read all administrative roles and memberships<br>Read all pro
 Subscriptions | Read all subscriptions<br>Enable Service Plan Member | No permissions
 Policies | Read all properties of policies<br>Manage all properties of owned policy | No permissions
 
-
 ## To restrict the default permissions for member and guest users
 
 Default permissions for member users can be restricted in the following ways.
