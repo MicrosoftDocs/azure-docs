@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Key Vault Managed HSM
+  - title: About Azure Key Vault Managed HSM (preview)
     linkLists:
       - linkListType: overview
         links:
