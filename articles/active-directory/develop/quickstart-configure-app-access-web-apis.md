@@ -19,7 +19,7 @@ ms.reviewer: lenalepa, aragra, sureshja
 
 # Quickstart: Configure a client application to access a web API
 
-In this quickstart, you create scopes, or permissions, in a web API's app registration in the Microsoft identity platform to provide scoped resource access to client applications.
+In this quickstart, you configure an application in the Azure portal with scoped permission to a web API.
 
 Before a client can access a web API exposed by a resource application, such as Microsoft Graph API, the consent framework ensures the client obtains the permission grant required for the permissions requested. By default, all applications can request permissions from the Microsoft Graph API.
 

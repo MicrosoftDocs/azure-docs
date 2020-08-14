@@ -94,9 +94,11 @@ There are certain restrictions on the format of the redirect URIs you add to an 
 
 ## Add credentials
 
-Credentials are typically used by confidential client applications that access a web API, for example web apps, other web APIs, or service- and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+Credentials are used by confidential client applications that access a web API. Examples of confidential clients are web apps, other web APIs, or service- and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
 You can add both certificates and client secrets (strings) as a credential to your confidential client app registration.
+
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot of Azure portal showing the Certificates and secrets pane in an App registration":::
 
 ### Add a certificate
 
