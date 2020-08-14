@@ -49,7 +49,7 @@ To use extension bundles, update the *host.json* file to include the following e
 
 ## <a name="local-csharp"></a>NuGet packages
 
-For a C# class library-based functions project, you should install Extension bundles is designed specifically for projects that aren't class 
+For a C# class library-based functions project, you should install extensions directly. Extension bundles is designed specifically for projects that aren't C# class library-based.
 
 ### <a name="vs"></a> C\# class library with Visual Studio
 

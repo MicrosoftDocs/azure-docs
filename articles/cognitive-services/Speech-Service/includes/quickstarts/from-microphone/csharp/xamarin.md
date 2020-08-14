@@ -42,7 +42,7 @@ The common helloworld project contains platform-independent implementations for 
 1. In the source file's `OnRecognitionButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
 
-1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceregion`, and replace it with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. (For example, use `westus` for the free trial subscription.)
+1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceregion`, and replace it with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. 
 
 1. Next, you need to create a [Xamarin Service](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects, such as UWP, Android, and iOS. To do that, add a new folder named *Services* under the helloworld project, and create a new C# source file under it. You can right-click the *Services* folder, and select **Add** > **New Item** > **Code File**. Rename the file `IMicrophoneService.cs`, and place all code from the following snippet in that file:
 
