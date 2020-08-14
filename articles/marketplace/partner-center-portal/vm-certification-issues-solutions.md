@@ -310,7 +310,7 @@ If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image,
 
 Enable RDP access for Windows images before you submit them.
 
-## Bash History Failed
+## Bash history failed
 
 You'll see this error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive 
 information isn't captured in your bash history file.
@@ -329,9 +329,9 @@ Step 3.	After successful executing the command, Restart the VM.
 
 Step 4.	Generalize the VM, take the Image VHD and Stop the VM.
 
-Step 5. 	Re-Submit the generalised image.
+Step 5. 	Re-Submit the generalized image.
 
-## Requesting Exceptions (Custom Templates) on VM images for selective tests
+## Requesting exceptions (custom templates) on VM images for selective tests
 
 Publishers can reach out to request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request.
 The Certification team reserves the right to deny or approve exceptions at any point of time.
@@ -351,13 +351,13 @@ There are three scenarios/cases where publishers generally request these excepti
 * **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
 In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
 
-Information to provide for exception scenarios
+### Information to provide for exception scenarios
 
 Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
-   1.	Publisher ID – The publisher id on Partner Center portal
-   2.	Offer id/name – The Offer id/name for which exception is requested 
-   3.	SKU/Plan Id – The plan id/sku of the VM offer for which exception is requested
+   1.	Publisher ID – The publisher ID on Partner Center portal
+   2.	Offer ID/name – The Offer ID/name for which exception is requested 
+   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
    4.	 Version – The version of the VM offer for which exception is requested
    5.	Exception Type –Tests, Locked Down VM, Custom Templates
    6.	Reason of request – Reason for this exception and information on tests to be exempted 
