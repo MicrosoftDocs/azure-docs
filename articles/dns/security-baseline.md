@@ -4,7 +4,7 @@ description: The Azure DNS security baseline provides procedural guidance and re
 author: msmbaldwin
 ms.service: dns
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -119,7 +119,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 
 **Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control.
+In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control. Note, the private DNS zone resources use a different role name, Private DNS Zone Contributor. 
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -330,6 +330,8 @@ In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level 
 
 - [Understand RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
 
+- [Understand RBAC in Azure Private DNS](dns-protect-private-zones-recordsets.md)
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -390,11 +392,6 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
-
-- Not allowed resource types
-- Allowed resource types
-
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
 - [How to create management groups](../governance/management-groups/create.md)
@@ -441,7 +438,10 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
 - Not allowed resource types
+
 - Allowed resource types
+
+Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -497,6 +497,8 @@ Additionally, Azure Resource Manager supports another type of security control, 
 - [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
 
 - [How to protect against changes in Azure DNS](dns-protect-zones-recordsets.md)
+
+- [How to protect against changes in Azure Private DNS](dns-protect-private-zones-recordsets.md)
 
 **Azure Security Center monitoring**: Not applicable
 
