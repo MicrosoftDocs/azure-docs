@@ -8,9 +8,9 @@ ms.custom:
 
 # Tutorial: Deploy a multi-container group using Docker Compose 
 
-Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting a higher-level service. In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally and then deploy it as a container group in Azure Container Instances. 
+In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally and then deploy it as a [container group](container-instances-container-group.md) in Azure Container Instances. 
 
-Deploy to Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). 
+Run in Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). You can use native Docker commands to run either [a single container instance](quickstart-docker-cli.md) or multi-container group in Azure.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
@@ -21,10 +21,10 @@ In this article, you:
 > [!div class="checklist"]
 > * Create an Azure container registry
 > * Clone application source code from GitHub
-> * Use Docker Compose to run and build a multi-container application locally
+> * Use Docker Compose to build an image and run a multi-container application locally
 > * Push the application image to your container registry
 > * Create an Azure context for Docker
-> * Bring the application up in Azure Container Instances
+> * Bring up the application in Azure Container Instances
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Inside the directory is the application source code and a pre-created Docker com
 
 ## Modify Docker compose file
 
-Open docker-compose.yaml in a text editor. Note the configuration of the `azure-vote-back` and `azure-vote-front` services.
+Open docker-compose.yaml in a text editor. The file configures the `azure-vote-back` and `azure-vote-front` services.
 
 ```yml
 version: '3'
@@ -75,10 +75,10 @@ services:
         - "8080:80"
 ```
 
-In the `azure-vote-front` configuration, make the following two changes
+In the `azure-vote-front` configuration, make the following two changes:
 
-1. Update the `image` property, `azure-vote-front`. Prefix the image name with the login server name of your Azure container registry, \<acrName\>.azurecr.io. For example, if your registry is named *myregistry*, the login server name is *myregistry.azurecr.io* (all lowercase)
-1. Change the `ports` mapping to `80:80`.
+1. Update the `image` property, `azure-vote-front`. Prefix the image name with the login server name of your Azure container registry, \<acrName\>.azurecr.io. For example, if your registry is named *myregistry*, the login server name is *myregistry.azurecr.io* (all lowercase), and the image property is then `myregistry.azurecr.io/azure-vote-front`.
+1. Change the `ports` mapping to `80:80`. Save the file.
 
 The updated file should look similar to the following:
 
@@ -101,13 +101,10 @@ services:
         - "80:80"
 ```
 
-
-
-
 By making these substitutions, the `azure-vote-front` image you build in the next step is tagged for your Azure container registry, and the image can be pulled to run in Azure Container Instances.
 
-> [!NOTE]
-> You don't have to use an Azure container registry for this scenario. For example, you can choose a private repository in Docker Hub to host your application image. If you choose a different registry, tag the image appropriately.
+> [!TIP]
+> You don't have to use an Azure container registry for this scenario. For example, you can choose a private repository in Docker Hub to host your application image. If you choose a different registry, update the image property appropriately.
 
 ## Run multi-container application locally
 
@@ -140,44 +137,48 @@ b68fed4b66b6        redis                                   "docker-entrypoint.s
 
 To see the running application, enter `http://localhost:80` in a local web browser. The sample application loads, as shown in the following example:
 
-![Image of voting app](./media/container-instances-tutorial-docker-compose/azure-vote.png)
+![Image of voting app](./media/tutorial-docker-compose/azure-vote.png)
 
-After trying the local applicaion, run [docker-compose down](https://docs.docker.com/compose/reference/down/) to stop the application and remove the containers.
+After trying the local application, run [docker-compose down](https://docs.docker.com/compose/reference/down/) to stop the application and remove the containers.
+
+```console
+docker compose down
+```
 
 ## Push image to container registry
 
-Before you deploy the application to Azure Container Instances, run [docker compose push](https://docs.docker.com/compose/reference/up/)) to push the `azure-vote-front` image to your container registry:
+To deploy the application to Azure Container Instances, you need to push the `azure-vote-front` image to your container registry. Run [docker-compose push](https://docs.docker.com/compose/reference/push) to push the image:
 
 ```console
 docker-compose push
 ```
 
-Because the image is large, it can take a few minutes to push to the registry.
+It can take a few minutes to push to the registry.
 
-To verify the image is stored in your registry, run [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) command:
+To verify the image is stored in your registry, run the [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) command:
 
 ```azurecli
-az acr repository show --name <acrName> --repository azure-vote-fron
+az acr repository show --name <acrName> --repository azure-vote-front
 ```
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
 ## Deploy application to Azure Container instances
 
-First, change to the ACI context. Subsequent Docker commands run in this context.
+Next, change to the ACI context. Subsequent Docker commands run in this context.
 
 ```console
 docker context use myacicontext
 ```
 
-Run `docker compose up` to start the application in Azure Container Intances.
+Run `docker compose up` to start the application in Azure Container Instances. The `azure-vote-front` image is pulled from your container registry and the container group is created in Azure Container Instances.
 
 ```console
 docker compose up
 ```
 
 > [!NOTE]
-> Docker Compose commands currently available in an ACI context are `docker compose up` and `docker compose down` (no hyphen between `docker` and `compose`).
+> Docker Compose commands currently available in an ACI context are `docker compose up` and `docker compose down`. There is no hyphen between `docker` and `compose` in these commands.
 
 In a short time, the container group is deployed. Sample output:
 
@@ -188,7 +189,7 @@ In a short time, the container group is deployed. Sample output:
  ⠿ azure-vote-front           Done                             10.6s
 ```
 
-Run `docker ps` to see the running containers
+Run `docker ps` to see the running containers and the IP address assigned to the container group.
 
 ```console
 docker ps
@@ -198,11 +199,13 @@ Sample output:
 
 ```
 CONTAINER ID                           IMAGE                                    COMMAND             STATUS              PORTS
-azurevotingappredis_azure-vote-back    redis                                                        Running             13.90.155.243:6379->6379/tcp
-azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             13.90.155.243:80->80/tcp
+azurevotingappredis_azure-vote-back    redis                                                        Running             52.179.23.131:6379->6379/tcp
+azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             52.179.23.131:80->80/tcp
 ```
 
-To see the running application in the cloud, enter the displayed IP address in a local web browser. In this example, enter `13.90.155.243`.
+To see the running application in the cloud, enter the displayed IP address in a local web browser. In this example, enter `52.179.23.131`. The sample application loads, as shown in the following example:
+
+![Image of voting app in ACI](./media/tutorial-docker-compose/azure-vote-aci.png)
 
 To see the logs of the front-end container, run the [docker logs](https://docs.docker.com/engine/reference/commandline/logs) command. For example:
 
@@ -210,7 +213,7 @@ To see the logs of the front-end container, run the [docker logs](https://docs.d
 docker logs azurevotingappredis_azure-vote-front
 ```
 
-You can also use the Azure portal or other Azure tools to see the container status.
+You can also use the Azure portal or other Azure tools to see the properties and status of the container group you deployed.
 
 When you finish trying the application, stop the application and containers with `docker compose down`:
 
@@ -222,10 +225,14 @@ This command deletes the container group in Azure Container Instances.
 
 ## Next steps
 
-In this tutorial, you....
+In this tutorial, you used Docker Compose to switch from running a multi-container application locally to running in Azure Container Instances. You learned how to:
 
-...:
+> [!div class="checklist"]
+> * Create an Azure container registry
+> * Clone application source code from GitHub
+> * Use Docker Compose to build an image and run a multi-container application locally
+> * Push the application image to your container registry
+> * Create an Azure context for Docker
+> * Bring up the application in Azure Container Instances
 
-> [!div class="nextstepaction"]
-> [xxx](xxx)
-
+If you want to take advantage of more features in Azure Container Instances, use Azure tools to specify a multi-container group. For example, see the tutorials to deploy a container group using the Azure CLI with a [YAML file](container-instances-multi-container-yaml.md), or deploy using an [Azure Resource Manager template](container-instances-multi-container-group.md). 
