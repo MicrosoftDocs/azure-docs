@@ -1,6 +1,6 @@
 ---
 title: 'About Azure ExpressRoute Direct'
-description: This page provides an overview of ExpressRoute Direct
+description: Learn about key features of Azure ExpressRoute Direct and information needed to onboard to ExpressRoute Direct, like available SKUs and technical requirements.
 services: expressroute
 author: jaredr80
 
