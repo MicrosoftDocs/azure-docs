@@ -15,11 +15,11 @@ ms.author: ambapat
 ---
 # Secure access to a Managed HSM pool
 
-Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users. This article provides an overview of the Managed HSM access model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
+Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
-## Access model overview
+## Access control model overview
 
-Access to a Managed HSM pool is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Managed HSM pool itself. Operations in this plane include creating and deleting HSM pools and retrieving HSM pool properties. The data plane is where you work with the data stored in an HSM pool. You can add, delete, and modify keys, and manage role assignments to control access to the HSM pool and keys.
+Access to a Managed HSM pool is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Managed HSM pool itself. Operations in this plane include creating and deleting HSM pools and retrieving HSM pool properties. The data plane is where you work with the data stored in an HSM pool -- that is HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the  keys, create a full HSM backup, restore full backup, and manage security domain from the data plane interface.
 
 To access a Managed HSM pool in either plane, all callers must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. A caller can be any one of the [security principals](../../role-based-access-control/overview.md#security-principal) defined in Azure Active Directory - user, group, service principal or managed identity.
 
@@ -58,8 +58,8 @@ The following table shows the endpoints for the management and data planes.
 | Access&nbsp;plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
 | Management plane | **Global:**<br> management.azure.com:443<br> | Create, read, update, delete, and move HSM pools<br>Set HSM pool tags | Azure RBAC |
-| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles | Managed HSM local RBAC |
-
+| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup/restore**: backup, restore, check status backup/restore operations <br/><br/>**Security domain**: download and upload security domain | Managed HSM local RBAC |
+|||||
 ## Management plane and Azure RBAC
 
 In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
