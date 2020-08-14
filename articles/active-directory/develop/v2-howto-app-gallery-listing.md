@@ -61,14 +61,11 @@ The steps to publishing your app in the Azure AD app gallery are:
 You need a permanent account for testing with at least two users registered.
 
 
-## Choose the right single sign-on standard for your app (Step 1)
+## Step 1 - Choose the right single sign-on standard for your app
 
-To list an application in the Azure AD app gallery, you need to implement at least one of the supported single sign-on options. To understand how customers will configure the app in Azure AD, see [SSO options](../manage-apps/sso-options.md).
+To list an application in the Azure AD app gallery, you need to implement at least one of the supported single sign-on options. To understand the single sign-on options, and how customers will configure them in Azure AD, see [SSO options](../manage-apps/sso-options.md).
 
-The following table compares 
-* Open Authentication 2.0 (OAuth 2.0) and Open ID Connect (OIDC)
-* Security Assertion Markup Language (SAML)
-* Web Services Federation (WS-Fed)
+The following table compares the main standards: Open Authentication 2.0 (OAuth 2.0) with OpenID Connect (OIDC), Security Assertion Markup Language (SAML), and Web Services Federation (WS-Fed).
 
 | Capability| OAuth / OIDC| SAML / WS-Fed |
 | - |-|-|
@@ -108,18 +105,18 @@ Web Services Federation (WS-Fed) is an [industry standard](https://docs.oasis-op
 - When using SAML 2.0 or WSFed protocols for mobile applications, certain Conditional Access policies including Multi-factor Authentication (MFA) will have a degraded experience.
 - If you want to access the Microsoft Graph, you will need to implement authorization through OAuth 2.0 to generate necessary tokens. 
 
-## Password-based
+### Password-based
 Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
 
 
-## Implement single sign-on in your app (Step 2)
+## Step 2 - Implement single sign-on in your app
 Every app in the gallery must implement one of the supported single sign-on options. To learn more about the supported options, see [SSO options](../manage-apps/sso-options.md).
 
 For specific guidance, see [guidance on authentication patterns](v2-app-types.md) and [Azure active Directory code samples](sample-v2-code.md) for OIDC and OAuth protocols.
 
 Your application must have the capability to do SAML/WS-Fed SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request. 
 
-For federated applications (Open ID and SAML/WS-Fed), the application must support the software-as-a-service (SaaS) model for getting listed in the Azure AD app gallery. The enterprise gallery applications must support multiple customer configurations and not any specific customer.
+For federated applications (OpenID and SAML/WS-Fed), the application must support the software-as-a-service (SaaS) model for getting listed in the Azure AD app gallery. The enterprise gallery applications must support multiple customer configurations and not any specific customer.
 
 ### Implement OAuth 2.0 and OpenID Connect
 
@@ -149,7 +146,7 @@ To learn more about WS-Fed in ASP.NET Core, see [Authenticate users with WS-Fede
 Create a web application that has an HTML sign-in page. Make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 
 
-## Create your Azure tenant and test your app (Step 3)
+## Step 3 - Create your Azure tenant and test your app
 
 You will need an Azure AD tenant in order to test your app. To set up your development environment, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
 
@@ -164,7 +161,7 @@ Once you have a tenant, you need to enable and test single-sign on access.
 You can also [convert a single-tenant application to multi-tenant](howto-convert-app-to-be-multi-tenant.md) if necessary.
 
 
-## Create and publish documentation (Step 4)
+## Step 4 - Create and publish documentation
 
 ### Documentation on your site
 
@@ -192,7 +189,7 @@ We recommend that your documentation on your site at a minimum include the follo
 When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 
-## Submit your app (Step 5)
+## Step 5 - Submit your app
 
 After you've tested that your application integration works with Azure AD, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
@@ -271,7 +268,7 @@ The timeline for the process of listing an OpenID Connect application in the gal
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and we'll respond as soon as possible.
 
 
-## Join the Microsoft partner network (Step 6)
+## Step 6 - Join the Microsoft partner network
 The Microsoft Partner Network provides instant access to exclusive resources, programs, tools, and connections. To join the network and create your go to market plan, see [Reach commercial customers](https://partner.microsoft.com/explore/commercial#gtm).
 
 
