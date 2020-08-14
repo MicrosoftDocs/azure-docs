@@ -433,7 +433,7 @@
     - name: Community tools for migration
       href: migration-classic-resource-manager-community-tools.md
     - name: FAQ
-      href: migration-classic-resource-manager-faq.md
+      href: ../migration-classic-resource-manager-faq.md
   - name: Use Images
     displayName: SIG, AMI, image
     items:
@@ -901,7 +901,7 @@
     - name: Performance
       items:
       - name: Enable write accelerator
-        href: how-to-enable-write-accelerator.md
+        href: ../how-to-enable-write-accelerator.md
       - name: Using ultra disks
         href: disks-enable-ultra-ssd.md
       - name: Benchmark a disk
