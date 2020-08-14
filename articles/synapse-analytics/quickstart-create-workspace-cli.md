@@ -11,7 +11,7 @@ ms.author: alehall
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Create a Synapse workspace
+# Quickstart: Create a Synapse workspace with Azure CLI
 
 The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it from the command line.
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, [create a free account before you begin
     > [!IMPORTANT]
     > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Install the Azure CLI locally
 
