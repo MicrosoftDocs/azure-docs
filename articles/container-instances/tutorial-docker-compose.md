@@ -8,7 +8,7 @@ ms.custom:
 
 # Tutorial: Deploy a multi-container group using Docker Compose 
 
-In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally and then deploy it as a [container group](container-instances-container-group.md) in Azure Container Instances. 
+In this tutorial, you use [Docker Compose](https://docs.docker.com/compose/) to define and run a multi-container application locally and then deploy it as a [container group](container-instances-container-groups.md) in Azure Container Instances. 
 
 Run in Azure Container Instances on-demand when you develop cloud-native apps with Docker and you want to switch seamlessly from local development to cloud deployment. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). You can use native Docker commands to run either [a single container instance](quickstart-docker-cli.md) or multi-container group in Azure.
 
@@ -137,7 +137,7 @@ b68fed4b66b6        redis                                   "docker-entrypoint.s
 
 To see the running application, enter `http://localhost:80` in a local web browser. The sample application loads, as shown in the following example:
 
-![Image of voting app](./media/tutorial-docker-compose/azure-vote.png)
+:::image type="content" source="media/tutorial-docker-compose/azure-vote.png" alt-text="Image of voting app":::
 
 After trying the local application, run [docker-compose down](https://docs.docker.com/compose/reference/down/) to stop the application and remove the containers.
 
@@ -205,7 +205,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 To see the running application in the cloud, enter the displayed IP address in a local web browser. In this example, enter `52.179.23.131`. The sample application loads, as shown in the following example:
 
-![Image of voting app in ACI](./media/tutorial-docker-compose/azure-vote-aci.png)
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Image of voting app in ACI":::
 
 To see the logs of the front-end container, run the [docker logs](https://docs.docker.com/engine/reference/commandline/logs) command. For example:
 

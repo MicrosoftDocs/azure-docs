@@ -12,7 +12,7 @@ Use Azure Container Instances to run serverless Docker containers in Azure with 
 
 In this quickstart, you use native Docker CLI commands to deploy a Docker container and make its application available in Azure Container Instances. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). A few seconds after you execute a `docker run` command, you can browse to the application running in the container:
 
-:::image type="content" source="media/container-instances-quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
+:::image type="content" source="media/quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
@@ -64,7 +64,7 @@ hungry-kirch        mcr.microsoft.com/azuredocs/aci-helloworld                  
 
  Now go to the IP address in your browser. If you see a web page similar to the following, congratulations! You've successfully deployed an application running in a Docker container to Azure.
 
-:::image type="content" source="media/container-instances-quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
+:::image type="content" source="media/quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
 ## Pull the container logs
 
@@ -103,10 +103,10 @@ You can also use the [Docker extension](https://aka.ms/VSCodeDocker) for Visual 
 
 To use Azure tools to create and manage container instances, see other quickstarts using the [Azure CLI](container-instances-quickstart.md), [Azure PowerShell](container-instances-quickstart-powershell.md), [Azure portal](container-instances-quickstart-portal.md), and [Azure Resource Manager template](container-instances-quickstart-template.md).
 
-If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
+If you'd like to use Docker Compose to define and run a multi-container application locally and then switch to Azure Container Instances, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
+> [Docker Compose tutorial](./tutorial-docker-compose.md)
 
 <!-- LINKS - External -->
 
