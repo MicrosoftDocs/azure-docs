@@ -27,12 +27,11 @@ Once you've created the resource group, create an Azure container registry with 
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Here's example output for a new Azure container registry named *mycontainerregistry082* (shown here truncated):
+Here's partial output for a new Azure container registry named *mycontainerregistry082*:
 
 ```output
-...
 {
-  "creationDate": "2018-03-16T21:54:47.297875+00:00",
+  "creationDate": "2020-07-16T21:54:47.297875+00:00",
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
   "location": "eastus",
   "loginServer": "mycontainerregistry082.azurecr.io",
