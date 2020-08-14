@@ -5,7 +5,7 @@ keywords: app service, azure app service, authN, authZ, secure, security, multi-
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
