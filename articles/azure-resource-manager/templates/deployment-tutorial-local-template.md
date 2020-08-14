@@ -1,9 +1,10 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy an Azure Resource Manager template from your local computer
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Deploy a local Azure Resource Manager template
@@ -28,13 +29,11 @@ After installing either Azure PowerShell or Azure CLI, make sure you sign in for
 
 ### Editor (Optional)
 
-Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Review template
 
-The template used in this tutorial is similar to the template used in the [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). If you are interested in creating the template, you can go through that tutorial. However it's not required for completing this tutorial.
-
-The template deploys a storage account, app service plan, and web app.
+The template deploys a storage account, app service plan, and web app. If you are interested in creating the template, you can go through [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). However it's not required for completing this tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
@@ -66,7 +65,7 @@ If you have multiple Azure subscriptions, select the subscription you want to us
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # [Azure CLI](#tab/azure-cli)

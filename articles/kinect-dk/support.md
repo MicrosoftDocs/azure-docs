@@ -25,6 +25,12 @@ There are multiple ways to get your questions answered through public forums:
 
 There are multiple ways to get an assisted support for Azure Kinect.
 
+### Microsoft Q&A
+
+For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://aka.ms/azureqa), Azure’s preferred destination for community support.
+
+- [Microsoft Q&A for Azure Kinect](https://docs.microsoft.com/answers/topics/azure-kinect-dk.html), where you can ask questions or search through existing library of questions.
+
 ### Development Azure Kinect on Azure
 
 Azure subscribers can create and manage support requests in the Azure portal. One-on-one development support for Body Tracking, Sensor SDK, Speech device SDK, or Azure Cognitive Services is available for Azure subscribers with an [Azure Support Plan](https://azure.microsoft.com/support/plans/) associated with their subscription.

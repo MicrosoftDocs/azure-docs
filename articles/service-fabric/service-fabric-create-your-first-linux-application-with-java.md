@@ -4,7 +4,9 @@ description: Learn how to create and deploy a Java Service Fabric reliable actor
 
 ms.topic: conceptual
 ms.date: 06/18/2018
+ms.custom: devx-track-java
 ---
+
 # Create your first Java Service Fabric Reliable Actors application on Linux
 > [!div class="op_single_selector"]
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -204,7 +206,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+`http://localhost:19080/Explorer`.
 Then, expand the **Applications** node and note that there is now an entry for your application type and another for
 the first instance of that type.
 

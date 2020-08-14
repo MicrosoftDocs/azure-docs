@@ -1,10 +1,12 @@
-- name: Azure Security Center for IoT Documentation
+- name: Azure Security Center for IoT documentation
   href: index.yml
 - name: Overview
   href: overview.md
   items:
   - name: Solution architecture
     href: architecture.md
+  - name: Security solution for Azure RTOS
+    href: iot-security-azure-rtos.md
   - name: Security agents
     href: security-agent-architecture.md
   - name: Edge security module
@@ -27,8 +29,12 @@
     href: quickstart-configure-your-solution.md
   - name: Create an Azure Security Center for IoT module twin
     href: quickstart-create-security-twin.md
+  - name: Investigate security recommendations
+    href: quickstart-investigate-security-recommendations.md
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
+  - name: Investigate security alerts
+    href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
   - name: Security agent authentication
@@ -66,7 +72,7 @@
     - name: Local configuration C
       href: azure-iot-security-local-configuration-c.md
     - name: Local configuration C#
-      href: azure-iot-security-local-configuration-csharp.md 
+      href: azure-iot-security-local-configuration-csharp.md
   - name: Deploy Edge security module
     href: how-to-deploy-edge.md
   - name: Configure security agents

@@ -13,6 +13,8 @@ ms.author: ramamill
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
+>[!TIP]
+>To download installer for a specific OS/Linux distro, refer to the guidance [here](vmware-physical-mobility-service-overview.md#locate-installer-files). To automatically update from portal, you do not need to download the installer. [ASR automatically fetches the installer from configuration server and updates the agent](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,7 +30,7 @@ You set up mobility agent on your server when you use Azure Site Recovery for di
 
      ![Replicated items VM list](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. The Update Mobility Service job starts for each of the selected machines.
+5. The Update Mobility Service job starts for each of the selected machines. Mobility agent is updated to the version of configuration server. For example, if configuration server is on version 9.33, the mobility agent on a protected VM is also updated to 9.33 version.
 
 ## Update Mobility service through powershell script on Windows server
 

@@ -1,5 +1,5 @@
 ---
-title: Run custom scripts on Linux VMs in Azure 
+title: Run Custom Script Extension Version 1 (deprecated) on Linux VMs in Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v1
 services: virtual-machines-linux
 documentationcenter: ''
@@ -120,7 +120,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (e.g) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | commandToExecute (e.g) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (e.g) | examplestorageacct | string |

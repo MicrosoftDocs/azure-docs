@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -34,7 +34,7 @@ Use this claims transformation to add a string to a new or existing stringCollec
 
 The following claims transformation adds the **email** ClaimType to **otherMails** ClaimType.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
@@ -66,7 +66,7 @@ Adds a string parameter to a new unique values stringCollection claim.
 
 Use this claims transformation to add a string value to a new or existing stringCollection. The following example adds a constant email address (admin@contoso.com) to the **otherMails** claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetCompanyEmail" TransformationMethod="AddParameterToStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -100,7 +100,7 @@ Gets the first item from the provided string collection.
 
 The following example reads the **otherMails** claim and return the first item into the **email** claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
@@ -132,7 +132,7 @@ Checks if a StringCollection claim type contains an element
 
 Following example checks whether the `roles` stringCollection claim type contains the value of **admin**.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
@@ -155,4 +155,38 @@ Following example checks whether the `roles` stringCollection claim type contain
 - Output claims:
     - **outputClaim**: "true"
 
+## StringCollectionContainsClaim
 
+Checks if a StringCollection claim type contains a claim value.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | collection | stringCollection | The claim type which is to be searched. |
+| InputClaim | item|string| The claim type that contains the value to search.|
+|InputParameter|ignoreCase|string|Specifies whether this comparison should ignore the case of the strings being compared.|
+| OutputClaim | outputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. A boolean indicator if the collection contains such a string |
+
+Following example checks whether the `roles` stringCollection claim type contains the value of the `role` claim type.
+
+```xml
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Input claims:
+    - **collection**: ["reader", "author", "admin"]
+    - **item**: "Admin"
+- Input parameters:
+    - **ignoreCase**: "true"
+- Output claims:
+    - **outputClaim**: "true"

@@ -480,7 +480,7 @@ Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) co
 Try out the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial for a step-by-step guide for building an Android app that gets an access token and uses it to call the Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Call Graph API Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Call Graph API Android tutorial](./tutorial-v2-android.md)
 
 ### MSAL for Android library wiki
 
@@ -490,8 +490,3 @@ Read more information about MSAL library for Android:
 > [MSAL for Android library wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

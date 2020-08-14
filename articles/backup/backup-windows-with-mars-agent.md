@@ -6,7 +6,7 @@ ms.date: 03/03/2020
 
 ---
 
-# Back up Windows machines by using the Azure Backup MARS agent
+# Back up Windows Server files and folders to Azure
 
 This article explains how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent. MARS is also known as the Azure Backup agent.
 
@@ -100,7 +100,7 @@ To do an offline transfer:
 1. Write the backup data to a staging location.
 1. Use the AzureOfflineBackupDiskPrep tool to copy the data from the staging location to one or more SATA disks.
 
-    The tool creates an Azure Import job. For more information, see [What is the Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    The tool creates an Azure Import job. For more information, see [What is the Azure Import/Export service](../storage/common/storage-import-export-service.md).
 1. Send the SATA disks to an Azure datacenter.
 
     At the datacenter, the disk data is copied to an Azure storage account. Azure Backup copies the data from the storage account to the vault, and incremental backups are scheduled.
@@ -111,7 +111,7 @@ For more information about offline seeding, see [Use Azure Data Box for offline 
 
 You can control how the MARS agent uses network bandwidth by enabling network throttling. Throttling is helpful if you need to back up data during work hours but you want to control how much bandwidth the backup and restore activity uses.
 
-Network throttling in Azure Backup uses [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
+Network throttling in Azure Backup uses [Quality of Service (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
 
 Network throttling for backups is available on Windows Server 2012 and later, and on Windows 8 and later. Operating systems should be running the latest service packs.
 
@@ -155,4 +155,3 @@ For more information, see [Create a backup policy](#create-a-backup-policy).
 
 * Learn how to [Restore files in Azure](backup-azure-restore-windows-server.md).
 * Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)
-

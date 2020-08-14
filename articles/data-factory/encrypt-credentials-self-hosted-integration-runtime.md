@@ -18,6 +18,9 @@ ms.author: abnarain
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 You can encrypt and store credentials for your on-premises data stores (linked services with sensitive information) on a machine with self-hosted integration runtime. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

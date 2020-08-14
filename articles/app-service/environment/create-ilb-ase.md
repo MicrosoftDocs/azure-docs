@@ -56,6 +56,9 @@ To create an ILB ASE:
 
     ![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
+> [!NOTE]
+> The App Service Environment name must be no more than 37 characters.
+
 6. Select Networking
 
 7. Select or create a Virtual Network. If you create a new VNet here, it will be defined with an address range of 192.168.250.0/23. To create a VNet with a different address range or in a different resource group than the ASE, use the Azure Virtual Network creation portal. 
@@ -65,6 +68,7 @@ To create an ILB ASE:
     ![ASE networking][1]
 
 7. Select **Review and Create** then select **Create**.
+
 
 ## Create an app in an ILB ASE ##
 
@@ -153,4 +157,4 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
-[linuxapp]: ../containers/app-service-linux-intro.md
+[linuxapp]: ../overview.md#app-service-on-linux

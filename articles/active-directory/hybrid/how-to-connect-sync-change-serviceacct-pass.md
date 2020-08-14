@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -47,7 +47,7 @@ To ensure that you do not receive these errors, follow the procedures in [Abando
  
 ## Abandoning the ADSync service account encryption key
 >[!IMPORTANT]
->The following procedures only apply to Azure AD Connect build 1.1.443.0 or older.
+>The following procedures only apply to Azure AD Connect build 1.1.443.0 or older. This cannot be used for newer versions of Azure AD Connect.
 
 Use the following procedures to abandon the encryption key.
 
@@ -79,7 +79,7 @@ Abandon the existing encryption key so that new encryption key can be created:
 
 2. Start a new PowerShell session.
 
-3. Navigate to folder: `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigate to folder: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
 4. Run the command: `./miiskmu.exe /a`
 

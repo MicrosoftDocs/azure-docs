@@ -4,17 +4,13 @@ description: This article provides guidance on publishing solutions to the Azure
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: 7790d3c5-d0fa-4662-b4f0-a174cb7d6c9f
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/13/2018
-ms.author: gsacavdm
+ms.date: 05/07/2020
 
 ---
 # Publishing to the Azure Government Marketplace
@@ -32,11 +28,13 @@ There are no initial Microsoft compliance requirements to publish solutions to t
 Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt to certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
 
 ## Marketplace offer support
-Currently, the Azure Government Marketplace only supports the following offers:
+Currently, the Azure Government Marketplace only supports the following offer types:
 
 * Virtual Machines > Bring your Own License
 * Virtual Machines > Pay-as-you-Go
-* Azure Application > Solution Template
+* Azure Application > Solution Template / Managed App
+* Azure containers > Bring your Own License
+* IoT Edge modules > Bring your Own License
 
 If there are other offer types you'd like to see supported in Azure Government, let us know via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
 

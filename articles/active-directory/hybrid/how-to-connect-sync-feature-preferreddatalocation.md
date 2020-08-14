@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -46,6 +46,7 @@ The geos in Office 365 available for Multi-Geo are:
 | Japan | JPN |
 | Korea | KOR |
 | South Africa | ZAF |
+| Switzerland | CHE |
 | United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |

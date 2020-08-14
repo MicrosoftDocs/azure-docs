@@ -3,7 +3,8 @@ title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
 ms.date: 03/13/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Deploy a linked template
@@ -85,6 +86,9 @@ Write-Host "Press [ENTER] to continue ..."
 To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment. The blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 
 If you haven't created the resource group, see [Create resource group](./deployment-tutorial-local-template.md#create-resource-group).
+
+> [!NOTE]
+> In the below Azure CLI code, date parameter -d would be an invalid argument in macOS. So macOS users, to add 2 hrs to current time in terminal on macOS you should use -v+2H.
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -4,7 +4,7 @@ description: This article describes the conflict categories and conflict resolut
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 ---

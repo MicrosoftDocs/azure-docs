@@ -12,13 +12,15 @@ ms.date: 09/06/2019
 
 # Mapping data flow Debug Mode
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ## Overview
 
 Azure Data Factory mapping data flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn on debug mode, use the "Data Flow Debug" button at the top of the design surface.
 
 ![Debug slider](media/data-flow/debugbutton.png "Debug slider")
 
-Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a 60-minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a 60-minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
 
 ![Debug IR selection](media/data-flow/debugbutton2.png "Debug IR selection")
 

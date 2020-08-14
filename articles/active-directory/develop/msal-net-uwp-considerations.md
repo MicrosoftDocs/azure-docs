@@ -13,9 +13,8 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about considerations for using Universal Windows Platform and MSAL.NET so that I can decide if this platform meets my application development needs.
-ms.collection: M365-identity-device-management
 ---
 
 # Considerations for using Universal Windows Platform with MSAL.NET
@@ -54,7 +53,7 @@ You can avoid this issue by making sure that WAB (the underlying Windows compone
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
 ```
 
-For more information, see [Web authentication broker - Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
+For more information, see [Web authentication broker - Fiddler](/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## Next steps
 The following samples provide more information.

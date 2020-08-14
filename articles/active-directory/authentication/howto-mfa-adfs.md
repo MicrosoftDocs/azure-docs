@@ -5,7 +5,7 @@ description: This is the Azure Multi-Factor authentication page that describes h
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
 ms.author: iainfou
@@ -70,9 +70,12 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 11. In the box under Claim rule name: enter *Keep Users Signed In*.
 12. In the Custom rule box, enter:
 
+```ad-fs-claim-rule
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
+```
+
 13. Click **Finish**.
 14. Click **Apply**.
 15. Click **Ok**.
@@ -91,4 +94,4 @@ Now that the claims are in place, we can configure trusted IPs.
 4. On the Service Settings page, under **trusted IPs**, select **Skip multi-factor-authentication for requests from federated users on my intranet**.  
 5. Click **save**.
 
-That’s it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.
+That's it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.

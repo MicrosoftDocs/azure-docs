@@ -7,16 +7,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/05/2020
 ms.topic: include
-ms.custom: include file
 ms.author: diberry
 ---
 ## Sign in to LUIS portal
 
 A new user to LUIS needs to follow this procedure:
 
-1. Sign in to [LUIS portal (preview)](https://preview.luis.ai), select your country and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you should skip ahead to create an app.
+1. Sign in to [LUIS portal](https://www.luis.ai), select your country/region and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you should skip ahead to create an app. For supported regions, visit [authoring and publishing regions and the associated keys](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
 
 1. Select **Create Azure resource** then select **Create an authoring resource to migrate your apps to.**
 

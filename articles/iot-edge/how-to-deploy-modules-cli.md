@@ -7,7 +7,8 @@ ms.author: kgremban
 ms.date: 08/16/2019
 ms.topic: conceptual
 ms.reviewer: menchi
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 
@@ -17,7 +18,7 @@ Once you create IoT Edge modules with your business logic, you want to deploy th
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
-This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor-cli.md)
+This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-cli-at-scale.md)
 
 ## Prerequisites
 
@@ -135,4 +136,4 @@ The device ID parameter is case-sensitive.
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md)

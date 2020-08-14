@@ -2,17 +2,22 @@
 title: Set up an Azure Migrate appliance for VMware 
 description: Learn how to set up an Azure Migrate appliance to assess and migrate VMware VMs.
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 04/16/2020
 ---
 
 
 # Set up an appliance for VMware VMs
 
-This article describes how to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+Follow this article to set up the Azure Migrate appliance for assessment with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool, and for agentless migration using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate:Server Assessment and Server Migration to discover on-premises VMware VMs, send VM metadata/performance data to Azure, and for replication of VMware VMs during agentless migration.
 
-You can set up the Azure Migrate appliance for VMware VM assessment using an OVA template that you download, or using a PowerShell installation script. This article describes how to set up the appliance using the OVA template. If you want to set up the appliance using the script, follow the instructions in [this article](deploy-appliance-script.md).
+You can deploy the appliance using a couple of methods:
+
+- Set up on a VMware VM using a downloaded OVA template. This is the method described in this article.
+- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
+
+After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
 
 ## Appliance deployment (OVA)
@@ -25,7 +30,7 @@ To set up the appliance using an OVA template you:
 ## Download the OVA template
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
+2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMware vSphere hypervisor**.
 3. Click **Download** to download the .OVA template file.
 
   ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
@@ -38,7 +43,7 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command, to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For the latest appliance version, the generated hash should match these [settings](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
+3. For the latest appliance version, the generated hash should match these [settings](./tutorial-assess-vmware.md#verify-security).
 
 
 
@@ -59,9 +64,9 @@ will be hosted.
 9. Review and confirm the settings, then click **Finish**.
 
 
-### Verify appliance access to Azure
+## Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 
 ## Configure the appliance
@@ -81,7 +86,7 @@ Set up the appliance for the first time. If you deploy the appliance using a scr
         - Only HTTP proxy is supported.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for discovery to work properly.
     - **Install updates**: Azure Migrate checks that the latest appliance updates are installed.
-    - **Install VDDK**: Azure Migrate checks that the VMWare vSphere Virtual Disk Development Kit (VDDK) is installed.
+    - **Install VDDK**: Azure Migrate checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed.
         - Azure Migrates uses the VDDK to replicate machines during migration to Azure.
         - Download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance.
 
@@ -107,7 +112,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 
 ### Specify VM credentials
-For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) about the access privileges needed.
+For discovery of applications, roles and features and visualizing dependencies of the VMs, you can provide a VM credential that has access to the VMware VMs. You can add one credential for Windows VMs and one credential for Linux VMs. [Learn more](./migrate-support-matrix-vmware.md) about the access privileges needed.
 
 > [!NOTE]
 > This input is optional and is needed to enable application discovery and agentless dependency visualization.

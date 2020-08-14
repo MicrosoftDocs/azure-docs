@@ -1,5 +1,5 @@
-﻿---
-title: Copy data in bulk
+---
+title: Copy data in bulk with PowerShell
 description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 services: data-factory
 author: linda33wj
@@ -13,7 +13,9 @@ ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ---
 
-# Copy multiple tables in bulk by using Azure Data Factory
+# Copy multiple tables in bulk by using Azure Data Factory using PowerShell
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
@@ -52,7 +54,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 **Prepare the source Azure SQL Database**:
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
+Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
 
 **Prepare the sink Azure SQL Data Warehouse**:
 
@@ -62,7 +64,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 ## Azure services to access SQL server
 
-For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
+For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
 
 1. Click **All services** on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
@@ -327,7 +329,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to SQL DW",
                                 "type": "Copy",
                                 "inputs": [
                                     {

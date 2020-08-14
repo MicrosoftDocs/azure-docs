@@ -4,6 +4,7 @@ description: Add feature flags to ASP.NET Core apps and manage them using Azure 
 author: lisaguthrie
 
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
@@ -112,7 +113,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a secret named **ConnectionStrings:AppConfig** to Secret Manager.
 
-    This secret contains the connection string to access your App Configuration store. Replace the `<your_connection_string>` value in the following command with the connection string for your App Configuration store. You can find the connection string under **Access Keys** in the Azure portal.
+    This secret contains the connection string to access your App Configuration store. Replace the `<your_connection_string>` value in the following command with the connection string for your App Configuration store. You can find the primary read-only key  connection string under **Access Keys** in the Azure portal.
 
     This command must be executed in the same directory as the *.csproj* file.
 
@@ -124,13 +125,13 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
     You can access this secret with the App Configuration API. A colon (:) works in the configuration name with the App Configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
-    
+1. In *Program.cs*, update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
     #### [.NET Core 2.x](#tab/core2x)
-    
+
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -146,7 +147,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -186,11 +187,11 @@ The Secret Manager tool stores sensitive data for development work outside of yo
         services.AddControllersWithViews();
         services.AddFeatureManagement();
     }
-    ```
+
     ---
 
 1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
-    
+
     #### [.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)

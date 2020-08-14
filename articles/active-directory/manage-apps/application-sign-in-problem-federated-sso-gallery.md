@@ -3,20 +3,18 @@ title: Problems signing in to federated single sign-on gallery app | Microsoft D
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon, asteen
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -238,7 +236,7 @@ The application needs to send the SAML request encoded into the location header 
 
 **Possible cause**
 
-During single sign-on, if the sign-in request does not contain an explicit reply URL (Assertion Consumer Service URL) then Azure AD will select any of the configured rely URLs for that application. Even if the application has an explicit reply URL configured, the user may be to redirected https://127.0.0.1:444. 
+During single sign-on, if the sign-in request does not contain an explicit reply URL (Assertion Consumer Service URL) then Azure AD will select any of the configured reply URLs for that application. Even if the application has an explicit reply URL configured, the user may be to redirected https://127.0.0.1:444. 
 
 When the application was added as a non-gallery app, Azure Active Directory created this reply URL as a default value. This behavior has changed and Azure Active Directory no longer adds this URL by default. 
 

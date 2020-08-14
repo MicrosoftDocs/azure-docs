@@ -33,7 +33,7 @@ To learn more about server-side encryption, refer to either the articles for [Wi
 
 ### Azure Disk Encryption
 
-For enhanced [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) and [Linux VM](../articles/virtual-machines/linux/disk-encryption-overview.md) security and compliance, virtual disks in Azure can be encrypted. Virtual disks on Windows VMs are encrypted at rest using BitLocker. Virtual disks on Linux VMs are encrypted at rest using dm-crypt. 
+For enhanced [Windows VM](../articles/virtual-machines/windows/disk-encryption-overview.md) and [Linux VM](../articles/virtual-machines/linux/disk-encryption-overview.md) security and compliance, virtual disks in Azure can be encrypted. Virtual disks on Windows VMs are encrypted at rest using BitLocker. Virtual disks on Linux VMs are encrypted at rest using dm-crypt. 
 
 There is no charge for encrypting virtual disks in Azure. Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. You retain control of these cryptographic keys and can audit their use. An Azure Active Directory service principal provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
 
@@ -57,7 +57,7 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 ## Role-based access control
 
-Using [role-based access control (RBAC)](../articles/role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Using [Azure role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## Next steps

@@ -3,7 +3,6 @@ title: Troubleshooting - QnA Maker
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 ms.topic: troubleshooting
 ms.date: 03/25/2020
-ms.author: diberry
 ---
 # Troubleshooting for QnA Maker
 
@@ -90,7 +89,7 @@ Sharing works at the level of a QnA Maker service, that is, all knowledge bases 
 <summary><b>Can you share a knowledge base with a contributor that is not in the same AAD tenant, to modify a knowledge base?</b></summary>
 
 **Answer**:
-Sharing is based on Azure role-based access control (RBAC). If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
+Sharing is based on Azure role-based access control (Azure RBAC). If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
 
 </details>
 
@@ -148,7 +147,7 @@ Every edit operation, whether in a table update, test, or setting, needs to be s
 * Files - not supported
 
 #### Answer text in markdown
-Once QnA sets are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
+Once QnA pairs are in the knowledge base, you can edit an answer's markdown text to include links to media available from public URLs.
 
 
 </details>

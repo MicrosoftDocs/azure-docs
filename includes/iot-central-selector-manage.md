@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 02/11/2020
+ ms.date: 04/24/2020
  ms.author: dobett
  ms.custom: include file
 ---
@@ -14,3 +14,4 @@
 > * [Portal](../articles/iot-central/core/howto-manage-iot-central-from-portal.md)
 > * [CLI](../articles/iot-central/core/howto-manage-iot-central-from-cli.md)
 > * [PowerShell](../articles/iot-central/core/howto-manage-iot-central-from-powershell.md)
+> * [Programmatically](../articles/iot-central/core/howto-manage-iot-central-programmatically.md)

@@ -85,20 +85,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<companyname>.domo.com` |
-	| `https://<companyname>.beta.domo.com` |
-	| `https://<companyname>.demo.domo.com` |
-	| `https://<companyname>.dev.domo.com` |
-	| `https://<companyname>.fastage1.domo.com` |
-	| `https://<companyname>.frdev.domo.com` |
-	| `https://<companyname>.gastage.domo.com` |
-	| `https://<companyname>.load.domo.com` |
-	| `https://<companyname>.local.domo.com` |
-	| `https://<companyname>.qa.domo.com` |
-	| `https://<companyname>.stage.domo.com` |
-	| | |
+    ```http
+    https://<companyname>.domo.com
+    https://<companyname>.beta.domo.com
+    https://<companyname>.demo.domo.com
+    https://<companyname>.dev.domo.com
+    https://<companyname>.fastage1.domo.com
+    https://<companyname>.frdev.domo.com
+    https://<companyname>.gastage.domo.com
+    https://<companyname>.load.domo.com
+    https://<companyname>.local.domo.com
+    https://<companyname>.qa.domo.com
+    https://<companyname>.stage.domo.com
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Domo Client support team](mailto:support@domo.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

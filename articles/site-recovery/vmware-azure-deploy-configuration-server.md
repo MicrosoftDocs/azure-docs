@@ -34,7 +34,7 @@ You must have a user with one of the following permissions set in Azure Active D
 1. The user must have an application developer role to create an application.
     - To verify, sign in to the Azure portal.</br>
     - Go to **Azure Active Directory** > **Roles and administrators**.</br>
-    - Verify that the application developer role is assigned to the user. If not, use a user with this permission or contact an [administrator to enable the permission](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - Verify that the application developer role is assigned to the user. If not, use a user with this permission or contact an [administrator to enable the permission](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md#assign-roles).
     
 2. If the application developer role can't be assigned, ensure that the **Users can register applications** flag is set as **true** for the user to create an identity. To enable these permissions:
     - Sign in to the Azure portal.
@@ -44,7 +44,7 @@ You must have a user with one of the following permissions set in Azure Active D
       ![Azure AD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Active Directory Federation Services *isn't supported*. Use an account managed through [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Active Directory Federation Services *isn't supported*. Use an account managed through [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## Download the template
 
@@ -61,7 +61,7 @@ You must have a user with one of the following permissions set in Azure Active D
 
 ## Import the template in VMware
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMWare vSphere Client.
+1. Sign in to the VMware vCenter server or vSphere ESXi host by using the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template** wizard.
 
      ![Deploy OVF Template](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -93,7 +93,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Register the configuration server with Azure Site Recovery services
 
-1. From the VMWare vSphere Client console, turn on the VM.
+1. From the VMware vSphere Client console, turn on the VM.
 2. The VM boots up into a Windows Server 2016 installation experience. Accept the license agreement, and enter an administrator password.
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, within a few seconds the Azure Site Recovery Configuration tool starts.

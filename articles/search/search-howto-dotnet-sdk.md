@@ -1,7 +1,7 @@
 ---
-title: Use Azure Cognitive Search in .NET
+title: Use Microsoft.Azure.Search (v10) in .NET
 titleSuffix: Azure Cognitive Search
-description: Learn how to use Azure Cognitive Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
+description: Learn how to create and manage search objects a .NET application using C# and version 10 of the .NET SDK. Code snippets demonstrate connecting to the service, creating indexes, and queries.
 
 manager: nitinme
 author: brjohnstmsft
@@ -9,13 +9,16 @@ ms.author: brjohnst
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
 ---
-# How to use Azure Cognitive Search from a .NET Application
+# How to use Microsoft.Azure.Search (v10) in a .NET Application
 
-This article is a walkthrough to get you up and running with the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Cognitive Search.
+This article explains how to create and manage search objects using C# and the [Azure Cognitive Search (v10) .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Version 10 is the last version of the Microsoft.Azure.Search package. Moving forward, new features will be rolled out in [Azure.Search.Documents](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) from the Azure SDK team.
 
-## What's in the Azure Cognitive Search SDK
+If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition an existing search solution to the new library.
+
+## What's in version 10
+
 The SDK consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and synonym maps, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 The main NuGet package is `Microsoft.Azure.Search`, which is a meta-package that includes all the other packages as dependencies. Use this package if you're just getting started or if you know your application will need all the features of Azure Cognitive Search.
@@ -33,7 +36,7 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 
 If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/) or create an issue on [GitHub](https://github.com/azure/azure-sdk-for-net/issues) and mention "Azure Cognitive Search" in the issue title.
 
-The .NET SDK supports version `2019-05-06` of the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](search-howto-complex-data-types.md), [AI enrichment](cognitive-search-concept-intro.md), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
+The .NET SDK targets version `2019-05-06` of the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](search-howto-complex-data-types.md), [AI enrichment](cognitive-search-concept-intro.md), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
 
 This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Cognitive Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
@@ -167,46 +170,49 @@ This time we use a query key since we do not need write access to the index. You
 If you run this application with a valid service name and API keys, the output should look like this example:
 (Some console output has been replaced with "..." for illustration purposes.)
 
-	Deleting index...
+```output
 
-	Creating index...
+Deleting index...
 
-	Uploading documents...
+Creating index...
 
-	Waiting for documents to be indexed...
+Uploading documents...
 
-	Search the entire index for the term 'motel' and return only the HotelName field:
+Waiting for documents to be indexed...
 
-	Name: Secret Point Motel
+Search the entire index for the term 'motel' and return only the HotelName field:
 
-	Name: Twin Dome Motel
+Name: Secret Point Motel
 
-
-	Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
-
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
-
-	HotelId: 2
-	Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+Name: Twin Dome Motel
 
 
-	Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
 
-	Name: Triple Landscape Hotel
-	Last renovated on: 9/20/2015 12:00:00 AM +00:00
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
 
-	Name: Twin Dome Motel
-	Last renovated on: 2/18/1979 12:00:00 AM +00:00
+HotelId: 2
+Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
 
 
-	Search the hotel names for the term 'hotel':
+Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
 
-	HotelId: 3
-	Name: Triple Landscape Hotel
-	...
+Name: Triple Landscape Hotel
+Last renovated on: 9/20/2015 12:00:00 AM +00:00
 
-	Complete.  Press any key to end application... 
+Name: Twin Dome Motel
+Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+Search the hotel names for the term 'hotel':
+
+HotelId: 3
+Name: Triple Landscape Hotel
+...
+
+Complete.  Press any key to end application... 
+```
 
 The full source code of the application is provided at the end of this article.
 
@@ -563,7 +569,9 @@ When designing your own model classes to map to an Azure Cognitive Search index,
 
 This is not just a hypothetical concern: Imagine a scenario where you add a new field to an existing index that is of type `Edm.Int32`. After updating the index definition, all documents will have a null value for that new field (since all types are nullable in Azure Cognitive Search). If you then use a model class with a non-nullable `int` property for that field, you will get a `JsonSerializationException` like this when trying to retrieve documents:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```output
+Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```
 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
 
@@ -677,9 +685,11 @@ WriteDocuments(results);
 
 In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` parameter. Here are the results:
 
-    Name: Secret Point Motel
+```output
+Name: Secret Point Motel
 
-    Name: Twin Dome Motel
+Name: Twin Dome Motel
+```
 
 The next query is a little more interesting.  We want to find any hotels that have a room with a nightly rate of less than $100 and return only the hotel ID and description:
 
@@ -700,11 +710,13 @@ This query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`
 
 Here are the results of the query:
 
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
+```output
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
 
-	HotelId: 2
-	Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+HotelId: 2
+Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+```
 
 Next, we want to find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
 
@@ -726,8 +738,10 @@ In this case, we again use OData syntax to specify the `OrderBy` parameter as `l
 
 Here are the results:
 
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```output
+Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```
 
 Finally, we want to find all hotels names that match the word "hotel":
 
@@ -743,9 +757,11 @@ WriteDocuments(results);
 
 And here are the results, which include all fields since we did not specify the `Select` property:
 
+```output
 	HotelId: 3
 	Name: Triple Landscape Hotel
 	...
+```
 
 This step completes the tutorial, but don't stop here. **Next steps provide additional resources for learning more about Azure Cognitive Search.
 

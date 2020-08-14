@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 
@@ -71,6 +71,7 @@ Follow these steps to create a new resource using the Azure portal:
    * Username (Optional) - Create a username. 
    * Password (Optional) - Create a secure password that you'll remember.
    * Image and tag - Set this to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Continuous Deployment - Set this to **On** if you want to receive automatic updates when the development team makes changes to the sample labeling tool.
    * Startup command - Set this to `./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]
@@ -83,7 +84,7 @@ Follow these steps to create a new resource using the Azure portal:
 
 ### Azure CLI
 
-As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You can skip this step if you're already working with the Azure CLI. 
+As an alternative to using the Azure portal, you can create a resource using the Azure CLI. Before you continue, you'll need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You can skip this step if you're already working with the Azure CLI. 
 
 There's a few things you need know about this command:
 
@@ -98,14 +99,14 @@ From the Azure CLI, run this command to create a web app resource for the sample
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
 az container create \
-  --resource-group <resorunce_group_name> \
+  --resource-group <resource_group_name> \
   --name <name> \
   --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
   --cpu 2 \
-  --memory 8
+  --memory 8 \
   --command-line "./run.sh eula=accept"
 ```
 

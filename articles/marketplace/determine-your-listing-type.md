@@ -1,13 +1,12 @@
 ---
-title: Determine Your Publishing Option in Microsoft AppSource and Azure Marketplace 
-description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to Microsoft AppSource and Azure Marketplace.
-services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: dsindona
+title: Determine your publishing option - Microsoft commercial marketplace
+description: This article describes eligibility criteria and requirements for publishing offers to Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.author: dsindona
+author: keferna
+ms.author: keferna
+ms.date: 07/30/2020
 ---
 
 # Determine your publishing option
@@ -16,32 +15,36 @@ The publishing option that you choose for your offer relates directly to both th
 
 To configure your offer, you'll need to understand the following key commercial marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the commercial marketplace storefronts.
 
-![Microsoft commercial marketplace storefronts and publishing options](./media/marketplace-publishers-guide/storefronts_options_table.png)
-
 In this article, you will learn:
 
 - How to determine the appropriate storefront for your solution
 - Which publishing options and calls-to-action are available in each storefront
 - Which offer types are available for each publishing option
 
-## Selecting a storefront, publishing option, and offer type for your solution
+## Commercial marketplace publishing options
 
-Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services:
+The following table shows the publishing options for offer types in Microsoft AppSource and Azure Marketplace.
 
-**Microsoft AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, Power BI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
+|   | **List (Contact)**  | **List (Trial)**  | **Free** | **BYOL** | **Transact**|
+| :--------- | :----------- | :------------ | :----------- | :---------- |:---------- |
+| **Virtual Machine** |  |  |  | Azure Marketplace |  Azure Marketplace |
+| **Azure Apps (multi-VM)** |  |  | Azure Marketplace | Azure Marketplace | Azure Marketplace  |
+| **Container image** |  |  | Azure Marketplace | Azure Marketplace |   |
+| **IoT Edge module** |  |  | Azure Marketplace | Azure Marketplace |   |
+| **Managed services** |  |  |  | Azure Marketplace |   |
+| **Consulting services** | Both storefronts |  |  |  |   |
+| **SaaS app** | Both storefronts | Both storefronts | Both storefronts |  | Both storefronts* |
+| **Microsoft 365 App** | AppSource | AppSource |  |  | AppSource**  |
+| **Dynamics 365 add-in** |  AppSource | AppSource |  |  |   |
+| **PowerApps** | AppSource |AppSource  |  |  |   |
 
-**Azure Marketplace** applications are technical "building-block" solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
+&#42; SaaS app Transact offers in Microsoft AppSource are currently credit card only.
 
-## Understand storefront selection
+&#42;&#42; Microsoft 365 offers are free to install and can be monetized via SaaS offer as a licensing service. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-Each storefront serves unique customer requirements. The storefront where your offer will be published will be determined by offer type, offer transact capabilities and category and/or industry selection to target a specific audience. 
+## Choose a call to action
 
->[!Note]
->"Cross-listing" (for SaaS Apps only): when a list or trial-based offer meets the criteria for both a technical and business user audience, your offer will be listed in both storefronts. Learn more about the publishing options below.
-
-## Choose a publishing option
-
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).  Note the calls-to-action that correspond with the publishing option:
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the calls-to-action that correspond with the publishing option:
 
 | **Publishing option**    | **Description**  |
 | :------------------- | :-------------------|
@@ -50,8 +53,45 @@ The publishing options available offer differentiated customer engagement while 
 | **BYOL** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution, and complete the financial transaction separately. BYOL offer types are ideal for on-premises to cloud migrations. The call-to-action is **Get it Now**.
 | **Transact** | Transact offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. The call-to-action is **Get it Now**.|
 
->[!Note]
->When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. Review the [Marketplace Billing and Commercial Considerations article to learn more](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+> [!Note]
+> When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, review the article [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+
+## Selecting a storefront
+
+Each storefront serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category will determine where your offer will be published. Categories and subcategories are mapped to each storefront based on the target audience:
+
+**Microsoft AppSource** targets business users looking for line-of-business or industry solutions and consulting services for Dynamics 365, Microsoft 365, and Power Platform.
+
+**Azure Marketplace** targets IT professionals and developers looking for solutions built for or on Azure as well as consulting services that accelerate their use of Azure.
+
+Select the category and subcategory that best align with your target audience. For example, a web application firewall should be published to Azure Marketplace, under the Security category, as the intended audience is IT professionals. A contract management app should instead be published to AppSource under the Sales category, since the intended audience is business users. Selecting the incorrect category or subcategory may result in your offer being published to the wrong storefront.
+
+### Publishing to both Storefronts (SaaS offers only)
+
+SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is intended for *both* a technical audience (Azure Marketplace) and a business audience (AppSource), select a category and/or a subcategory applicable to each storefront. Offers published to both storefronts should have a value proposition that extends to IT professionals *and* business users.
+
+> [!IMPORTANT]
+> SaaS offers with metered billing are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal.
+
+| Metered billing | Public plan | Private plan | Available in: |
+|---|---|---|---|
+| Yes             | Yes         | No           | Azure Marketplace and Azure portal |
+| Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
+| Yes             | No          | Yes          | Azure portal only |
+| No              | No          | Yes          | Azure portal only |
+
+&#42; The private plan of the offer will only be available via the Azure portal
+
+For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
+
+### Categories
+
+Categories and subcategories are mapped to each storefront based on the target audience. Select the categories and subcategories that best align with your offer and the intended audience. You can select:
+
+- At least one and up to two categories. You have the option to choose a primary and a secondary category.
+- Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
+
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## Next steps
 

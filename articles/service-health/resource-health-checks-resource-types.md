@@ -199,7 +199,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the database up and running?</li></ul>|
 
-## Microsoft.SQL/Server/databases
+## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
 |<ul><li>Have there been logins to the database?</li></ul>|
@@ -227,4 +227,4 @@ Below is a complete list of all the checks executed through resource health by r
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md). 

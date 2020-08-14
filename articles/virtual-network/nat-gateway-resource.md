@@ -8,22 +8,23 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: allensu
 ---
 
 # Designing virtual networks with NAT gateway resources
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. A NAT gateway resource can use up to 16 static IP addresses from either.
+NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. If a public IP prefix resource is used, all IP addresses of the entire public IP prefix resource are consumed by a NAT gateway resource. A NAT gateway resource can use a total of up to 16 static IP addresses from either.
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT for outbound to Internet">
 </p>
 
 *Figure: Virtual Network NAT for outbound to Internet*
@@ -49,33 +50,33 @@ The resource is designed to be simple as you can see from the following Azure Re
 The following diagram shows the writeable references between the different Azure Resource Manager resources.  The arrow indicates the direction of the reference, originating from where it's writeable. Review 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT object model">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT object model">
 </p>
 
 *Figure: Virtual Network NAT object model*
 
 NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../load-balancer/load-balancer-outbound-connections.md).  
 
-You can migrate from standard load balancer scenarios, including [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP and prefix can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
+You can migrate from standard load balancer scenarios, including [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP address resources and public IP prefix resource can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
+
 
 The following example is a snippet from an Azure Resource Manager template.  This template deploys several resources, including a NAT gateway.  The template has the following parameters in this example:
 
 - **natgatewayname** -  Name of the NAT gateway.
 - **location** - Azure region where resource is located.
 - **publicipname** - Name of the outbound public IP associated with the NAT gateway.
-- **publicipprefixname** - Name of the outbound public IP prefix associated with the NAT gateway.
 - **vnetname** - Name of the virtual network.
 - **subnetname** - Name of the subnet associated with the NAT gateway.
 
 The total number of IP addresses provided by all IP address and prefix resources can't exceed 16 IP addresses total. Any number of IP addresses between 1 and 16 is allowed.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="256-281":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 When the NAT gateway resource has been created, it can be used on one or more subnets of a virtual network. Specify which subnets use this NAT gateway resource. A NAT gateway isn't able to span more than one virtual network. It isn't required to assign the same NAT gateway to all subnets of a virtual network. Individual subnets can be configured with different NAT gateway resources.
 
 Scenarios that don't use availability zones will be regional (no zone specified). If you're using availability zones, you can specify a zone to isolate NAT to a specific zone. Zone-redundancy isn't supported. Review NAT [availability zones](#availability-zones).
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 NAT gateways are defined with a property on a subnet within a virtual network. Flows created by virtual machines on subnet **subnetname** of virtual network **vnetname** will use the NAT gateway. All outbound connectivity will use the IP addresses associated with **natgatewayname** as the source IP address.
 
@@ -114,7 +115,7 @@ NAT gateway is compatible with:
 When developing a new deployment, start with standard SKUs.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="Virtual Network NAT for outbound to Internet">
 </p>
 
 *Figure: Virtual Network NAT for outbound to Internet*
@@ -124,7 +125,7 @@ The Internet outbound only scenario provided by NAT gateway can be expanded with
 #### NAT and VM with instance-level Public IP
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT and VM with instance-level Public IP">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT and VM with instance-level Public IP">
 </p>
 
 *Figure: Virtual Network NAT and VM with instance-level Public IP*
@@ -139,7 +140,7 @@ VM will use NAT gateway for outbound.  Inbound originated isn't affected.
 #### NAT and VM with public Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network NAT and VM with public Load Balancer">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT and VM with public Load Balancer">
 </p>
 
 *Figure: Virtual Network NAT and VM with public Load Balancer*
@@ -154,7 +155,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 #### NAT and VM with instance-level public IP and public Load Balancer
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and public Load Balancer">
 </p>
 
 *Figure: Virtual Network NAT and VM with instance-level public IP and public Load Balancer*
@@ -177,7 +178,7 @@ NAT gateways take precedence over outbound scenarios of the subnet. Basic load b
 #### Zone isolation with zonal stacks
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="Virtual Network NAT with zone isolation, creating multiple "zonal stacks"">
 </p>
 
 *Figure: Virtual Network NAT with zone isolation, creating multiple "zonal stacks"*
@@ -205,7 +206,7 @@ If your scenario requires inbound endpoints, you have two options:
 #### Cross-zone outbound scenarios not supported
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="Virtual Network NAT not compatible with zone-spanning subnet">
 </p>
 
 *Figure: Virtual Network NAT not compatible with zone-spanning subnet*
@@ -223,6 +224,12 @@ While the scenario will appear to work, its health model and failure mode is und
 
 >[!NOTE] 
 >IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
+
+## Performance
+
+Each NAT gateway resource can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or groups of subnets a NAT gateway to scale out.
+
+Each NAT gateway can support 64,000 connections per assigned outbound IP address.  Review the following section on Source Network Address Translation (SNAT) for details as well as the [troubleshooting article](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) for specific problem resolution guidance.
 
 ## Source Network Address Translation
 
@@ -259,7 +266,7 @@ SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-bal
 NAT provides on-demand SNAT ports for new outbound traffic flows. All available SNAT ports in inventory are used by any virtual machine on subnets configured with NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network NAT on-demand outbound SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="Virtual Network NAT on-demand outbound SNAT">
 </p>
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
@@ -267,7 +274,7 @@ NAT provides on-demand SNAT ports for new outbound traffic flows. All available 
 Any IP configuration of a virtual machine can create outbound flows on-demand as needed.  Pre-allocation, per instance planning including per instance worst case overprovisioning, isn't required.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Differences in exhaustion scenarios">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
 </p>
 
 *Figure: Differences in exhaustion scenarios*
@@ -276,7 +283,10 @@ Once a SNAT port releases, it's available for use by any virtual machine on subn
 
 ### Scaling
 
-Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets attached to a NAT gateway resource.  You can use public IP address resources, public IP prefix resources, or both to create SNAT port inventory.
+Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets attached to a NAT gateway resource.  You can use public IP address resources, public IP prefix resources, or both to create SNAT port inventory.  
+
+>[!NOTE]
+>If you are assigning a public IP prefix resource, the entire public IP prefix will be used.  You can't assign a public IP prefix resource and then break out individual IP addresses to assign to other resources.  If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses from the public IP prefix resource and assign them as needed instead of the public IP prefix resource itself.
 
 SNAT maps private addresses to one or more public IP addresses, rewriting source address and source port in the processes. A NAT gateway resource will use 64,000 ports (SNAT ports) per configured public IP address for this translation. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix is providing SNAT port inventory. And adding more public IP addresses increases the available inventory SNAT ports. TCP and UDP are separate SNAT port inventories and unrelated.
 
@@ -310,11 +320,9 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
-- NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
-
-## Feedback
+## Suggestions
 
 We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 
@@ -325,8 +333,8 @@ We want to know how we can improve the service. Are missing a capability? Make y
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * Tutorial for validating NAT Gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
-  - [Portal](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-powershell.md)
+  - [Portal](tutorial-create-validate-nat-gateway-portal.md)
 * Quickstart for deploying a NAT gateway resource
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
   - [PowerShell](./quickstart-create-nat-gateway-powershell.md)

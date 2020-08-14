@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to implement feature flags in Sprin
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
-manager: zhenlwa
+manager: zhenlan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 
 #Customer intent: I want to control feature availability in my app by using the Spring Boot Feature Manager library.
 ---

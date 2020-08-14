@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 To stream in a compressed audio format to the Speech service, create a `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
@@ -35,7 +35,7 @@ AudioConfig audioConfig =
         audioFormat);
 
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, audioConfig);
-SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get()
+SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 
 String text = result.getText();
 ```

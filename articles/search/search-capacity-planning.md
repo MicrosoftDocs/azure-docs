@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/30/2020
 ---
 
 # Adjust capacity in Azure Cognitive Search
@@ -34,7 +34,8 @@ A single service must have sufficient resources to handle all workloads (indexin
 
 As a general rule, search applications tend to need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
 
-Adding more replicas or partitions increases your cost of running the service. Be sure to check the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the billing implications of adding more nodes. The [chart below](#chart) can help you cross-reference the number of search units required for a specific configuration.
+> [!NOTE]
+> Adding more replicas or partitions increases the cost of running the service, and can introduce slight variations in how results are ordered. Be sure to check the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the billing implications of adding more nodes. The [chart below](#chart) can help you cross-reference the number of search units required for a specific configuration. For more information on how additional replicas impact query processing, see [Ordering results](search-pagination-page-layout.md#ordering-results).
 
 ## How to allocate replicas and partitions
 

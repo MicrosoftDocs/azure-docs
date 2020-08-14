@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2019
+ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
@@ -14,6 +14,9 @@ ms.reviewer: douglasl
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes the Azure-enabled dtexec (AzureDTExec) command prompt utility. It's used to run SQL Server Integration Services (SSIS) packages on the Azure-SSIS Integration Runtime (IR) in Azure Data Factory.
 
 The traditional dtexec utility comes with SQL Server. For more information, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). It's often invoked by third-party orchestrators or schedulers, such as ActiveBatch and Control-M, to run SSIS packages on-premises. 
@@ -41,19 +44,19 @@ In the **AzureDTExecConfig** window, enter your configuration settings as follow
 - **ApplicationId**: Enter the unique identifier of the Azure AD app that you create with the right permissions to generate pipelines in your data factory. For more information, see [Create an Azure AD app and service principal via Azure portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 - **AuthenticationKey**: Enter the authentication key for your Azure AD app.
 - **TenantId**: Enter the unique identifier of the Azure AD tenant, under which your Azure AD app is created.
-- **SubscriptionId**: Enter the unique identifier of the Azure subscription, under which your data factory was created.
-- **ResourceGroup**: Enter the name of the Azure resource group in which your data factory was created.
 - **DataFactory**: Enter the name of your data factory in which unique pipelines with Execute SSIS Package activity in them are generated based on the values of options provided when you invoke AzureDTExec.
 - **IRName**: Enter the name of the Azure-SSIS IR in your data factory, on which the packages specified in their Universal Naming Convention (UNC) path will run when you invoke AzureDTExec.
-- **PackageAccessDomain**: Enter the domain credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **PackageAccessUserName**: Enter the username credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **PackageAccessPassword**: Enter the password credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **LogPath**: Enter the UNC path of the log folder, into which log files from your package executions on the Azure-SSIS IR are written.
-- **LogLevel**: Enter the selected scope of logging from predefined **null**, **Basic**, **Verbose**, or **Performance** options for your package executions on the Azure-SSIS IR.
-- **LogAccessDomain**: Enter the domain credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
-- **LogAccessUserName**: Enter the username credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
-- **LogAccessPassword**: Enter the password credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
 - **PipelineNameHashStrLen**: Enter the length of hash strings to be generated from the values of options you provide when you invoke AzureDTExec. The strings are used to form unique names for Data Factory pipelines that run your packages on the Azure-SSIS IR. Usually a length of 32 characters is sufficient.
+- **ResourceGroup**: Enter the name of the Azure resource group in which your data factory was created.
+- **SubscriptionId**: Enter the unique identifier of the Azure subscription, under which your data factory was created.
+- **LogAccessDomain**: Enter the domain credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
+- **LogAccessPassword**: Enter the password credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
+- **LogAccessUserName**: Enter the username credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
+- **LogLevel**: Enter the selected scope of logging from predefined **null**, **Basic**, **Verbose**, or **Performance** options for your package executions on the Azure-SSIS IR.
+- **LogPath**: Enter the UNC path of the log folder, into which log files from your package executions on the Azure-SSIS IR are written.
+- **PackageAccessDomain**: Enter the domain credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
+- **PackageAccessPassword**: Enter the password credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
+- **PackageAccessUserName**: Enter the username credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
 
 To store your packages and log files in file systems or file shares on-premises, join your Azure-SSIS IR to a virtual network connected to your on-premises network so that it can fetch your packages and write your log files. For more information, see [Join an Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -79,7 +82,7 @@ Invoking AzureDTExec offers similar options as invoking dtexec. For more informa
 - **/F[ile]**: Loads a package that's stored in file system, file share, or Azure Files. As the value for this option, you can specify the UNC path for your package file in file system, file share, or Azure Files with its .dtsx extension. If the UNC path specified contains any space, put quotation marks around the whole path.
 - **/Conf[igFile]**: Specifies a configuration file to extract values from. Using this option, you can set a run-time configuration for your package that differs from the one specified at design time. You can store different settings in an XML configuration file and then load them before your package execution. For more information, see [SSIS package configurations](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). To specify the value for this option, use the UNC path for your configuration file in file system, file share, or Azure Files with its dtsConfig extension. If the UNC path specified contains any space, put quotation marks around the whole path.
 - **/Conn[ection]**: Specifies connection strings for existing connection managers in your package. Using this option, you can set run-time connection strings for existing connection managers in your package that differ from the ones specified at design time. Specify the value for this option as follows: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
-- **/Set**: Overrides the configuration of a parameter, variable, property, container, log provider, Foreach enumerator, or connection in your package. This option can be specified multiple times. Specify the value for this option as follows: `property_path;value`. For example, `\package.variables[counter].Value;1` overrides the value of `counter` variable as 1. You can use the **Package Configuration** wizard to find, copy, and paste the value of `property_path` for items in your package whose value you want to override. For more information, see [Package Configuration wizard](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set**: Overrides the configuration of a parameter, variable, property, container, log provider, Foreach enumerator, or connection in your package. This option can be specified multiple times. Specify the value for this option as follows: `property_path;value`. For example, `\package.variables[counter].Value;1` overrides the value of `counter` variable as 1. You can use the **Package Configuration** wizard to find, copy, and paste the value of `property_path` for items in your package whose value you want to override. For more information, see [Package Configuration wizard](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De[crypt]**: Sets the decryption password for your package that's configured with the **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** protection level.
 
 > [!NOTE]
@@ -87,7 +90,7 @@ Invoking AzureDTExec offers similar options as invoking dtexec. For more informa
 
 ## Next steps
 
-After unique pipelines with the Execute SSIS Package activity in them are generated and run after you invoke AzureDTExec, they can be monitored on the Data Factory portal. For more information, see [Run SSIS packages as Data Factory activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+After unique pipelines with the Execute SSIS Package activity in them are generated and run when you invoke AzureDTExec, they can be monitored on the Data Factory portal. You can also assign Data Factory triggers to them if you want to orchestrate/schedule them using Data Factory. For more information, see [Run SSIS packages as Data Factory activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 > [!WARNING]
 > The generated pipeline is expected to be used only by AzureDTExec. Its properties or parameters might change in the future, so don't modify or reuse them for any other purposes. Modifications might break AzureDTExec. If this happens, delete the pipeline. AzureDTExec generates a new pipeline the next time it's invoked.
