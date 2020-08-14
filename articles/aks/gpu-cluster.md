@@ -49,7 +49,7 @@ Get the credentials for your AKS cluster using the [az aks get-credentials][az-a
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Install NVIDIA drivers
+## Install NVIDIA device plugin
 
 Before the GPUs in the nodes can be used, you must deploy a DaemonSet for the NVIDIA device plugin. This DaemonSet runs a pod on each node to provide the required drivers for the GPUs.
 

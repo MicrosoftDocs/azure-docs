@@ -8,16 +8,16 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 08/13/2020
   ms.author: magoedte
 
 landingContent:
   
-  - title: Azure Arc overview
+  - title: About Azure Arc
     linkLists:
      - linkListType: overview
        links:
-          - text: Learn more about Azure Arc
+          - text: What is Azure Arc?
             url: https://aka.ms/Azure-Arc-Info
   
   - title: Connect machines to Azure using Azure Arc enabled servers
@@ -28,12 +28,18 @@ landingContent:
             url: ./servers/overview.md 
       - linkListType: quickstart
         links:
+          - text: Enable Arc enabled servers agent
+            url: ./servers/learn/quick-enable-hybrid-vm.md
+      - linkListType: how-to-guide
+        links:
           - text: Connect machines to Azure Arc from the Azure portal
             url: ./servers/onboard-portal.md
           - text: Connect machines at scale using a service principal
             url: ./servers/onboard-service-principal.md
           - text: Connect machines to Azure with PowerShell DSC
             url: ./servers/onboard-dsc.md
+          - text: Manage and use Azure VM extensions
+            url: ./servers/manage-vm-extensions.md
   - title: Connect Kubernetes clusters to Azure using Azure Arc
     linkLists: 
       - linkListType: overview

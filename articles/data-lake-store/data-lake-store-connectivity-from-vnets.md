@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Data Lake Storage Gen1 from VNETs | Microsoft Docs
-description: Connect to Azure Data Lake Storage Gen1 from Azure VNETs
+description: Learn how to enable access to Azure Data Lake Storage Gen1 from Azure virtual machines that have restricted access to resources.
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
