@@ -38,14 +38,14 @@ You can access the Azure AD portal to get contextual PowerShell scripts to perfo
 
 ## Control access to an application
 
-You can restrict access to the application by turning on the **User assignment** setting.
+We recommend that you restrict access to the application by turning on the **User assignment** setting.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
-4. Select **Properties**, and then set the **User requirement required** setting to "Yes."
+4. Select **Properties**, and then set **User requirement required** to **Yes.**
 5. Select **User and Groups**, and then remove the unwanted users who are assigned to the application.
-6. Assign user(s) or group(s) to the application.
+6. Assign users or groups to the application.
 
 Optionally, you can remove all users who are assigned to the application by using PowerShell.
 
@@ -54,24 +54,24 @@ Optionally, you can remove all users who are assigned to the application by usin
 Using the PowerShell script revokes all permissions granted to this application.
 
 > [!NOTE]
-> Revoking the current granted permission won't stop users from re-consenting to the application. If you want to block users from consenting, then read [Configure how users consent to applications](configure-user-consent.md).
+> Revoking the current granted permission won't stop users from re-consenting to the application. If you want to block users from consenting, read [Configure how users consent to applications](configure-user-consent.md).
 
 Optionally, you can disable the application to keep users from accessing the app and to keep the application from accessing your data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
-4. Select **Properties**, and then set **Enabled for users to sign-in?** to "No."
+4. Select **Properties**, and then set **Enabled for users to sign-in?** to **No.**
 
 ## Investigate a suspicious application
 
-Restrict access to the application by turning on the **User assignment** setting. Then review the permissions that users and admins have granted to the application.
+We recommend that you restrict access to the application by turning on the **User assignment** setting. Then review the permissions that users and admins have granted to the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 3. Select **Azure Active Directory** > **Enterprise applications**.
 5. Select the application that you want to restrict access to.
-6. Select **Properties**, and then set the **User requirement required** setting to "Yes."
-7. Select **Permissions**, and review the Admin and User consented permissions.
+6. Select **Properties**, and then set **User requirement required** to **Yes.**
+7. Select **Permissions**, and review the admin and user consented permissions.
 
 Optionally, by using PowerShell, you can:
 
@@ -84,7 +84,7 @@ Or you can disable the application to block users' access and stop the applicati
 
 ## Disable a malicious application 
 
-You should disable the application to block users' access and to keep the application from accessing your data. If you delete the application instead, then users can re-consent to the application and grant access to your data.
+We recommend that you disable the application to block users' access and to keep the application from accessing your data. If you delete the application instead, then users can re-consent to the application and grant access to your data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
