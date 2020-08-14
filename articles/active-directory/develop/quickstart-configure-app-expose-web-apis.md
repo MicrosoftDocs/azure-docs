@@ -46,14 +46,14 @@ To add a scope by using the **Expose an API** UI in the Azure portal:
 1. Select **Expose an API** > **Add a scope**.
     :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-01-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
-1. You're prompted to set an **Application ID URI** if you haven't yet configured one. The application ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`. In the latter case, for example, in your API's code you'd reference a scope named `Employees.Read.All` by its full scope value of `https://contoso.com/api/Employees.Read.All`.
+1. You're prompted to set an **Application ID URI** if you haven't yet configured one. The application ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
 
-1. When the **Add a scope** page appears, enter your scope's information:
+1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 
     | Field | Description | Example |
     |-------|-------------|---------|
     | **Scope name** | Enter a meaningful name for your scope. | `Employees.Read.All` |
-    | **Who can consent** | Select whether this scope can be consented to by users, or if admin consent is required. Select **Admins only** for higher-privileged permissions. |
+    | **Who can consent** | Select whether this scope can be consented to by users, or if admin consent is required. Select **Admins only** for higher-privileged permissions. | **Admins and users** |
     | **Admin consent display name** | Enter a meaningful description for your scope that only admins will see. | `Read-only access to Employee records` |
     | **Admin consent description** | Enter a meaningful consent description for your scope that only admins will see. | `Allow the application to have read-only access to all Employee data.` |
 
@@ -64,46 +64,51 @@ To add a scope by using the **Expose an API** UI in the Azure portal:
     | **User consent display name** | Enter a meaningful name for your scope, which users will see. | `Read-only access to your Employee records` |
     | **User consent description** | Enter a meaningful description for your scope, which users will see. | `Allow the application to have read-only access to your Employee data.` |
 
-1. Set the **State** and select **Add scope** when you're done.
+1. Set the **State** to **Enabled**, and then select **Add scope**.
 
 1. (Optional) To suppress prompting for consent by users of your app to the scopes you've defined, you can "pre-authorize" the client application to access your web API. You should pre-authorize *only* those client applications that you trust since your users won't have the opportunity to decline consent.
     1. Under **Authorized client applications**, select **Add a client application**
     1. Enter the **Application (client) ID** of the client application you want to pre-authorize. For example, that of a web application you've previously registered.
     1. Under **Authorized scopes**, select the scopes for which you want to suppress consent prompting, then select **Add application**.
 
-    The client app is now a pre-authorized client app (PCA), and users won't be prompted for consent when signing in to it.
+    If you followed this optional step, the client app is now a pre-authorized client app (PCA), and users won't be prompted for consent when signing in to it.
 
-1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
+1. To check your work, follow the steps in [Verify the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## Add a scope - App manifest
 
 The application manifest serves as a mechanism for updating the application entity that defines the attributes of an Azure AD app registration.
 
-[![Expose a new scope using the oauth2Permissions collection in the manifest](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-app-manifest.png" alt-text="Screenshot of the app manifest pane showing a portion of its JSON in the Azure portal":::
 
-To expose a new scope by editing the the application manifest:
+To add a scope by editing the application manifest:
 
-1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
+1. Select your application in **App registrations** in the Azure portal.
+1. Select **Manifest**.
 
-    The following example shows how to expose a new scope called `Employees.Read.All` in the resource/API by adding the following JSON element to the `oauth2Permissions` collection.
+    A web-based manifest editor is displayed, allowing you to edit the manifest in the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
+
+    The following example exposes a scope named `Employees.Read.All` by adding the specified JSON element to the `oauth2Permissions` collection.
 
     Generate the `id` value programmatically or by using a GUID generation tool like [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
 
       ```json
-      {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-      }
+      "oauth2Permissions": [
+        {
+          "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
+          "adminConsentDisplayName": "Read-only access to Employee records",
+          "id": "5555-5555-5555-5555-5555",
+          "isEnabled": true,
+          "type": "User",
+          "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
+          "userConsentDisplayName": "Read-only access to your Employee records",
+          "value": "Employees.Read.All"
+        }
+      ],
       ```
 
-1. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.
-1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
+1. Select **Save**.
+1. To check your work, follow the steps in [Verify the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
 For more information on the application entity and its schema, see Microsoft Graph's [Application][ms-graph-application] resource type reference documentation.
 
@@ -123,7 +128,7 @@ Once you've selected the web API resource, you should see the new scope availabl
 
 Once a client is appropriately configured with permissions to access your web API, it can be issued an OAuth 2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (`scp`) claim set to the permissions requested in its application registration.
 
-You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
+You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of operations. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
 
 In your applications, the full scope value is a concatenation of your web API's **Application ID URI** (the resource) and the **scope name**.
 
