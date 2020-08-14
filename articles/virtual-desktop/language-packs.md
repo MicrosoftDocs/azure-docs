@@ -7,9 +7,9 @@ ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
 ---
-# Add language packs to a Windows 10 Multi-session image
+# Add language packs to a Windows 10 multi-session image
 
-Windows Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise Multi-session image displays.
+Windows Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise multi-session image displays.
 
 There are two ways you can accommodate the language needs of your users:
 
@@ -20,7 +20,7 @@ The latter method is a lot more efficient and cost-effective. However, it's up t
 
 ## Prerequisites
 
-You need the following things to customize your Windows 10 Enterprise Multi-session images to add multiple languages:
+You need the following things to customize your Windows 10 Enterprise multi-session images to add multiple languages:
 
 - An Azure virtual machine (VM) with Windows 10 Enterprise multi-session, version 1903 or later
 
@@ -52,7 +52,7 @@ To create the content repository for language packages and FODs:
 4. Go to the **FOD ISO file**, copy all of its content, then paste it into the file share.
 
 >[!NOTE]
-> If storage capacity is limited, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+> If you're working with limited storage, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
 >[!IMPORTANT]
 > Some languages require additional fonts included in satellite packages that follow different naming conventions. Fore example, Japanese font file names include “Jpan."
@@ -153,15 +153,23 @@ Set-WinUserLanguageList $LanguageList -force
 
 The script might take a while depending on the number of languages you need to install.
 
-- Verify if the languages are installed as desired by opening the settings app at **Start** > **Settings** > **Time & Language** > **Language**.
+Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 
-- When done, disconnect the share
+When you're done, make sure to disconnect the share.
 
-After the language installation, you can install any additional software you would like to integrate into the customized image.
+## Finish customizing your image
 
-To finalize the image customization, you need to run the system preparation tool (sysprep).
+After you've installed the language packs, you can install any other software you want to add to your customized image.
 
-1. Open an elevated command prompt and execute Sysprep to generalize the image  `C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown`.
+Once you're finished customizing your image, you'll need to run the system preparation tool (sysprep).
+
+To run sysprep:
+
+1. Open an elevated command prompt and run the following command to generalize the image:  
+   
+     ```cmd
+     C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown
+     ```
 
 2. Shut down the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
 
@@ -169,7 +177,7 @@ To finalize the image customization, you need to run the system preparation tool
 
 ## Enable languages in Windows settings app
 
-Finally, you'll need to add the language to each user's language list so they can select their preferred language from Windows Settings.
+Finally, you'll need to add the language to each user's language list so they can select their preferred language in the Settings menu.
 
 To ensure your users can select the languages you installed, sign in as the user, then run the following PowerShell cmdlet to add the installed language packs to the Languages menu. You can also set up this script as an automated task that activates when the user signs in to their session.
 
