@@ -77,7 +77,7 @@ landingContent:
           - text: Predict food inspection results using sample data 
             url: ./spark/apache-spark-machine-learning-mllib-ipython.md
       - linkListType: tutorial
-         links:
+        links:
           - text: Query Apache HBase with Apache Spark
             url: ./hdinsight-using-spark-query-hbase.md
           - text: Analyze Spark data with Power BI
@@ -101,7 +101,7 @@ landingContent:
           - text: Monitor and manage Hadoop clusters with Ambari UI
             url: ./hdinsight-hadoop-manage-ambari.md
       - linkListType: tutorial
-         links:
+        links:
           - text: Connect Excel to Apache Hadoop
             url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md         
           - text: Monitor Hadoop with Azure monitor logs
@@ -121,7 +121,7 @@ landingContent:
           - text: Use Kafka producer and consumper APIs
             url: ./kafka/apache-kafka-producer-consumer-api.md
       - linkListType: tutorial
-         links:
+        links:
           - text: Use Kafka REST proxy
             url: ./kafka/rest-proxy.md
           - text: Apache Spark structured streaming with Apache Kafka
@@ -139,7 +139,7 @@ landingContent:
           - text: Query HBase with Apache Phoenix
             url: ./hbase/apache-hbase-query-with-phoenix.md
       - linkListType: tutorial
-         links: 
+        links:
           - text: Accelerated Writes for Apache HBase
             url: ./hbase/apache-hbase-accelerated-writes.md
           - text: Apache Phoenix best practices
@@ -159,7 +159,7 @@ landingContent:
           - text: Analyze flight data with Apache Hive
             url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
       - linkListType: tutorial
-         links:
+        links:
           - text: Optimize Hive queries
             url: ./hdinsight-hadoop-optimize-hive-query.md
           - text: Connect Spark and Hive with Hive Warehouse connector
