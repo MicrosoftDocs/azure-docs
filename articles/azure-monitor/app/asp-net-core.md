@@ -151,16 +151,16 @@ The preceding steps are enough to help you start collecting server-side telemetr
 
 1. In `_ViewImports.cshtml`, add injection:
 
-   ```cshtml
+    ```cshtml
         @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-   ```
+    ```
 
 2. In `_Layout.cshtml`, insert `HtmlHelper` at the end of the `<head>` section but before any other script. If you want to report any custom JavaScript telemetry from the page, inject it after this snippet:
 
-   ```cshtml
+    ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
-   ```
+    ```
     
 Alternatively to using the `FullScript` the `ScriptBody` is available starting in SDK v2.14. Use this if you need to control the `<script>` tag to set a Content Security Policy:
 
