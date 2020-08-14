@@ -80,7 +80,7 @@ This section provides references for Virtual Desktop infrastructure solutions.
 
 ### Windows Virtual Desktop
 
-* [Using Windows Virtual Desktop with Azure NetApp Files](solutions-anf-windows-virtual-desktop.md)
+* [Using Windows Virtual Desktop with Azure NetApp Files](solutions-windows-virtual-desktop.md)
 * [Storage options for FSLogix profile containers in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Create an FSLogix profile container for a host pool using Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Windows Virtual Desktop at enterprise scale](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
