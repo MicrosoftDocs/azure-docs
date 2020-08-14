@@ -223,21 +223,30 @@
             - name: Date and time functions
               displayName: date and time functions, date and time, datetime, system functions, built-in functions
               href: sql-query-date-time-functions.md
-            - name: GetCurrentDateTime
-              displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
-              href: sql-query-getcurrentdatetime.md
-            - name: GetCurrentTimestamp
-              displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
-              href: sql-query-getcurrenttimestamp.md
-            - name: DateTimeFromParts
-              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
-              href: sql-query-datetimefromparts.md
             - name: DateTimeAdd
               displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
               href: sql-query-datetimeadd.md
             - name: DateTimeDiff
               displayName: DateTimeDiff, date time diff, date and time functions, datetime
               href: sql-query-datetimediff.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimePart
+              displayName: DateTimePart, date time part, date and time functions, datetime
+              href: sql-query-datetimepart.md
+            - name: DateTimeToTicks
+              displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
+              href: sql-query-datetimetoticks.md
+            - name: GetCurrentDateTime
+              displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
+              href: sql-query-getcurrentdatetime.md
+            - name: GetCurrentTicks
+              displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
+              href: sql-query-getcurrentticks.md
+            - name: GetCurrentTimestamp
+              displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
+              href: sql-query-getcurrenttimestamp.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
