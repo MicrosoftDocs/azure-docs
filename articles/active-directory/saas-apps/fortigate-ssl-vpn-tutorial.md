@@ -86,10 +86,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<FQDN>/remote/saml/metadata`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<FQDN>/remote/saml/login`
+    `https://><FQDN/remote/saml/login`
+
+    d. In the **Logout URL** text box, type a URL using the following pattern:
+    `https://<FQDN>/remote/saml/logout`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FortiGate SSL VPN Client support team](mailto:tac_amer@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier, Reply URL and Logout URL. Contact [FortiGate SSL VPN Client support team](mailto:tac_amer@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. FortiGate SSL VPN application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -142,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FortiGate SSL VPN SSO
 
-To configure single sign-on on **FortiGate SSL VPN** side, please follow [this](media/fortigate-ssl-vpn-tutorial/fortiGate-deployment-guide-converted.pdf) document.
+To configure single sign-on on **FortiGate SSL VPN** side, please follow [this](media/fortigate-ssl-vpn-tutorial/fortiGate-deployment-guide-converted.md) document.
 
 > [!NOTE]
 > For more information to Configure FortiGate SSL VPN, refer [this](https://docs.fortinet.com/document/fortigate/6.4.0/new-features/558169/saml-sp-for-vpn-authentication) link.
