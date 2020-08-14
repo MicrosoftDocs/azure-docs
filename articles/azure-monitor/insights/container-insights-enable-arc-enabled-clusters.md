@@ -119,7 +119,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 4. If you want to use existing Azure Monitor Log Analytics workspace, configure the variable `$logAnalyticsWorkspaceResourceId` with the corresponding value representing the resource ID of the workspace. Otherwise, set the variable to `""` and the script creates a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. If your Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `$proxyEndpoint` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy endpoint](#configure-proxy-endpoint) later in this article.
