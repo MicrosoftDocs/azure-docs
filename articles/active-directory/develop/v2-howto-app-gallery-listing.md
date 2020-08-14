@@ -114,7 +114,9 @@ Every app in the gallery must implement one of the supported single sign-on opti
 
 For OAuth and OIDC, see [guidance on authentication patterns](v2-app-types.md) and [Azure active Directory code samples](sample-v2-code.md).
 
-For SAML and WS-Fed, your application must have the capability to do SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request. 
+For SAML and WS-Fed, your application must have the capability to do SSO integration in SP or IDP mode. Make sure this capability is working correctly before you submit the request.
+
+To learn more about authentication, see [What is authentication?](../azuread-dev/v1-authentication-scenarios.md).
 
 > [!IMPORTANT]
 > For federated applications (OpenID and SAML/WS-Fed), the app must support the Software as a Service (SaaS) model. Azure AD gallery applications must support multiple customer configurations and should not be specific to any single customer.
@@ -123,12 +125,9 @@ For SAML and WS-Fed, your application must have the capability to do SSO integra
 
 For OpenID Connect, the application must be multi-tenanted and the [Azure AD consent framework](consent-framework.md) must be properly implemented for the application. The user can send the sign-in request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token.
 
-You register your application with Microsoft Identity, which is an OAuth 2.0 provider. You could then also register your OAuth 2.0-based application with any other Identity Provider that you wish to integrate with. 
+To review specific examples, see [Microsoft identity platform code samples](sample-v2-code.md). 
 
-To integrate your application with Azure AD by using the OpenID Connect protocol, follow the [developers' instructions](../azuread-dev/v1-authentication-scenarios.md).
-
-For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](sample-v2-code.md).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
-
+To review mobile specific examples, see: 
 * [Android](quickstart-v2-android.md)
 * [iOS](quickstart-v2-ios.md)
 * [Universal Windows Platform](quickstart-v2-uwp.md)
@@ -137,7 +136,7 @@ For information on how to register your application and implement these protocol
 
 If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant. To learn more about SAML configuration with Azure AD, see [Configure SAML-based single sign-on](../manage-apps/configure-saml-single-sign-on.md).
 
-Microsoft does not provide libraries for SAML implementation or recommend specific libraries. There are many open-source libraries available.
+Microsoft does not provide, or recommend, libraries for SAML implementations. There are many open-source libraries available.
 
 ### Implement WS-Fed
 To learn more about WS-Fed in ASP.NET Core, see [Authenticate users with WS-Federation in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation).
@@ -196,7 +195,7 @@ After you've tested that your application integration works with Azure AD, submi
 
 The first time you try to sign into the portal you will be presented with one of two screens. 
 
-If you receive a message that "That didn't work" then you will need to contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
+If you receive the message "That didn't work" then you will need to contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
 
 If you see a "Request Access" page then fill in the business justification and select **Request Access**.
 
