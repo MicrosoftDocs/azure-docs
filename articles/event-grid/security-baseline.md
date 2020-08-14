@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -59,10 +59,12 @@ authentication mechanisms supported by Event Grid.
 recommendations to help secure your Event Grid resources in Azure. If using
 Azure virtual machines to access your Event Grid resources, enable network
 security group (NSG) flow logs and send logs into a storage account for traffic
-- [audit.How to Enable NSG Flow Logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portalUnderstanding) Network Security provided by Azure Security
-- [Center](/azure/security-center/security-center-network-recommendationsAzure) Security
-Center monitoring: YesResponsibility:
-Customer
+audit.
+
+- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+
+Understanding Network Security provided by Azure Security
+- [Center](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -469,7 +471,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32729.).
 
-**Guidance**: Not applicable. 
+**Guidance**: Not applicable. Event Grid doesn’t use Azure AD for authenticating event publishing clients; it supports authentication via SAS keys.
 
 **Azure Security Center monitoring**: Not Applicable
 
