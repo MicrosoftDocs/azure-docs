@@ -1024,6 +1024,8 @@
         href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maverics Identity Orchestrator SAML Connector
+        href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
