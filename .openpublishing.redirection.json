@@ -9305,7 +9305,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-dotnet-cli-nodejs.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -9380,7 +9380,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-dotnet-get-started.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -9550,7 +9550,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-dotnet-portal.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -9965,7 +9965,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-dotnet.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -11015,7 +11015,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-create-web-app-using-vscode.md",
-      "redirect_url": "/azure/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
     {
@@ -28079,7 +28079,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/app-service-web-get-started-dotnet",
+      "source_path": "articles/app-service/app-service-web-get-started-dotnet.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },    
