@@ -7,58 +7,71 @@ ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
 ---
-# Add language packs to a Windows 10 multi-session image
+# Add language packs to a Windows 10 Multi-session image
 
-As a Windows Virtual Desktop host pool can be used by users with different language requirements, it is often necessary to customize the Windows 10 Enterprise multi-session image to support multiple languages.
+Windows Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise Multi-session image displays.
 
-One option is to build a dedicated host pool per language and use a customized image for each language. Alternatively, to increase efficiency, reduce costs and complexity, customers might prefer to have users with different language and localization requirements in the same host pool.
+There are two ways you can accommodate the language needs of your users:
+
+- Build dedicated host pools with a customized image for each language.
+- Have users with different langauge and localization requirements in the same host pool, but customize their images to ensure they can select whichever language they need.
+
+The latter method is a lot more efficient and cost-effective. However, it's up to you to decide which method best suits your needs. This article will show you how to customize languages for your images.
 
 ## Prerequisites
 
-To add additional languages to a Virtual Machine (VM) with Windows 10 Enterprise multi-session the following pre-requisites are required:
+You need the following things to customize your Windows 10 Enterprise Multi-session images to add multiple languages:
 
-- An Azure VM with Windows 10 Enterprise multi-session 1903 or higher
+- An Azure virtual machine (VM) with Windows 10 Enterprise multi-session, version 1903 or later
 
-- Language ISO and Feature on Demand (FOD) Disk 1 the OS Version. These can be downloaded using the links below:  [Windows 10, version 1903 and 1909 – Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)   [Windows 10, version 2004 – Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+- The Language ISO and Feature on Demand (FOD) Disk 1 of the OS version the image uses. You can download them here:
+     
+     - Language ISO:
+        - [Windows 10, version 1903 and 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 2004 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
-- [Windows 10, version 1903 and 1909 – Features on Demand Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)  [Windows 10, version 2004 – Features on Demand Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+     - FOD Disk 1 ISO:
+        - [Windows 10, version 1903 and 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 2004 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
 >[!NOTE]
->The file share (repository) needs to be accessible from the Azure VM that will be used to create the custom image.
+>The file share (repository) must be accessible from the Azure VM you plan to use to create the custom image.
 
 ## Create a content repository for language packages and features on demand
 
-For optimal performance, perform these steps from a VM in Azure:
+To create the content repository for language packages and FODs:
 
-1. Download the Windows 10 Multi-Language ISO and Features on Demand (FOD) For Windows 10 Enterprise multi-session, version 1903, 1909 and 2004 images using the links above.
+1. On an Azure VM, download the Windows 10 Multi-Language ISO and FODs For Windows 10 Enterprise multi-session, version 1903, 1909, and 2004 images from the links in [Prerequisites](#prerequisites).
 
-2. Open/mount the ISO files on the VM
+2. Open and mount the ISO files on the VM.
 
-3. Copy the content from “LocalExperiencePacks” and “x64\\langpacks” folders from the the language pack ISO to the file share
+3. Go to the language pack ISO and copy the content from the **LocalExperiencePacks** and **x64\\langpacks** folders, then paste the content into the file share.
 
-4. Copy the complete content from the FOD ISO file to the file share
+4. Go to the **FOD ISO file**, copy all of its content, then paste it into the file share.
 
 >[!NOTE]
-> If storage capacity is limited, it is possible to only copy the files for the languages needed. All files contain the language code e.g. “fr-FR” for French (France) in the file name.   A list of all available languages including language codes can be found [here](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+> If storage capacity is limited, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
 >[!IMPORTANT]
-> Some languages require additional fonts included in satellite packages that follow a different naming convention e.g. “Jpan” for Japanese fonts.  
+> Some languages require additional fonts included in satellite packages that follow different naming conventions. Fore example, Japanese font file names include “Jpan."
+>
+> [!div class="mx-imgBorder"]
+> ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
 
-![](media/414827cdf7b695a7ee210d9bcd852100.png)
-
-1. Make sure to set the permissions on the language content repository share so that you have read access from your VM that is used to build the custom image.
+5. Set the permissions on the language content repository share so that you have read access from the VM you'll use to build the custom image.
 
 ## Create a custom Windows 10 Enterprise multi-session image
 
-1. Deploy an Azure Virtual Machine and select from the Azure Gallery Windows 10 Enterprise multi-session e.g. build 1903, 1909 or 2004.
+To create a custom Windows 10 Enterprise multi-session image manually:
 
-2. After successful deployment, connect to the VM via RDP as a local administrator and confirm all Windows Updates are installed. Restart if required.
+1. Deploy an Azure VM, then go to the Azure Gallery and select the current version of Windows 10 Enterprise multi-session you're using.
+2. After you've deployed the VM, connect to it using RDP as a local admin.
+3. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
+4. Connect to the language package and FOD file share repository and mount it to a letter drive (for example, drive E).
 
-3. Connect to the language package and feature on demand file share repository and mount it with a drive letter e.g. E:
-
-4. An automated installation for a set of languages can be done via PowerShell. This script sample below can be used to install Spanish (Spain), French (France) and Chinese (China) language packs and satellite packages on Windows 10 Enterprise multi-session, version 2004. It can be adjusted as required for other languages. It must be run from an elevated PowerShell session.
+If you'd rather install languages through an automated process, you can set up a script in PowerShell. You can use the following script sample to install the Spanish (Spain), French (France), and Chinese (PRC) language packs and satellite packages for Windows 10 Enterprise multi-session, version 2004. However, you can modify this script to install other languages. Just make sure to run the script from an elevated PowerShell session, or else it won't work.
 
 ```powershell
 ########################################################
@@ -134,11 +147,11 @@ Set-WinUserLanguageList $LanguageList -force
 ```
 
 >[!IMPORTANT]
->Windows 10 Enterprise 1903 and 1909 don’t require the package “Microsoft-Windows-Client-Language-Pack_x64_\<language-code\>.cab“
+>Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_\<language-code\>.cab` package file.
 
 - The script integrates the language interface pack and all necessary satellite packages into the image
 
-- To install additional or less languages, you can copy/delete and adjust this script sample as required
+- To install more or fewer languages, you can copy/delete and adjust this script sample as required
 
 - The integration of the languages might take a while, depending on the amount of languages.
 
@@ -148,19 +161,19 @@ Set-WinUserLanguageList $LanguageList -force
 
 After the language installation, you can install any additional software you would like to integrate into the customized image.
 
-To finalize the image customization, you need to run the system preparation tool (Sysprep)
+To finalize the image customization, you need to run the system preparation tool (sysprep).
 
-1. Open an elevated command prompt and execute Sysprep to generalize the image  C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown
+1. Open an elevated command prompt and execute Sysprep to generalize the image  `C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown`.
 
-2. After the VM has been shut down, capture it to an managed image [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
+2. Shut down the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
 
-3. The customized image can now be used to deploy a WVD host pool. See [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)
+3. You can now use the customized image to deploy a Windows Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 ## Enable languages in Windows settings app
 
-To ensure that your users can select their preferred language from the Windows Settings app, it is required to add the languages to the language list for each user.
+Finally, you'll need to add the language to each user's language list so they can select their preferred language from Windows Settings.
 
-After the host pool is deployed, it is necessary to run this PowerShell command in the context of the logged-on user to add the integrated language packs to the selection. This can be achieved by e.g. a scheduled task at logon or a user logon script.
+To ensure your users can select the languages you installed, sign in as the user, then run the following PowerShell cmdlet to add the installed language packs to the Languages menu. You can also set up this script as an automated task that activates when the user signs in to their session.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList
@@ -170,161 +183,7 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
->[!NOTE]
->After a user changes the preferred display language, it is required to logoff from the Windows Virtual Desktop session and logon again. For additional known issues please visit [this](/windows-hardware/manufacture/desktop/language-packs-known-issue) link.
-
-
-
-
-
-
-
--------------------------------------------------------------------------
-
-
-When you set up Windows Virtual Desktop deployments internationally, it's a good idea to make sure your deployment supports multiple languages. You can install language packs on a Windows 10 Enterprise multi-session virtual machine (VM) image to support as many languages as your organization needs. This article will tell you how to install language packs and capture images that let your users choose their own display languages.
-
-Learn more about how to deploy a VM in Azure at [Create a Windows virtual machine in an availability zone with the Azure portal](../virtual-machines/windows/create-portal-availability-zone.md).
+After a user changes their language settings, they'll need to sign out of their Windows Virtual Desktop session and sign in again for the changes to take effect. 
 
 >[!NOTE]
->This article applies to Windows 10 Enterprise multi-session VMs.
-
-## Install a language pack
-
-To create a VM image with language packs, you first need to install language packs onto a machine and capture an image of it.
-
-To install language packs:
-
-1. Sign in as an admin.
-2. Make sure you've installed all the latest Windows and Windows Store updates.
-3. Go to **Settings** > **Time & Language** > **Region**.
-4. Under **Country or region**, select your preferred country or region from the drop-down menu.
-    In this example, we're going to select **France**, as shown in the following screenshot:
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Region page. The region currently selected is France.](media/region-page-france.png)
-
-5. After that, select **Language**, then select **Add a language**. Choose the language you want to install from the list, then select **Next**.
-6. When the **Install language features** window opens, select the check box labeled **Install language pack and set as my Windows display language**.
-7. Select **Install**.
-8. To add multiple languages at once, select **Add a language**, then repeat the process to add a language in steps 5 and 6. Repeat this process for each language you want to install. However, you can only set one language as your display language at a time.
-
-    Let's run through a quick visual demonstration. The following images show how to install the French and Dutch language packs, then set French as the display language.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Language page at the beginning of the process. The selected Windows display language is English.](media/language-page-default.png)
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the language selection window. The user has entered "french" into the search bar to find the French language packages.](media/select-language-french.png)
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Install language features page. French is selected as the preferred language. The options selected are "Set my display language," "Install language pack," "Speech recognition," and "Handwriting."](media/install-language-features.png)
-
-    After your language packs have installed, you should see the names of your language packs appear in the list of languages.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the language page with the new language packs installed. The French and Netherlands language packs are listed under "preferred languages."](media/language-page-complete.png)
-
-9. If a window appears asking you to sign out of your session. Sign out, then sign in again. Your display language should now be the language you selected.
-
-10.  Go to **Control Panel** > **Clock and Region** > **Region**.
-
-11.  When the **Region** window opens, select the **Administration** tab, then select **Copy settings**.
-
-12.  Select the check boxes labeled **Welcome screen and system accounts** and **New user accounts**.
-
-13.  Select **OK**.
-
-14.  A window will open and tell you to restart your session. Select **Restart now**.
-
-15.  After you've signed back in, go back to **Control Panel** > **Clock and Region** > **Region**.
-
-16.  Select the **Administration** tab.
-
-17.  Select **Change system locale**.
-
-18. In the drop-down menu under **Current system locale**, select the locale language you want to use. After that, select **OK**.
-
-19. Select **Restart now** to restart your session once again.
-
-Congratulations, you've installed your language packs!
-
-Before you continue, make sure your system has the latest versions of Windows and Windows store installed.
-
-## Sysprep
-
-Next, you need to sysprep your machine to prepare it for the image capturing process.
-
-To sysprep your machine:
-
-1. Open PowerShell as an Administrator.
-2. Run the following cmdlet to go to the correct directory:
-
-    ```powershell
-    cd Windows\System32\Sysprep
-    ```
-
-3. Next, run the following cmdlet:
-
-    ```powershell
-    .\sysprep.exe
-    ```
-
-4. When the System Preparation Tool window opens, select the check box labeled **Generalize**, then go to **Shutdown Options** and select **Shut down** from the drop-down menu.
-
->[!NOTE]
->The syprep process will take a few minutes to finish. As the VM shuts down, your remote session will disconnect.
-
-### Resolve sysprep errors
-
-If you see an error message during the sysprep process, here's what you should do:
-
-1. Open **Drive C** and go to **Windows** > **System32 Sysprep** > **Panther**, then open the **setuperr** file.
-
-   The text in the error file will tell you that you need to uninstall a specific language package, as shown in the following image. Copy the language package name for the next step.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the setuperr file. The text with the package name is highlighted in dark blue.](media/setuperr-package-name.png)
-
-2. Open a new PowerShell window and run the following cmdlet with the package name you copied in step 2 to remove the language package:
-
-   ```powershell
-   Remove-AppxPackage <package name>
-   ```
-
-3. Check to make sure you've removed the package by running the `Remove-AppxPackage` cmdlet again. If you've successfully removed the package, you should see a message that says the package you're trying to remove isn't there.
-
-4. Run the `sysprep.exe` cmdlet again.
-
-## Capture the image
-
-Now that your system is ready, you can capture an image so that other users can start using VMs based on your system without having to repeat the configuration process.
-
-To capture an image:
-
-1. Go to the Azure portal and select the name of the machine you configured in [Install a language pack](#install-a-language-pack) and [sysprep](#sysprep).
-
-2. Select **Capture**.
-
-3. Enter a name for your image into the **Name** field and assign it to the resource group using the **Resource group** drop-down menu, as shown in the following image.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the Create image window. The name the user has given to this test image is "vmwvd-image-fr," and they've assigned it to the "testwvdimagerg" resource group.](media/create-image.png)
-
-4. Select **Create**.
-
-5. Wait a few minutes for the capture process to finish. When the image is ready, you should see a message in the Notifications Center letting you know the image was captured.
-
-You can now deploy a VM using your new image. When you deploy the VM, make sure to follow the instructions in [Create a Windows virtual machine in an availability zone with the Azure portal](../virtual-machines/windows/create-portal-availability-zone.md).
-
-### How to change display language for standard users
-
-Standard users can change the display language on their VMs.
-
-To change the display language:
-
-1. Go to **Language Settings**. If you don't know where that is, you can enter **Language** into the search bar in the Start Menu.
-
-2. In the Windows display language drop-down menu, select the language you want to use as your display language.
-
-3. Sign out of your session, then sign back in. The display language should now be the one you selected in step 2.
+>To see known issues for language packs, see [Adding language packs in Windows 10, version 1803 and later versions: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue).
