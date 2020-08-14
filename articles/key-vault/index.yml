@@ -22,7 +22,7 @@ highlightedContent:
       itemType: overview
       url: ./general/overview.md
     - title: Important changes to soft delete
-      itemType: overview
+      itemType: whats-new
       url: ./general/soft-delete-change.md
     - title: Authentication
       itemType: overview
