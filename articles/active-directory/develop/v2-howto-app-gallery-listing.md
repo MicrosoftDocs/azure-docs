@@ -19,7 +19,7 @@ ms.custom: aaddev
 This article shows how to list an application in the Azure Active Directory (Azure AD) application gallery, implement single sign-on (SSO), and manage the listing.
 
 ## What is the Azure AD app gallery?
-The Azure AD app gallery is a collection of apps that are pre-configured to use Azure AD as an identity provider. Using Azure AD as an identity provider provides single sign-on to users. To learn more about single sign-on, see [What is single sign-on?](../manage-apps/what-is-single-sign-on.md). To learn more about how customers manage apps in Azure AD, see [What is application management?](manage-apps/what-is-application-management.md).
+The Azure AD app gallery is a collection of apps that are pre-configured to use Azure AD as an identity provider. Using Azure AD as an identity provider provides single sign-on to users. To learn more about single sign-on, see [What is single sign-on?](../manage-apps/what-is-single-sign-on.md). To learn more about how customers manage apps in Azure AD, see [What is application management?](../manage-apps/what-is-application-management.md).
 
 There are many benefits to adding your app to the Azure AD gallery. Some of these include:
 
@@ -147,10 +147,10 @@ The following table compares
 ### OAuth 2.0 and OpenID Connect
 To integrate your application with Azure AD by using the Open ID Connect protocol, follow the [developers' instructions](../azuread-dev/v1-authentication-scenarios.md).
 
-    ![Listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/openid.png)
+![Listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/openid.png)
 
-    * If you want to add your application to list in the gallery by using OpenID Connect, select **OpenID Connect & OAuth 2.0** as shown.
-    * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+* If you want to add your application to list in the gallery by using OpenID Connect, select **OpenID Connect & OAuth 2.0** as shown.
+* If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 OAuth 2.0 is an [industry-standard](https://oauth.net/2/) protocol for authorization. OIDC (OpenID Connect) is an [industry standard](https://openid.net/connect/) identity authentication layer built on top of the OAuth 2.0 protocol.
 
