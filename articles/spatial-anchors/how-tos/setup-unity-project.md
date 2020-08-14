@@ -43,6 +43,24 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 
 2. Save and close the `manifest.json` file. When you return to Unity, Unity should automatically detect the project manifest change and retrieve the specified packages. You can expand the `Packages` folder in your Project view to verify that the right packages have been imported.
 
+### Android only: Configure the mainTemplate.gradle file
+
+1. Go to **Edit** > **Project Settings** > **Player**.
+2. In the **Inspector Panel** for **Player Settings**, select the **Android** icon.
+3. Under the **Build** section, check the **Custom Main Gradle Template** checkbox to generate a custom gradle template at `Assets\Plugins\Android\mainTemplate.gradle`.
+4. Open your `mainTemplate.gradle` file in a text editor. 
+5. In the `dependencies` section, paste the following dependencies:
+
+```gradle
+implementation('com.squareup.okhttp3:okhttp:[3.11.0]')
+implementation('com.microsoft.appcenter:appcenter-analytics:[1.10.0]')
+```
+
+When it's all done, your `dependencies` section should look something like this:
+
+[!code-gradle[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-android-gradle-setup.md?range=9-13&highlight=11-12)]
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
