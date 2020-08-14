@@ -110,7 +110,7 @@ If you're using Azure Traffic Manager, add endpoints to refer to your target clu
 
 ## Deploy application to your target cluster
 
-
+Once you have your target cluster properly configured for your workload, [connect to your cluster](tutorial-connect-cluster.md) and create the necessary applications, components, or services for your projects. Azure Red Hat OpenShift enables you to create these from Git, container images, the Red Hat Developer Catalog, a Dockerfile, a YAML/JSON definition, or by selecting a database service from the Catalog.
 
 ## Delete your source cluster
 Once you've confirmed that your Azure Red Hat OpenShift 4 cluster is properly set up, delete your Azure Red Hat OpenShift 3.11 cluster.
