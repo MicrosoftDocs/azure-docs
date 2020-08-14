@@ -11,16 +11,16 @@ ms.topic: how-to
 
 ## Information about a conversion: The result file
 
-When the conversion service converts an asset, it writes a summary of any issues encountered into a "result file" in the output container. 
+When the conversion service converts an asset, it writes a summary of any issues encountered into a "result file". 
 For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.result.json`.
 
 The result file lists any errors and warnings that occurred during the conversion and gives a result summary, which is one of `succeeded`, `failed` or `succeeded with warnings`.
-The result file is structured as a JSON array of objects, each of which has a string property which is one of `warning`, `error`, `internal warning`, `internal error` and `result`. 
-There will be at most one error (i.e. `error` and `internal error`) and there will always be one `result`.
+The result file is structured as a JSON array of objects, each of which has a string property that is one of `warning`, `error`, `internal warning`, `internal error`, and `result`. 
+There will be at most one error (either `error` or `internal error`) and there will always be one `result`.
 
 ## Example *result* file
 
-The following example describes a conversion which successfully generated an arrAsset. 
+The following example describes a conversion that successfully generated an arrAsset. 
 However, since there was a missing texture, the resulting arrAsset may not be as intended.
 
 ```JSON
