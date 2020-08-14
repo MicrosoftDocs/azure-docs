@@ -109,8 +109,8 @@ Python App Service based web applications do not currently support automatic age
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
-* Select **Settings** >** **Application settings****
-   * Under Application settings, add a new **app setting name** and **value**:
+* **Settings** **>** **Configuration**
+   * Under Application settings, create a **new application setting**:
 
      Name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -128,8 +128,8 @@ Client-side monitoring is **enabled by default** for .NET Core apps with **Recom
 
 If for some reason you would like to disable client-side monitoring:
 
-* Select **Settings** > **Application settings**
-   * Under Application settings, add a new **app setting name** and **value**:
+* **Settings** **>** **Configuration**
+   * Under Application settings, create a **new application setting**:
 
      name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
