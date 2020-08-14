@@ -68,7 +68,7 @@ To help determine which integration option to use for your application, refer to
 | Support non-enterprise accounts (B2C)| X| √| √ |
 
 <sup>*</sup> – Azure AD Connect setup is required to sync users from AD to Azure AD.  
-<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
+<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with Microsoft Graph for other purposes.
 
 ## Azure AD Provisioning Service (SCIM)
 
