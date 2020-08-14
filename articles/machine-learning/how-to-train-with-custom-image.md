@@ -1,5 +1,5 @@
 ---
-title: Train a model using a custom Docker base image
+title: Train a model using a custom Docker image
 titleSuffix: Azure Machine Learning
 description: Learn how to train models with custom Docker images in Azure Machine Learning.
 services: machine-learning
@@ -15,12 +15,11 @@ ms.custom: how-to
 # Train a model using a custom Docker image
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to use a custom Docker base image when training models with Azure Machine Learning. 
+In this article, learn how to use a custom Docker image when training models with Azure Machine Learning. 
 
 The example scripts in this article are used to classify pet images by creating a convolutional neural network. 
 
-While Azure Machine Learning provides a default Docker base image, you can also use Azure Machine Learning environments to select a specific base image or use a [custom one](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image) that you provide.
-Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when executing training jobs. 
+While Azure Machine Learning provides a default Docker base image, you can also use Azure Machine Learning environments to specify a specific base image, such as one of the set of maintained [Azure ML base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when executing training jobs. 
 
 ## Prerequisites 
 Run this code on either of these environments:
@@ -56,35 +55,55 @@ Create an environment object and enable Docker.
 ```python
 from azureml.core import Environment
 
-myenv = Environment("fastai2")
-myenv.docker.enabled = True
+fastai_env = Environment("fastai2")
+fastai_env.docker.enabled = True
 ```
 
-This specified base image supports the fastai library which allows for distributed deep learning capabilities. 
-When you are using your custom Docker image, you might already have your Python environment properly set up. In that case, set the `user_managed_dependencies` flag to True in order to leverage your custom image's built-in python environment.
+This specified base image supports the fast.ai library which allows for distributed deep learning capabilities. For more information, see the [fast.ai DockerHub](https://hub.docker.com/u/fastdotai). 
+
+When you are using your custom Docker image, you might already have your Python environment properly set up. In that case, set the `user_managed_dependencies` flag to True in order to leverage your custom image's built-in python environment. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
 
 ```python
-myenv.docker.base_image = "fastdotai/fastai2:latest"
-myenv.python.user_managed_dependencies = True
+fastai_env.docker.base_image = "fastdotai/fastai2:latest"
+fastai_env.python.user_managed_dependencies = True
 ```
 
 To use an image from a private container registry that is not in your workspace, you must use `docker.base_image_registry` to specify the address of the repository and a user name and password:
 
 ```python
 # Set the container registry information
-myenv.docker.base_image_registry.address = "myregistry.azurecr.io"
-myenv.docker.base_image_registry.username = "username"
-myenv.docker.base_image_registry.password = "password"
+fastai_env.docker.base_image_registry.address = "myregistry.azurecr.io"
+fastai_env.docker.base_image_registry.username = "username"
+fastai_env.docker.base_image_registry.password = "password"
+```
+
+It is also possible to use a custom Dockerfile. Use this approach if you need to install non-Python packages as dependencies and remember to set the base image to None.
+
+```python 
+# Specify docker steps as a string. 
+dockerfile = r"""
+FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+RUN echo "Hello from custom container!"
+"""
+
+# Set base image to None, because the image is defined by dockerfile.
+fastai_env.docker.base_image = None
+fastai_env.docker.base_dockerfile = dockerfile
+
+# Alternatively, load the string from a file.
+fastai_env.docker.base_image = None
+fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### Create a ScriptRunConfig
-This ScriptRunConfig will submit your job for execution on the local compute target. A ScriptRunConfig object is a helper class that packages the RunConfiguration object with an execution script for training.
+This ScriptRunConfig will configure your job for execution on the desired [compute target](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training).
 
 ```python
 from azureml.core import ScriptRunConfig
 
-fastaicfg = ScriptRunConfig(source_directory='fastai-example', script='train.py')
-fastaicfg.run_config.environment = myenv
+fastai_config = ScriptRunConfig(source_directory='fastai-example', script='train.py')
+fastai_config.run_config.environment = fastai_env
+fastai_config.run_config.target = compute_target
 ```
 
 ### Submit your run
@@ -93,7 +112,7 @@ When a training run is submitted using a ScriptRunConfig object, the submit meth
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(fastaicfg)
+run = Experiment(ws,'fastai-custom-image').submit(fastai_config)
 run.wait_for_completion(show_output=True)
 ```
 
