@@ -1,5 +1,5 @@
 ---
-title: 'Architecture & key concepts'
+title: 'How Azure Machine Learning works: Architecture and concepts'
 titleSuffix: Azure Machine Learning
 description: Learn about the architecture, terms, and concepts that make up Azure Machine Learning.
 services: machine-learning
@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/12/2020
+ms.date: 08/14/2020
 ms.custom: seoapril2019, seodec18
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # Key concepts for Azure Machine Learning
 
-Learn about the architecture, terms, and concepts for Azure Machine Learning.
+Learn about the architecture and concepts for Azure Machine Learning.
 
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -54,12 +54,14 @@ You can share a workspace with others.
 ##  Computes
 
 <a name="compute-targets"></a>
-A [compute target](concept-compute-target.md) is the machine or set of machines where you run your training script or host your service deployment. This location may be your local machine or any of the compute resources below.
+A [compute target](concept-compute-target.md) is the machine or set of machines where you run your training script or host your service deployment. This location may be your local machine or a remote compute resource.
 
-Azure Machine Learning includes two special compute resources that are set up for machine learning tasks:
+Azure Machine Learning introduces two fully managed cloud-based compute resources that are configured for machine learning tasks:
 
-* <a name="compute-instance"></a> **Compute instance**: Fully managed cloud-based workstation. A compute instance is a virtual machine (VM) that includes multiple tools and environments installed for machine learning. Use a compute instance to start running sample notebooks with no setup required. Can also be used as a compute target for training and inferencing jobs.
-* **Compute clusters**: Fully managed cluster of VMs with multi-node scaling capabilities. Scales up automatically when a job is submitted. Better suited for compute targets for large jobs and production. Use as a training compute target or for dev/test deployment.
+* <a name="compute-instance"></a> **Compute instance** ([computeinstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance?view=azure-ml-py)): A compute instance is a virtual machine (VM) that includes multiple tools and environments installed for machine learning. Use a compute instance as your development workstation to start running sample notebooks with no setup required. Can also be used as a compute target for training and inferencing jobs.
+* **Compute clusters** ([amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py)): Cluster of VMs with multi-node scaling capabilities. Scales up automatically when a job is submitted. Better suited for compute targets for large jobs and production. Use as a training compute target or for dev/test deployment.
+
+For more information about training compute targets, see [Training compute targets](concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](concept-compute-target.md#deploy).
 
 ## Datasets and datastores
 
