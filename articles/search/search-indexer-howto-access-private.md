@@ -13,9 +13,7 @@ ms.date: 08/01/2020
 
 # Accessing secure resources via private endpoints
 
-Indexers support accessing certain types of resources that are secured to either only allow access from an approved set of virtual networks or have turned off access from any source altogether. The first scenario describes a resource (such as a storage account), with a public endpoint that only allows traffic originating from specific virtual networks. The second scenario "disables" the public endpoint, and all communication to the resource must occur over a [private link](https://docs.microsoft.com/azure/private-link/private-link-overview).
-
-In either case, customers can request Azure Cognitive Search to create an (outbound) [private endpoint connection](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) in order to securely access data via indexers.
+Indexers support only allowing access to resources from an approved set of virtual networks or turning off access from any source altogether. In either case, customers can request Azure Cognitive Search to create an (outbound) [private endpoint connection](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) in order to securely access data from data sources via indexers.
 
 ## Shared Private Link Resources Management APIs
 
