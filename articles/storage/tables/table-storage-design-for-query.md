@@ -2,11 +2,11 @@
 title: Design Azure Table storage for queries | Microsoft Docs
 description: Design tables for queries in Azure Table storage. Choose an appropriate partition key, optimize queries, and sort data for the Table service.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
 ---
 # Design for querying
