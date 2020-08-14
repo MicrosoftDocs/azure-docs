@@ -149,39 +149,19 @@ To learn more about WS-Fed in ASP.NET Core, see [Authenticate users with WS-Fede
 Create a web application that has an HTML sign-in page. Make sure that your application supports form authentication so that password vaulting can be done to get single sign-on to work as expected.
 
 
-
-
-
-
-
-
 ## Create your Azure tenant and test your app (Step 3)
 
-You can get a free test account with all the premium Azure AD features - 90 days free and can get extended as long as you do dev work with it: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+You will need an Azure AD tenant in order to test your app. To set up your development environment, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
 
-1. Create your Tenant. See [Set up a dev environment](quickstart-create-new-tenant.md).
+Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](https://docs.microsoft.com/office/developer-program/microsoft-365-developer-program).
 
-2. Enable and test single sign-on access to your application,
+Once you have a tenant, you need to enable and test single-sign on access. 
 
-   a. **For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types
+**For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types.
 
-   b. **For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](../manage-apps/configure-saml-single-sign-on.md) applications using a generic SAML template in Azure AD.
+**For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](../manage-apps/configure-saml-single-sign-on.md) applications using a generic SAML template in Azure AD.
 
 You can also [convert a single-tenant application to multi-tenant](howto-convert-app-to-be-multi-tenant.md) if necessary.
-
-### Costs of hosting a multi-tenant application
-
-Azure Active Directory is available in multiple editions. [See the detailed feature comparison](https://azure.microsoft.com/pricing/details/active-directory/).
-
-You can create your Azure subscription and Azure active directory for free, and use basic features.
-
-### Request for user provisioning
-
-The Azure AD app gallery is for apps that are available to all customers. When you fill in the form to have your app listed, you need to make the request to have usres provisioned. See the following image to request user provisioning.
-
-   ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
-
-
 
 
 ## Create and publish documentation (Step 4)
@@ -210,8 +190,6 @@ We recommend that your documentation on your site at a minimum include the follo
 ### Documentation on the Microsoft Site
 
 When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
-
-
 
 
 
@@ -273,6 +251,15 @@ If you want to add your application to list in the gallery by using password SSO
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
+
+## Request user provisioning
+
+The Azure AD app gallery is for apps that are available to all customers. When you fill in the form to have your app listed, you need to make the request to have users provisioned. See the following image to request user provisioning.
+
+   ![Request for user provisioning](./media/howto-app-gallery-listing/user-provisioning.png)
+
+
+
 ### Update or remove an existing listing
 
 To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account, such as Outlook or Hotmail, to sign in.
@@ -303,8 +290,7 @@ For any escalations, send email to the [Azure AD SSO Integration Team](mailto:Sa
 
 
 ## Join the Microsoft partner network (Step 6)
-[Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial#gtm)
-
+The Microsoft Partner Network provides instant access to exclusive resources, programs, tools, and connections. To join the network and create your go to market plan, see [Reach commercial customers](https://partner.microsoft.com/explore/commercial#gtm).
 
 
 ## Next steps
