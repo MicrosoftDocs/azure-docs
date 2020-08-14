@@ -93,7 +93,7 @@ To join the managed domain using **SSSD** and the *User Logon Management* module
 
     The module opens with an overview showing different network properties of your computer and the authentication method currently in use, as shown in the following example screenshot:
 
-    ![MAIN WINDOW OF USER LOGON MANAGEMENT](./media/join-suse-linux-vm/ad-overview.png)
+    ![Example screenshot of the User Login Management window in YaST](./media/join-suse-linux-vm/overview-window.png)
 
     To start editing, select **Change Settings**.
 
@@ -103,7 +103,7 @@ To join the VM to the managed domain, complete the following steps:
 
 1. Specify the correct *Domain name*, such as *aaddscontoso.com*, then specify the services to use for identity data and authentication. Select *Microsoft Active Directory* for both.
 
-    Ensure that *Enable the domain* is activated.
+    Make sure the option for *Enable the domain* is selected.
 
 1. When ready, select **OK**.
 
@@ -113,7 +113,7 @@ To join the VM to the managed domain, complete the following steps:
 
     If everything is correct, the following example dialog is shown to indicate the VM has discovered the managed domain but that you're *Not yet enrolled*.
 
-    ![ENROLLING INTO A DOMAIN](./media/join-suse-linux-vm/ad-enroll.png)
+    ![Example screenshot of the Active Directory enrollment window in YaST](./media/join-suse-linux-vm/enroll-window.png)
 
 1. In the dialog, specify the *Username* and *Password* of a user that's a part of the managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
@@ -123,19 +123,19 @@ To join the VM to the managed domain, complete the following steps:
 
 1. A message is shown to confirm that you are successfully enrolled. To finish, select **OK**.
 
-After the VM is enrolled in the managed domain, configure the client using *Manage Domain User Logon*.
+After the VM is enrolled in the managed domain, configure the client using *Manage Domain User Logon*, as shown in the following example screenshot:
 
-![CONFIGURATION WINDOW OF USER LOGON MANAGEMENT](./media/join-suse-linux-vm/ad-config.png)
+![Example screenshot of the Manage Domain User Logon window in YaST](./media/join-suse-linux-vm/manage-domain-user-logon-window.png)
 
 1. To allow sign-ins using data provided by the managed domain, check the box for *Allow Domain User Logon*.
 
-1. Optionally, under *Enable domain data source*, check additional data sources such which users are allowed to use **sudo** or which network drives are available.
+1. Optionally, under *Enable domain data source*, check additional data sources as needed for your environment. These options include which users are allowed to use **sudo** or which network drives are available.
 
 1. To allow users in the managed domain to have home directories on the VM, check the box for *Create Home Directories*.
 
 1. From the side bar, select **Service Options › Name switch**, then *Extended Options*. From that window, select either *fallback_homedir* or *override_homedir*, then select **Add**.
 
-1. Specify a value for the home directory location. To have home directories follow the format */home/USER_NAME*, use */home/%u*. For more information about possible variables, see the sssd.conf man page (`man 5 sssd.conf`), section *override_homedir*.
+1. Specify a value for the home directory location. To have home directories follow the format of */home/USER_NAME*, use */home/%u*. For more information about possible variables, see the sssd.conf man page (`man 5 sssd.conf`), section *override_homedir*.
 
 1. Select **OK**.
 
@@ -151,11 +151,11 @@ To join the managed domain using **winbind** and the *Windows Domain Membership*
 
 1. Enter the domain to join at *Domain or Workgroup* in the *Windows Domain Membership* screen. Enter the managed domain name, such as *aaddscontoso.com*.
 
-    ![DETERMINING WINDOWS DOMAIN MEMBERSHIP](./media/join-suse-linux-vm/ad_sambaclient.png)
+    ![Example screenshot of the Windows Domain Membership window in YaST](./media/join-suse-linux-vm/samba-client-window.png)
 
 1. To use the SMB source for Linux authentication, check the option for *Use SMB Information for Linux Authentication*.
 
-1. To automatically create a local home directory for managed domain users on the Linux machine, check the option for *Create Home Directory on Login*.
+1. To automatically create a local home directory for managed domain users on the VM, check the option for *Create Home Directory on Login*.
 
 1. Check the option for *Offline Authentication* to allow your domain users to sign in even if the managed domain is temporarily unavailable.
 
@@ -167,7 +167,7 @@ To join the managed domain using **winbind** and the *Windows Domain Membership*
 
 1. Provide the password for an administrator in the managed domain and select **OK**.
 
-    ![PROVIDING ADMINISTRATOR CREDENTIALS](./media/join-suse-linux-vm/ad_join1.png)
+    ![Example screenshot of the authentication dialog prompt when you join a SLE VM to the managed domain](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 After you have joined the managed domain, you can sign in to it from your workstation using the display manager of your desktop or the console.
 
