@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
+ms.date: 08/13/2020
 ---
 
 # Use the Azure Cosmos Emulator for local development and testing
@@ -30,6 +30,7 @@ Because the Azure Cosmos Emulator provides an emulated environment running on th
 
 * Currently Data Explorer in the emulator supports clients for SQL API. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 * The Azure Cosmos Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos Emulator, however the default key can be changed using the command-line option.
+* The Azure Cosmos Emulator emulates an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode; [serverless](serverless.md) mode is not supported.
 * The Azure Cosmos Emulator is not a scalable service and will not support a large number of containers.
 * The Azure Cosmos Emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).

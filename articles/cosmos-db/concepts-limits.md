@@ -5,16 +5,20 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 08/13/2020
 ---
 
 # Azure Cosmos DB service quotas
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
-## Storage and throughput
+## Storage and database operations
 
-After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md). You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
+After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md).
+
+### Provisioned throughput
+
+You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
 
 | Resource | Default limit |
 | --- | --- |
@@ -30,7 +34,6 @@ After you create an Azure Cosmos account under your subscription, you can manage
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
->
 
 A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, the minimum supported throughput also depends on the following factors:
 
@@ -42,7 +45,6 @@ The current and minimum throughput of a container or a database can be retrieved
 
 > [!NOTE]
 > In some cases, you may be able to lower throughput to lesser than 10%. Use the API to get the exact minimum RUs per container.
->
 
 In summary, here are the minimum provisioned RU limits. 
 
@@ -53,6 +55,16 @@ In summary, here are the minimum provisioned RU limits.
 | Minimum  RUs per container within a shared throughput database | 100 |
 
 Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
+
+### Serverless
+
+| Resource | Limit |
+| --- | --- |
+| Maximum RU/s per container | 5,000 |
+| Maximum RU/s per (logical) partition key | 5,000 |
+| Maximum storage across all items per (logical) partition key| 20 GB |
+| Maximum number of distinct (logical) partition keys | Unlimited |
+| Maximum storage per container | 50 GB |
 
 ## Control plane operations
 
@@ -70,12 +82,22 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 ## Per-account limits
 
+### Provisioned throughput
+
 | Resource | Default limit |
 | --- | --- |
 | Maximum number of databases | Unlimited |
 | Maximum number of containers per database with shared throughput |25 |
 | Maximum number of containers per database or account with dedicated throughput  |unlimited |
 | Maximum number of regions | No limit (All Azure regions) |
+
+### Serverless
+
+| Resource | Limit |
+| --- | --- |
+| Maximum number of databases | Unlimited |
+| Maximum number of containers per account  | 100 |
+| Maximum number of regions | 1 (Any Azure region) |
 
 ## Per-container limits
 
