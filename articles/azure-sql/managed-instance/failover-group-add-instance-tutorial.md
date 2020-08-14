@@ -926,10 +926,11 @@ Connect the two gateways using the Azure portal.
     1. Select the checkbox next to **Establish bidirectional connectivity**. 
     1. Either leave the default primary connection name, or rename it to a value of your choice. 
     1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
+    1. Select **OK** to save your settings. 
 
     ![Create gateway connection](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-    1. Select **OK** to save your settings. 
+    
 
 1. On the **Review + create** page, review the settings for your bidirectional connection and then select **OK** to create your connection. 
 
