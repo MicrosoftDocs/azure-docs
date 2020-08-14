@@ -19,27 +19,27 @@ ms.reviewer: lenalepa, aragra, sureshja
 
 # Quickstart: Configure a client application to access a web API
 
-In this quickstart, you configure an application in the Azure portal with scoped permission to a web API.
+In this quickstart, you provide a client app registered with the Microsoft identity platform with scoped, permissions-based access to your own web API. You also provide the client app with access to Microsoft Graph.
 
-Before a client can access a web API exposed by a resource application, such as Microsoft Graph API, the consent framework ensures the client obtains the permission grant required for the permissions requested. By default, all applications can request permissions from the Microsoft Graph API.
+By specifying a web API's scopes in your client app's registration, the client app can obtain an access token containing those scopes from the Microsoft identity platform. Within its code, the web API can then provide permission-based access to its resources based on the scopes found in the access token.
 
 ## Prerequisites
 
 * An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Completion of [Quickstart: Register an application](quickstart-register-app.md)
 * Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
-## Sign in to the Azure portal and select the app
+## Grant access to your web API
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the upper right corner. Set your portal session to the Azure AD tenant that you want.
-1. Search for and select **Azure Active Directory**. Under **Manage**, select **App registrations**.
-1. Find and select the application you want to configure. After you select the app, you see the application's **Overview** or main registration page.
+In this scenario, you grant your client app access to your own web API, both of which you will have registered as part one of the prerequisites. If you don't yet have both a client app and web API registered, complete the steps in both of the articles specified in [Prerequisites](#prerequisites).
 
-In the following section, you configure your application to enable access to the web API whose scopes you exposed as part of the prerequisites.
+The following diagram provides a high-level overview of this scenario's configuration:
 
-## Add permissions to access web APIs
+> [!WARNING] TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
-The [Graph API sign-in and read user profile permission](/graph/permissions-reference#user-permissions) is selected by default. You can select from [two types of permissions](developer-glossary.md#permissions) for each web API:
+## Grant access to Microsoft Graph
+
+You can select from two types of permissions for a web API:
 
 * **Application permissions**. Your client application needs to access the web API directly as itself, without user context. This type of permission requires administrator consent. This permission isn't available for desktop and mobile client applications.
 * **Delegated permissions**. Your client application needs to access the web API as the signed-in user, but with access restricted to the selected permissions. This type of permission can be consented to (granted) by a user unless the permission requires administrator consent. Adding a delegated permission to an application does *not* automatically grant consent for the users in a tenant. Users must still manually consent to the delegated permission at runtime unless an administrator grants consent on behalf of all users.
