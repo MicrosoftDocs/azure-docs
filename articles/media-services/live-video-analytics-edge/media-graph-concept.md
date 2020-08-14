@@ -78,7 +78,7 @@ The HTTP extension processor node enables you to connect your own IoT Edge modul
 
 #### gRPC extension processor
 
-<!--add content-->
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a gRPC endpoint exposed by your module. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats.
 
 #### Signal gate processor  
 

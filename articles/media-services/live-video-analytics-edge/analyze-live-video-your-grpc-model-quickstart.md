@@ -2,7 +2,7 @@
 title:  Analyze live video by using your own gRPC model - Azure
 description: In this quickstart, you'll apply computer vision to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
@@ -26,6 +26,46 @@ This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/prerequisites.md)]
+::: zone-end
+
+## Review the sample video
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/review-sample-video.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/review-sample-video.md)]
+::: zone-end
+
+## Overview
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/overview.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/overview.md)]
+::: zone-end
+
+## Create and deploy the media graph
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+::: zone-end
+
+## Interpret results
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/interpret-results.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
 ::: zone-end
 
 ## Clean up resources
