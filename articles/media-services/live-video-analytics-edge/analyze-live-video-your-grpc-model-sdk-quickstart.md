@@ -21,7 +21,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * If you didn't complete the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then be sure to [set up Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources).
 
-> ![TIP]
+> [!TIP]
 > When installing Azure IoT Tools, you might be prompted to install Docker. You can ignore the prompt.
 
 ## Review the sample video
@@ -52,7 +52,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 1. In Visual Studio Code, go to *src/edge*. You see your .env file and a few deployment template files.
 
-    The deployment.grpcyolov3icpu.template.json refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
+    The *deployment.grpcyolov3icpu.template.json* refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see your *appsettings.json* file and a few other files:
 
     * c2d-console-app.csproj - The project file for Visual Studio Code.
@@ -66,26 +66,26 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 ### Generate and deploy the IoT Edge deployment manifest
 
-1. Right-click the src/edge/ deployment.grpcyolov3icpu.template.json file and then select **Generate IoT Edge Deployment Manifest**.
+1. Right-click the *src/edge/* *deployment.grpcyolov3icpu.template.json* file and then select **Generate IoT Edge Deployment Manifest**.
 
     ![Generate IoT edge deployment manifest grpc](./media/quickstarts/generate-iot-edge-deployment-manifest-grpc.png)
 
-    The *deployment.grpcyolov3icpu.amd64.json* manifest file is created in the src/edge/config folder.
+    The *deployment.grpcyolov3icpu.amd64.json* manifest file is created in the *src/edge/config* folder.
 1. If you completed the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart, then skip this step.
 
-    Otherwise, near the AZURE IOT HUB pane in the lower-left corner, select the More actions icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
+    Otherwise, near the **AZURE IOT HUB** pane in the lower-left corner, select the **More actions** icon and then select **Set IoT Hub Connection String**. You can copy the string from the *appsettings.json* file. Or, to ensure you've configured the proper IoT hub within Visual Studio Code, use the [Select IoT hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     ![iot hub connection string grpc](./media/quickstarts/iot-hub-connection-string-grpc.png)
 
-1. Right-click *src/edge/config/ deployment.grpcyolov3icpu.amd64.json* and select **Create Deployment for Single Device**.
+1. Right-click *src/edge/config/* *deployment.grpcyolov3icpu.amd64.json* and select **Create Deployment for Single Device**.
 
     ![create deployment single device grpc](./media/quickstarts/create-deployment-single-device-grpc.png)
-1. When you're prompted to select an IoT Hub device, select lva-sample-device.
+1. When you're prompted to select an IoT Hub device, select **lva-sample-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-    * The Live Video Analytics module, named `lvaEdge`.
-    * The `rtspsim` module, which simulates an RTSP server and acts as the source of a live video feed.
-    * The `lvaExtension` module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
+    * The Live Video Analytics module, named **lvaEdge**.
+    * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
+    * The **lvaExtension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
 
     ![lvaextension grpc](./media/quickstarts/lvaextension-grpc.png)
 
@@ -97,11 +97,10 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
 
 ### Run the sample program
 
-1. In Visual Studio Code, go to *src/cloud-to-device-console-app.
-1. Start a debugging session by selecting the F5 key. The TERMINAL window will display some messages. 
+1. In Visual Studio Code, go to *src/cloud-to-device-console-app*.
+1. Start a debugging session by selecting the F5 key. The **TERMINAL** window will display some messages. 
 
-    Then you’ll be prompted to pick a topology: choose 
-`5. Inference using gRPC Extension`
+    Then you’ll be prompted to pick a topology: choose `5. Inference using gRPC Extension`
 1. The Step list starts off with calls to GraphTopologyList and GraphInstanceList, invoking methods from the SDK itself (ILiveVideoAnalyticsEdgeClient). If you cleaned up resources after you completed previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
     
     ```
@@ -116,10 +115,10 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     Press Enter to continue
     ```
 
-    The TERMINAL window shows the next set of direct method calls:
+    The **TERMINAL** window shows the next set of direct method calls:
 
-    * A call to GraphTopologySet that uses the picked topology constructed in its entirety by the SDK.
-    * A call to GraphInstanceSet constructed in its entirety by the SDK shows the following body:
+    * A call to `GraphTopologySet` that uses the picked topology constructed in its entirety by the SDK.
+    * A call to `GraphInstanceSet` constructed in its entirety by the SDK shows the following body:
     
     ```
     {
@@ -146,26 +145,26 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
     }
     ```
 
-    * A call to GraphInstanceActivate that starts the graph instance and the flow of video.
-    * A second call to GraphInstanceList that shows that the graph instance is in the running state.
-1. The output in the TERMINAL window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
-1. Switch to the OUTPUT window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
-1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the TERMINAL window and select Enter.
+    * A call to `GraphInstanceActivate` that starts the graph instance and the flow of video.
+    * A second call to `GraphInstanceList` that shows that the graph instance is in the running state.
+1. The output in the **TERMINAL** window pauses at a Press Enter to continue prompt. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
+1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
+1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the **TERMINAL** window and select Enter.
 1. The next series of calls cleans up resources:
 
-    * A call to GraphInstanceDeactivate deactivates the graph instance.
-    * A call to GraphInstanceDelete deletes the instance.
-    * A call to GraphTopologyDelete deletes the topology.
+    * A call to `GraphInstanceDeactivate` deactivates the graph instance.
+    * A call to `GraphInstanceDelete` deletes the instance.
+    * A call to `GraphTopologyDelete` deletes the topology.
     * A final call to GraphTopologyList shows that the list is empty.
 
 ## Interpret results
 
-When you run the media graph, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the OUTPUT window contain a body section and an applicationProperties section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 In the following messages, the Live Video Analytics module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
@@ -184,17 +183,17 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 
 In this message, notice these details:
 
-* The message is a diagnostics event. MediaSessionEstablished indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
-* In applicationProperties, subject indicates that the message was generated from the RTSP source node in the media graph.
-* In applicationProperties, eventType indicates that this event is a diagnostics event.
-* The eventTime indicates the time when the event occurred.
+* The message is a diagnostics event. `MediaSessionEstablished` indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a (simulated) live feed.
+* In `applicationProperties`, subject indicates that the message was generated from the RTSP source node in the media graph.
+* In `applicationProperties`, `eventType` indicates that this event is a diagnostics event.
+* The `eventTime` indicates the time when the event occurred.
 * The body contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
 ### Inference event
 
 The gRPC extension processor node receives inference results from the lvaExtension module. It then emits the results through the IoT Hub sink node as inference events.
 
-In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The eventTime value is the UTC time when the object was detected.
+In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The `eventTime` value is the UTC time when the object was detected.
 
 In the following example, two cars were detected in the same video frame, with varying levels of confidence.
 
@@ -245,9 +244,9 @@ In the following example, two cars were detected in the same video frame, with v
 
 In the messages, notice the following details:
 
-* In applicationProperties, subject references the node in the graph topology from which the message was generated.
-* In applicationProperties, eventType indicates that this event is an analytics event.
-* The eventTime value is the time when the event occurred.
+* In `applicationProperties`, subject references the node in the graph topology from which the message was generated.
+* In `applicationProperties`, `eventType` indicates that this event is an analytics event.
+* The `eventTime` value is the time when the event occurred.
 * The body section contains data about the analytics event. In this case, the event is an inference event, so the body contains inferences data.
 * The inferences section indicates that the type is entity. This section includes additional data about the entity.
 

@@ -29,6 +29,7 @@ This article is based on a [C# SDK sample code](https://github.com/Azure-Samples
 > When installing Azure IoT Tools, you might be prompted to install Docker. Feel free to ignore the prompt.
 
 ## Review the sample video
+
 As you set up the Azure resources for this quickstart, a short video of a parking lot is copied to the Linux VM in Azure that's used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
 
 Open an application like [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N, and paste [this link](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to the parking lot video to start playback. At about the 5-second mark, a white car moves through the parking lot.
@@ -50,6 +51,7 @@ In this quickstart, you will:
 1. Clean up resources.
 
 ## Examine the sample files
+
 As part of the prerequisites for this quickstart, you downloaded the sample code to a folder. Follow these steps to examine and edit the sample code.
 
 1. In Visual Studio Code, go to *src/edge*. You see your *.env* file and a few deployment template files.
@@ -58,8 +60,8 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see the *appsettings.json* file and a few other files:
 
     * ***Topologies folder*** - This folder contains the topologies that are used in this sample
-	* ***Models.cs*** - A dependent file for the main program
-	* ***c2d-console-app.csproj*** - The project file for Visual Studio Code
+    * ***Models.cs*** - A dependent file for the main program
+    * ***c2d-console-app.csproj*** - The project file for Visual Studio Code
     * ***Program.cs*** - The sample program code. This code:
     
       * Loads the app settings.
