@@ -34,7 +34,7 @@ The Azure AD Identity Protection team constantly analyzes Azure AD security tele
 
 When a password is changed or reset for any user in an Azure AD tenant, the current version of the global banned password list is used to validate the strength of the password. This validation check results in stronger passwords for all Azure AD customers.
 
-The global banned password list is automatically applied to all users in an Azure AD tenant. There's nothing to enable or configure, and can't be disabled. This global banned password list is also applied to users when they reset or change their password using Azure AD self-service password reset (SSPR).
+The global banned password list is automatically applied to all users in an Azure AD tenant. There's nothing to enable or configure, and can't be disabled. This global banned password list is applied to users when they change or reset their own password through Azure AD.
 
 > [!NOTE]
 > Cyber-criminals also use similar strategies in their attacks to identify common weak passwords and variations. To improve security, Microsoft doesn't publish the contents of the global banned password list.
