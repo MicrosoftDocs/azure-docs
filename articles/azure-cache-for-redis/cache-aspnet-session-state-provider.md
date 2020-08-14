@@ -5,6 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
