@@ -14,7 +14,7 @@ ms.author: JenCook
 Start running your application in Azure confidential computing using [Fortanix Enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
  > [!Note] 
- > [Fortanix](https://www.fortanix.com/) is a 3rd party software vendor with products and services built on top of Azure services. There are other third party providers offering similar confidential computing services, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io). Please note that these companies are not owned/affiliated with Microsoft. 
+ > [Fortanix](https://www.fortanix.com/) is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io). Please note that these companies are not owned/affiliated with Microsoft. 
 
 This tutorial shows you how to convert your application image to a confidential compute-protected image. This environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
 
