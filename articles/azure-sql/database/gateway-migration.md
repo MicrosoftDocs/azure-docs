@@ -22,21 +22,30 @@ Customers will be notified via email and in the Azure portal well in advance of 
 
 # [In progress](#tab/in-progress-ip)
 ### September 2020
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **15 September 2020**:
 
-New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on 10 September 2020:
+- Australia Southeast : 13.77.48.10
+- Canada East : 40.86.226.166, 52.242.30.154
+- UK South : 51.140.184.11, 51.105.64.0
+
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **10 September 2020**:
 
 - West Central US : 13.78.248.43 
 - South Africa North : 102.133.120.2  
 
-New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on 1 September 2020:
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **1 September 2020**:
 
 - North Europe : 13.74.104.113 
 - West US2 : 40.78.248.10 
 - West Europe : 52.236.184.163 
 - South Central US : 20.45.121.1, 20.49.88.1 
 
-Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on 1 September 2020. :
+Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on **1 September 2020** :
 - Japan East : 40.79.184.8, 40.79.192.5
+
+# [Completed](#tab/completed-ip)
+
+The following gateway migrations are complete: 
 
 ### August 2020
 
@@ -47,10 +56,6 @@ New SQL Gateways are being added to the following regions:
 - West US 2 : 40.78.240.8
 
 These SQL Gateways shall start accepting customer traffic on 10 August 2020. 
-
-# [Completed](#tab/completed-ip)
-
-The following gateway migrations are complete: 
 
 ### October 2019
 - Brazil South
