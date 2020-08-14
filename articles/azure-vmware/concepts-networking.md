@@ -72,7 +72,7 @@ In the virtual network and on-premises to full private cloud implementation, you
 
 The diagram below shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 * Hot/Cold Cross-vCenter vMotion
-* On-Premise to AVS private cloud management access
+* On-Premises to AVS private cloud management access
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtual network and on-premises full private cloud connectivity" border="false":::
 

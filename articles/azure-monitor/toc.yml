@@ -494,6 +494,8 @@
         href: platform/alerts-metric.md
       - name: Use dynamic thresholds
         href: platform/alerts-dynamic-thresholds.md
+      - name: Single alerts for many time series
+        href: platform/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
         href: platform/alerts-metric-logs.md
       - name: Using Resource Manager template
@@ -652,13 +654,19 @@
           href: app/opencensus-python-dependency.md
         - name: Requests 
           href: app/opencensus-python-request.md
-      - name: Web pages
+      - name: JavaScript
         items:
         - name: Client-side JavaScript
           displayname: SPA, Single Page Applications, React, JS, Angular
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
+        - name: Plugins
+          items:
+          - name: React plugin
+            href: app/javascript-react-plugin.md
+          - name: React Native plugin
+            href: app/javascript-react-native-plugin.md 
         - name: Troubleshoot
           items: 
           - name: SDK load failure 

@@ -5,7 +5,7 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
 #pmcontact: shants
 ---
@@ -103,7 +103,8 @@ For more information about high availability, see [Availability for virtual mach
 **A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
 1.	You are using a subscription marked as Microsoft internal.
 2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled, or modified so that your VMs are no longer impacted by it.
-3.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
+3. You have deallocated VM and then started it. This can cause VM to move to a location which does not have planned maintenance wave scheduled. So the VM will not show maintenance information any more. 
+4.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
 **Q: My VM is scheduled for maintenance for the second time. Why?**
 
