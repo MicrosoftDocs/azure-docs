@@ -451,12 +451,12 @@
     },
     {
       "path_to_root": "cosmosdb-python-sdk",
-      "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
       "branch": "master"
     },
     {
       "path_to_root": "cosmosdb-cassandra-python-sample",
-      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
       "branch": "master"
     },
     {

@@ -65,27 +65,27 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The `cluster` is initialized with `contactPoint` and `port` information that is retrieved from the Azure portal. The `cluster` then connects to the Azure Cosmos DB Cassandra API by using the `connect()` method. An authorized connection is established by using the username, password, and the default certificate or an explicit certificate if you provide one within the config file.
 
-  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="":::
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="authenticateAndConnect":::
 
 * A new keyspace is created.
 
-  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="":::
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="createKeyspace":::
 
 * A new table is created.
 
-  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="":::
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="createTable":::
 
 * Key/value entities are inserted.
 
-  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="":::
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="insertData":::
 
 * Query to get all key values.
 
-  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="":::
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="queryAllItems":::
     
 * Query to get a key-value.
 
-  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="":::
+  :::code language="python" source="~/cosmosdb-cassandra-python-sample/pyquickstart.py" id="queryByID":::
 
 ## Update your connection string
 
