@@ -11,13 +11,15 @@ ms.author: JenCook
 ---
 # How To: Run an application with Fortanix Enclave Manager 
 
-Start running your application in Azure confidential computing using Fortanix Enclave Manager and Fortanix Node Manager. 
+Start running your application in Azure confidential computing using [Fortanix Enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
+
+ > [!Note] 
+ > [Fortanix](https://www.fortanix.com/) is a 3rd party software vendor with products and services built on top of Azure services. There are other third party providers offering similar confidential computing services, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io). Please note that these companies are not owned/affiliated with Microsoft. 
 
 This tutorial shows you how to convert your application image to a confidential compute-protected image. This environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
 
-> [!NOTE]
-> For Fortanix-specific support, join the the [Fortanix Slack community](https://fortanix.com/community/) and use the channel #enclavemanager.
-> 
+ For Fortanix-specific support, join the [Fortanix Slack community](https://fortanix.com/community/) and use the channel #enclavemanager.
+
 
 ## Prerequisites
 
@@ -96,7 +98,7 @@ In Fortanix Enclave Manager, you'll create a token. This token allows a compute 
 
 ### Enroll nodes into Fortanix Node Agent in the Azure Marketplace
 
-Creating a Fortanix Node Agent will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Ensure you delete resources when not in use. 
+Creating a Fortanix Node Agent will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Delete Azure resources when not in use. 
 
 1. Go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) and sign in with your Azure credentials.
 1. In the search bar, type **Fortanix Confidential Computing Node Agent**. Select the App that shows up in the search box called **Fortanix Confidential Computing Node Agent** to navigate to the offering's home page. 
@@ -144,10 +146,12 @@ where,
 1. Verify that there's a running application with an associated compute node
 
 
-## Clean up Azure resources
+## Clean up resources
 
 When no longer needed, you can delete the resource group, virtual machine, and associated resources. Deleting the resource group will unenroll the nodes associated with your converted image. 
 
-Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
+Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.\
 
-[Contact Fortanix](https://support.fortanix.com/hc/requests/new) if you would like to delete your Enclave Manager account. 
+To delete the Fortanix Enclave Manager Account you created, go the [Accounts Page](https://em.fortanix.com/accounts) in the Enclave Manager. Hover over the account you wish to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
+
+  ![delete](media/how-to-fortanix-enclave-manager/delete-account.png)
