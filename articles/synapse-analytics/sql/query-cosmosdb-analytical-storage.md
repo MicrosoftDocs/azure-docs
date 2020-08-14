@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Query Azure Cosmos DB documents using SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) that will read (items)[https://docs.microsoft.com/en-us/azure/cosmos-db/databases-containers-items#azure-cosmos-items] from Azure Cosmos DB [containers](/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers.
+In this article, you'll learn how to write a query using SQL on-demand (preview) that will read [items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) from Azure Cosmos DB [containers](https://docs.microsoft.com/azure/cosmos-db/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers.
 Synapse SQL on-demand enables you to analyze Azure Cosmos DB items from built-in analytical storage where analytic don't impact Azure Cosmos DB
 resource units (RU) that are used on the main transactional storage.
 
@@ -21,13 +21,13 @@ resource units (RU) that are used on the main transactional storage.
 
 ## Data set
 
-This example uses a data from [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). Assumption is that you have Azure Cosmos DB [containers](/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers) `EcdcCases` and `Cord19` where you have imported samples from these data sets. 
+This example uses a data from [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). Assumption is that you have Azure Cosmos DB containers `EcdcCases` and `Cord19` where you have imported samples from these data sets. 
 
 See the license and the structure of data on these pages, and also sample data for [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) data sets.
 
 You can import data into Azure Cosmos DB container using [Data Explorer](/azure/cosmos-db/data-explorer.md) or [Data Migration Tool](/azure/cosmos-db/import-data.md#JSON)
 
-## Read CosmosDB documents
+## Explore Azure Cosmos DB data
 
 The easiest way to see to the content of your items is to provide a connection string that contains
 Azure Cosmos DB account name, [database](/azure/cosmos-db/databases-containers-items.md#azure-cosmos-databases), access key, and optional region to `OPENROWSET` function, and provide the name of the [container](/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers) that you want to query:
@@ -36,12 +36,12 @@ Azure Cosmos DB account name, [database](/azure/cosmos-db/databases-containers-i
 select top 10 *
 from openrowset( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=YOurC0smosDbKey==',
+       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
 
 In this example, we are connected to analytical storage of `covid` database on Azure Cosmos DB account `MyCosmosDbAccount` placed in region `westus2`
-and authenticated using Azure Cosmos DB key. We are accessing the [container](/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers) `EcdcCases`. `OPENROWSET` function will return all properties from the items.
+and authenticated using Azure Cosmos DB key. We are accessing the [container](/azure/cosmos-db/databases-containers-items.md#azure-cosmos-containers) `EcdcCases`. `OPENROWSET` function will return all properties from the Azure Cosmos DB items.
 
 If you need to read data from another container, you can use the same connection string and reference required container as third parameter:
 
@@ -49,7 +49,7 @@ If you need to read data from another container, you can use the same connection
 select top 10 *
 from openrowset( 
        'CosmosDB',
-       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
+       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        Cord19) as cord19
 ```
 
@@ -64,13 +64,13 @@ Let's imagine that we have imported some items from [ECDC Covid data set](https:
 {"date_rep":"2020-08-11","cases":163,"countries_and_territories":"Serbia","geo_id":"RS"}
 ```
 
-These are the flat JSON documents that can be represented as a set of rows in Synapse SQL. `OPENROWSET` function enables you to specify subset of columns that you want to read and the exact column types in `WITH` clause:
+These are the flat JSON documents that can be represented as a set of rows in Synapse SQL. `OPENROWSET` function enables you to specify a subset of columns that you want to read and the exact column types in `WITH` clause:
 
 ```sql
 select top 10 *
 from openrowset(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -112,7 +112,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        Cord19
     WITH ( metadata varchar(MAX) ) AS docs;
 ```
@@ -131,7 +131,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=YOurC0smosDbKey==',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        Cord19
     WITH ( title varchar(1000) '$.metadata.title',
            authors varchar(max) '$.metadata.authors'
@@ -179,7 +179,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        Cord19
     ) WITH ( title varchar(1000) '$.metadata.title',
              authors varchar(max) '$.metadata.authors' ) AS docs
