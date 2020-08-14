@@ -3,10 +3,9 @@ title:  Analyze live video by using your own gRPC model using SDK - Azure
 description: In this quickstart, you'll apply computer vision to analyze the live video feed from a (simulated) IP camera. 
 ms.topic: quickstart
 ms.date: 08/13/2020
-zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
-# Quickstart: Analyze live video by using your own gRPC model using SDK 
+# Quickstart: Analyze live video by using your own gRPC model using SDK
 
 This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze a live video feed from a (simulated) IP camera. You'll see how to apply a computer vision model to detect objects. A subset of the frames in the live video feed is sent to an inference service. The results are sent to IoT Edge Hub.
 
