@@ -189,6 +189,3 @@ When you click the Visibly tile in the Access Panel, you should be automatically
 - [Try Visibly with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Visibly with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
