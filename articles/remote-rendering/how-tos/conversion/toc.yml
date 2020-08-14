@@ -8,5 +8,5 @@
   href: configure-model-conversion.md
 - name: Override materials during model conversion
   href: override-materials.md
-- name: Get information about a converted model
+- name: Get information about conversions
   href: get-information.md
