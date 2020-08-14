@@ -17,15 +17,15 @@ ms.collection: M365-identity-device-management
 
 # Restrict guest access permissions (preview) in Azure Active Directory
 
-Azure Active Directory (Azure AD) now allows you to restrict external guest users to view only user and group information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access, so yur guest access choices now are:
+Azure Active Directory (Azure AD) allows you to restrict what external guest users can see in their organization in Azure AD. Guest users are set to a limited permission level by default in Azure AD, while the default for member users is the full set of default user permissions. This is a preview of a new guest user permission level in your Azure AD organization's external collaboration settings for even more restricted access, so your guest access choices now are:
 
 Permission level         | Access level
 ----------------         | ------------
 Same as member users     | Guests have the same access to Azure AD resources as member users
 Limited access (default) | Guests can see membership of all non-hidden groups
-Restricted access (new)  | Guests can't see membership of any groups
+**Restricted access (new)**  | **Guests can't see membership of any groups**
 
-When guest access is restricted, guests can view only their own user profile. Access to other users isn't allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the overall default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
+When guest access is restricted, guests can view only their own user profile. Permission to view other users isn't allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the overall default user permissions, including guest user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
 
 ## Permissions and licenses
 
@@ -46,8 +46,7 @@ We’ve made changes to the existing Azure portal controls for guest user permis
 
 ## Update with the Microsoft Graph API
 
-We’ve added a new Microsoft Graph API to configure the restricted guest permissions. The following API calls can be made. The value for guestUserRoleId used here is for the new Restricted user setting.
-For more information about using the Microsoft Graph to set guest permissions, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+We’ve added a new Microsoft Graph API to configure guest permissions in your Azure AD organization. The following API calls can be made to assign any permission level. The value for guestUserRoleId used here is to illustrate the most restricted guest user setting. For more information about using the Microsoft Graph to set guest permissions, see [authorizationPolicy resource type](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
 
 ### Configuring for the first time
 
