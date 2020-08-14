@@ -39,7 +39,8 @@ Roles and Scopes | Read all administrative roles and memberships<br>Read all pro
 Subscriptions | Read all subscriptions<br>Enable Service Plan Member | No permissions
 Policies | Read all properties of policies<br>Manage all properties of owned policy | No permissions
 
-## To restrict the default permissions for member users
+
+## To restrict the default permissions for member and guest users
 
 Default permissions for member users can be restricted in the following ways.
 
@@ -51,6 +52,7 @@ Ability to create security groups | Setting this option to No prevents users fro
 Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global administrators and User administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
 Restrict access to Azure AD administration portal | Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal. Important to note: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio. When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role. This role allows reading basic directory information, which member users have by default (guests and service principals do not).
 Ability to read other users | This setting is available in PowerShell only. Setting this flag to $false prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this flag to $false is not recommended.
+Restricted Guest Access Permissions (Preview) | This setting allows additional restrictions and controls on external guest user access to user and groups profile and membership information within their organization in Azure AD. With this setting the global administrator can obfuscate group memberships including restricting guest users from seeing memberships of the group(s) they are in. For guidance on using this feature, see [Restrict guest access permissions (preview) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md)
 
 ## Object ownership
 
