@@ -159,12 +159,10 @@ statically assigned above.
        `https://<address>/remote/saml/login`
     - Logout URL to be `https://<address>/remote/saml/logout`
 
-    ```
-    Where <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
-    ```
+    Where `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
     Record each of these URLs for later use –
-    ```
+
     - Entity ID
     - Reply URL
     - Logout URL
@@ -218,9 +216,8 @@ Configure this as follows –
 
 1. Navigate to `https://<address>`
 
-    ```
-    here <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
+    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
 2. Continue past any certificate errors
 3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
 4. If the deployment uses the BYOL model, a prompt to upload a license will be shown. Select
@@ -234,9 +231,8 @@ Configure this as follows –
 
 1. Navigate to `https://<address>`
 
-    ```
-    here <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
+    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
 2. Continue past any certificate errors
 3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
 4. In the left-hand menu, click **System**
@@ -258,9 +254,8 @@ Configure this as follows –
 
 1. Navigate to `https://<address>`
 
-    ```
-    here <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
+    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
 2. Continue past any certificate errors
 3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
 4. In the left-hand menu, click **System**
@@ -270,13 +265,13 @@ Configure this as follows –
     will fail. From now on, the administration page address will be `https://<address>`
 
     ![Fortigate SSL VPN](certificate.png)
+
 ### Upload the Azure Active Directory SAML Signing Certificate
 
 1. Navigate to `https://<address>`
 
-    ```
-    here <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
+    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
 2. Continue past any certificate errors
 3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
 4. In the left-hand menu, click **System**
@@ -293,9 +288,8 @@ may be used for this purpose
 
 1. Navigate to `https://<address>`
 
-    ```
-    here <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
+    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
 2. Continue past any certificate errors
 3. Sign-in using the administrator credentials provided during the FortiGate VM deployment
 4. In the left-hand menu, click **System**
@@ -324,9 +318,8 @@ _Perform Command Line Configuration for SAML Authentication_
 2. In the left-hand menu, click on **Serial Console**
 3. Sign-in at the Serial Console with the FortiGate VM administrator credentials
 
-    ```
     For the next step, the URLs recorded earlier will be required. Namely –
-    ```
+
     - Entity ID
     - Reply URL
     - Logout URL
@@ -352,9 +345,9 @@ _Perform Command Line Configuration for SAML Authentication_
     > [!NOTE]
     > The Azure Logout URL contains a? character. This requires a special key sequence in
     order for it to be correctly provided to the FortiGate Serial Console. The URL is typically-
-    ```
-    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.
-    ```
+
+    `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1`
+
 To provide this in the Serial Console, proceed by typing
 
 ```
@@ -363,6 +356,7 @@ set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation
 Then type CTRL+V,
 
 Then paste the rest of the URL in to complete the line
+
     ```
     set idp-single-logout-url
     https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.
@@ -397,9 +391,6 @@ _Perform Command Line Configuration for Group Matching_
 Repeat these command from edit `group 1 name` but for each additional group that will
 have a different portal experience in FortiGate
 
-```
-end
-```
 _Perform Command Line Configuration for Authentication Time Out_
 
 1. Navigate to https://portal.azure.com and open the settings for the FortiGate VM
@@ -416,9 +407,8 @@ _Perform Command Line Configuration for Authentication Time Out_
 
 1. Navigate to `https://<address>`
 
-    ```
-    here <address> is the FQDN or the public IP address assigned to the FortiGate VM
-    ```
+    here `address` is the FQDN or the public IP address assigned to the FortiGate VM
+
 2. Sign-in using the administrator credentials provided during the FortiGate VM deployment
 3. In the left-hand menu, click **VPN**
 4. Under VPN, click **SSL-VPN Portals**
