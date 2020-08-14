@@ -56,7 +56,7 @@ The map style can be specified when initializing the map by setting the `style` 
 var map = new atlas.Map('map', {
     style: 'grayscale_dark',
 
-    //Additiona map options
+    //Additional map options
 );
 ```
 
