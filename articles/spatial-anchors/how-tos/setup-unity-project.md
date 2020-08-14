@@ -30,7 +30,7 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 1. In a file explorer, navigate to your Unity project's `Packages` folder. Open the project manifest file, `manifest.json`, in a text editor.
 2. At the top of the file, at the same level as the `dependencies` section, add the following entry to include the Azure Spatial Anchors registry to your project. The `scopedRegistries` entry tells Unity where to look for the Azure Spatial Anchors SDK packages.
 
-[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=10-18)]
+[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
 
 #### Add the SDK package(s) to your Unity project
 
@@ -42,7 +42,7 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 
 1. For each platform (Android/iOS/HoloLens) that you would like to support in your project, add an entry with the package name and package version to the `dependencies` section in your project manifest. See below for an example.
 
-[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=20-22)]
+[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=12-14)]
 
 2. Save and close the `manifest.json` file. When you return to Unity, Unity should automatically detect the project manifest change and retrieve the specified packages. You can expand the `Packages` folder in your Project view to verify that the right packages have been imported.
 
