@@ -26,7 +26,7 @@ The following sample blueprints show the integration of Windows Virtual Desktop 
 
 ## Pooled desktop scenario
 
-For the pooled scenario, the Windows Virtual Desktop team [recommends]((https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations)) the following guidance by user count to vCPU. Note that no virtual machine size is specified in this recommendation.
+For the pooled scenario, the Windows Virtual Desktop team [recommends](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs#multi-session-recommendations) the following guidance by user count to vCPU. Note that no virtual machine size is specified in this recommendation.
 
 |     Workload type     |     Light    |     Medium    |     Heavy    |
 |-----------------------|--------------|---------------|--------------|
