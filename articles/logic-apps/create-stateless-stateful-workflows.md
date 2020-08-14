@@ -71,6 +71,8 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
   > region as the workflow app that you plan to build in Visual Studio Code. After you create these connections, 
   > you can delete the logic app. Connections are Azure resources that exist separately from the logic app.
 
+* To test the example workflow app that you create in this doc, you need a tool that can send calls to the Request trigger that starts the example workflow. If you don't have such a tool, you can download and install [Postman](https://www.postman.com/downloads/).
+
 ## Set up development environment
 
 After you install all the extensions, disable automatic extension updates for Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
@@ -170,11 +172,11 @@ Now, continue creating your workflow app.
 
    ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-function-app-project.png)
 
-1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app. This example uses `example-workflow`.
+1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app.
 
-   <!--
+   This example selects **Stateful Workflow** and uses `example-workflow` as the name.
+
    ![Screenshot that shows a templates list with "Stateful Workflow" and "Stateless Workflow"](./media/create-stateless-stateful-workflows/select-stateful-stateless-workflow.png)
-   -->
 
    In your project folder, Visual Studio Code adds a workflow app folder that has the specified name and a `workflow.json` file, which stores your workflow's JSON definition.
 
@@ -194,7 +196,9 @@ Now, continue creating your workflow app.
    > * Make sure that Azure Storage Emulator is running. For more information, see 
    > [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
    >
-   > * Close everything, restart your computer, reopen your workflow project, and reopen the `workflow.json` file in the designer.
+   > * Close everything, restart your computer, reopen your workflow project, and retry opening the `workflow.json` file in the designer.
+   >
+   > * Delete the `ExtensionBundles` folder at this location `...\Users\<your-username>\AppData\Local\Temp\Functions\ExtensionBundles`, and retry opening the `workflow.json` file in the designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available in the Azure portal, not only connectors for Azure services.
 
@@ -221,7 +225,7 @@ Now, continue creating your workflow app.
 
 ## Add a trigger and actions
 
-The workflow in this example uses this trigger and these actions:
+The workflow in this example adds this trigger and these actions:
 
 * The built-in Request trigger, **When a HTTP request is received**
 
@@ -309,17 +313,53 @@ To add your own code that you can directly call and run from your workflow app, 
 
 1. If you built a stateless workflow, you can [enable run history](#enable-run-history) for easier debugging.
 
-1. On the Visual Studio Code toolbar, on the **Run** menu, select **Start Debugging** (press F5).
+1. On the Visual Studio Code toolbar, on the **Run** menu, select **Start Debugging** (F5).
 
-   The **Terminal** window appears so that you can review the debugging process and details.
+   The **Terminal** window appears so that you can review the debugging session and details.
 
-1. To find and review the callback URL for the endpoint that's associated with the Request trigger, after the debugging process ends, open the `workflow.json` file's shortcut menu, and select **Overview**.
+1. After the debugging process completes, find the callback URL for the endpoint on the Request trigger.
 
-   The callback URL looks similar to this URL for the example workflow app:
+   1. Open the `workflow.json` file's shortcut menu, and select **Overview**.
 
-   `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+   1. Find the **Callback URL** value, which looks similar to this URL for the example Request trigger:
 
-   For more information, see 
+      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+
+      ![Screenshot that shows your workflow's overview page with callback URL](./media/create-stateless-stateful-workflows/find-callback-url.png)
+
+1. To test the callback URL by triggering the workflow, open your tool for creating and sending requests. This example continues with the [Postman](https://www.postman.com/downloads/) tool. For more information, see [Postman Getting Started](https://learning.postman.com/docs/getting-started/introduction/).
+
+   1. On the Postman toolbar, select **New**.
+
+      ![Screenshot that shows Postman with New button selected](./media/create-stateless-stateful-workflows/postman-create-request.png)
+
+   1. On the **Create New** pane, under **Building Blocks**, select **Request**.
+
+   1. In the **Save Request** window, under **Request name**, provide a name for the request, for example, `Test workflow app trigger`.
+
+   1. Under **Select a collection or folder to save to**, select **Create Collection**.
+
+   1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
+
+      Postman's request pane opens so that you can send a request to the callback URL for the Request trigger.
+
+      ![Screenshot that shows Postman with the opened request pane](./media/create-stateless-stateful-workflows/postman-request-pane.png)
+
+   1. Return to Visual Studio Code. from the workflow's overview page, copy the **Callback URL** property value.
+
+   1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
+
+      ![Screenshot that shows Postman and callback URL in the address box with Send button selected](./media/create-stateless-stateful-workflows/postman-test-call-back-url.png)
+
+1. In Visual Studio Code, return to your workflow app's overview page.
+
+   After the request that you sent triggers the workflow, the overview page shows the workflow's run history.
+
+   ![Screenshot that shows your workflow's overview page with run history](./media/create-stateless-stateful-workflows/post-trigger-call.png)
+
+1. To view the run history details, open the ellipses (**...**) list, and select **Show Run**.
+
+1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
 <a name="enable-run-history"></a>
 
@@ -394,3 +434,7 @@ You can publish your Functions project directly to Azure from Visual Studio Code
 * If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app. 
 
 * If you publish to an existing function app in Azure, you overwrite the contents for that app in Azure.
+
+## Next steps
+
+For more information, bugs, questions, or suggestions about the preview extension, please [post them on the issues board in the GitHub repo for Logic Apps Preview](https://github.com/Azure/logicapps/issues) by using the `preview` label plus these labels as appropriate: `bug`, `question`, or `enhancement`
