@@ -49,7 +49,7 @@ productDirectory:
         - url: ./servers/onboard-dsc.md
           text: Connect machines to Azure with PowerShell DSC
         - url: ./servers/index.yml
-          text: See more
+          text: See more...
     # Card
     - title: Azure Arc enabled Kubernetes
       imageSrc: ./media/containers-101-kubernetes-services.svg
@@ -59,7 +59,7 @@ productDirectory:
         - url: ./kubernetes/use-gitops-connected-cluster.md
           text: Deploy configurations using GitOps
         - url: ./kubernetes/index.yml
-          text: See more
+          text: See more...
 
 # conceptualContent section (optional)
 conceptualContent:
