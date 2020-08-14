@@ -31,11 +31,14 @@ By specifying a web API's scopes in your client app's registration, the client a
 
 ## Grant access to your web API
 
-In this scenario, you grant your client app access to your own web API, both of which you will have registered as part one of the prerequisites. If you don't yet have both a client app and web API registered, complete the steps in both of the articles specified in [Prerequisites](#prerequisites).
+In this scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and web API registered, complete the steps in the articles specified in [Prerequisites](#prerequisites).
 
 The following diagram provides a high-level overview of this scenario's configuration:
 
-> [!WARNING] TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left showing those scopes selected as permissions" border="true":::
+
+> [!WARNING]
+> TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
 ## Grant access to Microsoft Graph
 

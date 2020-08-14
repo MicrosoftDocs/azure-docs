@@ -125,7 +125,7 @@ For example, if your web API's application ID URI is `https://contoso.com/api` a
 
 ## Using the exposed scopes
 
-In the next article in the series, you will configure an app's registration to give it access to the web API and scopes you defined in this article.
+In the next article in the series, you'll configure an app's registration to give it access to the web API and scopes you defined in this article.
 
 Once an app is granted permission to access your web API, the app can be issued an OAuth 2.0 access token by the Microsoft identity platform. When the app calls the web API, it presents an access token whose scope (`scp`) claim is set to the permissions you've specified in the app's registration.
 
