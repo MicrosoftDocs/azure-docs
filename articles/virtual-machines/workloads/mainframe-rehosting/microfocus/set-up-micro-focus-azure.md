@@ -91,7 +91,7 @@ After the installation, be sure to check for any additional updates as a number 
 
     ![Micro Focus License Administration dialog box](media/install-image-3.png)
 
-3.  Verify that Enterprise Server loads. Try launching the Enterprise Server Administration site from a browser using this URL: <http://localhost:86/>. The Enterprise Server Administration page is displayed as shown.
+3.  Verify that Enterprise Server loads. Try launching the Enterprise Server Administration site from a browser using this URL: `http://localhost:86/`. The Enterprise Server Administration page is displayed as shown.
 
     ![Enterprise Server Administration page](media/install-image-4.png)
 
