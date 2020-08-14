@@ -99,47 +99,47 @@ To join the managed domain using **SSSD** and the *User Logon Management* module
 
 Now join the the VM to the managed domain. Complete the following steps:
 
-1. Select *Add Domain*.
+1. In the dialog box, select **Add Domain**.
 
-1. In the dialog, specify the correct *Domain name*, then specify the services to use for identity data and authentication. Select *Microsoft Active Directory* for both.
+1. Specify the correct *Domain name*, then specify the services to use for identity data and authentication. Select *Microsoft Active Directory* for both.
 
     Ensure that *Enable the domain* is activated.
 
-    Select **OK**.
+1. When ready, select **OK**.
 
 1. Usually, you can keep the default settings in the following dialog. However, you may want to make changes for the following reasons:
 
-    * **If the Local Host Name Does Not Match the Host Name Set on the Domain Controller.**  Find out if the host name of your computer matches what the name your computer is known as to the Active Directory Domain Controller. In a terminal, run the command `hostname`, then compare its output to the configuration of the Active Directory Domain Controller.
+    * *If the Local Host Name Does Not Match the Host Name Set on the Domain Controller:*  Find out if the host name of your computer matches the name your computer in the managed domain. In a terminal, run the command `hostname`, then compare its output to the configuration of the Active Directory Domain Controller.
 
         If the values differ, specify the host name from the Active Directory configuration under AD hostname. Otherwise, leave the appropriate text box empty.
 
-    * **If You Do Not Want to Use DNS Auto-Discovery.**  Specify the *Host names of Active Directory servers* that you want to use. If there are multiple Domain Controllers, separate their host names with commas.
+    * *If You Do Not Want to Use DNS Auto-Discovery.*  Specify the *Host names of Active Directory servers* that you want to use. If there are multiple Domain Controllers, separate their host names with commas.
 
-1. To continue, select *OK*.
+1. To continue, select **OK**.
 
-    If not all software is installed already, the computer will now install missing software. It will then check whether the configured Active Directory Domain Controller is available.
+1. The VM installs additional software as needed, then checks to see if the managed domain is available.
 
-1. If everything is correct, the following dialog should now show that it has discovered an *Active Directory Server* but that you are *Not yet enrolled*.
-
-    In the dialog, specify the *Username* and *Password* of a user that's a part of the managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
-
-    To make sure that the current domain is enabled for Samba, activate *Overwrite Samba configuration to work with this AD*.
-
-    To enroll, select **OK**.
+    If everything is correct, the following example dialog is shown show to indicate the VM has discovered the managed domain but that you're *Not yet enrolled*.
 
     ![ENROLLING INTO A DOMAIN](./media/join-suse-linux-vm/ad-enroll.png)
 
-1. You should now see a message confirming that you have enrolled successfully. Finish with *OK*.
+1. In the dialog, specify the *Username* and *Password* of a user that's a part of the managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-After enrolling, configure the client using the window *Manage Domain User Logon*.
+    To make sure that the current domain is enabled for Samba, activate *Overwrite Samba configuration to work with this AD*.
 
-    ![CONFIGURATION WINDOW OF USER LOGON MANAGEMENT](./media/join-suse-linux-vm/ad-config.png)
+1. To enroll, select **OK**.
 
-1. To allow logging in to the computer using login data provided by Active Directory, activate *Allow Domain User Logon*.
+1. A message is shown to confirm that you are successfully enrolled. To finish, select **OK**.
 
-1. Optionally, under *Enable domain data source*, activate additional data sources such as information on which users are allowed to use **sudo** or which network drives are available.
+After the VM is enrolled in the managed domain, configure the client using the window *Manage Domain User Logon*.
 
-1. To allow Active Directory users to have home directories, activate *Create Home Directories*. The path for home directories can be set in multiple ways—on the client, on the server, or both ways:
+![CONFIGURATION WINDOW OF USER LOGON MANAGEMENT](./media/join-suse-linux-vm/ad-config.png)
+
+1. To allow sign-ins using login data provided by the managed domain, check the box for *Allow Domain User Logon*.
+
+1. Optionally, under *Enable domain data source*, check additional data sources such as information on which users are allowed to use **sudo** or which network drives are available.
+
+1. To allow users in the managed domain to have home directories on the VM, check the box for *Create Home Directories*. The path for home directories can be set in multiple ways—on the client, on the server, or both ways:
 
     * To configure the home directory paths on the Domain Controller, set an appropriate value for the attribute *UnixHomeDirectory* for each user. Additionally, make sure that this attribute replicated to the global catalog. For information on achieving that under Windows, see https://support.microsoft.com/en-us/kb/248717.
 
@@ -153,9 +153,9 @@ After enrolling, configure the client using the window *Manage Domain User Logon
 
 1. Specify a value. To have home directories follow the format */home/USER_NAME*, use */home/%u*. For more information about possible variables, see the man page sssd.conf (`man 5 sssd.conf`), section *override_homedir*.
 
-1. Select *OK*.
+1. Select **OK**.
 
-1. Tp save the changes, select *OK*. Then make sure that the values displayed now are correct. To leave the dialog, select *Cancel*.
+1. To save the changes, select **OK**. Then make sure that the values displayed now are correct. To leave the dialog, select **Cancel**.
 
 1. If you intend to run SSSD and Winbind simultaneously (such as when joining via SSSD, but then running a Samba file server), the samba option *kerberos method* should be set to *secrets and keytab* in smb.conf, and the SSSD option *ad_update_samba_machine_account_password* should be set to *true* in sssd.conf. These will prevent the system keytab from going out of sync.
 
@@ -169,27 +169,27 @@ To join the managed domain using **winbind** and the *Windows Domain Membership*
 
 1. Enter the domain to join at *Domain or Workgroup* in the *Windows Domain Membership* screen (see the figure below).
 
-    If the DNS settings on your host are properly integrated with the Windows DNS server, enter the Active Directory domain name in its DNS format (*aaddscontoso.com*). If you enter the short name of your domain (also known as the pre–Windows 2000 domain name), YaST must rely on NetBIOS name resolution instead of DNS to find the correct domain controller.
+    If the DNS settings on your host are properly integrated with the Windows DNS server, enter the managed domain name, such as *aaddscontoso.com*.
 
     ![DETERMINING WINDOWS DOMAIN MEMBERSHIP](./media/join-suse-linux-vm/ad_sambaclient.png)
 
 1. To use the SMB source for Linux authentication, activate *Use SMB Information for Linux Authentication*.
 
-1. To automatically create a local home directory for Active Directory users on the Linux machine, activate *Create Home Directory on Login*.
+1. To automatically create a local home directory for managed domain users on the Linux machine, activate *Create Home Directory on Login*.
 
-1. Check *Offline Authentication* to allow your domain users to log in even if the Active Directory server is temporarily unavailable, or if you do not have a network connection.
+1. Check *Offline Authentication* to allow your domain users to sign in even if the managed domain is temporarily unavailable.
 
-1. To change the UID and GID ranges for the Samba users and groups, select *Expert Settings*. Let DHCP retrieve the WINS server only if you need it. This is the case when some machines are resolved only by the WINS system.
+1. To change the UID and GID ranges for the Samba users and groups, select *Expert Settings*.
 
-1. Configure NTP time synchronization for your Active Directory environment by selecting *NTP Configuration* and entering an appropriate server name or IP address. This step is obsolete if you have already entered the appropriate settings in the stand-alone YaST NTP configuration module.
+1. Configure NTP time synchronization for your managed domain by selecting *NTP Configuration* and entering an appropriate server name or IP address. This step is obsolete if you have already entered the appropriate settings in the stand-alone YaST NTP configuration module.
 
 1. Select **OK** and confirm the domain join when prompted for it.
 
-1. Provide the password for the Windows administrator on the Active Directory server and select **OK**.
+1. Provide the password for an administrator in the managed domain and select **OK**.
 
     ![PROVIDING ADMINISTRATOR CREDENTIALS](./media/join-suse-linux-vm/ad_join1.png)
 
-After you have joined the Active Directory domain, you can log in to it from your workstation using the display manager of your desktop or the console.
+After you have joined the managed domain, you can log in to it from your workstation using the display manager of your desktop or the console.
 
 ## Allow password authentication for SSH
 
