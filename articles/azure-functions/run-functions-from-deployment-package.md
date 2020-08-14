@@ -12,9 +12,6 @@ In Azure, you can run your functions directly from a deployment package file in 
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
-> [!IMPORTANT]
-> When deploying your functions to a Linux function app in a [Premium plan](functions-scale.md#premium-plan), you should always run from the package file and [publish your app using the Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
-
 ## Benefits of running from a package file
   
 There are several benefits to running from a package file:

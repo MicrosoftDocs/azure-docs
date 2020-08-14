@@ -93,7 +93,7 @@ There are three major multi-tenant models:
 By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multi-tenant models. You can learn more about the different multi-tenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
 
 ## Next steps
-- Learn more about [role-based access control](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
+- Learn more about [Azure role-based access control (Azure RBAC)](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
 - Learn more about VMware to Azure [replication architecture](vmware-azure-architecture.md).
 - [Review the tutorial](vmware-azure-tutorial.md) for replicating VMware VMs to Azure.
 Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.
