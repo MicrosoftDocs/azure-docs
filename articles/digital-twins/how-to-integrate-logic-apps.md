@@ -110,7 +110,7 @@ In the Security step, hit *Edit* and configure this information:
     - Scope: Directory.AccessAsUser.All
     - Redirect URL: (leave default for now)
 
-Note that the Redirect URL field says *Save the custom connector to generate the redirect URL*. Do this by hitting *Update connector* across the top of the pane to confirm your connector settings.
+Note that the Redirect URL field says *Save the custom connector to generate the redirect URL*. Do this now by hitting *Update connector* across the top of the pane to confirm your connector settings.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot of the top of the 'Edit Logic Apps Custom Connector' page. Highlight around 'Update connector' button":::
 
@@ -141,8 +141,6 @@ Enter the custom connector's *Redirect URL* into the new field, and hit the *Sav
 
 You are now done setting up a custom connector that can access the Azure Digital Twins APIs. 
 
-<!-- Interpreting that if you click "Edit" but don't save your changes, it won't clear your choices -->
-
 ## Create logic app
 
 Next, you'll create a logic app that will use your new connector to automate Azure Digital Twins updates.
@@ -161,7 +159,7 @@ In the *Logic Apps Designer*, under *Start with a common trigger*, select _**Rec
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="The 'Logic Apps Designer' page in the Azure portal. Highlight around the 'Recurrence' common trigger":::
 
-In the *Logic Apps Designer* page that follows, you can leave the defaults for **Recurrence** or change them as you would like.
+In the *Logic Apps Designer* page that follows, change the **Recurrence** Frequency to *Second*, so that the event is triggered every 3 seconds. This will make it easy to see the results later without having to wait very long.
 
 Hit *+ New step*.
 
@@ -182,7 +180,16 @@ Hit *Save* in the Logic Apps Designer.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Finished view of the app in the Logic App Connector. The DigitalTwinsAdd box is filled with the values described above, including a sample JSON Patch body. The 'Save' button for the window is highlighted.":::
 
-## Verify success
+## Query twin to see the update
 
+Now that your logic app has been created, the twin update event you defined in the Logic Apps Designer should occur on a recurrence of every three seconds. This means that after three seconds, you should be able to query your twin and see your new patched values reflected.
+
+You can query your twin via your method of choice (such as a [custom client app](tutorial-command-line-app.md), the [Azure Digital Twins Explorer sample app](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), the [SDKs and APIs](how-to-use-apis-sdks.md), or the [CLI](how-to-use-cli.md)). 
+
+For more about querying your Azure Digital Twins instance, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 
 ## Next steps
+
+In this article, you created a logic app that regularly updates a twin in your Azure Digital Twins instance with a patch that you provided. You can try out selecting other APIs in the custom connector to create Logic Apps for a variety of actions on your instance.
+
+To read more about the APIs operations available and the details they require, visit [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
