@@ -28,7 +28,7 @@ The Azure Security Baseline for Azure Load Balancer contains recommendations tha
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32349.).
 
-**Guidance**: Reviewed by ErrobinPG Feedback: Please
+**Guidance**: #Reviewed by Errobin ; PG Feedback: Please
 change acronym from ALB to LB. Unsure why we are giving full description
 instead of giving guidance. Changes are inline below:An Azure Load Balancer (LB) operates
 at layer four of the Open Systems Interconnection (OSI) model, evenly distributing
@@ -427,7 +427,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 
 **Guidance**: Not applicable to Azure Load Balancer as this recommendation applies to IaaS compute resources.
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -982,9 +982,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32403.).
 
-**Guidance**: Not applicable to Azure Load Balancer - please remove
+**Guidance**: Not applicable to Azure Load Balancer
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -994,9 +994,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32404.).
 
 **Guidance**: 
-Not applicable to Azure Load Balancer - please remove
+Not applicable to Azure Load Balancer
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1006,21 +1006,9 @@ Not applicable to Azure Load Balancer - please remove
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32405.).
 
 **Guidance**: 
-Not applicable to Azure Load Balancer - please remove
+Not applicable to Azure Load Balancer
 
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 6.10: Maintain an inventory of approved software titles
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32406.).
-
-**Guidance**: 
-Not applicable to Azure Load Balancer - please remove
-
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1090,18 +1078,6 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 **Responsibility**: Customer
 
-### 7.2: Establish secure operating system configurations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32411.).
-
-**Guidance**: 
-Not applicable to Azure Load Balancer - please remove
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
@@ -1128,7 +1104,7 @@ In addition, you can use Azure Resource Manager templates to maintain the securi
 
 **Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -1220,18 +1196,6 @@ Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32420.).
-
-**Guidance**: 
-Not applicable to Azure Load Balancer - please remove
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 7.12: Manage identities securely and automatically
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32421.).
 
 **Guidance**: 
 Not applicable to Azure Load Balancer - please remove
