@@ -65,6 +65,23 @@ For example, if your internal virtual networks VNet1 and VNet2 should connect to
 
 ![Diagram of AMPLS B topology](./media/private-link-security/ampls-topology-b-1.png)
 
+### Consider limits
+
+There are a number of limits you should consider when planning your Private Link setup:
+
+* A VNet can only connect to 1 AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
+* An Azure Monitor resource (Workspace or Application Insights component) can connect to 5 AMPLSs at most.
+* An AMPLS object can connect to 20 Azure Monitor resources at most.
+* An AMPLS object can connect to 10 Private Endpoints at most.
+
+In the below topology:
+* Each VNet connects to 1 AMPLS object, so it can't connect to other AMPLSs.
+* AMPLS B connects to 2 VNets: using 2/10 of its possible Private Endpoint connections.
+* AMPLS A connects to 2 workspaces and 1 Application Insight component: using 3/20 of its possible Azure Monitor resources.
+* Workspace 2 connects to AMPLS A and AMPLS B: using 2/5 of its possible AMPLS connections.
+
+![Diagram of AMPLS limits](./media/private-link-security/ampls-limits.png)
+
 ## Example connection
 
 Start by creating an Azure Monitor Private Link Scope resource.
@@ -132,14 +149,14 @@ You have now created a new private endpoint that is connected to this Azure Moni
 
 ## Configure Log Analytics
 
-Go to the Azure portal. In your Azure Monitor Log Analytics workspace resource is a menu item **Network Isolation** on the left-hand side. You can control two different states from this menu. 
+Go to the Azure portal. In your Log Analytics workspace resource there's a menu item **Network Isolation** on the left-hand side. You can control two different states from this menu. 
 
 ![LA Network Isolation](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 First, you can connect this Log Analytics resource to any Azure Monitor Private Link scopes that you have access to. Click **Add** and select the Azure Monitor Private Link Scope.  Click **Apply** to connect it. All connected scopes show up in this screen. Making this connection allows network traffic in the connected virtual networks to reach this workspace. Making the connection has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources).  
 
 Second, you can control how this resource can be reached from outside of the private link scopes listed above. 
-If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal which consume Log Analytics data also have to be running within the private-linked VNET.
+If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace. That data includes access to workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal, and that query Log Analytics data also have to be running within the private-linked VNET.
 
 Restricting access in this manner only applies to data in the workspace. Configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. Restrict access to Resource Manager using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](roles-permissions-security.md).
 
@@ -185,7 +202,7 @@ For more information on bringing your own storage account, see [Customer-owned s
 
 ### Agents
 
-The latest versions of the Windows and Linux agents must be used on private networks to enable secure telemetry ingestion to Log Analytics workspaces. Older versions cannot upload monitoring data in a private network.
+The latest versions of the Windows and Linux agents must be used on private networks to enable secure ingestion to Log Analytics workspaces. Older versions cannot upload monitoring data in a private network.
 
 **Log Analytics Windows agent**
 

@@ -24,6 +24,7 @@ You must have the following resource installed:
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
 * Existing AKS clusters can't be migrated to managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
+* Tenants move / migrate of managed identity enabled clusters isn't supported.
 
 ## Summary of managed identities
 
@@ -102,11 +103,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ## Bring your own control plane MI (Preview)
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
 
-> [!IMPORTANT]
-> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
->
-> - [AKS Support Policies](support-policies.md)
-> - [Azure Support FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 You must have the following resources installed:
 - The Azure CLI, version 2.9.0 or later
@@ -206,5 +203,5 @@ A successful cluster creation using your own managed identities contains this us
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list
+[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list

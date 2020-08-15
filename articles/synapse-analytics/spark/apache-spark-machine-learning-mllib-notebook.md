@@ -1,5 +1,5 @@
 ---
-title: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
+title: Build a machine learning app with Apache Spark MLlib
 description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 services: synapse-analytics
 author: euangMS
@@ -143,7 +143,7 @@ plt.show()
 ![Box Whisker Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
 ![Scatter Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
-## Preparing the data
+## Prepare the data
 
 The data in its raw form is frequently not suitable for passing directly to a model. A series of actions must be performed on the data to get it into a state where the model can consume it.
 
@@ -220,7 +220,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Now that there are two DataFrames, the next task is to create the model formula and run it against the training DataFrame, then validate against the testing DataFrame. You should experiment with different versions of the model formula to see the impact of different combinations.
 
 > [!Note]
-> To save the model, you will need the Azure Storage Blob Data Contributor RBAC role. Under your storage account, navigate to Access Control (IAM), and select Add role assignment. Assign Storage Blob Data Contributor RBAC role to your SQL Database server. Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> To save the model, you will need the Storage Blob Data Contributor Azure role. Under your storage account, navigate to Access Control (IAM), and select Add role assignment. Assign Storage Blob Data Contributor Azure role to your SQL Database server. Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

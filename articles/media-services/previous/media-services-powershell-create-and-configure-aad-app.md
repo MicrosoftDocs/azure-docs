@@ -29,7 +29,7 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 - An Azure account. If you don't have an account, start with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 - A Media Services account. For more information, see [Create an Azure Media Services account in the Azure portal](media-services-portal-create-account.md).
 
-- Azure PowerShell. For more information, see [How to use Azure PowerShell](/powershell/azure/overview).
+- Azure PowerShell. For more information, see [How to use Azure PowerShell](/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

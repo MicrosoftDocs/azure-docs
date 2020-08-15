@@ -38,8 +38,8 @@ The [built-in role definitions](../../role-based-access-control/built-in-roles.m
 
 See the following articles for more information:
 
-- [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [What is RBAC for Azure resources?](../../role-based-access-control/overview.md)
+- [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Use RBAC to manage access](../../role-based-access-control/role-assignments-rest.md)
 - [Media Services resource provider operations](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 

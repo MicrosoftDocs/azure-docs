@@ -58,7 +58,7 @@ Persisted storage is needed in SAP workload in various components of the stack t
 - File shares or shared disks that contain your global transport directory for NetWeaver or S/4HANA. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 - The /sapmnt directory or common file shares for EDI processes or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 
-In the next few sections, the different Azure storage types and their usability for SAP workload gets discussed that apply to the three scenarios above. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../linux/disks-types.md). The recommendations for using the different Azure storage types for SAP workload are not going to be majorly different.
+In the next few sections, the different Azure storage types and their usability for SAP workload gets discussed that apply to the four scenarios above. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../linux/disks-types.md). The recommendations for using the different Azure storage types for SAP workload are not going to be majorly different.
 
 For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, read the [SAP support note 2015553](https://launchpad.support.sap.com/#/notes/2015553)
 For SAP HANA certified and supported Azure storage types read the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
@@ -146,7 +146,7 @@ The capability matrix for SAP workload looks like:
 | Latency | low-to medium | - |
 | IOPS SLA | YES | - |
 | IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../linux/sizes.md) |
+| Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../sizes.md) |
 | Throughput SLA | YES | - |
 | Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | YES | [specially for SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
@@ -335,11 +335,11 @@ In opposite to on-premise scenarios, the individual VM type you are selecting, p
 
 | Storage type| Linux | Windows | Comments |
 | --- | --- | --- | --- |
-| Standard HDD | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
-| Standard SSD | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
-| Premium Storage | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
-| Ultra disk storage | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
-| Azure NetApp Files | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Storage traffic is using network throughput bandwidth and not storage bandwidth! |
+| Standard HDD | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
+| Standard SSD | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
+| Premium Storage | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
+| Ultra disk storage | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
+| Azure NetApp Files | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Storage traffic is using network throughput bandwidth and not storage bandwidth! |
 
 As limitations, you can note that:
 

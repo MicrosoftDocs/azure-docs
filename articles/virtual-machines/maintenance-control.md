@@ -19,7 +19,7 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 With maintenance control, you can:
 - Batch updates into one update package.
 - Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using Azure Functions.
+- Automate platform updates for your maintenance window using [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Maintenance configurations work across subscriptions and resource groups. 
 
 ## Limitations

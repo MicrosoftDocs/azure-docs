@@ -72,7 +72,7 @@ Now create a gMSA using the [New-ADServiceAccount][New-ADServiceAccount] cmdlet.
 * **-Name** is set to *WebFarmSvc*
 * **-Path** parameter specifies the custom OU for the gMSA created in the previous step.
 * DNS entries and service principal names are set for *WebFarmSvc.aaddscontoso.com*
-* Principals in *AADDSCONTOSO-SERVER$* are allowed to retrieve the password use the identity.
+* Principals in *AADDSCONTOSO-SERVER$* are allowed to retrieve the password and use the identity.
 
 Specify your own names and domain names.
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/20/2020
 ---
 
 # API versions in Azure Cognitive Search
@@ -20,7 +20,7 @@ As a rule, the Azure Cognitive Search team publishes new versions only when nece
 The same rule applies for SDK updates. The Azure Cognitive Search SDK follows the [semantic versioning](https://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). A new major version of the SDK is released only for changes that break backward compatibility. Non-breaking feature updates will increment the minor version, and bug fixes will only increase the build version.
 
 > [!Important]
-> The Azure SDKs for .NET, Java, Python and JavaScript are rolling out new client libraries for Azure Cognitive Search. Currently, none of the Azure SDK libraries support the most recent Search REST APIs (2020-06-30) or Management REST APIs (2020-03-13) but this will change over time. You can periodically check this page or the [What's New](whats-new.md) for announcements on functional enhancements. 
+> The Azure SDKs for .NET, Java, Python and JavaScript are rolling out new client libraries for Azure Cognitive Search. Currently, none of the Azure SDK libraries fully support the most recent Search REST APIs (2020-06-30) or Management REST APIs (2020-03-13) but this will change over time. You can periodically check this page or the [What's New](whats-new.md) for announcements on functional enhancements. 
 
 ## REST APIs
 
@@ -65,7 +65,7 @@ Package version history is available on NuGet.org. This table provides links to 
 
 | SDK version | Status | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
+| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2020-06-30 REST API but does not yet support, geo-filters, or [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
 | [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Released May 2019. Targets the Search REST api-version=2019-05-06.|
 | [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Preview | released April 2019. Targets the Search REST api-version=2019-05-06-Preview.|
 | [Microsoft.Azure.Management.Search 3.0.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Targets the Management REST api-version=2015-08-19.  |

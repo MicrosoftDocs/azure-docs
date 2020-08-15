@@ -33,7 +33,7 @@ You can create your Azure subscription and Azure active directory for free, and 
 
    a. **For OIDC or Oath applications**, [Register your application](../develop/quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types
 
-   b. **For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](configure-single-sign-on-non-gallery-applications.md) applications using a generic SAML template in Azure AD.
+   b. **For SAML- and WS-Fed-based applications**, you [Configure SAML-based Single sign-on](configure-saml-single-sign-on.md) applications using a generic SAML template in Azure AD.
 
 You can also [convert a single-tenant application to multi-tenant](../develop/howto-convert-app-to-be-multi-tenant.md) if necessary.
 

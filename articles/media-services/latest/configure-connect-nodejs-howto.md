@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-
+ms.custom: devx-track-javascript
 ---
 # Connect to Media Services v3 API - Node.js
 

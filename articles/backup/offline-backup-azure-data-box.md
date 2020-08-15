@@ -148,7 +148,7 @@ The MARS Agent operates in the Local System context, so it requires the same lev
 To ensure you can mount your Data Box device as a Local System by using the NFS protocol:
 
 1. Enable the client for the NFS feature on the Windows server that has the MARS Agent installed. Specify the alternate source *WIM:D:\Sources\Install.wim:4*.
-1. Download PSExec from <https://download.sysinternals.com/files/PSTools.zip> to the server with the MARS Agent installed.
+1. Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page to the server with the MARS Agent installed.
 1. Open an elevated command prompt, and run the following command with the directory that contains *PSExec.exe* as the current directory.
 
     ```cmd

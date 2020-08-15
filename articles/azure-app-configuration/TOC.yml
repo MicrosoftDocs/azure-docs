@@ -4,6 +4,8 @@
   items:
     - name: About Azure App Configuration
       href: overview.md
+    - name: Best practices
+      href: howto-best-practices.md
     - name: FAQ
       href: faq.md
 - name: Quickstarts
@@ -34,26 +36,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
   items:
-    - name: Enable dynamic configuration in ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Enable dynamic configuration in a .NET Core app
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Enable dynamic configuration in .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Enable dynamic configuration in Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Enable dynamic configuration in Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md      
-    - name: Use feature flags in a .NET Core app
-      href: use-feature-flags-dotnet-core.md
-    - name: Use feature flags in a Spring Boot app
-      href: use-feature-flags-spring-boot.md
+    - name: Enable dynamic configuration
+      items:
+        - name: ASP.NET Core
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Azure Functions
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Use feature flags
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Manage feature flags
       href: manage-feature-flags.md
-    - name: Use Key Vault references in ASP.NET Core
-      href: use-key-vault-references-dotnet-core.md
-    - name: Use Key Vault references in Spring Boot
-      href: use-key-vault-references-spring-boot.md      
+    - name: Use Key Vault references
+      items:
+        - name: ASP.NET Core
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
     - name: Integrate with Kubernetes deployment using Helm
@@ -67,7 +75,7 @@
       href: ./policy-samples.md
 - name: Concepts
   items:
-    - name: Key-value store
+    - name: Keys and values
       href: concept-key-value.md
     - name: Point-in-time snapshot
       href: concept-point-time-snapshot.md
@@ -83,8 +91,6 @@
           href: concept-customer-managed-keys.md
         - name: Secure your config store using Private Endpoints
           href: concept-private-endpoint.md
-        - name: Integrate with Azure Managed Identity
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Enable access using Azure Active Directory
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
@@ -101,12 +107,14 @@
       href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
+    - name: Use JSON content-type for key-values
+      href: howto-leverage-json-content-type.md
     - name: Route events to a custom endpoint
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
       href: howto-backup-config-store.md
-    - name: Best practices
-      href: howto-best-practices.md
+    - name: Use managed identities to access App Configuration
+      href: howto-integrate-azure-managed-service-identity.md
 - name: Reference
   items:
     - name: Configuration
@@ -145,7 +153,7 @@
       href: https://azure.microsoft.com/pricing/details/app-configuration/
     - name: Videos
       items:
-        - name: Getting started
+        - name: Getting started with App Configuration
           href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
         - name: Feature management
           href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
@@ -153,5 +161,7 @@
           href: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
         - name: Azure App Configuration on Cloud Native Show
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
+        - name: Feature filtering at Azure Friday 
+          url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

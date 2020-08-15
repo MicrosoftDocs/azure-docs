@@ -35,7 +35,7 @@ A trigger is an event that can be used to start the workflow defined in a logic 
 
 1. In the Logic App Designer, type `onedrive` to get a list of the triggers:  
 
-   ![A dialog box titled "Show Microsoft managed APIs" has a box that contains "onedrive". Below that is a list of four triggers. The first of these is "OneDrive - When a file is created". The second, "OneDrive - When a file is modified", has been selected.](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![A dialog box titled "Show Microsoft managed A P I's" has a box that contains "onedrive". Below that is a list of four triggers. The first of these is "OneDrive - When a file is created". The second, "OneDrive - When a file is modified", has been selected.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Select **When a file is modified**. If a connection already exists, then select the Show Picker button to select a folder.
 
@@ -63,7 +63,7 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 3. In the search box, type `onedrive` to get a list of all the available actions.
 
-   ![A dialog box titled "Show Microsoft managed APIs" has a box that contains "onedrive". Below that is a list of eight actions. The first is "OneDrive - Create file", and it is selected.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![A dialog box titled "Show Microsoft managed A P I's" has a box that contains "onedrive". Below that is a list of eight actions. The first is "OneDrive - Create file", and it is selected.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. In our example, choose **OneDrive - Create file**. If a connection already exists, then select the **Folder Path** to put the file, enter the **File Name**, and choose the **File Content** you want:  
 

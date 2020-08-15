@@ -83,7 +83,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 
 ### Configure maximum - existing clusters
 
-The maxPod per node setting can be defined when you create a new node pool. If you need to increase the maxPod per node setting on an existing cluster, add a new node pool with the new desired maxPod count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you are setting node pool modes as defined in the [system node pool document[system-node-pools].
+The maxPod per node setting can be defined when you create a new node pool. If you need to increase the maxPod per node setting on an existing cluster, add a new node pool with the new desired maxPod count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you are setting node pool modes as defined in the [system node pools document][system-node-pools].
 
 ## Deployment parameters
 
@@ -148,6 +148,10 @@ The following questions and answers apply to the **Azure CNI** networking config
 * *Can I deploy VMs in my cluster subnet?*
 
   Yes.
+
+* *What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?*
+
+  Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. 
 
 * *Can I configure per-pod network policies?*
 

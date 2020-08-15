@@ -1,6 +1,6 @@
 ---
 title: Virtual network service endpoints for Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Overview of virtual network service endpoints for Key Vault
+description: Learn how virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network, including usage scenarios.
 services: key-vault
 author: amitbapat
 ms.author: ambapat
@@ -74,7 +74,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Event Hubs|[Allow access to a key vault for customer-managed keys scenario](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Allow access to a key vault for customer-managed keys scenario](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 |Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
-|Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transfer artifacts to another registry](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
 > You must set up the relevant Key Vault access policies to allow the corresponding services to get access to Key Vault.

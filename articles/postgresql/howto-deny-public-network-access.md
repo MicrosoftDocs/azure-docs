@@ -16,7 +16,7 @@ This article describes how you can configure an Azure Database for PostgreSQL Si
 
 To complete this how-to guide, you need:
 
-* An [Azure Database for PostgreSQL Single server](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
+* An [Azure Database for PostgreSQL Single server](quickstart-create-server-database-portal.md)
 
 ## Set Deny Public Network Access
 

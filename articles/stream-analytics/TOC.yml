@@ -1,4 +1,4 @@
-- name: Stream Analytics Documentation
+- name: Azure Stream Analytics documentation
   href: index.yml
 - name: Overview
   items:
@@ -53,6 +53,9 @@
     href: develop-locally.md
   - name: Security
     items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Input types for a job
@@ -119,7 +122,7 @@
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
     href: stream-analytics-output-error-policy.md
-- name: How-to-guides
+- name: How-to guides
   items:
   - name: Manage
     items:

@@ -95,5 +95,3 @@ Each infrastructure update rolls out zone by zone, within a single region. But, 
 ## Next steps 
 
 You can use the [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) or the [portal](maintenance-notifications-portal.md) to manage planned maintenance. 
-
-For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Control and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).

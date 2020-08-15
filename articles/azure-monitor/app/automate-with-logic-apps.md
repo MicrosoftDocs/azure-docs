@@ -126,9 +126,10 @@ When your logic app runs, the recipients you specified in the email list will re
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](../../azure-monitor/log-query/get-started-queries.md).
+- Learn more about creating [Analytics queries](../log-query/get-started-queries.md).
 - Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 
 
 <!--Link references-->
+

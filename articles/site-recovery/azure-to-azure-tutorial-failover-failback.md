@@ -33,7 +33,7 @@ This tutorial describes how to fail over an Azure virtual machine (VM) to a seco
 
 1. In **Replicated items**, select the VM that you want to fail over > **Failover**
 
-   ![Failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Screenshot showing the Failover options for a VM.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. In **Failover**, select a **Recovery Point** to fail over to. You can use one of the
    following options:
@@ -60,7 +60,7 @@ This tutorial describes how to fail over an Azure virtual machine (VM) to a seco
 > [!NOTE]
 > When you fail over a VM to which you add a disk after you enabled replication for the VM, replication points will show the disks that are available for recovery. For example, if a VM has a single disk and you add a new one, replication points that were created before you added the disk will show that the replication point consists of "1 of 2 disks".
 
-![Fail over with an added disk](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Screenshot showing failover with an added disk.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## Reprotect the secondary VM
 
@@ -69,7 +69,7 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 1. Make sure that the VM is in the **Failover committed** state, and check that the primary region is available, and you're able to create and access new resources in it.
 2. In **Vault** > **Replicated items**, right-click the VM that's been failed over, and then select **Re-Protect**.
 
-   ![Right-click to reprotect](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Screenshot of the Re-protection option for a VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Verify that the direction of protection, secondary to primary region, is already selected.
 3. Review the **Resource group, Network, Storage, and Availability sets** information. Any

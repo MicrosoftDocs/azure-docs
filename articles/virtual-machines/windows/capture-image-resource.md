@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
@@ -34,13 +34,15 @@ To generalize your Windows VM, follow these steps:
 
 1. Sign in to your Windows VM.
    
-2. Open a Command Prompt window as an administrator. Change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
+2. Open a Command Prompt window as an administrator. 
+
+3. Delete the panther directory (C:\Windows\Panther). Then change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
    
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)** and select the **Generalize** check box.
+4. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)** and select the **Generalize** check box.
    
-4. For **Shutdown Options**, select **Shutdown**.
+5. For **Shutdown Options**, select **Shutdown**.
    
-5. Select **OK**.
+6. Select **OK**.
    
     ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

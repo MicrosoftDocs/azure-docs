@@ -1,10 +1,10 @@
 ---
-title: Data Lake Analytics security baseline for Azure Security Benchmark
+title: Azure security baseline for Data Lake Analytics
 description: The Data Lake Analytics security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Data Lake Analytics security baseline for Azure Security Benchmark
+# Azure security baseline for Data Lake Analytics
 
 The Azure Security Baseline for Data Lake Analytics contains recommendations that will help you improve the security posture of your deployment.
 
@@ -254,7 +254,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Data Lake Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access controls (RBAC).
+**Guidance**: Data Lake Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by Azure role-based access control (Azure RBAC).
 
 * [Azure Data Lake Analytics Overview](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 
