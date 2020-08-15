@@ -26,7 +26,6 @@ Each Inference object regardless of using HTTP based contract or gRPC based cont
 |Other|Allows for opaque payloads to be serialized.|
 |Common|Inference Type	Single inference data associated with a sample. This is used when you have extension defined inference type.|
 
-
 The example below contains a single event with some supported inference types:
 
 ```
