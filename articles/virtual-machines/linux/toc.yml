@@ -970,7 +970,7 @@
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Reserve Disk Storage
-      href: disks-reserved-capacity.md
+      href: ../disks-reserved-capacity.md
     - name: Create an incremental snapshot - CLI
       href: disks-incremental-snapshots.md
     - name: Create an incremental snapshot - Portal

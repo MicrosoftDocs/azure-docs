@@ -1,14 +1,15 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 01/15/2020
- ms.author: rogarana
- ms.custom: include file
+title: Optimize costs for Azure Disk Storage with reservations
+description: Learn about purchasing Azure Disk Storage reservations to save costs on premium SSD managed disks.
+author: roygara
+ms.author: rogarana
+ms.date: 01/30/2020
+ms.topic: how-to
+ms.service: virtual-machines
+ms.subservice: disks
 ---
+
+# Reduce costs with Azure Disks Reservation
 
 Save on your Azure Disk Storage usage with reserved capacity. Azure Disk Storage reservations combined with Azure Reserved Virtual Machine Instances let you lower your total virtual machine (VM) costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope. Because of this automatic application, you don't need to assign a reservation to a managed disk to get the discounts.
 
@@ -25,7 +26,7 @@ A disk reservation is made per disk SKU. As a result, the reservation consumptio
 For example, assume you reserve one P40 disk that has 2 TiB of provisioned storage capacity. Also assume you allocate only two P30 disks. The P40 reservation in that case doesn't account for P30 consumption, and you pay the pay-as-you-go rate on the P30 disks.
 <br/>
 <br/>
-[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
 
 ## Purchase considerations
 
@@ -49,7 +50,7 @@ In rare circumstances, Azure limits the purchase of new reservations to a subset
 
 ## Buy a disk reservation
 
-You can purchase Azure Disk Storage reservations through the [Azure portal](https://portal.azure.com/). You can pay for the reservation either up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase reservations with monthly payments](../articles/cost-management-billing/reservations/monthly-payments-reservations.md).
+You can purchase Azure Disk Storage reservations through the [Azure portal](https://portal.azure.com/). You can pay for the reservation either up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase reservations with monthly payments](~/articles/cost-management-billing/reservations/monthly-payments-reservations.md).
 
 Follow these steps to purchase reserved capacity:
 
@@ -97,5 +98,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Next steps
 
-- [What are Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Understand how your reservation discount is applied to Azure Disk Storage](../articles/cost-management-billing/reservations/understand-disk-reservations.md)
+- [What are Azure Reservations?](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Understand how your reservation discount is applied to Azure Disk Storage](~/articles/cost-management-billing/reservations/understand-disk-reservations.md)
