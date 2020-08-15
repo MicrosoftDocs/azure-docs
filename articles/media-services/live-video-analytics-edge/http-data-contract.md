@@ -39,9 +39,9 @@ Host: localhost:8080
 x-ms-client-request-id: d6050cd4-c9f2-42d3-9adc-53ba7e440f17
 Content-Type: image/bmp
 Content-Length: 519222
-```
 
 (Image Binary Content)
+```
 
 ## Response
 
