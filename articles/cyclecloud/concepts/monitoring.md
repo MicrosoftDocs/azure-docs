@@ -67,5 +67,19 @@ qmaster service with the keypair configured for the cluster.
 
 ::: moniker range=">=cyclecloud-8"
 ## Azure Monitor
-Clusters deployed by CycleCloud can be monitored using the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) service. It's also possible to store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
+As of CycleCloud 8.0, metrics for a cluster are pulled from [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) instead of Ganglia.
+This removes the need to open port 8652 inbound on nodes.
+
+> [!NOTE]
+> Even clusters that are still at version 7 and have Ganglia pre-installed will get their metrics from Azure Monitor in CycleCloud 8.
+
+The metrics that are collected are:
+
+ * Percentage CPU
+ * Disk Read Bytes
+ * Disk Write Bytes
+ * Network In
+ * Network Out
+
+It's also possible to store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
 ::: moniker-end
