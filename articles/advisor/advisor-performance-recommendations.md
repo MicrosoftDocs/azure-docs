@@ -15,7 +15,7 @@ You can use [time-to-live (TTL) settings](../traffic-manager/traffic-manager-per
 
 Azure Advisor identifies Traffic Manager profiles that have a longer TTL configured. It recommends configuring the TTL to either 20 seconds or 60 seconds, depending on whether the profile is configured for [Fast Failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## Improve database performance by using SQL Database Advisor
+## Improve database performance by using SQL Database Advisor (temporarily disabled)
 
 Azure Advisor provides a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your databases. SQL Database Advisor assesses the performance of your databases by analyzing your usage history. It then offers recommendations that are best suited for running the database's typical workload.
 
