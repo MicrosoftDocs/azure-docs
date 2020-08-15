@@ -11,16 +11,17 @@ ms.date: 07/06/2020
 
 # Offer listing best practices
 
-This article gives suggestions for creating and engaging commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
+This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
 
 ## Storefront offer details
 
 | Storefront setting | Best practice |
 |:--- |:--- |  
-| Offer Name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) <br> <br> Adhere to brand guidelines: follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services. |
+| Offer Name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
 | Offer Description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
 
-The tables in this section provide suggestions for creating and engaging marketplace offers. To write and configure your marketing materials, go to the [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
+> [!IMPORTANT]
+> Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.
 
 ## Storefront listing details
 
@@ -122,7 +123,7 @@ Keywords can help customers find your offer when they search. Identify the top s
 
 ## Link to your offer page from your website
 
-When you link from the AppSource or Azure Marketplace badge on your site to your listing in the marketplace, you can support strong analytics and reporting by including the following query parameters at the end of the URL:
+When you link from the AppSource or Azure Marketplace badge on your site to your listing in the commercial marketplace, you can support strong analytics and reporting by including the following query parameters at the end of the URL:
 * **src**: Include the source from which the traffic is routed to AppSource (for example, website, LinkedIn, or Facebook).
 * **mktcmpid**: Your marketing campaign ID, which can contain up to 16 characters in any combination of letters, numbers, underscores, and hyphens (for example, *blogpost_12*).
 
