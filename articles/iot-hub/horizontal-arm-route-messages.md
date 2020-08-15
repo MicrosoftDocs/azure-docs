@@ -111,7 +111,7 @@ Now the environmental variables are set, run the application from the same comma
 
    The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the ARM template to have automated routing. Messages containing the text "level = storage" are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press Enter once or twice until it stops running.
 
-** View the results
+** Review deployed resources
 
 1. Log in to the (Azure portal)[https://portal.azure.com] and select the Resource Group, then select the storage account.
 
@@ -131,7 +131,7 @@ Now the environmental variables are set, run the application from the same comma
 >
 > If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. 
 >
-> ReadOneRowFromFile is in the IoT C# Samples repository that you unzipped for this quickstart. Here is the path from the top of that folder: `./iot-hub/Tutorials/Routing/SimulatedDevice/Program.cs.` Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
+> ReadOneRowFromFile is in the IoT C# Samples repository that you unzipped for this quickstart. Here is the path from the top of that folder: *./iot-hub/Tutorials/Routing/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
 
 You have deployed an ARM template to create an IoT Hub and a storage account, and run a program to send messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
 
@@ -143,3 +143,4 @@ To remove the resources added during this quickstart, log into the [Azure portal
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+
