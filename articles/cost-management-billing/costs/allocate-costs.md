@@ -57,12 +57,12 @@ When distributing costs proportional to total cost, the proportional percentage 
 Once set, the prefilled percentages defined are fixed. They're used for all ongoing allocations. The percentages change only when the rule is manually updated.
 
 1. Select one of the following options in the **Prefill percentage to** list.
-  - **Distribute evenly** – Each of the targets receives an even percentage proportion of the total cost.
-  - **Total cost** – Creates a ratio proportional to the targets based on their total cost. The ratio is used to distribute the costs from the selected sources.
-  - **Compute cost** - Creates a ratio proportional to the targets based on their Azure compute cost (resource types in the [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
-  - **Storage cost** - Creates a ratio proportional to the targets based on their Azure storage cost (resource types in the [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
-  - **Network cost** - Creates a ratio proportional to the targets based on their Azure network cost (resource types in the [Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
-  - **Custom** – Allows for a whole number percentage to be manually specified. The specified total must equal 100%.
+    - **Distribute evenly** – Each of the targets receives an even percentage proportion of the total cost.
+    - **Total cost** – Creates a ratio proportional to the targets based on their total cost. The ratio is used to distribute the costs from the selected sources.
+    - **Compute cost** - Creates a ratio proportional to the targets based on their Azure compute cost (resource types in the [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions) namespace.The ratio is used to distribute the costs from the selected sources.
+    - **Storage cost** - Creates a ratio proportional to the targets based on their Azure storage cost (resource types in the [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
+    - **Network cost** - Creates a ratio proportional to the targets based on their Azure network cost (resource types in the [Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions) namespace). The ratio is used to distribute the costs from the selected sources.
+    - **Custom** – Allows for a whole number percentage to be manually specified. The specified total must equal 100%.
 1. When the rule is configured, select **Create**.
 
 The allocation rule starts processing. When the rule is active, all the selected source's costs are allocated to the specified targets.
