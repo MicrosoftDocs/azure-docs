@@ -855,7 +855,7 @@
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
     - name: Enable shared disks
-      href: disks-shared-enable.md
+      href: ../disks-shared-enable.md
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
     - name: Securely import/export a disk - Portal

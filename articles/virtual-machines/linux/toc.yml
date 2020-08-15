@@ -956,7 +956,7 @@
       displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
     - name: Enable shared disks
-      href: disks-shared-enable.md
+      href: ../disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
     - name: Securely import/export a disk - CLI
