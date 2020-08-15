@@ -28,7 +28,7 @@ Jupyter Notebooks were originally developed for data science applications writte
 
 **Code sharing:** Services like GitHub provide ways to share code, but they're largely non-interactive. With a Jupyter Notebook, you can view code, execute it, and display the results directly in the Azure portal.
 
-**Live interactions with code:** Code in a Jupyter Ntebook is dynamic; you can edit it and run the updates incrementally in real time. You can also embed user controls (for example, sliders or text input fields) that are used as input sources for code, demos, or Proof of Concepts (POCs).
+**Live interactions with code:** Code in a Jupyter Notebook is dynamic; you can edit it and run the updates incrementally in real time. You can also embed user controls (for example, sliders or text input fields) that are used as input sources for code, demos, or Proof of Concepts (POCs).
 
 **Documentation of code samples and outcomes of data exploration:** If you have a piece of code and you want to explain line-by-line how it works, you can embed it in a Jupyter Notebook. You can add interactivity along with the documentation at the same time.
 
