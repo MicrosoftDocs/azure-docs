@@ -46,13 +46,13 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
     * The **lvaExtension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
     
-    ![lva extension](../../../media/lvaextension-grpc.png)
+    ![lva extension](../../../media/quickstarts/lvaextension-grpc.png)
 
 ### Prepare to monitor events
 
 Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
-![Start monitoring](../../../media/start-monitoring-built-event-endpoint-grpc.png)
+![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### Run the sample program
 

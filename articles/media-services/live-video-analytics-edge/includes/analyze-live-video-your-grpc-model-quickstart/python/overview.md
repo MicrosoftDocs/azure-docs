@@ -1,5 +1,5 @@
 
-![Overview](../../../media/quickstarts/overview-gr[c.png)
+![Overview](../../../media/quickstarts/overview-grpc.png)
 
 This diagram shows how the signals flow in this quickstart. An [edge module](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulates an IP camera hosting a Real-Time Streaming Protocol (RTSP) server. An [RTSP source](../../../media-graph-concept.md#rtsp-source) node pulls the video feed from this server and sends video frames to the [frame rate filter processor](../../../media-graph-concept.md#frame-rate-filter-processor) node. This processor limits the frame rate of the video stream that reaches the [gRPC extension processor](../../../media-graph-concept.md#grpc-extension-processor) node.
 
