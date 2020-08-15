@@ -4,6 +4,7 @@ description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
 ---
