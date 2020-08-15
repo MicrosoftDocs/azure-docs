@@ -31,41 +31,41 @@ This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze
 ## Review the sample video
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/review-sample-video.md)]
+[!INCLUDE [review sample video](includes/analyze-live-video-your-grpc-model-quickstart/csharp/review-sample-video.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/review-sample-video.md)]
+[!INCLUDE [review sample video](includes/analyze-live-video-your-grpc-model-quickstart/python/review-sample-video.md)]
 ::: zone-end
 
 ## Overview
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/overview.md)]
+[!INCLUDE [overview](includes/analyze-live-video-your-grpc-model-quickstart/csharp/overview.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/overview.md)]
+[!INCLUDE [overview](includes/analyze-live-video-your-grpc-model-quickstart/python/overview.md)]
 ::: zone-end
 
 ## Create and deploy the media graph
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## Interpret results
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/csharp/interpret-results.md)]
+[!INCLUDE [interpret results](includes/analyze-live-video-your-grpc-model-quickstart/csharp/interpret-results.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [prerequisites](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
+[!INCLUDE [interpret results](includes/analyze-live-video-your-grpc-model-quickstart/python/interpret-results.md)]
 ::: zone-end
 
 ## Clean up resources
