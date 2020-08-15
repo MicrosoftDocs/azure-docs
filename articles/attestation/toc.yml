@@ -18,9 +18,9 @@
     href: sgx-enclave-sdk.md
 - name: Samples
   items:
-    - name: Examples of an attestation policy
+    - name: Attestation policy
       href: policy-examples.md
-    - name: Examples of policy signer certificate
+    - name: Policy signer certificate
       href: policy-signer-examples.md
 - name: Concepts
   items:
