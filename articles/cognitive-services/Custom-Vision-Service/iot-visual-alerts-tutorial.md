@@ -27,7 +27,7 @@ This tutorial will show you how to:
 > * Use the app to train your Custom Vision project.
 > * Use the app to score new images in real time and send the results to Azure.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin. 
 
 ## Prerequisites
 
