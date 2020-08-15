@@ -29,7 +29,7 @@ Attestation provider is a resource type of Azure resource provider named Microso
 Azure Attestation provides a default provider in each region. Customers can choose to use the default provider for attestation, or create their own providers with custom policies. The default providers are accessible by any Azure AD user and the policy associated with a default provider cannot be altered.
 
 | Region | Attest Uri | 
-|--|--|--|--|
+|--|--|
 | UK South | https://shareduks.uks.attest.azure.net | 
 | US East 2 | https://sharedeus2.eus2.attest.azure.net | 
 | Central US | https://sharedcus.cus.attest.azure.net | 
