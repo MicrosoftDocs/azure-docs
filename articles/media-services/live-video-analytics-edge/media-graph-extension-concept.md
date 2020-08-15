@@ -45,7 +45,7 @@ Media Graph Extensions allow you to run inference models of your choice on any a
 
 The diagram below depicts the high-level data flow:
  
-![Data flow(./media/overview/data-flow.png)
+![Data flow](./media/media-graph-extension/data-flow.png)
 
 ## Samples
 

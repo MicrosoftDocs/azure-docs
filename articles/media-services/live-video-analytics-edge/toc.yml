@@ -71,6 +71,8 @@
   items:
   - name: Media graph
     href: media-graph-concept.md
+  - name: Media graph extension
+    href: media-graph-extension-concept.md
   - name: Video recording 
     href: video-recording-concept.md
   - name: Video playback
@@ -103,6 +105,12 @@
     href: troubleshoot-how-to.md
 - name: Reference
   items:
+  - name: HTTP data contract
+    href: http-data-contract.md
+  - name: gRPC data contract
+    href: grpc-data-contract.md  
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md  
   - name: Direct methods
     href: direct-methods.md
   - name: Module Twin configuration schema  
