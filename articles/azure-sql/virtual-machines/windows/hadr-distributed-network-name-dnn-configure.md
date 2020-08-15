@@ -152,6 +152,29 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
+## Avoid IP conflict
+
+This is an optional step to prevent the virtual IP (VIP) address used by the FCI resource from being assigned to another resource in Azure as a duplicate. 
+
+Although customers now use the DNN to connect to the SQL Server FCI, the virtual network name (VNN) and virtual IP cannot be deleted as they are necessary components of the FCI infrastructure. However, since there is no longer a load balancer reserving the virtual IP address in Azure, there is a risk that another resource on the virtual network will be assigned the same IP address as the virtual IP address used by the FCI. This can potentially lead to a duplicate IP conflict issue. 
+
+Configure an APIPA address or a dedicated network adapter to reserve the IP address. 
+
+### APIPA address
+
+To avoid using duplicate IP addresses, configure an APIPA address (also known as a link-local address). To do so, run the following command:
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+In this command, "virtual IP address" is the name of the clustered VIP address resource, and "169.254.1.1" is the APIPA address chosen for the VIP address. Choose the address that best suits your business. Set `OverrideAddressMatch=1` to allow the IP address to be on any network, including the APIPA address space. 
+
+### Dedicated network adapter
+
+Alternatively, configure a network adapter in Azure to reserve the IP address used by the virtual IP address resource. However, this consumes the address in the subnet address space, and there is the additional overhead of ensuring the network adapter is not used for any other purpose.
+
 ## Limitations
 
 - Currently, a DNN is supported only for SQL Server 2019 CU2 and later on Windows Server 2016. 
