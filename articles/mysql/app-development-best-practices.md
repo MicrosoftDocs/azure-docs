@@ -42,7 +42,7 @@ To calculate the largest possible size of tmp_table_size and max_heap_table_size
 ### Resetting your password
 You can [reset your password](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) for your MySQL server using Azure portal. 
 
-Resetting your sevrer password for a production database can bring down your application. It is a good pattern to reset the password for any production workloads at off-peak hours to minimize the impact to your application end users.
+Resetting your server password for a production database can bring down your application. It is a good pattern to reset the password for any production workloads at off-peak hours to minimize the impact to your application end users.
 
 ## Performance and Resiliency 
 Here are a few tools and patterns that you can use to help debug performance issues with your application.
