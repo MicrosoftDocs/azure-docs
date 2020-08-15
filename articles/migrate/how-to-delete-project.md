@@ -24,6 +24,9 @@ Before you delete a project:
     - Before you delete the project, you can find a link to the workspace in **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
     - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/platform/delete-workspace.md).
 
+> [!NOTE]
+> The project artifact deletion is irreversible process, once the these artifacts are deleted they cannot be recovered.
+
 
 ## Delete a project
 
