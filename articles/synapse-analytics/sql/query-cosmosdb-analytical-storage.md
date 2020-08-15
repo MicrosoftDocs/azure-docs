@@ -1,6 +1,6 @@
 ---
-title: Query documents in Azure Cosmos DB analytical storage using SQL on-demand (preview)
-description: In this article, you'll learn how to query Azure Cosmos DB documents using Synapse SQL Link for Azure Cosmos DB using SQL on-demand (preview).
+title: Query Azure Cosmos DB analytical storage using Synapse SQL on-demand (preview)
+description: In this article, you'll learn how to query Azure Cosmos DB analytical storage using Synapse SQL Link for Azure Cosmos DB using SQL on-demand (preview).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -35,7 +35,7 @@ This example uses a data from [European Centre for Disease Prevention and Contro
 
 See the license and the structure of data on these pages, and also sample data for [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) data sets.
 
-You can import data into Azure Cosmos DB container using [Data Explorer](/azure/cosmos-db/data-explorer.md) or [Data Migration Tool](/azure/cosmos-db/import-data.md#JSON).
+You can import data into Azure Cosmos DB container directly using [Data Explorer](/azure/cosmos-db/data-explorer.md) or use [Data Migration Tool](/azure/cosmos-db/import-data.md#JSON).
 
 ## Explore Azure Cosmos DB data
 
@@ -226,8 +226,11 @@ choose sql types that match these values if you are using `WITH` clause. See bel
 | Integer | bigint |
 | Date time (unix timestamp) | bigint |
 | Date time (ISO format) | varchar(30) |
-| String | varchar (UTF8 collation) |
-| Nested object | varchar(max), serialized as JSON text |
+| String | varchar (UTF8 database collation) |
+| Nested object | varchar(max) (UTF8 database collation), serialized as JSON text |
+
+> [!IMPORTANT]
+> Make sure that you have set [UTF8 collation of the database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) using some SQL statement like `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8`.
 
 ## Next steps
 
