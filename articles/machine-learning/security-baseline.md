@@ -173,7 +173,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 **Guidance**: Use tags for network resources associated with your Azure Machine Learning deployment in order to logically organize them according to a taxonomy.
 
-For an resources in your Azure Machine Learning virtual network that support the Description field, use it to document the rules that allow traffic to/from a network.
+For an resource in your Azure Machine Learning virtual network that support the Description field, use it to document the rules that allow traffic to/from a network.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -287,7 +287,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results from your Azure Machine Learning. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
-Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
 - [How to perform queries for Azure Machine Learning in Log Analytics Workspaces](monitor-azure-machine-learning.md#analyzing-log-data)
 
@@ -327,7 +327,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32543.).
 
-**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for Antimalware deployment of Azure Machine Learning service . 
+**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for Antimalware deployment of Azure Machine Learning service. 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, enable antimalware event collection for Microsoft Antimalware for Azure Cloud Services and Virtual Machines.
 
@@ -404,7 +404,7 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 **Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, create standard operating procedures around the use of owner accounts.
 
-You can also enable a just-in-time access to administrative accounts byusing Azure AD Privileged Identity Management and Azure Resource Manager. 
+You can also enable a just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
 - [To learn more Machine Learning default roles](how-to-assign-roles.md#default-roles)
 
@@ -713,7 +713,7 @@ Microsoft manages the underlying infrastructure for Machine Learning and has imp
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32568.).
 
-**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for vulnerability management of Azure Machine Learning service . 
+**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for vulnerability management of Azure Machine Learning service. 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, follow the recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines, container images, and SQL servers.
 
@@ -728,7 +728,7 @@ Azure Machine Learning has varying support across different compute resources an
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32569.).
 
-**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for patch management of Azure Machine Learning service . 
+**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for patch management of Azure Machine Learning service. 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Automation Update Management to ensure that the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.
 
@@ -885,7 +885,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Security Center's File Integrity Monitoring (FIM) to identify all software installed on VMs. Another option that can be used instead of or in conjunction with FIM is Azure Automation Change Tracking and Inventory to collect inventory from your Linux and Windows VMs. 
 
-You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.
+You can implement your own process for removing unauthorized software. You can also use a third-party solution to identify unapproved software.
 
 Remove Azure resources when they are no longer needed.
 
@@ -999,7 +999,7 @@ Implement a third-party solution if adaptive application controls don't not meet
 
 **Guidance**: Define and implement standard security configurations for your Azure Machine Learning service with Azure Policy. Use Azure Policy aliases in the "Microsoft.MachineLearning" namespace to create custom policies to audit or enforce the configuration of your Azure Machine Learning services.
 
-Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
+Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
 
 You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
@@ -1022,7 +1022,7 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32587.).
 
-**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for operating system secure configurations of Azure Machine Learning service .
+**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for operating system secure configurations of Azure Machine Learning service.
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Security Center recommendations to maintain security configurations on all compute resources.  Additionally, you can use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
 
@@ -1064,7 +1064,7 @@ Azure Machine Learning has varying support across different compute resources an
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32589.).
 
-**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for operating system secure configurations of Azure Machine Learning service .
+**Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for operating system secure configurations of Azure Machine Learning service.
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure compute resources.  In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization.   The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements. 
 
@@ -1249,7 +1249,7 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 Azure Machine Learning has varying support across different compute resources
 and even your own compute resources. For compute resources that are owned by
 your organization, use Microsoft Antimalware for Azure to continuously monitor
-and defend your resources. For Linux, use third party antimalware solution. Also,
+and defend your resources. For Linux, use third-party antimalware solution. Also,
 use Azure Security Center's threat detection for data services to detect malware
 uploaded to storage accounts.
 
@@ -1281,7 +1281,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Microsoft anti-malware is enabled and maintained for the underlying host that supports Azure services (for example, Azure Machine learning), however, it does not run on customer content.
 
-Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, follow recommendations in Azure Security Center, Compute &amp; Apps to ensure all endpoints are up to date with the latest signatures. For Linux, use third party antimalware solution.
+Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, follow recommendations in Azure Security Center, Compute &amp; Apps to ensure all endpoints are up to date with the latest signatures. For Linux, use third-party antimalware solution.
 
 - [How to deploy Microsoft Antimalware for Azure](../security/fundamentals/antimalware.md)
 
@@ -1314,7 +1314,7 @@ Azure Machine Learning has varying support across different compute resources an
 **Guidance**: Data
 backup in Machine Learning service is through data managements on connected
 data stores. Enable Azure Backup for VMs and configure the desired frequency
-and retention periods. Backup customer-managed keys in Azure Key Vault.
+and retention periods. Back up customer-managed keys in Azure Key Vault.
 
 - [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
 - [How to restore Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
@@ -1344,7 +1344,7 @@ customer-managed keys.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32605.).
 
-**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. Use role-based access control to protect backups and customer managed keys. 
+**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. Use role-based access control to protect backups and customer-managed keys. 
 
 Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  
