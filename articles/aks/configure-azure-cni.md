@@ -149,6 +149,10 @@ The following questions and answers apply to the **Azure CNI** networking config
 
   Yes.
 
+* *What source IP do external systems see for traffic that originates in an Azure CNI-enabled pod?*
+
+  Systems in the same virtual network as the AKS cluster see the pod IP as the source address for any traffic from the pod. Systems outside the AKS cluster virtual network see the node IP as the source address for any traffic from the pod. 
+
 * *Can I configure per-pod network policies?*
 
   Yes, Kubernetes network policy is available in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
