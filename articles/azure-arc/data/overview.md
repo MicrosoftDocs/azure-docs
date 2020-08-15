@@ -20,8 +20,8 @@ Azure Arc enables running Azure data services on-premises, at the edge, and in p
 
 Currently, the following Azure Arc enabled data services are available in preview:
 
-* SQL Managed Instance
-* PostgreSQL Hyperscale
+- SQL Managed Instance
+- PostgreSQL Hyperscale
 
 Additional capabilities and services will be added in future releases which will occur approximately every month.
 
@@ -43,8 +43,8 @@ Many of the services such as self-service provisioning, automated backups/restor
 
 ## Next steps
 
-[Scenario: Deploy the Azure Arc data controller](create-data-controller.md)
+[Deploy the Azure Arc data controller](create-data-controller.md)
 
-[Scenario: Deploy an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires deployment of a Azure Arc data controller first)
+[Deploy an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires deployment of an Azure Arc data controller first)
 
-[Scenario: Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md) (requires deployment of a Azure Arc data controller first)
+[Deploy an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md) (requires deployment of an Azure Arc data controller first)
