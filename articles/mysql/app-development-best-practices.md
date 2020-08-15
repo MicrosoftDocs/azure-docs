@@ -63,7 +63,7 @@ Your application could experience [transient errors](https://docs.microsoft.com/
 A good pattern to follow with retry is to wait for 5 seconds before your first retry and then follow each retry by increasing the wait gradually upto 60 seconds. Limit the max number of retries at which point your application considers the operation failed so you can then further investigate. See [how to troubleshoot connection errors](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) to learn more. 
 
 ### Enable read replication to mitigate failovers
-You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When using read replicas, no automated failover between master and replica servers occur. You will noticed a lag between the master and the replica since the replication is asynchronous. Network lag can be influenced by a many factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes.
+You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When using read replicas, no automated failover between master and replica servers occur. You will notice a lag between the master and the replica since the replication is asynchronous. Network lag can be influenced by a many factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes.
 
 ## Database Deployment 
 
@@ -75,7 +75,7 @@ During manual database deployment, here is a good pattern to follow to minimize 
 
 1. Create a copy of production database on a new database using [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [MySQL workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) 
 2. Update the new database with your new schema changes or updates needed for your database. 
-3. Put the production database on read-only state. You should not have write operations being performed on the production database until deployment is completed. 
+3. Put the production database on read-only state. You should not have write operations on the production database until deployment is completed. 
 4. Test your application with the newly updated database from step 1.
 5. Deploy your application changes and make sure the application is now using the new database that has the latest updates. 
 6. Keep the old production database so that you can roll back the changes. You can then evaluate to either delete the old production database or export it on Azure storage if needed. 
@@ -85,7 +85,7 @@ During manual database deployment, here is a good pattern to follow to minimize 
 >  - Make sure your application code also handles any failed requests.
 
 ### Use MySQL native metrics to see if your workload is exceeding in-memory temporary table sizes
-With a read-heavy workload, queries executing against your MySQL server could exceed the in-memory temporary table sizes. It can cause your server to switch to writing temporary tables to disk, thus affecting the performance for your application. To determine if your server is writing to disk as a result of exceeding temporary table size, look at the following metrics:
+With a read-heavy workload, queries executing against your MySQL server could exceed the in-memory temporary table sizes. It can cause your server to switch to writing temporary tables to disk which affects the performance for your application. To determine if your server is writing to disk as a result of exceeding temporary table size, look at the following metrics:
 
 ```
 show global status like 'created_tmp_disk_tables';
@@ -102,10 +102,10 @@ Ideally, this percentage should be less 25%. If you see that the percentage is 2
 
 ## Database Schema and Queries
 
-Here are few tips and tricks to keep in mind when you build your database schema and/or you database queries.
+Here are few tips and tricks to keep in mind when you build your database schema and your queries.
 
 ### Always use the right datatype for your  Table columns
-Using the right datatypes based on the type of data you want to store can optimize storage and reduce any errors that can occur due to incorrect datatypes.
+Using the right datatypes based on the type of data you want to store can optimize storage and reduce any errors that can occur because of incorrect datatypes.
 
 ### Use Indexes
 To avoid slow queries, you can use Indexes. Indexes can help find rows with specific columns quickly. See [how to use Indexes in MySQL](https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html).
