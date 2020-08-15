@@ -16,9 +16,9 @@ This article covers how to enable the shared disks feature for Azure managed dis
 
 If you are looking for conceptual information on managed disks that have shared disks enabled, refer to:
 
-* For Linux: [Azure shared disks](./disks-shared.md)
+* For Linux: [Azure shared disks](./linux/disks-shared.md)
 
-* For Windows: [Azure shared disks](./disks-shared.md)
+* For Windows: [Azure shared disks](./windows/disks-shared.md)
 
 ## Limitations
 
