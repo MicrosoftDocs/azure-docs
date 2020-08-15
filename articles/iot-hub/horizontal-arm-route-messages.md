@@ -32,9 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is called `101-iothub-auto-route-messages` from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-iothub-auto-route-messages).
 
-<!-- robin -- should see your tempate here?  -->
-> [!NOTE]
-> list of templates goes here
+<!-- show template -->s
 
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json" :::
 
@@ -63,19 +61,19 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. You need the **hub name**. Select the hub in the list of resources. Copy the name of the hub from the top of the IoT Hub section to the Windows clipboard. 
  
-  ![Copy the hub name](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
+   ![Copy the hub name](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
-   Substitute the hub name in this command where noted, and execute this command in the command window:
+    Substitute the hub name in this command where noted, and execute this command in the command window:
    
-```cmd
-   SET IOT_HUB_URI="<hub name goes here>.azure-devices-net";
-```
+    ```cmd
+    SET IOT_HUB_URI=<hub name goes here>.azure-devices-net;
+    ```
 
    which will look this example:
 
-```cmd
-   SET IOT_HUB_URI="ContosoTestHubdlxlud5h.azure-devices-net";
-```
+   ```cmd
+   SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
+   ```
 
 1. The next environmental variable is the IoT Device Key. Add a new device to the hub by selecing **IOT Devices** from the IoT Hub menu for the hub. 
 
@@ -91,27 +89,27 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. The last environment variable is the **Device ID**. In the command window, set up the command and execute it. 
    
-   ```CMD
+   ```cms
    SET IOT_DEVICE_ID=<device-id-goes-here> 
    ```
 
    which will look like this example:
 
-   ```CMD
-   ```SET IOT_DEVICE_ID=Contoso-Test-Device
+   ```cmd
+   SET IOT_DEVICE_ID=Contoso-Test-Device
    ```
 
 1. To see the environment variables you've defined, type SET on the command line and press <Enter>, then look for the ones starting with **IoT**.
 
-  ![See environmental variables](./media/horizontal-arm-route-messages/06-environmental-variables.png)
+   ![See environmental variables](./media/horizontal-arm-route-messages/06-environmental-variables.png)
 
 Now the environmental variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
 
 1. To run the application, type the following command in the command window and press <Enter>.
 
-    `dotnet run arm-read-write\
+    `dotnet run arm-read-write`
 
-The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the ARM template to have automated routing. Messages containing the text "level = storage" are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press Enter one or twice until it stops running.
+   The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the ARM template to have automated routing. Messages containing the text "level = storage" are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press Enter one or twice until it stops running.
 
 ** View the results
 
@@ -123,18 +121,22 @@ The application generates and displays messages on the console as it sends each 
 
 1. Select one of the files and select **Download** and download the file to a location you can find later. It will have a name that's numeric, like 47. Add ".txt" to the end and then double-click on the file to open it.
 
-1. When you open the file, each row is a different message; the body of each messages is encrypted. 
+1. When you open the file, each row is for a different message; the body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
 
    ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
 
-> [!NOTE]
-> The messages are encrypted as UTF32 and then base64. If you want to decrypt one (or more) of the messages, there's a block of code in the sample for the Routing Tutorial that shows how to do that. If you look in the c# samples that you have already unzipped for this quickstart, the method is called ReadOneRowFromFile and is in /iot-hub/Tutorials/Routing/SimulatedDevice/Program.cs. You can set a toggle to read the file, and give the path to the file name, and it will translate it for you.
 
-** You have created an IoT Hub and a storage account, and run a program to send messages to the hub. The messages are then routed to the storage account using the configuration that originally came from the ARM template.
+> [!NOTE]
+> These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. 
+> If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. 
+> ReadOneRowFromFile is in the IoT C# Samples repository that you unzipped for this quickstart. Here is the path from the top of that folder: ./iot-hub/Tutorials/Routing/SimulatedDevice/Program.cs. Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it will open and translate the first row in the file.
+
+
+** You have deployed an ARM template to create an IoT Hub and a storage account, and run a program to write messages to the hub. The messages are then automatically stored in the storage account where they can be viewed.
 
 ## Clean up resources
 
-To clean up the resources created in this quickstart, log in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Delete the resource group. It will delete all of the resources in the group.
+To remove the resources added during this quickstart, log into the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. It will delete all of the resources in the group.
 
 ## Next steps
 
