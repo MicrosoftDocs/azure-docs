@@ -73,6 +73,7 @@ Known issues and limitations associated with online migrations from PostgreSQL t
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
+- You can migrate up to 2 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service. 
 
 ## Datatype limitations
 
