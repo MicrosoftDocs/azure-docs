@@ -12,12 +12,18 @@ ms.topic: conceptual
 
 # Explore and manage your resources with asset inventory and management tools
 
-The asset inventory page of Azure Security Center provides a single page for full visibility of the resources you've connected to Security Center. You can use this view and its filters to address such questions as:
+The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. 
 
-- Which of my subscriptions are on Security Center's standard tier?
+Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+
+When any resource has outstanding recommendations, they'll appear in the inventory.
+
+Use this view and its filters to address such questions as:
+
+- Which of my standard tier subscriptions has outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
-- How many of my machines are tagged with a specific tag?
-- How many resources in a specific resource group have active security alerts​ or findings from a vulnerability assessment service?
+- How many of my machines, tagged with a specific tag have outstanding recommendations?
+- How many resources in a specific resource group have security findings from a vulnerability assessment service?
 
 The asset management possibilities for this tool are substantial and continue to grow. 
 
@@ -39,7 +45,7 @@ The inventory page provides the following tools:
 
 - **Summaries** - Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
-    - **Total resources**: The total number of resources connected to Security Center
+    - **Total resources**: The total number of resources connected to Security Center.
     - **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
     - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
 
@@ -111,17 +117,13 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 ## FAQ - Inventory
 
-### Why aren't all of my subscriptions, machines, storage accounts, etc shown?
+### Why aren't all of my subscriptions, machines, storage accounts, etc. shown?
 
-Shows all resources from a CSPM view
-All rec from the resources 
+The inventory view lists your resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
 
+For example, if you have 9 subscriptions but only eight currently have recommendations, when you filter by **Resource type = Subscriptions** you will only see the eight subscriptions with active recommendations:
 
-
-### How do I query my tags in Azure Resource Graph Explorer?
-
-
-
+![Inventory query in ARG](./media/asset-inventory/filtered-subscriptions-some.png)
 
 
 
