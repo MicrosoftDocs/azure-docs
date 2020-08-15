@@ -25,7 +25,7 @@ In this article, you choose an option to easily test the Speech service free of 
 
 Complete the following steps to activate a 30-day free trial and get API keys. Your trial period starts immediately once the following steps are complete.
 
-1. Go to [Try Cognitive Service](https://azure.microsoft.com/try/cognitive-services/).
+1. Go to [Try Cognitive Service](https://azure.microsoft.com/free/cognitive-services).
 1. Select the **Speech APIs** tab.
 1. Choose **Get API Key**.
 
