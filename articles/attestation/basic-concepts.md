@@ -24,7 +24,17 @@ ms.author: mbaldwin
 
 Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM) which supports Role-Based Access Control (RBAC). Each attestation provider honors a specific, discoverable policy. 
 
-Example of URI of an attestation provider: htt<span>ps</span>://tradewinds.us.attest.azure.net
+### Regional default provider
+
+Azure Attestation provides a default provider in each region. Customers can choose to use the default provider for attestation, or create their own providers with custom policies. The default providers are accessible by any Azure AD user and the policy associated with a default provider cannot be altered.
+
+| Region | Attest Uri | 
+|--|--|--|--|
+| UK South | https://shareduks.uks.attest.azure.net | 
+| US East 2 | https://sharedeus2.eus2.attest.azure.net | 
+| Central US | https://sharedcus.cus.attest.azure.net | 
+| East US| https://sharedeus.eus.attest.azure.net | 
+| Canada Central | https://sharedcac.cac.attest.azure.net | 
 
 ## Attestation request
 
