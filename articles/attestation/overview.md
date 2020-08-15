@@ -71,9 +71,9 @@ The below table describes Azure Attestation rollout plan in different regions.
 | UK South | TEE | SGX enclave attestation | Live |
 | US East 2 | Non TEE | SGX & VBS enclave attestation | Live 
 | Central US | Non TEE | SGX & VBS enclave attestation | Live
-| Canada Central | TEE | | Expected soon |
+| East US| TEE | SGX enclave attestation | Live |
+| Canada Central | TEE | SGX enclave attestation | Live |
 | Canada East | TEE | SGX enclave attestation | Expected soon |
-| East US| TEE | SGX enclave attestation | Expected soon |
 | West US | TEE | SGX enclave attestation | Expected soon |
 | West Europe | TEE | SGX enclave attestation | Expected soon |
 | North Europe | TEE | SGX enclave attestation | Expected soon |
