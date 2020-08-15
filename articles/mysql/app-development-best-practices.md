@@ -68,7 +68,7 @@ You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-d
 ## Database Deployment 
 
 ### Configure Azure database for MySQL task in your CI/CD deployment pipeline
-Occassionaly you would need to deploy changes to your database. In such cases, you can create use continuous integration (CI) and continuous delivery (CD) through [Azure pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom script against your database.
+Occassionaly you would need to deploy changes to your database. In such cases, you can create use continuous integration (CI) and continuous delivery (CD) through [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom script against your database.
 
 ### Manual Database deployment 
 During manual database deployment, here is a good pattern to follow to minimize downtime or reduce risk of failed deployment: 
