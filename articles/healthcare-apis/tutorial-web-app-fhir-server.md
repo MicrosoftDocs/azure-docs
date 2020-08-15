@@ -9,6 +9,8 @@ ms.reviewer: mihansen
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
+ms.custom: devx-track-javascript
+
 ---
 
 # Deploy JavaScript app to read data from FHIR service

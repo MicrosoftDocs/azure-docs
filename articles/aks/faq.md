@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 07/31/2020
 
 ---
 
@@ -186,6 +186,10 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 ## Can I use custom VM extensions?
 
 No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+
+## Does AKS store any customer data outside of the cluster's region?
+
+No. All data created in an AKS cluster is maintained within the cluster's region.
 
 <!-- LINKS - internal -->
 

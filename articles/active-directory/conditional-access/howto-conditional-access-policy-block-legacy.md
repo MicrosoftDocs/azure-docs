@@ -33,7 +33,7 @@ The following steps will help create a Conditional Access policy to block legacy
    1. Select **Done**.
 1. Under **Cloud apps or actions**, select **All cloud apps**.
    1. Select **Done**.
-1. Under **Conditions** > **Client apps (preview)**, set **Configure** to **Yes**.
+1. Under **Conditions** > **Client apps (preview)**, under **Select the client apps this policy will apply to**:
    1. Check only the boxes **Mobile apps and desktop clients** > **Other clients**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**.

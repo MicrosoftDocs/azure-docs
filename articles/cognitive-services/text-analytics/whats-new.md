@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
@@ -18,9 +18,9 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## July 2020
 
-### Text Analytics for Health Container Public gated preview
+### Text Analytics for health container - Public gated preview
 
-The Text Analytics for Health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for Health container usage. 
+The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage. 
 
 The container offers the following features:
 
@@ -31,7 +31,7 @@ The container offers the following features:
 
 
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics for Health container](how-tos/text-analytics-for-health.md)
+> [Learn more about Text Analytics for health container](how-tos/text-analytics-for-health.md)
 
 ## May 2020
 

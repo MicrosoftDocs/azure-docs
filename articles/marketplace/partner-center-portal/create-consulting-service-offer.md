@@ -1,8 +1,8 @@
 ---
 title: Create a consulting service offer - Microsoft commercial marketplace
 description: Learn how to publish a consulting service offer to either Microsoft AppSource or Azure Marketplace using Partner Center.
-author: anbene
-ms.author: mingshen
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -202,12 +202,14 @@ Provide logos and images to use with your offer. All images must be in .png form
 
 #### Store logos
 
-Provide PNG files of your offer's logo in each of the following pixel sizes:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image.
 
-- **Small (48 x 48)**
-- **Large (216 x 216)**
+Both logo sizes are required for use in different places in the listing:
 
-All logos are required and are used in different places in the marketplace listing.
+- **Small** (48 x 48)
+- **Large** (between 216 x 216 and 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 

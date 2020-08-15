@@ -1,5 +1,5 @@
 ---
-title: Set RBAC roles for Azure administrative access
+title: Set Azure roles for Azure administrative access
 titleSuffix: Azure Cognitive Search
 description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ---
 
-# Set RBAC roles for administrative access to Azure Cognitive Search
+# Set Azure roles for administrative access to Azure Cognitive Search
 
 Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
@@ -25,7 +25,7 @@ For Azure Cognitive Search, roles are associated with permission levels that sup
 | Role | Task |
 | --- | --- |
 | Owner |Create or delete the service or any object on the service, including api-keys, indexes, indexers, indexer data sources, and indexer schedules.<p>View service status, including counts and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription administrators and service owners have automatic membership in the Owners role. |
-| Contributor |Same level of access as Owner, minus RBAC role management. For example, a Contributor can create or delete objects, or view and regenerate [api-keys](search-security-api-keys.md), but cannot modify role memberships. |
+| Contributor |Same level of access as Owner, minus Azure role management. For example, a Contributor can create or delete objects, or view and regenerate [api-keys](search-security-api-keys.md), but cannot modify role memberships. |
 | [Search Service Contributor built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalent to the Contributor role. |
 | Reader |View service essentials and metrics. Members of this role cannot view index, indexer, data source, or key information.  |
 

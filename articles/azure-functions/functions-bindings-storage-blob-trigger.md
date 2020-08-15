@@ -326,7 +326,7 @@ The following example triggers only on blobs in the `input` container that start
 "path": "input/original-{name}",
 ```
 
-If the blob name is *original-Blob1.txt*, the value of the `name` variable in function code is `Blob1`.
+If the blob name is *original-Blob1.txt*, the value of the `name` variable in function code is `Blob1.txt`.
 
 ### Filter on file type
 

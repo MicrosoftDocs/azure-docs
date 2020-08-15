@@ -201,7 +201,7 @@ Your security team needs visibility into your Azure resources in order to assess
 You can use [RBAC](/azure/role-based-access-control/overview) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 **Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.
-**Detail**: Use [built-in RBAC roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
+**Detail**: Use [Azure built-in roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
 
 > [!Note]
 > Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Azure AD.

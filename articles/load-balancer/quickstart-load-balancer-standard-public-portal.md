@@ -17,7 +17,7 @@ ms.author: allensu
 ms.custom: mvc
 ---
 
-# Quickstart: Create a load balancer to load balance VMs using the Azure portal
+# Quickstart: Create a public load balancer to load balance VMs using the Azure portal
 
 Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and three virtual machines.
 
@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ---
 
-# [Option 1 (default): Create a load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# [Option 1 (default): Create a public load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -71,7 +71,7 @@ In this section, you configure:
 
 * Load balancer settings for a backend address pool.
 * A health probe.
-* A load balancer rule and an automatic outbound rule.
+* A load balancer rule.
 
 ### Create a backend pool
 
@@ -106,7 +106,7 @@ Create a health probe named **myHealthProbe** to monitor the health of the VMs.
     | Unhealthy threshold | Select **2** for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
     | | |
 
-3. Select **OK**.
+3. Leave the rest the defaults and Select **OK**.
 
 ### Create a load balancer rule
 
@@ -135,7 +135,7 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Create implicit outbound rules | Select **Yes**. </br> For more information and advanced outbound rule configuration, see: </br> [Outbound connections in Azure](load-balancer-outbound-connections.md) </br> [Configure load balancing and outbound rules in Standard Load Balancer by using the Azure portal](configure-load-balancer-outbound-portal.md)
+    | Create implicit outbound rules | Select **No**.
 
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -232,8 +232,51 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **2** |**3**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
 
+## Create outbound rule configuration
+Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
 
-# [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
+
+### Create outbound rule
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Outbound rules**, then select **Add**.
+
+3. Use these values to configure the outbound rules:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myOutboundRule**. |
+    | Frontend IP address | Select **Create new**. </br> In **Name**, enter **LoadBalancerFrontEndOutbound**. </br> Select **IP address** or **IP prefix**. </br> Select **Create new** under **Public IP address** or **Public IP prefix**. </br> For Name, enter  **myPublicIPOutbound** or **myPublicIPPrefixOutbound**. </br> Select **OK**. </br> Select **Add**.|
+    | Idle timeout (minutes) | Move slider to **15 minutes**.|
+    | TCP Reset | Select **Enabled**.|
+    | Backend pool | Select **Create new**. </br> Enter **myBackendPoolOutbound** in **Name**. </br> Select **Add**. |
+    | Port allocation -> Port allocation | Select **Manually choose number of outbound ports** |
+    | Outbound ports -> Choose by | Select **Ports per instance** |
+    | Outbound ports -> Ports per instance | Enter **10000**. |
+
+4. Select **Add**.
+
+### Add virtual machines to outbound pool
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Backend pools**.
+
+3. Select **myBackendPoolOutbound**.
+
+4. In **Virtual network**, select **myVNet**.
+
+5. In **Virtual machines**, select **+ Add**.
+
+6. Check the boxes next to **myVM1**, **myVM2**, and **myVM3**. 
+
+7. Select **Add**.
+
+8. Select **Save**.
+
+# [Option 2: Create a public load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -420,8 +463,9 @@ These VMs are added to the backend pool of the load balancer that was created ea
 5. Select the **Management** tab, or select **Next** > **Management**.
 
 6. In the **Management** tab, select or enter:
+    
     | Setting | Value |
-    |-|-|
+    |---|---|
     | **Monitoring** | |
     | Boot diagnostics | Select **Off** |
 
@@ -436,9 +480,28 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+### Add virtual machines to the backend pool
+
+The VMs created in the previous steps must be added to the backend pool of **myLoadBalancer**.
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Backend pools**, then select **myBackendPool**.
+
+3. Select **Virtual machines** in **Associated to**.
+
+4. In the **Virtual machines** section, select **+ Add**.
+
+5. Select the boxes next to **myVM1**, **myVM2**, and **myVM3**.
+
+6. Select **Add**.
+
+7. Select **Save**.
+
 ---
 
-### Install IIS
+## Install IIS
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
 

@@ -5,12 +5,12 @@ description: Learn how to deploy a web service with a model running on an FPGA w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
-ms.custom: seodec18, contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy

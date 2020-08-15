@@ -72,7 +72,7 @@ Possible causes:
 
 *The user trying to create a VM or virtual machine scale set doesn’t have the read access to the image version.*
 
-Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *The image version is not found.*
 
@@ -93,6 +93,3 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 ## Azure limits and quotas 
 
 [Azure limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
-
-
-

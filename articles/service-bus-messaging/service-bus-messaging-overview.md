@@ -87,7 +87,7 @@ An error could cause the client to have a doubt about the outcome of a send oper
 ### Security protocols
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](authenticate-application.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Azure role-based access control (Azure RBAC)](authenticate-application.md) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
 ### Geo-disaster recovery
 

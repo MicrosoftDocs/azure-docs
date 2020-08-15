@@ -512,6 +512,8 @@
       href: active-directory-claims-mapping.md
     - name: Configure optional claims
       href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser
@@ -618,6 +620,14 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
+  - name: Bring an app to market
+    items:
+    - name: Publish to App Source
+      href: v2-howto-get-appsource-certified.md
+    - name: Publish to Azure AD App Gallery
+      href: v2-howto-app-gallery-listing.md
+    - name: Publish to the Office 365 Seller Dashboard
+      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Reference
   items:
   - name: Application manifest

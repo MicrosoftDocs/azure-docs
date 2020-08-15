@@ -21,7 +21,7 @@
       href: quickstart-create-mysql-server-database-using-azure-powershell.md
     - name: Create DB - ARM template
       href: quickstart-create-mysql-server-database-using-arm-template.md
-      displayName: deploy azure resource manager template 
+      displayName: deploy azure resource manager template
   - name: Connect & query
     items:
     - name: PHP
@@ -34,6 +34,8 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
+    - name: Azure PowerShell
+      href: connect-powershell.md
     - name: Ruby
       href: connect-ruby.md
     - name: C++
@@ -110,7 +112,7 @@
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
     - name: Infrastructure double encryption
-      href: concepts-infrastructure-double-encryption.md  
+      href: concepts-infrastructure-double-encryption.md
     - name: Security baseline
       href: security-baseline.md
   - name: Business continuity

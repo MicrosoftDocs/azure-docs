@@ -5,7 +5,7 @@ description: In this REST API quickstart, use an available public LUIS app to de
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, tracking-python, devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart

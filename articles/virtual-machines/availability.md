@@ -4,7 +4,7 @@ description: Learn about the availability features for running virtual machines 
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ---
 

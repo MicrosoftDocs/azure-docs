@@ -110,7 +110,7 @@ The following section helps you identify all the stakeholders that are involved 
 | Name and email | **Subscription / Resource owner**<br/>A representative from the IT owners of each subscription or resource that you want to deploy Privileged Identity Management for | SO/R/I |
 | Name and email | **Security owner**<br/>A representative from the security team that can sign off that the plan meets the security requirements of your organization. | SO/R |
 | Name and email | **IT support manager / Helpdesk**<br/>A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. | R/I |
-| Name and email for pilot users | **RBAC role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once Privileged Identity Management is implemented. | I |
+| Name and email for pilot users | **Azure role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once Privileged Identity Management is implemented. | I |
 
 ### Enable Privileged Identity Management
 

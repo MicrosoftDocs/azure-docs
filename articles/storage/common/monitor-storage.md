@@ -81,9 +81,9 @@ You also have to specify the categories of operations for which you want to coll
 
 | Category | Description |
 |:---|:---|
-| StorageRead | Read operations on blobs. |
-| StorageWrite | Write operations on blobs. |
-| StorageDelete | Delete operations on blobs. |
+| StorageRead | Read operations on objects. |
+| StorageWrite | Write operations on objects. |
+| StorageDelete | Delete operations on objects. |
 
 ## Analyze metric data
 

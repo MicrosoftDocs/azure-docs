@@ -4,7 +4,7 @@ description: Lists the previous generations of sizes available for virtual machi
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman

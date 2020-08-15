@@ -5,12 +5,11 @@ description: Learn how to use Python in Azure Machine Learning designer (preview
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.custom: designer, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, designer, tracking-python
 ---
 
 # Run Python code in Azure Machine Learning designer
@@ -22,6 +21,8 @@ You can use the in-built code editor to quickly add simple Python logic. If you 
 The default execution environment uses the Anacondas distribution of Python. For a complete list of pre-installed packages, see the [Execute Python Script module reference](algorithm-module-reference/execute-python-script.md) page.
 
 ![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Execute Python written in the designer
 

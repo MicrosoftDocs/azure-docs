@@ -11,7 +11,8 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a Traffic Manager profile for a highly available web application using Azure CLI

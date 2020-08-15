@@ -25,6 +25,9 @@ The article doesn't describe every possible type of telemetry, property, and com
 
 Each example shows a snippet from the device capability model (DCM) that defines the type and example JSON payloads to illustrate how the device should interact with the IoT Central application.
 
+> [!NOTE]
+> IoT Central accepts any valid JSON but it can only be used for visualizations if it matches a definition in the DCM. You can export data that doesn't match a definition, see [Export IoT data to destinations in Azure](howto-export-data.md).
+
 The JSON file that defines the DCM uses the [Digital Twin Definition Language (DTDL) V1](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/dtdlv1.md). This specification includes the definition of the `@id` property format.
 
 For sample device code that shows some of these payloads in use, see the [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md) and [Create and connect a client application to your Azure IoT Central application (Python)](tutorial-connect-device-python.md) tutorials.
@@ -38,9 +41,8 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 1. Select the **Raw data** tab:
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Raw data view":::
-    
-    On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
+    On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
 ## Telemetry
 

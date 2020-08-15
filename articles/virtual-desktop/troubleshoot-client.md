@@ -59,7 +59,7 @@ If your browser starts acting up or stops working while you're using the web cli
 
 First, check the Azure Active Directory account you are using. If you've already signed in with a different Azure Active Directory account  than the one you want to use for Windows Virtual Desktop, you should either sign our or use a private browser window.
 
-If you're using the Windows Virtual Desktop Fall 2019 release, use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
+If you're using the Windows Virtual Desktop (classic), use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
 
 ## Web client stops responding or disconnects
 

@@ -2,12 +2,9 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
 ---
 
@@ -506,6 +503,24 @@ If you want to use more than 500 minutes of processing per month, change your su
 1. Select **Settings**, and then select **Pricing**.
 1. Select **Enable** on the page bottom to upgrade your account to the Basic tier.
 
+## <a name="output-stream-greater-1mb"></a>Scenario: Runbook output stream greater than 1 MB
+
+### Issue
+
+Your runbook running in the Azure sandbox fails with the following error:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### Cause
+
+This error occurs because your runbook attempted to write too much exception data to the output stream.
+
+### Resolution
+
+There's a 1 MB limit on the job output stream. Ensure that your runbook encloses calls to an executable or subprocess by using `try` and `catch` blocks. If the operations throw an exception, have the code write the message from the exception into an Automation variable. This technique prevents the message from being written into the job output stream. For Hybrid Runbook Worker jobs executed, the output stream truncated to 1 MB is displayed with no error message.
+
 ## <a name="job-attempted-3-times"></a>Scenario: Runbook job start attempted three times, but fails to start each time
 
 ### Issue
@@ -521,20 +536,22 @@ The job was tried three times but it failed
 This error occurs because of one of the following issues:
 
 * **Memory limit.** A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+
 * **Network sockets.** Azure sandboxes are limited to 1,000 concurrent network sockets. For more information, see [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
 * **Module incompatible.** Module dependencies might not be correct. In this case, your runbook typically returns a `Command not found` or `Cannot bind parameter` message.
+
 * **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
-* **Too much exception data.** Your runbook attempted to write too much exception data to the output stream.
 
 ### Resolution
 
 * **Memory limit, network sockets.** Suggested ways to work within the memory limits are to split the workload among multiple runbooks, process less data in memory, avoid writing unnecessary output from your runbooks, and consider how many checkpoints are written into your PowerShell workflow runbooks. Use the clear method, such as `$myVar.clear`, to clear out variables and use `[GC]::Collect` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
+
 * **Module incompatible.** Update your Azure modules by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+
 * **No authentication with Active Directory for sandbox.** When you authenticate to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
 
   If your runbook can't call an executable or subprocess running in an Azure sandbox, use the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid workers aren't limited by the memory and network limits that Azure sandboxes have.
-
-* **Too much exception data.** There's a 1-MB limit on the job output stream. Ensure that your runbook encloses calls to an executable or subprocess by using `try` and `catch` blocks. If the operations throw an exception, have the code write the message from the exception into an Automation variable. This technique prevents the message from being written into the job output stream.
 
 ## <a name="cannot-invoke-method"></a>Scenario: PowerShell job fails with "Cannot invoke method" error message
 

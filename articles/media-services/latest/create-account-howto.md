@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 03/15/2020
-ms.author: juliako
+ms.author: juliako 
+ms.custom: devx-track-azurecli
 
 ---
 # Create a Media Services account

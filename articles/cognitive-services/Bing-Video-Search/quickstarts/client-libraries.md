@@ -12,7 +12,7 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 03/19/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 ---
 # Quickstart: Use the Bing Video Search client library
 

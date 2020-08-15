@@ -7,7 +7,8 @@ author: jaredr80
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2018
-ms.author: jaredro
+ms.author: jaredro 
+ms.custom: devx-track-azurecli
 
 
 ---

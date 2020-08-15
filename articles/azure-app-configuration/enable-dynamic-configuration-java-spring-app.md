@@ -7,6 +7,7 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 3/5/2020
+ms.custom: devx-track-java
 ms.author: lcozzens
 
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.

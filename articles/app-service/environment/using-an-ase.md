@@ -121,15 +121,15 @@ When you use an External ASE, apps made in your ASE are registered with Azure DN
 
 To configure DNS in your own DNS server with your ILB ASE:
 
-1. create a zone for <ASE name>.appserviceenvironment.net
+1. create a zone for &lt;ASE name&gt;.appserviceenvironment.net
 1. create an A record in that zone that points * to the ILB IP address
 1. create an A record in that zone that points @ to the ILB IP address
-1. create a zone in <ASE name>.appserviceenvironment.net named scm
+1. create a zone in &lt;ASE name&gt;.appserviceenvironment.net named scm
 1. create an A record in the scm zone that points * to the ILB IP address
 
 To configure DNS in Azure DNS Private zones:
 
-1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an Azure DNS private zone named &lt;ASE name&gt;.appserviceenvironment.net
 1. create an A record in that zone that points * to the ILB IP address
 1. create an A record in that zone that points @ to the ILB IP address
 1. create an A record in that zone that points *.scm to the ILB IP address

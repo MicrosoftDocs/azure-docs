@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
 ---

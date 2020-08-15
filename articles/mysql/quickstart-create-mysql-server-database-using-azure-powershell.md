@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure Database for MySQL server using PowerShell
@@ -277,4 +277,4 @@ Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design an Azure Database for MySQL using PowerShell](tutorial-design-database-using-powershell.md)
+> [Generate a connection string with PowerShell - Azure Database for MySQL](connect-powershell.md)

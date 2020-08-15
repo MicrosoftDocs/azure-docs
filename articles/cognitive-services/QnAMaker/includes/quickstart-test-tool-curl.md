@@ -2,14 +2,12 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
-ms.author: diberry
 ---
 
 This cURL-based quickstart walks you through getting an answer from your knowledge base.

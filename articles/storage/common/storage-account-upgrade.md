@@ -8,7 +8,8 @@ author: tamram
 ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: tamram  
+ms.author: tamram   
+ms.custom: devx-track-azurecli
 ---
 
 # Upgrade to a general-purpose v2 storage account

@@ -298,10 +298,8 @@ Version 4.0.0b1 is the first preview of our efforts to create a user-friendly cl
 
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
-Any request to Azure Cosmos DB using a retired SDK are rejected by the service.
-
 > [!WARNING]
-> All versions of the Python SDK for SQL API prior to version **1.0.0** were retired on **February 29, 2016**. And, all versions 1.x and 2.x of the Python SDK for SQL API will be retired on **August 30, 2020**.
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x or 2.x of the Azure Cosmos DB Python SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

@@ -4,7 +4,7 @@ description: Compare SPECint compute benchmark scores for Azure VMs running Wind
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn

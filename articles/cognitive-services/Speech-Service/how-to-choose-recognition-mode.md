@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js
+ms.custom: devx-track-javascript
 ---
 
 # Choose a speech recognition mode

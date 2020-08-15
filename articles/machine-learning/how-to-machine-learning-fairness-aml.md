@@ -5,12 +5,12 @@ description: Learn how to assess the fairness of your models in Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
@@ -138,7 +138,7 @@ The following example shows how to use the fairness package to upload model fair
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Precompute fairness metrics.
@@ -148,7 +148,7 @@ The following example shows how to use the fairness package to upload model fair
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -203,7 +203,7 @@ The following example shows how to use the fairness package to upload model fair
 
     To learn more about the visualization dashboard and what it contains, please check out Fairlearn's [user guide](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
 
-s## Upload fairness insights for multiple models
+## Upload fairness insights for multiple models
 
 If you are interested in comparing multiple models and seeing how their fairness assessments differ, you can pass more than one model to the visualization dashboard and navigate their performance-fairness trade-offs.
 

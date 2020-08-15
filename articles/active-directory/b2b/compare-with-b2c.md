@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
 ms.date: 05/19/2020
-
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celestedg

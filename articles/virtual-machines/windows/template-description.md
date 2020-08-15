@@ -4,7 +4,7 @@ description: Learn more about how the virtual machine resource is defined in an 
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 

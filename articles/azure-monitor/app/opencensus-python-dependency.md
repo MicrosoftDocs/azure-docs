@@ -13,7 +13,7 @@ ms.custom: tracking-python
 
 A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor as `dependencies` telemetry.
 
-First, instrument your Python application with latest [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).
 
 ## In-process dependencies
 
@@ -166,8 +166,9 @@ config_integration.trace_integrations(['sqlalchemy'])
 
 ## Next steps
 
-* [Application Map](../../azure-monitor/app/app-map.md)
-* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Search](../../azure-monitor/app/diagnostic-search.md)
-* [Log (Analytics) query](../../azure-monitor/log-query/log-query-overview.md)
-* [Transaction diagnostics](../../azure-monitor/app/transaction-diagnostics.md)
+* [Application Map](./app-map.md)
+* [Availability](./monitor-web-app-availability.md)
+* [Search](./diagnostic-search.md)
+* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Transaction diagnostics](./transaction-diagnostics.md)
+
