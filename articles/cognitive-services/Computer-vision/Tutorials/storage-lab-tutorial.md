@@ -28,7 +28,7 @@ This tutorial shows you how to:
 > * Attach metadata to Azure Storage images
 > * Check image metadata using Azure Storage Explorer
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin. 
 
 ## Prerequisites
 
