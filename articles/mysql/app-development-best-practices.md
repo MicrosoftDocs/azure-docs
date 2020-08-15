@@ -10,7 +10,7 @@ ms.date: 08/11/2020
 
 # Best practices for building applications with Azure Database for MySQL 
 
-Here are some best practices to help build cloud-ready applications using Azure Database for MySQL. Using these best practices can reduce development time and time spent on debugging issues with your application. 
+Here are some best practices to help build cloud-ready applications using Azure Database for MySQL that can reduce development time for your application. 
 
 ## Application and Database resource configuration
 
@@ -42,7 +42,7 @@ To calculate the largest possible size of tmp_table_size and max_heap_table_size
 ### Resetting your password
 You can [reset your password](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) for your MySQL server using Azure portal. 
 
-When you reset the password for a production database, it can cause downtime for your application until the password is updated in the application. It is a good pattern to reset the password for any production workloads at off-peak hours to minimize the impact.
+Resetting your sevrer password for a production database can bring down your application. It is a good pattern to reset the password for any production workloads at off-peak hours to minimize the impact to your application end users.
 
 ## Performance and Resiliency 
 Here are a few tools and patterns that you can use to help debug performance issues with your application.
@@ -68,7 +68,7 @@ You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-d
 ## Database Deployment 
 
 ### Configure Azure database for MySQL task in your CI/CD deployment pipeline
-Occassionaly you would need to deploy changes to your database. In such cases, you can create use continuous integration (CI) and continuous delivery (CD) through [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom script against your database.
+Occasionally you would need to deploy changes to your database. In such cases, you can create use continuous integration (CI) and continuous delivery (CD) through [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom script against your database.
 
 ### Manual Database deployment 
 During manual database deployment, here is a good pattern to follow to minimize downtime or reduce risk of failed deployment: 
