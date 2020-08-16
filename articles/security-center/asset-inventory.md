@@ -123,8 +123,16 @@ The inventory view lists your resources from a Cloud Security Posture Management
 
 For example, if you have 9 subscriptions but only eight currently have recommendations, when you filter by **Resource type = Subscriptions** you will only see the eight subscriptions with active recommendations:
 
-![Inventory query in ARG](./media/asset-inventory/filtered-subscriptions-some.png)
+![Not all subs returned when there are no active recommendations](./media/asset-inventory/filtered-subscriptions-some.png)
 
+
+### Why do some of my resources show blank values in the pricing or agent monitoring columns?
+
+Not all Security Center monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub.
+
+When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
+
+![Some resources show blank info in agent monitoring or pricing columns](./media/asset-inventory/agent-pricing-blanks.png)
 
 
 
