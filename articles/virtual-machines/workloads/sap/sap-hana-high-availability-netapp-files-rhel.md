@@ -460,7 +460,7 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
     pcs resource create hana_shared2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
     ```
 
-    `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that each monitor performs a read/write test on the filesystem. Without this, the monitor operation only verifies that the filesystem is mounted. This can be a problem because when connectivity is lost, the filesystem may remain mounted despite being inaccessible.
+    `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that each monitor performs a read/write test on the filesystem. Without this attribute, the monitor operation only verifies that the filesystem is mounted. This can be a problem because when connectivity is lost, the filesystem may remain mounted despite being inaccessible.
 
     `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, then restart the failed resource, then start all the resources that depend on the failed resource. Not only can this behavior take a long time when an SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource cannot stop successfully if the NFS server holding the HANA executables is inaccessible.
 
@@ -477,7 +477,7 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 
 5. **[1]** Configuring Attribute Resources
 
-   Configure attribute resources. These attributes will be set to true if all of a node's NFS mounts (/hana/data, /hana/log, and /hana/data ) are mounted and will be set to false otherwise.
+   Configure attribute resources. These attributes will be set to true if all of a node's NFS mounts (/hana/data, /hana/log, and /hana/data) are mounted and will be set to false otherwise.
 
    ```
    pcs resource create hana_nfs1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs1_active
@@ -563,7 +563,7 @@ This section describes how you can test your setup.
 1. Before you start a test, make sure that Pacemaker does not have any failed action (via pcs status), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA system replication is sync state, for example with systemReplicationStatus:
 
     ```
-    [root@hn1-db-0 ~]# sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
+    sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
     ```
 
 2. Verify the cluster configuration for a failure scenario when a node loses access to the NFS share (/hana/shared)
@@ -573,13 +573,13 @@ This section describes how you can test your setup.
    This approach validates that the cluster will be able to failover, if access to `/hana/shared` is lost on the active node.     
 
 
-   **Expected Result:** On making `/hana/shared` as read-only file system, the `OCF_CHECK_LEVEL` attribute of the resource `hana_shared1` which perform read/write operation on file system will fail as it is not able to write anything on the file system and will perform HANA resource failover.  The same result is expected when your HANA node loses access to the NFS shares. 
+   **Expected Result:** On making `/hana/shared` as read-only file system, the `OCF_CHECK_LEVEL` attribute of the resource `hana_shared1` which performs read/write operation on file system will fail as it is not able to write anything on the file system and will perform HANA resource failover.  The same result is expected when your HANA node loses access to the NFS shares. 
 
    Resource state before starting the test:
 
     ```
     sudo pcs status
-
+    # Example output
     Full list of resources:
      rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb1
 
@@ -608,16 +608,16 @@ This section describes how you can test your setup.
          vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb1
     ```
 
-   You can place /hana/shared in read only mode using below command:
+   You can place /hana/shared in read-only mode on the active cluster node, using below command:
 
     ```
-    hanadb1# sudo mount -o ro 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
+    sudo mount -o ro 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
     ```
 
    hanadb1 will either reboot or poweroff based on the action set on stonith (`pcs property show stonith-action`).  Once the server (hanadb1) is down, HANA resource move to hanadb2. You can check the status of cluster from hanadb2.
 
     ```
-    hanadb2# pcs status
+    pcs status
 
     Full list of resources:
 
