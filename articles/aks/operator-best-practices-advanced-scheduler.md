@@ -67,8 +67,6 @@ When this pod is deployed, such as using `kubectl apply -f gpu-toleration.yaml`,
 
 When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
 
-For more information about taints and tolerations, see [applying taints and tolerations][k8s-taints-tolerations].
-
 For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
 ### Behavior of taints and tolerations in AKS
@@ -76,6 +74,7 @@ For more information about how to use multiple node pools in AKS, see [Create an
 When you upgrade a node pool in AKS, taints and tolerations follow a set pattern as they're applied to new nodes:
 
 - **Default clusters that use virtual machine scale sets**
+  - You can [taint a nodepool][taint-node-pool] from the AKS API, to have newly scaled out nodes receive API specified node taints.
   - Let's assume you have a two-node cluster - *node1* and *node2*. You upgrade the node pool.
   - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
   - The original *node1* and *node2* are deleted.
@@ -97,7 +96,7 @@ Taints and tolerations are used to logically isolate resources with a hard cut-o
 Let's look at an example of nodes with a high amount of memory. These nodes can give preference to pods that request a high amount of memory. To make sure that the resources don't sit idle, they also allow other pods to run.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 A pod specification then adds the `nodeSelector` property to define a node selector that matches the label set on a node:
@@ -118,7 +117,7 @@ spec:
       limits:
         cpu: 4.0
         memory: 16Gi
-    nodeSelector:
+  nodeSelector:
       hardware: highmem
 ```
 
@@ -194,3 +193,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

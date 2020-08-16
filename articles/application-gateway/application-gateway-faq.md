@@ -68,7 +68,13 @@ For the v2 SKU, open the public IP resource and select **Configuration**. The **
 
 *Keep-Alive timeout* governs how long the Application Gateway will wait for a client to send another HTTP request on a persistent connection before reusing it or closing it. *TCP idle timeout* governs how long a TCP connection is kept open in case of no activity. 
 
-The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can't change these values.
+The *Keep-Alive timeout* in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. The *TCP idle timeout* is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateways to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateways, you'll need to navigate to the public IP of the Application Gateway and change the TCP idle timeout under the "Configuration" blade of the public IP on Portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
@@ -249,7 +255,7 @@ Sample NSG configuration for private IP only access:
 
 ### What certificates does Application Gateway support?
 
-Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, and wildcard certificates.
+Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, multi-domain (SAN) certificates, and wildcard certificates.
 
 ### What cipher suites does Application Gateway support?
 
@@ -326,6 +332,60 @@ For multiple domain-based (host-based) routing, you can create multisite listene
 ### Can I use special characters in my .pfx file password?
 
 No, use only alphanumeric characters in your .pfx file password.
+
+### My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
+
+Certificate Authority (CA) Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the non-compliant CAs can be found here:  
+
+* [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+As per the industry’s compliance requirements, CA vendors began revoking non-compliant CAs and issuing compliant CAs which requires customers to have their certificates re-issued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure Services, **however your self-issued certificates or certificates used in “Bring Your Own Certificate” (BYOC) scenarios are still at risk of being unexpectedly revoked**.
+
+To check if certificates utilized by your application have been revoked reference [DigiCert’s Announcement](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) and the [Certificate Revocation Tracker](https://misissued.com/#revoked). If your certificates have been revoked, or will be revoked, you will need to request new certificates from the CA vendor utilized in your applications. To avoid your application’s availability being interrupted due to certificates being unexpectedly revoked, or to update a certificate which has been revoked, please refer to our Azure updates post for remediation links of various Azure services that support BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+For Application Gateway specific information, see below -
+
+If you are using a certificate issued by one of the revoked ICAs, your application’s availability might be interrupted and depending on your application, you may receive a variety of error messages including but not limited to: 
+
+1.	Invalid certificate/revoked certificate
+2.	Connection timed out
+3.	HTTP 502
+
+To avoid any interruption to your application due to this issue, or to re-issue a CA which has been revoked, you need to take the following actions: 
+
+1.	Contact your certificate provider on how to re-issue your certificates
+2.	Once reissued, update your certificates on the Azure Application Gateway/WAF with the complete [chain of trust](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) (leaf, intermediate, root certificate). Based on where you are using your certificate, either on the listener or the HTTP settings of the Application Gateway, follow the steps below to update the certificates and check the documentation links mentioned for more information.
+3.	Update your backend application servers to use the re-issued certificate. Depending on the backend server that you are using, your certificate update steps may vary. Please check for the documentation from your vendor.
+
+To update the certificate in your listener:
+
+1.	In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
+2.	Open the listener settings that’s associated with your certificate
+3.	Click “Renew or edit selected certificate”
+4.	Upload your new PFX certificate with the password and click Save
+5.	Access the website and verify if the site is working as expected
+For more information, check documentation [here](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+If you are referencing certificates from Azure KeyVault in your Application Gateway listener, we recommend the following the steps for a quick change –
+
+1.	In the [Azure portal](https://portal.azure.com/), navigate to your Azure KeyVault settings which has been associated with the Application Gateway
+2.	Add/import the reissued certificate in your store. See documentation [here](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) for more information on how-to.
+3.	Once the certificate has been imported, navigate to your Application Gateway listener settings and under “Choose a certificate from Key Vault”, click on the “Certificate” drop down and choose the recently added certificate
+4.	Click Save
+For more information on TLS termination on Application Gateway with Key Vault certificates, check documentation [here](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+To update the certificate in your HTTP Settings:
+
+If you are using V1 SKU of the Application Gateway/WAF service, then you would have to upload the new certificate as your backend authentication certificate.
+1.	In the [Azure portal](https://portal.azure.com/), open your Application Gateway resource
+2.	Open the HTTP settings that’s associated with your certificate
+3.	Click on “Add certificate” and upload the reissued certificate and click save
+4.	You can remove the old certificate later by clicking on the “…” options button next to the old certificate and select delete and click save.
+For more information, check documentation [here](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+If you are using the V2 SKU of the Application Gateway/WAF service, you don’t have to upload the new certificate in the HTTP settings since V2 SKU uses “trusted root certificates” and no action needs to be taken here.
 
 ## Configuration - ingress controller for AKS
 
@@ -404,31 +464,6 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 - You've deployed Application Gateway v2
 - You have an NSG on the application gateway subnet
 - You've enabled NSG flow logs on that NSG
-
-### How do I use Application Gateway V2 with only private frontend IP address?
-
-Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
-* Private IP and Public IP
-* Public IP only
-
-But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
-1. Create an Application Gateway with both public and private frontend IP address
-2. Don't create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
-3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
-    
-    a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
-    
-    b. Allow traffic from Source as **AzureLoadBalancer** service tag and destination port as **Any**
-    
-    c. Deny all inbound traffic from Source as **Internet** service tag and destination port as **Any**. Give this rule the *least priority* in the inbound rules
-    
-    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address isn't blocked
-    
-    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, and so on.
-
-Sample NSG configuration for private IP only access:
-![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## Next steps
 

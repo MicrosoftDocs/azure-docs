@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 # Upgrade to Azure Search .NET SDK version 5
 
-If you're using version 4.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 5.
+If you're using version 4.0-preview or older of the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 5.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).
 
@@ -43,7 +43,9 @@ Once NuGet has downloaded the new packages and their dependencies, rebuild your 
 
 If your build fails, you should see a build error like the following:
 
-    The name 'SuggesterSearchMode' does not exist in the current context
+```output
+The name 'SuggesterSearchMode' does not exist in the current context
+```
 
 The next step is to fix this build error. See [Breaking changes in version 5](#ListOfChanges) for details on what causes the error and how to fix it.
 

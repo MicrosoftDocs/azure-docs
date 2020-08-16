@@ -26,8 +26,10 @@
     href: capacity-limits.md  
   - name: Scenarios
     items:  
-    - name: Use labs for conducting classes
+    - name: Use Lab Services for conducting classes
       href: classroom-labs-scenarios.md
+    - name: Use Lab Services for hackathon
+      href: hackathon-labs.md
     - name: Classroom labs - class types
       items:
       - name: Class types overview
@@ -44,8 +46,6 @@
         href: class-type-sql-server.md
       - name: Python and Jupyter Notebooks
         href: class-type-jupyter-notebook.md
-      - name: Mobile app development with Android Studio
-        href: class-type-mobile-dev-android-studio.md
       - name: Big data analytics
         href: class-type-big-data-analytics.md
       - name: MATLAB
@@ -56,9 +56,9 @@
   items:
   - name: Administrator guide
     href: administrator-guide.md
-  - name: Accelerated lab account set up guide
+  - name: Accelerated lab account setup guide
     href: account-setup-guide.md
-  - name: Accelerated lab set up guide
+  - name: Accelerated lab setup guide
     href: setup-guide.md
   - name: Create and configure lab accounts (lab account owner)
     items:

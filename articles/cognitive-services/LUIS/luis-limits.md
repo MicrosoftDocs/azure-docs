@@ -62,7 +62,7 @@ Do not use the following characters in the following names.
 
 ## Resource usage and limits
 
-Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md).
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-how-to-azure-subscription.md).
 
 <a name="key-limits"></a>
 

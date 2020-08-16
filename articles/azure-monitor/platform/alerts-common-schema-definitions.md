@@ -145,7 +145,7 @@ Any alert instance describes the resource that was affected and the cause of the
 ### Log alerts
 
 > [!NOTE]
-> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the search query in conjunction with the [Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the search query in conjunction with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### `monitoringService` = `Log Analytics`
 
@@ -176,7 +176,7 @@ Any alert instance describes the resource that was affected and the cause of the
 				"value": "INC-Gen2Alert"
 			}
 		],
-		"SearchResult": {
+		"SearchResults": {
 			"tables": [
 				{
 					"name": "PrimaryResult",
@@ -216,10 +216,10 @@ Any alert instance describes the resource that was affected and the cause of the
 					"Heartbeat"
 				]
 			}
-		]
-	},
+		],
 	"IncludeSearchResults": "True",
 	"AlertType": "Metric measurement"
+	}
 }
 ```
 
@@ -496,5 +496,4 @@ Any alert instance describes the resource that was affected and the cause of the
 ## Next steps
 
 - Learn more about the [common alert schema](https://aka.ms/commonAlertSchemaDocs).
-- Learn [how to create a logic app that uses the common alert schema to handle all your alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
-
+- Learn [how to create a logic app that uses the common alert schema to handle all your alerts](./alerts-common-schema-integrations.md). 

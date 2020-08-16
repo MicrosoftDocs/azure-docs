@@ -1,22 +1,10 @@
 ---
 title: Resize a VM in a lab in Azure DevTest Labs
 description: Learn how to change the size of a virtual machine (VM) in Azure DevTest Labs based on your needs for CPU, network, or disk performance.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Resize a VM in a lab in Azure DevTest Labs
 One of the important features of Azure virtual machines is that it lets you change the size of a virtual machine (VM) based on your needs for CPU, network, or disk performance. Azure DevTest Labs supports this feature for VMs in a lab now. The resize feature adheres to the lab policy for allowed VM sizes in the lab. That is, you can change the size of a VM to only allowed sizes in the lab. 
 

@@ -30,6 +30,8 @@ landingContent:
             url: concepts.md
           - text: Load Balancer components
             url: components.md
+          - text: What's new?
+            url: whats-new.md
           - text: Load Balancer SKUs
             url: skus.md     
   # Card (optional)

@@ -101,13 +101,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, EasySSO for Confluence application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-	| urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-	| urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
-	| urn:oid:2.5.4.4 | | user.surname |
-	| urn:oid:2.5.4.42 | | user.givenname |
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+	| urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+	| urn:oid:2.5.4.4 | user.surname |
+	| urn:oid:2.5.4.42 | user.givenname |
     
 	In case your Azure AD users have **sAMAccountName** configured you would have to map **urn:oid:0.9.2342.19200300.100.1.1** onto **sAMAccountName** attribute.
     

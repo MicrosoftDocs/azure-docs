@@ -1,22 +1,10 @@
 ---
 title: Redeploy a VM in a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to redeploy a virtual machine (move from one Azure node to another) in Azure DevTest Labs. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Redeploy a VM in a lab in Azure DevTest Labs
 If you can't connect to a virtual machine (VM) in a lab via a remote desktop connection, redeploy the VM and try connecting to it again. When you redeploy a VM, DevTest Labs moves the VM from the node on which it's running to a new node within the Azure infrastructure. It then starts the VM while retaining all your configuration options and associated resources. This feature saves you the time spent in troubleshooting your remote desktop connection or application access to Windows-based VMs in the lab. 
 

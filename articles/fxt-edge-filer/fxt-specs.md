@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure FXT Edge Filer specifications | Microsoft Docs
-description: Physical and environmental specifications for Azure FXT Edge Filer hardware
+description: Learn about the physical and environmental specifications for Microsoft Azure FXT Edge Filer hardware.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
@@ -41,7 +41,7 @@ The Azure FXT Edge Filer is designed to fit in a standard 19" equipment rack and
 
 <!-- 10x2.5 inches version -->
 
-| Filer dimensions           |                          |
+| Filer dimensions            | Value                    |
 |-----------------------------|--------------------------|
 | Height                      | 42.8 mm (1.68 inches)    |
 | Width (including rack ears) | 482.0 mm (18.97 inches)  |
@@ -51,7 +51,7 @@ The Azure FXT Edge Filer is designed to fit in a standard 19" equipment rack and
 | Depth - rack ears to furthest front protrusion, without bezel | 22.0 mm (0.87 inch)  |
 | Depth - rack ears to furthest front protrusion, with bezel    | 35.84 mm (1.41 inches) |
 
-| Weight | |
+| Weight | Value |
 |-----------------|----------------------|
 | Node weight (without packaging, without accessories) | 40 lbs (18.1 kg) |
 | Net weight (without packaging, including accessories) | 51 lbs (23.1 kg)|

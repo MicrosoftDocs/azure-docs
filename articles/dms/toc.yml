@@ -9,10 +9,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create service - Portal
-    href: quickstart-create-data-migration-service-portal.md
-  - name: Create service in hybrid mode - Portal
-    href: quickstart-create-data-migration-service-hybrid-portal.md
+  - name: Create service
+    items: 
+    - name: Portal
+      href: quickstart-create-data-migration-service-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: create-dms-resource-manager-template.md
+    - name: in hybrid mode (Portal)
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 
 - name: Concepts
   items:
@@ -58,6 +63,10 @@
       href: tutorial-postgresql-azure-postgresql-online-portal.md
     - name: to Azure DB for PostgreSQL (Az CLI)
       href: tutorial-postgresql-azure-postgresql-online.md
+  - name: Migrate Azure DB for PostgreSQL - Single Server
+    items: 
+    - name: to Azure DB for PostgreSQL (Portal)
+      href: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
   - name: Migrate RDS PostgreSQL
     items: 
     - name: to Azure DB for PostgreSQL 

@@ -22,7 +22,7 @@ The standard vCPU quota for pay-as-you-go and reserved virtual machine instances
 * The first tier is the *total regional vCPUs limit*, across all VM series.
 * The second tier is the *per-VM series vCPUs limit*, such as the Dv3-series vCPUs.
 
-Whenever you deploy a new spot VM, the total new and existing vCPU usage for that VM series must not exceed the approved vCPU quota for that particular VM series. Additionally, the total number of new and existing vCPUs that are deployed across all VM series shouldn't exceed the total approved regional vCPU quota for the subscription. If either of these quotas is exceeded, the VM deployment isn't allowed.
+Whenever you deploy a new spot VM, the total new and existing vCPU usage for all spot VM instances must not exceed the approved spot vCPU quota limit. If the spot quota is exceeded, the spot VM deployment isn't allowed.
 
 You can request an increase in the vCPU quota limit for the VM series by using the Azure portal. An increase in the VM series quota automatically increases the total regional vCPU limit by the same amount.
 

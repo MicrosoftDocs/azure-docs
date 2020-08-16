@@ -65,7 +65,7 @@
       - name: Node.js
         href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-entitysearch/?view=azure-node-latest
       - name: Go
-        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch  
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch
 - name: Resources
   items:
   - name: Pricing
@@ -81,7 +81,7 @@
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/
   - name: Bing Entity Search endpoint

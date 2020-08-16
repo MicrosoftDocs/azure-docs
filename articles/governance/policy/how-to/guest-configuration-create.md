@@ -95,7 +95,7 @@ For an overview of DSC concepts and terminology, see
 
 ### How Guest Configuration modules differ from Windows PowerShell DSC modules
 
-When Guest Configuration audits a machine:
+When Guest Configuration audits a machine the sequence of events is different than in Windows PowerShell DSC.
 
 1. The agent first runs `Test-TargetResource` to determine if the configuration is
 in the correct state.
@@ -103,6 +103,9 @@ in the correct state.
 Manager status for the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
 why a machine isn't compliant and to confirm that the current state is compliant.
+
+Parameters in Azure Policy that pass values to Guest Configuration assignments must be _string_ type.
+It isn't possible to pass arrays through parameters, even if the DSC resource supports arrays.
 
 ### Get-TargetResource requirements
 
@@ -164,7 +167,7 @@ class ResourceName : OMI_BaseResource
 
 The name of the custom configuration must be consistent everywhere. The name of
 the .zip file for the content package, the configuration name in the MOF file, and the guest
-assignment name in the Resource Manager template, must be the same.
+assignment name in the Azure Resource Manager template (ARM template), must be the same.
 
 ### Scaffolding a Guest Configuration project
 
@@ -200,7 +203,7 @@ The package format must be a .zip file.
 The .zip package must be stored in a location that is accessible by the managed virtual machines.
 Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to not make the
 package public, you can include a
-[SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
+[SAS token](../../../storage/common/storage-sas-overview.md) in the URL.
 You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
@@ -361,6 +364,8 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Version**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
+- **Tag** adds one or more tag filters to the policy definition
+- **Category** sets the category metadata field in the policy definition
 
 The following example creates the policy definitions in a specified path from a custom policy package:
 
@@ -383,15 +388,6 @@ The following files are created by `New-GuestConfigurationPolicy`:
 
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
-
-> [!Note]
-> The latest Guest Configuration module includes a new parameters:
-> - **Tag** adds one or more tag filters to the policy definition
->   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
-> - **Category** sets the category metadata field in the policy definition
->   - If the parameter is not included, the category defaults to Guest Configuration.
-> These features are in preview and require Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The
 cmdlet only has the **Path** parameter that points to the location of the JSON files created by
@@ -447,10 +443,6 @@ New-AzRoleDefinition -Role $role
 
 ### Filtering Guest Configuration policies using Tags
 
-> [!Note]
-> This feature is in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
-
 The policy definitions created by cmdlets in the Guest Configuration module can optionally include
 a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports
 an array of hashtables containing individual tag entires. The tags are added
@@ -488,7 +480,7 @@ override values are provided through Azure Policy and don't impact how the Confi
 authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable definition including all details
+parameter named **Parameter**. This parameter takes a hashtable definition including all details
 about each parameter and creates the required sections of each file used for the Azure Policy
 definition.
 
@@ -514,16 +506,11 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
 ## Extending Guest Configuration with third-party tools
-
-> [!Note]
-> This feature is in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
-> In version 1.20.1, this feature is only available for policy definitions that audit Windows machines
 
 The artifact packages for Guest Configuration can be extended to include third-party tools.
 Extending Guest Configuration requires development of two components.
@@ -559,7 +546,14 @@ community module is maintained as an
 Install required modules in your development environment:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 First, create the YaML file used by InSpec. The file provides basic information about the
@@ -577,7 +571,7 @@ supports:
   - os-family: windows
 ```
 
-Save this file to a folder named `wmi_service` in your project directory.
+Save this file named `wmi_service.yml` in a folder named `wmi_service` in your project directory.
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
@@ -596,7 +590,7 @@ end
 
 ```
 
-Save this file in a new folder named `controls` inside the `wmi_service` directory.
+Save this file `wmi_service.rb` in a new folder named `controls` inside the `wmi_service` directory.
 
 Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
 `gcInSpec` resource to set the name of the InSpec profile.
@@ -605,7 +599,7 @@ Finally, create a configuration, import the **GuestConfiguration** resource modu
 # Define the configuration and import GuestConfiguration
 Configuration wmi_service
 {
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
     node 'wmi_service'
     {
         gcInSpec wmi_service
@@ -653,7 +647,8 @@ the previous step:
 New-GuestConfigurationPackage `
   -Name 'wmi_service' `
   -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## Policy lifecycle
@@ -671,17 +666,6 @@ If you would like to release an update to the policy, there are two fields that 
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
-
-## Converting Windows Group Policy content to Azure Policy Guest Configuration
-
-Guest Configuration, when auditing Windows machines, is an implementation of the PowerShell Desired
-State Configuration syntax. The DSC community has published tooling to convert exported Group Policy
-templates to DSC format. By using this tool together with the Guest Configuration cmdlets described
-above, you can convert Windows Group Policy content and package/publish it for Azure Policy to
-audit. For details about using the tool, see the article
-[Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Once the content has been converted, the steps above to create a package and publish it as Azure
-Policy are the same as for any DSC content.
 
 ## Optional: Signing Guest Configuration packages
 

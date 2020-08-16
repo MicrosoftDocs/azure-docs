@@ -31,7 +31,7 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md).
 
-In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
+In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL Database.
 
 The Copy Activity performs the data movement in Azure Data Factory. It is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  
 
@@ -45,7 +45,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 
 * **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
 * **Azure Storage Account**. You use the blob storage as a **source** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
-* **Azure SQL Database**. You use an Azure SQL database as a **destination** data store in this tutorial. If you don't have an Azure SQL database that you can use in the tutorial, See [How to create and configure an Azure SQL Database](../../sql-database/sql-database-get-started.md) to create one.
+* **Azure SQL Database**. You use Azure SQL Database as a **destination** data store in this tutorial. If you don't have a database in Azure SQL Database that you can use in the tutorial, See [How to create and configure a database in Azure SQL Database](../../sql-database/sql-database-get-started.md) to create one.
 * **SQL Server 2012/2014 or Visual Studio 2013**. You use SQL Server Management Studio or Visual Studio to create a sample database and to view the result data in the database.  
 
 ## Collect blob storage account name and key
@@ -64,7 +64,7 @@ You need the account name and account key of your Azure storage account to do th
 7. Close all the blades by clicking **X**.
 
 ## Collect SQL server, database, user names
-You need the names of logical SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for your Azure SQL database.
+You need the names of logical SQL server, database, and user to do this tutorial. Note down names of **server**, **database**, and **user** for Azure SQL Database.
 
 1. In the **Azure portal**, click **All services** on the left and select **SQL databases**.
 2. In the **SQL databases blade**, select the **database** that you want to use in this tutorial. Note down the **database name**.  
@@ -81,7 +81,7 @@ Ensure that **Allow access to Azure services** setting turned **ON** for your se
 4. Close all the blades by clicking **X**.
 
 ## Prepare Blob Storage and SQL Database
-Now, prepare your Azure blob storage and Azure SQL database for the tutorial by performing the following steps:  
+Now, prepare your Azure blob storage and Azure SQL Database for the tutorial by performing the following steps:  
 
 1. Launch Notepad. Copy the following text and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
 

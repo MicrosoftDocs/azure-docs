@@ -135,4 +135,4 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Upgrade a Service Fabric Mesh app](service-fabric-mesh-tutorial-upgrade.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

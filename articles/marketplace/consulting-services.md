@@ -1,12 +1,12 @@
 ---
 title: Consulting services in Microsoft commercial marketplace  
 description: This article describes the eligibility criteria and publishing requirements for new consulting service offers in Microsoft AppSource and Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.author: dsindona
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ---
 
 # Consulting service offers
@@ -17,11 +17,11 @@ Consulting service offers are customer-specific engagements. Publishers have the
 
 ## Compare consulting services
 
-The commercial marketplace storefronts, Microsoft AppSource and Azure Marketplace, are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. To learn more about the difference between the two storefronts, see [Comparing Microsoft AppSource and Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+The commercial marketplace storefronts, Microsoft AppSource and Azure Marketplace, are aligned with audiences and cloud products to help customers find what they need. Each storefront has specialized publishing options to help you maximize your publishing investment. To learn more about the difference between the two storefronts, see [Comparing Microsoft AppSource and Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 
-Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
 > Consulting services in Azure Marketplace should focus on offers for a technical audience and emphasize Azure technical solutions and services.
@@ -67,7 +67,7 @@ For more information about competencies, go to the [Microsoft Partner Network Co
 
 System-integrator partners can submit consulting-service offers for the following 20 countries/regions:
 
-|   |   |   |   |
+| Countries  | (continued..)   | (continued..)  | (continued..)  |
 |---------|----------|----------|----------|
 | Australia | Belgium | Canada | Denmark |
 | Finland  | France | Germany  | India   |
@@ -78,7 +78,7 @@ System-integrator partners can submit consulting-service offers for the followin
 
 ## Register for consulting services in the commercial marketplace
 
-Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](become-publisher.md). 
 
 ## Prepare your publishing artifacts
 Before you register, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 

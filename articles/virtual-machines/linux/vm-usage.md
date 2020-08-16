@@ -3,110 +3,104 @@ title: Understanding Azure virtual machine usage
 description: Understand virtual machine usage details
 services: virtual-machines
 documentationcenter: ''
-author: mmccrory
-manager: gwallace
-editor: ''
-tags: azure-virtual-machine
-
-ms.assetid: ''
+author: mimckitt
+ms.author: mimckitt
 ms.service: virtual-machines-linux
-ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
-ms.author: memccror
+ms.date: 07/28/2020
 ---
 
 # Understanding Azure virtual machine usage
-By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
+By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## Download your usage details
-To begin, [download your usage details](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
+To begin, [download your usage details](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
 
 
-| Fields             | Meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Example Values                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Usage Date         | The date when the resource was used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |  “11/23/2017”                                                                                                                                                                                                                                                                                                                                                     |
-| Meter ID           | Identifies the top-level service for which this usage belongs to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | “Virtual Machines”                                                                                                                                                                                                                                                                                                                                               |
-| Meter Sub-Category | The billed meter identifier. <ul><li>For Compute Hour usage, there is a meter for each VM Size + OS (Windows, Non-Windows) + Region.</li><li>For Premium software usage, there is a meter for each software type. Most premium software images have different meters for each core size. For more information, visit the [Compute Pricing Page.](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>                                                                                                                                                                                                                                                                                                                                         | “2005544f-659d-49c9-9094-8e0aea1be3a5”                                                                                                                                                                                                                                                                                                                           |
-| Meter Name         | This is specific for each service in Azure. For compute, it is always “Compute Hours”.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | “Compute Hours”                                                                                                                                                                                                                                                                                                                                                  |
-| Meter Region       | Identifies the location of the datacenter for certain services that are priced based on datacenter location.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |  “JA East”                                                                                                                                                                                                                                                                                                                                                       |
-| Unit               | Identifies the unit that the service is charged in. Compute resources are billed per hour.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | “Hours”                                                                                                                                                                                                                                                                                                                                                          |
-| Consumed           | The amount of the resource that has been consumed for that day. For Compute, we bill for each minute the VM ran for a given hour (up to 6 decimals of accuracy).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
-| Resource Location  | Identifies the datacenter where the resource is running.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | “JA East”                                                                                                                                                                                                                                                                                                                                                        |
-| Consumed Service   | The Azure platform service that you used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Resource Group     | The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview.](https://docs.microsoft.com/azure/virtual-machines/linux/vm-usage)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
-| Instance ID        | The identifier for the resource. The identifier contains the name you specify for the resource when it was created. For VMs, the Instance ID will contain the SubscriptionId, ResourceGroupName, and VMName (or scale set name for scale set usage).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1”<br><br>or<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1”                                                                                           |
-| Tags               | Tag you assign to the resource. Use tags to group billing records. Learn how to [tag your Virtual Machines.](tag.md) This is available for Resource Manager VMs only.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
-| Additional Info    | Service-specific metadata. For VMs, we populate the following data in the additional info field: <ul><li>Image Type- specific image that you ran. Find the full list of supported strings below under Image Types.</li><li>Service Type: the size that you deployed.</li><li>VMName: name of your VM. This field is only populated for scale set VMs. If you need your VM Name for scale set VMs, you can find that in the Instance ID string above.</li><li>UsageType: This specifies the type of usage this represents.<ul><li>ComputeHR is the Compute Hour usage for the underlying VM, like Standard_D1_v2.</li><li>ComputeHR_SW is the premium software charge if the VM is using premium software, like Microsoft R Server.</li></ul></li></ul>    | Virtual Machines {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Virtual Machine Scale Sets {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Premium Software {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
+| Fields | Meaning | Example Values | 
+|---|---|---|
+| Usage Date | The date when the resource was used | `11/23/2017` |
+| Meter ID | Identifies the top-level service for which this usage belongs to| `Virtual Machines`|
+| Meter Sub-Category | The billed meter identifier. <br><br> For Compute Hour usage, there is a meter for each VM Size + OS (Windows, Non-Windows) + Region. <br><br> For Premium software usage, there is a meter for each software type. Most premium software images have different meters for each core size. For more information, visit the [Compute Pricing Page](https://azure.microsoft.com/pricing/details/virtual-machines/)</li></ul>| `2005544f-659d-49c9-9094-8e0aea1be3a5`|
+| Meter Name| This is specific for each service in Azure. For compute, it is always “Compute Hours”.| `Compute Hours`|
+| Meter Region| Identifies the location of the datacenter for certain services that are priced based on datacenter location.|  `JA East`|
+| Unit| Identifies the unit that the service is charged in. Compute resources are billed per hour.| `Hours`|
+| Consumed| The amount of the resource that has been consumed for that day. For Compute, we bill for each minute the VM ran for a given hour (up to 6 decimals of accuracy).| `1, 0.5`|
+| Resource Location  | Identifies the datacenter where the resource is running.| `JA East`|
+| Consumed Service | The Azure platform service that you used.| `Microsoft.Compute`|
+| Resource Group | The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview.](../../azure-resource-manager/management/overview.md)|`MyRG`|
+| Instance ID | The identifier for the resource. The identifier contains the name you specify for the resource when it was created. For VMs, the Instance ID will contain the SubscriptionId, ResourceGroupName, and VMName (or scale set name for scale set usage).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>or<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Tags| Tag you assign to the resource. Use tags to group billing records. Learn how to [tag your Virtual Machines.](tag.md) This is available for Resource Manager VMs only.| `{"myDepartment":"RD","myUser":"myName"}`|
+| Additional Info | Service-specific metadata. For VMs, we populate the following data in the additional info field: <br><br> Image Type- specific image that you ran. Find the full list of supported strings below under Image Types.<br><br> Service Type: the size that you deployed.<br><br> VMName: name of your VM. This field is only populated for scale set VMs. If you need your VM Name for scale set VMs, you can find that in the Instance ID string above.<br><br> UsageType: This specifies the type of usage this represents.<br><br> ComputeHR is the Compute Hour usage for the underlying VM, like Standard_D1_v2.<br><br> ComputeHR_SW is the premium software charge if the VM is using premium software, like Microsoft R Server. | Virtual Machines<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Virtual Machine Scale Sets<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Premium Software<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 
 ## Image Type
 For some images in the Azure gallery, the image type is populated in the Additional Info field. This enables users to understand and track what they have deployed on their Virtual Machine. The following values that are populated in this field based on the image you have deployed:
-  - BitRock 
-  - Canonical 
-  - FreeBSD 
-  - Open Logic 
-  - Oracle 
-  - SLES for SAP 
-  - SQL Server 14 Preview on Windows Server 2012 R2 Preview 
-  - SUSE
-  - SUSE Premium
-  - StorSimple Cloud Appliance 
-  - Red Hat
-  - Red Hat for SAP Business Applications     
-  - Red Hat for SAP HANA 
-  - Windows Client BYOL 
-  - Windows Server BYOL 
-  - Windows Server Preview 
+- BitRock 
+- Canonical 
+ FreeBSD 
+- Open Logic 
+- Oracle 
+- SLES for SAP 
+- SQL Server 14 Preview on Windows Server 2012 R2 Preview 
+- SUSE
+- SUSE Premium
+- StorSimple Cloud Appliance 
+- Red Hat
+- Red Hat for SAP Business Applications     
+- Red Hat for SAP HANA 
+- Windows Client BYOL 
+- Windows Server BYOL 
+- Windows Server Preview 
 
 ## Service Type
-The service type field in the Additional Info field corresponds to the exact VM size you deployed. Premium storage VMs (SSD-based) and non-premium storage VMs (HDD-based) are priced the same. If you deploy an SSD-based size, like Standard\_DS2\_v2, you see the non-SSD size (‘Standard\_D2\_v2 VM’) in the Meter Sub-Category column and the SSD-size (‘Standard\_DS2\_v2’)
+The service type field in the Additional Info field corresponds to the exact VM size you deployed. Premium storage VMs (SSD-based) and non-premium storage VMs (HDD-based) are priced the same. If you deploy an SSD-based size, like Standard\_DS2\_v2, you see the non-SSD size (`Standard\_D2\_v2 VM`) in the Meter Sub-Category column and the SSD-size (`Standard\_DS2\_v2`)
 in the Additional Info field.
 
 ## Region Names
 The region name populated in the Resource Location field in the usage details varies from the region name used in the Azure Resource Manager. Here is a mapping between the region values:
 
-|    **Resource Manager Region Name**       |    **Resource Location in Usage Details**    |
-|--------------------------|------------------------------------------|
-|    australiaeast         |    AU East                               |
-|    australiasoutheast    |    AU Southeast                          |
-|    brazilsouth           |    BR South                              |
-|    CanadaCentral         |    CA Central                            |
-|    CanadaEast            |    CA East                               |
-|    CentralIndia          |    IN Central                            |
-|    centralus             |    Central US                            |
-|    chinaeast             |    China East                            |
-|    chinanorth            |    China North                           |
-|    eastasia              |    East Asia                             |
-|    eastus                |    East US                               |
-|    eastus2               |    East US 2                             |
-|    GermanyCentral        |    DE Central                            |
-|    GermanyNortheast      |    DE Northeast                          |
-|    japaneast             |    JA East                               |
-|    japanwest             |    JA West                               |
-|    KoreaCentral          |    KR Central                            |
-|    KoreaSouth            |    KR South                              |
-|    northcentralus        |    North Central US                      |
-|    northeurope           |    North Europe                          |
-|    southcentralus        |    South Central US                      |
-|    southeastasia         |    Southeast Asia                        |
-|    SouthIndia            |    IN South                              |
-|    UKNorth               |    US North                              |
-|    uksouth               |    UK South                              |
-|    UKSouth2              |    UK South 2                            |
-|    ukwest                |    UK West                               |
-|    USDoDCentral          |    US DoD Central                        |
-|    USDoDEast             |    US DoD East                           |
-|    USGovArizona          |    USGov Arizona                         |
-|    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    USGov Texas                           |
-|    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    US West Central                       |
-|    westeurope            |    West Europe                           |
-|    WestIndia             |    IN West                               |
-|    westus                |    West US                               |
-|    westus2               |    US West 2                             |
+| **Resource Manager Region Name** | **Resource Location in Usage Details** |
+|---|---|
+| australiaeast |AU East|
+| australiasoutheast | AU Southeast|
+| brazilsouth | BR South|
+| CanadaCentral | CA Central|
+| CanadaEast | CA East|
+| CentralIndia | IN Central|
+| centralus | Central US|
+| chinaeast | China East|
+| chinanorth | China North|
+| eastasia | East Asia|
+| eastus | East US|
+| eastus2 | East US 2|
+| GermanyCentral | DE Central|
+| GermanyNortheast | DE Northeast|
+| japaneast | JA East|
+| japanwest | JA West|
+| KoreaCentral | KR Central|
+| KoreaSouth | KR South|
+| northcentralus | North Central US|
+| northeurope | North Europe|
+| southcentralus | South Central US|
+| southeastasia | Southeast Asia|
+| SouthIndia | IN South|
+| UKNorth | US North|
+| uksouth | UK South|
+| UKSouth2 | UK South 2|
+| ukwest | UK West|
+| USDoDCentral | US DoD Central|
+| USDoDEast | US DoD East|
+| USGovArizona | USGov Arizona|
+| usgoviowa | USGov Iowa|
+| USGovTexas | USGov Texas|
+| usgovvirginia | USGov Virginia|
+| westcentralus | US West Central|
+| westeurope | West Europe|
+| WestIndia | IN West|
+| westus | West US|
+| westus2 | US West 2|
 
 
 ## Virtual machine usage FAQ
@@ -129,7 +123,7 @@ ComputeHR stands for Compute Hour which represents the usage event for the under
 ### How do I know if I am charged for premium software?
 When exploring which VM Image best fits your needs, be sure to check out the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). The image has the software plan rate. If you see “Free” for the rate, there is no additional cost for the software. 
 ### What is the difference between Microsoft.ClassicCompute and Microsoft.Compute in the Consumed service?
-Microsoft.ClassicCompute represents classic resources deployed via the Azure Service Manager. If you deploy via the Resource Manager, then Microsoft.Compute is populated in the consumed service. Learn more about the [Azure Deployment models](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+Microsoft.ClassicCompute represents classic resources deployed via the Azure Service Manager. If you deploy via the Resource Manager, then Microsoft.Compute is populated in the consumed service. Learn more about the [Azure Deployment models](../../azure-resource-manager/management/deployment-models.md).
 ### Why is the InstanceID field blank for my Virtual Machine usage?
 If you deploy via the classic deployment model, the InstanceID string is not available.
 ### Why are the tags for my VMs not flowing to the usage details?
@@ -140,6 +134,4 @@ In the Classic model, billing for resources is aggregated at the Cloud Service l
 Premium storage capable VMs are billed at the same rate as non-premium storage capable VMs. Only your storage costs differ. Visit the [storage pricing page](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) for more information.
 
 ## Next steps
-To learn more about your usage details, see [Understand your bill for Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
-)
-
+To learn more about your usage details, see [Understand your bill for Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)

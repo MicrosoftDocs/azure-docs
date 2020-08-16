@@ -1,7 +1,7 @@
 ---
 title: 'Architecture: Global transit network architecture'
 titleSuffix: Azure Virtual WAN
-description: Learn about global transit network architecture for Virtual WAN
+description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between cloud workloads.
 services: virtual-wan
 author: cherylmc
 
@@ -44,7 +44,7 @@ In the Azure Virtual WAN architecture, virtual WAN hubs are provisioned in Azure
 
 You can establish a virtual WAN by creating a single virtual WAN hub in the region that has the largest number of spokes (branches, VNets, users), and then connecting the spokes that are in other regions to the hub. This is a good option when an enterprise footprint is mostly in one region with a few remote spokes.  
   
-## <a name="hubtohub"></a>Hub-to-hub connectivity (Preview)
+## <a name="hubtohub"></a>Hub-to-hub connectivity
 
 An Enterprise cloud footprint can span multiple cloud regions and it is optimal (latency-wise) to access the cloud from a region closest to their physical site and users. One of the key principles of global transit network architecture is to enable cross-region connectivity between all cloud and on-premises network endpoints. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity enabled by [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 
@@ -130,6 +130,9 @@ The Azure Virtual WAN hubs interconnect all the networking end points across the
 ![secured virtual hub with Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Figure 5: Secured virtual hub with Azure Firewall**
+
+> [!NOTE]
+> Inter-hub with firewall is currently not supported. Traffic between hubs will move directly bypassing the Azure Firewall in each hub.
 
 Azure Firewall to the virtual WAN supports the following global secured transit connectivity paths. The letters in parentheses map to Figure 5.
 

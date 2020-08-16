@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs
@@ -149,7 +149,7 @@ endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
 headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>'}
 params = {
-    'api-version': '2019-05-06'
+    'api-version': '2020-06-30'
 }
 ```
 

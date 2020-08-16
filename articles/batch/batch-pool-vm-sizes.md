@@ -2,7 +2,7 @@
 title: Choose VM sizes for pools
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
 
 ---
@@ -31,12 +31,12 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | DC | None |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4<sup>1</sup> | None - not yet available |
-| Dasv4<sup>1</sup> | All sizes, except for Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Dav4<sup>1</sup> | All sizes |
+| Dasv4<sup>1</sup> | All sizes |
 | Ddv4, Ddsv4 |  None - not yet available |
 | Ev3, Esv3 | All sizes, except for E64is_v3 and E64i_v3 |
-| Eav4<sup>1</sup> | All sizes, except for Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
-| Easv4<sup>1</sup> | All sizes, except for Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
+| Eav4<sup>1</sup> | All sizes |
+| Easv4<sup>1</sup> | All sizes |
 | Edv4, Edsv4 |  None - not yet available |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
@@ -72,7 +72,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 ## Size considerations
 
-* **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes, respectively. (See [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).)
+* **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes, respectively. (See [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).)
 
 * **Tasks per node** - It's typical to select a node size assuming one task runs on a node at a time. However, it might be advantageous to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a multicore node size to accommodate the increased demand of parallel task execution.
 

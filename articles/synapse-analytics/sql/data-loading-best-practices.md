@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
@@ -17,7 +17,7 @@ ms.custom: azure-synapse
 
 Recommendations and performance optimizations for loading data
 
-## Preparing data in Azure Storage
+## Prepare data in Azure Storage
 
 To minimize latency, co-locate your storage layer and your data warehouse.
 
@@ -29,13 +29,13 @@ All file formats have different performance characteristics. For the fastest loa
 
 Split large compressed files into smaller compressed files.
 
-## Running loads with enough compute
+## Run loads with enough compute
 
 For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your SQL pool before the load.
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
-### Example of creating a loading user
+### Create a loading user
 
 This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
 
@@ -57,7 +57,7 @@ To run a load with resources for the staticRC20 resource classes, sign in as Loa
 
 Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
-## Allowing multiple users to load
+## Allow multiple users to load
 
 There is often a need to have multiple users load data into a data warehouse. Loading with the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) requires CONTROL permissions of the database.  The CONTROL permission gives control access to all schemas. You might not want all loading users to have control access on all schemas. To limit permissions, use the DENY CONTROL statement.
 
@@ -70,13 +70,13 @@ For example, consider database schemas, schema_A for dept A, and schema_B for de
 
 User_A and user_B are now locked out from the other dept's schema.
 
-## Loading to a staging table
+## Load to a staging table
 
 To achieve the fastest loading speed for moving data into a data warehouse table, load data into a staging table.  Define the staging table as a heap and use round-robin for the distribution option.
 
 Consider that loading is usually a two-step process in which you first load to a staging table and then insert the data into a production data warehouse table. If the production table uses a hash distribution, the total time to load and insert might be faster if you define the staging table with the hash distribution. Loading to the staging table takes longer, but the second step of inserting the rows to the production table does not incur data movement across the distributions.
 
-## Loading to a columnstore index
+## Load to a columnstore index
 
 Columnstore indexes require large amounts of memory to compress data into high-quality rowgroups. For best compression and index efficiency, the columnstore index needs to compress the maximum of 1,048,576 rows into each rowgroup. When there is memory pressure, the columnstore index might not be able to achieve maximum compression rates. This in turn effects query performance. For a deep dive, see [Columnstore memory optimizations](data-load-columnstore-compression.md).
 
@@ -87,19 +87,19 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 
 As mentioned before, loading with PolyBase will provide the highest throughput with Synapse SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
 
-## Handling loading failures
+## Manage loading failures
 
 A load using an external table can fail with the error *"Query aborted-- the maximum reject threshold was reached while reading from an external source"*. This message indicates that your external data contains dirty records. A data record is considered dirty if the data types and number of columns do not match the column definitions of the external table, or if the data doesn't conform to the specified external file format.
 
 To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
 
-## Inserting data into a production table
+## Insert data into a production table
 
 A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load.
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
-## Creating statistics after the load
+## Create statistics after the load
 
 To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

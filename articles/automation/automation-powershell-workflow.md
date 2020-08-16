@@ -15,7 +15,7 @@ While a workflow is written with Windows PowerShell syntax and launched by Windo
 > [!NOTE]
 > A PowerShell Workflow script is very similar to a Windows PowerShell script but has some significant differences that can be confusing to a new user. Therefore, we recommend that you write your runbooks using PowerShell Workflow only if you need to use [checkpoints](#use-checkpoints-in-a-workflow). 
 
-For complete details of the topics in this article, see [Getting Started with Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
+For complete details of the topics in this article, see [Getting Started with Windows PowerShell Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
 
 ## Use Workflow keyword
 
@@ -40,9 +40,9 @@ PowerShell Workflow code looks almost identical to PowerShell script code except
 
 An activity is a specific task in a workflow that is performed in a sequence. Windows PowerShell Workflow automatically converts many of the Windows PowerShell cmdlets to activities when it runs a workflow. When you specify one of these cmdlets in your runbook, the corresponding activity is run by Windows Workflow Foundation. 
 
-If a cmdlet has no corresponding activity, Windows PowerShell Workflow automatically runs the cmdlet in an [InlineScript](#use-inlinescript) activity. Some cmdlets are excluded and can't be used in a workflow unless you explicitly include them in an InlineScript block. For more information, see [Using Activities in Script Workflows](https://technet.microsoft.com/library/jj574194.aspx).
+If a cmdlet has no corresponding activity, Windows PowerShell Workflow automatically runs the cmdlet in an [InlineScript](#use-inlinescript) activity. Some cmdlets are excluded and can't be used in a workflow unless you explicitly include them in an InlineScript block. For more information, see [Using Activities in Script Workflows](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574194(v=ws.11)).
 
-Workflow activities share a set of common parameters to configure their operation. See [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+Workflow activities share a set of common parameters to configure their operation. See [about_WorkflowCommonParameters](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### Positional parameters
 
@@ -145,7 +145,7 @@ While InlineScript activities might be critical in certain workflows, they do no
 * You can't use [parallel execution](#use-parallel-processing) inside an InlineScript block.
 * InlineScript affects scalability of the workflow since it holds the Windows PowerShell session for the entire length of the InlineScript block.
 
-For more information on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](https://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
+For more information on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574197(v=ws.11)) and [about_InlineScript](/powershell/module/psworkflow/about/about_inlinescript).
 
 ## Use parallel processing
 
@@ -255,7 +255,7 @@ Workflow Copy-Files
 }
 ```
 
-Because user name credentials are not persisted after you call the [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activity or after the last checkpoint, you need to set the credentials to null and then retrieve them again from the asset store after `Suspend-Workflow` or checkpoint is called.  Otherwise, you might receive the following error message: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Because user name credentials are not persisted after you call the [Suspend-Workflow](/powershell/module/psworkflow/about/about_suspend-workflow) activity or after the last checkpoint, you need to set the credentials to null and then retrieve them again from the asset store after `Suspend-Workflow` or checkpoint is called.  Otherwise, you might receive the following error message: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 The following same code demonstrates how to handle this situation in your PowerShell Workflow runbooks.
 
@@ -284,9 +284,9 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account. Use of these cmdlets is not required if you are authenticating using a Run As account configured with a service principal.
+> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account. Use of these cmdlets is not required if you are authenticating using a Run As account configured with a service principal.
 
-For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](https://technet.microsoft.com/library/jj574114.aspx).
+For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11)).
 
 ## Next steps
 

@@ -1,16 +1,8 @@
 ---
 title: Guide to controlling Windows shutdown behavior in Azure Lab Services | Microsoft Docs
 description: Steps to automatically shutdown an idle Windows virtual machine and remove the Windows shutdown command.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 3/30/2020
-ms.author: spelluru
+ms.date: 06/26/2020
 ---
 
 # Guide to controlling Windows shutdown behavior

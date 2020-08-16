@@ -31,6 +31,8 @@
       href: data-box-gateway-use-cases.md
   - name: How to
     items:
+    - name: Update
+      href: data-box-gateway-apply-updates.md
     - name: Manage
       items:
         - name: Shares
@@ -51,7 +53,9 @@
       href: azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
-      - name: 1911 - Current
+      - name: 2007 - Current
+        href: data-box-gateway-2007-release-notes.md
+      - name: 1911
         href: data-box-gateway-1911-release-notes.md
       - name: 1906
         href: data-box-gateway-1906-release-notes.md
@@ -113,17 +117,25 @@
         href: azure-stack-edge-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
         href: azure-stack-edge-connect-powershell-interface.md
-    - name: Troubleshoot 
-      href: azure-stack-edge-troubleshoot.md
-    - name: Contact Microsoft Support
-      href: azure-stack-edge-contact-microsoft-support.md
+      - name: Troubleshoot
+        items:   
+        - name: Via logs 
+          href: azure-stack-edge-troubleshoot.md
+        - name: Ordering issues
+          href: azure-stack-edge-troubleshoot-ordering.md
+        - name: Contact Microsoft Support
+          href: azure-stack-edge-contact-microsoft-support.md    
     - name: Monitor
       href: azure-stack-edge-monitor.md
-    - name: Return or replace device
+    - name: Return device
       href: azure-stack-edge-return-device.md
+    - name: Replace device
+      href: azure-stack-edge-replace-device.md   
   - name: Release notes
     items:
-    - name: 1911 - Current
+    - name: 2007 - Current
+      href: data-box-gateway-2007-release-notes.md
+    - name: 1911
       href: data-box-gateway-1911-release-notes.md
     - name: 1906
       href: data-box-gateway-1906-release-notes.md
@@ -131,6 +143,14 @@
       href: data-box-gateway-1905-release-notes.md
     - name: General availability (GA)
       href: data-box-gateway-release-notes.md
+  - name: Reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 - name: Resources
   items:
   - name: Azure Stack Edge C# module samples (.NET)

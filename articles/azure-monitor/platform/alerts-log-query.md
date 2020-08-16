@@ -44,7 +44,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
->[Cross-resource query](../log-query/cross-workspace-query.md) in log alerts is supported in the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). By default, Azure Monitor uses the [legacy Log Analytics Alert API](api-alerts.md) for creating new log alert rules from Azure portal, unless you switch from [legacy Log Alerts API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). After the switch, the new API becomes the default for new alert rules in Azure portal and it lets you create cross-resource query log alerts rules. You can create [cross-resource query](../log-query/cross-workspace-query.md) log alert rules without making the switch by using the [ARM template for scheduledQueryRules API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – but this alert rule is manageable though [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) and not from Azure portal.
+>[Cross-resource query](../log-query/cross-workspace-query.md) in log alerts is supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). By default, Azure Monitor uses the [legacy Log Analytics Alert API](api-alerts.md) for creating new log alert rules from Azure portal, unless you switch from [legacy Log Alerts API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). After the switch, the new API becomes the default for new alert rules in Azure portal and it lets you create cross-resource query log alerts rules. You can create [cross-resource query](../log-query/cross-workspace-query.md) log alert rules without making the switch by using the [ARM template for scheduledQueryRules API](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – but this alert rule is manageable though [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) and not from Azure portal.
 
 ## Examples
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use with alert rules.
@@ -211,4 +211,3 @@ on Hour
 ## Next steps
 - Learn about [log alerts](alerts-log.md) in Azure Monitor.
 - Learn about [log queries](../log-query/log-query-overview.md).
-

@@ -4,7 +4,7 @@ description: This article describes how to configure and access the slow logs in
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/13/2020
 ---
 

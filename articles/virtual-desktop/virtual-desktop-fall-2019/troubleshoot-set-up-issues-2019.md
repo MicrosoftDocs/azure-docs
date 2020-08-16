@@ -1,19 +1,16 @@
 ---
-title: Windows Virtual Desktop tenant host pool creation - Azure
-description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
-services: virtual-desktop
+title: Windows Virtual Desktop (classic) tenant host pool creation - Azure
+description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop (classic) tenant environment.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tenant and host pool creation
+# Tenant and host pool creation in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../troubleshoot-set-up-issues.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-set-up-issues.md).
 
 This article covers issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
 
@@ -25,7 +22,8 @@ Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microso
 
 To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplace, select **Get Started** > **Microsoft Windows 10** > and [Windows 10 Enterprise for Virtual Desktops, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-![A screenshot of selecting Windows 10 Enterprise for Virtual Desktops, Version 1809.](../media/AzureMarketPlace.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of selecting Windows 10 Enterprise for Virtual Desktops, Version 1809.](../media/AzureMarketPlace.png)
 
 ## Creating Windows Virtual Desktop tenant
 
@@ -37,9 +35,9 @@ Example of raw error:
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -49,7 +47,8 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 ### Error: The user isn't authorized to query the management service
 
-![Screenshot of PowerShell window in which a user isn't authorized to query the management service.](../media/UserNotAuthorizedNewTenant.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of PowerShell window in which a user isn't authorized to query the management service.](../media/UserNotAuthorizedNewTenant.png)
 
 Example of raw error:
 
@@ -70,7 +69,8 @@ Example of raw error:
 
 **Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
 
-![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
 
 ## Creating Windows Virtual Desktop session host VMs
 
@@ -82,7 +82,8 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 
 ### Error: When using the link from GitHub, the message "Create a free account" appears
 
-![Screenshot to create a free account.](../media/be615904ace9832754f0669de28abd94.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot to create a free account.](../media/be615904ace9832754f0669de28abd94.png)
 
 **Cause 1:** There aren't active subscriptions in the account used to sign in to Azure or the account used doesn't have permissions to view the subscriptions.
 
@@ -105,7 +106,8 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 
 ### Error: You receive "template deployment is not valid" error
 
-![Screenshot of "template deployment ... is not valid" error](../media/troubleshooting-marketplace-validation-error-generic.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of "template deployment ... is not valid" error](../media/troubleshooting-marketplace-validation-error-generic.png)
 
 Before taking specific action, you'll need to check the activity log to see the detailed error for the failed deployment validation.
 
@@ -114,10 +116,14 @@ To view the error in the activity log:
 1. Exit the current Azure Marketplace deployment offering.
 2. In the top search bar, search for and select **Activity Log**.
 3. Find an activity named **Validate Deployment** that has a status of **Failed** and select the activity.
-   ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
-   ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
 If your operation template goes over the quota limit, you can do one of the following things to fix it:
 
@@ -135,7 +141,8 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 ### Error: Your deployment failed….\<hostname>/joindomain
 
-![Your Deployment Failed screenshot.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
+> [!div class="mx-imgBorder"]
+> ![Your Deployment Failed screenshot.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 Example of raw error:
 
@@ -176,7 +183,8 @@ To fix this, do the following things:
 
 ### Error: VMExtensionProvisioningError
 
-![Screenshot of Your Deployment Failed with terminal provisioning state failed.](../media/7aaf15615309c18a984673be73ac969a.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Your Deployment Failed with terminal provisioning state failed.](../media/7aaf15615309c18a984673be73ac969a.png)
 
 **Cause 1:** Transient error with the Windows Virtual Desktop environment.
 
@@ -186,7 +194,8 @@ To fix this, do the following things:
 
 ### Error: The Admin Username specified isn't allowed
 
-![Screenshot of your deployment failed in which an admin specified isn't allowed.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of your deployment failed in which an admin specified isn't allowed.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 Example of raw error:
 
@@ -205,7 +214,8 @@ Example of raw error:
 
 ### Error: VM has reported a failure when processing extension
 
-![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](../media/49c4a1836a55d91cd65125cf227f411f.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](../media/49c4a1836a55d91cd65125cf227f411f.png)
 
 Example of raw error:
 
@@ -231,7 +241,8 @@ Example of raw error:
 
 ### Error: DeploymentFailed – PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s)
 
-![Screenshot of deployment fail with PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s).](../media/64870370bcbe1286906f34cf0a8646ab.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of deployment fail with PowerShell DSC Configuration 'FirstSessionHost' completed with Error(s).](../media/64870370bcbe1286906f34cf0a8646ab.png)
 
 Example of raw error:
 
@@ -241,7 +252,7 @@ Example of raw error:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n
@@ -360,7 +371,8 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 
 ### Error: User requires Azure Multi-Factor Authentication (MFA)
 
-![Screenshot of your deployment failed due to lack of Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of your deployment failed due to lack of Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)
 
 Example of raw error:
 
@@ -385,6 +397,12 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - Tenant Admin Password: The password secret you generated for the service principal
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
+
+### Error: vmSubnet not available when configuring virtual networks
+
+**Cause:** In the WVD Marketplace template, the UI only displays subnets that have at least as many IP addresses available as the total number of VMs specified in the template. The actual number of available IP addresses in the subnet only needs to be equal to the number of new VMs being deployed but this cannot be calculated by the current UI.
+
+**Fix:** You can specify a subnet with at least as many IP addresses available as the number of VMs being added by not using the Marketplace UI, this can be done by specifying the subnet name in the "**existingSubnetName**" parameter when you [redeploy an existing deployment](expand-existing-host-pool-2019.md#redeploy-from-azure) or [deploy using the underlying ARM template from GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## Next steps
 

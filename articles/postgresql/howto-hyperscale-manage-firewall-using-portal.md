@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 9/12/2019
 ---
 # Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)

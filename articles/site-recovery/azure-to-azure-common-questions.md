@@ -66,6 +66,10 @@ Configure disaster recovery [across subscriptions](https://azure.microsoft.com/b
 
 Yes, you can [replicate zone-pinned VMs](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) to another region.
 
+### Can I replicate VMs in a region that has zones from non-zone to zonal configuration?
+
+No, this is not supported today. As a workaround, you can replicate the VM using ASR to a zonal configuration in another region, then disable replication. Next, re-enable replication from that region to the original region, and choose a zonal configuration for failover.
+
 ### Can I exclude disks?
 
 Yes, you can exclude disks at the time of protection by using PowerShell. For more information, see [how to exclude disks from replication](azure-to-azure-exclude-disks.md).
@@ -84,7 +88,7 @@ Site Recovery doesn't support "hot remove" of a disk from a replicated VM. If yo
 
 ### How often can I replicate to Azure?
 
-Replication is continuous when you're replicating Azure VMs to another Azure region. For more information, see the [Azure-to-Azure replication architecture](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
+Replication is continuous when you're replicating Azure VMs to another Azure region. For more information, see the [Azure-to-Azure replication architecture](./azure-to-azure-architecture.md#replication-process).
 
 ### Can I replicate virtual machines within a region? I need this functionality to migrate VMs.
 
@@ -92,17 +96,17 @@ You can't use an Azure-to-Azure disk recovery solution to replicate VMs within a
 
 ### Can I replicate VM instances to any Azure region?
 
-By using Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined with data latency and sovereignty in mind. For more information, see the Site Recovery [region support matrix](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support).
+By using Site Recovery, you can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined with data latency and sovereignty in mind. For more information, see the Site Recovery [region support matrix](./azure-to-azure-support-matrix.md#region-support).
 
 ### Does Site Recovery require internet connectivity?
 
-No, Site Recovery doesn't require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [networking in Azure VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
+No, Site Recovery doesn't require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [networking in Azure VM disaster recovery](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
 ### Can I replicate an application that has a separate resource group for separate tiers?
 
 Yes, you can replicate the application and keep the disaster recovery configuration in a separate resource group too.
 
-For example, if your application has each tier's application, database, and web in a separate resource group, then you have to select the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) three times to protect all the tiers. Site Recovery will replicate these three tiers into three different resource groups.
+For example, if your application has each tier's application, database, and web in a separate resource group, then you have to select the [replication wizard](./azure-to-azure-how-to-enable-replication.md#enable-replication) three times to protect all the tiers. Site Recovery will replicate these three tiers into three different resource groups.
 
 ### Can I move storage accounts across resource groups?
 
@@ -115,9 +119,9 @@ No, this is an unsupported scenario. However, if you accidentally move storage a
 A replication policy defines the settings for the retention history of recovery points. The policy also defines the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
 
 - 24 hours for the retention history of recovery points.
-- 60 minutes for the frequency of app-consistent snapshots.
+- 4 hours for the frequency of app-consistent snapshots.
 
-[Learn more about replication settings](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[Learn more about replication settings](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### What is a crash-consistent recovery point?
 
@@ -178,7 +182,7 @@ Yes, if you increase the retention period from 24 hours to 72 hours, Site Recove
 
 ### Can I enable replication with app-consistency in Linux servers?
 
-Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. [Learn more](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Yes. Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post-options will be used by the Azure Site Recovery Mobility Agent during app-consistency. [Learn more](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ## Multi-VM consistency
 
@@ -190,7 +194,7 @@ Site Recovery provides a **Multi-VM consistency** option, which creates a replic
 
 When you fail over the virtual machines, they'll have shared crash-consistent and app-consistent recovery points.
 
-Go through the tutorial to [enable multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
+Go through the tutorial to [enable multi-VM consistency](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm).
 
 ### Can I fail over a single virtual machine within a multi-VM consistency replication group?
 
@@ -286,11 +290,11 @@ Yes, you can integrate Azure Automation runbooks into your recovery plan. Learn 
 
 ### I failed over from the primary region to a disaster recovery region. Are VMs in a DR region protected automatically?
 
-No. When you [fail over](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs start up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
+No. When you [fail over](./azure-to-azure-tutorial-failover-failback.md) Azure VMs from one region to another, the VMs start up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](./azure-to-azure-how-to-reprotect.md) the VMs in the secondary region.
 
 ### At the time of reprotection, does Site Recovery replicate complete data from the secondary region to the primary region?
 
-It depends on the situation. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually takes a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VM instances to the primary region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
+It depends on the situation. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually takes a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VM instances to the primary region](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### How much time does it take to fail back?
 
@@ -316,10 +320,10 @@ Site Recovery is ISO 27001:2013, 27018, HIPAA, and DPA certified. The service is
 
 ### Does Site Recovery encrypt replication?
 
-Yes, both encryption in transit and [encryption at rest in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
+Yes, both encryption in transit and [encryption at rest in Azure](../storage/common/storage-service-encryption.md) are supported.
 
 ## Next steps
 
 - [Review Azure-to-Azure support requirements](azure-to-azure-support-matrix.md).
 - [Set up Azure-to-Azure replication](azure-to-azure-tutorial-enable-replication.md).
-- If you have questions after reading this article, post them on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
+- If you have questions after reading this article, post them on the [Microsoft Q&A question page for Azure Recovery Services](/answers/topics/azure-site-recovery.html).

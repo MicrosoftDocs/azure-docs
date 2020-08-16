@@ -4,7 +4,7 @@ description: How to create a support request in the Azure portal for Azure Synap
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 03/10/2020
 author: kevinvngo
 ms.author: kevin

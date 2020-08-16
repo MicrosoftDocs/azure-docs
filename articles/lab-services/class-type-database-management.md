@@ -1,21 +1,12 @@
 ---
 title: Set up a lab to teach database management for relational databases | Microsoft Docs
 description: Learn how to set up a lab to teach the management of relational databases. 
-services: lab-services
-documentationcenter: na
 author: emaher
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 06/26/2020
 ms.author: enewman
-
 ---
+
 # Set up a lab to teach database management for relational databases
 
 This article describes how to set up a lab for a basic databases management class in Azure Lab Services. Databases concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.

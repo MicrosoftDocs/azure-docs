@@ -1,17 +1,8 @@
 ---
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/02/2019
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -273,7 +264,7 @@ Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.m
 
 ### Support and SLA
 
-Technical support for Event Hubs is available through the [Microsoft Q&A question page for Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Billing and subscription management support is provided at no cost.
+Technical support for Event Hubs is available through the [Microsoft Q&A question page for Azure Service Bus](/answers/topics/azure-service-bus.html). Billing and subscription management support is provided at no cost.
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
@@ -281,6 +272,6 @@ To learn more about our SLA, see the [Service Level Agreements](https://azure.mi
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)

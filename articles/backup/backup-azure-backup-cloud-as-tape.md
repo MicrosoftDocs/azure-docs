@@ -64,5 +64,5 @@ By clicking **Modify** in the preceding screen, customers have further flexibili
 
 For more information about Azure Backup, see:
 
-* [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-* [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Introduction to Azure Backup](./backup-overview.md)
+* [Try Azure Backup](./backup-windows-with-mars-agent.md)

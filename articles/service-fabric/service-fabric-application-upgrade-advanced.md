@@ -9,15 +9,15 @@ ms.date: 03/11/2020
 
 ## Add or remove service types during an application upgrade
 
-If a new service type is added to a published application as part of an upgrade, then the new service type is added to the deployed application. Such an upgrade does not affect any of the service instances that were already part of the application, but an instance of the service type that was added must be created for the new service type to be active (see [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+If a new service type is added to a published application as part of an upgrade, then the new service type is added to the deployed application. Such an upgrade does not affect any of the service instances that were already part of the application, but an instance of the service type that was added must be created for the new service type to be active (see [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
-Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+Similarly, service types can be removed from an application as part of an upgrade. However, all service instances of the to-be-removed service type must be removed before proceeding with the upgrade (see [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
 ## Avoid connection drops during stateless service planned downtime
 
 For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped as the exposed endpoint is removed after the instance goes down, which results in forceful connection closures.
 
-To avoid this, configure the *RequestDrain* feature by adding an *instance close delay duration* in the service configuration to allow existing requests from within the cluster to drain on the exposed endpoints. This is achieved as the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down. These requests could be originating from clients using [Reverse Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) or using service endpoint resolution api's with the notification model ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) for updating the endpoints.
+To avoid this, configure the *RequestDrain* feature by adding an *instance close delay duration* in the service configuration to allow existing requests from within the cluster to drain on the exposed endpoints. This is achieved as the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down. These requests could be originating from clients using [Reverse Proxy](./service-fabric-reverseproxy.md) or using service endpoint resolution api's with the notification model ([ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) for updating the endpoints.
 
 ### Service configuration
 
@@ -72,7 +72,7 @@ There are several ways to configure the delay on the service side.
 
 ### Client configuration
 
-To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+To receive notification when an endpoint has changed, clients should register a callback see [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 The change notification is an indication that the endpoints have changed, the client should re-resolve the endpoints, and not use the endpoints which are not advertised anymore, as they will go down soon.
 
 ### Optional upgrade overrides
@@ -89,7 +89,7 @@ The overridden delay duration only applies to the invoked upgrade instance and d
 
 > [!NOTE]
 > * The settings to drain requests will not be able to prevent the Azure Load balancer from sending new requests to the endpoints which are undergoing drain.
-> * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. As described earlier, this should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. As described earlier, this should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * The settings are not honored when the upgrade is an impactless one i.e when the replicas will not be brought down during the upgrade.
 >
 >
@@ -109,7 +109,7 @@ The overridden delay duration only applies to the invoked upgrade instance and d
 
 In *Monitored* mode, Service Fabric applies health policies to ensure that the application is healthy as the upgrade progresses. If health policies are violated, then the upgrade is either suspended or automatically rolled back depending on the specified *FailureAction*.
 
-In *UnmonitoredManual* mode, the application administrator has total control over the progression of the upgrade. This mode is useful when applying custom health evaluation policies or performing non-conventional upgrades to bypass health monitoring completely (e.g. the application is already in data loss). An upgrade running in this mode will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). When an upgrade is suspended and ready to be resumed by the user, its upgrade state will show *RollforwardPending* (see [UpgradeState](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+In *UnmonitoredManual* mode, the application administrator has total control over the progression of the upgrade. This mode is useful when applying custom health evaluation policies or performing non-conventional upgrades to bypass health monitoring completely (e.g. the application is already in data loss). An upgrade running in this mode will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). When an upgrade is suspended and ready to be resumed by the user, its upgrade state will show *RollforwardPending* (see [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
 Finally, the *UnmonitoredAuto* mode is useful for performing fast upgrade iterations during service development or testing since no user input is required and no application health policies are evaluated.
 
@@ -200,11 +200,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## Roll back application upgrades
 
-While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
+While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
 
-Rollbacks can be triggered automatically when the health policies of an upgrade in *Monitored* mode with a *FailureAction* of *Rollback* are violated (see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md)) or explicitly using [Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Rollbacks can be triggered automatically when the health policies of an upgrade in *Monitored* mode with a *FailureAction* of *Rollback* are violated (see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md)) or explicitly using [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
-During rollback, the value of *UpgradeReplicaSetCheckTimeout* and the mode can still be changed at any time using [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+During rollback, the value of *UpgradeReplicaSetCheckTimeout* and the mode can still be changed at any time using [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
