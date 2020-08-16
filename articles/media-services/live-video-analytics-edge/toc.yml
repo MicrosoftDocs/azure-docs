@@ -67,6 +67,8 @@
   items:
   - name: Live Video Analytics on IoT Edge C# samples
     href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
+  - name: Live Video Analytics on IoT Edge Python samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python
 - name: Concepts
   items:
   - name: Media graph
