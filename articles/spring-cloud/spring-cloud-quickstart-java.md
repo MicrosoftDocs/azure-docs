@@ -74,8 +74,10 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
     
     }
     ```
+## Provision an instance of Azure Spring Cloud
+
 #### [Portal](#tab/Azure-portal)
-## Provision an instance using the Azure portal
+
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
