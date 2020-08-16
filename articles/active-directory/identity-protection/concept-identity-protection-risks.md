@@ -67,7 +67,7 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 
 Identity Protection categorizes risk into three tiers: low, medium, and high. 
 
-While Microsoft does not provide specific details about how risk is calculated we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
+While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 
 ### Leaked credentials
 
