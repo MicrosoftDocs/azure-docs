@@ -61,7 +61,7 @@ Security Center analyzes the security state of your resources to identify potent
         - **Unhealthy resources** – Resources which are still impacted by the identified issue.
         - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource. 
 
-                    :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Image with border.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
 
 
  
