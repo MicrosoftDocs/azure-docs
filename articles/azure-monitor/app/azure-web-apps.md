@@ -118,8 +118,6 @@ Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
    * **Save** the settings and **Restart** your app.
 
-![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
-
 To disable client-side monitoring either remove the associated key value pair from the Application settings, or set the value to false.
 
 # [.NET Core](#tab/netcore)
@@ -136,8 +134,6 @@ If for some reason you would like to disable client-side monitoring:
      Value: `false`
 
    * **Save** the settings and **Restart** your app.
-
-![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
 # [Node.js](#tab/nodejs)
 
