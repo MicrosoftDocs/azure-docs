@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Set up logs, metrics, and tracing"
-description: Describes set up procedure for logs, metrics, and tracing for Azure Spring Cloud apps.
+title: "Quickstart - Monitoring Azure Spring Cloud apps with logs, metrics, and tracing"
+description: Steps to use logs, metrics, and tracing for deployed Piggymetrics sample apps on Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -9,89 +9,20 @@ ms.date: 08/04/2020
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Set up logs, metrics, and tracing for Azure Spring Cloud apps
+# Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
 
-With the distributed tracing tools in Azure Spring Cloud, you can debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
+With the built in monitoring capability in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics and distributed tracing capability from the Azure portal. We will walk you though how to use Log Streaming, Log Analytics, Metrics and Distritbuted tracing with deployed PiggyMetrics apps.
 
-## Set up logs following deployment in the Azure portal
+Please make sure you have complete previous steps: [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md), [set up the config server](spring-cloud-quickstart-setup-config-server.md) and [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
 
-This example is based on the procedure [provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
+## Logs
 
-1. Click the **Diagnostic Setting** tab to open the following dialog.
+There are two ways to see logs on Azure Spring Cloud: Log Streaming for real time logs per app instance and Log Analytics for aggregated logs with advanced query capability.
 
-1. You can set **Enable logs** to *yes* or *no* according to your requirements.
+### Log Streaming
 
-    ![Enable logs](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
-
-1. Click the **Tracing** tab.
-
-1. You can set **Enable tracing** to *yes* or *no* according to your requirements.  If you set **Enable tracing** to yes,  also select an existing application insight, or create a new one. Without the **Application Insights** specification there will be a validation error.
-
-
-    ![Tracing](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
-
-1. Click **Review and create**.
-
-1. Verify your specifications, and click **Create**.
-
-It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
-
-
-## Set up logs following CLI deployment
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-deploy-apps.md) to provision and run an Azure Spring Cloud service.
-    
-### Add dependencies
-
-1. Add the following line to the application.properties file:
-
-   ```xml
-   spring.zipkin.sender.type = web
-   ```
-
-   After this change, the Zipkin sender can send to the web.
-
-1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](spring-cloud-tutorial-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
-
-    ```xml
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth</artifactId>
-                <version>${spring-cloud-sleuth.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-    </dependencies>
-    ```
-
-1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
-
-### Modify the sample rate
-
-You can change the rate at which your telemetry is collected by modifying the sample rate. For example, if you want to sample half as often, open your application.properties file, and change the following line:
-
-```xml
-spring.sleuth.sampler.probability=0.5
-```
-
-If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in the Azure CLI or the Azure portal.
-
-## Set up logs following IntelliJ deployment
-The following procedure assumes you have completed [deployment of an Azure Spring Cloud app using IntelliJ](spring-cloud-quickstart-deploy-apps.md#intellij-deployment).
-
-### Show streaming logs
-To get the logs:
+#### [Portal](#tab/portal/)
+To get the logs using Azure Toolkit for IntelliJ:
 1. Select **Azure Explorer**, then **Spring Cloud**.
 1. Right-click the running app.
 1. Select **Streaming Logs** from the drop-down list.
@@ -105,6 +36,53 @@ To get the logs:
 1. The streaming log will be visible in the output window.
 
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
+
+#### [Azure CLI](#tab/azurecli/)
+1. You can use Log Streaming in Azure CLI with the following command.
+
+    ```azurecli
+    az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
+    ```
+    ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png)
+    
+    >[!TIP]
+    > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+---
+
+### Log Analytics
+1. Go to the **service Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidence on writing queries.
+
+    ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)
+    
+## Metrics
+1. Go to the **service Overview** page and select **Metrics** in **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
+
+    ![Metrics entry](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png)
+    
+1. Click **Add filter** in the toolbar above, select `App=Gateway` to see CPU usage only for the **gateway** app.
+
+    ![Use filter in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png)
+
+1. Dismiss the filter created above, click **Apply Splitting** and select `App` for **Values** to see CPU usage by different apps.
+
+    ![Apply splitting in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png)
+
+## Distributed Tracing
+1. Go to the **service Overview** page and select **Distributed tracing** in **Monitoring** section. Then click the **View application map** tab on the right.
+
+    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png)
+
+1. You can now see the stauts of calls between Piggymetrics apps. 
+
+    ![Distributed Tracing overview](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png)
+    
+1. Click the link between **gateway** and **account-service** to see more details like slowest calls by HTTP methods.
+
+    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png)
+    
+1. Finally, click **Investigate Performance** to explore more powerful built-in performance analysis.
+
+    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
 
 ## Next steps
 * [Diagnostic services](diagnostic-services.md)
