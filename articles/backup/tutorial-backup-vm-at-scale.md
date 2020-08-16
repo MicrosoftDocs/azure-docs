@@ -151,7 +151,7 @@ If you plan to continue on to work with subsequent tutorials, don't clean up the
 
 1. On the **myRecoveryServicesVault** dashboard, select **3** under **Backup Items** to open the Backup Items menu.
 
-    ![Backup items](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Open Backup items menu](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. On the **Backup Items** menu, select **Azure Virtual Machine** to open the list of virtual machines associated with the vault.
 
@@ -180,7 +180,7 @@ If you plan to continue on to work with subsequent tutorials, don't clean up the
 
 1. When there are no more items in the vault, select **Delete**.
 
-    ![Select Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Select delete](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Once the vault is deleted, you'll return to the list of Recovery Services vaults.
 
