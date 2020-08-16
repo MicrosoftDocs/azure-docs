@@ -12,7 +12,7 @@ ms.author: yelevin
 ---
 # Connect data from Azure Web Application Firewall (WAF)
 
-Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and threats, such as code injection and cross-site scripting. Azure WAF can be deployed on the [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) service (for regional HTTP/S application delivery), the [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) service (for global HTTP/S application delivery), and through an [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) WAF policy (the latter currently in public preview).
+Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and threats, such as code injection and cross-site scripting. Azure WAF can be deployed on the [Azure Application Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) service, the [Azure Front Door](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) service, and through an [Azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) WAF policy (the latter currently in public preview).
 You can connect Azure WAF logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation.
 
 ## Prerequisites
@@ -50,7 +50,7 @@ You can connect Azure WAF logs to Azure Sentinel, enabling you to view log data 
 
 ### Next steps tab
 
-- See the available recommended workbooks, query samples, and analytics rule templates bundled with the **Azure web application firewall** data connector to get insight into your Azure WAF log data.
+- See the recommended workbooks, query samples, and analytics rule templates that are bundled with the **Azure web application firewall** data connector, to get insight into your Azure WAF log data.
 
 - To query Azure WAF data in **Logs**, type **AzureDiagnostics** in the query window.
 
