@@ -16,6 +16,20 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
+## August 19, 2020
+
+This release tag for the August 2020 refresh of the module is:
+
+```
+     mcr.microsoft.com/media/live-video-analytics:1.0.3
+```
+
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
+
+### New features
+* You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-your-grpc-model-quickstart.md) to get started.
+
 ## July 13, 2020
 
 This release tag for the July 2020 refresh of the module is:
