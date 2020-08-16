@@ -281,7 +281,7 @@ namespace MyNamespace
 }
 ```
 
-Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. See [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers) for more information on using configuration providers.
+Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. For more information on using configuration providers, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
 
 A `FunctionsHostBuilderContext` can be obtained from `IFunctionsConfigurationBuilder.GetContext()`. Use it to retrieve the current environment name and resolve the location of configuration files in your function app folder.
 
