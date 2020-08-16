@@ -310,6 +310,60 @@ If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image,
 
 Enable RDP access for Windows images before you submit them.
 
+## Bash history failed
+
+You'll see this error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive 
+information isn't captured in your bash history file.
+
+Below are the steps to delete the “Bash History”.
+
+Step 1.	Deploy the VM and click on “Run Command” option on Azure portal.
+![Run command on Azure portal](./media/vm-certification-issues-solutions-3.png)
+
+Step 2.	Select first option “RunShellScript” and run the below command.
+
+Command: “cat /dev/null > ~/.bash_history && history -c”
+![Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
+
+Step 3.	After successful executing the command, Restart the VM.
+
+Step 4.	Generalize the VM, take the Image VHD and Stop the VM.
+
+Step 5. 	Re-Submit the generalized image.
+
+## Requesting exceptions (custom templates) on VM images for selective tests
+
+Publishers can reach out to request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request.
+The Certification team reserves the right to deny or approve exceptions at any point of time.
+
+In the sections below, we will talk about main scenarios where exceptions are requested and how to request exception.
+
+Scenarios for exception
+
+There are three scenarios/cases where publishers generally request these exceptions. 
+
+* **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
+
+* **Locked Down VMs/No root access:** Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. 
+       In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+
+
+* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
+In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
+
+### Information to provide for exception scenarios
+
+Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
+
+   1.	Publisher ID – The publisher ID on Partner Center portal
+   2.	Offer ID/name – The Offer ID/name for which exception is requested 
+   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
+   4.	 Version – The version of the VM offer for which exception is requested
+   5.	Exception Type –Tests, Locked Down VM, Custom Templates
+   6.	Reason of request – Reason for this exception and information on tests to be exempted 
+   7.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+
+
 ## Next steps
 
 If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).

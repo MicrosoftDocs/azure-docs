@@ -9,7 +9,7 @@ ms.technology: vs-azure
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ---
 # What happened to my WebAPI project (Visual Studio Azure Active Directory connected service)
 
