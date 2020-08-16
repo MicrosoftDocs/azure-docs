@@ -3,24 +3,23 @@ title: How to use Queue storage from Java - Azure Storage
 description: Learn how to use Queue storage to create and delete queues, and insert, get, and delete messages with the Azure Storage client library for Java.
 author: mhopkins-msft
 
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm
 ---
 
 # How to use Queue storage from Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
-
 This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating** and **deleting** queues. For more information on queues, see the [Next steps](#next-steps) section.
 
-> [!NOTE]
-> An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
+> [!IMPORTANT]
+> This article refers to the legacy version of the Azure Storage client library for Java. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for Java](storage-quickstart-queues-java.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -386,6 +385,11 @@ catch (Exception e)
     e.printStackTrace();
 }
 ```
+
+[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+
+> [!NOTE]
+> An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
 
 ## Next steps
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.

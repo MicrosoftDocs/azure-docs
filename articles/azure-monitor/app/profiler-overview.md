@@ -26,7 +26,7 @@ If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting 
 
 ## View Profiler data
 
-For Profiler to upload traces, your application must be actively handling requests. If you're doing an experiment, you can generate requests to your web app by using [Application Insights performance testing](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, select the **Profile Now** button on the [**Profiler Settings** pane](profiler-settings.md). When Profiler is running, it profiles randomly about once per hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler uploads traces every hour.
+For Profiler to upload traces, your application must be actively handling requests. If you're doing an experiment, you can generate requests to your web app by using [Application Insights performance testing](/vsts/load-test/app-service-web-app-performance-test). If you've newly enabled Profiler, you can run a short load test. While the load test is running, select the **Profile Now** button on the [**Profiler Settings** pane](profiler-settings.md). When Profiler is running, it profiles randomly about once per hour and for a duration of two minutes. If your application is handling a steady stream of requests, Profiler uploads traces every hour.
 
 After your application receives some traffic and Profiler has had time to upload the traces, you should have traces to view. This process can take 5 to 10 minutes. To view traces, in the **Performance** pane, select **Take Actions**, and then select the **Profiler Traces** button.
 

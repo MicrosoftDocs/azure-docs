@@ -11,7 +11,7 @@ ms.author: sagupt
 
 Advisor resources are now onboarded to [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). This lays foundation to many at-scale customer scenarios for Advisor recommendations. Few scenarios that were not possible before to do at scale and now can be achieved using Resource Graph are:
 * Gives capability to perform complex query for all your subscriptions in Azure portal
-* Recommendations summarized by category types ( like high availability, performance)  and impact types (high, medium, low)
+* Recommendations summarized by category types ( like reliability, performance)  and impact types (high, medium, low)
 * All recommendations for a particular recommendation type
 * Impacted resource count by recommendation category
 
@@ -20,7 +20,7 @@ Advisor resources are now onboarded to [Azure Resource Graph](https://azure.micr
 
 ## Advisor resource types in Azure Graph
 
-Available Advisor resource types in [Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
+Available Advisor resource types in [Resource Graph](../governance/resource-graph/index.yml):
 There are 3 resource types available for querying under Advisor resources. Here is the list of the resources that are now available for querying in Resource Graph.
 * Microsoft.Advisor/configurations
 * Microsoft.Advisor/recommendations
@@ -34,8 +34,9 @@ These resource types are listed under a new table named as AdvisorResources, whi
 For more information about Advisor recommendations, see:
 * [Introduction to Azure Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor performance recommendations](advisor-performance-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor REST API](/rest/api/advisor/)

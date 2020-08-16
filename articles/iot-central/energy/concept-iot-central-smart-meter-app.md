@@ -1,5 +1,5 @@
 ---
-title: Architectural concepts in Azure IoT Central - Energy | Microsoft Docs
+title: Architectural concepts in Azure IoT Central - smart meter | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central energy app template
 author: op-ravi
 ms.author: omravi

@@ -5,7 +5,7 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.

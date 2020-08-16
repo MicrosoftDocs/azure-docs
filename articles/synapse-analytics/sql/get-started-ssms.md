@@ -1,5 +1,5 @@
 ---
-title: "SSMS: Connect and query Synapse SQL"
+title: Connect to Synapse SQL with SQL Server Management Studio (SSMS)
 description: Use SQL Server Management Studio (SSMS) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse-analytics
 author: azaricstefan 
@@ -25,14 +25,18 @@ You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-
 
 ### Supported tools for SQL on-demand (preview)
 
-SSMS is partially supported starting in version 18.5 with limited features such as connecting and querying. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
+> [!NOTE]
+> If AAD login has connection open for more than 1 hour at time of query execution, any query that relies on AAD will fail. This includes querying storage using AAD pass-through and statements that interact with AAD (like CREATE EXTERNAL PROVIDER). This affects every tool that keeps connection open, like in query editor in SSMS and ADS. Tools that open new connection to execute query are not affected, like Synapse Studio.
+> You can restart SSMS or connect and disconnect in ADS to mitigate this issue. 
+.
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
+* For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool-portal.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
 * The fully qualified SQL Server name. To find this, see [Connect to Synapse SQL](connect-overview.md).
 
 ## Connect

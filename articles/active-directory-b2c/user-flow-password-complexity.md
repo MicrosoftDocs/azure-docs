@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/11/2019
+ms.topic: how-to
+ms.date: 07/30/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -36,7 +37,7 @@ If you are using custom policies, you can ([configure password complexity in a c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 3. In the Azure portal, search for and select **Azure AD B2C**.
-4. Select **User flows (policies)**.
+4. Select **User flows**.
 2. Select a user flow, and click **Properties**.
 3. Under **Password complexity**, change the password complexity for this user flow to **Simple**, **Strong**, or **Custom**.
 

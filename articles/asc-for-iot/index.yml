@@ -12,7 +12,7 @@ metadata:
   ms.collection: M365-security-compliance
   author: mlottner
   ms.author: mlottner
-  ms.date: 09/23/2019
+  ms.date: 07/15/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Azure Security Center for IoT?
             url: overview.md
+          - text: Azure RTOS security solution
+            url: iot-security-azure-rtos.md
           - text: Plan your solution
             url: service-prerequisites.md
       - linkListType: architecture
@@ -56,6 +58,8 @@ landingContent:
             url: quickstart-create-security-twin.md
           - text: Create custom security alerts
             url: quickstart-create-custom-alerts.md
+          - text: Investigate security alerts
+            url: quickstart-investigate-security-alerts.md
   - title: Customize your solution
     linkLists:
       - linkListType: how-to-guide

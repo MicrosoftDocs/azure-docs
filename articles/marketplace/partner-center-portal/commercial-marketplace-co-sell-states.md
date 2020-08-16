@@ -1,11 +1,11 @@
 ---
 title: Co-sell state and province codes in Azure Marketplace
 description: Get the available state and province codes when providing contact info on your offer's Co-sell page in Azure Marketplace.
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: palanis-MSFT
+ms.author: palanis
 ms.date: 04/01/2020
 ---
 

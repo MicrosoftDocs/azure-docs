@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev, scenarios:getting-started, languages:Python
+ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
@@ -25,7 +25,7 @@ When you've completed the guide, your application will accept sign-ins of person
 To run this sample, you will need:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -136,7 +136,7 @@ To run this sample, you will need:
     python app.py
     ```
    > [!IMPORTANT]
-   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](./active-directory-certificate-credentials.md).
 
 ## More information
 

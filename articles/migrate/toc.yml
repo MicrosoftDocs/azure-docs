@@ -48,12 +48,18 @@
       href: tutorial-assess-physical.md
     - name: Migrate physical servers
       href: tutorial-migrate-physical-virtual-machines.md
+  - name: Assess and migrate AWS VMs
+    items:
+    - name: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+      href: tutorial-migrate-aws-virtual-machines.md
   - name: Assess imported servers for migration
     items:
     - name: Assess imported servers for migration
       href: tutorial-assess-import.md
 - name: Concepts
   items:
+  - name: Build migration plan with Azure Migrate
+    href: concepts-migration-planning.md
   - name: Support matrices
     items:
     - name: General support 
@@ -80,8 +86,10 @@
     href: hyper-v-migration-architecture.md
   - name: VMware agent-based migration architecture
     href: agent-based-migration-architecture.md
-  - name: Assessments overview
+  - name: Azure VM Assessments overview
     href: concepts-assessment-calculation.md
+  - name: AVS Assessments overview
+    href: concepts-azure-vmware-solution-assessment-calculation.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
   - name: Dependency analysis overview
@@ -92,6 +100,8 @@
     href: create-manage-projects.md
   - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
+  - name: Prepare to work with ISV tools/Movere
+    href: prepare-isv-movere.md
   - name: Add assessment tools
     href: how-to-assess.md
   - name: Deploy Azure Migrate appliance
@@ -116,16 +126,20 @@
     href: how-to-create-group-machine-dependencies.md
   - name: Analyze machine dependencies (agentless)
     href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Create an assessment
+  - name: Create an Azure VM assessment
     href: how-to-create-assessment.md
+  - name: Create an AVS assessment
+    href: how-to-create-azure-vmware-solution-assessment.md
   - name: Assess a SQL Server database
-    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb
+    href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
   - name: Customize an assessment
     href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
   - name: Migrate VMware VMs to Azure VMs encrypted with SSE and CMK
     href: how-to-migrate-vmware-vms-with-cmk-disks.md
+  - name: Prepare Windows 2003 servers for migration
+    href: prepare-windows-server-2003-migration.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project
@@ -157,17 +171,17 @@
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework
-    href: https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index
+    href: /azure/cloud-adoption-framework/migrate/
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/migrate/
+    href: /rest/api/migrate/
   - name: Resource Manager template
     href: /azure/templates/microsoft.migrate/allversions
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-migrate/
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
-  - name: Forum
-    href: https://aka.ms/AzureMigrateForum
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-migrate.html
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate

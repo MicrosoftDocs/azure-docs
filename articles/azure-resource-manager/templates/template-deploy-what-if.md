@@ -1,31 +1,35 @@
 ---
 title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
-author: mumian
+author: tfitzmac
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: jgao
+ms.date: 08/05/2020
+ms.author: tomfitz
 ---
 # ARM template deployment what-if operation (Preview)
 
-Before deploying an Azure Resource Manager (ARM) template, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
+Before deploying an Azure Resource Manager template (ARM template), you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
 > [!NOTE]
 > The what-if operation is currently in preview. As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations.
+You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
-## Install PowerShell module
+## Install Azure PowerShell module
 
-To use what-if in PowerShell, you must install a preview version of the Az.Resources module from the PowerShell gallery. But, before installing the module, make sure you have PowerShell Core (6.x or 7.x). If you have PowerShell 5.x or earlier, [update your version of PowerShell](/powershell/scripting/install/installing-powershell). You can't install the preview module on PowerShell 5.x or earlier.
+To use what-if in PowerShell, you must have version **4.2 or later of the Az module**.
 
-### Install preview version
+But, before installing the required module, make sure you have PowerShell Core (6.x or 7.x). If you have PowerShell 5.x or earlier, [update your version of PowerShell](/powershell/scripting/install/installing-powershell). You can't install the required module on PowerShell 5.x or earlier.
 
-To install the preview module, use:
+### Install latest version
+
+To install the module, use:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+For more information about installing modules, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### Uninstall alpha version
 
@@ -91,11 +95,14 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 Resource changes: 1 to modify.
 ```
 
+> [!NOTE]
+> The what-if operation can't resolve the [reference function](template-functions-resource.md#reference). Every time you set a property to a template expression that includes the reference function, what-if reports the property will change. This behavior happens because what-if compares the current value of the property (such as `true` or `false` for a boolean value) with the unresolved template expression. Obviously, these values will not match. When you deploy the template, the property will only change when the template expression resolves to a different value.
+
 ## What-if commands
 
 ### Azure PowerShell
 
-To preview changes before deploying a template, add the `-Whatif` switch parameter to the deployment command.
+To preview changes before deploying a template, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) or [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Add the `-Whatif` switch parameter to the deployment command.
 
 * `New-AzResourceGroupDeployment -Whatif` for resource group deployments
 * `New-AzSubscriptionDeployment -Whatif` and `New-AzDeployment -Whatif` for subscription level deployments
@@ -105,34 +112,41 @@ You can use the `-Confirm` switch parameter to preview the changes and get promp
 * `New-AzResourceGroupDeployment -Confirm` for resource group deployments
 * `New-AzSubscriptionDeployment -Confirm` and `New-AzDeployment -Confirm` for subscription level deployments
 
-The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use:
+The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) or [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
 
 ### Azure CLI
 
-To preview changes before deploying a template, use `what-if` with the deployment command.
+To preview changes before deploying a template, use:
 
-* `az deployment group what-if` for resource group deployments
-* `az deployment sub what-if` for subscription level deployments
+* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) for resource group deployments
+* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) for subscription level deployments
+* [az deployment mg what-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) for management group deployments
+* [az deployment tenant what-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) for tenant deployments
 
-You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment.
+You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
-* `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments
-* `az deployment sub create --confirm-with-what-if` or `-c` for subscription level deployments
+* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-The preceding commands return a text summary that you can manually inspect. To get a JSON object that you can programmatically inspect for changes, use:
+For example, use `az deployment group create --confirm-with-what-if` or `-c` for resource group deployments.
 
-* `az deployment group what-if --no-pretty-print` for resource group deployments
-* `az deployment sub what-if --no-pretty-print` for subscription level deployments
+The preceding commands return a text summary that you can manually inspect. To get a JSON object that you can programmatically inspect for changes, use the `--no-pretty-print` switch. For example, use `az deployment group what-if --no-pretty-print` for resource group deployments.
+
+If you want to return the results without colors, open your [Azure CLI configuration](/cli/azure/azure-cli-configuration) file. Set **no_color** to **yes**.
 
 ### Azure REST API
 
 For REST API, use:
 
 * [Deployments - What If](/rest/api/resources/deployments/whatif) for resource group deployments
-* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription level deployments
+* [Deployments - What If At Subscription Scope](/rest/api/resources/deployments/whatifatsubscriptionscope) for subscription deployments
+* [Deployments - What If At Management Group Scope](/rest/api/resources/deployments/whatifatmanagementgroupscope) for management group deployments
+* [Deployments - What If At Tenant Scope](/rest/api/resources/deployments/whatifattenantscope) for tenant deployments.
 
 ## Change types
 
@@ -297,7 +311,7 @@ Resource changes: 1 to modify.
 
 Notice at the top of the output that colors are defined to indicate the type of changes.
 
-At the bottom of the output, it shows the tag Owner was deleted. The address prefix changed from 10.0.0.0/16 to 10.0.0.0/15. The subnet named subnet001 was deleted. Remember these changes weren't actually deployed. You see a preview of the changes that will happen if you deploy the template.
+At the bottom of the output, it shows the tag Owner was deleted. The address prefix changed from 10.0.0.0/16 to 10.0.0.0/15. The subnet named subnet001 was deleted. Remember these changes weren't deployed. You see a preview of the changes that will happen if you deploy the template.
 
 Some of the properties that are listed as deleted won't actually change. Properties can be incorrectly reported as deleted when they aren't in the template, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
@@ -390,6 +404,16 @@ Are you sure you want to execute the deployment?
 ```
 
 You see the expected changes and can confirm that you want the deployment to run.
+
+## SDKs
+
+You can use the what-if operation through the Azure SDKs.
+
+* For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+
+* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+
+* For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
 
 ## Next steps
 

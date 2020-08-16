@@ -1,12 +1,12 @@
 ---
 title: Lead management for Dynamics 365 Customer Engagement - Microsoft commercial marketplace
 description: Learn how to set up Dynamics 365 Customer Engagement to manage leads from Microsoft AppSource and Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Configure lead management for Dynamics 365 Customer Engagement
@@ -55,7 +55,7 @@ To write leads into your Dynamics 365 Customer Engagement instance, you must sha
 Use the following steps to create the service account and assign permissions. You can use Azure Active Directory or Office 365.
 
 >[!NOTE]
->Skip to the corresponding instructions based on the authentication option you select. See [Azure Active Directory](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#azure-active-directory) or [Office 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics#office-365).
+>Skip to the corresponding instructions based on the authentication option you select. See [Azure Active Directory](#azure-active-directory) or [Office 365](#office-365).
 
 ### Azure Active Directory
 
@@ -167,9 +167,9 @@ The final step is to enable the user you created to write the leads.
 To configure the lead management information for your offer in the publishing portal:
 
 1. Go to the **Offer setup** page for your offer.
-1. Select **Connect** under the **Lead management** section.
+1. Under the **Customer leads** section, select **Connect**.
 
-    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Customer leads":::
 
 1. In the Connection details pop-up window, select **Dynamics 365 Customer Engagement** for the lead destination.
 

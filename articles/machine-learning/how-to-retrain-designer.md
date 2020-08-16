@@ -5,10 +5,11 @@ description: Learn how to retrain models with published pipelines in Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)
@@ -29,11 +30,13 @@ In this article, you learn how to:
 * An Azure Machine Learning workspace with the Enterprise SKU.
 * Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md).
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 This article also assumes that you have basic knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of [Sample 3: Income prediction](samples-designer.md#classification-samples). The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of [Sample 3: Income prediction](samples-designer.md#classification). The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
 
 ![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

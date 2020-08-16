@@ -16,9 +16,9 @@ Single sign-on is supported for access to the CloudSimple portal. After you sign
 
 ## Before you begin
 
-Users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the resource group where CloudSimple service is deployed.  The roles can also be configured on the CloudSimple service object.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article. Only users with built-in **Owner** and **Contributor** roles can access the CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
+Users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the resource group where CloudSimple service is deployed.  The roles can also be configured on the CloudSimple service object.  For more information on checking your role, see [View role assignments](../role-based-access-control/check-access.md) article. Only users with built-in **Owner** and **Contributor** roles can access the CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](../role-based-access-control/check-access.md) article.
 
-If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal.
+If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -66,5 +66,5 @@ If your permissions don't permit access to the CloudSimple portal, contact the g
 
 ## Next steps
 
-* Learn how to [Create a private cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
+* Learn how to [Create a private cloud](./create-private-cloud.md)
 * Learn how to [Configure a private cloud environment](quickstart-create-private-cloud.md)

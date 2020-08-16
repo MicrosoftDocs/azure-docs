@@ -6,7 +6,7 @@ author: cherylmc
 
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18

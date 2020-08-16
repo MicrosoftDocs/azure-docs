@@ -35,6 +35,11 @@ There are minor differences between the formats with regard to material property
 
 All model data (input and output) is stored in user provided Azure blob storage. Azure Remote Rendering gives you full control over your asset management.
 
+## Pricing
+
+For information about pricing for conversion, refer to the [Remote Rendering pricing](https://azure.microsoft.com/pricing/details/remote-rendering) page.
+
+
 ## Conversion parameters
 
 For the various conversion options, see [this chapter](configure-model-conversion.md).

@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -70,22 +71,9 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 
 ### Register the IdentityExperienceFramework application
 
-To register an application in your Azure AD B2C tenant, you can use the **App registrations (Legacy)** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the **App registrations** experience.
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the Azure portal, search for and select **Azure Active Directory**.
-1. In the **Azure Active Directory** overview menu, under **Manage**, select **App registrations (Legacy)**.
-1. Select **New application registration**.
-1. For **Name**, enter `IdentityExperienceFramework`.
-1. For **Application type**, choose **Web app/API**.
-1. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name. All URLs should now be using [b2clogin.com](b2clogin.md).
-1. Select **Create**. After it's created, copy the application ID and save it to use later.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
-
-1. Select **App registrations (Preview)**, and then select **New registration**.
+1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter `IdentityExperienceFramework`.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name.
@@ -95,7 +83,7 @@ To register an application in your Azure AD B2C tenant, you can use the **App re
 
 Next, expose the API by adding a scope:
 
-1. Under **Manage**, select **Expose an API**.
+1. In the left menu, under **Manage**, select **Expose an API**.
 1. Select **Add a scope**, then select **Save and continue** to accept the default application ID URI.
 1. Enter the following values to create a scope that allows custom policy execution in your Azure AD B2C tenant:
     * **Scope name**: `user_impersonation`
@@ -107,21 +95,7 @@ Next, expose the API by adding a scope:
 
 ### Register the ProxyIdentityExperienceFramework application
 
-#### [Applications](#tab/applications/)
-
-1. In **App registrations (Legacy)**, select **New application registration**.
-1. For **Name**, enter `ProxyIdentityExperienceFramework`.
-1. For **Application type**, choose **Native**.
-1. For **Redirect URI**, enter `myapp://auth`.
-1. Select **Create**. After it's created, copy the application ID and save it to use later.
-1. Select **Settings**, then select **Required permissions**, and then select **Add**.
-1. Choose **Select an API**, search for and select **IdentityExperienceFramework**, and then click **Select**.
-1. Select the check box next to **Access IdentityExperienceFramework**, click **Select**, and then click **Done**.
-1. Select **Grant permissions**, and then confirm by selecting **Yes**.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
-
-1. Select **App registrations (Preview)**, and then select **New registration**.
+1. Select **App registrations**, and then select **New registration**.
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Under **Redirect URI**, use the drop-down to select **Public client/native (mobile & desktop)**.
@@ -132,14 +106,13 @@ Next, expose the API by adding a scope:
 
 Next, specify that the application should be treated as a public client:
 
-1. Under **Manage**, select **Authentication**.
-1. Select **Try out the new experience** (if shown).
-1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**).
+1. In the left menu, under **Manage**, select **Authentication**.
+1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
-1. Under **Manage**, select **API permissions**.
+1. In the left menu, under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
@@ -147,7 +120,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for both scopes. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scopes - offline_access, openid and user_impersonation. It might take a few minutes for the permissions to propagate.
 
 * * *
 
@@ -236,6 +209,6 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 
 ## Next steps
 
-Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD.
+Next, try adding Azure Active Directory (Azure AD) as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers like Azure AD. For information about setting up Azure AD as an identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md). 
 
-For information about setting up Azure AD as and identity provider, see [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](identity-provider-azure-ad-single-tenant-custom.md).
+Visit our [partner gallery](partner-gallery.md) to learn more on how to implement ISV integration using custom policies. 

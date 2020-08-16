@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
 # Add sign-in to Microsoft to an ASP.NET web app
@@ -260,7 +260,7 @@ In Visual Studio, create a new view to add the sign-in button and to display use
     ```
 
 ### More information
-This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](./howto-add-branding-in-azure-ad-apps.md "Branding guidelines").
 
 ## Add a controller to display user's claims
 This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by allowing only authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of sign-in:
@@ -399,7 +399,7 @@ Applications that integrate with Microsoft identity platform follow an authoriza
 - The application developer adds any additional permissions that require **Admin consent**.
 - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
 
-For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](./v2-permissions-and-consent.md).
 
 ### View application results
 
@@ -420,7 +420,7 @@ After you browse to the controller view, you should see a table that contains th
 |**Subject** |Subject |A string that uniquely identifies the user across the web|
 |**Tenant ID** |Guid | A **guid** that uniquely represents the user’s Azure AD organization|
 
-Additionally, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an ID token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Additionally, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an ID token](./id-tokens.md).
 
 ### Test access to a method that has an Authorize attribute (optional)
 
@@ -464,13 +464,13 @@ You can restrict sign-in access to only those user accounts that are in an Azure
 
 #### Option 3: Use a custom method to validate issuers
 
-You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
+You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) class.
 
 ## Next steps
 
 Learn about how web apps can call web APIs.
 
-### Learn how to create the application used in this quickstart guide
+### Learn how to create the application used in this quickstart
 
 Learn more about Web apps calling web APIs with the Microsoft identity platform:
 
@@ -480,6 +480,6 @@ Learn more about Web apps calling web APIs with the Microsoft identity platform:
 Learn how to build Web apps calling Microsoft Graph:
 
 > [!div class="nextstepaction"]
-> [Microsoft Graph ASP.NET tutorial](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Microsoft Graph ASP.NET tutorial](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
