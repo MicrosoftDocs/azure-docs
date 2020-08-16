@@ -6,10 +6,19 @@ ms.date: 08/07/2020
 ms.author: glenga
 ---
 
-If you aren't able to use extension bundles, you can use Azure Functions Core Tools locally to install the specific extension packages required by your project. 
+If you aren't able to use extension bundles, you can use Azure Functions Core Tools locally to install the specific extension packages required by your project.
+
+> [!IMPORTANT]
+> You can't explicitly install extensions in a function app that is using extension bundles. Remove the `extensionBundle` section in *host.json* before explicitly installing extensions.
+
+Some reasons you might need to install extensions manually:
+
+* You need to access a specific version of an extension not available in a bundle.
+* You need to access a custom extension not available in a bundle.
+* You need to access a specific combination of extensions not available in a single bundle.
 
 > [!NOTE]
-> To manually install extensions by using Core Tools, you must have the .NET Core 2.x SDK installed.
+> To manually install extensions by using Core Tools, you must have the [.NET Core 2.x SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Azure Functions Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
 When you explicitly install extensions, a .NET project file named extensions.csproj is added to the root of your project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit the file.
 
