@@ -1,5 +1,5 @@
 ---
-title:  "Understanding app and deployment in Azure Spring Cloud"
+title:  "Understand app and deployment in Azure Spring Cloud"
 description: The distinction between application and deployment in Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
@@ -9,7 +9,7 @@ ms.date: 07/23/2020
 ms.custom: devx-track-java
 ---
 
-# Understanding app and deployment in Azure Spring Cloud
+# Understand app and deployment in Azure Spring Cloud
 
 **App** and **Deployment** are the two key concepts in the resource model of Azure Spring Cloud. In Azure Spring Cloud, an *App* is an abstraction of one business app or one microservice.  One version of code or binary deployed as the *App* runs in a *Deployment*.
 
