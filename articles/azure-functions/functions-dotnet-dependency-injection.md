@@ -255,7 +255,7 @@ Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configurati
 
 To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's *StartUp* class.
 
-The following sample adds configuration values from a base and an optional environment-specific *appsettings.json* files.
+The following sample adds configuration values from a base and an optional environment-specific app settings files.
 
 ```csharp
 using System.IO;
