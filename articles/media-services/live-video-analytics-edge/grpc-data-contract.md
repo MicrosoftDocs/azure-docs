@@ -134,7 +134,7 @@ Here's what this might look like in the device twin using the first option from 
       }
     }
   }
-},
+}
 ```
 
 For more information on IPC modes, see https://docs.docker.com/engine/reference/run/#ipc-settings---ipc.
@@ -182,4 +182,4 @@ The IgnoreHostname and IgnoreSignature verification options are not supported by
 
 ## Next steps
 
-[HTTP data contract](http-data-contract.md)
+[Learn about the Inference Metadata Schema](inference-metadata-schema.md)
