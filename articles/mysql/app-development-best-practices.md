@@ -80,7 +80,7 @@ During manual database deployment, here is a good pattern to follow to minimize 
 5. Deploy your application changes and make sure the application is now using the new database that has the latest updates. 
 6. Keep the old production database so that you can roll back the changes. You can then evaluate to either delete the old production database or export it on Azure storage if needed. 
 
->{!NOTE]
+>[!NOTE]
 >  - If the application is like ecommerce app where you might not be able to put it in read-only state, then deploy the changes directly on the production database after making a backup.  Theses change should occur during the off-peak hours with low traffic to the app to minimze the impact as some users may experience a failed requests. 
 >  - Make sure your application code also handles any failed requests.
 
