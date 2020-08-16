@@ -61,7 +61,7 @@ To update the extension bundle version in your project, open host.json and updat
 
 Update your .NET project to use the latest version of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
 
-See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
+See [Register Azure Functions binding extensions](../functions-bindings-register.md#local-csharp) for more information.
 
 ### Update your code
 
