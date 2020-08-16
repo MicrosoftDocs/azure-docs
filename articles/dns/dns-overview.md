@@ -25,7 +25,7 @@ DNS domains in Azure DNS are hosted on Azure's global network of DNS name server
 
  Azure DNS is based on Azure Resource Manager, which provides features such as:
 
-* [Role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to control who has access to specific actions for your organization.
+* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to control who has access to specific actions for your organization.
 
 * [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
 
@@ -66,4 +66,3 @@ For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 * To learn how to create a zone in Azure DNS, see [Create a DNS zone](./dns-getstarted-create-dnszone-portal.md).
 
 * For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.md).
-

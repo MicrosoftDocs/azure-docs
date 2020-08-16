@@ -4,7 +4,7 @@ description: Learn how Azure Reserved VM Instance discount is applied to running
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/13/2020
 ms.author: banders
 ---
 # How the Azure reservation discount is applied to virtual machines
@@ -50,11 +50,15 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## Discount applies to matching ServiceType only
+## Premium storage VMs don't get non-premium discounts
 
-A reservation discount applies only to the VM usage where the `ServiceType` value in `AdditionalInfo` matches the reservation that's purchased. Reservation discount application ignores the meter used for VMs and only evaluates `ServiceType`. Know which service type that you purchased the VM for. You can exchange a non-premium storage VM reservation for a premium storage reservation, or in the opposite manner.
+Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the reservation discount applies only to Standard_D1 VMs or other VMs in the same instance family. The discount doesn't apply to Standard_DS1 VM or other sizes in the DS1 instance size flexibility group.
+
+The reservation discount application ignores the meter used for VMs and only evaluates ServiceType. Look at the `ServiceType` value in `AdditionalInfo` to determine the instance flexibility group/series information for your VMs. The values are in your usage CSV file.
+
+You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another.
 
 ## Services that get VM reservation discounts
 

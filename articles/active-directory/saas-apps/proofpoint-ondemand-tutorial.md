@@ -38,6 +38,9 @@ To configure Azure AD integration with Proofpoint on Demand, you need the follow
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Proofpoint on Demand single sign-on enabled subscription
 
+> [!NOTE]
+> If you are using MFA or Passwordless authentication with Azure AD then switch off the AuthnContext value in the SAML Request. Otherwise Azure AD will throw the error on mismatch of the AuthnContext and will not send the token back to the application.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.

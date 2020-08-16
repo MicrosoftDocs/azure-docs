@@ -1,6 +1,6 @@
 ---
 title: Certificate creation methods  
-description: Ways to create a certificate in Key Vault.
+description: Learn about different options to create or import a Key Vault certificate in Azure Key Vault. There are several ways to create a Key Vault certificate.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin

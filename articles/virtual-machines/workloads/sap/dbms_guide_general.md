@@ -172,7 +172,7 @@ An Azure storage account is an administrative construct and also a subject of li
 
 For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription. Balance VHDs for the larger SAP landscape across different storage accounts to avoid hitting the limits of these storage accounts. This is tedious work when you're talking about a few hundred virtual machines with more than a thousand VHDs.
 
-Because using standard storage for DBMS deployments in conjunction with an SAP workload isn't recommended, references and recommendations to standard storage are limited to this short [article](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)
+Because using standard storage for DBMS deployments in conjunction with an SAP workload isn't recommended, references and recommendations to standard storage are limited to this short [article](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance)
 
 To avoid the administrative work of planning and deploying VHDs across different Azure storage accounts, Microsoft introduced [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) in 2017. Managed disks are available for standard storage and premium storage. The major advantages of managed disks compared to nonmanaged disks are:
 
@@ -325,7 +325,7 @@ The load balancer offers an option of DirectServerReturn. If that option is conf
 
 We recommend that you configure DirectServerReturn in combination with load balancers that are positioned between the SAP application layer and the DBMS layer. This configuration reduces network latency between the two layers.
 
-For an example of how to set up this configuration with SQL Server Always On, see [Configure an ILB listener for Always On availability groups in Azure](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+For an example of how to set up this configuration with SQL Server Always On, see [Configure an ILB listener for Always On availability groups in Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
 
 If you use published GitHub JSON templates as a reference for your SAP infrastructure deployments in Azure, study this [template for an SAP 3-Tier system](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). In this template, you also can see the correct settings for the load balancer.
 
