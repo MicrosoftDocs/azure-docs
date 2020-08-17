@@ -7,7 +7,7 @@ ms.author: inhenkel
 ms.custom: CLI
 ---
 
-### Create a storage account
+<!-- ### Create a storage account -->
 
 When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. For more information about how storage accounts are used in Media Services, see [Storage accounts](../storage-account-concept.md).
 

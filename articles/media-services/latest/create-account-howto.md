@@ -15,6 +15,7 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
+ms.custom: cli,portal
 
 ---
 # Create a Media Services account
@@ -69,16 +70,20 @@ This article shows how to create a Media Services account using the Azure portal
 
 <!-- NOTE: The following are in the includes file and are reused in other How To articles. All task based content should be in the includes folder with the task- prefix prepended to the file name. -->
 
-<!-- ### Set the Azure subscription with CLI -->
+### Set the Azure subscription
+
 [!INCLUDE [Set the Azure subscription with CLI](./includes/task-set-azure-subscription-cli.md)]
 
-<!-- ### Create a resource group with CLI -->
+### Create a resource group
+
 [!INCLUDE [Create a resource group with CLI](./includes/task-create-resource-group-cli.md)]
 
-<!-- ### Create a storage account with CLI -->
+### Create a storage account
+
 [!INCLUDE [Create a storage account with CLI](./includes/task-create-storage-account-cli.md)]
 
-<!-- ### Create a Media Services account with CLI -->
+### Create a Media Services account
+
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
 ### See also
