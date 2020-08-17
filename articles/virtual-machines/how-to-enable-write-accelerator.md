@@ -1,16 +1,17 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: msraiye
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 11/27/2019
- ms.author: raiye
- ms.custom: include file
+title: Azure Write Accelerator 
+description: Documentation on how to enable and use Write Accelerator
+author: raiye
+manager: markkie
+ms.service: virtual-machines
+ms.topic: how-to
+ms.workload: infrastructure
+ms.date: 2/20/2019
+ms.author: raiye
+ms.subservice: disks
 ---
 
-
+# Enable Write Accelerator
 
 Write Accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks exclusively. As the name states, the purpose of the functionality is to improve the I/O latency of writes against Azure Premium Storage. Write Accelerator is ideally suited where log file updates are required to persist to disk in a highly performant manner for modern databases.
 
@@ -176,7 +177,7 @@ To deploy through Azure Rest API, you need to install the Azure armclient.
 
 ### Install armclient
 
-To run armclient, you need to install it through Chocolatey. You can install it through cmd.exe or powershell. Use elevated rights for these commands (“Run as Administrator”).
+To run armclient, you need to install it through Chocolatey. You can install it through cmd.exe or PowerShell. Use elevated rights for these commands (“Run as Administrator”).
 
 Using cmd.exe, run the following command: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
