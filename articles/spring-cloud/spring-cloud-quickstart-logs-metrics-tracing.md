@@ -13,34 +13,10 @@ ms.custom: devx-track-java
 
 With the distributed tracing tools in Azure Spring Cloud, you can debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
 
-## Set up logs following deployment in the Azure portal
+## Set up logs
+#### [CLI](#tab/Azure-CLI)
+The following procedures use the Azure CLI.
 
-This example is based on the procedure [provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
-
-1. Click the **Diagnostic Setting** tab to open the following dialog.
-
-1. You can set **Enable logs** to *yes* or *no* according to your requirements.
-
-    ![Enable logs](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
-
-1. Click the **Tracing** tab.
-
-1. You can set **Enable tracing** to *yes* or *no* according to your requirements.  If you set **Enable tracing** to yes,  also select an existing application insight, or create a new one. Without the **Application Insights** specification there will be a validation error.
-
-
-    ![Tracing](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
-
-1. Click **Review and create**.
-
-1. Verify your specifications, and click **Create**.
-
-It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
-
-
-## Set up logs following CLI deployment
 To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-deploy-apps.md) to provision and run an Azure Spring Cloud service.
     
 ### Add dependencies
@@ -87,6 +63,7 @@ spring.sleuth.sampler.probability=0.5
 
 If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in the Azure CLI or the Azure portal.
 
+#### [IntelliJ](#tab/IntelliJ)
 ## Set up logs following IntelliJ deployment
 The following procedure assumes you have completed [deployment of an Azure Spring Cloud app using IntelliJ](spring-cloud-quickstart-deploy-apps.md#intellij-deployment).
 
@@ -105,7 +82,7 @@ To get the logs:
 1. The streaming log will be visible in the output window.
 
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
-
+---
 ## Next steps
 * [Diagnostic services](diagnostic-services.md)
 * [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)

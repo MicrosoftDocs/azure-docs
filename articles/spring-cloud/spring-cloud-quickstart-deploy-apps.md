@@ -96,58 +96,6 @@ You can also navigate the Azure portal to find the URL.
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
-#### [Maven](#tab/Maven)
-## Maven deployment
-To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
-
-### Clone and build the sample application repository
-
-1. Launch the [Azure Cloud Shell](https://shell.azure.com).
-
-1. Clone the Git repository by running the following command:
-
-    ```console
-    git clone https://github.com/Azure-Samples/PiggyMetrics
-    ```
-  
-1. Change directory and build the project by running the following command:
-
-    ```console
-    cd piggymetrics
-    mvn clean package -DskipTests
-    ```
-
-### Generate configurations and deploy to the Azure Spring Cloud
-
-1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
-
-    ```console
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
-    ```
-
-    a. Select the modules `gateway`,`auth-service`, and `account-service`.
-
-    b. Select your subscription and Azure Spring Cloud service cluster.
-
-    c. In the list of provided projects, enter the number that corresponds with `gateway` to give it public access.
-    
-    d. Confirm the configuration.
-
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
-
-   ```console
-   mvn azure-spring-cloud:deploy
-   ```
-
-1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
-1. Navigate to the URL in browser.
-
-    ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
-  
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
-
 #### [IntelliJ](#tab/IntelliJ)
 ## IntelliJ deployment
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
