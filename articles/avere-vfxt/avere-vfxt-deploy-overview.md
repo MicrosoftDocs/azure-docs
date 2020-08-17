@@ -1,6 +1,6 @@
 ---
 title: Deployment overview - Avere vFXT for Azure 
-description: Learn how to deploy an Avere vFXT for Azure cluster with this overview. Specific deployment instructinos are in related articles.
+description: Learn how to deploy an Avere vFXT for Azure cluster with this overview. Related articles have specific deployment instructions.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
