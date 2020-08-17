@@ -1,7 +1,7 @@
 ---
 title: Visualizing Azure NSG flow logs - Power BI
 titleSuffix: Azure Network Watcher
-description: This page describes how to visualize NSG flow logs with Power BI.
+description: Learn how to use Power BI to visualize Network Security Group flow logs to allow you to view information about IP traffic in Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo

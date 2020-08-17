@@ -28,6 +28,30 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 ## August 2020
 
+Updates in August include:
+
+- [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Service principals recommendation added](#service-principals-recommendation-added)
+- [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+
+
+### Asset inventory - powerful new view of the security posture of your assets
+
+Security Center's asset inventory provides a way to view the security posture of the resources you've connected to Security Center.
+
+Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities. When any resource has outstanding recommendations, they'll appear in the inventory.
+
+You can use the view and its filters to explore your security posture data and take further actions based on your findings.
+
+Learn more about [asset inventory](asset-inventory.md).
+
+
+### Service principals recommendation added
+
+New recommendation for Security Center customers using management certificates to manage their subscriptions.
+
+The recommendation, **Service principals should be used to protect your subscriptions instead of Management Certificates** advises you to use Service Principals or Azure Resource Manager to more securely manage your subscriptions. 
+
 ### Vulnerability assessment on VMs - recommendations and policies consolidated
 
 Security Center inspects your VMs to detect whether they're running a vulnerability assessment solution. If no vulnerability assessment solution is found, Security Center provides a recommendation to simplify the deployment.
