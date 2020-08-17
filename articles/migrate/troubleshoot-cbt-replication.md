@@ -19,7 +19,7 @@ You may occasionally see replication cycles failing for a VM. These failures can
 1. Show you how you can monitor replication status and resolve errors.
 2. List some of the commonly occurring replication errors and suggest additional steps to remediate them.
 
-# Monitor replication status using the Azure portal
+## Monitor replication status using the Azure portal
 
 Use the following steps to monitor the replication status for your virtual machines:
 
@@ -29,11 +29,11 @@ Use the following steps to monitor the replication status for your virtual machi
 4. Click &quot;Recent Events&quot; to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type &quot;Replication cycle failed&quot; or &quot;Replication cycle failed for disk&quot; for the VM.
 5. Click on the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
 
-# **Common Replication Errors:**
+## **Common Replication Errors:**
 
 This section describes some of the common errors, and how you can troubleshoot them.
 
-# DisposeArtefactsTimedOut
+## DisposeArtefactsTimedOut
 
 **Error ID:** 181008
 
@@ -110,7 +110,7 @@ This command will attempt a TCP connection and will return an output.
 
 **Resolution:** If this test fails, there&#39;s a connectivity issue between the Azure Migrate appliance and the Azure Key Vault. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
 
-# DiskUploadTimedOut
+## DiskUploadTimedOut
 
 **Error ID:** 1011
 
@@ -188,7 +188,7 @@ This command will attempt a TCP connection and will return an output.
 
 **Resolution:** If this test fails, there&#39;s a connectivity issue between the Azure Migrate appliance and the Azure Key Vault. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
 
-# &#39;Encountered an error while trying to fetch changed blocks&#39;
+## &#39;Encountered an error while trying to fetch changed blocks&#39;
 
 Error Message: &#39;Encountered an error while trying to fetch change blocks&#39;
 
@@ -203,7 +203,7 @@ One such known issue that may cause a CBT reset of virtual machine on VMware vSp
 
 Alternatively, you can [reset VMware changed block trackin](https://go.microsoft.com/fwlink/?linkid=2138968)g on a virtual machine using VMware PowerCLI.
 
-# An internal error occurred
+## An internal error occurred
 
 Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We have identified the following set of errors as VMware environment related errors. These errors have a fixed format.
 
