@@ -383,8 +383,6 @@ When you click the Amazon Web Services (AWS) tile in the Access Panel, you shoul
 
   * Roles must have exactly one saml-provider defined in AWS
 
-  * The combined length of the role ARN and the saml-provider ARN for a role being imported must be 119 characters or less
-
 ## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)

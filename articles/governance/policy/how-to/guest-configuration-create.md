@@ -364,6 +364,8 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Version**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
+- **Tag** adds one or more tag filters to the policy definition
+- **Category** sets the category metadata field in the policy definition
 
 The following example creates the policy definitions in a specified path from a custom policy package:
 
@@ -386,15 +388,6 @@ The following files are created by `New-GuestConfigurationPolicy`:
 
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
-
-> [!Note]
-> The latest Guest Configuration module includes a new parameters:
-> - **Tag** adds one or more tag filters to the policy definition
->   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
-> - **Category** sets the category metadata field in the policy definition
->   - If the parameter is not included, the category defaults to Guest Configuration.
-> These features are in preview and require Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The
 cmdlet only has the **Path** parameter that points to the location of the JSON files created by
@@ -449,10 +442,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### Filtering Guest Configuration policies using Tags
-
-> [!Note]
-> This feature is in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 The policy definitions created by cmdlets in the Guest Configuration module can optionally include
 a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports
@@ -522,11 +511,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## Extending Guest Configuration with third-party tools
-
-> [!Note]
-> This feature is in preview and requires Guest Configuration module
-> version 1.20.3, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
-> In version 1.20.3, this feature is only available for policy definitions that audit Windows machines
 
 The artifact packages for Guest Configuration can be extended to include third-party tools.
 Extending Guest Configuration requires development of two components.
@@ -682,17 +666,6 @@ If you would like to release an update to the policy, there are two fields that 
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
-
-## Converting Windows Group Policy content to Azure Policy Guest Configuration
-
-Guest Configuration, when auditing Windows machines, is an implementation of the PowerShell Desired
-State Configuration syntax. The DSC community has published tooling to convert exported Group Policy
-templates to DSC format. By using this tool together with the Guest Configuration cmdlets described
-above, you can convert Windows Group Policy content and package/publish it for Azure Policy to
-audit. For details about using the tool, see the article
-[Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Once the content has been converted, the steps above to create a package and publish it as Azure
-Policy are the same as for any DSC content.
 
 ## Optional: Signing Guest Configuration packages
 
