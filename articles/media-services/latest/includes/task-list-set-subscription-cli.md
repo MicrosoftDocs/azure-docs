@@ -10,12 +10,12 @@ ms.custom: CLI
 
 1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command:
 
-    ```azurecli-interactive
+    ```
     az account list --output table
     ```
 
 2. Use `az account set` with the subscription ID or name you want to switch to.
 
-    ```azurecli-interactive
+    ```
     az account set --subscription "My Demos"
     ```
