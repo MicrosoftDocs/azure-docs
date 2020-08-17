@@ -221,6 +221,7 @@ All management commands are authenticated via RSA signed certificate or JSON Web
 Figure 6 illustrates the management flow corresponding to a user command to stop a virtual machine.  The steps enumerated in Table 1 apply to other management commands in the same way and utilize the same encryption and authentication flow.
 
 **Table 1.**  Management flow involving various MC and MP components
+
 |Step|Description|Authentication|Encryption|
 |----|-----------|--------------|----------|
 |**1.**|User authenticates via Azure Active Directory (Azure AD) by providing credentials and is issued a token.|User Credentials|TLS 1.2|
@@ -303,6 +304,7 @@ The Azure Hypervisor defined security boundaries provide the base level isolatio
 The Azure Hypervisor meets the security objectives shown in Table 2.
 
 **Table 2.**  Azure Hypervisor security objectives
+
 |Objective|Source|
 |---------|------|
 |**Isolation**|The Azure Hypervisor security policy mandates no information transfer between VMs.  This policy requires capabilities in the Virtual Machine Manager (VMM) and hardware for the isolation of memory, devices, networking, and managed resources such as persisted data.|
@@ -317,8 +319,9 @@ To further mitigate the risk of a security compromise, Microsoft has invested in
 Moreover, Azure has adopted an assume-breach security strategy implemented via [Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e).  This approach relies on a dedicated team of security researchers and engineers who conduct continuous ongoing testing of Azure systems and operations using the same tactics, techniques, and procedures as real adversaries against live production infrastructure, without the foreknowledge of the Azure infrastructure and platform engineering or operations teams.  This approach tests security detection and response capabilities and helps identify production vulnerabilities in Azure Hypervisor and other systems, including configuration errors, invalid assumptions, or other security issues in a controlled manner.  Microsoft invests heavily in these innovative security measures for continuous Azure threat mitigation.  Table 3 outlines some of the mitigations intended to protect the Hypervisor isolation boundaries and hardware host integrity.
 
 **Table 3.**  Azure Hypervisor defense-in-depth
+
 |Mitigation|Security Impact|Mitigation Details|
-|----|----|----|
+|----------|---------------|------------------|
 |**Control flow Integrity**|Increases cost to perform control flow integrity attacks (e.g., return-oriented—programming exploits)|[Control Flow Guard](https://www.blackhat.com/docs/us-16/materials/us-16-Weston-Windows-10-Mitigation-Improvements.pdf) (CFG) ensures indirect control flow transfers are instrumented at compile time and enforced by the kernel (user-mode) or secure kernel (kernel-mode), mitigating stack return vulnerabilities.|
 |**User-mode code integrity**|Protects against malicious and unwanted binary execution in user mode|Address Space Layout Randomization (ASLR) forced on all binaries in host partition, all code compiled with SDL security checks (e.g. strict_gs), [arbitrary code generation restrictions](https://blogs.windows.com/msedgedev/2017/02/23/mitigating-arbitrary-native-code-execution/) in place on host processes prevent injection of runtime-generated code.|
 |**Hypervisor enforced user and kernel mode code integrity**|No code loaded into code pages marked for execution until authenticity of code is verified|[Virtualization-based Security](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs) (VBS) leverages memory isolation to create a secure world to enforce policy and store sensitive code and secrets.  With Hypervisor enforced Code Integrity (HVCI), the secure world is used to prevent unsigned code from being injected into the normal world kernel.|
@@ -329,6 +332,7 @@ Moreover, Azure has adopted an assume-breach security strategy implemented via [
 The attack surface in Hyper-V is [well understood](https://msrc-blog.microsoft.com/2018/12/10/first-steps-in-hyper-v-research/).  It has been the subject of [ongoing research](https://msrc-blog.microsoft.com/2019/09/11/attacking-the-vm-worker-process/) and thorough security reviews.  Microsoft has been transparent about the Hyper-V attack surface and underlying security architecture as demonstrated during a public [presentation at a Blackhat conference](https://github.com/Microsoft/MSRC-Security-Research/blob/master/presentations/2018_08_BlackHatUSA/A%20Dive%20in%20to%20Hyper-V%20Architecture%20and%20Vulnerabilities.pdf) in 2018.  Microsoft stands behind the robustness and quality of Hyper-V isolation with a [$250,000 bug bounty program](https://www.microsoft.com/msrc/bounty-hyper-v) for critical Remote Code Execution (RCE), information disclosure, and Denial of Service (DOS) vulnerabilities reported in Hyper-V.  By leveraging the same Hyper-V technology in Windows Server and Azure cloud platform, the publicly available documentation and bug bounty program ensure that security improvements will accrue to all users of Microsoft products and services.  Table 4 summarizes the key attack surface points from the Blackhat presentation.
 
 **Table 4.**  Hyper-V attack surface details
+
 |Attack surface area|Privileges granted if compromised|High-level components|
 |------|------|------|
 |**Hyper-V**|Hypervisor: full system compromise with the ability to compromise other Guests|- Hypercalls </br>- Intercept handling|
@@ -385,6 +389,7 @@ Customers can deploy both Windows and Linux virtual machines into dedicated host
 Table 5 summarizes available security guidance for customer virtual machines provisioned in Azure.
 
 **Table 5.**  Security guidance for Azure virtual machines
+
 |VM|||Security guidance||
 |---|---|---|---|---|
 |**Windows**|[Secure policies](https://docs.microsoft.com/azure/virtual-machines/windows/security-policy)|[Azure Disk Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)|[Built-in security controls](https://docs.microsoft.com/azure/virtual-machines/windows/virtual-machines-windows-security-controls)|[Security recommendations](https://docs.microsoft.com/azure/virtual-machines/windows/security-recommendations)|
@@ -764,6 +769,7 @@ A multi-tenant cloud platform implies that multiple customer applications and da
 Table 6 provides a summary of key security considerations for physically isolated on-premises deployments (e.g., bare metal) versus logically isolated cloud-based deployments (e.g., Azure).  It’s useful to review these considerations prior to examining risks identified to be specific to shared cloud environments.
 
 **Table 6.**  Key security considerations for physical versus logical isolation
+
 |Security consideration|On-premises|Azure|
 |---|---|---|
 |**Firewalls, networking**|- Physical network enforcement (switches, etc.) </br>- Physical host-based firewall can be manipulated by compromised application </br>- 2 layers of enforcement|- Physical network enforcement (switches, etc.) </br>- Hyper-V host virtual network switch enforcement cannot be changed from inside VM </br>- VM host-based firewall can be manipulated by compromised application </br>- 3 layers of enforcement|
