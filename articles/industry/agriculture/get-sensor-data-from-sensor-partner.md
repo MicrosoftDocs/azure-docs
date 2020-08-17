@@ -58,19 +58,19 @@ Follow the below steps to  generate the above information:
 
 5. Go to your home directory.
 
-    ```azurepowershell-interactive 
-    cd  
+    ```azurepowershell-interactive
+    cd
     ```
 
 6. Run the following command. This connects an authenticated account to use for Azure AD requests
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     Connect-AzureAD
     ```
-    
+
 7. Run the following command. This will download a script to your home directory.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -78,9 +78,9 @@ Follow the below steps to  generate the above information:
 
 8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -134,7 +134,7 @@ Follow these steps:
 
     ![Sensors page](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
-## Assign devices  
+## Assign devices
 
 After the sensor data is flowing in, you can assign it to the farm where you deployed the sensors.
 

@@ -59,7 +59,7 @@ The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFro
 
 Each opened/created ```AzureSession``` will keep a reference to the frontend that's created it. To cleanly shut down, all sessions must be deallocated before the frontend will be deallocated.
 
-Deallocating a session will not stop the VM on Azure, `AzureSession.StopAsync` must be explicitly called.
+Deallocating a session will not stop the server on Azure, `AzureSession.StopAsync` must be called explicitly.
 
 Once a session has been created and its state has been marked as ready, it can connect to the remote rendering runtime with `AzureSession.ConnectToRuntime`.
 

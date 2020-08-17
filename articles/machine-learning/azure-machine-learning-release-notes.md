@@ -17,6 +17,53 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-08-17
+
+### Azure Machine Learning SDK for Python v1.12.0
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
+  + **azureml-automl-core**
+    + AutoML raises a new error code from dataprep when content is modified while being read.
+  + **azureml-automl-runtime**
+    + Added alerts for the user when data contains missing values but featurization is turned off.
+    + Fixed child run failures when data contains nan and featurization is turned off.
+    + AutoML raises a new error code from dataprep when content is modified while being read.
+    + Updated normalization for forecasting metrics to occur by grain.
+    + Improved calculation of forecast quantiles when lookback features are disabled.
+    + Fixed bool sparse matrix handling when computing explanations after AutoML.
+  + **azureml-core**
+    + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
+    + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
+    + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) at once.
+    + Enable registering credential-less ADLS Gen2 datastore.
+    + Improved error message when trying to download or mount an incorrect dataset type.
+    + Update timeseries dataset filter sample notebook with more examples of partition_timestamp that provides filter optimization.
+    + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
+    + Experimental Decorator shows class name for easier identification.
+    + Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
+  + **azureml-datadrift**
+    + Mark create_from_model API in DataDriftDetector as to be deprecated.
+  + **azureml-dataprep**
+    + Improved error message when trying to download or mount an incorrect dataset type.
+  + **azureml-pipeline-core**
+    + Fixed bug when deserializing pipeline graph which contains registered datasets.
+  + **azureml-pipeline-steps**
+    + RScriptStep supports RSection from azureml.core.environment.
+    + Removed the passthru_automl_config parameter from the `AutoMLStep` public API and converted it to an internal only parameter.
+  + **azureml-train-automl-client**
+    + Removed local asynchronous, managed environment runs from AutoML. All local runs will run in the environment the run was launched from.
+    + Fixed snapshot issues when submitting AutoML runs with no user-provided scripts.
+    + Fixed child run failures when data contains nan and featurization is turned off.
+  + **azureml-train-automl-runtime**
+    + AutoML raises a new error code from dataprep when content is modified while being read.
+    + Fixed snapshot issues when submitting AutoML runs with no user-provided scripts.
+    + Fixed child run failures when data contains nan and featurization is turned off.
+  + **azureml-train-core**
+    + Added support for specifying pip options (e.g. --extra-index-url) in the pip requirements file passed to an [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) through `pip_requirements_file` parameter.
+
+
 ## 2020-08-03
 
 ### Azure Machine Learning SDK for Python v1.11.0
