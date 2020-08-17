@@ -12,7 +12,7 @@ ms.author: cshoe
 
 Starting with Azure Functions version 2.x, the functions runtime only includes HTTP and timer triggers by default. Other [triggers and bindings](./functions-triggers-bindings.md) are available as separate packages.
 
-.NET class library functions use binding that are installed in the project as NuGet packages. Extension bundles allows non-.NET functions projects to use the same bindings without having to deal with the .NET infrastructure. Instead, you just use a configuration setting in your host.json file, which is usually enabled by default for non-.NET projects.
+.NET class library functions projects use bindings that are installed in the project as NuGet packages. Extension bundles allows non-.NET functions projects to use the same bindings without having to deal with the .NET infrastructure.
 
 The following table indicates when and how you register bindings.
 
@@ -27,11 +27,11 @@ The following table indicates when and how you register bindings.
 
 ## Access extensions in non-.NET languages
 
-For Java, JavaScript, PowerShell, Python, and Custom Handler function apps, we recommended using extension bundles to access binding extensions. In cases where extension bundles cannot be used, you can explicitly install binding extensions.
+For Java, JavaScript, PowerShell, Python, and Custom Handler function apps, we recommended using extension bundles to access bindings. In cases where extension bundles cannot be used, you can explicitly install binding extensions.
 
 ### <a name="extension-bundles"></a>Extension bundles
 
-Extension bundles is a way to add a compatible set of Functions binding extensions to your function app. You enable extension bundles in the app's *host.json* file.
+Extension bundles is a way to add a compatible set of binding extensions to your function app. You enable extension bundles in the app's *host.json* file.
 
 You can use extension bundles with version 2.x and later versions of the Functions runtime.
 
@@ -41,15 +41,15 @@ To add an extension bundle to your function app, add the `extensionBundle` secti
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-This table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and the extensions they include.
+This table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
 
-| Version | host.json version range | Included extensions |
+| Bundle version | host.json version range | Included extensions |
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 
 > [!NOTE]
-> While you can specify custom version ranges, we recommend you use the version ranges from this table.
+> While you can specify custom version ranges, we recommend you use a version range from this table.
 
 ### <a name="explicitly-install-extensions"></a>Explicitly install extensions
 
