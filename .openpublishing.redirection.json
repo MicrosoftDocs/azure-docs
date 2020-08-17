@@ -12809,6 +12809,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/disks-enable-double-encryption-at-rest-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-double-encryption-at-rest-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-panorama9-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/panorama9-tutorial",
       "redirect_document_id": true

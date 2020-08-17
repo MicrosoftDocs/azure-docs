@@ -990,7 +990,7 @@
       - name: Enable double encryption at rest - CLI
         href: disks-enable-double-encryption-at-rest-cli.md
       - name: Enable double encryption at rest - Portal
-        href: disks-enable-double-encryption-at-rest-portal.md
+        href: ../disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery

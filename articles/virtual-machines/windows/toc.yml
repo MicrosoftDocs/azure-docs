@@ -887,7 +887,7 @@
       - name: Enable double encryption-at-rest
         href: disks-enable-double-encryption-at-rest-powershell.md
       - name: Enable double encryption at rest - Portal
-        href: disks-enable-double-encryption-at-rest-portal.md
+        href: ../disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
       - name: Convert disk between Standard and Premium
