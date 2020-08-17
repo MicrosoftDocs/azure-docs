@@ -108,7 +108,7 @@ Given the sample family document above, following SQL query returns the document
 
 ## Example query 2
 
-The next query returns all the given names of children in the family whose ID matches `WakefieldFamily` ordered by their grade.
+The next query returns all the given names of children in the family whose ID matches `WakefieldFamily`.
 
 **Query**
 

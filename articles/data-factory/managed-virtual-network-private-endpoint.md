@@ -45,7 +45,7 @@ Managed private endpoints are private endpoints created in the Azure Data Factor
 
 ![New Managed private endpoint](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse).
+Azure Data Factory supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (formerly Azure SQL Data Warehouse)).
 
 When you use a private link, traffic between your data stores and managed Virtual Network traverses entirely over the Microsoft backbone network. Private Link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
@@ -75,18 +75,14 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (not including Azure SQL Managed Instance)
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (formerly Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure Private Link
+- Azure Private Link Service
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.
 - Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
-
-### Other known issues
-Debug run for CosmosDB connectivity doesn't work including both DataFlow debug and pipeline debug.
-
 
 ## Next steps
 
