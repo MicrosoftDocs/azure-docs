@@ -24349,6 +24349,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/isv-sso-content.md",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/isv-tenant-multi-tenant-app.md",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/isv-choose-multi-tenant-federation.md",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/isv-create-sso-documentation.md",
+      "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-protocols-oidc.md",
       "redirect_url": "/azure/active-directory/develop/v2-protocols-oidc",
       "redirect_document_id": true
