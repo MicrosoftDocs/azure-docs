@@ -244,7 +244,7 @@
         href: configure-connect-nodejs-howto.md
       - name: Connect with Python
         href: configure-connect-python-howto.md
-    - name: Reset the account credentials
+    - name: Reset account credentials
       href: cli-reset-account-credentials.md
   - name: Upload content
     items:
