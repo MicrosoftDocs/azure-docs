@@ -1,16 +1,18 @@
 ---
-title: "include file"
-description: "include file"
-services: storage
+title: Managed disks - Azure Resource Manager templates
+description: Details how to use managed disks in Azure Resource Manager templates for Azure VMs.
+documentationcenter:
 author: jboeshart
-ms.service: storage
-ms.topic: "include"
-ms.date: 06/05/2018
+manager: 
+ms.service: virtual-machines
+ms.topic: how-to
+ms.workload: storage
+ms.date: 06/01/2017
 ms.author: jaboes
-ms.custom: "include file"
+ms.subservice: disks
 ---
 
-
+# Using Managed Disks in Azure Resource Manager Templates
 
 This document walks through the differences between managed and unmanaged disks when using Azure Resource Manager templates to provision virtual machines. The examples help you to update existing templates that are using unmanaged Disks to managed disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
 
@@ -91,7 +93,7 @@ With Azure Managed Disks, the disk becomes a top-level resource and no longer re
 
 ### Default managed disk settings
 
-To create a VM with managed disks, you no longer need to create the storage account resource. Referencing the template example below, there are some differences from the previous unmanged disk examples to note:
+To create a VM with managed disks, you no longer need to create the storage account resource. Referencing the template example below, there are some differences from the previous unmanaged disk examples to note:
 
 - The `apiVersion` is a version that supports managed disks.
 - `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD.
@@ -256,7 +258,8 @@ To find full information on the REST API specifications, please review the [crea
 * For full templates that use managed disks visit the following Azure Quickstart Repo links.
     * [Windows VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* Visit the [Azure Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
+* Visit the [Azure Managed Disks Overview](~/articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks) document.
 * For information on how to use managed disks in Azure virtual machine scale sets, visit the [Use data disks with scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) document.
+
