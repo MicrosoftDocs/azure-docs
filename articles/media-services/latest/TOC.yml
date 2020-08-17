@@ -244,13 +244,11 @@
         href: configure-connect-python-howto.md
     - name: Reset the account credentials
       href: cli-reset-account-credentials.md
-    - name: Scale media reserved units
-      href: media-reserved-units-cli-how-to.md   
-    - name: Create an asset
-      href: cli-create-asset.md
   - name: Upload content
     items:
-    - name: From HTTPS
+    - name: Create an asset
+      href: cli-create-asset.md
+      - name: From HTTPS
       displayName: upload
       href: job-input-from-http-how-to.md
     - name: From a local file
@@ -280,6 +278,8 @@
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
     - name: Encode with a custom transform
+    - name: Scale media reserved units
+      href: media-reserved-units-cli-how-to.md
       items:
       - name: With .NET
         displayName: encode, encoding, custom, transform
