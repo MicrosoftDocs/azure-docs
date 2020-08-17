@@ -77,7 +77,7 @@ Artifact that depends on Spring framework v2.3:
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-spring-data-2-2-cosmos</artifactId>
+    <artifactId>azure-spring-data-2-3-cosmos</artifactId>
     <version>latest</version>
 </dependency>
 ```
