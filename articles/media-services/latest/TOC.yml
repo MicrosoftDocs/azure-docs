@@ -248,7 +248,7 @@
     items:
     - name: Create an asset
       href: cli-create-asset.md
-      - name: From HTTPS
+    - name: From HTTPS
       displayName: upload
       href: job-input-from-http-how-to.md
     - name: From a local file
