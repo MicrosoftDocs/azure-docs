@@ -14,36 +14,23 @@ ms.date: 08/17/2020
 
 This quickstart page describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation to triggers an empty logic app when specific security alerts are received by Azure Security Center.
 
-
-<!--
-Second paragraph: Use the following include file. This include file is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content. You might need to change the file path of the include file depending on your content structure. 
-.-->
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
-
-<!-- 
-Final paragraph: Explains that readers who are experienced with ARM templates can continue to the deployment. For information about the button image and how to create the template's URI, see "Deploy the template" for Portal.
--->
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+
 
 ## Prerequisites
 
-<!-- 
-This section must begin with a sentence that includes a link to create a free Azure account. If your service has other prerequisites, list them after the free account sentence.
--->
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+For a list of the roles and permissions required to work with Azure Security Center's workflow automation feature, see [workflow automation](workflow-automation.md).
+
 
 ## Review the template
 
-<!--
-The first sentence must be the following sentence. Use a link to the quickstart gallery that begins with https://azure.microsoft.com/resources/templates/.
--->
-
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/<templateName>).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-securitycenter-create-automation-for-alertnamecontains/).
 
 <!-- 
 After the first sentence, add a JSON code fence that links to the quickstart template. Customers have provided feedback that they prefer to see the whole template. We recommend you include the entire template in your article. If your template is too long to show in the quickstart (more than 250 lines), you can instead add a sentence that says - The template for this article is too long to show here. To view the template, see [azuredeploy.json](link to template's raw output).
@@ -51,7 +38,7 @@ After the first sentence, add a JSON code fence that links to the quickstart tem
 The syntax for the code fence is:
 -->
 
-:::code language="json" source="~/quickstart-templates/<TEMPLATE NAME>/azuredeploy.json":::
+:::code language="json" source="~/azure-quickstart-templates/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json":::
 
 <!--
 After the JSON code fence, a list of each resourceType from the JSON must exist with a link to the template reference starting with /azure/templates. List the resourceType links in the same order as in the template.
