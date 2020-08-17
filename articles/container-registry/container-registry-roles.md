@@ -106,7 +106,7 @@ For example, the following JSON defines the minimum actions for a custom role th
  }
 ```
 
-To create or update a custom role using the JSON description, use the [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure Resource Manager template](./role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), or other Azure tools. Add or remove role assignments for a custom role in the way that you manage role assignment for built-in Azure roles.
+To create or update a custom role using the JSON description, use the [Azure CLI](../role-based-access-control/custom-roles-cli.md), [Azure Resource Manager template](./role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), or other Azure tools. Add or remove role assignments for a custom role in the same way that you manage role assignments for built-in Azure roles.
 
 ## Next steps
 
