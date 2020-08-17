@@ -106,7 +106,7 @@ The following table shows examples of supported context locations for ACR Tasks:
 | GitHub commit | Specific commit in a public or private GitHub repo. Example shows combination of a commit hash (SHA) and subfolder specification. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Azure DevOps subfolder | Files within a subfolder in a public or private Azure repo. Example shows combination of branch and subfolder specification. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
-| Artifact in container registry | [OCI artifact](container-registry-oci-artifacts.md) files in a container registry repository | `oci://myregistry.azurecr.io/myartifact:mytag` |
+| Artifact in container registry | [OCI artifact](container-registry-oci-artifacts.md) files in a container registry repository. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > When using a private Git repo as a context for a task, you need to provide a personal access token (PAT).

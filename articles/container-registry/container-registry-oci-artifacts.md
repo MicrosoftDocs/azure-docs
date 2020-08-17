@@ -165,14 +165,14 @@ az acr login --name myregistry
 Create and push a new OCI artifact to the destination registry by using the `oras push` command. This example sets the default media type for the artifact.
 
 ```bash
-oras push myregistry.azurecr.io/hello-world.dockerfile:1.0 hello-world.dockerfile
+oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
 ```
 
-Run the [az acr build](/cli/azure/acr#az-acr-build) command to build hello-world image using new artifact as build context:
+Run the [az acr build](/cli/azure/acr#az-acr-build) command to build the hello-world image using the new artifact as build context:
 
 ```azurecli
 az acr build --registry myregistry --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/hello-world.dockerfile:1.0
+  oci://myregistry.azurecr.io/hello-world:1.0
 ```
 
 ## Next steps
