@@ -39,11 +39,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) at once.
     + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type.
+    + Update timeseries dataset filter sample notebook with more examples of partition_timestamp that provides filter optimization.
     + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
     + Experimental Decorator shows class name for easier identification.
     + Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
   + **azureml-datadrift**
-    + Update timeseries dataset filter sample notebook with more examples of partition_timestamp that provides filter optimization.
+    + Mark create_from_model API in DataDriftDetector as to be deprecated.
   + **azureml-dataprep**
     + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type.
