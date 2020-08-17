@@ -343,7 +343,7 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 The `AutoMLStep` itself takes the `AutoMLConfig` and has, as outputs, the `PipelineData` objects created to hold the metrics and model data. 
 
 >[!Important]
-> You must set `enable_default_model_output` and `enable_default_metrics_output`  to `False` unless if you are using  `AutoMLStep`.
+> You must set `enable_default_model_output` and `enable_default_metrics_output`  to `True` only if you are using  `AutoMLStepRun`.
 
 In this example, the automated ML process will perform cross-validations on the `training_data`. You can control the number of cross-validations with the `n_cross_validations` argument. If you've already split your training data as part of your data preparation steps, you can set `validation_data` to its own `Dataset`.
 

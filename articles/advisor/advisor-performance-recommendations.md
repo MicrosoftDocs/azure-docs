@@ -15,7 +15,7 @@ You can use [time-to-live (TTL) settings](../traffic-manager/traffic-manager-per
 
 Azure Advisor identifies Traffic Manager profiles that have a longer TTL configured. It recommends configuring the TTL to either 20 seconds or 60 seconds, depending on whether the profile is configured for [Fast Failover](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## Improve database performance by using SQL Database Advisor
+## Improve database performance by using SQL Database Advisor (temporarily disabled)
 
 Azure Advisor provides a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your databases. SQL Database Advisor assesses the performance of your databases by analyzing your usage history. It then offers recommendations that are best suited for running the database's typical workload.
 
@@ -146,6 +146,23 @@ Advisor identifies Azure Cosmos DB containers that are using the default indexin
 ## Set your Azure Cosmos DB query page size (MaxItemCount) to -1 
 
 Azure Advisor identifies Azure Cosmos DB containers that are using a query page size of 100. It recommends using a page size of -1 for faster scans. [Learn more about MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance
+Azure Advisor analyses the system logs in the past 7 days and identifies if your cluster has encountered the following scenarios:
+1. High WAL sync time latency 
+2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
+
+These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase. The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications. 
+To read more on this feature, [learn more](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## Review Azure Data Explorer table cache-period (policy) for better performance (Preview)
+This recommendation surfaces Azure Data Explorer tables which have a high number of queries that look back beyond the configured cache period (policy) (You will see the top 10 tables by query percentage that access out-of-cache data). The recommended action to improve the cluster's performance: Limit queries on this table to the minimal necessary time range (within the defined policy). Alternatively, if data from the entire time range is required, increase the cache period to the recommended value.
+
+## Improve performance by optimizing MySQL temporary-table sizing
+Advisor analysis indicates that your MySQL server may be incurring unnecessary I/O overhead due to low temporary-table parameter settings. This may result in unnecessary disk-based transactions and reduced performance. We recommend that you increase the 'tmp_table_size' and 'max_heap_table_size' parameter values to reduce the number of disk-based transactions. [Learn more](https://aka.ms/azure_mysql_tmp_table)
+
+## Distribute data in server group to distribute workload among nodes
+Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## How to access performance recommendations in Advisor
 
