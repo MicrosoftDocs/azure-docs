@@ -30,12 +30,12 @@ A number of features have size, count, or other limitations.
 
 The allowable number of polygons for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md#create-a-session):
 
-| VM size | Maximum number of polygons |
+| Server size | Maximum number of polygons |
 |:--------|:------------------|
 |standard| 20 million |
 |premium| no limit |
 
-See [VM size](../reference/vm-sizes.md) chapter for more detailed information on this limitation.
+See [server size](../reference/vm-sizes.md) chapter for more detailed information on this limitation.
 
 ## Platform limitations
 
