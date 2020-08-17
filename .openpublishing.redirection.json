@@ -12739,6 +12739,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/disks-use-storage-explorer-managed-disks.md",
+      "redirect_url": "/azure/virtual-machines/disks-use-storage-explorer-managed-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-use-storage-explorer-managed-disks.md",
+      "redirect_url": "/azure/virtual-machines/disks-use-storage-explorer-managed-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-optimizely-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/optimizely-tutorial",
       "redirect_document_id": true

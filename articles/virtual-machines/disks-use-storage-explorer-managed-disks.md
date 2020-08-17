@@ -1,16 +1,15 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 09/25/2019
- ms.author: rogarana
- ms.custom: include file
+title: Use Azure Storage Explorer to manage Azure managed disks
+description: Learn how to upload, download, and migrate an Azure managed disk across regions and create a snapshot of a managed disk, using the Azure Storage Explorer.      
+author: roygara
+ms.author: rogarana
+ms.date: 09/25/2019
+ms.topic: how-to
+ms.service: virtual-machines
+ms.subservice: disks
 ---
 
-
+# Use Azure Storage Explorer to manage Azure managed disks
 
 Storage Explorer 1.10.0 enables users to upload, download, and copy managed disks, as well as create snapshots. Because of these additional capabilities, you can use Storage Explorer to migrate data from on-premises to Azure, and migrate data across Azure regions.
 
@@ -126,3 +125,8 @@ With Storage Explorer, you can copy a manged disk within or across regions. To c
     ![Open snapshot in portal](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal.png)
 
 ## Next steps
+
+
+Learn how to [Create a VM from a VHD by using the Azure portal](../windows/create-vm-specialized-portal.md).
+
+Learn how to [Attach a managed data disk to a Windows VM by using the Azure portal](../windows/attach-managed-disk-portal.md).
