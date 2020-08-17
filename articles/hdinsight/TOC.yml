@@ -356,6 +356,8 @@
         href: ./set-up-pyspark-interactive-environment.md
     - name: Develop
       items:
+      - name: Optimize queries with SparkCruise
+        href: ./spark/spark-cruise.md
       - name: Use an interactive Apache Spark Shell
         href: ./spark/apache-spark-shell.md
       - name: Remote jobs with Apache Livy
@@ -531,6 +533,8 @@
         items:
         - name: Use empty edge nodes
           href: ./hdinsight-apps-use-edge-node.md
+        - name: Use edge nodes to scale HiveServer2
+          href: ./hdinsight-apps-install-hiveserver2.md
     - name: Troubleshoot
       items:
       - name: Common issues

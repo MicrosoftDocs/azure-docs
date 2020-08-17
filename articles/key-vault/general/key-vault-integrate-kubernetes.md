@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Key Vault with Kubernetes
 description: In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount into Kubernetes pods.
-author: taytran0
-ms.author: t-trtr
+author: rkarlin
+ms.author: rkarlin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
@@ -237,7 +237,7 @@ kubectl apply -f secretProviderClass.yaml
 ### Use a service principal
 
 If you're using a service principal, use the following command to deploy your Kubernetes pods with the SecretProviderClass and the secrets-store-creds that you configured earlier. Here are the deployment templates:
-* For [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-secrets-store-inline-volume-secretproviderclass.yaml)
+* For [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
 * For [Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
 
 ```azurecli
