@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/30/2020
+ ms.date: 08/17/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -40,7 +40,7 @@ az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralu
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -MaxSharesCount 2
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 ```
