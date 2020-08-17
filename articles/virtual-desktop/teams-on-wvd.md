@@ -67,8 +67,8 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
-      > [!NOTE]
-      > Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
+      > [!IMPORTANT]
+      > The latest update of the Teams Desktop client version 1.3.00.21759 fixed an issue where Teams showed UTC time zone in chat, channels, and calendar. The new version of the client will show the remote session time zone.
 
 2. Run one of the following commands to install the MSI to the host VM:
 
@@ -124,7 +124,6 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 ### Client deployment, installation, and setup
 
 - With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
-- Teams currently only shows the UTC time zone in chat, channels, and calendar.
 - Media optimization for Teams is only supported for the Windows Desktop client on machines running Windows 10.
 - Use of explicit HTTP proxies defined on an endpoint is not supported.
 
