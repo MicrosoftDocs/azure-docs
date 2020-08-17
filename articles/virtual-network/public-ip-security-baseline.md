@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/17/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -95,11 +95,12 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32282.).
 
-**Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of Azure Public IP.
+**Guidance**: 
+Azure role-based access control (RBAC) allows you to manage access to Azure resources such as your Azure Public IP through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
+- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Understand RBAC in Azure](../role-based-access-control/overview.md)
+- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -121,16 +122,24 @@ You can use the Identity and Access control (IAM) pane in the Azure portal for y
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32284.).
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. 
 
-Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:
+You can also enable a Just-In-Time access by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
-There should be more than one owner assigned to your subscription
-Deprecated accounts with owner permissions should be removed from your subscription
-External accounts with owner permissions should be removed from your subscription
-- [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)
+- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
-How to use Azure Policy
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
+
+### 3.4: Use single sign-on (SSO) with Azure Active Directory
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32285.).
+
+**Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations. 
+
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -175,7 +184,7 @@ How to use Azure Policy
 
 In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
+- [How to deploy Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 - [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
 
@@ -229,15 +238,11 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32292.).
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure Public IP. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: You have access to Azure AD sign-in activity, audit, and risk event log sources, which allow you to integrate with any SIEM/monitoring tool. 
 
-You have access to Azure AD sign-in activity, audit and risk event log sources, which allow you to integrate with Azure Sentinel or a third-party SIEM.
+You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace. 
 
-You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
-
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
-
-- [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -248,11 +253,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32293.).
 
-**Guidance**: or account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation. 
 
-- [How to view Azure AD risky sign-in](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
 
-- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -263,6 +268,36 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ## Data protection
 
 *For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+
+### 4.1: Maintain an inventory of sensitive Information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32295.).
+
+**Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
+
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
+### 4.2: Isolate systems storing or processing sensitive information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32296.).
+
+**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory RBAC. 
+
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
+
+- [How to create management groups](../governance/management-groups/create.md) 
+
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### 4.4: Encrypt all sensitive information in transit
 
