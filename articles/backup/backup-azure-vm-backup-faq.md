@@ -95,6 +95,10 @@ If you change the case (to upper or lower) of your VM or VM resource group, the 
 
 Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution. For more information, see [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md).
 
+### Are managed identities preserved if a tenant change occurs during backup?
+
+If [tenant changes](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) occur, you're required to disable and re-enable [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to make backups work again.
+
 ## Restore
 
 ### How do I decide whether to restore disks only or a full VM?
