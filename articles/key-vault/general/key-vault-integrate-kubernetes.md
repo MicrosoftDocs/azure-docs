@@ -237,7 +237,7 @@ kubectl apply -f secretProviderClass.yaml
 ### Use a service principal
 
 If you're using a service principal, use the following command to deploy your Kubernetes pods with the SecretProviderClass and the secrets-store-creds that you configured earlier. Here are the deployment templates:
-* For [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-secrets-store-inline-volume-secretproviderclass.yaml)
+* For [Linux](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/nginx-pod-inline-volume-service-principal.yaml)
 * For [Windows](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/windows-pod-secrets-store-inline-volume-secret-providerclass.yaml)
 
 ```azurecli
