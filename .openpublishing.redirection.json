@@ -12799,6 +12799,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/faq-for-disks.md",
+      "redirect_url": "/azure/virtual-machines/faq-for-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/faq-for-disks.md",
+      "redirect_url": "/azure/virtual-machines/faq-for-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-panorama9-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/panorama9-tutorial",
       "redirect_document_id": true

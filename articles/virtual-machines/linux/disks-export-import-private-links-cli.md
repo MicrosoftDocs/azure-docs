@@ -158,5 +158,5 @@ az network private-endpoint dns-zone-group create \
 
 ## Next steps
 
-- [FAQ on Private Links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ on Private Links](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)

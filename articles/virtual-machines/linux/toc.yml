@@ -1022,7 +1022,7 @@
     - name: Use File storage
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Disks FAQs
-      href: faq-for-disks.md
+      href: ../faq-for-disks.md
   - name: Manage networking
     items:
     - name: Create virtual network
