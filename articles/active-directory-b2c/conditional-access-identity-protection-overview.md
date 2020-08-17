@@ -14,9 +14,11 @@ manager: celested
 
 ms.collection: M365-identity-device-management
 ---
-# Identity Protection and Conditional Access for Azure Active Directory B2C
+# Identity Protection and Conditional Access for Azure AD B2C
 
-Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The risk-detection features of [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection), including risky users and risky sign-ins, are automatically detected an displayed in your Azure AD B2C tenant. You can create [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give application owners significantly greater control over risky authentications and access policies.
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
+Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The risk-detection features of , including risky users and risky sign-ins, are automatically detected an displayed in your Azure AD B2C tenant. You can create [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give application owners significantly greater control over risky authentications and access policies.
 
 > [!NOTE]
 > To use sign-in and user risk-based Conditional access, Azure AD Premium P2 is required.
@@ -53,18 +55,18 @@ Identity Protection and Conditional Access in Azure AD B2C generally work the sa
   - Device compliance
   - TBD
  
-## User flows and Conditional Access
+## Integrate Conditional Access with user flows and custom policies
 
-
+Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized according to the organization’s voice, brand, and mitigation alternatives.
 
 ## Custom policies and Conditional Access
 
+## Microsoft Graph API
 
+By pairing Conditional Access policies with risk detection through Identity Protection risk detection, admins can respond to risky authentications detections with the appropriate policy action.You can also manage Conditional Access policies with Microsoft Graph API. For details, see the [Conditional Access documentation](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/) and the [Microsoft Graph reference](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
 
 ## Next steps
 
-- [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
-- [Plan your Conditional Access deployment](plan-conditional-access.md)
-- [Learn about Identity Protection](../identity-protection/overview-v2.md)
-- [Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-- [Learn about Microsoft Intune](/intune/index)
+- [Set up Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-setup.md)
+- [Learn about Identity Protection in Azure AD](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Learn about Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

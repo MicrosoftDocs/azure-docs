@@ -82,7 +82,7 @@
   - name: SSO sessions
     href: session-overview.md
   - name: Identity Protection and Conditional Access
-    href: conditional-access-overview.md
+    href: conditional-access-identity-protection-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -171,9 +171,9 @@
     - name: Set up Identity Protection
       href: conditional-access-identity-protection-setup.md
     - name: Add Conditional Access to user flows
-      href: conditional-access-user-flows.md
+      href: conditional-access-user-flow.md
     - name: Add Conditional Access to custom policies
-      href: conditional-access-custom-policies.md
+      href: conditional-access-custom-policy.md
     - name: Review audit reports
       href: conditional-access-audit-reports.md
   - name: Custom policy

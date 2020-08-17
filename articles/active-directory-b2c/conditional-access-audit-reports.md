@@ -1,5 +1,5 @@
 ---
-title: Identity Protection and Conditional Access in Azure AD B2C
+title: Reports for Conditional Access in Azure AD B2C
 description: Learn how Conditional Access is at the heart of the new identity driven control plane.
 
 services: active-directory
@@ -14,4 +14,6 @@ manager: celested
 
 ms.collection: M365-identity-device-management
 ---
-# Identity Protection and Conditional Access for Azure Active Directory B2C
+# Review reports for Conditional Access activity in Azure Active Directory B2C
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]

@@ -1,5 +1,5 @@
 ---
-title: Identity Protection and Conditional Access in Azure AD B2C
+title: Set up Identity Protection and Conditional Access in Azure AD B2C
 description: Learn how Conditional Access is at the heart of the new identity driven control plane.
 
 services: active-directory
@@ -14,7 +14,9 @@ manager: celested
 
 ms.collection: M365-identity-device-management
 ---
-# Identity Protection and Conditional Access for Azure Active Directory B2C
+# Set up Identity Protection and Conditional Access in Azure AD B2C
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Prerequisites
 
@@ -39,7 +41,7 @@ To use these features in your tenant, you first need to switch to the Azure AD P
 
 ## Set up Identity Protection
 
-Once your tenant is licensed for Premium 2, Identity Protection is “on” by default. You will begin to receive ongoing notifications about risk events. The following risk detections are currently supported for Azure AD B2C:  
+Once your tenant is linked to an Azure AD subscription the Azure AD Premium P2 pricing tier is selected, Identity Protection is on by default. You will begin to receive ongoing notifications about risk events. The following risk detections are currently supported for Azure AD B2C:  
 
 |Risk detection type  |Description  |
 |---------|---------|
@@ -49,7 +51,7 @@ Once your tenant is licensed for Premium 2, Identity Protection is “on” by d
 |Malware linked IP address     | Sign in from a malware linked IP address         |
 |Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern        |
 
-
+You can create [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) policies that use these risk detections to determine actions and enforce organizational policies.
 
 ## Add a Conditional Access policy 
 
@@ -62,7 +64,7 @@ To add a conditional access policy, follow these steps.
 
 1. Create an new conditional access policy.
 
-1. Select users (don't use all, otherwise you may block yourself)
+1. Select users. (Don't select **All users** or you could block yourself from signing in.)
 
    ![Select users](media/conditional-access-identity-protection-setup/select-users.png)
 

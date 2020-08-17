@@ -1,5 +1,5 @@
 ---
-title: Identity Protection and Conditional Access in Azure AD B2C
+title: Add Conditional Access to a user flow in Azure AD B2C
 description: Learn how Conditional Access is at the heart of the new identity driven control plane.
 
 services: active-directory
@@ -14,11 +14,13 @@ manager: celested
 
 ms.collection: M365-identity-device-management
 ---
-# Add Conditional Access to a user flow
+# Add Conditional Access to a user flow in Azure AD B2C
 
-Every authentication in B2C must be configured by a user flow. Advanced users using Identity Experience Framework/Custom policies would configure those instead.  Advanced configuration with samples are included below.
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-The latest versions of user flows must be used for compatibility with Conditional Access. Under properties of your userflow, look for a setting labeled **Conditional Access** to confirm that you're using the latest version of a user flow.
+Every authentication in B2C must be configured by a user flow. Advanced users using Identity Experience Framework/Custom policies would configure those instead. Advanced configuration with samples are included below.
+
+The latest versions of user flows must be used for compatibility with Conditional Access. Under properties of your user flow, look for a setting labeled **Conditional Access** to confirm that you're using the latest version of a user flow.
 
 ## Add Conditional Access to a user flow
 
