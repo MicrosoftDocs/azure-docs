@@ -56,7 +56,7 @@ The Business Card API also returns all recognized text from the Business Card. T
 
 The Business Card API enables you to easily extract key fields from English business cards. Using the simple JSON output, you can extract contact information from business cards. Because the model is pre-trained on our data, you can easily analyze your business cards in one step – no model training or labeling required. 
 
-The Business Card API powers the [AIBuilder Business Card Processing feature](https://docs.microsoft.com/en-us/ai-builder/prebuilt-business-card).  
+The Business Card API powers the [AIBuilder Business Card Processing feature](https://docs.microsoft.com/ai-builder/prebuilt-business-card).  
 
 Extracting this contact info painlessly saves time for those in client-facing roles. Here are some examples of ways customers can use the Business Card API: 
 

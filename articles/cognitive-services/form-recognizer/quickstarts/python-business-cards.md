@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A URL for an image of a business card. You can use a [sample image](./media/business-card-english.jpg) for this quickstart.
+- A URL for an image of a business card. You can use a [sample image](../media/business-card-english.jpg) for this quickstart.
 
 > [!NOTE]
 > This quickstart uses a remote business card image accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
