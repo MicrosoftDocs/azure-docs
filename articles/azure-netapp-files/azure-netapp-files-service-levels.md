@@ -65,8 +65,7 @@ For an SAP HANA system, this capacity pool can be used to create the following v
 
 The diagram below illustrates the scenarios for the SAP HANA volumes:
 
-![QoS SAP HANA volume scenarios](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png)
-
+![QoS SAP HANA volume scenarios](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
 
 ## Next steps
 
