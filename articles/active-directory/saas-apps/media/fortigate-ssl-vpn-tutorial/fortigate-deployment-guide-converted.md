@@ -207,7 +207,7 @@ Configure this as follows –
     - Membership type = Assigned
     - Members = `users for the user experience that will map to this group`
 5. Repeat steps 3 and 4 for any additional user experiences
-6. After the groups have been created, select each group and record the Object Id for each one
+6. After the groups have been created, select each group and record the Object ID for each one
 7. Save these Object Ids and group names for later
 
 
@@ -242,7 +242,7 @@ Configure this as follows –
     earlier
 7. Ignore the warning and click **Backup config and upgrade** –
 
-    ![Fortigate SSL VPN](backup-config-upgrade.png)
+    ![Fortigate SSL VPN](backup-configure-upgrade.png)
 
 8. Click **Continue**
 9. When prompted to save the FortiGate configuration (as a .conf file), click **Save**
