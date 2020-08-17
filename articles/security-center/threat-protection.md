@@ -49,11 +49,15 @@ Azure Security Center integrates with Azure services to monitor and protect your
 
     When Microsoft Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Microsoft Defender ATP console, and perform a detailed investigation to uncover the scope of the attack. For more information about Microsoft Defender ATP, see [Onboard servers to the Microsoft Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **Fileless attack detection** <a name="windows-fileless"></a> - Fileless attacks targeting your endpoints are common. To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes, and perform a wide range of malicious activities.
+* **Fileless attack detection** <a name="windows-fileless"></a> - Fileless attacks inject malicious payloads into memory to avoid detection by disk-based scanning techniques. The attacker’s payload then persists within the memory of compromised processes and performs a wide range of malicious activities.
 
-    With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of security-critical processes.
+    With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights for Linux include the identification of: 
 
-    It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless attack detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions, providing greater detection coverage.
+    - Well-known toolkits and crypto mining software 
+    - Shellcode, which is a small piece of code typically used as the payload in the exploitation of a software vulnerability.
+    - Injected malicious executable in process memory
+
+    Fileless attack detection generates detailed security alerts containing the descriptions with additional process metadata, such as network activity. This accelerates alert triage, correlation, and downstream response time. This approach complements event based EDR solutions, and provides increased detection coverage.
 
     For details of the fileless attack detection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-windows).
 
@@ -105,12 +109,13 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 ### Availability
 
-- Release state: **General availability**
-- Required roles: **Security admin** can dismiss alerts. **Security reader** can view findings.
-- Clouds:<br>
-    ✔ Commercial clouds<br>
-    ✘ US Gov<br>
-    ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Standard tier|
+|Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -141,14 +146,13 @@ For more information, see:
 
 ### Availability
 
-- Release state:
-    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)
-- Clouds:<br>
-    ✔ Commercial clouds<br>
-    ✔ US Gov<br>
-    ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)|
+|Pricing:|Standard tier|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
 
 ### What's protected?
 
@@ -221,7 +225,6 @@ Some network configurations may restrict Security Center from generating alerts 
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
-For details of how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in  Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 

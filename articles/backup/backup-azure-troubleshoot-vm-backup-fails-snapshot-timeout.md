@@ -18,7 +18,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 
 ### Step 1: Check Azure VM health
 
-- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/windows/states-lifecycle.md#provisioning-states) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
+- **Ensure Azure VM provisioning state is 'Running'**: If the [VM provisioning state](../virtual-machines/states-lifecycle.md#provisioning-states) is in the **Stopped/Deallocated/Updating** state, then it will interfere with the backup operation. Open *Azure portal > VM > Overview >* and check the VM status to ensure it's **Running**  and retry the backup operation.
 - **Review pending OS updates or reboots**: Ensure there are no pending OS update or pending reboots on the VM.
 
 ### Step 2: Check Azure VM Guest Agent service health
@@ -97,11 +97,11 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 **Error code**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - If VMSnapshot extension is in a failed state, then right-click on the failed extension and remove it. Trigger an on-demand backup. This action will reinstall the extensions, and run the backup job.  <br>
 - If any other extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.
-- If the VM provisioning state is in an updating state, it can interfere with the backup. Ensure that it is healthy and retry the backup operation.
+- If the VM provisioning state is in an updating state, it can interfere with the backup. Ensure that it's healthy and retry the backup operation.
 
 ## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached
 
@@ -171,13 +171,13 @@ Your backup operation could fail when backing up a VM with a disk size greater t
 
 Your recent backup job failed because there's an existing backup job in progress. You can't start a new backup job until the current job finishes. Ensure the backup operation currently in progress is completed before triggering or scheduling another backup operations. To check the backup jobs status, do the following steps:
 
-1. Sign in to the Azure portal, click **All services**. Type Recovery Services and click **Recovery Services vaults**. The list of recovery services vaults appears.
+1. Sign in to the Azure portal, select **All services**. Type Recovery Services and select **Recovery Services vaults**. The list of recovery services vaults appears.
 2. From the list of recovery services vaults, select a vault in which the backup is configured.
-3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
+3. On the vault dashboard menu, select **Backup Jobs** it displays all the backup jobs.
    - If a backup job is in progress, wait for it to complete or cancel the backup job.
-     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
+     - To cancel the backup job, right-click on the backup job and select **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - If you've reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists, then cancel the backup job.
-     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
+     - To cancel the backup job, right-click on the backup job and select **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer, conflicting with the next backup configuration, then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance), and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -187,20 +187,20 @@ If the scheduled backup operation is taking longer, conflicting with the next ba
 **Error code**: UserErrorCrpReportedUserError <br>
 **Error message**: Backup failed due to an error. For details, see Job Error Message Details.
 
-This error is reported from the IaaS VM. To identify the root cause of the issue, go to the Recovery Services vault settings. Under the **Monitoring** section, select **Backup jobs** to filter and view the status. Click on **Failures** to review the underlying error message details. Take further actions according to the recommendations in the error details page.
+This error is reported from the IaaS VM. To identify the root cause of the issue, go to the Recovery Services vault settings. Under the **Monitoring** section, select **Backup jobs** to filter and view the status. Select **Failures** to review the underlying error message details. Take further actions according to the recommendations in the error details page.
 
 ## UserErrorBcmDatasourceNotPresent - Backup failed: This virtual machine is not (actively) protected by Azure Backup
 
 **Error code**: UserErrorBcmDatasourceNotPresent <br>
 **Error message**: Backup failed: This virtual machine is not (actively) protected by Azure Backup.
 
-Please check if the given virtual machine is actively (not in pause state) protected by Azure Backup. To overcome this issue, ensure the virtual machine is active and then retry the operation.
+Check if the given virtual machine is actively (not in pause state) protected by Azure Backup. To overcome this issue, ensure the virtual machine is active and then retry the operation.
 
 ## Causes and solutions
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>The agent is installed in the VM, but it's unresponsive (for Windows VMs)
 
-#### Solution
+#### Solution for this error
 
 The VM agent might have been corrupted, or the service might have been stopped. Reinstalling the VM agent helps get the latest version. It also helps restart communication with the service.
 
@@ -252,9 +252,9 @@ For full list of VM-Agent Configuration File Options, see <https://github.com/Az
 
 ### Application control solution is blocking IaaSBcdrExtension.exe
 
-If you are running [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (or another application control solution), and the rules are publisher or path based, they may block the **IaaSBcdrExtension.exe** executable from running.
+If you're running [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (or another application control solution), and the rules are publisher or path based, they may block the **IaaSBcdrExtension.exe** executable from running.
 
-#### Solution
+#### Solution to this issue
 
 Exclude the `/var/lib` path or the **IaaSBcdrExtension.exe** executable from AppLocker (or other application control software.)
 
@@ -262,7 +262,7 @@ Exclude the `/var/lib` path or the **IaaSBcdrExtension.exe** executable from App
 
 The VM backup relies on issuing a snapshot command to the underlying storage account. Backup can fail either because it has no access to the storage account, or because the execution of the snapshot task is delayed.
 
-#### Solution
+#### Solution for this issue
 
 The following conditions might cause the snapshot task to fail:
 
@@ -276,7 +276,7 @@ The following conditions might cause the snapshot task to fail:
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **All Resources option**, select the restore point collection resource group in the following format AzureBackupRG_`<Geo>`_`<number>`.
 3. In the **Settings** section, select **Locks** to display the locks.
-4. To remove the lock, select the ellipsis and click **Delete**.
+4. To remove the lock, select the ellipsis and select **Delete**.
 
     ![Delete lock](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
@@ -303,16 +303,16 @@ After removing the lock, trigger an on-demand backup. This action will ensure th
 To manually clear the restore points collection, which isn't cleared because of the lock on the resource group, try the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
+2. On the **Hub** menu, select **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 
-    ![Delete lock](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Select the resource group](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
-3. Click Resource group, the **Overview** pane is displayed.
+3. Select Resource group, the **Overview** pane is displayed.
 4. Select **Show hidden types** option to display all the hidden resources. Select the restore point collections with the following format AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Delete lock](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Select the restore point collection](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
-5. Click **Delete** to clean the restore point collection.
+5. Select **Delete** to clean the restore point collection.
 6. Retry the backup operation again.
 
 > [!NOTE]
