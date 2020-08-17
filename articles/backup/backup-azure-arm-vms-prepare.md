@@ -134,7 +134,7 @@ The snapshot phase guarantees the availability of a recovery point stored along 
 
 There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as given below:
 
-  ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Backup Job Status sub-tasks](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 The **Transfer data to vault** phase can take multiple days to complete depending on the size of the disks, churn per disk and several other factors.
 
