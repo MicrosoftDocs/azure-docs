@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ExpenseIn | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ExpenseIn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 6ac8053b-a216-45d8-bf5e-ecd37d808e57
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-
 ms.collection: M365-identity-device-management
 ---
 
