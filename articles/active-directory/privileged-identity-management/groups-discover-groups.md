@@ -1,6 +1,6 @@
 ---
-title: Onboard role-assignable groups as privileged access groups in Privileged Identity Management - Azure AD | Microsoft Docs
-description: Learn how to onboard role-assignable groups to manage as privileged access groups in Privileged Identity Management (PIM).
+title: Manage role-assignable groups as privileged access groups - Azure AD | Microsoft Docs
+description: Consent to onboard role-assignable groups to manage as privileged access groups in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,7 +16,7 @@ ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
 
-# Bring privileged access groupss (preview) into Privileged Identity Management
+# Manage privileged access groupss (preview) inPrivileged Identity Management
 
 In Azure Active Directory (Azure AD), you can assign Azure AD built-in roles to cloud groups to simplify how you manage role assignments. To protect Azure AD roles and to secure access, you can now use Privileged Identity Management (PIM) to manage just-in-time access for members or owners of these groups. To manage an Azure AD role-assignable group as a privileged access group in Privileged Identity Management, you must bring it under management in PIM.
 
