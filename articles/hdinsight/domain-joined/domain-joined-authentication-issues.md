@@ -203,7 +203,7 @@ This error occurs intermittently when users try to access the ADLS Gen2 using AC
 
 * For Azure Data Lake Storage Gen1, clean browser cache and log into Ambari again.
 
-* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` for the user the user is trying to login as
+* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` for the user the user is trying to login as
 
 ---
 

@@ -236,7 +236,7 @@
     items:
     - name: Configure private endpoints
       href: configure-private-endpoints.md
-    - name: Configure IP firewall (preview)
+    - name: Configure IP firewall
       href: configure-firewall.md
     - name: Secure Webhook with AAD
       href: secure-webhook-delivery.md
