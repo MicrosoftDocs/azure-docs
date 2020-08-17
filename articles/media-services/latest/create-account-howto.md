@@ -28,7 +28,7 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## [Portal](#tab/[portal])
+## [Portal](#tab/portal/)
 
 ## Use the Azure portal
 
@@ -63,7 +63,7 @@ This article shows how to create a Media Services account using the Azure portal
 
     When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](dynamic-packaging-overview.md) and [dynamic encryption](content-protection-overview.md), the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-## [CLI](#tab/[cli])
+## [CLI](#tab/cli/)
 
 ## Use the Azure CLI
 
