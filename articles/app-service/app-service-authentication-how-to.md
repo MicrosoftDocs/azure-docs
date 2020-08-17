@@ -12,8 +12,7 @@ This article shows you how to customize the built-in [authentication and authori
 
 To get started quickly, see one of the following tutorials:
 
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md)
 * [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
 * [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)
 * [How to configure your app to use Google login](configure-authentication-provider-google.md)
@@ -294,6 +293,9 @@ Your auth settings can optionally be configured via a file that is provided by y
     2.	Set `isAuthFromFile` to "true"
     3.	Set `authFilePath` to the name of the file (for example, "auth.json")
 
+> [!NOTE]
+> The format for `authFilePath` varies between platforms. On Windows, both relative and absolute paths are supported. Relative is recommended. For Linux, only absolute paths are supported currently, so the value of the setting should be "/home/site/wwwroot/auth.json" or similar.
+
 Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to Azure Resource Manager configuration, you can do so by setting `isAuthFromFile` back to "false".
 
 ### Configuration file reference
@@ -528,5 +530,4 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutorial: Authenticate and authorize users end-to-end (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)

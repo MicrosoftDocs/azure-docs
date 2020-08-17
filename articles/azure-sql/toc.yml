@@ -76,7 +76,7 @@
         items:
         - name: Configure Azure AD auth
           href: database/authentication-aad-configure.md
-        - name: Multi-factor AAD auth
+        - name: Multi-factor Azure AD auth
           href: database/authentication-mfa-ssms-overview.md
         - name: Configure multi-factor auth
           href: database/authentication-mfa-ssms-configure.md
@@ -560,7 +560,7 @@
         href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs
+    - name: Elastic jobs (preview)
       items:
       - name: Configure jobs
         href: database/elastic-jobs-overview.md 
@@ -835,25 +835,52 @@
               href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
             - name: 4 - Deploy the model
               href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-      - name: Manage Python, R packages
+          - name: NYC taxi tips (classification)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 2 - Data exploration
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 3 - Feature engineering
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 4 - Train and deploy
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: 5 - Predictions
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+      - name: How to
         items:
-        - name: Python
+        - name: Data exploration and modeling
           items:
-          - name: Get Python package information
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Install with sqlmlutils
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-        - name: R
+          - name: Python
+            items:
+            - name: Plot Histogram in Python
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Import data into pandas dataframe
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Insert dataframe into SQL
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: Predictions
           items:
-          - name: Get R package information
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Install with sqlmlutils
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Create a miniCRAN repo
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Tips for using R packages
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-
+          - name: Native scoring with PREDICT T-SQL
+            href: https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+        - name: Package management
+          items:
+          - name: Install new Python packages
+            items:
+            - name: Get Python package information
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Install with sqlmlutils
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+          - name: Install new R packages
+            items:
+            - name: Get R package information
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Install with sqlmlutils
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Create a miniCRAN repo
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            - name: Tips for using R packages
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
 
     - name: Features
       items:
@@ -904,9 +931,11 @@
       href: managed-instance/threat-detection-configure.md
     - name: Connect applications
       href: managed-instance/connect-application-instance.md
-    - name: Create alerts
+    - name: Create alerts on managed instance
       href: managed-instance/alerts-create.md
-      
+    - name: Manually initiate a failover on managed instance
+      href: managed-instance/user-initiated-failover.md
+
   - name: Samples
     items:
     - name: Azure CLI

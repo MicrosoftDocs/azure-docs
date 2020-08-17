@@ -42,7 +42,7 @@ The following table displays roles and allowed actions in Security Center.
 |Edit security policy|-|✔|-|-|✔|
 |Add/assign initiatives (including) regulatory compliance standards)|-|-|-|-|✔|
 |Change subscription pricing tier|-|✔|-|-|✔|
-|Enable / disable auto-provisioning|-|✔|✔|-|✔|
+|Enable / disable auto-provisioning|-|✔|-|✔|✔|
 |Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Dismiss alerts|-|✔|-|✔|✔|
 |View alerts and recommendations|✔|✔|✔|✔|✔|

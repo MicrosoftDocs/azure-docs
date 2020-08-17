@@ -211,7 +211,7 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 
 For more information:
 
-- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).
 - Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).

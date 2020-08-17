@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ---
 
@@ -55,6 +55,10 @@ Pool allocation failures can happen at any point during first allocation or subs
 It's possible for Batch pools to experience downtime events in Azure. Keep this in mind when planning and developing your scenario or workflow for Batch.
 
 In the case that a node fails, Batch automatically attempts to recover these compute nodes on your behalf. This may trigger rescheduling any running task on the node that is recovered. See [Designing for retries](#design-for-retries-and-re-execution) to learn more about interrupted tasks.
+
+### Custom image pools
+
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create the pool with a supported Azure Marketplace image, or you can [create a custom image with a Shared Image Gallery image](batch-sig-images.md). While you can also use a [managed image](batch-custom-images.md) to create a custom image pool, we recommend creating custom images using the Shared Image Gallery whenever possible. Using the Shared Image Gallery helps you provision pools faster, scale larger quantities of VMs, and improve reliability when provisioning VMs.
 
 ### Third-party images
 
