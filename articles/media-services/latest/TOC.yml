@@ -224,7 +224,7 @@
     items:
     - name: Find your Azure subscription
       href: how-to-set-azure-subscription.md
-    - name: Create an account
+    - name: Create a Media Services account
       href: create-account-howto.md
       displayName: portal, cli, storage
     - name: Access API
