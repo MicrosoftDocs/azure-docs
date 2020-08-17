@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop MSIX app attach - Azure
+title: Windows Virtual Desktop MSIX app attach overview - Azure
 description: What is MSIX app attach? Find out in this article.
 services: virtual-desktop
 author: Heidilohr
