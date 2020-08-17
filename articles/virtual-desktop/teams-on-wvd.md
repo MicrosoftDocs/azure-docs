@@ -88,10 +88,8 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
         This installs Teams to the Program Files (x86) folder on a 64-bit operating system and to the Program Files folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
 
-        The next time you open Teams in a session, you'll be asked for your credentials.
-
-        > [!NOTE]
-        > There are two flags that may be set when installing teams, **ALLUSER=1** and **ALLUSERS=1**. It is important to understand the difference between these parameters.
+        There are two flags that may be set when installing teams, **ALLUSER=1** and **ALLUSERS=1**. It is important to understand the difference between these parameters.
+        
         - The **ALLUSER=1** parameter is used only in VDI environments to specify a per-machine installation.
         - The **ALLUSERS=1** parameter can be used in non-VDI and VDI environments. When you set this parameter, Teams Machine-Wide Installer appears in Program and Features in Control Panel as well as Apps & features in Windows Settings. All users with admin credentials on the machine can uninstall Teams. 
 
