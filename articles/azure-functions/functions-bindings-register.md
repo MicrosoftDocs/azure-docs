@@ -12,7 +12,7 @@ ms.author: cshoe
 
 Starting with Azure Functions version 2.x, the functions runtime only includes HTTP and timer triggers by default. Other [triggers and bindings](./functions-triggers-bindings.md) are available as separate packages.
 
-.NET class library functions projects use bindings that are installed in the project as NuGet packages. Extension bundles allows non-.NET functions projects to use the same bindings without having to deal with the .NET infrastructure.
+.NET class library functions apps use bindings that are installed in the project as NuGet packages. Extension bundles allows non-.NET functions apps to use the same bindings without having to deal with the .NET infrastructure.
 
 The following table indicates when and how you register bindings.
 
