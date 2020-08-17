@@ -50,18 +50,19 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
 1. When the VM deployment is complete, select **Go to resource**.
 1. On the left-hand sidebar, select **Disks**.
-1. On the Disks screen, select **Encryption**. 
+1. On the top bar, select **Additional Settings** .
+1. Under **Encryption settings** > **Disks to encrypt**, select **OS and data disks**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="disks and encryption selection":::
 
-1. On the encryption screen, under **Disks to encrypt**, choose **OS and data disks**.
 1. Under **Encryption settings**, choose **Select a key vault and key for encryption**.
 1. On the **Select key from Azure Key Vault** screen, select **Create New**.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="disks and encryption selection":::
 
-1. On the **Create key vault** screen, ensure that the Resource Group is the same as the one you used to create the VM.
-1. Give your key vault a name.  Every key vault across Azure must have an unique name.
+1. To the left of **Key vault and key**, select **Click to select a key**.
+1. On the **Select key from Azure Key Vault**, under the **Key Vault** field, select **Create new**.
+1. On the **Create key vault** screen, ensure that the Resource Group is *myResourceGroup*, and give your key vault a name.  Every key vault across Azure must have an unique name.
 1. On the **Access Policies** tab, check the **Azure Disk Encryption for volume encryption** box.
 
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="disks and encryption selection":::
