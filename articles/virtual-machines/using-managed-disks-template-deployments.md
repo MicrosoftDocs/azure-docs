@@ -93,7 +93,7 @@ With Azure Managed Disks, the disk becomes a top-level resource and no longer re
 
 ### Default managed disk settings
 
-To create a VM with managed disks, you no longer need to create the storage account resource. Referencing the template example below, there are some differences from the previous unmanged disk examples to note:
+To create a VM with managed disks, you no longer need to create the storage account resource. Referencing the template example below, there are some differences from the previous unmanaged disk examples to note:
 
 - The `apiVersion` is a version that supports managed disks.
 - `osDisk` and `dataDisks` no longer refer to a specific URI for the VHD.

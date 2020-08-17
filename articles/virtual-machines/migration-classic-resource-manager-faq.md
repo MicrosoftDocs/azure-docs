@@ -30,7 +30,7 @@ Planning and execution of migration greatly depends on the complexity of the arc
 
 ## What is the definition of a new customer on IaaS VMs (classic)?
 
-Customers who did not have IaaS VMs (classic) in their subscriptions in the month of Febrauary 2020 (a month before deprecation started) are considered as new customers. 
+Customers who did not have IaaS VMs (classic) in their subscriptions in the month of February 2020 (a month before deprecation started) are considered as new customers. 
 
 ## What is the definition of an existing customer on IaaS Virtual Machines (classic)?
 
