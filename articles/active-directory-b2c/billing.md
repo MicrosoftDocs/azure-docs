@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) External Identities pricing is based on monthl
 To take advantage of MAU billing, you'll need to link your Azure AD B2C tenant to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD Premium P2 features, like risk-based Conditional Access.
 
 - **If you're an existing Azure AD B2C customer already billed on a per-MAU basis**, no action is required. You'll automatically transition to this simpler and more affordable meter. You'll gain new premium features, while continuing to enjoy the first 50,000 MAU free at every tier and incremental users billed at a low, flat rate.
-- **If you want to use premium features** like multi-factor authentication (MFA) or Conditional Access, you might need to select a different pricing tier for your Azure AD B2C tenant.  
+- **If you want to use premium features** like Conditional Access, you might need to select a different pricing tier for your Azure AD B2C tenant.  
 - **If your Azure AD B2C tenant isn't linked to a subscription yet**, you'll need to do so to take advantage of MAU billing. 
 
 > [!IMPORTANT]

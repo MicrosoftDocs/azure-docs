@@ -55,14 +55,6 @@ A tenant must be linked to an Azure subscription for proper billing and access t
 
 After you complete these steps, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details, if applicable.
 
-## View the Monthly Active Users dashboard
-
-On the Monthly Active Users dashboard, you can view the number of unique users with authentication activity over the calendar month. Below the Monthly usage graph, you can view the Free MAU user count, and the MAU user count over the 50,000 threshold. 
-
-With the **Calculate your MAU cost** tool, you can select different pricing tiers and MAU numbers to estimate your External Identities cost based on estimated usage.
-
-![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/external-identities-pricing/monthly-active-users-dashboard.png)
-
 ## Next steps
 
 See the following resources on Azure AD B2B collaboration:
