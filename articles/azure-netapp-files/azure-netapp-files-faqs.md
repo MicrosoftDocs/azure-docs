@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -172,6 +172,11 @@ A dual-protocol volume supports both the NFS and SMB protocols.  When you try to
 
 To avoid the “Permission denied” issue, make sure that Windows Active Directory includes `pcuser` before you access the mount point. If you add `pcuser` after encountering the “Permission denied” issue, wait 24 hours for the cache entry to clear before trying the access again.
 
+### When I try to create a dual-protocol volume, why does the creation process fail with the error “Failed to validate LDAP configuration, try again after correcting LDAP configuration”?  
+
+The pointer (PTR) record of the AD host machine might be missing on the DNS server. You need to create a reverse lookup zone on the DNS server, and then add a PTR record of the AD host machine in that reverse lookup zone.
+
+For example, assume that the IP address of the AD machine is `1.1.1.1`, the hostname of the AD machine (as found by using the `hostname` command) is `AD1`, and the domain name is `myDomain.com`.  The PTR record added to the reverse lookup zone should be `1.1.1.1` -> `AD1.myDomain.com`.
 
 ## Capacity management FAQs
 

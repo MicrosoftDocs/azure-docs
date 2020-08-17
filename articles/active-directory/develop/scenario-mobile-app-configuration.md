@@ -99,9 +99,9 @@ var pca = PublicClientApplicationBuilder
 
 ##### Find more app-building parameters
 
-For a list of all methods that are available on `PublicClientApplicationBuilder`, see the [Methods list](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+For a list of all methods that are available on `PublicClientApplicationBuilder`, see the [Methods list](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
 
-For a description of all options that are exposed in `PublicClientApplicationOptions`, see the [reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
+For a description of all options that are exposed in `PublicClientApplicationOptions`, see the [reference documentation](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
 ## Tasks for Xamarin iOS
 

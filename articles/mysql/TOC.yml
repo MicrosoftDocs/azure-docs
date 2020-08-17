@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Docs
+- name: Azure DB for MySQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -57,10 +57,10 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress in containers with MySQL
-      href: ../app-service/containers/tutorial-multi-container-app.md
+      href: ../app-service/tutorial-multi-container-app.md
       maintainContext: true
     - name: PHP with MySQL
-      href: ../app-service/app-service-web-tutorial-php-mysql.md
+      href: ../app-service/tutorial-php-mysql-app.md
       maintainContext: true
 - name: Samples
   items:
@@ -138,6 +138,8 @@
       href: concepts-server-parameters.md
   - name: Development
     items:
+    - name: Application Best practices
+      href: app-development-best-practices.md
     - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development

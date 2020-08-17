@@ -14,7 +14,7 @@ ms.author: trbye
 
 # What is the Speech service?
 
-The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), or [REST APIs](rest-apis.md).
+The Speech service is the unification of speech-to-text, text-to-speech, and speech-translation into a single Azure subscription. It's easy to speech enable your applications, tools, and devices with the [Speech CLI](spx-overview.md), [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/), or [REST APIs](rest-apis.md).
 
 > [!IMPORTANT]
 > The Speech service has replaced Bing Speech API and Translator Speech. See _How-to guides > Migration_ for migration instructions.

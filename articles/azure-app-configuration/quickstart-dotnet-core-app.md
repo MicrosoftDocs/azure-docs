@@ -5,6 +5,7 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
 

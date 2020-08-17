@@ -20,7 +20,7 @@ MABS V2 introduced [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), im
 
 To achieve the scale and performance by MBS we recommend using a small percentage (4% of overall storage) of flash storage (SSD) with MABS V3 UR1  as a tiered volume in combination with DPM HDD storage. MABS V3 UR1  with tiered storage delivers 50-70% faster backups. Refer to the DPM article [Set up MBS with Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) for steps to configure tiered storage.
 
-### Support for ReFS volumes and ReFS volumes with deduplication enabled
+### Support for ReFS volumes
 
 With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the ReFS volume. You can back up the following workloads deployed on the ReFS volumes:
 
@@ -31,6 +31,9 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 
 >[!NOTE]
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
+
+>[IMPORTANT]
+>We have identified a few issues with backup of deduplicated ReFS volumes. We are working on fixing these, and will update this section as soon as we have a fix available. Until then, we are removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
 
 ### Azure VMware Solution protection support
 

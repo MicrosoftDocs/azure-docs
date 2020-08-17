@@ -42,7 +42,7 @@ After creating a server endpoint on Windows Server 2012 R2, the following error 
 driveletter:\ is not accessible.  
 The parameter is incorrect.
 
-To resolve, install the latest updates for Windows Server 2012 R2 and restart the server.
+To resolve this issue , install [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) and restart the server. If this update will not install because a later update is already installed, go to Windows Update, install the latest updates for Windows Server 2012 R2 and restart the server.
 
 <a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
 When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.

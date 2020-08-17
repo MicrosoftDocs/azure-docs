@@ -86,7 +86,7 @@ Front Door currently provides diagnostic logs (batched hourly). Diagnostic logs 
 | RulesEngineMatchNames | The names of the rules that the request matched. |
 | SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. |
 | SentToOriginShield | Boolean field representing if there was a cache miss on the first environment and the request was sent to the regional cache. Ignore this field if the routing rule is a redirect or when doesn't have caching enabled. |
-| TimeTaken | The length of time that the action took, in milliseconds. |
+| TimeTaken | The length of time from first byte of request into Front Door to last byte of response out, in seconds. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
 
