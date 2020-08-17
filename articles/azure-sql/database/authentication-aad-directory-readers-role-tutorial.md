@@ -20,6 +20,8 @@ ms.date: 08/14/2020
 
 This article guides you through creating a group in Azure Active Directory (Azure AD), and assigning that group the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role. The Directory Readers permissions allow the group owners to add additional members to the group, such as a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) of [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). This bypasses the need for a [Global Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) or [Privileged Role Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) to assign the Directory Readers role directly for each Azure SQL logical server identity in the tenant.
 
+This tutorial uses the feature introduced in [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../../active-directory/users-groups-roles/roles-groups-concept.md). 
+
 For more information on the benefits of assigning the Directory Readers role to an Azure AD group for Azure SQL, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## Prerequisites
@@ -63,9 +65,9 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
 
    :::image type="content" source="media/authentication-aad-directory-readers-role/aad-managed-instance.png" alt-text="aad-managed-instance":::
 
-   During the creation of your SQL Managed Instance, an Azure service identity was created for your instance. The created service identity has the same name as the prefix of your SQL Managed Instance name. You can find the service principal for your SQL Managed Instance identity that created as an Azure AD Application by following these steps:
+   During the creation of your SQL Managed Instance, an Azure identity was created for your instance. The created identity has the same name as the prefix of your SQL Managed Instance name. You can find the service principal for your SQL Managed Instance identity that created as an Azure AD Application by following these steps:
 
-    - Go to the **Azure Active Directory** resource. Under the **Manage** setting, select **Enterprise applications**. The **Object ID** is the service identity of the instance.
+    - Go to the **Azure Active Directory** resource. Under the **Manage** setting, select **Enterprise applications**. The **Object ID** is the identity of the instance.
     
     :::image type="content" source="media/authentication-aad-directory-readers-role/aad-mi-sp.png" alt-text="aad-mi-sp":::
 
@@ -80,14 +82,14 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
 
 For SQL Database and Azure Synapse, the server identity can be created during the Azure SQL logical server creation or after the server was created. For more information on how to create or set the server identity in SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
-For SQL Managed Instance, the **Directory Readers** role must be assigned to service identity before you can [set up an Azure AD admin for the managed instance](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+For SQL Managed Instance, the **Directory Readers** role must be assigned to managed instance identity before you can [set up an Azure AD admin for the managed instance](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 Assigning the **Directory Readers** role to the server identity isn't required for SQL Database or Azure Synapse when setting up an Azure AD admin for the logical server. However, to enable an Azure AD object creation in SQL Database or Azure Synapse on behalf of an Azure AD application, the **Directory Readers** role is required. If the role isn't assigned to the SQL logical server identity, creating Azure AD users in Azure SQL will fail. For more information, see [Azure Active Directory service principal with Azure SQL](authentication-aad-service-principal.md).
 
 ## Directory Readers role assignment using PowerShell
 
 > [!IMPORTANT]
-> A [Global Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) or [Privileged Role Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) will need to run these initial steps.
+> A [Global Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) or [Privileged Role Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) will need to run these initial steps. In addition to PowerShell, Azure AD offers Microsoft Graph API to [Create a role-assignable group in Azure AD](../../active-directory/users-groups-roles/roles-groups-create-eligible.md#using-microsoft-graph-api).
 
 1. Download the Azure AD Preview PowerShell module using the following commands. You may need to run PowerShell as an administrator.
 
@@ -152,13 +154,7 @@ Assigning the **Directory Readers** role to the server identity isn't required f
 
 For subsequent steps, the Global Administrator or Privileged Role Administrator user is no longer needed.
 
-1. Using an owner of the group, that also manages the Azure SQL resource, run the following command. You may need to run PowerShell as an administrator.
-
-    ```powershell
-    # Run these if you have not installed and imported the azureadpreview module
-    Install-Module azureadpreview
-    Import-Module azureadpreview
-    ```
+1. Using an owner of the group, that also manages the Azure SQL resource, run the following command to connect to your Azure AD. You may need to run PowerShell as an administrator.
 
     ```powershell
     Connect-AzureAD

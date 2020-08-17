@@ -18,7 +18,11 @@ ms.date: 08/14/2020
 > [!NOTE]
 > This feature in this article is in **public preview**.
 
-When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure Active Directory (Azure AD) [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role must be assigned to the identity to allow read access to the [Azure AD Graph API](../../active-directory/develop/active-directory-graph-api.md). The **Directory Readers** role is necessary to:
+Azure Active Directory (Azure AD) has introduced [using cloud groups to manage role assignments in Azure Active Directory (preview)](../../active-directory/users-groups-roles/roles-groups-concept.md). This allows for Azure AD roles to be assigned to groups.
+
+When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure AD [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role must be assigned to the identity to allow read access to the [Azure AD Graph API](../../active-directory/develop/active-directory-graph-api.md). The managed identity of SQL Database and Azure Synapse is referred to as the server identity. The managed identity of SQL Managed Instance is referred to as the managed instance identity, and is automatically assigned when the instance is created. For more information on assigning a server identity to SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+
+The **Directory Readers** role is necessary to:
 
 - Create Azure AD logins for SQL Managed Instance
 - Impersonate Azure AD users in Azure SQL
@@ -30,7 +34,7 @@ When enabling a [managed identity](../../active-directory/managed-identities-azu
 
 In order to assign the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role to an identity, a user with [Global Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) or [Privileged Role Administrator](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) permissions is needed. Users who often manage or deploy SQL Database, SQL Managed Instance, or Azure Synapse may not have access to these highly privileged roles. This can often cause complications for users that create unplanned Azure SQL resources, or need help from highly privileged role members that are often inaccessible in large organizations.
 
-For SQL Managed Instance, the **Directory Readers** role must be assigned to service identity before you can [set up an Azure AD admin for the managed instance](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). 
+For SQL Managed Instance, the **Directory Readers** role must be assigned to managed instance identity before you can [set up an Azure AD admin for the managed instance](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). 
 
 Assigning the **Directory Readers** role to the server identity isn't required for SQL Database or Azure Synapse when setting up an Azure AD admin for the logical server. However, to enable an Azure AD object creation in SQL Database or Azure Synapse on behalf of an Azure AD application, the **Directory Readers** role is required. If the role isn't assigned to the SQL logical server identity, creating Azure AD users in Azure SQL will fail. For more information, see [Azure Active Directory service principal with Azure SQL](authentication-aad-service-principal.md).
 
