@@ -122,6 +122,6 @@ az openshift delete --name $CLUSTER_NAME
                     [--subscription]
                     [--yes]
 ```
-# Next steps
+## Next steps
 Check out Azure Red Hat OpenShift documentation provided by Red Hat [here](https://docs.openshift.com/aro/4/welcome/index.html).
 
