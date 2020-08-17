@@ -27125,7 +27125,7 @@
     },
     {
       "source_path": "articles/storage/storage-import-export-using-the-rest-api.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-using-the-rest-api",
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
       "redirect_document_id": true
     },
     {
