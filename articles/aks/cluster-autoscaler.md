@@ -17,12 +17,6 @@ This article shows you how to enable and manage the cluster autoscaler in an AKS
 
 This article requires that you are running the Azure CLI version 2.0.76 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Limitations
-
-The following limitations apply when you create and manage AKS clusters that use the cluster autoscaler:
-
-* The HTTP application routing add-on can't be used.
-
 ## About the cluster autoscaler
 
 To adjust to changing application demands, such as between the workday and evening or on a weekend, clusters often need a way to automatically scale. AKS clusters can scale in one of two ways:
@@ -40,7 +34,7 @@ Both the horizontal pod autoscaler and cluster autoscaler can also decrease the 
 
 For more information about how the cluster autoscaler may be unable to scale down, see [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown]
 
-The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. For more information on what parameters the cluster autoscaler uses, see [What are the cluster autoscaler parameters?][autoscaler-parameters]
+The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. For more information on what parameters the cluster autoscaler uses, see [Using the autoscaler profile](#using-the-autoscaler-profile).
 
 The cluster and horizontal pod autoscalers can work together, and are often both deployed in a cluster. When combined, the horizontal pod autoscaler is focused on running the number of pods required to meet application demand. The cluster autoscaler is focused on running the number of nodes required to support the scheduled pods.
 
