@@ -21,7 +21,7 @@ A snapshot is a read-only version of a blob that's taken at a point in time.
 
 ## About blob snapshots
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 A snapshot of a blob is identical to its base blob, except that the blob URI has a **DateTime** value appended to the blob URI to indicate the time at which the snapshot was taken. For example, if a page blob URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, the snapshot URI is similar to `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
@@ -29,7 +29,7 @@ A snapshot of a blob is identical to its base blob, except that the blob URI has
 > All snapshots share the base blob's URI. The only distinction between the base blob and the snapshot is the appended **DateTime** value.
 >
 
-A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted, meaning that a snapshot cannot outlive its base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
+A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted, either independently or as part of the Delete Blob operation for the base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
 
 When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values. The base blob's metadata is also copied to the snapshot, unless you specify separate metadata for the snapshot when you create it. After you create a snapshot, you can read, copy, or delete it, but you cannot modify it.
 

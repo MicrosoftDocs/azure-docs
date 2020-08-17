@@ -1,6 +1,6 @@
 ﻿---
 title: Grant permission to applications to access an Azure key vault - Azure Key Vault | Microsoft Docs
-description: Learn how to grant permission to many applications to access a key vault
+description: Learn how to register a service principal manually and provide access to Azure Key Vault using an access control policy, which may be necessary in some cases.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -35,7 +35,7 @@ For full details on Key Vault access control, see [Azure Key Vault security: Ide
    - [Create a key vault with the Azure CLI](../secrets/quick-create-cli.md)
    - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
-- The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](https://portal.azure.com).
+- The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/). Alternatively, you can use the [Azure portal](https://portal.azure.com).
 
 ## Grant access to your key vault
 
@@ -56,10 +56,10 @@ The objectId for an applications corresponds with its associated service princip
 
 There are two ways to obtain an objectId for an application.  The first is to register your application with Azure Active Directory. To do so, follow the steps in the quickstart [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md). When registration is complete, the objectID will be listed as the "Application (client) ID".
 
-The second is to create a service principal in a terminal window. With the Azure CLI, use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command, and provide a unique service principle name to the -n flag in the format "http://&lt;my-unique-service-principle-name&gt;".
+The second is to create a service principal in a terminal window. With the Azure CLI, use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command, and provide a unique service principal name to the -n flag in the format "http://&lt;my-unique-service-principal-name&gt;".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name"
 ```
 
 The objectId will be listed in the output as `clientID`.
@@ -68,7 +68,7 @@ With Azure PowerShell, use the [New-AzADServicePrincipal](/powershell/module/Az.
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
+New-AzADServicePrincipal -DisplayName <my-unique-service-principal-name>
 ```
 
 The objectId will be listed in the output as `Id` (not `ApplicationId`).
@@ -103,9 +103,6 @@ In the output, the objectId is listed as `Id`:
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
-
-> [!WARNING]
-> Azure Ad Groups does not support Managed Identities. Only service and user principals are supported.
 
 #### Users
 
@@ -154,7 +151,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <ApplicationID-of-yo
 With Azure PowerShell, this is done by passing the objectId to the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. 
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <Id>
+Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <Id>
 
 ```
 
@@ -221,6 +218,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Lastly, give the AD group permissions to your key vault using the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, or the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. For examples, see the [Give the application, Azure AD group, or user access to your key vault](#give-the-principal-access-to-your-key-vault) section, above.
 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription.
+
+> [!WARNING]
+> Azure AD Groups with Managed Identities may require up to 8hr to refresh token and become effective.
 
 ## Next steps
 

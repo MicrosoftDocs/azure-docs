@@ -1,7 +1,7 @@
 ---
 title: Payout details by region - Microsoft commercial marketplace
 description: Learn how the estimated time to transfer payments, and the Microsoft storefronts from which you can receive payments, vary depending on your country/region and payout account type.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -33,7 +33,7 @@ We'll usually send any payment that's due in a given month by the 15th day of th
 
 These are the countries and regions in which the above payment methods are used for each marketplace. The payment threshold in all cases is $50 USD.
 
-| Country | Azure Marketplace | Store, Advertising, Mixer, and Minecraft | Office | PayPal Payments  |
+| Country/Region | Azure Marketplace | Store, Advertising, Mixer, and Minecraft | Office | PayPal Payments  |
 | --- | --- | --- | --- | --- |
 | Afghanistan | Yes | Yes | No | No |
 | Albania | Yes | Yes | Yes | Yes |

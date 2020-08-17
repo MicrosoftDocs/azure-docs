@@ -4,7 +4,7 @@ description: Learn how to achieve end-user authentication with Azure Data Lake S
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
@@ -36,7 +36,7 @@ This article talks about how to create an **Azure AD native application for end-
 
     ![Get AAD domain](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Your Azure tenant ID. For instructions on how to retrieve the tenant ID, see [Get the tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## End-user authentication
 This authentication mechanism is the recommended approach if you want an end user to sign in to your application via Azure AD. Your application is then able to access Azure resources with the same level of access as the end user that logged in. Your end user needs to provide their credentials periodically in order for your application to maintain access.
@@ -73,7 +73,7 @@ While following the instructions in the link, make sure you select **Native** fo
 
 ## Step 2: Get application ID and redirect URI
 
-See [Get the application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) to retrieve the application ID.
+See [Get the application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) to retrieve the application ID.
 
 To retrieve the redirect URI, do the following steps.
 

@@ -1,7 +1,7 @@
 ---
 title: Canada Federal PBMM blueprint sample controls
 description: Control mapping of the Canada Federal PBMM blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample
@@ -9,7 +9,7 @@ ms.topic: sample
 The following article details how the Azure Blueprints Canada Federal Protected B, Medium Integrity,
 Medium Availability (PBMM) blueprint sample maps to the Canada Federal PBMM controls. For more
 information about the controls, see
-[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 The following mappings are to the **Canada Federal PBMM** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
@@ -54,8 +54,7 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
@@ -98,8 +97,8 @@ separation of duties.
 
 ## AC-6 Least Privilege
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.
@@ -161,7 +160,7 @@ an audit system failure or misconfiguration and help you take corrective action.
 
 - Audit diagnostic setting
 - Auditing on SQL server should be enabled
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 
 ## AU-6 (4) Audit Review, Analysis, and Reporting | Central Review and Analysis
@@ -171,8 +170,8 @@ reporting and analysis. This blueprint helps you ensure events are logged by ass
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Workspace for VM - Report Mismatch
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
@@ -186,13 +185,14 @@ to provide insight into operations that are performed within Azure resources. Ad
 and Advanced Data Security are configured on SQL servers.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Workspace for VM - Report 
+
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
 - Auditing on SQL server should be enabled
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy Auditing on SQL servers
@@ -201,10 +201,10 @@ and Advanced Data Security are configured on SQL servers.
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application whitelist is recommended but has not yet
+helps you monitor virtual machines where an application allow list is recommended but has not yet
 been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
@@ -212,10 +212,10 @@ been configured.
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application whitelist is recommended but
+definition that helps you monitor virtual machines where an application allow list is recommended but
 has not yet been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
@@ -250,10 +250,10 @@ configuration of the password encryption type for Windows virtual machines. Moni
 indicators helps you ensure that system authenticators comply with your organization's
 identification and authentication policy.
 
-- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
-- \[Preview\]: Show audit results from  Linux VMs that have accounts without passwords
-- \[Preview\]: Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
-- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
+- Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
+- Show audit results from  Linux VMs that have accounts without passwords
+- Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
+- Deploy requirements to audit Linux VMs that have accounts without passwords
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
@@ -263,16 +263,16 @@ password requirements. Awareness of virtual machines in violation of the passwor
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
 with your organization's password policy.
 
-- \[Preview\]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Show audit results from Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- Show audit results from Windows VMs that allow re-use of the previous 24 passwords
+- Show audit results from Windows VMs that do not have a maximum password age of 70 days
+- Show audit results from Windows VMs that do not have a minimum password age of 1 day
+- Show audit results from Windows VMs that do not have the password complexity setting enabled
+- Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
+- Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
+- Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
 
 ## IA-8 (100) Identification and Authentication (Non-Organizational Users) | Identity and Credential Assurance Levels
 
@@ -295,7 +295,7 @@ blueprint also assigns policy definitions that audit and enforce Advanced Data S
 servers. Advanced data security included vulnerability assessment and advanced threat protection
 capabilities to help you understand vulnerabilities in your deployed resources.
 
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
@@ -377,7 +377,7 @@ policy. Specifically, the policy definitions assigned by this blueprint require 
 lake storage accounts; require transparent data encryption on SQL databases; and audit missing
 encryption on SQL databases, virtual machine disks, and automation account variables.
 
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy SQL DB transparent data encryption
@@ -433,11 +433,11 @@ resources. These capabilities can help you detect anomalous behavior and indicat
 you can take appropriate action.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
-- Advanced data security should be enabled on your managed instances
+- Advanced data security should be enabled on your SQL managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
 - Deploy Advanced Threat Protection on Storage Accounts

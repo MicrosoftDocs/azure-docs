@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 04/30/2020
+ms.subservice: sql-dw 
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -17,7 +17,7 @@ ms.custom: azure-synapse
 
 This article describes the Synapse SQL recommendations served through Azure Advisor.  
 
-SQL Analytics provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). SQL Analytics collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
+Synapse SQL provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). Synapse SQL collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
 
 You can [check your recommendations](https://aka.ms/Azureadvisor) today! 
 
@@ -66,3 +66,7 @@ When you have a large working set, you can experience a low cache hit percentage
 ## Tempdb contention
 
 Query performance can degrade when there is high tempdb contention.  Tempdb contention can occur via user-defined temporary tables or when there is a large amount of data movement. For this scenario, you can scale for more tempdb allocation and [configure resource classes and workload management](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) to provide more memory to your queries. 
+
+## Data loading misconfiguration
+
+You should always load data from a storage account in the same region as your SQL pool to minimize latency. Use the [COPY statement for high throughput data ingestion](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) and split your staged files in your storage account to maximize throughput. If you can't use the COPY statement, you can use the SqlBulkCopy API or bcp with a high batch size for better throughput. For additional data loading guidance, visit the following [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

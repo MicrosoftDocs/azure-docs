@@ -1,11 +1,11 @@
 ---
-title: Synapse Spark version support 
+title: Apache Spark version support 
 description: Supported versions of Spark, Scala, Python
 services: synapse-analytics
 author: euangMS 
 ms.service: synapse-analytics 
 ms.topic: reference
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang
@@ -37,11 +37,11 @@ Apache Spark in Azure Synapse includes .NET Core 3.0
 
 ## .NET Support for Apache Spark
 
-Azure Synapse includes .NET Support for Apache Spark 0.5.0
+Azure Synapse includes .NET Support for Apache Spark 0.11.0
 
 ## Delta Lake
 
-Synapse Analytics includes support for Delta Lake 0.5.0
+Synapse Analytics includes support for Delta Lake 0.6.0
 
 ## Python version
 

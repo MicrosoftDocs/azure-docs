@@ -4,7 +4,7 @@ description: This article shows you how to migrate Azure Application Gateway and
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ---
@@ -54,9 +54,9 @@ To determine if you have the Azure Az modules installed, run `Get-InstalledModul
 
 To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
   
-Run the script with the following command:
+Run the script with the following command to get the latest version:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 This command also installs the required Az modules.  
 
@@ -191,7 +191,7 @@ No. Currently the script does not support certificates in KeyVault. However, thi
 
 ### I ran into some issues with using this script. How can I get help?
   
-You can send an email to appgwmigrationsup@microsoft.com, open a support case with Azure Support, or do both.
+You can contact Azure Support under the topic "Configuration and Setup/Migrate to V2 SKU". Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
 
 ## Next steps
 

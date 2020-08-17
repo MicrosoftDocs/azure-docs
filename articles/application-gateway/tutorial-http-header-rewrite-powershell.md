@@ -4,7 +4,7 @@ description: This article provides information on how to create an Azure Applica
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ---

@@ -1,11 +1,10 @@
 ---
-title: Interpret model results
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Interpret model results - Azure'
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,7 +12,9 @@ ms.date: 11/29/2017
 ---
 # Interpret model results in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
 There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):

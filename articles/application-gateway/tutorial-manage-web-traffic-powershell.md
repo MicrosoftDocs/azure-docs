@@ -4,7 +4,7 @@ description: Learn how to create an application gateway with a virtual machine s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc

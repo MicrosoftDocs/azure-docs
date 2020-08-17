@@ -1,6 +1,6 @@
 ---
 title: Manage certificates in Azure Automation
-description: Azure Automation securely stores certificates, so that runbooks or DSC configurations can access them to authenticate against Azure and third-party resources. This article explains the details of certificates, and how to work with them in both textual and graphical authoring.
+description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -13,13 +13,10 @@ manager: carmonm
 
 # Manage certificates in Azure Automation
 
-Azure Automation stores certificates securely for access by runbooks and DSC configurations, by using the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet for Azure Resource Manager resources. Secure certificate storage allows you to create runbooks and DSC configurations that use certificates for authentication, or add them to Azure or third-party resources.
+Azure Automation stores certificates securely for access by runbooks and DSC configurations, by using the [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet for Azure Resource Manager resources. Secure certificate storage allows you to create runbooks and DSC configurations that use certificates for authentication, or add them to Azure or third-party resources.
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Automation by using a unique key that is generated for each Automation account. Automation stores the key in the system-managed Key Vault service. Before storing a secure asset, Automation loads the key from Key Vault, and then uses it to encrypt the asset. 
-
->[!NOTE]
->This article shows you how to use the Azure PowerShell Az module. You can still use the AzureRM module. To learn more about the Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## PowerShell cmdlets to access certificates
 
@@ -27,12 +24,12 @@ The cmdlets in the following table create and manage Automation certificates wit
 
 |Cmdlet |Description|
 | --- | ---|
-|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself by using the internal `Get-AutomationCertificate` cmdlet.|
-|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Creates a new certificate in Automation.|
-|[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Removes a certificate from Automation.|
-|[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
+|[Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself by using the internal `Get-AutomationCertificate` cmdlet.|
+|[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Creates a new certificate in Automation.|
+|[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Removes a certificate from Automation.|
+|[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
 
-The [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
+The [Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
 
 ## Internal cmdlets to access certificates
 
@@ -125,7 +122,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## Get a certificate
 
-To retrieve a certificate, use the internal `Get-AutomationCertificate` cmdlet. You can't use the [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet, because it returns information about the certificate asset, but not the certificate itself.
+To retrieve a certificate, use the internal `Get-AutomationCertificate` cmdlet. You can't use the [Get-AzAutomationCertificate](/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) cmdlet, because it returns information about the certificate asset, but not the certificate itself.
 
 ### Textual runbook example
 
@@ -165,4 +162,5 @@ print cert
 
 * To learn more about the cmdlets used to access certificates, see [Manage modules in Azure Automation](modules.md).
 * For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md). 
+* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md). 
+

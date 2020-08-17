@@ -1,11 +1,11 @@
 ---
 title: 'Azure VPN Gateway: Configure alerts on diagnostic resource log events'
-description: Steps to configure alerts on VPN Gateway diagnostic resource log events
+description: Learn how to set up alerts based on resource log events from Azure VPN Gateway, using Azure Monitor Log Analytics.
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
 

@@ -23,6 +23,19 @@ Using these tools you can:
 * Export to CSV (one time)
 
 
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Free tier|
+|Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
+
+
 ## Setting up a continuous export
 
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.

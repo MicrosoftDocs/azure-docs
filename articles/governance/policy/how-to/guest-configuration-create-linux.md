@@ -32,9 +32,15 @@ non-Azure machine.
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
-definition, and publishing the policy, is entirely automatable using the Guest Configuration module
-in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+The Guest Configuration module automates the process of creating custom content
+including:
+
+- Creating a Guest Configuration content artifact (.zip)
+- Automated testing of the artifact
+- Creating a policy definition
+- Publishing the policy
+
+The module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
@@ -49,6 +55,10 @@ Operating Systems where the module can be installed:
 - Linux
 - macOS
 - Windows
+
+> [!NOTE]
+> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on OMI.
+> This causes an error on any environment with OpenSSL 1.1 or later.
 
 The Guest Configuration resource module requires the following software:
 
@@ -89,7 +99,7 @@ service. Little knowledge of DSC is required when working with custom InSpec con
 
 The name of the custom configuration must be consistent everywhere. The name of
 the .zip file for the content package, the configuration name in the MOF file, and the guest
-assignment name in the Resource Manager template, must be the same.
+assignment name in the Azure Resource Manager template (ARM template), must be the same.
 
 ### Custom Guest Configuration configuration on Linux
 
@@ -285,6 +295,8 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Version**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
+- **Tag** adds one or more tag filters to the policy definition
+- **Category** sets the category metadata field in the policy definition
 
 The following example creates the policy definitions in a specified path from a custom policy package:
 
@@ -384,7 +396,7 @@ end
 ```
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable including all details
+parameter named **Parameter**. This parameter takes a hashtable including all details
 about each parameter and automatically creates all the required sections of the files used to create
 each Azure Policy definition.
 
@@ -411,7 +423,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
@@ -450,6 +462,38 @@ To release an update to the policy definition, there are two fields that require
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
+
+
+### Filtering Guest Configuration policies using Tags
+
+The policies created by cmdlets in the Guest Configuration module can optionally include
+a filter for tags. The **-Tag** parameter of `New-GuestConfigurationPolicy` supports
+an array of hashtables containing individual tag entires. The tags will be added
+to the `If` section of the policy definition and cannot be modified by a policy assignment.
+
+An example snippet of a policy definition that will filter for tags is given below.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
 
 ## Optional: Signing Guest Configuration packages
 

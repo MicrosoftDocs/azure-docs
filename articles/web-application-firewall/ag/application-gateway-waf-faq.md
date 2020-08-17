@@ -47,7 +47,7 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 * Prevention against bots, crawlers, and scanners
 * Detection of common application misconfigurations (that is, Apache, IIS, and so on)
 
-For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
+For more information, see [OWASP top-10 vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ## Does WAF support DDoS protection?
 

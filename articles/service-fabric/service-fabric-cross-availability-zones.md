@@ -10,7 +10,7 @@ ms.author: pepogors
 # Deploy an Azure Service Fabric cluster across Availability Zones
 Availability Zones in Azure is a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
 
-Service Fabric supports clusters that span across Availability Zones by deploying node types that are pinned to specific zones. This will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Service Fabric supports clusters that span across Availability Zones by deploying node types that are pinned to specific zones. This will ensure high-availability of your applications. Azure Availability Zones are only available in select regions. For more information, see [Azure Availability Zones Overview](../availability-zones/az-overview.md).
 
 Sample templates are available: [Service Fabric cross availability zone template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -131,10 +131,14 @@ The load balancer inbound NAT rules should match the NAT pools from the virtual 
 ```
 
 ### Standard SKU Load Balancer outbound rules
-Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatexhaust) and [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+Standard Load Balancer and Standard Public IP introduce new abilities and different behaviors to outbound connectivity when compared to using Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. For more information, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md) and [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 > The standard template references an NSG which allows all outbound traffic by default. Inbound traffic is limited to the ports that are required for Service Fabric management operations. The NSG rules can be modified to meet your requirements.
+
+>[!NOTE]
+> Any Service Fabric cluster making use of a Standard SKU SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail.
+
 
 ### Enabling zones on a virtual machine scale set
 To enable a zone, on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
@@ -161,7 +165,7 @@ To enable a zone, on a virtual machine scale set you must include the following 
     "properties": {
         "type": "ServiceFabricNode",
         "autoUpgradeMinorVersion": false,
-        "publisher": "Microsoft.Azure.ServiceFabric.Test",
+        "publisher": "Microsoft.Azure.ServiceFabric",
         "settings": {
             "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
             "nodeTypeRef": "[parameters('vmNodeType1Name')]",

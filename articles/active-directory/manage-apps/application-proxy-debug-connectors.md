@@ -2,14 +2,14 @@
 title: Debug Application Proxy connectors - Azure Active Directory | Microsoft Docs
 description: Debug issues with Azure Active Directory (Azure AD) Application Proxy connectors.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ---
 
@@ -35,11 +35,11 @@ This flowchart walks you through the steps for debugging some of the more common
 
 ![Flowchart showing steps for debugging a connector](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Action | Description | 
+| Step | Action | Description |
 |---------|---------|---------|
 |1 | Find the connector group assigned to the app | You probably have a connector installed on multiple servers, in which case the connectors should be [assigned to connector groups](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). To learn more about connector groups, see [Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups.md). |
 |2 | Install the connector and assign a group | If you don't have a connector installed, see [Install and register a connector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> If you are having issues installing the connector, see [Problem installing the Connector](application-proxy-connector-installation-problem.md).<br></br> If the connector isn't assigned to a group, see [Assign the connector to a group](application-proxy-connector-groups.md#create-connector-groups).<br></br>If the application isn't assigned to a connector group, see [Assign the application to a connector group](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
-|3 | Run a port test on the connector server | On the connector server, run a port test by using [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) or other port testing tool to check if ports 443 and 80 are open.|
+|3 | Run a port test on the connector server | On the connector server, run a port test by using [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) or other port testing tool to check if ports [443 and 80 are open](application-proxy-add-on-premises-application.md#open-ports).|
 |4 | Configure the domains and ports | [Make sure that your domains and ports are configured correctly](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) For the connector to work properly, there are certain ports that must be open and URLs that your server must be able to access. |
 |5 | Check if a back-end proxy is in use | Check to see if the connectors are using back-end proxy servers or bypassing them. For details, see [Troubleshoot connector proxy problems and service connectivity issues](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Update the connector and updater to use the back-end proxy | If a back-end proxy is in use, you'll want to make sure the connector is using the same proxy. For details about troubleshooting and configuring connectors to work with proxy servers, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md). |

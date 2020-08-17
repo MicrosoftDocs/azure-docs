@@ -64,6 +64,8 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
 
+This example uses the `addIntent()` function to individually add intents. If you want to add all intents from a model, use `addAllIntents(model)` and pass the model.
+
 ## Recognize an intent
 
 From the `IntentRecognizer` object, you're going to call the `recognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.

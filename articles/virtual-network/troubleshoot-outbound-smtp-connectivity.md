@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
-description: Learn how to troubleshoot issues of outbound SMTP connectivity in Azure.
+description: Learn the recommended method for sending email and how to troubleshoot issues of outbound SMTP connectivity in Azure.
 services: virtual-network
 author: genlin
 manager: dcscontentpm
@@ -17,7 +17,7 @@ ms.author: genli
 
 
 # Troubleshoot outbound SMTP connectivity issues in Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=027fa865-2329-23de-3740-cfbe35359302" target='_blank'>Start</a></span><span class="has-padding-small">Solve your issue fast by using our virtual agent to run <b>automated diagnostics.</b></span><span class="has-padding-small"><a href="https://privacy.microsoft.com/privacystatement" target='_blank'><div align="right"><sub>Privacy Statement</sub></div></a></span></p>
+
 Starting on November 15, 2017, outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. Outbound SMTP connections that use TCP port 25 were blocked. (Port 25 is primarily used for unauthenticated email delivery.)
 
 This change in behavior applies only to new subscriptions and new deployments since November 15, 2017.

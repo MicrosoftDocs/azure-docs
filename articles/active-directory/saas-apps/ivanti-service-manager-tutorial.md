@@ -105,11 +105,11 @@ To configure Azure AD single sign-on with Ivanti Service Manager (ISM), perform 
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `https://<customer>.saasit.com/` |
-	| `https://<customer>.saasiteu.com/` |
-	| `https://<customer>.saasitau.com/` |
+    ```http
+    https://<customer>.saasit.com/
+    https://<customer>.saasiteu.com/
+    https://<customer>.saasitau.com/
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`

@@ -44,8 +44,6 @@ landingContent:
             url: virtual-wan-point-to-site-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Route traffic from a virtual hub to an NVA
-            url: virtual-wan-route-table-portal.md
           - text: Configure automation for Virtual WAN partners
             url: virtual-wan-configure-automation-providers.md
       - linkListType: concept

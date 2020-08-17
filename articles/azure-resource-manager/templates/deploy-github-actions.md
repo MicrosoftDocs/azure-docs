@@ -2,7 +2,7 @@
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates by using GitHub Actions.
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/02/2020
 ---
 
 # Deploy Azure Resource Manager templates by using GitHub Actions
@@ -56,7 +56,7 @@ The script outputs a JSON object similar to this:
 Copy the JSON output and store it as a GitHub secret within your GitHub repository. See [Prerequisite](#prerequisites) if you don't have a repository yet.
 
 1. From your GitHub repository, select the **Settings** tab.
-1. Select **Secret** from the left menu.
+1. Select **Secrets** from the left menu.
 1. Enter the following values:
 
     - **Name**: AZURE_CREDENTIALS
@@ -77,7 +77,7 @@ You can put the file anywhere in the repository. The workflow sample in the next
 
 ## Create workflow
 
-The workflow file must be stored in the **.github/workflow** folder at the root of your repository. The workflow file extension can be either **.yml** or **.yaml**.
+The workflow file must be stored in the **.github/workflows** folder at the root of your repository. The workflow file extension can be either **.yml** or **.yaml**.
 
 You can either create a workflow file and then push/upload the file to the repository, or use the following procedure:
 

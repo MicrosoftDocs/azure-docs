@@ -56,10 +56,10 @@ The general upgrade policies and processes for the AVS platform software is desc
 
 Host maintenance and lifecycle management are done without impact on the capacity or performance of private cloud clusters. Examples of automated host maintenance include firmware upgrades and hardware repair or replacement.
 
-Microsoft is responsible for lifecycle management of NSX-T appliances such as NSX-T Manager and NSX-T Edges. Microsoft is also responsible for bootstrapping network config, such as creating the Tier-0 gateway and enabling North-South Routing. As an administrator to your AVS private cloud, you are responsible for NSX-T SDN configuration like network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
+Microsoft is responsible for lifecycle management of NSX-T appliances such as NSX-T Manager and NSX-T Edge. Microsoft is also responsible for bootstrapping network config, such as creating the Tier-0 gateway and enabling North-South Routing. As an administrator to your AVS private cloud, you are responsible for NSX-T SDN configuration like network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
 
 > [!IMPORTANT]
-> An AVS admin must not modify the configuration of NSX-T Edges or Tier-0 Gateway. This may result in a loss of service.
+> An AVS admin must not modify the configuration of NSX-T Edge or Tier-0 Gateway. This may result in a loss of service.
 
 ## Backup and restoration
 

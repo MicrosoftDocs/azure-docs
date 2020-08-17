@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 ---
 # Communicate with your IoT hub using the MQTT protocol
 
@@ -33,7 +33,7 @@ The MQTT port (8883) is blocked in many corporate and educational networking env
 
 ## Using the device SDKs
 
-[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed nor acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
@@ -72,7 +72,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |Java     |    230 seconds     |     No    |
 |C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60 seconds |  No   |
+|Python   | 60 seconds |  No   |
 
 Following [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
 
@@ -113,7 +113,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code:
 
 ### For Azure IoT Tools
 
@@ -296,7 +296,21 @@ To receive messages from IoT Hub, a device should subscribe using `devices/{devi
 
 The device does not receive any messages from IoT Hub, until it has successfully subscribed to its device-specific endpoint, represented by the `devices/{device_id}/messages/devicebound/#` topic filter. After a subscription has been established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it does not receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
-IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` when there are message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
+IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` when there are message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix. For additional details about the format of the property bag, see [Sending device-to-cloud messages](#sending-device-to-cloud-messages).
+
+In cloud-to-device messages, values in the property bag are represented as in the following table:
+
+| Property value | Representation | Description |
+|----|----|----|
+| `null` | `key` | Only the key appears in the property bag |
+| empty string | `key=` | The key followed by an equal sign with no value |
+| non-null, non-empty value | `key=value` | The key followed by an equal sign and the value |
+
+The following example shows a property bag that contains three application properties: **prop1** with a value of `null`; **prop2**, an empty string (""); and **prop3** with a value of "a string".
+
+```mqtt
+/?prop1&prop2=&prop3=a%20string
+```
 
 When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub delivers messages to the device using QoS 1.
 
@@ -413,7 +427,7 @@ As a final consideration, if you need to customize the MQTT protocol behavior on
 
 ## Next steps
 
-To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/documentation).
+To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
 
 To learn more about planning your IoT Hub deployment, see:
 

@@ -7,8 +7,8 @@ ms.date: 07/11/2019
 ms.author: alkohli
 ---
 
-| Port no.|	In or out |	Port scope|	Required| Notes |   |
-|--------|-----|-----|-----------|----------|-----------|
+| Port no.|	In or out |	Port scope|	Required| Notes |
+|--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|In|LAN|Yes|This port is used to connect to Data Box Blog storage REST APIs over HTTP. If not connecting to REST APIs, this automatically redirects to local web UI over 8443. |
 | TCP 443 (HTTPS)|In|LAN|Yes|This port is used to connect to Data Box Blog storage REST APIs over HTTPS. If not connecting to REST APIs, this automatically redirects to local web UI over 8443. |
 | TCP 8443 (HTTPS-Alt)|In|LAN|Yes|This is an alternative port for HTTPS and is used when connecting to local web UI for device management. |

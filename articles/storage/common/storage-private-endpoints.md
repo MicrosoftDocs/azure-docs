@@ -6,7 +6,7 @@ services: storage
 author: santoshc
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
@@ -133,7 +133,7 @@ This constraint is a result of the DNS changes made when account A2 creates a pr
 
 ### Network Security Group rules for subnets with private endpoints
 
-Currently, you can't configure [Network Security Group](../../virtual-network/security-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are applied to the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
+Currently, you can't configure [Network Security Group](../../virtual-network/security-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are only applied to other endpoints (e.g. NICs) than the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
 
 ## Next steps
 

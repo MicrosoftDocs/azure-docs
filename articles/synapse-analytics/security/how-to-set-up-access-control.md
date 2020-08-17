@@ -5,7 +5,7 @@ services: synapse-analytics
 author: matt1883 
 ms.service: synapse-analytics 
 ms.topic: how-to 
-ms.subservice:  
+ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: mahi
 ms.reviewer: jrasnick
@@ -22,7 +22,7 @@ To secure a Synapse workspace (preview), you'll follow a pattern of configuring 
 - Synapse roles – these roles are unique to Synapse and aren't based on Azure roles. There are three of these roles:
   - Synapse workspace admin
   - Synapse SQL admin
-  - Synapse Spark admin
+  - Apache Spark for Azure Synapse Analytics admin
 - Access control for data in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Access control for Synapse SQL and Spark databases
 
@@ -76,7 +76,7 @@ In the Azure portal, create a Synapse workspace:
   - Assign **WS1\_SparkAdmins** to Synapse Spark admins
   - Assign **WS1\_SQLAdmins** to Synapse SQL admins
 
-## STEP 4: Configuring Data Lake Storage Gen2 for use by Synapse workspace
+## STEP 4: Configure Data Lake Storage Gen2 for use by Synapse workspace
 
 The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
 
@@ -94,7 +94,7 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 - Under **Settings**, click **SQL Active Directory admin**
 - Click **Set admin** and choose WS1\_SQLAdmins
 
-## STEP 6: Maintaining access control
+## STEP 6: Maintain access control
 
 The configuration is finished.
 
@@ -106,14 +106,14 @@ Although you can manually assign users to Synapse roles, if you do, it won't con
 
 Users in each role need to complete the following steps:
 
-|   | Step | Workspace admins | Spark admins | SQL admins |
+| Number | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
-| 2 | Read the parquet file using SQL on demand | YES | NO | YES |
+| 2 | Read the parquet file using SQL on-demand | YES | NO | YES |
 | 3 | Create a Spark pool | YES [1] | YES [1] | NO  |
 | 4 | Reads the parquet file with a Notebook | YES | YES | NO |
 | 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
-| 6 | Create a SQL Pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
+| 6 | Create a SQL pool and run a SQL script such as &quot;SELECT 1&quot; | YES [1] | NO | YES[1] |
 
 > [!NOTE]
 > [1] To create SQL or Spark pools the user must have at least Contributor role on the Synapse workspace.
@@ -124,7 +124,7 @@ Users in each role need to complete the following steps:
 
 ## STEP 8: Network Security
 
-To configure the workspace firewall, virtual network, and [Private Link](../../sql-database/sql-database-private-endpoint-overview.md).
+To configure the workspace firewall, virtual network, and [Private Link](../../azure-sql/database/private-endpoint-overview.md).
 
 ## STEP 9: Completion
 

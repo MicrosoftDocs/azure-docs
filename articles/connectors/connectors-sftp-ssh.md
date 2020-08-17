@@ -6,13 +6,23 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 07/20/2020
 tags: connectors
 ---
 
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
 
-To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream. Here are some example tasks you can automate:
+To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
+
+> [!NOTE]
+> The SFTP-SSH connector currently doesn't support these SFTP servers:
+> 
+> * IBM DataPower
+> * MessageWay
+> * OpenText Secure MFT
+> * OpenText GXS
+
+Here are some example tasks you can automate:
 
 * Monitor when files are added or changed.
 * Get, create, copy, rename, update, list, and delete files.
@@ -247,7 +257,7 @@ If you can't avoid or delay moving the file, you can skip reading the file's met
 
 ## Connector reference
 
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/sftpwithssh/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/sftpwithssh/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
@@ -256,3 +266,4 @@ For more technical details about this connector, such as triggers, actions, and 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

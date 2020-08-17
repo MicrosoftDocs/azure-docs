@@ -24,7 +24,7 @@ Azure infrastructure security considerations include the datacenters and equipme
 
 ### Datacenter security
 
-Microsoft has an entire division devoted to designing, building, and operating the physical facilities that support Azure. This team is invested in maintaining state-of-the-art physical security. For details on physical security, see [Azure facilities, premises, and physical security](../security/azure-physical-security.md).
+Microsoft has an entire division devoted to designing, building, and operating the physical facilities that support Azure. This team is invested in maintaining state-of-the-art physical security. For details on physical security, see [Azure facilities, premises, and physical security](../security/fundamentals/physical-security.md).
 
 ### Equipment location
 

@@ -103,11 +103,10 @@ To configure Azure AD single sign-on with Powerschool Performance Matters, perfo
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     
-    | |
-    |-|
-    | `https://ola.performancematters.com/ola/?clientcode=<Client Code>`|
-    | `https://unify.performancematters.com/?idp=<IDP>`|
-    | |
+    ```https
+        https://ola.performancematters.com/ola/?clientcode=<Client Code>
+        https://unify.performancematters.com/?idp=<IDP>
+    ```
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Powerschool Performance Matters Client support team](mailto:pmsupport@powerschoo.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
