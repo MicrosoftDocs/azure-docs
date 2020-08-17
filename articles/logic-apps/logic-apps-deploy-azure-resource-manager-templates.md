@@ -116,7 +116,9 @@ Here are the general high-level steps for using Azure Pipelines:
 
 After deployment, your logic app works end-to-end with valid parameters. However, you still have to authorize or use preauthorized OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). Here are a few suggestions:
 
-* Use preauthorized API connection resources that are shared across your logic apps.
+* Use preauthorized API connection resources that are shared across logic apps that are deployed to the same Azure region.
+
+  Although the Logic App Designer supports creating API connections only in the same resource group as your logic apps, logic app definitions can use API connections that exist in other resource groups.
 
 * Run your continuous integration process on a virtual machine in a user space that has a browser session where the required connections are set up and consent is already provided. You can then use a script that provides consent for each OAuth connection without manual intervention, although this approach might still not work if you have to use multi-factor authentication. As a starting point, you can update and repurpose this example script in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) GitHub project.
 
