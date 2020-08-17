@@ -23,24 +23,19 @@ For Azure AD free tenants without Conditional Access, you can [use security defa
 
 If needed, you can instead enable each account for per-user Azure Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remember MFA on trusted devices_ feature is turned on).
 
-Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access or you don't want to use security defaults.
+Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access or you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 > [!IMPORTANT]
 >
 > This article details how to view and change the status for per-user Azure Multi-Factor Authentication. If you use Conditional Access or security defaults, you don't review or enable user accounts using these steps.
+>
+> Enabling Azure Multi-Factor Authentication through a Conditional Access policy doesn't change the state of the user. Don't be alarmed if users appear disabled. Conditional Access doesn't change the state.
+>
+> **Don't enable or enforce per-user Azure Multi-Factor Authentication if you use Conditional Access policies.**
 
 ## Azure Multi-Factor Authentication user states
 
-A user's state reflects whether an admin has enrolled them in per-user Azure Multi-Factor Authentication.
-
-All users start out *Disabled*. When you enroll users in per-user Azure Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*. Administrators may move users between states, including from *Enforced* to *Enabled* or *Disabled*.
-
-User accounts in Azure Multi-Factor Authentication have the following three distinct states:
-
-> [!IMPORTANT]
-> Enabling Azure Multi-Factor Authentication through a Conditional Access policy doesn't change the state of the user. Don't be alarmed if users appear disabled. Conditional Access doesn't change the state.
->
-> **Don't enable or enforce users if you use Conditional Access policies.**
+A user's state reflects whether an admin has enrolled them in per-user Azure Multi-Factor Authentication. User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
 | State | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
 |:---:| --- |:---:|:--:|:--:|
@@ -48,8 +43,10 @@ User accounts in Azure Multi-Factor Authentication have the following three dist
 | Enabled | The user is enrolled in per-user Azure Multi-Factor Authentication, but can still use their password for legacy authentication. If the user hasn't yet registered MFA authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
 | Enforced | The user is enrolled per-user in Azure Multi-Factor Authentication. If the user hasn't yet registered authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). Users who complete registration while in the *Enabled* state are automatically moved to the *Enforced* state. | Yes. Apps require app passwords. | Yes. Azure Multi-Factor Authentication is required at sign-in. | Yes. Azure Multi-Factor Authentication is required at sign-in. |
 
+All users start out *Disabled*. When you enroll users in per-user Azure Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*. Administrators may move users between states, including from *Enforced* to *Enabled* or *Disabled*.
+
 > [!NOTE]
-> If per-user MFA is re-enabled on a user and the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI. In this case, the administrator must move the user directly to *Enforced*.
+> If per-user MFA is re-enabled on a user and the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI. The administrator must move the user directly to *Enforced*.
 
 ## View the status for a user
 
@@ -142,7 +139,7 @@ You could also directly disable MFA for a user using [Set-MsolUser](/powershell/
 Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements @()
 ```
 
-## Convert users from per-user MFA to Conditional Access based MFA
+## Convert users from per-user MFA to Conditional Access
 
 The following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
