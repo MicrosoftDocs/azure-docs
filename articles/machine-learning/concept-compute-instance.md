@@ -135,7 +135,7 @@ These actions can be controlled by RBAC:
 
 ### <a name="create"></a>Create a compute instance
 
-In your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks. 
+In your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio.md#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks. 
 
 You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)

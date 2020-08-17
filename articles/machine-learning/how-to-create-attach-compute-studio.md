@@ -115,7 +115,7 @@ Create or attach an Azure Kubernetes Service (AKS) cluster for large scale infer
 | Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](how-to-enable-virtual-network.md#aksvnet). |
 | Enable SSL configuration | Use this to configure SSL certificate on the compute |
 
-### <a id="portal-reuse"></a>Attached compute 
+### Attached compute
 
 To use compute targets created outside the Azure Machine Learning workspace, you must attach them. Attaching a compute target makes it available to your workspace.  Use **Attached compute** to attach a compute target for **training**.  Use **Inference clusters** to attach an AKS cluster for **inferencing**.
 

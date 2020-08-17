@@ -64,7 +64,7 @@ Now that you have your run configuration, the next step is to [submit the traini
 ### <a id="instance"></a>Azure Machine Learning compute instance
 
 Create a run configuration for a compute instance.
-    
+
     ```python
     
     from azureml.core import ScriptRunConfig
@@ -108,7 +108,7 @@ Now that you have your run configuration, the next step is to [submit the traini
 
 After you create a run configuration, you use it to run your experiment.  The code pattern to submit a training run is the same for all types of compute targets:
 
-1. Create an experiment to run
+1. Create an experiment to run.
 1. Submit the run.
 1. Wait for the run to complete.
 

@@ -79,7 +79,7 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
    You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
 
-    Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
+    Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](how-to-create-attach-compute-studio.md#portal-create).
 
 Now that you've attached the compute, the next step is to [submit the training run](how-to-submit-training.md).
 
@@ -155,7 +155,7 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
    compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](#portal-reuse).
+   Or you can attach the DSVM to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
 1. **Configure**: Create a run configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on the DSVM.
 
@@ -200,7 +200,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](#portal-reuse).
+   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](#attached-compute).
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 
