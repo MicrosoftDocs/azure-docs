@@ -76,6 +76,6 @@ You have now enabled double encryption at rest on your managed disk.
 
 ## Next steps
 
-- [Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](../windows/disks-enable-customer-managed-keys-powershell.md)
+- [Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](./windows/disks-enable-customer-managed-keys-powershell.md)
 - [Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
-- [Enable customer-managed keys with server-side encryption - Examples](../linux/disks-enable-customer-managed-keys-cli.md#examples)
+- [Enable customer-managed keys with server-side encryption - Examples](./linux/disks-enable-customer-managed-keys-cli.md#examples)
