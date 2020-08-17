@@ -53,6 +53,7 @@ The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | IssuerUri | No | The issuer name that appears in the SAML response. The value should be the same name as configured in the relying party application. |
+| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Assertion. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. |
 
 ## Cryptographic keys
 
