@@ -87,8 +87,8 @@ az ad signed-in-user show --query objectId -o tsv | az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-    > [!IMPORTANT]
-    > Azure role assignments may take a few minutes to propagate.
+> [!IMPORTANT]
+> Azure role assignments may take a few minutes to propagate.
 
 You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 
