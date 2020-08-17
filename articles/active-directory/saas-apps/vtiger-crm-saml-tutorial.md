@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Vtiger CRM (SAML) with Azure Active Directory

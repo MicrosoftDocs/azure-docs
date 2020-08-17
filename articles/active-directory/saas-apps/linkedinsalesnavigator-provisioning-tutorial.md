@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure LinkedIn Sales Navigator for automatic user provisioning

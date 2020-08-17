@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate Dropbox Business with Azure Active Directory
 

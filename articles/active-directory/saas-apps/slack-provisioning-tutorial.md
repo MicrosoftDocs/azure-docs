@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Slack for automatic user provisioning

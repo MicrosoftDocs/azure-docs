@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Box for automatic user provisioning
 

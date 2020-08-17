@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on integration with Citrix NetScaler (Kerberos-based authentication)

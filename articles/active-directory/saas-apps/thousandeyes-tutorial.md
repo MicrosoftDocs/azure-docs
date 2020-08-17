@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with ThousandEyes

@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Bambu by Sprout Social
 

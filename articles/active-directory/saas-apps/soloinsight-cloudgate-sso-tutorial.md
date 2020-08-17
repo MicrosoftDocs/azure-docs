@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Soloinsight-CloudGate SSO with Azure Active Directory

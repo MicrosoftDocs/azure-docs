@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Workplace by Facebook for automatic user provisioning

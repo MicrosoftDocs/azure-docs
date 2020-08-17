@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Oracle Cloud Infrastructure Console with Azure Active Directory

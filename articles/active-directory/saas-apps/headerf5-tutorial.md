@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure single sign-on (SSO) between Azure Active Directory and F5

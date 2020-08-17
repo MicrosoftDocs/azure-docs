@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Salesforce for automatic user provisioning
 

@@ -10,7 +10,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Jobscience
 

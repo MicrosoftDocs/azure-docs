@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Jira by resolution GmbH
 

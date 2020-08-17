@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Azure AD single sign-on (SSO) with NetSuite

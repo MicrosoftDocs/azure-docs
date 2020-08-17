@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Chargebee with Azure Active Directory

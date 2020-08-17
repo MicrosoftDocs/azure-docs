@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure MerchLogix for automatic user provisioning

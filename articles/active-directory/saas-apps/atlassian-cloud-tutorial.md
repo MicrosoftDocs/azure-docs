@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
 

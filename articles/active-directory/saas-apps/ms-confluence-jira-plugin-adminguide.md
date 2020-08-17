@@ -11,7 +11,6 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 # Atlassian Jira and Confluence admin guide for Azure Active Directory
 
