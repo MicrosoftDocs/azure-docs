@@ -69,10 +69,22 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 ### Configure dependencies
 
+Two Spring Data Azure Cosmos DB v3 Maven artifacts are available.
+
+Artifact that depends on Spring framework v2.2:
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-spring-data-cosmos-core</artifactId>
+    <artifactId>azure-spring-data-2-2-cosmos</artifactId>
+    <version>latest</version>
+</dependency>
+```
+
+Artifact that depends on Spring framework v2.3:
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-spring-data-2-2-cosmos</artifactId>
     <version>latest</version>
 </dependency>
 ```
