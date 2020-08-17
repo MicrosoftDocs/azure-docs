@@ -30,22 +30,24 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ## Availability 
 ExpressRoute Global Reach currently is supported in the following places.
 
-* Australia
-* Canada
-* France
-* Germany
-* Hong Kong SAR
-* Ireland
-* Japan
-* Korea
-* Netherlands
-* New Zealand
-* Norway
-* Singapore
-* Sweden
-* Switzerland
-* United Kingdom
-* United States
+| **County** | **Azure regions** | **ExpressRoute Locations** |
+| --- | --- | --- |
+| **Australia** | Australia Central, Australia Central 2 | Canberra, Canberra2 |
+| **Canada** | Canada Central, Canada East | Montreal, Quebec City, Toronto, Vancouver |
+| **France** | France Central, France South | Marseille, Paris |
+| **Germany** | Germany North, Germany West Central | Berlin, Frankfurt, Munich |
+| **Hong Kong SAR** | East Asia | Hong Kong, Hong Kong2 |
+| **Ireland** | North Europe | Dublin |
+| **Japan** | Japan West, Japan East | Osaka, Tokyo, Tokyo2 |
+| **Korea** | Korea Central, Korea South | Busan, Seoul |
+| **Netherlands** | West Europe | Amsterdam, Amsterdam2 |
+| **New Zealand** | New Zealand North | --- |
+| **Norway** | Norway East, Norway West | Oslo, Stavanger |
+| **Singapore** | South East Asia | Singapore, Singapore2 |
+| **Sweden** | --- | Stockholm |
+| **Switzerland** | Switzerland North, Switzerland West | Geneva, Zurich |
+| **United Kingdom** | UK West, UK South | London, London2, Newport(Wales) |
+| **United States** | East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US | Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Los Angeles2, Miami, Minneapolis, New York, Queretaro(Mexico), San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 
 Your ExpressRoute circuits must be created at the [ExpressRoute peering locations](expressroute-locations.md) in the above countries or region. To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be Premium SKU.
 
