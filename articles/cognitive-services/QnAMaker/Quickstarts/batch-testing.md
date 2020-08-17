@@ -56,7 +56,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 
 ## Create batch test file with question IDs
 
-In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file needs to have the following columns separated by a tab.
+In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file should be in UTF-8 format and it needs to have the following columns separated by a tab.
 
 |TSV input file fields|Notes|Example|
 |--|--|--|
