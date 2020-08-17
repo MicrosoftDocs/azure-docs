@@ -33,6 +33,8 @@ func extensions install
 ```
 The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones.
 
+If your function app uses bindings that Core Tools does not recognize, you must manually install the specific extension.
+
 #### Install a specific extension
 
 Use the following command to install a specific extension package at a specific version, in this case the Storage extension:
