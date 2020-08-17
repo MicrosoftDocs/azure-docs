@@ -77,7 +77,7 @@ A [**datastore**](concept-data.md#datastores) is a storage abstraction over an A
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and [tuning hyperparameters](how-to-tune-hyperparameters.md). Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. They you [register the model](#register-model) in the workspace.
+A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. Then you [register the model](#register-model) in the workspace.
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
@@ -86,7 +86,7 @@ For an example of training a model using Scikit-learn, see [Tutorial: Train an i
 ### <a name="register-model"></a> Model registry
 [Workspace](#workspace) > **Model registry**
 
-The **model registry** lets you keeps track of all the models in your Azure Machine Learning workspace.
+The **model registry** lets you keep track of all the models in your Azure Machine Learning workspace.
 
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
 
