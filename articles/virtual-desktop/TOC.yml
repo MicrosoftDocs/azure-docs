@@ -116,6 +116,14 @@
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
+  - name: MSIX app attach
+    items:
+      - name: What is MSIX app attach?
+        href: what-is-app-attach.md
+      - name: Glossary
+        href: app-attach-glossary.md
+      - name: FAQ
+        href: app-attach-faq.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot

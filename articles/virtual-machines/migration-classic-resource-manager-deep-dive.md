@@ -1,10 +1,26 @@
 ---
+title: Classic to Azure Resource Manager migration technical deep dive
+description: Technical deep dive on platform-supported migration of resources from the classic deployment model to Azure Resource Manager.
 author: tanmaygore
+manager: vashan
 ms.service: virtual-machines
-ms.topic: include
-ms.date: 10/26/2018
+ms.workload: infrastructure-services
+ms.topic: conceptual
+ms.date: 02/06/2020
 ms.author: tagore
+
 ---
+
+# Technical deep dive on platform-supported migration from classic to Azure Resource Manager
+
+> [!IMPORTANT]
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+
+Let's take a deep-dive on migrating from the Azure classic deployment model to the Azure Resource Manager deployment model. We look at resources at a resource and feature level to help you understand how the Azure platform migrates resources between the two deployment models. For more information, please read the service announcement article:
+
+* For Linux: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* For Windows:  [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
 ## Migrate IaaS resources from the classic deployment model to Azure Resource Manager
 First, it's important to understand the difference between data-plane and management-plane operations on the infrastructure as a service (IaaS) resources.
 
@@ -13,7 +29,7 @@ First, it's important to understand the difference between data-plane and manage
 
 The data plane is the same between the classic deployment model and Resource Manager stacks. The difference is that during the migration process, Microsoft translates the representation of the resources from the classic deployment model to that in the Resource Manager stack. As a result, you need to use new tools, APIs, and SDKs to manage your resources in the Resource Manager stack.
 
-![Diagram that shows the difference between management/control plane and data plane](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagram that shows the difference between management/control plane and data plane](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -32,7 +48,7 @@ Before you start the migration:
 
 The migration workflow is as follows:
 
-![Diagram that shows the migration workflow](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagram that shows the migration workflow](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
@@ -74,17 +90,17 @@ Azure then starts the migration of metadata from the classic deployment model to
 After the prepare operation is complete, you have the option of visualizing the resources in both the classic deployment model and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](../articles/resource-group-move-resources.md).
+> It is not possible to select the name of a resource group created for migrated resources (that is, "-Migrated"). After migration is complete, however, you can use the move feature of Azure Resource Manager to move resources to any resource group you want. For more information, see [Move resources to new resource group or subscription](~/articles/resource-group-move-resources.md).
 
 The following two screenshots show the result after a successful prepare operation. The first one shows a resource group that contains the original cloud service. The second one shows the new "-Migrated" resource group that contains the equivalent Azure Resource Manager resources.
 
-![Screenshot that shows original cloud service](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![Screenshot that shows original cloud service](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot that shows Azure Resource Manager resources in the prepare operation](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![Screenshot that shows Azure Resource Manager resources in the prepare operation](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
 Here is a behind-the-scenes look at your resources after the completion of the prepare phase. Note that the resource in the data plane is the same. It's represented in both the management plane (classic deployment model) and the control plane (Resource Manager).
 
-![Diagram of the prepare phase](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagram of the prepare phase](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > VMs that are not in a virtual network in the classic deployment model are stopped and deallocated in this phase of migration.
@@ -104,7 +120,7 @@ If you see any issues, you can always abort the migration and go back to the cla
 ### Abort
 This is an optional step if you want to revert your changes to the classic deployment model and stop the migration. This operation deletes the Resource Manager metadata (created in the prepare step) for your resources. 
 
-![Diagram of abort step](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagram of abort step](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -119,13 +135,13 @@ After you finish the validation, you can commit the migration. Resources do not 
 >
 >
 
-![Diagram of commit step](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagram of commit step](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## Migration flowchart
 
 Here is a flowchart that shows how to proceed with migration:
 
-![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## Translation of the classic deployment model to Resource Manager resources
 You can find the classic deployment model and Resource Manager representations of the resources in the following table. Other features and resources are not currently supported.
@@ -159,3 +175,28 @@ You can find the classic deployment model and Resource Manager representations o
 
 ## Changes to your automation and tooling after migration
 As part of migrating your resources from the classic deployment model to the Resource Manager deployment model, you must update your existing automation or tooling to ensure that it continues to work after the migration.
+
+
+## Next steps
+
+For Linux:
+
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Review most common migration errors](./linux/migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+For Windows:
+
+* [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [VPN Gateway classic to Resource Manager migration](../vpn-gateway/vpn-gateway-classic-resource-manager-migration.md)
+* [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Review most common migration errors](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
