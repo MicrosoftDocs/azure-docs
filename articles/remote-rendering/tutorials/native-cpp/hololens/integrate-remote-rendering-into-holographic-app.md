@@ -535,10 +535,9 @@ We need to update the camera clip planes so that server camera is kept in sync w
         }
 
         // The API to inform the server always requires near < far. Depth buffer data will be converted locally to match what is set on the HolographicCamera.
-        auto settings = *m_api->CameraSettings();
-        settings->NearPlane(std::min(fNear, fFar));
-        settings->FarPlane(std::max(fNear, fFar));
-        settings->EnableDepth(true);
+        auto settings = m_api->GetCameraSettings();
+        settings->SetNearAndFarPlane(std::min(fNear, fFar), std::max(fNear, fFar));
+        settings->SetEnableDepth(true);
     }
 
     // The holographic frame will be used to get up-to-date view and projection matrices and
