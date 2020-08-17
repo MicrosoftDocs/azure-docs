@@ -60,8 +60,8 @@
         href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
-      - name: Microsoft web application firewall
-        href: connect-microsoft-waf.md
+      - name: Azure web application firewall
+        href: connect-azure-waf.md
       - name: Windows firewall
         href: connect-windows-firewall.md
       - name: Windows security events
