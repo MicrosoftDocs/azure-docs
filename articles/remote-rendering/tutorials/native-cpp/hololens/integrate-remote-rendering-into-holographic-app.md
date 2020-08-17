@@ -417,13 +417,13 @@ void HolographicAppMain::OnConnectionStatusChanged(RR::ConnectionStatus status, 
 
 ### Per frame update
 
-We have to tick the client once per simulation tick. Class `HolographicApp1Main` provides a good hook for per-frame updates. 
+We have to update the client once per simulation tick and do some additional state updates. Function `HolographicAppMain::Update` provides a good hook for per-frame updates.
 
 #### State machine update
 
 We need to poll the session's status and see if it has transitioned to `Ready` state. If we have successfully connected, we finally kick off the model loading via `StartModelLoading`.
 
-Add the following code to the body of function `HolographicApp1Main::Update`:
+Add the following code to the body of function `HolographicAppMain::Update`:
 
 ```cpp
 // Updates the application state once per frame.
