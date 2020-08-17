@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 08/17/2020
 ms.custom: devx-track-java
 ms.author: pafarley
 ---

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: include
-ms.date: 01/27/2020
+ms.date: 08/17/2020
 ms.author: pafarley
 ---
 Get started with the Face client library for Go. Follow these steps to install the library and try out our examples for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.

@@ -2,10 +2,10 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
+This article shows you how to get started using the Custom Vision client library with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
 
 ## Prerequisites
 
@@ -13,9 +13,9 @@ This article shows you how to get started using the Custom Vision SDK with Pytho
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDK for Python, run the following command in PowerShell:
+To install the Custom Vision service client library for Python, run the following command in PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
