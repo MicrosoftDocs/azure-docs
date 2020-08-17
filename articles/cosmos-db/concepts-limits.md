@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/19/2020
 ---
 
 # Azure Cosmos DB service quotas
@@ -24,8 +24,8 @@ You can provision throughput at a container-level or a database-level in terms o
 | --- | --- |
 | Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Maximum RUs per (logical) partition key | 10,000 |
-| Maximum storage across all items per (logical) partition key| 20 GB |
+| Maximum RUs per (logical) partition | 10,000 |
+| Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
@@ -58,11 +58,13 @@ Cosmos DB supports elastic scaling of throughput (RUs) per container or database
 
 ### Serverless
 
+[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database.
+
 | Resource | Limit |
 | --- | --- |
 | Maximum RU/s per container | 5,000 |
-| Maximum RU/s per (logical) partition key | 5,000 |
-| Maximum storage across all items per (logical) partition key| 20 GB |
+| Maximum RU/s per (logical) partition | 5,000 |
+| Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | 50 GB |
 

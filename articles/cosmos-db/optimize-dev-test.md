@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/19/2020
 ---
 
 # Optimize development and testing cost in Azure Cosmos DB
@@ -35,7 +35,7 @@ Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.
 
 ## Azure Cosmos DB serverless
 
-[Azure Cosmos DB serverless](serverless.md) lets you use your Azure Cosmos account in a real consumption-based fashion where you only get charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode as it eliminates the concept of provisioned capacity, making it very suitable for development or testing activities when your database sits idle most of the time.
+[Azure Cosmos DB serverless](serverless.md) lets you use your Azure Cosmos account in a consumption-based fashion where you are only charged for the Request Units consumed by your database operations and the storage consumed by your data. There is no minimum charge involved when using Azure Cosmos DB in serverless mode. Because it eliminates the concept of provisioned capacity, it is best suited for development or testing activities specifically when your database is idle most of the time.
 
 ## Use shared throughput databases
 

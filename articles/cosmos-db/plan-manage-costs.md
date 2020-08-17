@@ -6,7 +6,7 @@ ms.author: sngun
 ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/19/2020
 ---
 
 # Plan and manage costs for Azure Cosmos DB
@@ -26,7 +26,7 @@ Cost analysis supports different kinds of Azure account types. To view the full 
 
 ## Provisioned throughput or serverless
 
-Azure Cosmos DB supports 2 types of capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). The way you get charged for your Azure Cosmos DB usage varies a lot between these 2 modes, so it's important to choose the one that works best for your workload. See [this page](throughput-vs-serverless.md) for guidance and recommendations on how to make this choice.
+Azure Cosmos DB supports 2 types of capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). The way you get charged for your Azure Cosmos DB usage varies a lot between these 2 modes, so it's important to choose the one that works best for your workload. See the [how to choose offer](throughput-vs-serverless.md) article for guidance and recommendations on how to make this choice.
 
 ## Estimating provisioned throughput costs with capacity calculator
 
@@ -38,18 +38,18 @@ The following screenshot shows the throughput and cost estimation by using the c
 
 ## Estimating serverless costs
 
-If you plan to use Azure Cosmos DB in serverless mode, you need to estimate how many [Request Units](request-units.md) and GB of storage you may consume on a monthly basis. Estimating Request Units is done by evaluating how many each of the database operations listed below are likely to be issued over the course of a month, and multiply their amount by their corresponding RU cost:
+If you plan to use Azure Cosmos DB in serverless mode, you need to estimate how many [Request Units](request-units.md) and GB of storage you may consume on a monthly basis. You can estimate the required amount of Request Units by evaluating the number of database operations that would be issued in a month, and multiply their amount by their corresponding RU cost. The following table lists estimated RU charges for common database operations:
 
 | Operation | Estimated cost | Notes |
 | --- | --- | --- |
-| Item creations | 5 RUs | Average cost for a 1 KB item with less than 10 properties to index |
-| Item updates | 10 RUs | Average cost for a 1 KB item with less than 10 properties to index |
-| Point-reads (reading an individual item by its ID and partition key) | 1 RU | Average cost for a 1 KB item |
-| Item deletions | 5 RUs | |
-| Queries | 10 RUs | Average cost for a query that takes full advantage of [indexing](index-overview.md) and returns 100 results or less |
+| Create an item | 5 RUs | Average cost for a 1 KB item with less than 5 properties to index |
+| Update an item | 10 RUs | Average cost for a 1 KB item with less than 5 properties to index |
+| Read an individual item by its ID and partition key (point-read) | 1 RU | Average cost for a 1 KB item |
+| Delete an item | 5 RUs | |
+| Execute a query | 10 RUs | Average cost for a query that takes full advantage of [indexing](index-overview.md) and returns 100 results or less |
 
 > [!IMPORTANT] 
-> Pay attention to the Notes above. For a more accurate estimation of the actual costs of your operations, you can use the [Azure Cosmos Emulator](local-emulator.md) and [measure the exact RU cost of your operations](find-request-unit-charge.md).
+> Pay attention to the Notes above. For a more accurate estimation of the actual costs of your operations, you can use the [Azure Cosmos Emulator](local-emulator.md) and [measure the exact RU cost of your operations](find-request-unit-charge.md). Although the Azure Cosmos Emulator doesn't support serverless, it reports a standard RU charge for database operations and can be used for this estimation.
 
 Once you have computed the total number of Request Units and GB of storage you're likely to consume over a month, the following formula will return your cost estimate: **([Number of Request units] / 1,000,000 * $0.25) + ([GB of storage] * $0.25)**.
 

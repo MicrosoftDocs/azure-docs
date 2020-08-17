@@ -4,7 +4,7 @@ description: Learn about how to choose between standard (manual) provisioned thr
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/19/2020
 ms.author: dech
 ---
 
@@ -32,7 +32,8 @@ The following table shows a high-level comparison between standard (manual) and 
 ## Understand your traffic patterns
 
 ### New applications ###
-If you are building a new application and do not know your traffic pattern yet, you may want to start at the entry point RU/s (or minimum RU/s) to avoid over-provisioning in the beginning. Or, if you have a small application that doesn't need high scale, you may want to provision just the minimum entry point RU/s to optimize cost. For small applications that expect low traffic, you can also consider the [serverless](throughput-vs-serverless.md) capacity mode.
+
+If you are building a new application and do not know your traffic pattern yet, you may want to start at the entry point RU/s (or minimum RU/s) to avoid over-provisioning in the beginning. Or, if you have a small application that doesn't need high scale, you may want to provision just the minimum entry point RU/s to optimize cost. For small applications with a low expected traffic, you can also consider the [serverless](throughput-vs-serverless.md) capacity mode.
 
 Whether you plan to use standard (manual) or autoscale, here's what you should consider:
 
