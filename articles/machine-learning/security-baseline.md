@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/17/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -98,7 +98,7 @@ Deploy Azure Firewall at each of the organization's network boundaries with thre
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32529.).
 
-**Guidance**: For any VMs with the proper extension installed in your Azure Machine Learning services you can enable Network Watcher packet capture to investigate anomalous activities. 
+**Guidance**: For any VMs with the proper extension installed in your Azure Machine Learning services, you can enable Network Watcher packet capture to investigate anomalous activities. 
 
 - [How to create a Network Watcher instance](../network-watcher/network-watcher-create.md)
 
@@ -173,7 +173,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 **Guidance**: Use tags for network resources associated with your Azure Machine Learning deployment in order to logically organize them according to a taxonomy.
 
-For an resource in your Azure Machine Learning virtual network that support the Description field, use it to document the rules that allow traffic to/from a network.
+For a resource in your Azure Machine Learning virtual network that support the Description field, use it to document the rules that allow traffic to/from a network.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -610,7 +610,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use a third-party solution from Azure Marketplace in network perimeters to monitor for unauthorized transfer of sensitive information and block such transfers while alerting information security professionals. 
 
-For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities. 
+For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities. 
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -636,9 +636,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32563.).
 
-**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Machine Learning. Implement a third-party solution if required for compliance purposes.
+**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Machine Learning. Implement a third-party solution if necessary for compliance purposes.
 
-For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
+For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -941,7 +941,7 @@ In addition, use the Azure Resource Graph to query for and discover resources in
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Security Center adaptive application controls to specify which file types a rule may or may not apply to.
 
-Implement a third-party solution if adaptive application controls don't not meet the requirement.
+Implement a third-party solution if adaptive application controls don't meet the requirement.
 
 - [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -1066,7 +1066,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: If the compute resource is owned by Microsoft, then Microsoft is responsible for operating system secure configurations of Azure Machine Learning service.
 
-Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure compute resources.  In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization.   The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements. 
+Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure compute resources.  In addition, you may use Azure Resource Manager templates, custom operating system images, or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization.   The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements. 
 
 Note that Azure Marketplace virtual machine Images published by Microsoft are managed and maintained by Microsoft. 
 
@@ -1212,7 +1212,8 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32597.).
 
-**Guidance**: Azure Machine Learning supports both built-in roles and the ability to create custom roles. Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+**Guidance**: Azure Machine Learning supports both built-in roles and the ability to create custom roles. Use managed identities to provide Azure services with an automatically managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+
  
 - [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
 
@@ -1385,7 +1386,7 @@ Enable soft delete and purge protection in Key Vault to protect keys against acc
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32607.).
 
-**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
