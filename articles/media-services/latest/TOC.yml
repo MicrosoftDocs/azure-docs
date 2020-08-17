@@ -225,21 +225,10 @@
     - name: Create an account
       href: create-account-howto.md
       displayName: portal, cli, storage
-    - name: Reset the account credentials
-      href: cli-reset-account-credentials.md   
-    - name: Access API
-      displayName: portal, cli
-      href: access-api-howto.md   
-    - name: Scale media reserved units
-      href: media-reserved-units-cli-how-to.md   
-    - name: Create an asset
-      href: cli-create-asset.md 
-  - name: Developer guides
-    items:
     - name: Develop with REST
       items:
       - name: Connect with Postman
-        href: media-rest-apis-with-postman.md       
+        href: media-rest-apis-with-postman.md
     - name: Develop with SDKs
       items:
       - name: Connect with Java
@@ -250,6 +239,15 @@
         href: configure-connect-nodejs-howto.md
       - name: Connect with Python
         href: configure-connect-python-howto.md
+    - name: Reset the account credentials
+      href: cli-reset-account-credentials.md   
+    - name: Access API
+      displayName: portal, cli
+      href: access-api-howto.md  
+    - name: Scale media reserved units
+      href: media-reserved-units-cli-how-to.md   
+    - name: Create an asset
+      href: cli-create-asset.md
   - name: Upload content
     items:
     - name: From HTTPS

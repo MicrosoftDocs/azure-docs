@@ -1,5 +1,5 @@
 ---
-title: Copy video and audio files with REST
+title: Bring your own mp4 files for streaming with REST
 titleSuffix: Azure Media Services
 description: Learn how to copy videos and audio using Azure Media Services and REST.
 services: media-services
@@ -16,9 +16,11 @@ ms.author: inhenkel
 
 ---
 
-# Tutorial: Copy video and audio files with REST
+# Tutorial: Bring your own mp4 files for streaming with REST
 
-This tutorial shows you how to copy video and audio files using the `copyAllBitrateNonInterleaved` preset that is part of the `BuiltInStandardEncoderPreset`. It uses a combination of REST and JSON as well as the Azure Media Services CLI.  You can also use [Postman](media-rest-apis-with-postman.md).
+You can bring multi-bitrate mp4 files that have already been encoded using an external encoder into Azure Media Services. You can copy these files into an asset ready for streaming by Azure Media Services without having to re-encode the files.
+
+This tutorial shows you how to copy video and audio files using the `copyAllBitrateNonInterleaved` preset that is part of the `BuiltInStandardEncoderPreset`.
 
 This tutorial shows you how to:
 
@@ -33,7 +35,7 @@ This tutorial shows you how to:
 ## Prerequisites
 
 - [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API.
+- Follow the steps in [Configure Postman for Media Services v3 REST API calls](media-rest-apis-with-postman.md) and save the credentials. You'll need to use them to access the API.
 
 ## Create a new asset
 Use the CLI to create an [Asset](cli-create-asset.md).
