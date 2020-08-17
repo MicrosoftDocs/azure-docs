@@ -17,16 +17,16 @@ This article answers frequently asked questions about MSIX app attach for Window
 
 ### Does MSIX app attach use FSLogix?
 
-No, MSIX app attach does not use FSLogix. However, the two are aimed to work together to provide seamless user experience.
+MSIX app attach doesn't use FSLogix. However, app attach and FSLogix are designed to work together to provide a seamless user experience.
 
-### Can I use MSIX app attach outside of Windows Virtual Desktop?**
+### Can I use MSIX app attach outside of Windows Virtual Desktop?
 
-Yes, MSIX app attach is feature that comes in Windows 10 Enterprise and can be used outside of Windows Virtual Desktop. However, there is no management plane for MSIX app attach outside of Windows Virtual Desktop.
+Yes, MSIX app attach is a feature that's included with Windows 10 Enterprise and can be used outside of Windows Virtual Desktop. However, there's no management plane for MSIX app attach outside of Windows Virtual Desktop.
 
 ### How do I get an MSIX package?
 
-Your software vendor delivers a MSIX package for you. As a secondary option there is a path to take non-MSIX packages and convert them to MSIX. More information [here](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
+Your software vendor will give you an MSIX package. You can also convert non-MSIX packages to MSIX. Learn more at [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix).
 
 ### Which operating systems support MSIX app attach?
 
-Windows 10 Enterprise and Windows 10 Enterprise for Multi-Session
+Windows 10 Enterprise and Windows 10 Enterprise Multi-session.

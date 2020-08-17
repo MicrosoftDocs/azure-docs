@@ -47,23 +47,4 @@ The following table compares key feature of MSIX app attach and app layering.
 | Ecosystem            | N/A (for example, vendors don't ship App-V)  | MSIX is Microsoft's mainstream technology that key ISV partners and in-house apps like Office are adopting. You can use MSIX on both virtual desktops and physical Windows computers. |
 | Infrastructure       | Additional infrastructure required (servers, clients, and so on) | Storage only   |
 | Administration       | Requires maintenance and update   | Simplifies app updates |
-| User experience      | Impacts user sign in time. Boundary exists between OS state, app state, and user data.  | Delivered apps are indistinguishable from locally installed applications. |
-
-### MSIX app attach diagram 
-
-The following image shows the process for connecting a Windows Virtual Desktop user to a host pool configured with FSLogix and MSIX app attach.
-
-![A picture containing screenshot Description automatically generated](media/bbc4d9488f1408cbf1a02807089077cd.png)
-
-1.  User authenticates against Azure AD and obtains Windows Virtual Desktop feed
-
-2.  RD Broker working with RD Gateway, and RD agent orchestrate a connection to a VM
-
-3.  VM initiates creation of user session and FSLogix “brings” the user profile
-
-4.  RD Agent is notified what MSIX packages must be registered for the user
-
-5.  RD Agent registers MSIX packages
-
-6.  Session establishment is completed, and user can interact with any of the MSIX packages.
-
+| User experience      | Impacts user sign-in time. Boundary exists between OS state, app state, and user data.  | Delivered apps are indistinguishable from locally installed applications. |
