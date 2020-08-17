@@ -8,7 +8,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -765,6 +765,8 @@ Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thus it
 #### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Moving a VM from on-premises to Azure with a non-generalized disk
 
 You plan to move a specific SAP system from on-premises to Azure. This can be done by uploading the VHD, which contains the OS, the SAP Binaries, and DBMS binaries plus the VHDs with the data and log files of the DBMS to Azure. In contrast to [scenario #2 below][planning-guide-5.1.2], you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. See chapters [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document for on-premises preparation steps and upload of non-generalized VMs or VHDs to Azure. Read chapter [Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP][deployment-guide-3.4] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
+
+Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) of the [About disaster recovery for on-premises apps](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) guide.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Deploying a VM with a customer-specific image
 
