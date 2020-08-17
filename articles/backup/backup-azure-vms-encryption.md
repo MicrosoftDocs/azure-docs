@@ -4,16 +4,19 @@ description: Describes how to back up and restore encrypted Azure VMs with the A
 ms.topic: conceptual
 ms.date: 07/29/2020
 ---
-# Back up and restore encrypted Azure VM
+# Back up and restore encrypted Azure virtual machines
 
-This article describes how to back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service.
+This article describes how to back up and restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service. For more information, see [Encryption of Azure VM backups](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
-If you want to learn more about how Azure Backup interacts with Azure VMs before you begin, review these resources:
+## Encryption using platform-managed keys
 
-- [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the Azure VM backup architecture.
-- [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the Azure Backup extension.
+By default, managed disks use platform-managed encryption keys. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. For more information, see [Backup of Azure VMs with disks encrypted using platform-managed keys](backup-encryption.md#backup-of-azure-vms-with-disks-encrypted-using-platform-managed-keys).
 
-## Encryption support
+## Encryption using customer-managed keys
+
+When you encrypt disks with custom-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. For more information about encryption of managed disks with customer-managed keys, see [this article](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+
+## Encryption support using ADE
 
 Azure Backup supports backup of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). ADE uses BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. Key Vault Key Encryption Keys (KEKs) can be used to add an additional layer of security, encrypting encryption secrets before writing them to Key Vault.
 
@@ -26,7 +29,6 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 
 - Learn more about [ADE](../security/fundamentals/azure-disk-encryption-vms-vmss.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](../virtual-machine-scale-sets/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
 - Read the [FAQ](../security/fundamentals/azure-disk-encryption-vms-vmss.md) for Azure VM disk encryption.
-- Learn about the [different types of VM and disk encryption that Azure Backup supports](backup-encryption.md#backup-of-encrypted-vms-and-disks).
 
 ### Limitations
 

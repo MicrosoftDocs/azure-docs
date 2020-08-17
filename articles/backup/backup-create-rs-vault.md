@@ -76,7 +76,7 @@ Learn how to [monitor secondary region restore jobs](backup-azure-arm-restore-vm
 
 ## Set encryption settings
 
-By default, the data in the Recovery Services vault is encrypted using Microsoft Managed Keys. No explicit actions are required from your end to enable this encryption, and it applies to all workloads being backed up to your Recovery Services vault.  You may choose to bring your own key to encrypt the backup data in this vault. This is referred to as Customer Managed Keys.  If you wish to encrypt backup data using your own key, the encryption key must be specified before any item is protected to this vault. Once you enable encryption with your key, it can't be reversed.
+By default, the data in the Recovery Services vault is encrypted using platform-managed keys. No explicit actions are required from your end to enable this encryption, and it applies to all workloads being backed up to your Recovery Services vault.  You may choose to bring your own key to encrypt the backup data in this vault. This is referred to as customer-managed keys. If you wish to encrypt backup data using your own key, the encryption key must be specified before any item is protected to this vault. Once you enable encryption with your key, it can't be reversed.
 
 ### Configuring a vault to encrypt using customer-managed keys
 
