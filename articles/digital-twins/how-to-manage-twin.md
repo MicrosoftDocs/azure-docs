@@ -182,7 +182,7 @@ To update properties a digital twin, you write the information you want to repla
 await client.UpdateDigitalTwin(id, patch);
 ```
 
-A patch call can update as many properties on a single twin as you'd like (even all of them). However, there's no update API that can address more than a single twin in one call. This means that if you need to update multiple properties across multiple twins, you need one update call for each twin.
+A patch call can update as many properties on a single twin as you'd like (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
 
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
