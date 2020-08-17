@@ -16,7 +16,7 @@ ms.date: 04/19/2020
 
 In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single database in Azure SQL Database. You then query the database using **Query editor** in the Azure portal.
 
-A [single database](single-database-overview.md) is the quickest and simplest option for Azure SQL Database. You manage a single database within a [server](logical-servers.md), which is inside an [Azure resource group](../../active-directory-b2c/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and server for the new database.
+A [single database](single-database-overview.md) is the quickest and simplest option for Azure SQL Database. You manage a single database within a [server](logical-servers.md), which is inside an [Azure resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md) in a specified Azure region. In this quickstart, you create a new resource group and server for the new database.
 
 You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](purchasing-models.md). This quickstart creates a provisioned database using the [vCore-based](service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](service-tiers-dtu.md) model.
 
