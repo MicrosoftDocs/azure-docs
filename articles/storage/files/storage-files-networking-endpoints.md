@@ -4,7 +4,7 @@ description: An overview of networking options for Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/19/2020
+ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurecli
@@ -25,7 +25,7 @@ We recommend reading [Azure Files networking considerations](storage-files-netwo
 ## Prerequisites
 
 - This article assumes that you have already created an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This article assumes that you have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
+- This article assumes that you have already created an Azure file share in a storage account that you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
 - If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -111,7 +111,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network. Note that, you should still use storageaccount.file.core.windows.net to mount your file share instead of the `privatelink` path.
+If everything has worked successfully, you should see the following output, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network. You should still use storageaccount.file.core.windows.net to mount your file share instead of the `privatelink` path.
 
 ```Output
 Server:         127.0.0.53
@@ -127,7 +127,7 @@ Address: 192.168.0.5
 
 ### Restrict public endpoint access
 
-Limiting public endpoint access first requires you to disable general access to the public endpoint. Disabling access to the public endpoint does not impact private endpoints. After the public endpoint has been disabled, you can select specific networks or IP addresses which may continue to access it.
+Limiting public endpoint access first requires you to disable general access to the public endpoint. Disabling access to the public endpoint does not impact private endpoints. After the public endpoint has been disabled, you can select specific networks or IP addresses that may continue to access it.
 
 #### Disable access to the public endpoint
 
