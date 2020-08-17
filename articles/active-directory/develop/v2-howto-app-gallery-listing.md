@@ -95,7 +95,7 @@ OAuth 2.0 is an [industry-standard](https://oauth.net/2/) protocol for authoriza
 
 SAML is a mature, and widely adopted, single sign-on standard for web applications. To learn more about how Azure uses SAML, see [How Azure uses the SAML protocol](active-directory-saml-protocol-reference.md). 
 
-Web Services Federation (WS-Fed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
+Web Services Federation (WS-Fed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .NET platform.
 
 **Reasons to choose SAML**
 - SAML 2.0 is a mature standard and most technology platforms support open-source libraries for SAML 2.0. 
