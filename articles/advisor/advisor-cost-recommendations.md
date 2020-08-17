@@ -92,6 +92,8 @@ By using intelligence about your Azure Blob storage object count, total size, an
 
 It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads. Advisor provides recommendations for resources that can benefit from Ephemeral OS Disk.
 
+## Reduce Azure Data Explorer table cache-period (policy) for cluster cost optimization (Preview)
+Advisor identifies resources where reducing the table cache policy will free up Azure Data Explorer cluster nodes having low CPU utilization, memory, and a high cache size configuration.
 
 ## How to access cost recommendations in Azure Advisor
 

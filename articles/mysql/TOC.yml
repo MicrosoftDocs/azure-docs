@@ -138,6 +138,8 @@
       href: concepts-server-parameters.md
   - name: Development
     items:
+    - name: Application Best practices
+      href: app-development-best-practices.md
     - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development
