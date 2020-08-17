@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to run batch inference on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep provides parallelism capabilities out of the box.
+This article shows you how to run your Azure Machine Learning model in parallel, quickly evaluating large amounts of data. 
 
-With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of structured or unstructured data with improved productivity and optimized cost.
+Inferencing over large datasets or with complicated models can be time-consuming. The `ParallelRunStep` class allows you to perform processing in parallel, potentially getting overall results faster. Even if running a single evaluation is fairly speedy, many scenarios (object detection, video processing, natural language processing, etc.) involve running many evaluations. 
+
+With `ParallelRunStep`, it's straightforward to scale batch inferences to large clusters of machines. Such clusters can handle terabytes of structured or unstructured data with improved productivity and optimized cost.
 
 In this article, you learn the following tasks:
 
