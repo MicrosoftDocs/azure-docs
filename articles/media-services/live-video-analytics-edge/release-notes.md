@@ -16,9 +16,31 @@ This article provides you with information about:
 * Bug fixes
 * Deprecated functionality
 
+## August 17, 2020
+ The release tag for the August 2020 refresh of the module is still the same
+ 
+ ```
+  mcr.microsoft.com/media/live-video-analytics:1.0.2
+   ```
+ 
+ >[!NOTE] In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices. 
+
+## New features 
+* The current release is for broader regional deployment of LVA and only the cloud service has been updated.  
+
+* No new feature updates to the edge module, so the changes will work with any release tag for edge module including the recent tag and 1 (which automatically links to most recent one) 
+
+* LVA is now available in 25 additional regions across the globe. Here is the [list](<https://azure.microsoft.com/en-us/global-infrastructure/services/?products=media-services>) of all available regions  
+
+* The set up for quick starts has been updated as well <need link> 
+
+## Bug fixes 
+* None 
+
+
 ## July 13, 2020
 
-This release tag for the July 2020 refresh of the module is:
+The release tag for the July 2020 refresh of the module is:
 
 ```
      mcr.microsoft.com/media/live-video-analytics:1.0.2
