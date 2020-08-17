@@ -10,7 +10,7 @@ keywords: migration, aro, openshift, red hat
 #Customer intent: As a customer, I want to migrate from an existing Azure Red Hat OpenShift 3.11 cluster to an Azure Red Hat OpenShift 4 cluster.
 ---
 
-# Migrate from Azure Red Hat OpenShift 3.11 to Azure Red Hat Openshift 4
+# Migrate from Azure Red Hat OpenShift 3.11 to Azure Red Hat OpenShift 4
 
 Azure Red Hat OpenShift on OpenShift 4 brings Kubernetes 1.16 on Red Hat Core OS, private clusters, bring your own virtual network support, and full cluster admin role. In addition, many new features are now available such as support for the operator framework, the Operator Hub, and OpenShift Service Mesh.
 
@@ -27,7 +27,7 @@ This article assumes you have an existing Azure Red Hat OpenShift 3.11 cluster.
 
 ## Create a target Azure Red Hat OpenShift 4 cluster
 
-First, [create the Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) you would like to use as the target cluster. Here, we'll use the basic configration. If you're interested in different settings, see the [Create an Azure Red Hat OpenShift 4 Cluster tutorial](tutorial-create-cluster.md).
+First, [create the Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md) you would like to use as the target cluster. Here, we'll use the basic configuration. If you're interested in different settings, see the [Create an Azure Red Hat OpenShift 4 Cluster tutorial](tutorial-create-cluster.md).
 
 Create a virtual network with two empty subnets for the master and worker nodes.
 
