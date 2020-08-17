@@ -15,7 +15,6 @@ ms.topic: how-to
 ms.date: 03/15/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.custom: cli,portal
 
 ---
 # Create a Media Services account

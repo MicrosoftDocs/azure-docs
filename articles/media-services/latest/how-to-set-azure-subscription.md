@@ -25,7 +25,7 @@ ms.custom: cli,portal
 
 ## Use the Azure portal
 
-1. Sign in to the [Azure portal](portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Under the Azure services heading, select Subscriptions. (If no subscriptions are listed, you may need to switch Azure AD tenants.) Your Subscription IDs are listed in the second column.
 1. Copy the Subscription ID and paste it into a text document of your choice for use later.
 
