@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, tracking-python
+ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
 # Azure Queue storage trigger for Azure Functions
@@ -159,7 +159,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
+The code *_\_init_\_.py* declares a parameter as `func.QueueMessage`, which allows you to read the queue message in your function.
 
 ```python
 import logging

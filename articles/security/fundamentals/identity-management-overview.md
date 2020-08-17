@@ -1,6 +1,6 @@
 ---
 title: Azure security features that help with identity management | Microsoft Docs
-description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. "
+description: Learn about the core Azure security features that help with identity management. See information about topics like single sign-on and reverse proxy.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -37,7 +37,7 @@ The article focuses on the following core Azure Identity management capabilities
 * Single sign-on
 * Reverse proxy
 * Multi-Factor Authentication
-* Role based access control (RBAC)
+* Azure role-based access control (Azure RBAC)
 * Security monitoring, alerts, and machine learning-based reports
 * Consumer identity and access management
 * Device registration
@@ -83,9 +83,9 @@ Learn more:
 * [What is Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## RBAC
+## Azure RBAC
 
-RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
+Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. Azure RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
 
 - [Owner](/azure/role-based-access-control/built-in-roles#owner) - Has full access to all resources including the right to delegate access to others. 
 - [Contributor](/azure/role-based-access-control/built-in-roles#contributor) - Can create and manage all types of Azure resources but can't grant access to others.

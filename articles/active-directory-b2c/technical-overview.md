@@ -258,7 +258,4 @@ Find out more about usage analytics in [Track user behavior in Azure Active Dire
 
 ## Next steps
 
-Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with the service by creating a B2C tenant:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Create an Azure Active Directory B2C tenant >](tutorial-create-tenant.md)
+Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).

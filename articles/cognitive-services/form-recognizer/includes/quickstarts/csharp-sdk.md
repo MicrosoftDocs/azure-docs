@@ -15,7 +15,7 @@ ms.author: pafarley
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
@@ -163,7 +163,7 @@ You can use Form Recognizer to recognize tables, lines, and words in documents, 
 To recognize the content of a file at a given URI, use the **StartRecognizeContentFromUri** method.
 
 ```csharp
-private static async Task<Guid> GetContent(
+private static async Task GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
     Response<FormPageCollection> formPages = await recognizerClient
@@ -209,7 +209,7 @@ This section demonstrates how to recognize and extract common fields from US rec
 To recognize receipts from a URI, use the **StartRecognizeReceiptsFromUri** method. The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The following code processes a receipt at the given URI and prints the major fields and values to the console.
 
 ```csharp
-private static async Task<Guid> AnalyzeReceipt(
+private static async Task AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
     RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
@@ -401,10 +401,10 @@ You'll use the **StartRecognizeCustomFormsFromUri** method. The returned value i
 ```csharp
 // Analyze PDF form data
 private static async Task AnalyzePdfForm(
-    FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
+    FormRecognizerClient recognizerClient, Guid modelId, string formUrl)
 {    
     Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient
-        .StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri))
+        .StartRecognizeCustomFormsFromUri(modelId.ToString(), new Uri(formUrl))
         .WaitForCompletionAsync();
 ```
 

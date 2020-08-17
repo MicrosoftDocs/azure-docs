@@ -204,4 +204,4 @@ Similarly, you may want to implement failback logic based on your specific needs
 
 - Learn how to [receive events at an http endpoint](./receive-events.md)
 - Discover how to [route events to Hybrid Connections](./custom-event-to-hybrid-connection.md)
-- Learn about [disaster recovery using Azure DNS and Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Learn about [disaster recovery using Azure DNS and Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)

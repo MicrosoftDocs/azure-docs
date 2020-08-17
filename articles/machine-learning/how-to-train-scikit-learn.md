@@ -9,7 +9,7 @@ ms.author: jordane
 author: jpe316
 ms.date: 07/24/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
@@ -83,6 +83,7 @@ Create an Azure ML environment from this Conda environment specification. The En
 from azureml.core import Environment
 
 myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
+myenv.docker.enabled = True
 ```
 
 #### Use a curated environment
@@ -101,7 +102,7 @@ This ScriptRunConfig will submit your job for execution on the local compute tar
 from azureml.core import ScriptRunConfig
 
 sklearnconfig = ScriptRunConfig(source_directory='.', script='train_iris.py')
-src.run_config.environment = myenv
+sklearnconfig.run_config.environment = myenv
 ```
 
 If you want to submit against a remote cluster, you can change run_config.target to the desired compute target.

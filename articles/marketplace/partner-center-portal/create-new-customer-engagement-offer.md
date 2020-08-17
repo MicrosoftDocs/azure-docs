@@ -185,6 +185,8 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 Provide logos and images for your offer. All images must be in PNG format.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
@@ -194,6 +196,8 @@ Provide your offer's logo in three pixel sizes:
 - **Small** (required; 48 x 48)
 - **Large** (required; 216 x 216)
 - **Wide** (optional; 255 x 115)
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### Screenshots
 

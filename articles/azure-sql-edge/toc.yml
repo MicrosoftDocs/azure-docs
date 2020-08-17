@@ -8,6 +8,8 @@
     href: features.md
   - name: Release notes
     href: release-notes.md
+  - name: Usage and diagnostics data collection
+    href: usage-and-diagnostics-data-configuration.md
 - name: Quickstarts
   expanded: true
   items:

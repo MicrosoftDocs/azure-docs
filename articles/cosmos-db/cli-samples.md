@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/29/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples for Azure Cosmos DB

@@ -100,7 +100,7 @@ Using this view, you can identify those backup items which have not had a succes
 
 To view inactive resources, navigate to the **Optimize** tab, and click on the **Inactive Resources** tile. Clicking this tile displays a grid which contains details of all the inactive resources that exist in the selected scope. By default, the grid shows items that do not have a recovery point in the last 7 days. To find inactive resources for a different time range, you can adjust the **Time Range** filter at the top of the tab.
 
-Once you have identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource blade for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore), thereby saving on protected instance cost, or you can fix issues in the machine to ensure that backups are taken reliably.
+Once you have identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource blade for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, thereby saving on costs, or you can fix issues in the machine to ensure that backups are taken reliably.
 
 ![Optimize tab - Inactive Resources](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 

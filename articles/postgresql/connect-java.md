@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 06/26/2020
+ms.date: 08/17/2020
 ---
 
 # Use Java and JDBC with Azure Database for PostgreSQL

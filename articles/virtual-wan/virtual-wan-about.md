@@ -94,7 +94,7 @@ The router can have four routing statuses: Provisioned, Provisioning, Failed, or
 * A **None** status indicates that the Virtual hub did not provision the router. This can happen if the Virtual WAN is of type *Basic*, or if the virtual hub was deployed prior to the service being made available.
 * A **Failed** status indicates failure during instantiation. In order to instantiate or reset the router, you can locate the **Reset Router** option by navigating to the virtual hub Overview page in the Azure portal.
 
-Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets in a virtual WAN.
+Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets connected to a single virtual Hub.
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 
@@ -121,10 +121,10 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use  new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
+To use  new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use the new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+To use the new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a>FAQ
 

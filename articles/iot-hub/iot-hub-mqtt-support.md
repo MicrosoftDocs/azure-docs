@@ -427,7 +427,7 @@ As a final consideration, if you need to customize the MQTT protocol behavior on
 
 ## Next steps
 
-To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/documentation).
+To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
 
 To learn more about planning your IoT Hub deployment, see:
 

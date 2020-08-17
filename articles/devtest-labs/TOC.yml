@@ -232,10 +232,12 @@
       href: devtest-lab-mandatory-artifacts.md
     - name: Troubleshoot issues with applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
-  - name: Encrypt storage and OS disks used by labs
+  - name: Encrypt lab resources
     items:
     - name: Encrypt storage used by a lab
       href: encrypt-storage.md
+    - name: Encrypt OS disks using customer-managed keys
+      href: encrypt-disks-customer-managed-keys.md
   - name: Integrate with CI/CD
     items:
     - name: Integrate labs into your Azure Pipelines CI/CD pipeline

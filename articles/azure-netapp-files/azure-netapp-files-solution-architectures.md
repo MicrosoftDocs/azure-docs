@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 08/13/2020
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -39,7 +39,8 @@ This section provides references for Windows applications and SQL Server solutio
 
 ### File sharing and Global File Caching
 
-* [Talon / Azure NetApp Files Deployment](https://youtu.be/91LKb1qsLIM)
+* [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
+* [Global File Cache / Azure NetApp Files Deployment](https://youtu.be/91LKb1qsLIM)
 
 ### SQL Server
 
@@ -79,8 +80,10 @@ This section provides references for Virtual Desktop infrastructure solutions.
 
 ### Windows Virtual Desktop
 
+* [Benefits of using Azure NetApp Files with Windows Virtual Desktop](solutions-windows-virtual-desktop.md)
 * [Storage options for FSLogix profile containers in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Create an FSLogix profile container for a host pool using Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+* [Windows Virtual Desktop at enterprise scale](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## HPC solutions
 

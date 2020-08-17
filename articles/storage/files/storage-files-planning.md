@@ -1,6 +1,6 @@
 ---
 title: Planning for an Azure Files deployment | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
+description: Understand planning for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file share on-premises with Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: conceptual

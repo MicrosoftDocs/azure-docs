@@ -16,6 +16,8 @@ The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https
 
 <br>
 
+ACU: 230-260
+
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported

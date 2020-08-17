@@ -59,6 +59,7 @@ The free App Service Managed Certificate is a turn-key solution for securing you
 - Does not support wildcard certificates.
 - Does not support naked domains.
 - Is not exportable.
+- Is not supported on App Service Environment (ASE)
 - Does not support A records. For example, automatic renewal doesn't work with A records.
 
 > [!NOTE]

@@ -1,4 +1,4 @@
-  - name: Azure Cosmos DB Documentation
+  - name: Azure Cosmos DB documentation
     href: index.yml
   - name: Overview
     items:
@@ -78,7 +78,7 @@
     - name: Python samples
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples-sql.md
+      href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -223,21 +223,30 @@
             - name: Date and time functions
               displayName: date and time functions, date and time, datetime, system functions, built-in functions
               href: sql-query-date-time-functions.md
-            - name: GetCurrentDateTime
-              displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
-              href: sql-query-getcurrentdatetime.md
-            - name: GetCurrentTimestamp
-              displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
-              href: sql-query-getcurrenttimestamp.md
-            - name: DateTimeFromParts
-              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
-              href: sql-query-datetimefromparts.md
             - name: DateTimeAdd
               displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
               href: sql-query-datetimeadd.md
             - name: DateTimeDiff
               displayName: DateTimeDiff, date time diff, date and time functions, datetime
               href: sql-query-datetimediff.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimePart
+              displayName: DateTimePart, date time part, date and time functions, datetime
+              href: sql-query-datetimepart.md
+            - name: DateTimeToTicks
+              displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
+              href: sql-query-datetimetoticks.md
+            - name: GetCurrentDateTime
+              displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
+              href: sql-query-getcurrentdatetime.md
+            - name: GetCurrentTicks
+              displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
+              href: sql-query-getcurrentticks.md
+            - name: GetCurrentTimestamp
+              displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
+              href: sql-query-getcurrenttimestamp.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
@@ -458,12 +467,6 @@
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
-      - name: SQL query execution
-        displayName: query performance, query execution
-        href: sql-query-execution.md
-      - name: Pagination
-        displayName: page, paging, continuation, token, pagination
-        href: sql-query-pagination.md
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
@@ -592,6 +595,8 @@
         href: policy.md
     - name: Service quotas
       href: concepts-limits.md
+    - name: Automatic recommendations
+      href: automated-recommendations.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
@@ -672,7 +677,7 @@
           href: manage-cassandra-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-cassandra.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
     - name: MongoDB API
@@ -766,7 +771,7 @@
           href: manage-mongodb-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-mongodb.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
         - name: Troubleshoot common issues
@@ -826,7 +831,7 @@
           href: manage-gremlin-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-gremlin.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
       - name: Reference
@@ -897,7 +902,7 @@
           href: manage-table-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-table.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
       - name: Reference
@@ -1252,7 +1257,7 @@
         href: sql-api-sdk-dotnet-changefeed.md
       - name: .NET bulk executor library v2
         href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java SDKs
+    - name: Java SDKs and Connectors
       items:
       - name: Java SDK v4
         href: sql-api-sdk-java-v4.md
@@ -1260,6 +1265,10 @@
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
         href: sql-api-sdk-java.md  
+      - name: Spring Data Connector for SQL API
+        href: sql-api-sdk-java-spring.md                
+      - name: Spark Connector for SQL API
+        href: sql-api-sdk-java-spark.md                
       - name: Java bulk executor library v2
         href: sql-api-sdk-bulk-executor-java.md      
     - name: Node.js

@@ -2,7 +2,7 @@
 title: Frequently asked questions (FAQ) - Azure Active Directory | Microsoft Docs
 description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f

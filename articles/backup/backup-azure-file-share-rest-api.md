@@ -101,9 +101,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### Get List of storage accounts that can be protected with Recovery Services vault
+### Get List of storage accounts with file shares that can be backed up with Recovery Services vault
 
-To confirm that “caching” is done, list all protectable storage accounts under the subscription. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) operation.
+To confirm that “caching” is done, list all the storage accounts in the subscription with file shares that can be backed up with the Recovery Services vault. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
