@@ -15,8 +15,7 @@ ms.date: 05/18/2020
 # Set up an indexer connection to a Cosmos DB database using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
-> You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Support for setting up a connection to a data source using a managed identity is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 
 This page describes how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the data source object connection string.
 
@@ -90,7 +89,7 @@ The body of the request contains the data source definition, which should includ
 | **dataChangeDetectionPolicy** | Recommended |
 |**dataDeletionDetectionPolicy** | Optional |
 
-The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
+The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string.
 
 ### 4 - Create the index
 
