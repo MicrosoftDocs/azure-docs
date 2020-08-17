@@ -30,8 +30,9 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in August include:
 
-- [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Service principals recommendation added](#service-principals-recommendation-added)
+- [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 
 
 ### Asset inventory - powerful new view of the security posture of your assets
@@ -45,10 +46,11 @@ You can use the view and its filters to explore your security posture data and t
 Learn more about [asset inventory](asset-inventory.md).
 
 
-### Interval freshness and severity indicator added to recommendation pages
+### Service principals recommendation added
 
-The details pages for Security 
+New recommendation for Security Center customers using management certificates to manage their subscriptions.
 
+The recommendation, **Service principals should be used to protect your subscriptions instead of Management Certificates** advises you to use Service Principals or Azure Resource Manager to more securely manage your subscriptions. 
 
 ### Vulnerability assessment on VMs - recommendations and policies consolidated
 
