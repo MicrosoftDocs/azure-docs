@@ -1,6 +1,6 @@
 ---
 title: Documentation changes for SQL Server on Azure Virtual Machines| Microsoft Docs
-description: Learn about the new features and improvements for SQL Server on Azure Virtual Machines.
+description: Learn about the new features and improvements for different releases of SQL Server on Azure Virtual Machines.
 services: virtual-machines-windows
 author: MashaMSFT
 ms.author: mathoma

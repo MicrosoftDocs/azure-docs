@@ -225,6 +225,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Username | Enter a username |
     | Password | Enter a password |
     | Confirm password | Reenter password |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None** |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   

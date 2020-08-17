@@ -29,6 +29,10 @@ The uploaded protected certificate after storage into key vault would not save p
 
 When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in different formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format and that the key used is either RSA or ECC. Refer these for reviewing [certificate requirements](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) and [certificate key requirements](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
 
+###  Can I import certificate using ARM template?
+
+No, it is not possible to do certifiate operations using ARM templates. Recommended workaround would be to use the certificate import methods in the API or CLI or PowerShell. If you have an exisitng certificate, then you may import it as a secret.
+
 ### Error when importing certificate via Portal "Something went wrong". How can I investigate further?
  	
 To view more descriptive error, import the certificate file via [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).

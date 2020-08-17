@@ -299,27 +299,27 @@ To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry 
  
 For example, you can set it to 0x100000 and see if the performance become better.
 
-## Error AadDsTenantNotFound in enabling Azure Active Directory Domain Service (AAD DS) authentication for Azure Files "Unable to locate active tenants with tenant Id aad-tenant-id"
+## Error AadDsTenantNotFound in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files "Unable to locate active tenants with tenant ID aad-tenant-id"
 
 ### Cause
 
-Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Services (Azure AD DS) authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) on a storage account where [AAD Domain Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is not created on the AAD tenant of the associated subscription.  
+Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Services (Azure AD DS) authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) on a storage account where [Azure AD Domain Service(Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is not created on the Azure AD tenant of the associated subscription.  
 
 ### Solution
 
-Enable AAD DS on the AAD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the AAD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Enable Azure AD DS on the Azure AD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the Azure AD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## Error 'System error 1359 has occurred. An internal error' received over SMB access to file shares with Azure Active Directory Domain Service (AAD DS) authentication enabled
+## Error 'System error 1359 has occurred. An internal error' received over SMB access to file shares with Azure Active Directory Domain Service (Azure AD DS) authentication enabled
 
 ### Cause
 
-Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with AAD DS authentication enabled against an AAD DS with domain DNS name starting with a numeric character. For example, if your AAD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file share using AAD credentials. 
+Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with Azure AD DS authentication enabled against an Azure AD DS with domain DNS name starting with a numeric character. For example, if your Azure AD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file share using Azure AD credentials. 
 
 ### Solution
 
-Currently, you can consider redeploying your AAD DS using a new domain DNS name that applies with the rules below:
+Currently, you can consider redeploying your Azure AD DS using a new domain DNS name that applies with the rules below:
 - Names cannot begin with a numeric character.
 - Names must be from 3 to 63 characters long.
 
@@ -344,7 +344,7 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 4. CheckGetKerberosTicket: Attempt to get a Kerberos ticket to connect to the storage account 
 5. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key
 6. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters.
-7. CheckAadUserHasSid: Check if an Azure AD user has a SID in AD, this check requires user to input Object Id of the Azure AD user with parameter -ObjectId. 
+7. CheckAadUserHasSid: Check if an Azure AD user has a SID in AD, this check requires user to input Object ID of the Azure AD user with parameter -ObjectId. 
 8. CheckStorageAccountDomainJoined: Check the storage account's properties to see that AD authentication has been enabled and the account's AD properties are populated.
 
 ## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer

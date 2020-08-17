@@ -161,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Azure AD SAML Toolkit test user
 
-In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Azure AD SAML Toolkit supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Azure AD SAML Toolkit, a new one is created after authentication.
+In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Please create a test user in the tool by registering a new user and provide all the user details. 
 
 ## Test SSO 
 

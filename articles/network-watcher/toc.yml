@@ -7,14 +7,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Configure NSG Flow logs using ARM Template
-    href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
   - name: Diagnose VM traffic filter problem - PowerShell
     href: diagnose-vm-network-traffic-filtering-problem-powershell.md
   - name: Diagnose VM traffic filter problem - Azure CLI
     href: diagnose-vm-network-traffic-filtering-problem-cli.md
+  - name: Configure NSG Flow logs using ARM Template
+    href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutorials
   items:
   - name: Diagnose a VM routing problem
@@ -49,6 +49,8 @@
     items:
     - name: Security baseline
       href: security-baseline.md
+  - name: Data residency
+    href: data-residency.md
 - name: How-to guides
   items:
   - name: Configure Network Watcher

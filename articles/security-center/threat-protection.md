@@ -109,12 +109,13 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 ### Availability
 
-- Release state: **General availability**
-- Required roles: **Security admin** can dismiss alerts. **Security reader** can view findings.
-- Clouds:<br>
-    ✔ Commercial clouds<br>
-    ✘ US Gov<br>
-    ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Standard tier|
+|Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -145,14 +146,13 @@ For more information, see:
 
 ### Availability
 
-- Release state:
-    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)
-- Clouds:<br>
-    ✔ Commercial clouds<br>
-    ✔ US Gov<br>
-    ✘ China Gov, Other Gov
+|Aspect|Details|
+|----|:----|
+|Release state:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)|
+|Pricing:|Standard tier|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
 
 ### What's protected?
 
@@ -225,7 +225,6 @@ Some network configurations may restrict Security Center from generating alerts 
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
-For details of how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in  Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
 
 
