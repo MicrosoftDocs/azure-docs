@@ -29,6 +29,36 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
    >
    > Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
+### Nested workflow behavior
+
+You can [make a workflow callable](../logic-apps/logic-apps-http-endpoint.md) by other workflows by using the [Request](../connectors/connectors-native-reqres.md) trigger, [HTTP Webhook](../connectors/connectors-native-webhook.md) trigger, or managed connector triggers that have the [ApiConnectionWehook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+
+Here are the various behavior patterns that nested workflows can follow when a parent workflow calls a child workflow:
+
+* Asynchronous polling pattern
+
+  The parent continually checks the child's run history until the child finishes running and doesn't wait for a response to the original call that they sent to the child workflow. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
+
+* Synchronous pattern ("fire and forget")
+
+  The child immediately returns a `202 ACCEPTED` response that acknowledges the call, and the parent continues to the next action without waiting. The run history for child stateful workflows is available for you to review. To enable this behavior, in the trigger's JSON definition, set the `OperationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+
+  <*What does this mean?*> Child workflows that don't return responses are triggered using the synchronous pattern?
+
+* Trigger and wait
+
+  This pattern applies to child stateless workflows where the parent waits for a response, which is the output from the child workflow. This pattern works similar to using the built-in [HTTP trigger or action to call a child workflow](../connectors/connectors-native-http.md). Currently, all stateless workflows require a response.
+
+This table specifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types:
+
+| Parent workflow | Child workflow | Child behavior |
+|-----------------|----------------|----------------|
+| Stateful | Stateful | Asynchronous or synchronous with `operationOptions=DisableSynPattern` setting |
+| Stateful | Stateless | Trigger and wait |
+| Stateless | Stateful | Synchronous |
+| Stateless | Stateless | Trigger and wait |
+||||
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
