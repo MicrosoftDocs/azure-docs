@@ -3,16 +3,16 @@ title: Review access of an access package in Azure AD entitlement management
 description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/01/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ Use the following steps to find and open the access review:
 
 1. Click the **Review user access** link to open the access review. 
 
-1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com.
+1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com.  (For US Government, use `https://myaccess.microsoft.us` instead.)
 
 1. Click **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
     

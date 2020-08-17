@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: [mvc, seo-javascript-september2019, mqtt, 'Role: Cloud Development', devx-track-javascript]
 ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
@@ -42,8 +42,10 @@ node --version
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
@@ -77,19 +79,19 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You'll use this value later in the quickstart.
 
-1. You also need a _service connection string_ to enable the back-end application to connect to your IoT hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
+1. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _service primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
 
-   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --policy-name service --output table
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
+
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
+
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    Make a note of the service connection string, which looks like:
-
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
-
-    You'll use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
+    Make a note of these three values, which you'll use later in the quickstart.
 
 ## Send simulated telemetry
 
@@ -118,9 +120,13 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 1. Open another local terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **iot-hub\Quickstarts\read-d2c-messages** folder.
 
-1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
+1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice. Update the following variables and save your changes to the file.
 
-    Replace the value of the `connectionString` variable with the service connection string you made a note of earlier. Then save your changes to **ReadDeviceToCloudMessages.js**.
+    | Variable | Value |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
+    | `eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
+    | `iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
 1. In the local terminal window, run the following commands to install the required libraries and run the back-end application:
 

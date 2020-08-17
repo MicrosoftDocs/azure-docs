@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Choose the right MariaDB Server option in Azure
@@ -26,7 +26,7 @@ When making your decision, consider the following two options:
 
 The main differences between these options are listed in the following table:
 
-|            | Azure Database for MariaDB | MariaDB on Azure VMs    |
+| Attribute          | Azure Database for MariaDB | MariaDB on Azure VMs    |
 |:-------------------|:-----------------------------|:--------------------|
 | Service-level agreement (SLA)                | Offers SLA of 99.99% availability| Up to 99.95% availability with two or more instances in the same availability set.<br/><br/>99.9% availability with a single instance VM using premium storage.<br/><br/>99.99% using Availability Zones with multiple instances in multiple availability sets.<br/><br/>See the [Virtual Machines SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Operating system patching        | Automatic  | Managed by customers |
@@ -97,4 +97,4 @@ The following list describes administrative considerations for each option:
 ## Next steps
 
 * See [Azure Database for MariaDB pricing](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Get started by [creating your first server](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Get started by [creating your first server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

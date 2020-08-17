@@ -32,7 +32,7 @@ To concatenate rows from two datasets, the rows must have exactly  the same sche
 
 2. Connect the datasets to the two input ports. The dataset that you want to append should be connected to the second (right) port. 
   
-3.  Run the pipeline. The number of rows in the output dataset should equal the sum of the rows of both input datasets.
+3.  Submit the pipeline. The number of rows in the output dataset should equal the sum of the rows of both input datasets.
 
     If you add the same dataset to both inputs of the **Add Rows** module, the dataset is duplicated. 
 

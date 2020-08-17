@@ -125,12 +125,15 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 * _Minimum Instance Count_ defines the lower limit for scaling. If number of partitions of the service reaches this limit, then service will not be scaled in regardless of the load.
 
 > [!WARNING] 
-> When AddRemoveIncrementalNamedPartitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale up operation, new partitions will be empty, and in case of scale down operation, **partition will be deleted together with all the data that it contains**.
+> When AddRemoveIncrementalNamedPartitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale out operation, new partitions will be empty, and in case of scale in operation, **partition will be deleted together with all the data that it contains**.
 
 ## Setting auto scaling policy
 
 ### Using application manifest
 ``` xml
+<NamedPartition>
+    <Partition Name="0" />
+</NamedPartition>
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>

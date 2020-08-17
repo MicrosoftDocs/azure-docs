@@ -1,29 +1,30 @@
 ---
-title: "Tutorial - Use Distributed Tracing with Azure Spring Cloud"
-description: This tutorial shows how to use Spring Cloud's Distributed Tracing through Azure Application Insights
+title: "Use Distributed Tracing with Azure Spring Cloud"
+description: Learn how to use Spring Cloud's distributed tracing through Azure Application Insights
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Use distributed tracing with Azure Spring Cloud
 
-With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
+With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
 
 In this article you learn how to:
 
 > [!div class="checklist"]
 > * Enable distributed tracing in the Azure portal.
-> * Add Azure Spring Cloud Sleuth to your application.
+> * Add Spring Cloud Sleuth to your application.
 > * View dependency maps for your microservice applications.
 > * Search tracing data with different filters.
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
-	
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to provision and run an Azure Spring Cloud service.
+    
 ## Add dependencies
 
 1. Add the following line to the application.properties file:
@@ -34,7 +35,7 @@ To complete this tutorial, you need an Azure Spring Cloud service that is alread
 
    After this change, the Zipkin sender can send to the web.
 
-1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](spring-cloud-tutorial-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Azure Spring Cloud Sleuth dependency:
+1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](spring-cloud-tutorial-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
 
     ```xml
     <dependencyManagement>
@@ -97,7 +98,4 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this tutorial, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn how to bind your application to an Azure Cosmos DB database, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Learn how to bind to an Azure Cosmos DB database](spring-cloud-tutorial-bind-cosmos.md)
+In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-tutorial-bind-cosmos.md).

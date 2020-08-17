@@ -16,30 +16,38 @@
     href: how-to-routefilter-portal.md
 - name: Concepts
   items:
+  - name: Work remotely
+    items:
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Hybrid connectivity for remote users
+      href: work-remotely-support.md
   - name: Connectivity models
     href: expressroute-connectivity-models.md
-  - name: Circuits and peering
-    href: expressroute-circuit-peerings.md
   - name: Locations and partners
     items:
     - name: Providers by location
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: About virtual network gateways
-    href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
   - name: Workflows
     href: expressroute-workflows.md
   - name: Routing requirements
     href: expressroute-routing.md
+  - name: Circuits and peering
+    items:
+    - name: About circuits and peering
+      href: expressroute-circuit-peerings.md
+    - name: About upgrading circuit bandwidth
+      href: about-upgrade-circuit-bandwidth.md
+    - name: Moving circuits from classic to Resource Manager
+      href: expressroute-move.md
   - name: BFD over ExpressRoute
     href: expressroute-bfd.md
   - name: QoS requirements
     href: expressroute-qos.md
-  - name: About moving circuits from classic to Resource Manager
-    href: expressroute-move.md
   - name: About ExpressRoute FastPath
     href: about-fastpath.md
   - name: About ExpressRoute Direct
@@ -48,6 +56,14 @@
     href: expressroute-global-reach.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Security attributes
+      href: expressroute-security-controls.md
+  - name: About virtual network gateways
+    href: expressroute-about-virtual-network-gateways.md
   - name: Connect Azure to public cloud
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Backend Connectivity Interoperability
@@ -62,11 +78,9 @@
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
-  - name: Built-in security controls
-    href: expressroute-security-controls.md
-  - name: Designing for High Availability
+  - name: High Availability - Design
     href: designing-for-high-availability-with-expressroute.md
-  - name: Designing for Disaster Recovery
+  - name: Disaster Recovery - Design
     items:
     - name: Private Peering
       href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
@@ -123,6 +137,8 @@
     href: expressroute-howto-coexist-resource-manager.md
   - name: Configure ExpressRoute Direct
     items:
+    - name: Azure portal
+      href: how-to-expressroute-direct-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-erdirect.md
     - name: Azure CLI
@@ -159,6 +175,8 @@
       href: expressroute-monitoring-metrics-alerts.md
     - name: Configure Network Performance Monitor for ExpressRoute
       href: how-to-npm.md
+    - name: Configure custom alerts to monitor advertised routes
+      href: how-to-custom-route-alert.md
   - name: Classic and legacy articles
     items:
     - name: Modify a circuit
@@ -230,8 +248,6 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: ExpressRoute for Cloud Solution Providers (CSP)
     href: expressroute-for-cloud-solution-providers.md
-  - name: CrossConnections API development for partners
-    href: cross-connections-api-development.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
     items:

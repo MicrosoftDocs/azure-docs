@@ -32,6 +32,8 @@ landingContent:
           url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
         - text: Azure App Configuration on Cloud Native Show
           url: https://www.youtube.com/watch?v=DJqmA5PcfzE
+        - text: Feature filtering at Azure Friday 
+          url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
       - linkListType: whats-new
         links:
         - text: Follow our announcements
@@ -58,6 +60,8 @@ landingContent:
           url: quickstart-azure-functions-csharp.md
         - text: Code a Spring Boot app
           url: quickstart-java-spring-app.md
+        - text: Azure Resource Manager template
+          url: quickstart-resource-manager.md       
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
@@ -72,6 +76,8 @@ landingContent:
         links:  
         - text: Integrate with a CI/CD pipeline
           url: integrate-ci-cd-pipeline.md
+        - text: Integrate with Kubernetes deployment using Helm
+          url: integrate-kubernetes-deployment-helm.md
       - linkListType: tutorial
         links:  
         - text: Use Key Vault references in an ASP.NET Core app

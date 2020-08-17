@@ -1,5 +1,5 @@
 ---
-title: What is the Apache Hadoop technology stack? - Azure HDInsight
+title: What are Apache Hadoop and MapReduce - Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop technology stack and components.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -44,7 +44,7 @@ Languages or frameworks that are based on Java and the Java Virtual Machine can 
 
 Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT. The mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab character:
 
-    [key]/t[value]
+`[key]\t[value]`
 
 For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/current/hadoop-streaming/HadoopStreaming.html).
 

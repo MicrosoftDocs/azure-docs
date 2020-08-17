@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
+ms.custom: mqtt
 ---
 
 # Schedule and broadcast jobs (.NET)

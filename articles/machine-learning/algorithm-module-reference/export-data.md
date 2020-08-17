@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 07/28/2020
 ---
 # Export Data module
 
@@ -21,8 +21,9 @@ This module supports exporting your data to the following cloud data services:
 
 - Azure Blob Container
 - Azure File Share
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Azure Data Lake Storage Gen1
+- Azure Data Lake Storage Gen2
+- Azure SQL database
 
 Before exporting your data, you need to first register a datastore in your Azure Machine Learning workspace. For more information, see [Access data in Azure storage services](../how-to-access-data.md).
 
@@ -36,6 +37,9 @@ Before exporting your data, you need to first register a datastore in your Azure
 
 1. For **Datastore**, select an existing datastore from the dropdown list. You can also create a new datastore. Check how by visiting [Access data in Azure storage services](../how-to-access-data.md).
 
+    > [!NOTE]
+    > Exporting data of a certain data type to a SQL database column specified as another data type is not supported. The target table does not need to exist first.
+
 1. The checkbox, **Regenerate output**, decides whether to execute the module to regenerate output at running time. 
 
     It's by default unselected, which means if the module has been executed with the same parameters previously, the system will reuse the output from last run to reduce run time. 
@@ -47,7 +51,7 @@ Before exporting your data, you need to first register a datastore in your Azure
 
 1. For **File format**, select the format in which data should be stored.
  
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Next steps
 

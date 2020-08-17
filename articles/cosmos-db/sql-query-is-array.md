@@ -47,6 +47,10 @@ SELECT
 [{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
 ```  
 
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+
 ## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)

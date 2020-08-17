@@ -5,12 +5,12 @@ author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/12/2019
+ms.topic: how-to
+ms.date: 08/06/2020
 ---
 # Configuring event ordering policies for Azure Stream Analytics
 
-This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query.
+This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query, and they are only applied for cloud input sources.
 
 ## Event time and Arrival Time
 
@@ -69,6 +69,11 @@ When multiple partitions from the same input stream are combined, the late arriv
 This message to inform you that at least one partition in your input is empty and will delay your output by the late arrival threshold. To overcome this, it is recommended you either:  
 1. Ensure all partitions of your Event Hub/IoT Hub receive input. 
 2. Use Partition by PartitionID clause in your query. 
+
+## Why do I see a delay of 5 seconds even when my late arrival policy is set to 0?
+This happens when there is an input partition that has never received any input. You can verify the input metrics by partition to validate this behavior. 
+
+When a partition does not have any data for more than the configured late arrival threshold, stream analytics advances application timestamp as explained in event ordering considerations section. This requires estimated arrival time. If the partition never had any data, stream analytics estimates the arrival time as *local time - 5 seconds*. Due to this partitions that never had any data could show a watermark delay of 5 seconds.  
 
 ## Next steps
 * [Time handling considerations](stream-analytics-time-handling.md)

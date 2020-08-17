@@ -24,7 +24,6 @@ The Data Box Gateway solution consists of four main components that interact wit
 - **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Data Box Gateway device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Data Box Gateway resource that you create.
 
-
 ## Data Box Gateway service protection
 
 The Data Box Gateway service is a management service that's hosted in Azure. The service is used to configure and manage the device.
@@ -35,7 +34,7 @@ The Data Box Gateway service is a management service that's hosted in Azure. The
 
 The Data Box Gateway device is a virtual device that's provisioned in the hypervisor of an on-premises system that you provide. The device helps send data to Azure. Your device:
 
-- Needs an activation key to access the Data Box Edge/Data Box Gateway service.
+- Needs an activation key to access the Azure Stack Edge/Data Box Gateway service.
 - Is protected at all times by a device password.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
@@ -60,7 +59,6 @@ You can:
 [!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so that they don't have problems signing in.
 
-
 ## Protect your data
 
 This section describes the Data Box Gateway security features that protect in-transit and stored data.
@@ -73,10 +71,18 @@ This section describes the Data Box Gateway security features that protect in-tr
 
 [!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### Protect data via storage accounts
+### Protect data using storage accounts
 
 [!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+
 - Rotate and then [sync your storage account keys](data-box-gateway-manage-shares.md#sync-storage-keys) regularly to help protect your storage account from unauthorized users.
+
+### Protect the device data using BitLocker
+
+To secure the virtual disks on your Data Box Gateway virtual machine, we recommend that you enable BitLocker. By default, BitLocker is not enabled. For more information, see:
+
+- [Encryption support settings in Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [BitLocker support in a virtual machine](https://kb.vmware.com/s/article/2036142)
 
 ## Manage personal information
 

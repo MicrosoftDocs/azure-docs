@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 02/09/2020
+ms.date: 06/30/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -28,7 +28,7 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 > in Azure Policy is only a partial view of your overall compliance status. The associations between
 > controls and Azure Policy definitions for this compliance blueprint sample may change over time.
 > To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## AC-2 Account Management
 
@@ -46,8 +46,8 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active Directory
 authentication for SQL Servers and Service Fabric. Using Azure Active Directory authentication
@@ -101,8 +101,8 @@ virtual machine administrator permissions can help you implement appropriate sep
 
 ## AC-6 (7) Least Privilege | Review of User Privileges
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized
 for review. Reviewing these account indicators can help you ensure least privilege controls are
@@ -130,6 +130,22 @@ indicators can help you ensure remote access methods comply with your security p
 - Remote debugging should be turned off for API App
 - Remote debugging should be turned off for Function App
 - Remote debugging should be turned off for Web Application
+
+## AC-23 Data Mining
+
+This blueprint provides policy definitions that help you ensure data security notifications are
+properly enabled. In addition, this blueprint ensures that auditing and advanced data security are
+configured on SQL Servers.
+
+- Advanced data security should be enabled on your SQL servers
+- Advanced data security should be enabled on your SQL managed instances
+- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
+- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
+- Auditing should be enabled on advanced data security settings on SQL Server
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
 
 ## AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
 
@@ -175,16 +191,14 @@ Analytics agent on Azure virtual machines.
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
-assessment on virtual machines, virtual machine scale sets, SQL managed instances and SQL servers.
-These policy definitions also audit configuration of diagnostic logs to provide insight into
-operations that are performed within Azure resources. These insights provide real-time information
-about the security state of your deployed resources and can help you prioritize remediation actions.
-For detailed vulnerability scanning and monitoring, we recommend you leverage Azure Sentinel and
-Azure Security Center as well.
+assessment on virtual machines, virtual machine scale sets, SQL Database servers, and SQL Managed
+Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
+insight into operations that are performed within Azure resources. These insights provide real-time
+information about the security state of your deployed resources and can help you prioritize
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+Azure Sentinel and Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
-- \[Preview\]: Enable Azure Monitor for VMs
-- \[Preview\]: Enable Azure Monitor for VM Scale Sets (VMSS)
 - Vulnerability assessment should be enabled on your SQL servers
 - Audit diagnostic setting
 - Vulnerability assessment should be enabled on your SQL managed instances
@@ -193,6 +207,8 @@ Azure Security Center as well.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
+- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
 
 ## AU-12 Audit Generation
 
@@ -229,34 +245,34 @@ settings are enabled or not.
 ## CM-7 (2) Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application whitelist is recommended but has not yet been configured.
+virtual machines where an application allow list is recommended but has not yet been configured.
 
-- Adaptive Application Controls should be enabled on virtual machines
+- Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application whitelist is recommended but has not yet
+helps you monitor virtual machines where an application allow list is recommended but has not yet
 been configured.
 
-- Adaptive Application Controls should be enabled on virtual machines
+- Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application whitelist is recommended but
+definition that helps you monitor virtual machines where an application allow list is recommended but
 has not yet been configured.
 
-- Adaptive Application Controls should be enabled on virtual machines
+- Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CP-7 Alternate Processing Site
 
@@ -339,6 +355,19 @@ with your organization's password policy.
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
+
+## IR-6 (2) Incident Reporting | Vulnerabilities Related to Incidents
+
+This blueprint provides policy definitions that audit records with analysis of vulnerability
+assessment on virtual machines, virtual machine scale sets, and SQL servers. These insights provide
+real-time information about the security state of your deployed resources and can help you prioritize
+remediation actions.
+
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
+- Vulnerabilities in security configuration on your machines should be remediated
+- Vulnerabilities in container security configurations should be remediated
+- Vulnerabilities on your SQL databases should be remediated
 
 ## RA-5 Vulnerability Scanning
 
@@ -458,6 +487,32 @@ of the operating system for virtual machine scale sets.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
+## SI-02 (06) Flaw Remediation | Removal of Previous Versions of Software / Firmware
+
+This blueprint assigns policy definitions that help you ensure applications are using the latest
+version of the .NET Framework, HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
+a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
+
+- Ensure that '.Net Framework' version is the latest, if used as a part of the API app
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Function App
+- Ensure that '.Net Framework' version is the latest, if used as a part of the Web app
+- Ensure that 'HTTP Version' is the latest, if used to run the Api app
+- Ensure that 'HTTP Version' is the latest, if used to run the Function app
+- Ensure that 'HTTP Version' is the latest, if used to run the Web app
+- Ensure that 'Java version' is the latest, if used as a part of the Api app
+- Ensure that 'Java version' is the latest, if used as a part of the Function app
+- Ensure that 'Java version' is the latest, if used as a part of the Web app
+- Ensure that 'PHP version' is the latest, if used as a part of the Api app
+- Ensure that 'PHP version' is the latest, if used as a part of the Function app
+- Ensure that 'PHP version' is the latest, if used as a part of the WEB app
+- Ensure that 'Python version' is the latest, if used as a part of the Api app
+- Ensure that 'Python version' is the latest, if used as a part of the Function app
+- Ensure that 'Python version' is the latest, if used as a part of the Web app
+- Latest TLS version should be used in your API App
+- Latest TLS version should be used in your Function App
+- Latest TLS version should be used in your Web App
+- \[Preview\]: Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version
+
 ## SI-3 Malicious Code Protection
 
 This blueprint helps you manage endpoint protection, including malicious code protection, by
@@ -505,6 +560,22 @@ you can take appropriate action.
 - Allowed locations
 - Allowed locations for resource groups
 
+## SI-4 (12) Information System Monitoring | Automated Alerts
+
+This blueprint provides policy definitions that help you ensure data security notifications are
+properly enabled. In addition, this blueprint ensures that the standard pricing tier is enabled
+for Azure Security Center. Note that the standard pricing tier enables threat detection for networks
+and virtual machines, providing threat intelligence, anomaly detection, and behavior analytics in
+Azure Security Center.
+
+- Email notification to subscription owner for high severity alerts should be enabled
+- A security contact email address should be provided for your subscription 
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings 
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings 
+- A security contact phone number should be provided for your subscription
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Security Center standard pricing tier should be selected
+
 ## SI-4 (18) Information System Monitoring | Analyze Traffic / Covert Exfiltration
 
 Advanced Threat Protection for Azure Storage detects unusual and potentially harmful attempts to
@@ -527,7 +598,7 @@ articles to learn about the blueprint and how to deploy this sample:
 > [DoD Impact Level 4 blueprint - Overview](./index.md)
 > [DoD Impact Level 4 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

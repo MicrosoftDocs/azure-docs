@@ -46,6 +46,10 @@ SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(
    }]  
 ```  
 
+## Remarks
+
+This system function will not utilize the index.
+
 ## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)

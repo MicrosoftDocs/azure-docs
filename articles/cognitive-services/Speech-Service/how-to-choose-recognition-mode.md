@@ -3,14 +3,15 @@ title: Choose a speech recognition mode with the Speech SDK
 titleSuffix: Azure Cognitive Services
 description: Learn how to choose the best recognition mode when using the Speech SDK.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.author: dapine
-zone_pivot_groups: programming-languages-set-two
+ms.date: 03/10/2020
+ms.author: trbye
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.custom: devx-track-javascript
 ---
 
 # Choose a speech recognition mode
@@ -28,7 +29,7 @@ At the end of one recognized utterance, the service stops processing audio from 
 For more information on using the `RecognizeOnceAsync` function, see the [.NET Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
-var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
+var result = await recognizer.RecognizeOnceAsync();
 ```
 
 ::: zone-end
@@ -59,6 +60,17 @@ result = speech_recognizer.recognize_once()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+For more information on using the `recognizeOnceAsync` function, see the [Speech SDK for JavaScript docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync--e--speechrecognitionresult-----void---e--string-----void-).
+
+```JavaScript
+recognizer.recognizeOnceAsync((result)=>{}, (error)=>{}));
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
@@ -67,7 +79,7 @@ For additional languages, see the [Speech SDK reference docs](speech-to-text.md#
 
 ## Continuous
 
-If you need long-running recognition, use the start and corresponding stop functions for continuous recognition. The start function will start and continue processing all utterances until you invoke the stop function, or until too much time in silence has passed. When using the continuous mode, be sure to register to the various events that will fire upon occurrence. For example, the "recognized" event fires when speech recognition occurs. You need to have an event handler in place to handle recognition. A limit of 10 minutes of total speech recognition time, per session is enforced by the Speech service.
+If you need long-running recognition, use the start and corresponding stop functions for continuous recognition. The start function will start and continue processing all utterances until you invoke the stop function, or until too much time in silence has passed. When using the continuous mode, be sure to register to the various events that will fire upon occurrence. For example, the "recognized" event fires when speech recognition occurs. You need to have an event handler in place to handle recognition.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -83,10 +95,10 @@ recognizer.Recognized += (s, e) =>
 };
 
 // Start continuous speech recognition
-await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StartContinuousRecognitionAsync();
 
 // Stop continuous speech recognition
-await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
+await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ::: zone-end
@@ -147,6 +159,26 @@ speech_recognizer.stop_continuous_recognition()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+recognizer.recognized = (s, e) => {
+    if (e.result.reason == ResultReason.RecognizedSpeech) {
+        // Do something with the recognized text
+        // e.getResult().getText()
+    }
+});
+
+// Start continuous speech recognition
+recognizer.startContinuousRecognitionAsync(()=>{}, (error)=>{});
+
+// Stop continuous speech recognition
+recognizer.stopContinuousRecognitionAsync(()=>{}, (error)=>{});
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
@@ -197,6 +229,18 @@ SpeechConfig.enable_dictation()
 ```
 
 ::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+For more information on using the `enableDictation` function, see the [Speech SDK for JavaScript docs](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--).
+
+```JavaScript
+// Enable diction
+speechConfig.enableDictation();
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-more"
 
 For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).

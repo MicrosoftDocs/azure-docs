@@ -1,17 +1,9 @@
 ---
 title: Time sync for Windows VMs in Azure
 description: Time sync for Windows virtual machines.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
@@ -27,7 +19,7 @@ Azure is now backed by infrastructure running Windows Server 2016. Windows Serve
 >[!NOTE]
 >For a quick overview of Windows Time service, take a look at this [high-level overview video](https://aka.ms/WS2016TimeVideo).
 >
-> For more information, see [Accurate time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> For more information, see [Accurate time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## Overview
 
@@ -175,10 +167,8 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 Below are links to more details about the time sync:
 
-- [Windows Time Service Tools and Settings](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
+- [Windows Time Service Tools and Settings](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
 - [Windows Server 2016 Improvements
-](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
-
-
+](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Accurate Time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](/windows-server/networking/windows-time-service/support-boundary)

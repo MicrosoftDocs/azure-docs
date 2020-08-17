@@ -1,9 +1,9 @@
 ---
 title: Understanding Azure CDN billing | Microsoft Docs
-description: This FAQ describes how Azure CDN billing works.
+description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Understanding Azure CDN billing
@@ -110,7 +110,8 @@ If you use one of the following Azure services as your CDN origin, you will not 
 - Azure Cosmos DB
 - Azure Data Lake Store
 - Azure Machine Learning 
-- Azure SQL database
+- Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Cache for Redis
 
 ## How do I manage my costs most effectively?

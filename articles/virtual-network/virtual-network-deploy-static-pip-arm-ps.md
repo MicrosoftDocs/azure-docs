@@ -1,21 +1,17 @@
 ---
 title: Create a VM with a static public IP address - PowerShell | Microsoft Docs
-description: Learn how to create a VM with a static public IP address using PowerShell.
+description: Create a virtual machine (VM) with a static public IP address using PowerShell. Static public IP addresses are addresses that never change.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
-ms.devlang: azurecli
-ms.topic: article
+ms.subservice: ip-services
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Create a virtual machine with a static public IP address using PowerShell
@@ -46,7 +42,7 @@ You can complete the following steps from your local computer or by using the Az
      -AllocationMethod "Static"
    ```
 
-   If the public IP address must be a standard SKU, you have to [create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address), [create a network interface](virtual-network-network-interface.md#create-a-network-interface), [assign the public IP address to the network interface](virtual-network-network-interface-addresses.md#add-ip-addresses), and then [create a virtual machine with the network interface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), in separate steps. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
+   If the public IP address must be a standard SKU, you have to [create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address), [create a network interface](virtual-network-network-interface.md#create-a-network-interface), [assign the public IP address to the network interface](virtual-network-network-interface-addresses.md#add-ip-addresses), and then [create a virtual machine with the network interface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), in separate steps. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
 4. View the public IP address assigned and confirm that it was created as a static address, with [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 

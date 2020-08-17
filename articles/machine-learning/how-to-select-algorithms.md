@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-
+ms.custom: how-to
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 01/21/2020
+ms.date: 05/07/2020
 ---
 # How to select algorithms for Azure Machine Learning
 
@@ -35,7 +35,35 @@ Machine Learning designer provides a comprehensive portfolio of algorithms, such
 
 Along with guidance in the Azure Machine Learning Algorithm Cheat Sheet, keep in mind other requirements when choosing a machine learning algorithm for your solution. Following are additional factors to consider, such as the accuracy, training time, linearity, number of parameters and number of features.
 
-## Additional requirements for a data science scenario
+## Comparison of machine learning algorithms
+
+Some learning algorithms make particular assumptions about the structure of the data or the desired results. If you can find one that fits your needs, it can give you more useful results, more accurate predictions, or faster training times.
+
+The following table summarizes some of the most important characteristics of algorithms from the classification, regression, and clustering families:
+
+| **Algorithm** | **Accuracy** | **Training time** | **Linearity** | **Parameters** | **Notes** |
+| --- |:---:|:---:|:---:|:---:| --- |
+| **Classification family** | | | | | |
+| [Two-Class logistic regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Good  |Fast |Yes |4 | |
+| [Two-class decision forest](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |5 |Shows slower scoring times. Suggest not working with One-vs-All Multiclass, because of slower scoring times caused by tread locking in accumulating tree predictions |
+| [Two-class boosted decision tree](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 |Large memory footprint |
+| [Two-class neural network](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
+| [Two-class averaged perceptron](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Good |Moderate |Yes |4 | |
+| [Two-class support vector machine](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |5 |Good for large feature sets |
+| [Multiclass logistic regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |4 | |
+| [Multiclass decision forest](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |5 |Shows slower scoring times |
+| [Multiclass boosted decision tree](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 | Tends to improve accuracy with some small risk of less coverage |
+| [Multiclass neural network](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
+| [One-vs-all multiclass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |See properties of the two-class method selected |
+| **Regression family** | | | | | |
+| [Linear regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Good |Fast |Yes |4 | |
+| [Decision forest regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Excellent |Moderate |No |5 | |
+| [Boosted decision tree regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |No |6 |Large memory footprint |
+| [Neural network regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Good |Moderate |No |8 | |
+| **Clustering family** | | | | | |
+| [K-means clustering](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Excellent |Moderate |Yes |8 |A clustering algorithm |
+
+## Requirements for a data science scenario
 
 Once you know what you want to do with your data, you need to determine additional requirements for your solution. 
 
@@ -115,9 +143,8 @@ Feature selection refers to the process of applying statistical tests to inputs,
 
 You can also use the [Permutation Feature Importance module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) to compute a set of feature importance scores for your dataset. You can then leverage these scores to help you determine the best features to use in a model.
 
-
 ## Next steps
 
- - [Learn more about Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - [Learn more about Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
  - For descriptions of all the machine learning algorithms available in Azure Machine Learning designer, see [Machine Learning designer algorithm and module reference](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - To explore the relationship between deep learning, machine learning, and AI, see [Deep Learning vs. Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - To explore the relationship between deep learning, machine learning, and AI, see [Deep Learning vs. Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)

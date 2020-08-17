@@ -1,11 +1,11 @@
 ---
 title: Configure the Azure MFA NPS extension - Azure Active Directory
-description: After you install the NPS extension, use these steps for advanced configuration like IP whitelisting and UPN replacement.
+description: After you install the NPS extension, use these steps for advanced configuration like allowed IP lists and UPN replacement.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
 ms.author: iainfou

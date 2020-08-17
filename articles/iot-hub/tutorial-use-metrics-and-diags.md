@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, mqtt, devx-track-azurecli]
 #Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 ---
 
@@ -68,7 +68,7 @@ The variables that must be globally unique have `$RANDOM` concatenated to them. 
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -99,7 +99,7 @@ echo "Storage account name = " $storageAccountName
 # Create the storage account.
 az storage account create --name $storageAccountName \
     --resource-group $resourceGroup \
-	--location $location \
+    --location $location \
     --sku Standard_LRS
 
 # Create the IoT device identity to be used for testing.
@@ -119,7 +119,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >Here is the command to update the extension. Run this in your Cloud Shell instance.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## Enable the diagnostic logs 

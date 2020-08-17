@@ -15,6 +15,8 @@ ms.date: 09/07/2019
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2. 
 
  > [!NOTE]

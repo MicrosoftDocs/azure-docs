@@ -1,5 +1,5 @@
 ---
-title: 'Azure Premium Storage: Design for performance on Linux VMs | Microsoft Docs'
+title: 'Azure Premium Storage: Design for high performance | Microsoft Docs'
 description: Design high-performance applications using Azure premium SSD managed disks. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 author: roygara
 ms.service: virtual-machines-linux
@@ -29,5 +29,5 @@ Learn more about the available disk types: [Select a disk type](disks-types.md)
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
-* [Performance Best Practices for SQL Server in Azure Virtual Machines](../windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Performance Best Practices for SQL Server in Azure Virtual Machines](../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

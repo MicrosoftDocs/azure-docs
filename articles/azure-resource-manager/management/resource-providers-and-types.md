@@ -2,7 +2,8 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Resource Manager, their schemas and available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 08/29/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure resource providers and types
@@ -79,7 +80,7 @@ Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, Registr
 
 Which returns results similar to:
 
-```powershell
+```output
 ProviderNamespace                RegistrationState
 -------------------------------- ------------------
 Microsoft.ClassicCompute         Registered
@@ -97,7 +98,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 
 Which returns results similar to:
 
-```powershell
+```output
 ProviderNamespace : Microsoft.Batch
 RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
@@ -114,7 +115,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 
 Which returns results similar to:
 
-```powershell
+```output
 {ProviderNamespace : Microsoft.Batch
 RegistrationState : Registered
 ResourceTypes     : {batchAccounts}
@@ -131,7 +132,7 @@ To see the resource types for a resource provider, use:
 
 Which returns:
 
-```powershell
+```output
 batchAccounts
 operations
 locations
@@ -148,7 +149,7 @@ To get the available API versions for a resource type, use:
 
 Which returns:
 
-```powershell
+```output
 2017-05-01
 2017-01-01
 2015-12-01
@@ -166,7 +167,7 @@ To get the supported locations for a resource type, use.
 
 Which returns:
 
-```powershell
+```output
 West Europe
 East US
 East US 2
@@ -184,7 +185,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 
 Which returns results similar to:
 
-```azurecli
+```output
 Provider                         Status
 -------------------------------- ----------------
 Microsoft.ClassicCompute         Registered
@@ -212,7 +213,7 @@ az provider show --namespace Microsoft.Batch
 
 Which returns results similar to:
 
-```azurecli
+```output
 {
     "id": "/subscriptions/####-####/providers/Microsoft.Batch",
     "namespace": "Microsoft.Batch",
@@ -231,7 +232,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceT
 
 Which returns:
 
-```azurecli
+```output
 Result
 ---------------
 batchAccounts
@@ -250,7 +251,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 
 Which returns:
 
-```azurecli
+```output
 Result
 ---------------
 2017-05-01
@@ -270,7 +271,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 
 Which returns:
 
-```azurecli
+```output
 Result
 ---------------
 West Europe

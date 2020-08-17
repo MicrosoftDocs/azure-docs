@@ -34,7 +34,7 @@ For sample logic app templates, see these examples:
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 <a name="template-structure"></a>
 
@@ -116,7 +116,7 @@ This example shows just the template parameters for the values used to create an
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location for the logic app"
@@ -323,7 +323,7 @@ Here are the attributes that are specific to your logic app resource definition:
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 <a name="workflow-definition-parameters"></a>
 
@@ -389,7 +389,9 @@ This syntax shows where you can declare parameters at both the template and work
             },
             // Workflow definition parameter value
             "parameters": {
-               "<workflow-definition-parameter-name>": "[parameters('<template-parameter-name>')]"
+               "<workflow-definition-parameter-name>": { 
+                  "value": "[parameters('<template-parameter-name>')]"
+               }
             },
             "accessControl": {}
          },
@@ -906,7 +908,7 @@ Here is an example that provides the account name and access key for an Azure Bl
 
 ### Authenticate connections
 
-After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-scenarios.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Some connections support using an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template declares these parameters:
 
@@ -1002,7 +1004,7 @@ The template's top-level `parameters` object declares these parameters for the e
 For more information about working with service principals, see these topics:
 
 * [Create a service principal by using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create an Azure service principal by using Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Create an Azure service principal by using Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Create a service principal with a certificate by using Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>
@@ -1051,7 +1053,7 @@ Here is the parameterized sample template that's used by this topic's examples:
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location to use for the logic app"

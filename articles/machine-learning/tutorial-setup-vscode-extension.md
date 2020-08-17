@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Set up the Visual Studio Code extension"
+title: "Tutorial: Set up the Visual Studio Code extension (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to set up the Visual Studio Code Azure Machine Learning extension.
 services: machine-learning
@@ -8,11 +8,11 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
+ms.date: 07/09/2020
 #Customer intent: As a professional data scientist, I want to Learn how to install and run scripts using the Azure Machine Learning Visual Studio Code extension.
 ---
 
-# Set up Azure Machine Learning Visual Studio Code extension
+# Set up Azure Machine Learning Visual Studio Code extension (preview)
 
 Learn how to install and run scripts using the Azure Machine Learning Visual Studio Code extension.
 
@@ -65,37 +65,40 @@ Now that you have signed into Azure with your account credentials, Use the steps
 
 1. When the command palette expands, follow the prompts.
 
-    1. Select your Azure subscription.
-    1. Select **Create a new Azure ML workspace**
-    1. Select the **TensorFlow Single-Node Training** job type.
-    1. Enter `train.py` as the script to train. This is the file that contains code to a machine learning model that categorize images of handwritten digits.
-    1. Specify the following packages as requirements to run.
+    > [!NOTE]
+    > If you already have existing Azure Machine Learning resources provisioned, see [how to run experiments in VS Code guide](./how-to-manage-resources-vscode.md#run-experiment).
 
-        ```text
-        pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-        ```
+    1. Select your Azure subscription.
+    1. From the list of environments, select **Conda dependencies file**.
+    1. Press **Enter** to browse the Conda dependencies file. This file contains the dependencies required to run your script. In this case, the dependencies file is the `env.yml` file inside the `mnist-vscode-docs-sample` directory.
+    1. Press **Enter** to browse the training script file. This is the file that contains code to a machine learning model that categorize images of handwritten digits. In this case, the script to train the model is the `train.py` file inside the `mnist-vscode-docs-sample` directory.
 
 1. At this point, a configuration file similar to the one below appears in the text editor. The configuration contains the information required to run the training job like the file that contains the code to train the model and any Python dependencies specified in the previous step.
 
     ```json
     {
-        "workspace": "WS01311608",
-        "resourceGroup": "WS01311608-rg1",
+        "workspace": "WS06271500",
+        "resourceGroup": "WS06271500-rg2",
         "location": "South Central US",
-        "experiment": "WS01311608-exp1",
+        "experiment": "WS06271500-exp1",
         "compute": {
-            "name": "WS01311608-com1",
+            "name": "WS06271500-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS01311608-com1-rc1",
-            "condaDependencies": [
-                "python=3.6.2",
-                "tensorflow=1.15.0"
-            ],
-            "pipDependencies": [
-                "azureml-defaults"
-            ]
+            "filename": "WS06271500-com1-rc1",
+            "environment": {
+                "name": "WS06271500-env1",
+                "conda_dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip"
+                ],
+                "pip_dependencies": [
+                    "azureml-defaults"
+                ],
+                "environment_variables": {}
+            }
         }
     }
     ```

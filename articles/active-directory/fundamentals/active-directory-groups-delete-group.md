@@ -2,13 +2,13 @@
 title: Delete a group - Azure Active Directory | Microsoft Docs
 description: Instructions about how to delete a group using Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2018
 ms.author: ajburnle
 ms.reviewer: krbain

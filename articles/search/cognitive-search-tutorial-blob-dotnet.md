@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: C# and AI over Azure blobs'
+title: C# tutorial using AI on Azure blobs
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
 
@@ -7,15 +7,15 @@ manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 02/27/2020
+ms.topic: tutorial
+ms.date: 05/05/2020
 ---
 
-# Tutorial: Use C# and AI to generate searchable content from Azure blobs
+# Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-In this tutorial, use C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
@@ -39,7 +39,9 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
-1. Right-click the zip file and select **Extract All**. There are 14 files of various types. Use all of them for this tutorial.
+1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
+
+You can also download the source code for this tutorial. Source code is in the tutorial-ai-enrichment folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
 
 ## 1 - Create services
 
@@ -71,22 +73,22 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Click **Blobs** service.
 
-1. Click **+ Container** to create a container and name it *basic-demo-data-pr*.
+1. Click **+ Container** to create a container and name it *cog-search-demo*.
 
-1. Select *basic-demo-data-pr* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
+1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
 
    ![Upload sample files](media/cognitive-search-quickstart-blob/sample-data.png "Upload sample files")
 
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
-   1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
+   1. Browse back to the Overview page of your storage account (we used *blobstoragewestus* as an example). 
    
    1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string is a URL similar to the following example:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=blobstoragewestus;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
@@ -95,7 +97,7 @@ If possible, create both in the same region and resource group for proximity and
 
 AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
-For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 7 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
+For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
@@ -121,19 +123,19 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 ### Install NuGet packages
 
-The [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
+The [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 For this project, install version 9 or later of the `Microsoft.Azure.Search` NuGet package.
 
-1. Open the Package Manager Console. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
-
-1. Navigate to [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search).
+1. In a browser, go to [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
 1. Select the latest version (9 or later).
 
 1. Copy the Package Manager command.
 
-1. Return to the Package Manager console and run the command you copied in the previous step.
+1. Open the Package Manager Console. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**. 
+
+1. Paste and run the command that you copied in the previous step.
 
 Next, install the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
@@ -163,8 +165,10 @@ Next, install the latest `Microsoft.Extensions.Configuration.Json` NuGet package
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-
+    
 Add your search service and blob storage account information. Recall that you can get this information from the service provisioning steps indicated in the previous section.
+
+For **SearchServiceName**, enter the short service name and not the full URL.
 
 ### Add namespaces
 
@@ -182,7 +186,7 @@ namespace EnrichwithAI
 
 ### Create a client
 
-Create an instance of the `SearchServiceClient` class under Main.
+Create an instance of the `SearchServiceClient` class under `Main`.
 
 ```csharp
 public static void Main(string[] args)
@@ -210,6 +214,22 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 > The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 > 
 
+### Add function to exit the program during failure
+
+This tutorial is meant to help you understand each step of the indexing pipeline. If there is a critical issue that prevents the program from creating the data source, skillset, index, or indexer the program will output the error message and exit so that the issue can be understood and addressed.
+
+Add `ExitProgram` to `Main` to handle scenarios that require the program to exit.
+
+```csharp
+private static void ExitProgram(string message)
+{
+    Console.WriteLine("{0}", message);
+    Console.WriteLine("Press any key to exit the program...");
+    Console.ReadKey();
+    Environment.Exit(0);
+}
+```
+
 ## 3 - Create the pipeline
 
 In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the walkthrough creates four objects: data source, index definition, skillset, indexer. 
@@ -226,7 +246,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
     DataSource dataSource = DataSource.AzureBlobStorage(
         name: "demodata",
         storageConnectionString: configuration["AzureBlobConnectionString"],
-        containerName: "basic-demo-data-pr",
+        containerName: "cog-search-demo",
         description: "Demo files to demonstrate cognitive search capabilities.");
 
     // The data source does not need to be deleted if it was already created
@@ -247,7 +267,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
 
 For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
 
-Now add a line in Main to call the `CreateOrUpdateDataSource` function that you've just added.
+Now add a line in `Main` to call the `CreateOrUpdateDataSource` function that you've just added.
 
 ```csharp
 public static void Main(string[] args)
@@ -261,34 +281,6 @@ public static void Main(string[] args)
     Console.WriteLine("Creating or updating the data source...");
     DataSource dataSource = CreateOrUpdateDataSource(serviceClient, configuration);
 ```
-
-
-<!-- 
-```csharp
-DataSource dataSource = DataSource.AzureBlobStorage(
-    name: "demodata",
-    storageConnectionString: configuration["AzureBlobConnectionString"],
-    containerName: "basic-demo-data-pr",
-    deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
-        softDeleteColumnName: "IsDeleted",
-        softDeleteMarkerValue: "true"),
-    description: "Demo files to demonstrate cognitive search capabilities.");
-```
-
-Now that you have initialized the `DataSource` object, create the data source. `SearchServiceClient` has a `DataSources` property. This property provides all the methods you need to create, list, update, or delete Azure Cognitive Search data sources.
-
-For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
-
-```csharp
-try
-{
-    serviceClient.DataSources.CreateOrUpdate(dataSource);
-}
-catch (Exception e)
-{
-    // Handle the exception
-}
-``` -->
 
 Build and run the solution. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Cognitive Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh.
 
@@ -533,7 +525,7 @@ private static Skillset CreateOrUpdateDemoSkillSet(SearchServiceClient serviceCl
 }
 ```
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Create the skills
@@ -564,10 +556,13 @@ In this section, you define the index schema by specifying which fields to inclu
 
 This exercise uses the following fields and field types:
 
-| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Field names | Field types |
+| --- | --- |
+| id | Edm.String |
+| content | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organizations | List<Edm.String> |
 
 #### Create DemoIndex Class
 
@@ -610,33 +605,6 @@ namespace EnrichwithAI
 }
 ```
 
-<!-- Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
-
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-}
-``` -->
-
 Now that you've defined a model class, back in `Program.cs` you can create an index definition fairly easily. The name for this index will be `demoindex`. If an index already exists with that name, it will be deleted.
 
 ```csharp
@@ -671,32 +639,19 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 
 During testing you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Create the index
     Console.WriteLine("Creating the index...");
-    Index demoIndex = CreateDemoIndex(serviceClient);
+    Microsoft.Azure.Search.Models.Index demoIndex = CreateDemoIndex(serviceClient);
 ```
 
-<!-- ```csharp
-try
-{
-    bool exists = serviceClient.Indexes.Exists(index.Name);
+Add the following using statement to resolve the disambiguate reference.
 
-    if (exists)
-    {
-        serviceClient.Indexes.Delete(index.Name);
-    }
-
-    serviceClient.Indexes.Create(index);
-}
-catch (Exception e)
-{
-    // Handle exception
-}
+```csharp
+using Index = Microsoft.Azure.Search.Models.Index;
 ```
- -->
 
 To learn more about defining an index, see [Create Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -775,11 +730,11 @@ private static Indexer CreateDemoIndexer(SearchServiceClient serviceClient, Data
     return indexer;
 }
 ```
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
-    Console.WriteLine("Creating the indexer...");
+    Console.WriteLine("Creating the indexer and executing the pipeline...");
     Indexer demoIndexer = CreateDemoIndexer(serviceClient, dataSource, skillset, demoIndex);
 ```
 
@@ -836,7 +791,7 @@ private static void CheckIndexerOverallStatus(SearchServiceClient serviceClient,
 
 Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files).
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
     // Check indexer overall status
@@ -850,7 +805,7 @@ After indexing is finished, you can run queries that return the contents of indi
 
 As a verification step, query the index for all of the fields.
 
-Add the following lines to Main.
+Add the following lines to `Main`.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
@@ -886,7 +841,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-Add the following code to Main. The first try-catch returns the index definition, with the name, type, and attributes of each field. The second is a parameterized query, where `Select` specifies which fields to include in the results, for example `organizations`. A search string of `"*"` returns all contents of a single field.
+Add the following code to `Main`. The first try-catch returns the index definition, with the name, type, and attributes of each field. The second is a parameterized query, where `Select` specifies which fields to include in the results, for example `organizations`. A search string of `"*"` returns all contents of a single field.
 
 ```csharp
 //Verify content is returned after indexing is finished
@@ -925,11 +880,11 @@ Repeat for additional fields: content, languageCode, keyPhrases, and organizatio
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
 
-You can also use the portal to delete indexes, indexers, and skillsets.
+You can also use the portal to delete indexes, indexers, data sources, and skillsets.
 
 ## Takeaways
 
@@ -941,11 +896,13 @@ Finally, you learned how to test results and reset the system for further iterat
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
+Now that you're familiar with all of the objects in an AI enrichment pipeline, let's take a closer look at skillset definitions and individual skills.
 
 > [!div class="nextstepaction"]
-> [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
+> [How to create a skillset](cognitive-search-defining-skillset.md)

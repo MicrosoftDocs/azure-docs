@@ -1,15 +1,15 @@
 ---
-title: Train a neural network with TensorFlow
+title: Train and deploy a TensorFlow model
 titleSuffix: Azure Machine Learning
 description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 # Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -131,6 +131,8 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
 
 ## Create a TensorFlow estimator
@@ -140,6 +142,11 @@ The [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-c
 The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
 If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting Docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
+
+
+> [!WARNING]
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using a [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+
 
 ```python
 script_params = {
@@ -302,13 +309,13 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## Deployment
+## Deploy a TensorFlow model
 
 The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
-### (Preview) No-code model deployment
+## (Preview) No-code model deployment
 
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview)for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

@@ -36,7 +36,7 @@ Unable to determine the resource group for the boot diagnostics storage account 
 Provisioning for this VM has not yet succeeded. Please ensure the VM is fully deployed and retry the serial console connection. | Your VM or virtual machine scale set may still be provisioning. Wait some time and try again.
 Web socket is closed or could not be opened. | You may need to add firewall access to `*.console.azure.com`. A more detailed but longer approach is to allow firewall access to the [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which change fairly regularly.
 Serial console does not work with a storage account using Azure Data Lake Storage Gen2 with hierarchical namespaces. | This is a known issue with hierarchical namespaces. To mitigate, ensure that your VM's boot diagnostics storage account is not created using Azure Data Lake Storage Gen2. This option can only be set upon storage account creation. You may have to create a separate boot diagnostics storage account without Azure Data Lake Storage Gen2 enabled to mitigate this issue.
-
+The serial console connection to the VM encountered an error: 'Forbidden'(SubscriptionNotEnabled) - Subscription name undefined, id \<subscription id> is in non-Enabled state undefined | This issue may occur if the subscription that a user has created their Cloud Shell storage account in has been disabled. To mitigate, launch Cloud Shell and [perform the steps necessary](../../cloud-shell/persisting-shell-storage.md#unmount-clouddrive-1) to reprovision a backing storage account for Cloud Shell in the current subscription.
 
 ## Next steps
 * Learn more about the [Azure Serial Console for Linux VMs](./serial-console-linux.md)

@@ -7,9 +7,9 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Troubleshoot Resource Manager template deployments
+# Tutorial: Troubleshoot ARM template deployments
 
-Learn how to troubleshoot Resource Manager template deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
+Learn how to troubleshoot Azure Resource Manager (ARM) template deployment errors. In this tutorial, you set up two errors in a template, and learn how to use the activity logs and deployment history to resolve the issues.
 
 There are two types of errors that are related to template deployment:
 
@@ -21,24 +21,22 @@ Both types of errors return an error code that you use to troubleshoot the deplo
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Create a problematic template
-> * Troubleshoot validation errors
-> * Troubleshoot deployment errors
-> * Clean up resources
+> - Create a problematic template
+> - Troubleshoot validation errors
+> - Troubleshoot deployment errors
+> - Clean up resources
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+- Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Create a problematic template
 
-Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) from [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/), and setup two template issues.
+Open a template called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/), and setup two template issues.
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -46,12 +44,14 @@ Open a template called [Create a standard storage account](https://azure.microso
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. Change the **apiVersion** line to the following line:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** is invalid element name. It is a validation error.
     - The API version shall be "2018-07-01".  It is a deployment error.
 
@@ -59,7 +59,7 @@ Open a template called [Create a standard storage account](https://azure.microso
 
 ## Troubleshoot the validation error
 
-Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
+Refer to the [Deploy the template](template-tutorial-create-multiple-instances.md#deploy-the-template) section to deploy the template.
 
 You shall get an error from the shell similar to:
 
@@ -73,7 +73,7 @@ Use Visual Studio Code to correct the problem by changing **apiVersion1** to **a
 
 ## Troubleshoot the deployment error
 
-Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section to deploy the template.
+Refer to the [Deploy the template](template-tutorial-create-multiple-instances.md#deploy-the-template) section to deploy the template.
 
 You shall get an error from the shell similar to:
 
@@ -123,4 +123,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to troubleshoot Resource Manager template deployment errors.  For more information, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
+In this tutorial, you learned how to troubleshoot ARM template deployment errors.  For more information, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).

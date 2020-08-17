@@ -18,6 +18,8 @@ ms.date: 09/04/2019
 
 # Azure Data Factory whitepapers 
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Whitepapers allow you to explore Azure Data Factory at a deeper level. This article provides you with a list of available whitepapers for Azure Data Factory.
 
 | **Whitepaper** | **Description** |

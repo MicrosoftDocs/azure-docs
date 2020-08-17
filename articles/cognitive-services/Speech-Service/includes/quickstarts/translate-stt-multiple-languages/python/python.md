@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 04/04/2020
 ms.author: chlandsi
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=python)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=python&pivots=programming-language-python)
 
 ## Add sample code
 
@@ -74,7 +73,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](../../../../regions.md) associated with your subscription.
 
 1. Save the changes you've made to `quickstart.py`.
 

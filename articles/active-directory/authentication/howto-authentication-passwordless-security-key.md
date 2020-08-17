@@ -1,11 +1,11 @@
 ---
-title: Passwordless security key sign (preview) - Azure Active Directory
+title: Passwordless security key sign-in (preview) - Azure Active Directory
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 
 ms.author: iainfou
@@ -21,15 +21,13 @@ For enterprises that use passwords today and have a shared PC environment, secur
 
 This document focuses on enabling security key based passwordless authentication. At the end of this article, you will be able to sign in to web-based applications with your Azure AD account using a FIDO2 security key.
 
-|     |
-| --- |
-| FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Enable [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1809 or higher**
 
@@ -45,7 +43,7 @@ Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
 
 ### Enable the combined registration experience
 
-Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
+Registration features for passwordless authentication methods rely on the combined registration feature. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable combined registration.
 
 ### Enable FIDO2 security key method
 
@@ -62,7 +60,7 @@ Registration features for passwordless authentication methods rely on the combin
 1. Sign in if not already.
 1. Click **Security Info**.
    1. If the user already has at least one Azure Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
-   1. If they don’t have at least one Azure Multi-Factor Authentication method registered, they must add one.
+   1. If they don't have at least one Azure Multi-Factor Authentication method registered, they must add one.
 1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**.
 1. Choose **USB device** or **NFC device**.
 1. Have your key ready and choose **Next**.
@@ -94,7 +92,7 @@ Administrator provisioning and de-provisioning of security keys is not available
 
 ### UPN changes
 
-We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
+We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
 
 ## Next steps
 

@@ -1,10 +1,10 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ---
 ## ROPC flow notes
 In Azure Active Directory B2C (Azure AD B2C), the following options are supported:

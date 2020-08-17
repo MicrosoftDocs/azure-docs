@@ -2,15 +2,12 @@
 title: Sign in users from a Web app - Microsoft identity platform | Azure
 description: Learn how to build a web app that signs in users (overview)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
@@ -82,21 +79,21 @@ As a second phase, you can enable your application to call web APIs on behalf of
 # [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore)
+> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
 
 # [Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=java)
 
 # [Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+> [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=python)
 
 ---

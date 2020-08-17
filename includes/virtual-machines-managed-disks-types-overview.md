@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/15/2019
+ms.date: 06/03/2020
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -18,12 +18,12 @@ Azure managed disks currently offers four disk types, each type is aimed towards
 
 The following table provides a comparison of ultra disks, premium solid-state drives (SSD), standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.
 
-|   | Ultra disk   | Premium SSD   | Standard SSD   | Standard HDD   |
-|---------|---------|---------|---------|---------|
+| Detail | Ultra disk | Premium SSD | Standard SSD | Standard HDD |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Disk type   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |IO-intensive workloads such as [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and dev/test   |Backup, non-critical, infrequent access   |
 |Max disk size   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
-|Max throughput   |2,000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Max throughput   |2,000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |Max IOPS   |160,000    |20,000   |6,000   |2,000   |
 
 ## Ultra disk
@@ -37,8 +37,8 @@ When you provision an ultra disk, you can independently configure the capacity a
 Some key capabilities of ultra disks are:
 
 - Disk capacity: Ultra disks capacity ranges from 4 GiB up to 64 TiB.
-- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum IOPS per disk is 2 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you had a 4 GiB ultra disk, you will have a minimum of 100 IOPS, instead of eight IOPS.
-- Disk throughput: With ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
+- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum guaranteed IOPS per disk is 2 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you had a 4 GiB ultra disk, you will have a minimum of 100 IOPS, instead of eight IOPS.
+- Disk throughput: With ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
 - Ultra disks support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect. There is a limit of four performance resize operations during a 24 hour window. It is possible for a performance resize operation to fail due to a lack of performance bandwidth capacity.
 
 ### Disk size

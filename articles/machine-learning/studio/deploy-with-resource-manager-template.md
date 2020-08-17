@@ -1,11 +1,10 @@
 ---
-title: Deploy Studio (classic) workspace with Azure Resource Manager
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Deploy workspaces with Azure Resource Manager - Azure'
 description: How to deploy a workspace for Azure Machine Learning Studio (classic) using Azure Resource Manager template
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,6 +12,8 @@ ms.custom: seodec18
 ms.date: 02/05/2018
 ---
 # Deploy Azure Machine Learning Studio (classic) Workspace Using Azure Resource Manager
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Studio (classic) Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Studio (classic) Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
@@ -79,10 +80,10 @@ Save this template as mlworkspace.json file under c:\temp\.
 * Install modules for Azure Resource Manager and Azure Service Management
 
 ```powershell
-# Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
+# Install the Azure Resource Manager modules from the PowerShell Gallery (press "A")
 Install-Module Az -Scope CurrentUser
 
-# Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
+# Install the Azure Service Management modules from the PowerShell Gallery (press "A")
 Install-Module Azure -Scope CurrentUser
 ```
 
@@ -107,7 +108,7 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-Verify that the resource group is correctly provisioned. **ProvisioningState** should be “Succeeded.”
+Verify that the resource group is correctly provisioned. **ProvisioningState** should be "Succeeded."
 The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
 ![Resource Group](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)

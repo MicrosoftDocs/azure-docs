@@ -8,7 +8,8 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
-ms.author: lcozzens
+ms.author: lcozzens 
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure App Configuration Store
@@ -39,7 +40,7 @@ appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
   --location eastus \
   --resource-group $myResourceGroupName \
-  --query hostName \
+  --query endpoint \
   --sku free \
   -o tsv
   )

@@ -1,10 +1,10 @@
 ---
-title: Azure Disk Storage overview for Windows VMs 
-description: Overview of Azure managed disks, which handle the storage accounts for you when using Azure Windows VMs
+title: Azure Disk Storage overview 
+description: Overview of Azure managed disks, which handle the storage accounts for you when using Azure VMs
 author: roygara
-ms.service: virtual-machines-windows
-ms.topic: overview
-ms.date: 12/02/2019
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ---

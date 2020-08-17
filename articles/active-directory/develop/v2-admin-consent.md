@@ -1,18 +1,13 @@
 ---
-title: Microsoft identity platform admin consent protocols | Microsoft Docs
+title: Microsoft identity platform admin consent protocols
 description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 8f98cbf0-a71d-4e34-babf-e642ad9ff423
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/3/2019
 ms.author: ryanwi
@@ -22,7 +17,7 @@ ms.custom: aaddev
 
 # Admin consent on the Microsoft identity platform
 
-Some permissions require consent from an administrator before they can be granted within a tenant.  You can also use the admin consent endpoint to grant permissions to an entire tenant.  
+Some permissions require consent from an administrator before they can be granted within a tenant.  You can also use the admin consent endpoint to grant permissions to an entire tenant.
 
 ## Recommended: Sign the user into your app
 
@@ -34,15 +29,15 @@ When you sign the user into your app, you can identify the organization to which
 
 When you're ready to request permissions from your organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-	GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-	&scope=
-	https://graph.microsoft.com/calendars.read 
-	https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -52,7 +47,7 @@ When you're ready to request permissions from your organization's admin, you can
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope`		| Required		| Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). | 
+|`scope`		| Required		| Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). |
 
 
 At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.
@@ -89,5 +84,5 @@ Adding to the parameters seen in a successful response, error parameters are see
 ## Next steps
 - See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
 - Learn how [consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Learn [how a multi-tenant application can use the consent framework](active-directory-devhowto-multi-tenant-overview.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- Learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Understanding [Azure AD application consent experiences](application-consent-experience.md)

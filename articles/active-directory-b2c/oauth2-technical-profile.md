@@ -3,14 +3,14 @@ title: Define an OAuth2 technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the OAuth2 protoc
 
 The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. For example, the protocol for the **Facebook-OAUTH** technical profile is `OAuth2`:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
@@ -35,7 +35,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. 
 
 The **InputClaims** and **InputClaimsTransformations** elements are not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>

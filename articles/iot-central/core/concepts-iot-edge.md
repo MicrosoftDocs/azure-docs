@@ -11,6 +11,8 @@ services: iot-central
 
 # Connect Azure IoT Edge devices to an Azure IoT Central application
 
+*This article applies to solution builders and device developers.*
+
 IoT Edge is made up of three components:
 
 * **IoT Edge modules** are containers that run Azure services, partner services, or your own code. Modules are deployed to IoT Edge devices, and run locally on those devices.
@@ -51,7 +53,7 @@ In Azure IoT Central, you can import a deployment manifest to create a device te
 
 ![Flowchart of deployment manifest life cycle](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (preview) models an IoT Edge device as follows:
+IoT Central models an IoT Edge device as follows:
 
 * Every IoT Edge device template has a device capability model.
 * For every custom module listed in the deployment manifest, a module capability model is generated.
@@ -67,4 +69,4 @@ If you selected an IoT Edge device to be a gateway device, you can add downstrea
 
 ## Next steps
 
-Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central.md).
+If you're a device developer, a suggested next step is to learn about [gateway device types in IoT Central](./tutorial-define-gateway-device-type.md).

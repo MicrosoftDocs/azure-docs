@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Microsoft Azure Data Box| Microsoft Docs
-description: Learn how to quickly deploy your Azure Data Box in Azure portal
+description: In this quickstart, learn how to deploy Azure Data Box using the Azure portal for an import order. Configure Azure Data Box and copy data to upload to Azure.
 services: databox
 author: alkohli
 
@@ -13,11 +13,11 @@ ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Get started with Azure Data Box 
+# Get started with Azure Data Box to import data into Azure
 
 ::: zone target="docs"
 
-This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
+This quickstart describes how to deploy the Azure Data Box using the Azure portal for an import order. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart steps are performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md)
 
@@ -25,7 +25,7 @@ For detailed step-by-step deployment and tracking instructions, go to [Tutorial:
 
 ::: zone target="chromeless"
 
-This guide describes how to deploy the Azure Data Box using the Azure portal. The steps include review the prerequisites, cable and connect your device, and copy data to your device so that it uploads to Azure.
+This guide describes how to deploy the Azure Data Box for import using the Azure portal. The steps include review the prerequisites, cable and connect your device, and copy data to your device so that it uploads to Azure.
 
 ::: zone-end
 

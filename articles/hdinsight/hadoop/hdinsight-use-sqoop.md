@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ---
 
@@ -13,11 +13,11 @@ ms.date: 12/06/2019
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Apache Sqoop in HDInsight to import and export data between an HDInsight cluster and an Azure SQL database.
+Learn how to use Apache Sqoop in HDInsight to import and export data between an HDInsight cluster and Azure SQL Database.
 
 Although Apache Hadoop is a natural choice for processing unstructured and semi-structured data, such as logs and files, there may also be a need to process structured data that is stored in relational databases.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Apache Hive, and then export the data back into an RDBMS. In this article, you're using a SQL Server database for your relational database.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Apache Hive, and then export the data back into an RDBMS. In this article, you're using Azure SQL Database for your relational database.
 
 > [!IMPORTANT]  
 > This article sets up a test environment to perform the data transfer. You then choose a data transfer method for this environment from one of the methods in section [Run Sqoop jobs](#run-sqoop-jobs), further below.
@@ -90,7 +90,7 @@ The cluster, SQL database, and other objects are created through the Azure porta
     |Bacpac File Name |Use the default value unless you want to use your own bacpac file.|
     |Location |Use the default value.|
 
-    The Azure SQL Server name will be  `<ClusterName>dbserver`. The database name will be `<ClusterName>db`. The default storage account name will be `e6qhezrh2pdqu`.
+    The [logical SQL server](../../azure-sql/database/logical-servers.md) name will be  `<ClusterName>dbserver`. The database name will be `<ClusterName>db`. The default storage account name will be `e6qhezrh2pdqu`.
 
 3. Select **I agree to the terms and conditions stated above**.
 
@@ -108,7 +108,7 @@ HDInsight can run Sqoop jobs by using a variety of methods. Use the following ta
 
 ## Limitations
 
-* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database doesn't currently support bulk inserts.
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or SQL Database doesn't currently support bulk inserts.
 * Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop performs multiple inserts instead of batching the insert operations.
 
 ## Next steps

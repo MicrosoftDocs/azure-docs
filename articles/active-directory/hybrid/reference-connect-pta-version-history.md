@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 11/27/2019
+ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -22,6 +22,14 @@ Here are related topics:
 
 - [User sign-in with Azure AD Pass-through Authentication](how-to-connect-pta.md) 
 - [Azure AD Pass-through Authentication agent installation](how-to-connect-pta-quick-start.md) 
+
+## 1.5.1742.0
+### Release Status: 
+04/09/2020: Released for download
+
+### New features and improvements
+
+- Added support for targeting cloud environments upon installation. The bundle can be pinned to a given cloud environment.
 
 
 

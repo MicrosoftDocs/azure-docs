@@ -68,7 +68,7 @@ You can continue this procedure for more anchors and more sessions over time.
 
 ### Verify anchor connections
 
-The app can verify that two anchors are connected by issuing a query for nearby anchors. When the query's result contains the target anchor, the anchor connection is verified. If the anchors aren't connected, the app can try to connect them again.
+The app can verify that two anchors are connected by issuing a query for nearby anchors, which you do by setting the `NearAnchorCriteria` on a `CloudSpatialAnchorWatcher`. When the query's result contains the target anchor, the anchor connection is verified. If the anchors aren't connected, the app can try to connect them again.
 
 Here are some reasons why anchors might fail to connect:
 

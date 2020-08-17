@@ -8,6 +8,7 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 # How an IoT Edge device can be used as a gateway
 
@@ -41,7 +42,7 @@ A gateway that does identity translation provides the benefits of protocol trans
 
 Here is a quick cheat sheet that compares IoT Hub primitives when using transparent, opaque (protocol), and proxy gateways.
 
-| &nbsp; | Transparent gateway | Protocol translation | Identity translation |
+| Primitive | Transparent gateway | Protocol translation | Identity translation |
 |--------|-------------|--------|--------|
 | Identities stored in the IoT Hub identity registry | Identities of all connected devices | Only the identity of the gateway device | Identities of all connected devices |
 | Device twin | Each connected device has its own device twin | Only the gateway has a device and module twins | Each connected device has its own device twin |

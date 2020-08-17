@@ -5,11 +5,12 @@ description: In this quickstart, you learn how to use the Azure CLI upload a blo
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
-ms.author: tamram
+ms.date: 06/04/2020
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create, download, and list blobs with Azure CLI
@@ -24,7 +25,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Use the Azure CLI locally
+## Install the Azure CLI locally
 
 If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -34,11 +35,13 @@ If you are running the Azure CLI locally, you must log in and authenticate. This
 az login
 ```
 
+For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
 ## Authorize access to Blob storage
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended. This article shows how to authorize Blob storage operations using Azure AD.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
 
@@ -66,14 +69,30 @@ az storage account create \
     --resource-group <resource-group> \
     --location <location> \
     --sku Standard_ZRS \
-    --encryption blob
+    --encryption-services blob
 ```
 
 ## Create a container
 
-Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders.
+Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. 
 
-Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command. Remember to replace placeholder values in angle brackets with your own values:
+The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even if you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use Azure CLI to assign an Azure role for access](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+
+Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az ad signed-in-user show --query objectId -o tsv | az role assignment create \
+    --role "Storage Blob Data Contributor" \
+    --assignee @- \
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
+```
+
+> [!IMPORTANT]
+> Azure role assignments may take a few minutes to propagate.
+
+You can also use the storage account key to authorize the operation to create the container. For more information about authorizing data operations with Azure CLI, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
+
+Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az storage container create \
@@ -147,7 +166,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this quickstart, delete the resource group with the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
+If you want to delete the resources you created as part of this quickstart, including the storage account, delete the resource group by using the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az group delete \
@@ -157,7 +176,7 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with blobs in Azure Storage, continue to the tutorial for working with Azure Blob storage.
+In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with Blob storage by using Azure CLI, explore Azure CLI samples for Blob storage.
 
 > [!div class="nextstepaction"]
-> [How to: Blob storage operations with the Azure CLI](storage-how-to-use-blobs-cli.md)
+> [Azure CLI samples for Blob storage](/azure/storage/blobs/storage-samples-blobs-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

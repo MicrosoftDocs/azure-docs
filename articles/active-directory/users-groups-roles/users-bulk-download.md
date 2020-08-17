@@ -1,13 +1,13 @@
 ---
 
-title: Download a list of users (preview) in the Azure Active Directory portal | Microsoft Docs
+title: Download a list of users in the Azure Active Directory portal | Microsoft Docs
 description: Download user records in bulk in the Azure admin center in Azure Active Directory. 
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
-ms.topic: conceptual
+ms.date: 04/16/2020
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -16,13 +16,13 @@ ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
 
-# Download a list of users (preview) in Azure Active Directory portal
+# Download a list of users in Azure Active Directory portal
 
 Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
 ## Required permissions
 
-To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD. Guest inviter and application developer are not considered administrator roles.
+To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD (User Administrator is the minimum role required). Guest inviter and application developer are not considered administrator roles.
 
 ## To download a list of users
 
@@ -66,9 +66,9 @@ To download the list of users from the Azure AD admin center, you must be signed
 
 ## Check status
 
-You can see the status of your pending bulk requests in the **Bulk operation results (preview)** page.
+You can see the status of your pending bulk requests in the **Bulk operation results** page.
 
-   ![Check upload status in the Bulk Operations Results page](./media/users-bulk-download/bulk-center.png)
+[![Check status in the Bulk Operations Results page.](media/users-bulk-download/bulk-center.png)](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## Bulk download service limits
 

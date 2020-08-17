@@ -1,5 +1,5 @@
 ---
-title: Data ingestion options 
+title: Data ingestion & automation 
 titleSuffix: Azure Machine Learning
 description: Learn about data ingestion options  for training your machine learning models.
 services: machine-learning
@@ -10,21 +10,24 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
+ms.custom: devx-track-python
 
 ---
 
-# Data ingestion in Azure Machine Learning
+# Data ingestion options for Azure Machine Learning workflows
 
-In this article, you learn the pros and cons of the following data ingestion options available with Azure Machine Learning. 
+In this article, you learn the pros and cons of data ingestion options available with Azure Machine Learning. 
 
-1. [Azure Data Factory](#use-azure-data-factory) pipelines
-2. [Azure Machine Learning Python SDK](#use-the-python-sdk)
+Choose from:
++ [Azure Data Factory](#azure-data-factory) pipelines, specifically built to extract, load, and transform data
+
++ [Azure Machine Learning Python SDK](#azure-machine-learning-python-sdk), providing a custom code solution for basic data ingestion tasks.
+
++ a combination of both
 
 Data ingestion is the process in which unstructured data is extracted from one or multiple sources and then prepared for training machine learning models. It's also time intensive, especially if done manually, and if you have large amounts of data from multiple sources. Automating this effort frees up resources and ensures your models use the most recent and applicable data.
 
-We recommend that you evaluate using Azure Data Factory (ADF) initially, as it is specifically built to extract, load, and transform data. If you cannot meet your requirements using ADF, you can use the Python SDK to develop a custom code solution, or use ADF and the Python SDK together to create an overall data ingestion workflow that meets your needs.
-
-## Use Azure Data Factory
+## Azure Data Factory
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) offers native support for data source monitoring and triggers for data ingestion pipelines.  
 
@@ -48,10 +51,12 @@ These steps and the following diagram illustrate Azure Data Factory's data inges
 
 
     ![ADF Data ingestion](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Learn how to build a data ingestion pipeline for Machine Learning with [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## Use the Python SDK 
+## Azure Machine Learning Python SDK 
 
-With the [Python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
+With the [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
 
 The following table summarizes the pros and con for using the SDK and an ML pipelines step for data ingestion tasks.
 
@@ -67,4 +72,7 @@ In the following diagram, the Azure Machine Learning pipeline consists of two st
 
 ## Next steps
 
-* Learn how to automate and manage the development life cycles of your data ingestion pipelines with [Azure Pipelines](how-to-cicd-data-ingestion.md).
+Follow these how-to articles:
+* [Build a data ingestion pipeline with Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automate and manage data ingestion pipelines with Azure Pipelines](how-to-cicd-data-ingestion.md).

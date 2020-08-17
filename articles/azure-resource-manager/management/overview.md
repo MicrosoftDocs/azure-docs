@@ -1,12 +1,12 @@
 ---
-title: Overview
+title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 08/29/2019
+ms.date: 04/21/2020
 ---
-# Azure Resource Manager overview
+# What is Azure Resource Manager?
 
-Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 To learn about Azure Resource Manager templates, see [Template deployment overview](../templates/overview.md).
 
@@ -14,7 +14,7 @@ To learn about Azure Resource Manager templates, see [Template deployment overvi
 
 When a user sends a request from any of the Azure tools, APIs, or SDKs, Resource Manager receives the request. It authenticates and authorizes the request. Resource Manager sends the request to the Azure service, which takes the requested action. Because all requests are handled through the same API, you see consistent results and capabilities in all the different tools.
 
-The following image shows the role Azure Resource Manager plays in handling Azure requests. 
+The following image shows the role Azure Resource Manager plays in handling Azure requests.
 
 ![Resource Manager request model](./media/overview/consistent-management-layer.png)
 
@@ -24,10 +24,10 @@ All capabilities that are available in the portal are also available through Pow
 
 If you're new to Azure Resource Manager, there are some terms you might not be familiar with.
 
-* **resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources.
+* **resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources. Resource groups, subscriptions, management groups, and tags are also examples of resources.
 * **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is Microsoft.Compute, which supplies the virtual machine resource. Microsoft.Storage is another common resource provider. See [Resource providers and types](resource-providers-and-types.md).
-* **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group or subscription. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
+* **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
 * **declarative syntax** - Syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure.  See [Template deployment overview](../templates/overview.md).
 
 ## The benefits of using Resource Manager
@@ -42,7 +42,7 @@ With Resource Manager, you can:
 
 * Define the dependencies between resources so they're deployed in the correct order.
 
-* Apply access control to all services in your resource group because Role-Based Access Control (RBAC) is natively integrated into the management platform.
+* Apply access control to all services because Role-Based Access Control (RBAC) is natively integrated into the management platform.
 
 * Apply tags to resources to logically organize all the resources in your subscription.
 
@@ -52,19 +52,21 @@ With Resource Manager, you can:
 
 Azure provides four levels of scope: [management groups](../../governance/management-groups/overview.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
-![Scope](./media/overview/scope-levels.png)
+![Management levels](./media/overview/scope-levels.png)
 
 You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied the resource group and all its resources. However, another resource group doesn't have that policy assignment.
 
-You can deploy templates to management groups, subscriptions, or resource groups.
+You can deploy templates to tenants, management groups, subscriptions, or resource groups.
 
 ## Resource groups
 
 There are some important factors to consider when defining your resource group:
 
-* All the resources in your group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
+* All the resources in your group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a server, needs to exist on a different deployment cycle it should be in another resource group.
 
 * Each resource can only exist in one resource group.
+
+* Some resources can exist outside of a resource group. These resources are deployed to the [subscription](../templates/deploy-to-subscription.md), [management group](../templates/deploy-to-management-group.md), or [tenant](../templates/deploy-to-tenant.md). Only specific resource types are supported at these scopes.
 
 * You can add or remove a resource to a resource group at any time.
 
@@ -96,12 +98,8 @@ This resiliency applies to services that receive requests through Resource Manag
 
 ## Next steps
 
-* For all the operations offered by resource providers, see the [Azure REST APIs](/rest/api/azure/).
-
 * To learn about moving resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 * To learn about tagging resources, see [Use tags to organize your Azure resources](tag-resources.md).
 
 * To learn about locking resources, see [Lock resources to prevent unexpected changes](lock-resources.md).
-
-* For information about creating templates for deployments, see [Template deployment overview](../templates/overview.md).

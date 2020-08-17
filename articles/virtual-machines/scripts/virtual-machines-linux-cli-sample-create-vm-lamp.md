@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 04/05/2017
 
 ---
@@ -48,17 +48,17 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Creates a virtual machine scale set |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Add a load-balanced endpoint |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Create the extension that runs the custom script on deployment of a VM |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Get the IP addresses of the VMs created by the sample. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Get the frontend and backend ports used by the load balancer. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az vmss create](/cli/azure/vmss) | Creates a virtual machine scale set |
+| [az network lb rule create](/cli/azure/network/lb/rule) | Add a load-balanced endpoint |
+| [az vmss extension set](/cli/azure/vmss/extension) | Create the extension that runs the custom script on deployment of a VM |
+| [az vmss update-instances](/cli/azure/vmss) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
+| [az vmss scale](/cli/azure/vmss) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
+| [az network public-ip list](/cli/azure/network/public-ip) | Get the IP addresses of the VMs created by the sample. |
+| [az network lb show](/cli/azure/network/lb) | Get the frontend and backend ports used by the load balancer. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,15 +1,9 @@
 ---
 title: Tutorial - Manage virtual machines with PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying RBAC, polices, locks and tags
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: tfitzmac
-manager: gwallace
-editor: tysonn
-
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-windows
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
@@ -44,7 +38,7 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Role-based access control](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
+You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 
 To create and remove role assignments, users must have `Microsoft.Authorization/roleAssignments/*` access. This access is granted through the Owner or User Access Administrator roles.
 
@@ -56,7 +50,7 @@ For managing virtual machine solutions, there are three resource-specific roles 
 
 Instead of assigning roles to individual users, it's often easier to use an Azure Active Directory group that has users who need to take similar actions. Then, assign that group to the appropriate role. For this article, either use an existing group for managing the virtual machine, or use the portal to [create an Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-After creating a new group or finding an existing one, use the [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) command to assign the Azure Active Directory group to the Virtual Machine Contributor role for the resource group.  
+After creating a new group or finding an existing one, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command to assign the Azure Active Directory group to the Virtual Machine Contributor role for the resource group.  
 
 ```azurepowershell-interactive
 $adgroup = Get-AzADGroup -DisplayName <your-group-name>
@@ -72,7 +66,7 @@ Typically, you repeat the process for *Network Contributor* and *Storage Account
 
 ## Azure Policy
 
-[Azure Policy](../../governance/policy/overview.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition) command:
+[Azure Policy](../../governance/policy/overview.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [Get-AzPolicyDefinition](/powershell/module/az.resources/get-azpolicydefinition) command:
 
 ```azurepowershell-interactive
 (Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -84,7 +78,7 @@ You see the existing policy definitions. The policy type is either **BuiltIn** o
 * Limit the SKUs for virtual machines.
 * Audit virtual machines that don't use managed disks.
 
-In the following example, you retrieve three policy definitions based on the display name. You use the [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
+In the following example, you retrieve three policy definitions based on the display name. You use the [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment) command to assign those definitions to the resource group. For some policies, you provide parameter values to specify the allowed values.
 
 ```azurepowershell-interactive
 # Values to use for parameters
@@ -96,7 +90,7 @@ $rg = Get-AzResourceGroup -Name myResourceGroup
 
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
 $locationDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine size SKUs"}
 $auditDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
 # Assign policy for allowed locations
@@ -138,7 +132,7 @@ After your deployment finishes, you can apply more management settings to the so
 
 [Resource locks](../../azure-resource-manager/management/lock-resources.md) prevent users in your organization from accidentally deleting or modifying critical resources. Unlike role-based access control, resource locks apply a restriction across all users and roles. You can set the lock level to *CanNotDelete* or *ReadOnly*.
 
-To lock the virtual machine and network security group, use the [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) command:
+To lock the virtual machine and network security group, use the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command:
 
 ```azurepowershell-interactive
 # Add CanNotDelete lock to the VM
@@ -170,7 +164,7 @@ You apply [tags](../../azure-resource-manager/management/tag-resources.md) to yo
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
-To apply tags to a virtual machine, use the [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) command:
+To apply tags to a virtual machine, use the [Set-AzResource](/powershell/module/az.resources/set-azresource) command:
 
 ```azurepowershell-interactive
 # Get the virtual machine
@@ -184,7 +178,7 @@ Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } 
 
 ### Find resources by tag
 
-To find resources with a tag name and value, use the [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) command:
+To find resources with a tag name and value, use the [Get-AzResource](/powershell/module/az.resources/get-azresource) command:
 
 ```azurepowershell-interactive
 (Get-AzResource -Tag @{ Environment="Test"}).Name
@@ -202,7 +196,7 @@ Get-AzResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "
 
 ## Clean up resources
 
-The locked network security group can't be deleted until the lock is removed. To remove the lock, use the [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) command:
+The locked network security group can't be deleted until the lock is removed. To remove the lock, use the [Remove-AzResourceLock](/powershell/module/az.resources/remove-azresourcelock) command:
 
 ```azurepowershell-interactive
 Remove-AzResourceLock -LockName LockVM `
@@ -215,11 +209,15 @@ Remove-AzResourceLock -LockName LockNSG `
   -ResourceGroupName myResourceGroup
 ```
 
-When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
+
+## Manage costs
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 
@@ -235,4 +233,3 @@ Advance to the next tutorial to learn about how to identify changes and manage p
 
 > [!div class="nextstepaction"]
 > [Manage virtual machines](tutorial-config-management.md)
-

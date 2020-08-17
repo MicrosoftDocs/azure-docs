@@ -1,10 +1,10 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
-ms.author: marsma
+ms.author: mimart
 ---
 ## Sample templates
 You can find sample templates for UI customization here:
@@ -26,7 +26,7 @@ To use the sample:
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    To 
+    To
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```

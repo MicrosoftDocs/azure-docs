@@ -1,23 +1,23 @@
 ---
 title: Apache Hadoop & Visual Studio Data Lake Tools - Azure HDInsight
-description: Learn how to install and use Data Lake Tools for Visual Studio to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
+description: Learn how to install and use Data Lake Tools for Visual Studio. Use tool to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.topic: conceptual
-ms.date: 10/29/2019
+ms.topic: how-to
+ms.date: 04/14/2020
 ---
 
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries
 
-Learn how to use Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio (also called Data Lake Tools) to connect to [Apache Hadoop clusters in Azure HDInsight](apache-hadoop-introduction.md) and submit Hive queries.  
+Learn how to use Microsoft Azure Data Lake and Stream Analytics Tools for Visual Studio (Data Lake Tools). Use the tool to connect to [Apache Hadoop clusters in Azure HDInsight](apache-hadoop-introduction.md) and submit Hive queries.  
 
 For more information about using HDInsight, see [Get started with HDInsight](apache-hadoop-linux-tutorial-get-started.md).  
 
-For more information about connecting to an Apache Storm cluster, see [Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+For more information on connecting to Apache Storm, see [Develop C# topologies for Apache Storm by using the Data Lake tools](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 You can use Data Lake Tools for Visual Studio to access Azure Data Lake Analytics and HDInsight. For information about Data Lake Tools, see [Develop U-SQL scripts by using Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -33,15 +33,15 @@ To complete this article and use Data Lake Tools for Visual Studio, you need the
 
 Follow the appropriate instructions to install Data Lake Tools for your version of Visual Studio:
 
-- For Visual Studio 2017 or Visual Studio 2019:
+* For Visual Studio 2017 or Visual Studio 2019:
 
     During Visual Studio installation, make sure you include the **Azure development** workload or the **Data storage and processing** workload.  
 
-    For existing Visual Studio installations, go to the IDE menu bar, and select **Tools** > **Get Tools and Features** to open Visual Studio Installer. In the **Workloads** tab, select at least the **Azure development** workload (under **Web & Cloud**) or the **Data storage and processing** workload (under **Other Toolsets**).
+    For existing Visual Studio installations, go to the IDE menu bar, and select **Tools** > **Get Tools and Features** to open Visual Studio Installer. In the **Workloads** tab, select at least the **Azure development** workload (under **Web & Cloud**). Or select the **Data storage and processing** workload (under **Other Toolsets**).
 
   ![Workload selection, Visual Studio Installer](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
-- For Visual Studio 2015:
+* For Visual Studio 2015:
 
     [Download Data Lake Tools](https://www.microsoft.com/download/details.aspx?id=49504). Choose the version of Data Lake Tools that matches your version of Visual Studio.
 
@@ -91,7 +91,7 @@ To connect to your Azure subscription:
 
    ![HDInsight cluster list, Server Explorer, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
-6. Expand an HDInsight cluster. The cluster contains nodes for **Hive Databases**, a default storage account, any additional linked storage accounts, and **Hadoop Service Log**. You can further expand the entities.
+6. Expand an HDInsight cluster. The cluster contains nodes for **Hive Databases**. Also, a default storage account, any additional linked storage accounts, and **Hadoop Service Log**. You can further expand the entities.
 
 After you've connected to your Azure subscription, you can do the following tasks.
 
@@ -105,7 +105,7 @@ To connect to the Azure portal from Visual Studio:
 
 ### Offer questions and feedback from Visual Studio
 
-To ask questions and/or provide feedback from Visual Studio:
+To ask questions and, or provide feedback from Visual Studio:
 
 1. From Server Explorer, choose **Azure** > **HDInsight**.
 
@@ -120,7 +120,7 @@ To link an HDInsight cluster:
 
 1. Right-click **HDInsight**, and then select **Link a HDInsight Cluster** to display the **Link a HDInsight Cluster** dialog box.
 
-2. Enter a **Connection Url** in the form *https\://\<cluster&nbsp;name>.azurehdinsight.net*. The **Cluster Name** automatically fills in with the cluster name portion of your URL when you go to another field. Then enter a **Username** and **Password**, and select **Next**.
+2. Enter a **Connection Url** in the form `https://CLUSTERNAME.azurehdinsight.net`. The **Cluster Name** automatically fills in with the cluster name portion of your URL when you go to another field. Then enter a **Username** and **Password**, and select **Next**.
 
     ![Link a cluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
@@ -131,6 +131,7 @@ To update a linked cluster, right-click the cluster and select **Edit**. You can
 ![Edit a linked cluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
 ## Explore linked resources
+
 From Server Explorer, you can see the default storage account and any linked storage accounts. If you expand the default storage account, you can see the containers on the storage account. The default storage account and the default container are marked.
 
 ![Data Lake Tools for Visual Studio linked resources in Server Explorer](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
@@ -140,6 +141,7 @@ Right-click a container and select **View Container** to view the container's co
 ![Container list and blob operations, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
 
 ## Run interactive Apache Hive queries
+
 [Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
 
 [Interactive Query in Azure HDInsight](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex, data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster than traditional Hive batch jobs. 
@@ -147,7 +149,7 @@ Right-click a container and select **View Container** to view the container's co
 > [!NOTE]  
 > You can run interactive Hive queries only when you connect to an [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
 
-You can also use Data Lake Tools for Visual Studio to see what’s inside a Hive job. Data Lake Tools for Visual Studio collects and surfaces the Yarn logs of certain Hive jobs.
+You can also use Data Lake Tools for Visual Studio to see what's inside a Hive job. Data Lake Tools for Visual Studio collects and surfaces the Yarn logs of certain Hive jobs.
 
 From **Server Explorer**, choose **Azure** > **HDInsight** and select your cluster.  This node is the starting point in **Server Explorer** for the sections to follow.
 
@@ -157,11 +159,11 @@ All HDInsight clusters have a default sample Hive table called `hivesampletable`
 
 From your cluster, choose **Hive Databases** > **default** > **hivesampletable**.
 
-- To view the `hivesampletable` schema:
+* To view the `hivesampletable` schema:
 
     Expand **hivesampletable**. The names and data types of the `hivesampletable` columns are shown.
 
-- To view the `hivesampletable` data:
+* To view the `hivesampletable` data:
 
     Right-click **hivesampletable**, and select **View Top 100 Rows**. The list of 100 results appears in the **Hive Table: hivesampletable** window. This action is equivalent to running the following Hive query by using the Hive ODBC driver:
 
@@ -170,6 +172,7 @@ From your cluster, choose **Hive Databases** > **default** > **hivesampletable**
     You can customize the row count by changing **Number of rows**; you can choose 50, 100, 200, or 1000 rows from the drop-down list.
 
 ### Create Hive tables
+
 To create a Hive table, you can use the GUI or you can use Hive queries. For information about using Hive queries, see [Create and run Hive queries](#create-and-run-hive-queries).
 
 1. From your cluster, choose **Hive Databases** > **default**.
@@ -183,6 +186,7 @@ To create a Hive table, you can use the GUI or you can use Hive queries. For inf
     ![Create Table window, Hive, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png)
 
 ### Create and run Hive queries
+
 You have two options for creating and running Hive queries:
 
 * Create ad-hoc queries
@@ -224,7 +228,7 @@ To create and run an ad-hoc query:
 
     * **Batch**  
 
-        In the first drop-down list, choose **Batch**, and then select **Submit** (or select the drop-down icon next to **Submit** and choose **Advanced**).
+        In the first drop-down list, choose **Batch**, and then select **Submit**. Or select the drop-down icon next to **Submit** and choose **Advanced**.
 
         ![Batch mode, Hive ad-hoc query, HDInsight cluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
 
@@ -269,7 +273,7 @@ Currently, job graphs are only shown for Hive jobs that use Tez as the execution
 
 To view all the operators inside the vertex, double-click the vertices of the job graph. You can also point to a specific operator to see more details about the operator.
 
-Even if Tez is specified as the execution engine, the job graph may not appear if no Tez application is launched.  This situation might occur because the job doesn't contain DML statements, or because the DML statements can return without launching a Tez application. For example, `SELECT * FROM table1` won't launch the Tez application.
+Even if Tez is specified as the execution engine, the job graph may not appear if no Tez application is launched.  This situation might occur because the job doesn't contain DML statements. Or because the DML statements can return without launching a Tez application. For example, `SELECT * FROM table1` won't launch the Tez application.
 
 ![Apache Hive job graph, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
 
@@ -284,7 +288,7 @@ From the job graph, you can select **Task Execution Detail** to get structured a
 
 You can view job queries, job output, job logs, and Yarn logs for Hive jobs.
 
-In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+In the most recent release of the tools, you can see what's inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 To view Hive jobs:
 
@@ -314,11 +318,11 @@ To view Hive jobs:
 
 * An issue in which results that are started with null values aren't shown has been fixed. If you're blocked on this issue, contact the support team.
 
-* The HQL script that Visual Studio creates is encoded, depending on the user’s local region setting. The script doesn't execute correctly if you upload the script to a cluster as a binary file.
+* The HQL script that Visual Studio creates is encoded, depending on the user's local region setting. The script doesn't execute correctly if you upload the script to a cluster as a binary file.
 
 ## Next steps
 
-In this article, you learned how to use the Data Lake Tools for Visual Studio package to connect to HDInsight clusters from Visual Studio. You also learned how to run a Hive query. For more information, see these articles:
+In this article, you learned how to use the Data Lake Tools for Visual Studio package to connect to HDInsight clusters from Visual Studio. You also learned how to run a Hive query. 
 
 * [Run Apache Hive queries using the Data Lake tools for Visual Studio](apache-hadoop-use-hive-visual-studio.md)
 * [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md)

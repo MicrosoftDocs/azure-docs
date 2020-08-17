@@ -4,8 +4,9 @@ description: This article describes how you can restart an Azure Database for My
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Restart Azure Database for MySQL server using the Azure CLI

@@ -1,51 +1,53 @@
 ---
 title: Use empty edge nodes on Apache Hadoop clusters in Azure HDInsight
-description: How to add an empty edge node to an HDInsight cluster that can be used as a client, and then test/host your HDInsight applications.
+description: How to add an empty edge node to an HDInsight cluster. Used as a client, and then test, or host your HDInsight applications.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 01/27/2020
+ms.date: 04/16/2020
 ---
 
 # Use empty edge nodes on Apache Hadoop clusters in HDInsight
 
-Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no [Apache Hadoop](https://hadoop.apache.org/) services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications.
+Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes. But with no [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications.
 
 You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it's done using a template:
 
-    "resources": [
-        {
-            "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
-            "type": "Microsoft.HDInsight/clusters/applications",
-            "apiVersion": "2015-03-01-preview",
-            "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
-            "properties": {
-                "marketPlaceIdentifier": "EmptyNode",
-                "computeProfile": {
-                    "roles": [{
-                        "name": "edgenode",
-                        "targetInstanceCount": 1,
-                        "hardwareProfile": {
-                            "vmSize": "{}"
-                        }
-                    }]
-                },
-                "installScriptActions": [{
-                    "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
-                    "uri": "[parameters('installScriptAction')]",
-                    "roles": ["edgenode"]
-                }],
-                "uninstallScriptActions": [],
-                "httpsEndpoints": [],
-                "applicationType": "CustomApplication"
-            }
+```json
+"resources": [
+    {
+        "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
+        "type": "Microsoft.HDInsight/clusters/applications",
+        "apiVersion": "2015-03-01-preview",
+        "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
+        "properties": {
+            "marketPlaceIdentifier": "EmptyNode",
+            "computeProfile": {
+                "roles": [{
+                    "name": "edgenode",
+                    "targetInstanceCount": 1,
+                    "hardwareProfile": {
+                        "vmSize": "{}"
+                    }
+                }]
+            },
+            "installScriptActions": [{
+                "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
+                "uri": "[parameters('installScriptAction')]",
+                "roles": ["edgenode"]
+            }],
+            "uninstallScriptActions": [],
+            "httpsEndpoints": [],
+            "applicationType": "CustomApplication"
         }
-    ],
+    }
+],
+```
 
-As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration, such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node. The script action script must be publicly accessible on the web.  For example, if the script is stored in Azure Storage, use either public containers or public blobs.
+As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to do additional configuration. Such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node. The script action script must be publicly accessible on the web.  For example, if the script is stored in Azure Storage, use either public containers or public blobs.
 
 The edge node virtual machine size must meet the HDInsight cluster worker node vm size requirements. For the recommended worker node vm sizes, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
@@ -54,7 +56,7 @@ After you've created an edge node, you can connect to the edge node using SSH, a
 > [!WARNING]
 > Custom components that are installed on the edge node receive commercially reasonable support from Microsoft. This might result in resolving problems you encounter. Or, you may be referred to community resources for further assistance. The following are some of the most active sites for getting help from the community:
 >
-> * [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
+> * [Microsoft Q&A question page for HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > If you are using an Apache technology, you may be able to find assistance through the Apache project sites on [https://apache.org](https://apache.org), such as the [Apache Hadoop](https://hadoop.apache.org/) site.
@@ -64,7 +66,7 @@ After you've created an edge node, you can connect to the edge node using SSH, a
 
 ## Add an edge node to an existing cluster
 
-In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It's to demonstrate calling script action from a Resource Manager template.
+In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't do any actions.  It's to demonstrate calling script action from a Resource Manager template.
 
 1. Select the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal.
 
@@ -86,7 +88,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
 
 ## Add an edge node when creating a cluster
 
-In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in the [Azure quickstart templates gallery](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It's to demonstrate calling script action from a Resource Manager template.
+In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in the [Azure quickstart templates gallery](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't do any actions.  It's to demonstrate calling script action from a Resource Manager template.
 
 1. Create an HDInsight cluster if you don't have one yet.  See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -114,7 +116,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 ## Add multiple edge nodes
 
-You can add multiple edge nodes to an HDInsight cluster.  The multiple edge nodes configuration can only be done using Azure Resource Manager Templates.  See the template sample at the beginning of this article.  You need to update the **targetInstanceCount** to reflect the number of edge nodes you would like to create.
+You can add multiple edge nodes to an HDInsight cluster.  The multiple edge nodes configuration can only be done using Azure Resource Manager Templates.  See the template sample at the beginning of this article.  Update the **targetInstanceCount** to reflect the number of edge nodes you would like to create.
 
 ## Access an edge node
 
@@ -135,11 +137,15 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 
 2. After you've connected to the edge node using SSH, use the following command to open the Hive console:
 
-        hive
+    ```console
+    hive
+    ```
 
 3. Run the following command to show Hive tables in the cluster:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## Delete an edge node
 

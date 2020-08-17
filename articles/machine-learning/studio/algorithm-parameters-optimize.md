@@ -1,18 +1,19 @@
 ---
-title: Optimize algorithms
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Optimize algorithms - Azure'
 description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ---
-# Choose parameters to optimize your algorithms in Azure Machine Learning Studio (classic)
+# Choose parameters to optimize your algorithms in Machine Learning Studio (classic)
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning Studio (classic). Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
 
@@ -36,7 +37,7 @@ You can define the parameter set at the model initialization step. The parameter
 
 ![Two-class boosted decision tree, single parameter](./media/algorithm-parameters-optimize/fig2.png)
 
- Alternately, you can define the maximum and minimum points of the grid and the total number of points to be generated with **Use Range Builder**. By default, the parameter values are generated on a linear scale. But if **Log Scale** is checked, the values are generated in the log scale (that is, the ratio of the adjacent points is constant instead of their difference). For integer parameters, you can define a range by using a hyphen. For example, “1-10” means that all integers between 1 and 10 (both inclusive) form the parameter set. A mixed mode is also supported. For example, the parameter set “1-10, 20, 50” would include integers 1-10, 20, and 50.
+ Alternately, you can define the maximum and minimum points of the grid and the total number of points to be generated with **Use Range Builder**. By default, the parameter values are generated on a linear scale. But if **Log Scale** is checked, the values are generated in the log scale (that is, the ratio of the adjacent points is constant instead of their difference). For integer parameters, you can define a range by using a hyphen. For example, "1-10" means that all integers between 1 and 10 (both inclusive) form the parameter set. A mixed mode is also supported. For example, the parameter set "1-10, 20, 50" would include integers 1-10, 20, and 50.
 
 ![Two-class boosted decision tree, parameter range](./media/algorithm-parameters-optimize/fig3.png)
 

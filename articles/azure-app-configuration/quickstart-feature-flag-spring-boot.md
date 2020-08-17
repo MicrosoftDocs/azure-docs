@@ -4,8 +4,9 @@ description: Add feature flags to Spring Boot apps and manage them using Azure A
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
+ms.custom: devx-track-java
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -52,20 +53,20 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate  *pom.xml* in the root directory of your app.
 
-1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`.:
+1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
-### Spring Cloud 1.1.x
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.1.2</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -73,18 +74,18 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     </dependency>
     ```
 
-### Spring Cloud 1.2.x
+    **Spring Cloud 1.2.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.2.2</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -100,7 +101,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 1. Navigate to the `resources` directory of your app and open `bootstrap.properties`.  If the file does not exist, create it. Add the following line to the file.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. In the App Configuration portal for your config store, select `Access keys` from the sidebar. Select the Read-only keys tab. Copy the value of the primary connection string.
@@ -165,7 +166,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     @Controller
     @ConfigurationProperties("controller")
-
     public class HelloController {
 
         private FeatureManager featureManager;
@@ -176,7 +176,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta"));
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }
@@ -281,7 +281,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the default URL for a locally hosted web app: `https://localhost:8080`.
+1. Open a browser window, and go to the URL: `http://localhost:8080/welcome`.
 
     ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

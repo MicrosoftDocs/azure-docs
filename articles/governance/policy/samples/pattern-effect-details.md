@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Effects of a policy definition"
 description: This Azure Policy pattern provides example of how to use the different effects of a policy definition.
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: effects
@@ -20,9 +20,9 @@ is triggered to add the tag with the value in parameter **tagValue**.
 
 ### Sample 1: Explanation
 
-:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="30-34":::
+:::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-An **modify** effect requires the **policyRule.then.details** block that defines
+A **modify** effect requires the **policyRule.then.details** block that defines
 **roleDefinitionIds** and **operations**. These parameters inform Azure Policy what roles are needed
 to add the tag and remediate the resource and which **modify** operation to perform. In this
 example, the **operation** is _add_ and the parameters are used to set the tag and its value.

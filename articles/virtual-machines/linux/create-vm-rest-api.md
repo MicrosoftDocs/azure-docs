@@ -1,19 +1,9 @@
 ---
-title: Create a Linux virtual machine with the Azure REST API 
+title: Create a Linux VM with the REST API 
 description: Learn how to create a Linux virtual machine in Azure that uses Managed Disks and SSH authentication with Azure REST API.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 
@@ -52,7 +42,7 @@ The following headers are required:
 | Request header   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Required. Set to `application/json`. |
-| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Required. Set to a valid `Bearer` [access token](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 For general information about working with REST API requests, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -128,7 +118,7 @@ For a complete list of the available definitions in the request body, see [Virtu
 
 ## Sending the request
 
-You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
+You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
 
 ### Responses
 
@@ -157,4 +147,4 @@ For more information on the Azure REST APIs or other management tools such as Az
 - [Azure Compute provider REST API](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/)
 - [Azure CLI](/cli/azure/)
-- [Azure PowerShell module](/powershell/azure/overview)
+- [Azure PowerShell module](/powershell/azure/)

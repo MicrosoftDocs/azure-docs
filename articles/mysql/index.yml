@@ -51,9 +51,9 @@ landingContent:
           - text: Design a Database using Azure CLI 
             url: tutorial-design-database-using-cli.md
           - text: Deploy Wordpress in containers
-            url: ../app-service/containers/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+            url: ../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
           - text: Build a Web App using PHP in Azure CLI
-            url: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+            url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
 # Card 3
   - title: Back up and migrate data
     linkLists:
@@ -141,8 +141,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/mysql/
-          - text: REST API developer reference
             url: /cli/azure/mysql
+          - text: REST API developer reference
+            url: /rest/api/mysql/
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformysql/allversions

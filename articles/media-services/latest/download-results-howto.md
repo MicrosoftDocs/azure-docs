@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 03/04/2020
 ms.author: juliako
 ---
 
@@ -19,6 +19,10 @@ ms.author: juliako
 In Azure Media Services, when processing your videos (for example, encoding or analyzing) you need to create an output [asset](assets-concept.md) to store the result of your [job](transforms-jobs-concept.md). You can then download these results to a local folder using Media Service and Storage APIs. 
 
 This article demonstrates how to download the results using Java and .NET SDKs.
+
+## Prerequisites 
+
+Review [manage assets](manage-asset-concept.md).
 
 ## Java
 

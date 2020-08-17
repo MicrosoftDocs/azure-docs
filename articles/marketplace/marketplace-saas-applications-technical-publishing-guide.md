@@ -1,27 +1,22 @@
 ---
-title: Azure Marketplace SaaS Applications Technical Publishing Guide
-description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
+title: SaaS applications publishing guide - Microsoft commercial marketplace
+description: Requirements and resources for publishing publishing SaaS application offers to Microsoft AppSource and Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 07/09/2018
-ms.author: kevidal
+ms.topic: conceptual
+ms.date: 04/23/2020
+ms.author: mingshen
+author: mingshen-ms
 ---
 
-# SaaS applications Offer Publishing Guide
+# SaaS applications offer publishing guide
 
-SaaS applications can be published in the marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This guide explains these three options, including requirements for each. 
+You can publish SaaS applications in the commercial marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This article explains these three options, including requirements for each. 
 
 ## Offer overview  
 
-SaaS applications are available in both Azure Storefronts The following table describes the current available options:
-
-| Storefront option | Listing | Trial/Transact |  
-| --- | --- | --- |  
-| AppSource | Yes (Contact Me) | Yes (PowerBI/Dynamics) |
-| Azure marketplace | No | Yes (SaaS Apps) |   
+SaaS applications are available in Microsoft AppSource and Azure Marketplace.  Both storefronts support list, trial, and transact offers.
 
 **List:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
 **Trial/Transaction:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
@@ -29,7 +24,7 @@ SaaS applications are available in both Azure Storefronts The following table de
 | SaaS Apps Offer | Business Requirements | Technical Requirements |  
 | --- | --- | --- |  
 | **Contact Us** | Yes | No |  
-| **PowerBI / Dynamics** | Yes | Yes (Azure AD integration) |  
+| **Power BI / Dynamics** | Yes | Yes (Azure AD integration) |  
 | **SaaS Apps**| Yes | Yes (Azure AD integration) |     
 
 ## SaaS List
@@ -62,11 +57,9 @@ To start, we recommend that you have a subscription dedicated for your Azure Mar
 
 The best Azure Active Directory documentation, samples and guidance are located at the following sites: 
 
-* [Azure Active Directory Developer's Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory Developer's Guide](../active-directory/develop/index.yml)
 
-* [Integrating with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
-
-* [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md)
 
 * [Azure Roadmap - Security and Identity](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -90,7 +83,7 @@ In addition, Azure Active Directory provides a site to check for Service Updates
 
 ## Using Azure Active Directory to enable trials  
 
-Microsoft authenticates all Marketplace users with Azure AD, so when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft authenticates all Marketplace users with Azure AD, so when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](../active-directory/develop/active-directory-token-and-claims.md) .
 
 Using Azure AD to enable 1-click authentication to your app or Trial does the following:  
 * Streamlines the customer experience from Marketplace to Trial.  
@@ -105,16 +98,16 @@ Certify your Azure AD integration in a few different ways, depending on whether 
 **For multi-tenant applications:**  
 
 If you already support Azure AD, do the following:
-1.	Register your application in the Azure portal
-2.	Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Register your application in the Azure portal
+2.    Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](../active-directory/develop/active-directory-integrating-applications.md).  
 
 If you are new to Azure AD Federated SSO, do the following: 
 1.  Register your application in the Azure portal
-2.  Develop SSO with Azure AD using [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Enable multi-tenancy support feature in AAD to get 'one-click' trial experience More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Develop SSO with Azure AD using [OpenID Connect](../active-directory/develop/active-directory-protocols-openid-connect-code.md) or [OAuth 2.0](../active-directory/develop/active-directory-protocols-oauth-code.md).
+3.  Enable multi-tenancy support feature in AAD to get 'one-click' trial experience More specific information can be found [here](../active-directory/develop/active-directory-devhowto-appsource-certified.md).  
 
 **For single-tenant application, use any of the following options:**  
-* Add users to your directory as guest users using [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Add users to your directory as guest users using [Azure B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)
 * Manually provision trials for customers by using 'Contact Me'
 * Develop a per-customer 'Test Drive'
 * Build a multi-tenant sample demo app with SSO
@@ -139,9 +132,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 ## Next steps
 If you haven't already done so,
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+* [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you're registered and are creating a new offer or working on an existing one,
+To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) for more information.
+* [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+* See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.

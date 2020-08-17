@@ -1,23 +1,22 @@
 ---
 title: Summary dashboard for Partner Center analytics in Commercial Marketplace
 description: Learn how to access graphs, trends, and values of aggregate data that summarize marketplace activity from the Summary dashboard in Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
-# Summary dashboard in Commercial Marketplace analytics
+# Summary dashboard in commercial marketplace analytics
 
 This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
 To access the Summary dashboard, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ## Summary dashboard
 
@@ -51,7 +50,7 @@ The Summary section displays a count of all orders created, customers acquired, 
 
 - **Orders**: Count of all orders purchased (excludes canceled orders) for offers you've published so far.
 - **Customers**: Count of all customers who purchased your offers and have at least one non canceled order.
-- **Normalized usage hours**: Defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as “SHAREDCORE” use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
+- **Normalized usage hours**: Defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
 - **Raw usage hours**: The amount of time VMs have been running in terms of hours. The percentage value next to **total orders**, **total customers**, **normalized usage hours**, **raw usage hours**, **page visits**, and **call to actions** represent the amount of usage growth for the selected date range ([last month usage – first month usage])/ first month usage). As described above, a partial amount of the current month will be excluded from this metric.
 - **Growth trends**: If you hover over the columns of the chart, bar graphs display the value for each month.
 - **Green triangle pointing upward**: Indicates a positive growth trend.
@@ -66,7 +65,7 @@ The **Customers by geography** heatmap displays a customer count on a world map.
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
 - The heatmap has a supplementary grid to view the details of customer count, order count, normalized usage hours in the specific location.
-- You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
+- You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 - A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
 
 ### Growth trend charts
@@ -111,10 +110,10 @@ The **Free trial SaaS orders trend** chart presents the trend of orders for free
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in Commercial Marketplace analytics](./orders-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer Dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

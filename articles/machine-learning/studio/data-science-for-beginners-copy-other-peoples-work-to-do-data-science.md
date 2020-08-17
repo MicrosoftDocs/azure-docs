@@ -1,6 +1,5 @@
 ---
-title: Copy others' data science examples
-titleSuffix: ML Studio (classic) - Azure
+title: 'Copy data science examples - ML Studio (classic) - Azure'
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
@@ -87,4 +86,4 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 
 ## Next steps
 * [Try your first data science experiment with Azure Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

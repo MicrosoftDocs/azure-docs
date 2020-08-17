@@ -17,7 +17,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 04/10/2019
 ---
 
-# Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration
+# Azure Notification Hubs and Google Firebase Cloud Messaging migration
 
 ## Current state
 
@@ -25,21 +25,21 @@ When Google announced its migration from Google Cloud Messaging (GCM) to Firebas
 
 We updated our service backend, then published updates to our API and SDKs as needed. With our implementation, we made the decision to maintain compatibility with existing GCM notification schemas to minimize customer impact. This means that we currently send notifications to Android devices using FCM in FCM Legacy Mode. Ultimately, we want to add true support for FCM, including the new features and payload format. That is a longer-term change and the current migration is focused on maintaining compatibility with existing applications and SDKs. You can use either the GCM or FCM SDKs in your app (along with our SDK) and we make sure the notification is sent correctly.
 
-Some customers recently received an email from Google warning about apps using a GCM endpoint for notifications. This was just a warning, and nothing is broken – your app’s Android notifications are still sent to Google for processing and Google still processes them. Some customers who specified the GCM endpoint explicitly in their service configuration were still using the deprecated endpoint. We had already identified this gap and were working on fixing the issue when Google sent the email.
+Some customers recently received an email from Google warning about apps using a GCM endpoint for notifications. This was just a warning, and nothing is broken – your app's Android notifications are still sent to Google for processing and Google still processes them. Some customers who specified the GCM endpoint explicitly in their service configuration were still using the deprecated endpoint. We had already identified this gap and were working on fixing the issue when Google sent the email.
 
 We replaced that deprecated endpoint and the fix is deployed.
 
 ## Going forward
 
-Google’s FCM FAQ says you don't have to do anything. In the [FCM FAQ](https://developers.google.com/cloud-messaging/faq), Google said "client SDKs and GCM tokens will continue to work indefinitely. However, you won't be able to target the latest version of Google Play Services in your Android app unless you migrate to FCM."
+Google's FCM FAQ says you don't have to do anything. In the [FCM FAQ](https://developers.google.com/cloud-messaging/faq), Google said "client SDKs and GCM tokens will continue to work indefinitely. However, you won't be able to target the latest version of Google Play Services in your Android app unless you migrate to FCM."
 
-If your app uses the GCM library, go ahead and follow Google’s instructions to upgrade to the FCM library in your app. Our SDK is compatible with either, so you won’t have to update anything in your app on our side (as long as you’re up to date with our SDK version).
+If your app uses the GCM library, go ahead and follow Google's instructions to upgrade to the FCM library in your app. Our SDK is compatible with either, so you won't have to update anything in your app on our side (as long as you're up to date with our SDK version).
 
 ## Questions and answers
 
-Here’s some answers to common questions we’ve heard from customers:
+Here's some answers to common questions we've heard from customers:
 
-**Q:** What do I need to do to be compatible by the cutoff date (Google’s current cutoff date is May 29th and may change)?
+**Q:** What do I need to do to be compatible by the cutoff date (Google's current cutoff date is May 29th and may change)?
 
 **A:** Nothing. We will maintain compatibility with existing GCM notification schema. Your GCM key will continue to work as normal as will any GCM SDKs and libraries used by your application.
 

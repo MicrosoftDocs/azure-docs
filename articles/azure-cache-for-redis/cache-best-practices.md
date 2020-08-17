@@ -35,6 +35,8 @@ By following these best practices, you can help maximize the performance and cos
 
  * **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](https://docs.microsoft.com/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
  
+ * **Idle Timeout** - Azure Redis currently has 10 minute idle timeout for connections, so this should be set to less than 10 minutes.
+ 
 ## Memory management
 There are several things related to memory usage within your Redis server instance that you may want to consider.  Here are a few:
 
@@ -49,7 +51,7 @@ There are several things related to memory usage within your Redis server instan
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Asp.Net Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## When is it safe to retry?
@@ -63,27 +65,27 @@ Unfortunately, there's no easy answer.  Each application needs to decide what op
 If you would like to test how your code works under error conditions, consider using the [Reboot feature](cache-administration.md#reboot). Rebooting allows you to see how connection blips affect your application.
 
 ## Performance testing
- * **Start by using `redis-benchmark.exe`** to get a feel for possible throughput/latency before writing your own perf tests.  Redis-benchmark documentation can be [found here](https://redis.io/topics/benchmarks).  Note that redis-benchmark doesn't support SSL, so you'll have to [enable the Non-SSL port through the Portal](cache-configure.md#access-ports) before you run the test.  [A windows compatible version of redis-benchmark.exe can be found here](https://github.com/MSOpenTech/redis/releases)
+ * **Start by using `redis-benchmark.exe`** to get a feel for possible throughput/latency before writing your own perf tests.  Redis-benchmark documentation can be [found here](https://redis.io/topics/benchmarks).  Note that redis-benchmark doesn't support TLS, so you'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test.  [A windows compatible version of redis-benchmark.exe can be found here](https://github.com/MSOpenTech/redis/releases)
  * The client VM used for testing should be **in the same region** as your Redis cache instance.
  * **We recommend using Dv2 VM Series** for your client as they have better hardware and will give the best results.
  * Make sure the client VM you use has **at least as much compute and bandwidth* as the cache being tested. 
- * **Enable VRSS** on the client machine if you are on Windows.  [See here for details](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Example powershell script:
+ * **Enable VRSS** on the client machine if you are on Windows.  [See here for details](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Example PowerShell script:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
      
  * **Consider using Premium tier Redis instances**.  These cache sizes will have better network latency and throughput because they're running on better hardware for both CPU and Network.
  
      > [!NOTE]
-     > Our observed performance results are [published here](cache-faq.md#azure-cache-for-redis-performance) for your reference.   Also, be aware that SSL/TLS adds some overhead, so you may get different latencies and/or throughput if you're using transport encryption.
+     > Our observed performance results are [published here](cache-planning-faq.md#azure-cache-for-redis-performance) for your reference.   Also, be aware that SSL/TLS adds some overhead, so you may get different latencies and/or throughput if you're using transport encryption.
  
 ### Redis-Benchmark examples
 **Pre-test setup**:
 Prepare the cache instance with data required for the latency and throughput testing commands listed below.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
+> redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
 **To test latency**:
 Test GET requests using a 1k payload.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
+> redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **To test throughput:**
 Pipelined GET requests with 1k payload.
-> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
+> redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50

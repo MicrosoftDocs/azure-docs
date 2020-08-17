@@ -2,7 +2,7 @@
 title: About repositories & images
 description: Introduction to key concepts of Azure container registries, repositories, and container images.
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 06/16/2020
 ---
 
 # About registries, repositories, and images
@@ -19,43 +19,38 @@ In addition to Docker container images, Azure Container Registry supports relate
 
 The address of an artifact in an Azure container registry includes the following elements. 
 
-```
-[loginUrl]/[namespace]/[artifact:][tag]
-```
+`[loginUrl]/[repository:][tag]`
 
 * **loginUrl** - The fully qualified name of the registry host. The registry host in an Azure container registry is in the format *myregistry*.azurecr.io (all lowercase). You must specify the loginUrl when using Docker or other client tools to pull or push artifacts to an Azure container registry. 
-* **namespace** - Slash-delimited logical grouping of related images or artifacts - for example, for a workgroup or app
-* **artifact** - The name of a repository for a particular image or artifact
-* **tag** - A specific version of an image or artifact stored in a repository
-
+* **repository** - Name of a logical grouping of one or more related images or artifacts - for example, the images for an application or a base operating system. May include *namespace* path. 
+* **tag** -  Identifier of a specific version of an image or artifact stored in a repository.
 
 For example, the full name of an image in an Azure container registry might look like:
 
-```
-myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
-```
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 See the following sections for details about these elements.
 
 ## Repository name
 
-Container registries manage *repositories*, collections of container images or other artifacts with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
+A *repository* is a collection of container images or other artifacts with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
 
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
 
-Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you to group images using forward slash-delimited repository names, for example:
+- *acr-helloworld:latest*
+- *acr-helloworld:v1*
+- *acr-helloworld:v2*
 
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
+Repository names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you to identify related repositories and artifact ownership in your organization by using forward slash-delimited names. However, the registry manages all repositories independently, not as a hierarchy. For examples:
+
+- *marketing/campaign10-18/web:v2*
+- *marketing/campaign10-18/api:v3*
+- *marketing/campaign10-18/email-sender:v2*
+- *product-returns/web-submission:20180604*
+- *product-returns/legacy-integrator:20180715*
+
+Repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
+
+For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ## Image
 
@@ -65,9 +60,11 @@ A container image or other artifact within a registry is associated with one or 
 
 The *tag* for an image or other artifact specifies its version. A single artifact within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags from an image, while the image's data (its layers) remain in the registry.
 
-The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
+The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation. The tag `latest` is used by default if you don't provide one in your Docker commands.
 
 How you tag container images is guided by your scenarios to develop or deploy them. For example, stable tags are recommended for maintaining your base images, and unique tags for deploying images. For more information, see [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md).
+
+For tag naming rules, see the [Docker documentation](https://docs.docker.com/engine/reference/commandline/tag/).
 
 ### Layer
 
@@ -87,8 +84,11 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName>
 
 For example, list the manifests for the "acr-helloworld" repository:
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -123,9 +123,7 @@ You can pull an image from a registry by specifying its digest in the pull opera
 
 For example, pull an image from the "acr-helloworld" repository by manifest digest:
 
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
 
 > [!IMPORTANT]
 > If you repeatedly push modified images with identical tags, you might create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. Deleting an untagged image frees registry space when the manifest is the only one, or the last one, pointing to a particular layer. For information about freeing space used by untagged images, see [Delete container images in Azure Container Registry](container-registry-delete.md).

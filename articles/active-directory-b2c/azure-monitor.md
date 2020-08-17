@@ -3,13 +3,13 @@ title: Monitor Azure AD B2C with Azure Monitor
 titleSuffix: Azure AD B2C
 description: Learn how to log Azure AD B2C events with Azure Monitor by using delegated resource management.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.author: marsma
+ms.topic: how-to
+ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ---
@@ -21,8 +21,8 @@ Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and
 You can route log events to:
 
 * An Azure [storage account](../storage/blobs/storage-blobs-introduction.md).
+* A [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) (to analyze data, create dashboards, and alert on specific events).
 * An Azure [event hub](../event-hubs/event-hubs-about.md) (and integrate with your Splunk and Sumo Logic instances).
-* An [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) (to analyze data, create dashboards, and alert on specific events).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -80,12 +80,12 @@ To onboard your Azure AD tenant (the **Customer**), create an [Azure Resource Ma
 
 Download the Azure Resource Manager template and parameter files:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Next, update the parameters file with the values you recorded earlier. The following JSON snippet shows an example of an Azure Resource Manager template parameters file. For `authorizations.value.roleDefinitionId`, use the [built-in role](../role-based-access-control/built-in-roles.md) value for the *Contributor role*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",

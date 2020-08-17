@@ -2,17 +2,17 @@
 title: Create an access review of groups & applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory access reviews. 
 services: active-directory
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 02/06/2020
-ms.author: ajburnle
+ms.date: 08/09/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -88,7 +88,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     ![Create an access review - Upon completion settings](./media/create-access-review/upon-completion-settings.png)
 
-1. If you want to automatically remove,  access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
+1. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
 1. Use the **Should reviewer not respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
 
@@ -101,7 +101,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. To specify additional settings, expand the **Advanced settings** section.
 
-    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings.png)
+    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings-preview.png)
 
 1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
 
@@ -109,9 +109,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Set **Mail notifications** to **Enable** to have Azure AD send email notifications to reviewers when an access review starts, and to administrators when a review completes.
 
-1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who have not completed their review.
+1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who have not completed their review. 
 
-    By default, Azure AD automatically sends a reminder halfway to the end date to reviewers who haven't yet responded.
+    >[!NOTE]
+    > By default, Azure AD automatically sends a reminder halfway to the end date to reviewers who haven't yet responded
+
+1. (Preview) The content of the email sent to reviewers is auto-generated based on the review details, such as review name, resource name, due date, etc. If you need a way to communicate additional information such as additional instructions or contact information, you can specify these details in the Additional content for reviewer email which will be included in the invitation and reminder emails sent to assigned reviewers. The highlighted section below is where this information will be displayed.
+
+    ![Review a users access to a group](./media/create-access-review/review-users-access-group.png)
 
 ## Start the access review
 

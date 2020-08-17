@@ -26,14 +26,8 @@
       href: quickstarts/ruby.md
   - name: SDK
     items:
-    - name: "Using C#"
-      href: image-search-sdk-quickstart.md
-    - name: "Using Node.js"
-      href: image-search-sdk-node-quickstart.md
-    - name: "Using Python"
-      href: image-sdk-python-quickstart.md
-    - name: "Using Java"
-      href: image-sdk-java-quickstart.md
+    - name: "Bing Image Search client libraries"
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Build an image search web application
@@ -108,12 +102,12 @@
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
   - name: Bing Image Search endpoints
     href: image-search-endpoint.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing Image Search API
     maintainContext: true

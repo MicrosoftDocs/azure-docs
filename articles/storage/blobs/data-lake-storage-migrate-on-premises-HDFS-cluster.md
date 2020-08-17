@@ -1,24 +1,24 @@
 ---
 title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
-description: Migrate data from an on-premises HDFS store to Azure Storage
+description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
 # Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
 > [!div class="checklist"]
 > * Prepare to migrate your data.
-> * Copy your data to a Data Box or a Data Box Heavy device.
+> * Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
 > * Ship the device back to Microsoft.
 > * Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
@@ -182,7 +182,7 @@ You already have the data into your Azure Storage account. Now you will apply ac
 
 To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-* When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+* When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
 * When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
 
@@ -235,7 +235,7 @@ Run this command to apply permissions to the data that you copied into the Data 
 
 Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### Download helper scripts and set up your edge node to run them
 

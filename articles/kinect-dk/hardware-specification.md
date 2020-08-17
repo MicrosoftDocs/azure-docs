@@ -46,7 +46,7 @@ The Azure Kinect device consists of the following size and weight dimensions.
 
 Azure Kinect DK is intended for developers and commercial businesses operating under the following ambient conditions:
 
-- **Temperature**: 10-25⁰C
+- **Temperature**: 10-25<sup>0</sup>C
 - **Humidity**: 8-90% (non-condensing) Relative Humidity
 
 > [!NOTE]
@@ -145,7 +145,7 @@ Azure Kinect DK embeds a high-quality, seven microphone circular array that iden
 
 Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
-Vendor ID is 0x045E (Microsoft), Product ID table below:
+Vendor ID is 0x045E (Microsoft). Product ID table is shown below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
@@ -164,7 +164,7 @@ The status LED behind the device indicates device state:
 | When the light is     | It means                                                   |
 |-----------------------|------------------------------------------------------------|
 | Solid white           | Device is on and working properly.                         |
-| Flashing white        | Device is on but doesn’t have a USB 3.0 data connection.   |
+| Flashing white        | Device is on but doesn't have a USB 3.0 data connection.   |
 | Flashing amber        | Device doesn't have enough power to operate.               |
 | Amber flashing white  | Firmware update or recovery in progress                    |
 
@@ -172,7 +172,7 @@ The status LED behind the device indicates device state:
 
 The device can be powered in two ways:
 
-1. Using the in-box power supply. Data is connected by a separate USB Type-C to Type-A cable.
+1. Using the in-box power supply. The power connector is a 4.5mm OD with 3.0mm ID and a pin diameter of 0.6mm.
 2. Using a Type-C to Type-C cable for both power and data.
 
 A Type-C to Type-C cable isn't included with the Azure Kinect DK.
@@ -185,7 +185,7 @@ A Type-C to Type-C cable isn't included with the Azure Kinect DK.
 > To select a good Type-C to Type-C cable:
 > - The [USB certified cable](https://www.usb.org/products) must support both power and data.
 > - A passive cable should be less than 1.5m in length. If longer, use an active cable. 
-> - The cable needs to support no less than >1.5A. Otherwise you need to connect an external power supply.
+> - The cable needs to support at least 1.5A. Otherwise you need to connect an external power supply.
 
 Verify cable:
 

@@ -7,9 +7,9 @@ ms.date: 12/04/2018
 
 # Run a notebook slideshow in Azure Notebooks Preview
 
-Azure Notebooks is pre-configured with the Jupyter/IPython Slideshow Extension (RISE) that lets you present a notebook directly as a slideshow. In a slideshow, cells are typically displayed one at a time using a font size that's appropriate for presenting on large screens, and you can still run the code rather than switching to a separate demo computer.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Azure Notebooks is pre-configured with the Jupyter/IPython Slideshow Extension (RISE) that lets you present a notebook directly as a slideshow. In a slideshow, cells are typically displayed one at a time using a font size that's appropriate for presenting on large screens, and you can still run the code rather than switching to a separate demo computer.
 
 The following image shows the standard notebook view, in which you can see Markdown and code cells all together:
 

@@ -1,11 +1,10 @@
 ---
-title: How application consent works | Microsoft Docs
+title: How application consent works
 description: Learn more about how the Azure AD consent framework works to see how you can use it when developing applications on Azure AD
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
@@ -22,10 +21,10 @@ This article is to help you learn more about how the Azure AD consent framework 
 
 ## Recommended documents
 
-- Get a general understanding of [how consent allows a resource owner to govern an application's access to resources](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- For more depth, learn [how a multi-tenant application can use the consent framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
-- For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+- Get a general understanding of [how consent allows a resource owner to govern an application's access to resources](./developer-glossary.md#consent).
+- Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
+- For more depth, learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## Next steps
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -4,7 +4,7 @@ description: This article describes how Azure Analysis Services uses Azure Activ
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -19,7 +19,7 @@ Azure Analysis Services supports [Azure AD B2B collaboration](../active-director
 
 ## Authentication
 
-All client applications and tools use one or more of the Analysis Services [client libraries](analysis-services-data-providers.md) (AMO, MSOLAP, ADOMD) to connect to a server. 
+All client applications and tools use one or more of the Analysis Services [client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (AMO, MSOLAP, ADOMD) to connect to a server. 
 
 All three client libraries support both Azure AD interactive flow, and non-interactive authentication methods. The two non-interactive methods, Active Directory Password and Active Directory Integrated Authentication methods can be used in applications utilizing AMOMD and MSOLAP. These two methods never result in pop-up dialog boxes.
 
@@ -63,7 +63,7 @@ Excel users can connect to a server by using a Windows account, an organization 
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../role-based-access-control/overview.md). 
+Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## Database roles
 
@@ -76,4 +76,4 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 [Manage access to resources with Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Manage database roles and users](analysis-services-database-users.md)  
 [Manage server administrators](analysis-services-server-admins.md)  
-[Role-Based Access Control](../role-based-access-control/overview.md)  
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)  

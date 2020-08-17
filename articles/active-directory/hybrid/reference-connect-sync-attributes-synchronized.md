@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -160,7 +160,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
@@ -242,7 +242,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -293,7 +293,7 @@ In this case, start with the list of attributes in this topic and identify those
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
+| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premise. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
 | title |X |X | | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -370,7 +370,7 @@ This group is a set of attributes used as the minimal attributes needed for a ge
 * Yammer (only User is consumed)
 * [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
+This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes. Note that single sign-on or provisioning to some third-party applications requires configuring synchronization of attributes in addition to the attributes described here. Application requirements are described in the [SaaS app tutorial](../saas-apps/tutorial-list.md) for each application.
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |

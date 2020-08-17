@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Set up the network
 > * Create a WAF policy
 > * Create an application gateway with WAF enabled
-> * Apply the WAF policy globally, per-site, and per-URI
+> * Apply the WAF policy globally, per-site, and per-URI (preview)
 > * Create a virtual machine scale set
 > * Create a storage account and configure diagnostics
 > * Test the application gateway
@@ -245,7 +245,7 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### Apply a per-URI policy
+### Apply a per-URI policy (preview)
 
 To apply a per-URI policy, simply create a new policy and apply it to the path rule config. 
 
@@ -279,7 +279,7 @@ $PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
 $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -PathRules $PathRuleConfig, $PathRuleConfig1 `
   -DefaultBackendAddressPoolId $defaultPool.Id `
-  -DefaultBackendHttpSettingsId poolSettings.Id
+  -DefaultBackendHttpSettingsId $poolSettings.Id
 
 Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
   -Name "RequestRoutingRule" `

@@ -5,7 +5,7 @@ description: Learn how to assign Azure roles to the local administrators group o
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
@@ -21,11 +21,11 @@ ms.collection: M365-identity-device-management
 
 To manage a Windows device, you need to be a member of the local administrators group. As part of the Azure Active Directory (Azure AD) join process, Azure AD updates the membership of this group on a device. You can customize the membership update to satisfy your business requirements. A membership update is, for example, helpful if you want to enable your helpdesk staff to do tasks requiring administrator rights on a device.
 
-This article explains how the membership update works and how you can customize it during an Azure AD Join. The content of this article doesn't apply to a **hybrid** Azure AD join.
+This article explains how the local administrators membership update works and how you can customize it during an Azure AD Join. The content of this article doesn't apply to a **hybrid Azure AD joined** devices.
 
 ## How it works
 
-When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principles to the local administrators group on the device:
+When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principals to the local administrators group on the device:
 
 - The Azure AD global administrator role
 - The Azure AD device administrator role 
@@ -46,7 +46,7 @@ To view and update the membership of the global administrator role, see:
 
 In the Azure portal, you can manage the device administrator role on the **Devices** page. To open the **Devices** page:
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator or device administrator.
+1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator.
 1. Search for and select *Azure Active Directory*.
 1. In the **Manage** section, click **Devices**.
 1. On the **Devices** page, click **Device settings**.
@@ -58,18 +58,36 @@ To modify the device administrator role, configure **Additional local administra
 >[!NOTE]
 > This option requires an Azure AD Premium tenant. 
 
-Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
+Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege elevation takes place when *both* the below actions happen:
 
-- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
+- Upto 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
 - User signs out and signs back in, not lock/unlock, to refresh their profile.
+
+>[!NOTE]
+> The above actions are not applicable to users who have not signed in to the relevant device previously. In this case, the administrator privileges are applied immediately after their first sign-in to the device. 
+
+## Manage administrator privileges using Azure AD groups (preview)
+
+>[!NOTE]
+> This feature is currently in preview.
+
+Starting with Windows 10 2004 update, you can use Azure AD groups to manage administrator privileges on Azure AD joined devices with the [Restricted Groups](/windows/client-management/mdm/policy-csp-restrictedgroups) MDM policy. This policy allows you to assign individual users or Azure AD groups to the local administrators group on an Azure AD joined device, providing you the granularity to configure distinct administrators for different groups of devices. 
+
+Currently, there's no UI in Intune to manage this policy and needs to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for this policy: 
+
+- Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the Groups API. The SID is defined by the property `securityIdentifier` in the Groups API.
+- When Restricted Groups policy is enforced, any current member of the group that is not on the Members list is removed. So enforcing this policy with new members or groups will remove the existing administrators namely user who joined the device, the Device administrator role and Global administrator role from the device. To avoid removing existing members, you need to configure them as part of the Members list in the Restricted Groups policy. 
+- This policy is only applicable to the following well-known groups on a Windows 10 device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
+- Managing local administrators using Restricted Groups policy is not applicable to Hybrid Azure AD joined or Azure AD Registered devices.
+- While the Restricted Groups policy existed prior to Windows 10 2004 update, it did not support Azure AD groups as members of a device's local administrators group. 
 
 ## Manage regular users
 
 By default, Azure AD adds the user performing the Azure AD join to the administrator group on the device. If you want to prevent regular users from becoming local administrators, you have the following options:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -
-Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator. You can accomplish this by [creating an Autopilot profile](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Bulk enrollment](https://docs.microsoft.com/intune/windows-bulk-enroll) - An Azure AD join that is performed in the context of a bulk enrollment happens in the context of an auto-created user. Users signing in after a device has been joined are not added to the administrators group.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) -
+Windows Autopilot provides you with an option to prevent primary user performing the join from becoming a local administrator. You can accomplish this by [creating an Autopilot profile](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Bulk enrollment](/intune/windows-bulk-enroll) - An Azure AD join that is performed in the context of a bulk enrollment happens in the context of an auto-created user. Users signing in after a device has been joined are not added to the administrators group.   
 
 ## Manually elevate a user on a device 
 
@@ -88,7 +106,7 @@ You cannot assign groups to the device administrator role, only individual users
 
 Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 
-When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in, or after 4 hours when a new primary refresh token is issued.
+When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during their next sign-in when a new primary refresh token is issued. This revocation, similar to the privilege elevation, could take upto 4 hours.
 
 ## Next steps
 
