@@ -147,21 +147,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configuration](./media/isams-tutorial/configure-isams.png)
 
-    a. In the **Name** textbox, give a valid name like `Saml2 Azure`
+    a. In the **Name** textbox, give a valid name like `Saml2 Azure`. This is the name that will appear on the login page.
 
-    b. In the **Sign On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. In the Metadata URL box, enter the **App Federation Metadata Url** value which you have copied from the Azure portal.
+    
+    c. Press **Import**.
+    
+    d. In the **Applications** listbox within the **Enabled Client Applications** section, select all of the iSAMS applications you wish your provider to appear on the login page for.
 
-    c. In the **Issuer** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
-
-    d. Set the **Force Authentication** to **False** from dropdown.
-
-    e. Fill the **User Attribute Statement** textbox with a valid username.
-
-    f. Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **X509 Fingerprint** textbox.
-
-    g. Set the **Disable Audience Restriction** value to **False** from the dropdown.
-
-    h. Click on **Save & Close**.
+    e. Click on **Save & Close**.
 
 ### Create iSAMS test user
 

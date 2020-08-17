@@ -217,7 +217,7 @@ estimator= PyTorch(source_directory=project_folder,
                       node_count=2,
                       process_count_per_node=1,
                       distributed_training=MpiConfiguration(),
-                      framework_version='1.6',
+                      framework_version='1.4',
                       use_gpu=True)
 ```
 Horovod and its dependencies will be installed for you, so you can import it in your training script `train.py` as follows:

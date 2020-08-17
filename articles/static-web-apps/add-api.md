@@ -23,7 +23,7 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
 - [Node.js](https://nodejs.org/download/) to run the API app locally
 
-## Create a git repository
+## Create a Git repository
 
 The following steps demonstrate how to create a new repository and clone the files to your computer.
 
