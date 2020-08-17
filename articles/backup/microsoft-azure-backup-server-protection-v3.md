@@ -93,7 +93,7 @@ With Microsoft peering, please select the following services/regions and relevan
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
-For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more details, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.

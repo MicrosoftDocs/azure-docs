@@ -25,9 +25,37 @@ This page provides you with information about:
 - Bug fixes
 - Deprecated functionality
 
+
+## January 2020
+
+### Enhanced secure score (preview)
+
+An enhanced version of the secure score feature of Azure Security Center is now available in preview. In this version, multiple recommendations are grouped into Security Controls that better reflect your vulnerable attack surfaces (for example, restrict access to management ports).
+
+Familiarize yourself with the secure score changes during the preview phase and determine other remediations that will help you to further secure your environment.
+
+Learn more about [enhanced secure score (preview)](secure-score-security-controls.md).
+
+
+
 ## November 2019
 
-### Threat Protection for Azure Key Vault in Public Preview in North America Regions
+Updates in November include:
+ - [Threat Protection for Azure Key Vault in North America regions (preview)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [Threat Protection for Azure Storage includes Malware Reputation Screening](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
+ - [Workflow automation with Logic Apps (preview)](#workflow-automation-with-logic-apps-preview)
+ - [Quick Fix for bulk resources generally available](#quick-fix-for-bulk-resources-generally-available)
+ - [Scan container images for vulnerabilities (preview)](#scan-container-images-for-vulnerabilities-preview)
+ - [Additional regulatory compliance standards (preview)](#additional-regulatory-compliance-standards-preview)
+ - [Threat Protection for Azure Kubernetes Service (preview)](#threat-protection-for-azure-kubernetes-service-preview)
+ - [Virtual machine vulnerability assessment (preview)](#virtual-machine-vulnerability-assessment-preview)
+ - [Advanced data security for SQL servers on Azure Virtual Machines (preview)](#advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview)
+ - [Support for custom policies (preview)](#support-for-custom-policies-preview)
+ - [Extending Azure Security Center coverage with platform for community and partners](#extending-azure-security-center-coverage-with-platform-for-community-and-partners)
+ - [Advanced integrations with export of recommendations and alerts (preview)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
+ - [Onboard on-prem servers to Security Center from Windows Admin Center (preview)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
+
+### Threat Protection for Azure Key Vault in North America Regions (preview)
 
 Azure Key Vault is an essential service for protecting data and improving performance of cloud applications by offering the ability to centrally manage keys, secrets, cryptographic keys and policies in the cloud. Since Azure Key Vault stores sensitive and business critical data, it requires maximum security for the key vaults and the data stored in them.
 
@@ -94,7 +122,7 @@ The new capabilities in this public preview release include:
 
 ### Virtual machine vulnerability assessment (preview)
 
-Applications that are installed in virtual machines could often have vulnerabilities that could lead to a breach of the virtual machine. We are announcing that the Security Center Standard tier includes built-in vulnerability assessment for virtual machines for no additional fee. The vulnerability assessment, powered by Qualys in the public preview, will allow you to continuously scan all the installed applications on a virtual machine to find vulnerable applications and present the findings in the Security Center portal’s experience. Security Center takes care of all deployment operations so that no extra work is required from the user. Going forward we are planning to provide vulnerability assessment options to support our customers’ unique business needs.
+Applications that are installed in virtual machines could often have vulnerabilities that could lead to a breach of the virtual machine. We are announcing that the Security Center standard tier includes built-in vulnerability assessment for virtual machines for no additional fee. The vulnerability assessment, powered by Qualys in the public preview, will allow you to continuously scan all the installed applications on a virtual machine to find vulnerable applications and present the findings in the Security Center portal’s experience. Security Center takes care of all deployment operations so that no extra work is required from the user. Going forward we are planning to provide vulnerability assessment options to support our customers’ unique business needs.
 
 [Learn more about vulnerability assessments for your Azure Virtual Machines](security-center-vulnerability-assessment-recommendations.md).
 
@@ -142,6 +170,11 @@ With this new experience users will be to onboard a WAC server to Azure Security
 
 ## September 2019
 
+Updates in September include:
+
+ - [Managing rules with adaptive application controls improvements](#managing-rules-with-adaptive-application-controls-improvements)
+ - [Control container security recommendation using Azure Policy](#control-container-security-recommendation-using-azure-policy)
+
 ### Managing rules with adaptive application controls improvements
 
 The experience of managing rules for virtual machines using adaptive application controls has improved. Azure Security Center's adaptive application controls help you control which applications can run on your virtual machines. In addition to a general improvement to rule management, a new benefit enables you to control which file types will be protected when you add a new rule.
@@ -157,6 +190,12 @@ To view your enabled security policies, from Security Center open the Security P
 
 
 ## August 2019
+
+Updates in August include:
+
+ - [Just-in-time (JIT) VM access for Azure Firewall](#just-in-time-jit-vm-access-for-azure-firewall)
+ - [Single click remediation to boost your security posture (preview)](#single-click-remediation-to-boost-your-security-posture-preview)
+ - [Cross-tenant management](#cross-tenant-management)
 
 ### Just-in-time (JIT) VM access for Azure Firewall 
 

@@ -4,10 +4,10 @@ description: Learn how to use the Python SDK for Azure Data Lake Storage Gen1 ac
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
@@ -39,7 +39,7 @@ To work with Data Lake Storage Gen1 using Python, you need to install three modu
 
 Use the following commands to install the modules.
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
@@ -51,7 +51,7 @@ pip install azure-datalake-store
 
 2. Add the following snippet to import the required modules
 
-	```
+	```python
 	## Use this only for Azure AD service-to-service authentication
 	from azure.common.credentials import ServicePrincipalCredentials
 
@@ -89,37 +89,43 @@ In this section, we talk about the different ways to authenticate with Azure AD.
 
 The following snippet first creates the Data Lake Storage Gen1 account client. It uses the client object to create a Data Lake Storage Gen1 account. Finally, the snippet creates a filesystem client object.
 
-    ## Declare variables
-    subscriptionId = 'FILL-IN-HERE'
-	adlsAccountName = 'FILL-IN-HERE'
-    resourceGroup = 'FILL-IN-HERE'
-    location = 'eastus2'
+```python
+## Declare variables
+subscriptionId = 'FILL-IN-HERE'
+adlsAccountName = 'FILL-IN-HERE'
+resourceGroup = 'FILL-IN-HERE'
+location = 'eastus2'
 
-	## Create Data Lake Storage Gen1 account management client object
-	adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
+## Create Data Lake Storage Gen1 account management client object
+adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
-	## Create a Data Lake Storage Gen1 account
-	adlsAcctResult = adlsAcctClient.account.create(
-		resourceGroup,
-		adlsAccountName,
-		DataLakeStoreAccount(
-			location=location
-		)
-	).wait()
+## Create a Data Lake Storage Gen1 account
+adlsAcctResult = adlsAcctClient.account.create(
+	resourceGroup,
+	adlsAccountName,
+	DataLakeStoreAccount(
+		location=location
+	)
+).wait()
+```
 
 	
 ## List the Data Lake Storage Gen1 accounts
 
-	## List the existing Data Lake Storage Gen1 accounts
-	result_list_response = adlsAcctClient.account.list()
-	result_list = list(result_list_response)
-	for items in result_list:
-    	print(items)
+```python
+## List the existing Data Lake Storage Gen1 accounts
+result_list_response = adlsAcctClient.account.list()
+result_list = list(result_list_response)
+for items in result_list:
+    print(items)
+```
 
 ## Delete the Data Lake Storage Gen1 account
 
-	## Delete an existing Data Lake Storage Gen1 account
-	adlsAcctClient.account.delete(adlsAccountName)
+```python
+## Delete an existing Data Lake Storage Gen1 account
+adlsAcctClient.account.delete(adlsAccountName)
+```
 	
 
 ## Next steps

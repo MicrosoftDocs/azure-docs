@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Cloud Service allocation failure | Microsoft Docs
-description: Troubleshooting allocation failure when you deploy Cloud Services in Azure
+description: Troubleshoot an allocation failure when you deploy Azure Cloud Services. Learn how allocation works and why allocation can fail.
 services: azure-service-management, cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -35,7 +35,7 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 ### Error Message
 You may see the following error message:
 
-    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+> "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### Common Issues
 Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.

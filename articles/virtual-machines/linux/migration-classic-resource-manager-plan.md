@@ -6,16 +6,16 @@ author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ---
 
 
-# Planning for migration of IaaS resources from classic to Azure Resource Manager
+# Planning for migration of IaaS resources from classic to Azure Resource Manager in Linux
 
 > [!IMPORTANT]
-> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
 
 While Azure Resource Manager offers a lot of amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities.
 
@@ -186,7 +186,7 @@ Things to consider:
 
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
-- [Role Based Access Control](../../role-based-access-control/overview.md).
+- [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 - [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/templates/overview.md).
 - [Tags](../../azure-resource-manager/management/tag-resources.md).
 - [Activity Control](../../azure-resource-manager/management/view-activity-logs.md)

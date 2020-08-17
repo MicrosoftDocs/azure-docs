@@ -3,7 +3,7 @@ title: "Quickstart: QnA Maker with REST APIs for Node.js"
 description: This quickstart shows how to get started with the QnA Maker REST APIs for Node.js. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
 ---
 

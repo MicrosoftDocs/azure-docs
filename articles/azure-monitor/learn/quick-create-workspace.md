@@ -19,8 +19,8 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-*  [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md) 
-*  [Collect data from hybrid Linux computer](../learn/quick-collect-linux-computer.md)
+*  [Collect data from Azure virtual machines](./quick-collect-azurevm.md) 
+*  [Collect data from hybrid Linux computer](./quick-collect-linux-computer.md)
 *  [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -48,17 +48,18 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu. 
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../platform/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
 2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *This workspace name is already in use. Please try another one*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
-   - [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace
-   - [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace
+   - [Recover](../platform/delete-workspace.md#recover-workspace) your workspace
+   - [Permanently delete](../platform/delete-workspace.md#permanent-workspace-delete) your workspace
    - Create a new workspace using the same workspace name
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights. 
 
-* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * [Add System Center Operations Manager as a data source](../platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace. 
 * Connect [Configuration Manager](../platform/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
 * Review the [monitoring solutions](../insights/solutions.md) available and how to add or remove a solution from your workspace.
+

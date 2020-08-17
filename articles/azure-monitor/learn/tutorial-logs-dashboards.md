@@ -50,7 +50,7 @@ When you create a dashboard, it is private by default, which means you are the o
 
 ![Share a new dashboard in Azure portal](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  Verify the subscription selected and then click **Publish**.  Access to the information displayed in the dashboard is controlled with [Azure Resource Based Access Control](../../role-based-access-control/role-assignments-portal.md).   
+You are asked to choose a subscription and resource group for your dashboard to be published to. For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  Verify the subscription selected and then click **Publish**.  Access to the information displayed in the dashboard is controlled with [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## Visualize a log query
 [Log Analytics](../log-query/get-started-portal.md) is a dedicated portal used to work with log queries and their results. Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics. In this tutorial, you will use Log Analytics to create a performance view in graphical form, save it for a future query, and pin it to the shared dashboard created earlier.

@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.custom: seodec18
 ---
@@ -39,12 +39,12 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 ### Installation instructions
 The high-level steps are described in the following table. More details are given in the following sections.
 
-|      |Step   | Notes   |
-| ---   | ---   |  ---      |
-| 1   | **Create a storage container**   | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
-| 2   | **Create an ASA edge job**   |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
-| 3   | **Setup your IoT Edge environment on your device(s)**   | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Deploy ASA on your IoT Edge device(s)**   |  ASA job definition is exported to the storage container created earlier.       |
+| Step | Notes |
+| --- | --- |
+| **Create a storage container** | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container. |
+| **Create an ASA edge job** | Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices. |
+| **Setup your IoT Edge environment on your device(s)** | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Deploy ASA on your IoT Edge device(s)** | ASA job definition is exported to the storage container created earlier. |
 
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
 

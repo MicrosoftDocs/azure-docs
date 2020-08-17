@@ -161,7 +161,7 @@ When creating the cluster, you can choose whether or not to create a public IP a
 
 ## VM access roles
 
-Azure uses [role-based access control](../role-based-access-control/index.yml) (RBAC) to authorize the cluster VMs to perform certain tasks. For example, the cluster controller needs authorization to create and configure the cluster node VMs. Cluster nodes need to be able to assign or reassign IP addresses to other cluster nodes.
+Azure uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to authorize the cluster VMs to perform certain tasks. For example, the cluster controller needs authorization to create and configure the cluster node VMs. Cluster nodes need to be able to assign or reassign IP addresses to other cluster nodes.
 
 Two built-in Azure roles are used for the Avere vFXT virtual machines:
 

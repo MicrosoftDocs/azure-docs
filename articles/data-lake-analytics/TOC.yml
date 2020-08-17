@@ -4,6 +4,8 @@
   items:
   - name: What is Data Lake Analytics?
     href: data-lake-analytics-overview.md
+  - name: What's new in Data Lake Analytics?
+    href: data-lake-analytics-whats-new.md
 - name: Get started
   items:
   - name: Azure portal
@@ -21,6 +23,15 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-samples.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
 - name: How to
   items:
   - name: Manage Data Lake Analytics

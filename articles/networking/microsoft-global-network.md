@@ -1,6 +1,6 @@
 ---
 title: 'Microsoft global network - Azure'
-description: Describes how Microsoft builds its fast and reliable global network
+description: Learn how Microsoft builds and operates one of the largest backbone networks in the world, and why it is central to delivering a great cloud experience.
 services: networking
 documentationcenter: 
 author: KumudD
@@ -33,7 +33,7 @@ Whether connecting from London to Tokyo, or from Washington DC to Los Angeles, n
 
 For example, if a user in London attempts to access a service in Tokyo, then the Internet traffic enters one of our edges in London, goes over Microsoft WAN through France, our Trans-Arabia paths between Europe and India, and then to Japan where the service is hosted. Response traffic is symmetric. This is sometimes referred as [cold-potato routing](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) which means that the traffic stays on Microsoft network as long as possible before we hand it off.  
   
-So, does that mean any and all traffic when using Microsoft services? Yes, any traffic between data centers, within Microsoft Azure or between Microsoft services such as Virtual Machines, Office 365, XBox, SQL DBs, Storage, and virtual networks are routed within our global network and never over the public Internet, to ensure optimal performance and integrity.  
+So, does that mean any and all traffic when using Microsoft services? Yes, any traffic between data centers, within Microsoft Azure or between Microsoft services such as Virtual Machines, Microsoft 365, XBox, SQL DBs, Storage, and virtual networks are routed within our global network and never over the public Internet, to ensure optimal performance and integrity.  
  
 Massive investments in fiber capacity and diversity across metro, terrestrial, and submarine paths are crucial for us to keep consistent and high service-level while fueling the extreme growth of our cloud and online services. Recent additions to our global network are our [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) submarine cable,  the industry's first Open Line System (OLS) over subsea, between Bilbao, Spain and Virginia Beach, Virginia, USA, as well as the [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) between New York, USA and Dublin, Ireland and [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) between Tokyo, Japan, and Portland, Oregon, USA. 
  

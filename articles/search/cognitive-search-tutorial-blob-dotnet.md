@@ -15,7 +15,7 @@ ms.date: 05/05/2020
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with application files and images in Azure Blob storage.
@@ -123,7 +123,7 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 ### Install NuGet packages
 
-The [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
+The [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 For this project, install version 9 or later of the `Microsoft.Azure.Search` NuGet package.
 
@@ -556,10 +556,13 @@ In this section, you define the index schema by specifying which fields to inclu
 
 This exercise uses the following fields and field types:
 
-| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Field names | Field types |
+| --- | --- |
+| id | Edm.String |
+| content | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organizations | List<Edm.String> |
 
 #### Create DemoIndex Class
 

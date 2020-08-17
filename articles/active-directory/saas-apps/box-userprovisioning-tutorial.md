@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 07/20/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,6 +34,9 @@ To configure Azure AD integration with Box, you need the following items:
 
 > [!NOTE]
 > When you test the steps in this tutorial, we recommend that you do *not* use a production environment.
+
+> [!NOTE]
+> Apps need to be enabled in the Box application first.
 
 To test the steps in this tutorial, follow these recommendations:
 

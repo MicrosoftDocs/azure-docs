@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/17/2020 
+ms.date: 07/31/2020 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -25,11 +25,13 @@ Microsoft Azure Media Services can be used to encode many media source file form
 In Media Services, a [streaming endpoint](streaming-endpoint-concept.md) (origin) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app. It uses one of the common streaming media protocols mentioned in the following section. *Dynamic packaging* is a feature that comes standard on all streaming endpoints (Standard or Premium).
 
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, transforms and jobs), use the [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, transforms and jobs), use the [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## To prepare your source files for delivery
 
 To take advantage of dynamic packaging, you need to [encode](encoding-concept.md) your mezzanine (source) file into a set of multiple bitrate MP4 (ISO Base Media 14496-12) files. You need to have an [asset](assets-concept.md) with the encoded MP4 and streaming configuration files needed by Media Services dynamic packaging. From this set of MP4 files, you can use dynamic packaging to deliver video via the streaming media protocols described below.
+
+Azure Media Services dynamic packaging only supports video and audio file in the MP4 container format. Audio files must be encoded into an MP4 container as well when using alternate codecs like Dolby.  
 
 > [!TIP]
 > One way to get the MP4 and streaming configuration files is to [encode your mezzanine file with Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -84,7 +86,7 @@ The following diagram shows the on-demand streaming with dynamic packaging workf
 
 ![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. 
+The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. You can optionally use the Azure blob storage APIs to access an MP4 directly for progressive downloading if you wish to bypass the *streaming endpoint* (origin) features. 
 
 ### Encode to adaptive bitrate MP4s
 
@@ -120,20 +122,20 @@ For information about live streaming in Media Services v3, see [Live streaming o
 
 ## Video codecs supported by Dynamic Packaging
 
-Dynamic packaging supports MP4 files which contain video that's encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
+Dynamic packaging supports video files that are in the MP4 container file format and contain video that is encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
 
 > [!NOTE]
-> Resolutions of up to 4K and frame rates of up to 60 frames/second have been tested with *dynamic packaging*. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265 via the legacy v2 APIs.
+> Resolutions of up to 4K and frame rates of up to 60 frames/second have been tested with *dynamic packaging*. The [Premium Encoder](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) supports encoding to H.265 via the legacy v2 APIs.
 
-## <a id="audio-codecs"/>Audio codecs supported by dynamic packaging
+## Audio codecs supported by dynamic packaging
 
-Dynamic packaging supports audio that's encoded with the following protocols:
+Dynamic packaging also supports audio files that are stored in the MP4 file container format containing encoded audio stream in one of the following codecs:
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, or HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3)
-* Dolby Atmos<br />
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, or HE-AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3).  The encoded audio must be stored in the MP4 container format to work with Dynamic Packaging.
+* Dolby Atmos
+
    Streaming Dolby Atmos content is supported for standards like the MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
-
 * [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)<br />
    DTS codecs supported by DASH-CSF, DASH-CMAF, HLS-M2TS, and HLS-CMAF packaging formats are:  
 
@@ -144,12 +146,24 @@ Dynamic packaging supports audio that's encoded with the following protocols:
 
 Dynamic packaging supports multiple audio tracks with DASH or HLS (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
-### Additional notes
+For all of the above audio codecs, the encoded audio must be stored in the MP4 container format to work with Dynamic Packaging. The service does not support raw elementary stream file formats on blob storage (for example the following would not be supported - .dts, .ac3.) 
 
-Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
+Only files with the .mp4 of .mp4a extension are supported for audio packaging. 
+
+### Limitations
+
+#### iOS limitation on AAC 5.1 audio
+
+Apple iOS devices do not support 5.1 AAC audio codec. Multi-channel audio must be encoded using Dolby Digital or Dolby Digital Plus codecs.
+
+For detailed information, see [HLS authoring specification for apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
 
 > [!NOTE]
-> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus via the legacy v2 APIs.
+> Media Services does not support encoding of Dolby Digital, Dolby Digital Plus or Dolby Digital Plus with Dolby Atmos multi-channel audio formats.
+
+#### Dolby Digital audio
+
+Media Services dynamic packaging does not currently support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (as this is considered a legacy codec by Dolby).
 
 ## Manifests
 

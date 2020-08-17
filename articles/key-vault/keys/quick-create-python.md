@@ -1,5 +1,5 @@
 ---
-title: Quickstart -  Azure Key Vault client library for Python
+title: Quickstart – Azure Key Vault Python client library – manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
@@ -7,11 +7,11 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
-# Quickstart: Azure Key Vault client library for Python
+# Quickstart: Azure Key Vault keys client library for Python
 
 Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
@@ -23,13 +23,13 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for TLS/SSL certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/python/api/overview/azure/key-vault?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
+[API reference documentation](/python/api/overview/azure/keyvault-keys-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3, or later
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
 
@@ -66,12 +66,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. 
 
-For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy. Your service principle requires a unique name in the format "http://&lt;my-unique-service-principle-name&gt;".
+For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy. Your service principal requires a unique name in the format "http://&lt;my-unique-service-principal-name&gt;".
 
-Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+Create a service principal using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 This operation will return a series of key / value pairs. 

@@ -19,6 +19,9 @@ Use the following matrix for MABS v3 UR1:
 
 * Protection and recovery – List the detailed information about the workloads such as supported storage container or supported deployment.
 
+>[!NOTE]
+>Support for the 32-bit protection agent is deprecated with MABS v3 UR1. See [32-Bit protection agent deprecation](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
+
 ## Protection support matrix
 
 The following sections details the protection support matrix for MABS:
@@ -49,7 +52,7 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload** | **Version**                               | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux  running as Hyper-V or VMware guest | Physical  server,    On-premises Hyper-V VM,    Windows VM in VMWare | V3 UR1                             | Hyper-V  must be running on Windows Server 2012 R2 or Windows Server 2016. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on   distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| Linux        | Linux  running as Hyper-V or VMware guest | Physical  server,    On-premises Hyper-V VM,    Windows VM in VMWare | V3 UR1                             | Hyper-V  must be running on Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on   distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). |
 
 ## Azure ExpressRoute support
 
@@ -69,7 +72,7 @@ With Microsoft peering, select the following services/regions and relevant commu
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
-For more information, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.

@@ -72,6 +72,12 @@
       href: how-tos/set-up-coarse-reloc-cpp-ndk.md
     - name: In C++/WinRT
       href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+  - name: Project setup
+    items:
+    - name: C++/WinRT
+      href: how-tos/setup-cpp-winrt-project.md
+    - name: Unity
+      href: how-tos/setup-unity-project.md
 - name: Samples
   items:
   - name: Azure Spatial Anchors samples (GitHub)

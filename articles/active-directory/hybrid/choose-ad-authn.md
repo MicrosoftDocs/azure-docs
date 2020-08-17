@@ -24,7 +24,7 @@ Choosing the correct authentication method is the first concern for organization
 Identity is the new control plane of IT security, so authentication is an organization’s access guard to the new cloud world. Organizations need an identity control plane that strengthens their security and keeps their cloud apps safe from intruders.
 
 > [!NOTE]
-> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a great way to test and gradually migrate from federation to cloud authentication.
+> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a great way to test users migration from federation to cloud authentication.
 
 ### Out of scope
 Organizations that don't have an existing on-premises directory footprint aren't the focus of this article. Typically, those businesses create identities only in the cloud, which doesn’t require a hybrid identity solution. Cloud-only identities exist solely in the cloud and aren't associated with corresponding on-premises identities.

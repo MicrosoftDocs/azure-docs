@@ -174,6 +174,5 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[team-development]: ../team-development-netcore.md
 [using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
 [windows-container-cli]: ../../aks/windows-container-cli.md

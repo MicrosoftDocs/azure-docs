@@ -1,15 +1,15 @@
 ---
-title: What to do in the event of an Azure service disruption that affects Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
+title: What to do in the event of an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
+description: Learn what to do in the event of an Azure service disruption that affects Managed HSM.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.date: 08/12/2020
+ms.author: ambapat
 
 ---
 # Azure Key Vault availability and redundancy

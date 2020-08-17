@@ -13,7 +13,7 @@ ms.custom:
 
 
 
-# Troubleshooting shared image galleries
+# Troubleshooting shared image galleries (Windows)
 
 
 [!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../../includes/virtual-machines-common-shared-image-troubleshooting.md)]

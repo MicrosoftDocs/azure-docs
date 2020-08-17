@@ -21,7 +21,7 @@ ms.author: juliako
 
 In Azure Media Services, a Live Event begins billing as soon as its state transitions to **Running**. You will be billed even if there is no video flowing through the service. To stop the Live Event from billing, you have to stop the Live Event. Live Transcription is billed the same way as the Live Event.
 
-When **LiveEventEncodingType** on your [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) is set to Standard or Premium1080p, Media Services auto shuts off any Live Event that is still in the **Running** state 12 hours after the input feed is lost, and there are no **Live Output**s running. However, you will still be billed for the time the Live Event was in the **Running** state.
+When **LiveEventEncodingType** on your [Live Event](/rest/api/media/liveevents) is set to Standard or Premium1080p, Media Services auto shuts off any Live Event that is still in the **Running** state 12 hours after the input feed is lost, and there are no **Live Output**s running. However, you will still be billed for the time the Live Event was in the **Running** state.
 
 > [!NOTE]
 > Pass-through Live Events are not automatically shut off and must be explicitly stopped through the API to avoid excessive billing. 

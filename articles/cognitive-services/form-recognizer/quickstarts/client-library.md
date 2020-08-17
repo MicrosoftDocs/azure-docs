@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.author: pafarley
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
 ---
 

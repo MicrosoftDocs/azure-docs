@@ -195,12 +195,14 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 Some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 For more information on customizing the `applicationInitialization` element, see [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
@@ -250,7 +252,7 @@ In addition to automatic traffic routing, App Service can route requests to a sp
 
 To let users opt out of your beta app, for example, you can put this link on your webpage:
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -282,7 +284,7 @@ Search for and select your app. Select **Deployment slots** > *\<slot to delete>
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
 
-For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
+For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/).  
 
 ---
 ### Create a web app

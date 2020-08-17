@@ -12,7 +12,7 @@ ms.author: mlearned
 
 Kubernetes includes a web dashboard that can be used for basic management operations. This dashboard lets you view basic health status and metrics for your applications, create and deploy services, and edit existing applications. This article shows you how to access the Kubernetes dashboard using the Azure CLI, then guides you through some basic dashboard operations.
 
-For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboard][kubernetes-dashboard]. AKS uses version 2.0 and greater of the open source dashboard.
+For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboard][kubernetes-dashboard]. AKS uses version 2.0 and greater of the open-source dashboard.
 
 > [!WARNING]
 > **The AKS dashboard add-on is set for deprecation.** 
@@ -23,7 +23,7 @@ For more information on the Kubernetes dashboard, see [Kubernetes Web UI Dashboa
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need to create an AKS cluster, see the [AKS quickstart][aks-quickstart].
+The steps detailed in this document assume that you've created an AKS cluster and have established a `kubectl` connection with the cluster. If you need to create an AKS cluster, see [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI][aks-quickstart].
 
 You also need the Azure CLI version 2.6.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -94,14 +94,17 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 > For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 -->
 
-## Login to the dashboard
+## Sign in to the dashboard (kubernetes 1.16+)
 
 > [!IMPORTANT]
-> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, requests without auth info return a 401 unauthorized error. A bearer token retrieved from a service account can still be used as in this [Kubernetes Dashboard example](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), but this impacts the login flow of the dashboard add-on compared to older versions.
+> As of [v1.10.1 of the Kubernetes dashboard](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) or kubernetes v1.16+ the service account "kubernetes-dashboard" can no longer be used to retrieve resources due to a [security fix in that release](https://github.com/kubernetes/dashboard/pull/3400). As a result, requests without auth info return a 401 unauthorized error. A bearer token retrieved from a service account can still be used as in this [Kubernetes Dashboard example](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), but this impacts the login flow of the dashboard add-on compared to older versions.
+>
+>If you still run a version prior to 1.16 you can still give permissions to the "kubernetes-dashboard" service account, but this is **not recommended**:
+> ```console
+> kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+> ```
 
 The initial screen presented requires a kubeconfig or token. Both options require resource permissions to display those resources in the dashboard.
-
-For clusters running K8s 1.16 or greater, 
 
 ![login screen](./media/kubernetes-dashboard/login.png)
 
@@ -116,11 +119,11 @@ For both Azure AD enabled and non-Azure AD enabled clusters, a kubeconfig can be
 
 **Use a token**
 
-1. For **non-Azure AD enabled cluster**, run `kubectl config view` and copy the desired token associated with the account of your cluster
-1. Paste into the token option at login
+1. For **non-Azure AD enabled cluster**, run `kubectl config view` and copy the token associated with the user account of your cluster.
+1. Paste into the token option at sign in.    
 1. Click `Sign In`
 
-For Azure AD enabled clusters, retrieve your AAD token with the following command. Validate you have replaced the resource group and cluster name in the command. Azure AD enabled clusters also support non-interactive login for the dashboard by using [Kubelogin](https://github.com/Azure/kubelogin).
+For Azure AD enabled clusters, retrieve your AAD token with the following command. Validate you've replaced the resource group and cluster name in the command.
 
 ```
 ## Update <RESOURCE_GROUP and <AKS_NAME> with your input.
@@ -134,7 +137,7 @@ Once successful, a page similar to the below will be displayed.
 
 ## Create an application
 
-The following steps require permissions to many resources. It is recommended to use an admin account when testing these capabilities.
+The following steps require the user to have permissions to the respective resources. 
 
 To see how the Kubernetes dashboard can reduce the complexity of management tasks, let's create an application. You can create an application from the Kubernetes dashboard by providing text input, a YAML file, or through a graphical wizard.
 

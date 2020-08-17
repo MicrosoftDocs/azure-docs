@@ -1,6 +1,6 @@
 ---
 title: Design scalable and performant tables in Azure table storage. | Microsoft Docs
-description: Design scalable and performant tables in Azure table storage.
+description: Learn to design scalable and performant tables in Azure table storage. Review table partitions, Entity Group Transactions, and capacity and cost considerations.
 services: storage
 author: SnehaGunda
 ms.service: storage

@@ -113,7 +113,7 @@ See [Microsoft identity platform token reference][AAD-Tokens-Claims] for more de
 
 ## Microsoft identity platform
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. It’s a full-featured platform that consists of an authentication service, libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect. See [About Microsoft identity platform](about-microsoft-identity-platform.md) for more details.
+Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. It’s a full-featured platform that consists of an authentication service, libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
 
 ## multi-tenant application
 
@@ -244,7 +244,7 @@ Use the following comments section to provide feedback and help to refine and sh
 [AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://developer.microsoft.com/graph
-[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
+[O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

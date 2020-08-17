@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Find route to a location | Microsoft Azure Maps'
-description: This tutorial shows you how to render route to a location (point of interest) on a map using Microsoft Azure Maps Routing Service.
-author: philmea
-ms.author: philmea
+description: Learn how to find a route to a point of interest. See how to set address coordinates and query the Azure Maps Route service for directions to the point.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ---
 
 # Tutorial: Route to a point of interest using Azure Maps
@@ -22,7 +22,7 @@ This tutorial shows how to use your Azure Maps account and the Route Service SDK
 
 ## Prerequisites
 
-Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps), you need a subscription with S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+Before you continue, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account), you need a subscription with S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 

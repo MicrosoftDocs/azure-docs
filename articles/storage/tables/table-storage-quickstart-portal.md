@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an Azure Storage table in the Azure portal 
-description: In this quickstart, create an Azure storage Table service table in the Azure portal.
+description: In this quickstart, use the Table service in the Azure portal to create an Azure Storage table. Also see how you can create an Azure storage account.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage

@@ -198,4 +198,4 @@ What you learned:
 Advance to the next tutorial to learn how to authenticate and authorize users.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)

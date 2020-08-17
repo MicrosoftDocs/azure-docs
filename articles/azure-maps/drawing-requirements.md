@@ -3,7 +3,7 @@ title: Drawing package requirements in Azure Maps Creator
 description: Learn about the Drawing package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/09/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -16,7 +16,7 @@ The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/con
 
 ## Prerequisites
 
-The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk’s AutoCAD® software, a [trademark of Autodesk,Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
+The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software, a [trademark of Autodesk,Inc](https://www.autodesk.com/company/legal-notices-trademarks/trademarks/guidelines-for-use#section12).
 
 You may choose any CAD software to produce the drawings in the Drawing package.  
 
@@ -164,12 +164,13 @@ An example of the Zonelabel layer can be seen as the ZONELABELS layer in the [sa
 
 The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored.
 
-The file paths, in the **buildingLevels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space. 
+The file paths, in the **buildingLevels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space.
 
 Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Object | Required | Description |
 | :----- | :------- | :------- |
+| version | true |Manifest schema version. Currently, only version 1.1 is supported.|
 | directoryInfo | true | Outlines the facility geographic and contact information. It can also be used to outline an occupant geographic and contact information. |
 | buildingLevels | true | Specifies the levels of the buildings and the files containing the design of the levels. |
 | georeference | true | Contains numerical geographic information for the facility drawing. |
@@ -206,7 +207,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 |-----------|------|----------|-------------|
 |levelName    |string    |true |    Descriptive level name. For example: Floor 1, Lobby, Blue Parking, Basement, and so on.|
 |ordinal | integer |    true | Ordinal is used to determine the vertical order of levels. Every facility must have a level with ordinal 0. |
-|heightAboveFacilityAnchor | numeric |    false |    Level height above the ground floor in meters. |
+|heightAboveFacilityAnchor | numeric | false |    Level height above the anchor in meters. |
 | verticalExtent | numeric | false | Floor to ceiling height (thickness) of the level in meters. |
 |filename |    string |    true |    File system path of the CAD drawing for a building level. It must be relative to the root of the building's zip file. |
 
@@ -216,7 +217,7 @@ The `buildingLevels` object contains a JSON array of buildings levels.
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    Decimal representation of degrees latitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (`EPSG:3857`).|
 |lon    |numeric|    true|    Decimal representation of degrees longitude at the facility drawing's origin. The origin coordinates must be in WGS84 Web Mercator (`EPSG:3857`). |
-|angle|    numeric|    true|   The clockwise angle, in degrees, between true north and the drawing’s vertical (Y) axis.   |
+|angle|    numeric|    true|   The clockwise angle, in degrees, between true north and the drawing's vertical (Y) axis.   |
 
 ### dwgLayers
 
@@ -248,7 +249,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 |verticalPenetrationDirection|    string|    false    |If `verticalPenetrationCategory` is defined, optionally define the valid direction of travel. The permitted values are `lowToHigh`, `highToLow`, `both`, and `closed`. Default value is `both`.|
 | nonPublic | bool | false | Indicates if the unit is open to the public. |
 | isRoutable | bool | false | When set to `false`, unit can't be navigated to, or through. Default value is `true`. |
-| isOpenArea | bool | false | Allows navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` unless the unit has an opening. |
+| isOpenArea | bool | false | Allows the navigating agent to enter the unit without the need for an opening attached to the unit. By default, this value is set to `true` for units with no openings; `false` for units with openings.  Manually setting `isOpenArea` to `false` on a unit with no openings results in a warning. This is because the resulting unit won't be reachable by a navigating agent.|
 
 ### The zoneProperties object
 
@@ -260,6 +261,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |categoryName|    string|    false    |Category Name. For a complete list of categories, refer to [categories](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Alternate Name of the zone.  |
 |zoneNameSubtitle|    string |    false    |Subtitle of the zone. |
+|zoneSetId|    string |    false    | Set ID to establish relationship between multiple zones so that they may be queried or selected as a group. For example, zones that span multiple levels. |
 
 ### Sample Drawing package manifest
 
@@ -272,7 +274,7 @@ Below is a sample manifest file for the sample Drawing package. To download the 
     "version": "1.1", 
     "directoryInfo": { 
         "name": "Contoso Building", 
-        "streetAddresss": "Contoso Way", 
+        "streetAddress": "Contoso Way", 
         "unit": "1", 
         "locality": "Contoso eastside", 
         "postalCode": "98052", 

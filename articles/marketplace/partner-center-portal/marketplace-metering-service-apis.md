@@ -1,21 +1,21 @@
 ---
 title: Metering service APIs - Microsoft commercial marketplace
 description: The usage event API allows you to emit usage events for SaaS offers in Microsoft AppSource and Azure Marketplace.
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Marketplace metered billing APIs
 
 The metered billing APIs should be used when the publisher creates custom metering dimensions for an offer to be published in Partner Center. Integration with the metered billing APIs is required for any purchased offer that has one or more plans with custom dimensions to emit usage events.
 
-For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/saas-metered-billing).
+For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](saas-metered-billing.md).
 
-For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see the [technical configuration section of create a new Azure Apps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer#technical-configuration-managed-application-plans-only).
+For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see the [technical configuration section of create a new Azure Apps offer](create-new-azure-apps-offer.md#technical-configuration)).
 
 ## Enforcing TLS 1.2 Note
 
@@ -33,14 +33,14 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 *Query parameters:*
 
-|            |          |
+| Paramter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 | | |
 
 *Request headers:*
 
-| Content-type       | `application/json`    |
+| Content-type       | Use `application/json`  |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
@@ -146,13 +146,13 @@ The batch usage event API allows you to emit usage events for more than one purc
 
 *Query parameters:*
 
-|            |     |
+| Parameter  | Recommendation     |
 | ---------- | -------------------- |
 | `ApiVersion` | Use 2018-08-31. |
 
 *Request headers:*
 
-| Content-type       | `application/json`       |
+| Content-type       | Use `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated, and provided in the response headers. |

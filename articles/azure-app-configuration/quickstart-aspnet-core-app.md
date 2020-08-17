@@ -184,7 +184,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 
@@ -239,6 +239,8 @@ If you're working in the Azure Cloud Shell, select the *Web Preview* button foll
 ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
 When prompted to configure the port for preview, enter '5000' and select *Open and browse*.  The web page will read "Data from Azure App Configuration."
+
+![Launching quickstart app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
 ## Clean up resources
 

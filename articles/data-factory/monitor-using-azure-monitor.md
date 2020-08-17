@@ -10,26 +10,27 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 07/13/2020
 ---
+
 # Monitor and Alert Data Factory by using Azure Monitor
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones. You can use monitoring data to gain deep insights about your applications. This knowledge helps you improve application performance and maintainability. It also helps you automate actions that otherwise require manual intervention.
 
-Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory can write diagnostic logs in Azure Monitor. For a seven-minute introduction and demonstration of this feature, watch the following video:
+Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory (ADF) can write diagnostic logs in Azure Monitor. For a seven-minute introduction and demonstration of this feature, watch the following video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
-For further details, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
+For more information, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
 
 ## Keeping Azure Data Factory metrics and pipeline-run data
 
 Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis to multiple different targets.
 
 * **Storage Account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
-* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
+* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
 * **Log Analytics**: Analyze the logs with Log Analytics. The Data Factory integration with Azure Monitor is useful in the following scenarios:
   * You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
   * You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
@@ -54,8 +55,22 @@ Create or add diagnostic settings for your data factory.
 
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics Workspace**.
 
-    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables.
     * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
+
+    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the following tables:
+      - _ADFActivityRun_
+      - _ADFPipelineRun_
+      - _ADFTriggerRun_
+      - _ADFSSISIntegrationRuntimeLogs_
+      - _ADFSSISPackageEventMessageContext_
+      - _ADFSSISPackageEventMessages_
+      - _ADFSSISPackageExecutableStatistics_
+      - _ADFSSISPackageExecutionComponentPhases_
+      - _ADFSSISPackageExecutionDataStatistics_
+
+      You can select various logs relevant to your workloads to send to Log Analytics tables. For example, if you don't use SQL Server Integration Services (SSIS) at all, you need not select any SSIS logs. If you want to log SSIS Integration Runtime (IR) start/stop/maintenance operations, you can select SSIS IR logs. If you invoke SSIS package executions via T-SQL on SQL Server Management Studio (SSMS), SQL Server Agent, or other designated tools, you can select SSIS package logs. If you invoke SSIS package executions via Execute SSIS Package activities in ADF pipelines, you can select all logs.
+
+    * If you select _AllMetrics_, various ADF metrics will be made available for you to monitor or raise alerts on, including the metrics for ADF activity, pipeline, and trigger runs, as well as for SSIS IR operations and SSIS package executions.
 
    ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -88,11 +103,11 @@ This solution provides you a summary of overall health of your Data Factory, wit
 
 ### Monitor Data Factory metrics
 
-Installing Azure Data Factory Analytics creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. This results in the following metrics become enabled:
+Installing this solution creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. As a result, the following metrics become enabled:
 
 * ADF Runs - 1) Pipeline Runs by Data Factory
-* ADF Runs - 2) Activity Runs by Data Factor
-* ADF Runs - 3) Trigger Runs by Data Factor
+* ADF Runs - 2) Activity Runs by Data Factory
+* ADF Runs - 3) Trigger Runs by Data Factory
 * ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
 * ADF Errors - 2) Top 10 Activity Runs by Data Factory
 * ADF Errors - 3) Top 10 Trigger Errors by Data Factory
@@ -109,26 +124,36 @@ You can visualize the preceding metrics, look at the queries behind these metric
 > [!NOTE]
 > Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.
 
-
 ## Data Factory Metrics
 
 With Monitor, you can gain visibility into the performance and health of your Azure workloads. The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-Azure Data Factory version 2 emits the following metrics.
+Here are some of the metrics emitted by Azure Data Factory version 2:
 
-| **Metric**           | **Metric display name**         | **Unit** | **Aggregation type** | **Description**                                       |
-|----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRuns | Succeeded pipeline runs metrics | Count    | Total                | The total number of pipeline runs that succeeded within a minute window. |
-| PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | The total number of pipeline runs that failed within a minute window.    |
-| ActivitySucceededRuns | Succeeded activity runs metrics | Count    | Total                | The total number of activity runs that succeeded within a minute window.  |
-| ActivityFailedRuns   | Failed activity runs metrics    | Count    | Total                | The total number of activity runs that failed within a minute window.     |
-| TriggerSucceededRuns | Succeeded trigger runs metrics  | Count    | Total                | The total number of trigger runs that succeeded within a minute window.   |
-| TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | The total number of trigger runs that failed within a minute window.      |
+| **Metric**                           | **Metric display name**                  | **Unit** | **Aggregation type** | **Description**                |
+|--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
+| ActivityCancelledRuns                 | Cancelled activity runs metrics           | Count    | Total                | The total number of activity runs that were cancelled within a minute window. |
+| ActivityFailedRuns                   | Failed activity runs metrics             | Count    | Total                | The total number of activity runs that failed within a minute window. |
+| ActivitySucceededRuns                | Succeeded activity runs metrics          | Count    | Total                | The total number of activity runs that succeeded within a minute window. |
+| PipelineCancelledRuns                 | Cancelled pipeline runs metrics           | Count    | Total                | The total number of pipeline runs that were cancelled within a minute window. |
+| PipelineFailedRuns                   | Failed pipeline runs metrics             | Count    | Total                | The total number of pipeline runs that failed within a minute window. |
+| PipelineSucceededRuns                | Succeeded pipeline runs metrics          | Count    | Total                | The total number of pipeline runs that succeeded within a minute window. |
+| TriggerCancelledRuns                  | Cancelled trigger runs metrics            | Count    | Total                | The total number of trigger runs that were cancelled within a minute window. |
+| TriggerFailedRuns                    | Failed trigger runs metrics              | Count    | Total                | The total number of trigger runs that failed within a minute window. |
+| TriggerSucceededRuns                 | Succeeded trigger runs metrics           | Count    | Total                | The total number of trigger runs that succeeded within a minute window. |
+| SSISIntegrationRuntimeStartCancelled  | Cancelled SSIS integration runtime start metrics           | Count    | Total                | The total number of SSIS integration runtime starts that were cancelled within a minute window. |
+| SSISIntegrationRuntimeStartFailed    | Failed SSIS integration runtime start metrics             | Count    | Total                | The total number of SSIS integration runtime starts that failed within a minute window. |
+| SSISIntegrationRuntimeStartSucceeded | Succeeded SSIS integration runtime start metrics          | Count    | Total                | The total number of SSIS integration runtime starts that succeeded within a minute window. |
+| SSISIntegrationRuntimeStopStuck      | Stuck SSIS integration runtime stop metrics               | Count    | Total                | The total number of SSIS integration runtime stops that were stuck within a minute window. |
+| SSISIntegrationRuntimeStopSucceeded  | Succeeded SSIS integration runtime stop metrics           | Count    | Total                | The total number of SSIS integration runtime stops that succeeded within a minute window. |
+| SSISPackageExecutionCancelled         | Cancelled SSIS package execution metrics  | Count    | Total                | The total number of SSIS package executions that were cancelled within a minute window. |
+| SSISPackageExecutionFailed           | Failed SSIS package execution metrics    | Count    | Total                | The total number of SSIS package executions that failed within a minute window. |
+| SSISPackageExecutionSucceeded        | Succeeded SSIS package execution metrics | Count    | Total                | The total number of SSIS package executions that succeeded within a minute window. |
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 > [!NOTE]
-> Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. 
+> Only events from completed, triggered activity and pipeline runs are emitted. In progress and debug runs are **not** emitted. On the other hand, events from **all** SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 
 ## Data Factory Alerts
 
@@ -171,7 +196,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 ### Diagnostic settings
 
-Use diagnostic settings to configure diagnostic logs for noncompute resources. The settings for a resource control have the following features:
+Use diagnostic settings to configure diagnostic logs for non-compute resources. The settings for a resource control have the following features:
 
 * They specify where diagnostic logs are sent. Examples include an Azure storage account, an Azure event hub, or Monitor logs.
 * They specify which log categories are sent.
@@ -255,7 +280,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### Response
 
 200 OK.
-
 
 ```json
 {
@@ -367,7 +391,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     },
     "identity": null
 }
-
 ```
 For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
 
@@ -501,7 +524,6 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
       "SystemParameters": {}
     }
 }
-
 ```
 
 | Property | Type | Description | Example |
@@ -519,6 +541,280 @@ For more information, see [Diagnostic Settings](https://docs.microsoft.com/rest/
 |**triggerEvent**| String | The event of the trigger. | `ScheduleTime - 2017-07-06T01:50:25Z` |
 |**start**| String | The start time of the trigger firing in timespan UTC format. | `2017-06-26T20:55:29.5007959Z`|
 |**status**| String | The final status showing whether the trigger successfully fired. Possible property values are `Succeeded` and `Failed`. | `Succeeded`|
+
+#### SSIS integration runtime log attributes
+
+Here are the log attributes of SSIS IR start/stop/maintenance operations.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "resultType": "",
+   "properties": {
+      "message": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Property                   | Type   | Description                                                   | Example                        |
+| -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
+| **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | The name of your SSIS IR operation                            | `Start/Stop/Maintenance` |
+| **category**               | String | The category of diagnostic logs                               | `SSISIntegrationRuntimeLogs` |
+| **correlationId**          | String | The unique ID for tracking a particular operation             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
+| **dataFactoryName**        | String | The name of your ADF                                          | `MyADFv2` |
+| **integrationRuntimeName** | String | The name of your SSIS IR                                      | `MySSISIR` |
+| **level**                  | String | The level of diagnostic logs                                  | `Informational` |
+| **resultType**             | String | The result of your SSIS IR operation                          | `Started/InProgress/Succeeded/Failed` |
+| **message**                | String | The output message of your SSIS IR operation                  | `The stopping of your SSIS integration runtime has succeeded.` |
+| **resourceId**             | String | The unique ID of your ADF resource                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### SSIS event message context log attributes
+
+Here are the log attributes of conditions related to event messages that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSIS catalog (SSISDB) event message context table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) that shows run-time values of many SSIS package properties. They're generated when you select `Basic/Verbose` logging level and useful for debugging/compliance checking.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "operationId": "",
+      "contextDepth": "",
+      "packagePath": "",
+      "contextType": "",
+      "contextSourceName": "",
+      "contextSourceId": "",
+      "propertyName": "",
+      "propertyValue": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Property                   | Type   | Description                                                          | Example                        |
+| -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
+| **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | This is set to `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **category**               | String | The category of diagnostic logs                                      | `SSISPackageEventMessageContext` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | The name of your ADF                                                 | `MyADFv2` |
+| **integrationRuntimeName** | String | The name of your SSIS IR                                             | `MySSISIR` |
+| **level**                  | String | The level of diagnostic logs                                         | `Informational` |
+| **operationId**            | String | The unique ID for tracking a particular operation in SSISDB          | `1` (1 signifies operations related to packages **not** stored in SSISDB/invoked via T-SQL) |
+| **contextDepth**           | String | The depth of your event message context                              | `0` (0 signifies the context before package execution starts, 1 signifies the context when an error occurs, and it increases as the context is further from the error) |
+| **packagePath**            | String | The path of package object as your event message context source      | `\Package` |
+| **contextType**            | String | The type of package object as your event message context source      | `60`(see [more context types](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
+| **contextSourceName**      | String | The name of package object as your event message context source      | `MyPackage` |
+| **contextSourceId**        | String | The unique ID of package object as your event message context source | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
+| **propertyName**           | String | The name of package property for your event message context source   | `DelayValidation` |
+| **propertyValue**          | String | The value of package property for your event message context source  | `False` |
+| **resourceId**             | String | The unique ID of your ADF resource                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### SSIS event messages log attributes
+
+Here are the log attributes of event messages that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB event messages table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) that shows the detailed text/metadata of event messages. They're generated at any logging level except `None`.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "operationId": "",
+      "messageTime": "",
+      "messageType": "",
+      "messageSourceType": "",
+      "message": "",
+      "packageName": "",
+      "eventName": "",
+      "messageSourceName": "",
+      "messageSourceId": "",
+      "subcomponentName": "",
+      "packagePath": "",
+      "executionPath": "",
+      "threadId": ""
+   }
+}
+```
+
+| Property                   | Type   | Description                                                        | Example                        |
+| -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
+| **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | This is set to `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **category**               | String | The category of diagnostic logs                                    | `SSISPackageEventMessages` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | The name of your ADF                                               | `MyADFv2` |
+| **integrationRuntimeName** | String | The name of your SSIS IR                                           | `MySSISIR` |
+| **level**                  | String | The level of diagnostic logs                                       | `Informational` |
+| **operationId**            | String | The unique ID for tracking a particular operation in SSISDB        | `1` (1 signifies operations related to packages **not** stored in SSISDB/invoked via T-SQL) |
+| **messageTime**            | String | The time when your event message is created in UTC format          | `2017-06-28T21:00:27.3534352Z` |
+| **messageType**            | String | The type of your event message                                     | `70`(see [more message types](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **messageSourceType**      | String | The type of your event message source                              | `20`(see [more message source types](https://docs.microsoft.com/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **message**                | String | The text of your event message                                     | `MyPackage:Validation has started.` |
+| **packageName**            | String | The name of your executed package file                             | `MyPackage.dtsx` |
+| **eventName**              | String | The name of related run-time event                                 | `OnPreValidate` |
+| **messageSourceName**      | String | The name of package component as your event message source         | `Data Flow Task` |
+| **messageSourceId**        | String | The unique ID of package component as your event message source    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}	` |
+| **subcomponentName**       | String | The name of data flow component as your event message source       | `SSIS.Pipeline` |
+| **packagePath**            | String | The path of package object as your event message source            | `\Package\Data Flow Task` |
+| **executionPath**          | String | The full path from parent package to executed component            | `\Transformation\Data Flow Task` (This path also captures component iterations) |
+| **threadId**               | String | The unique ID of thread executed when your event message is logged | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}	` |
+
+#### SSIS executable statistics log attributes
+
+Here are the log attributes of executable statistics that are generated by SSIS package executions on your SSIS IR, where executables are containers or tasks in the control flow of packages. They convey similar information as [SSISDB executable statistics table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) that shows a row for each running executable, including its iterations. They're generated at any logging level except `None` and useful for identifying task-level bottlenecks/failures.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "executionId": "",
+      "executionPath": "",
+      "startTime": "",
+      "endTime": "",
+      "executionDuration": "",
+      "executionResult": "",
+      "executionValue": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Property                   | Type   | Description                                                      | Example                        |
+| -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
+| **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | This is set to `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **category**               | String | The category of diagnostic logs                                  | `SSISPackageExecutableStatistics` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | The name of your ADF                                             | `MyADFv2` |
+| **integrationRuntimeName** | String | The name of your SSIS IR                                         | `MySSISIR` |
+| **level**                  | String | The level of diagnostic logs                                     | `Informational` |
+| **executionId**            | String | The unique ID for tracking a particular execution in SSISDB      | `1` (1 signifies executions related to packages **not** stored in SSISDB/invoked via T-SQL) |
+| **executionPath**          | String | The full path from parent package to executed component          | `\Transformation\Data Flow Task` (This path also captures component iterations) |
+| **startTime**              | String | The time when executable enters pre-execute phase in UTC format  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | String | The time when executable enters post-execute phase in UTC format | `2017-06-28T21:00:27.3534352Z` |
+| **executionDuration**      | String | The running time of executable in milliseconds                   | `1,125` |
+| **executionResult**        | String | The result of running executable                                 | `0` (0 signifies success, 1 signifies failure, 2 signifies completion, and 3 signifies cancelation) |
+| **executionValue**         | String | The user-defined value returned by running executable            | `1` |
+| **resourceId**             | String | The unique ID of your ADF resource                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### SSIS execution component phases log attributes
+
+Here are the log attributes of run-time statistics for data flow components that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB execution component phases table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) that shows the time spent by data flow components in all their execution phases. They're generated when you select `Performance/Verbose` logging level and useful for capturing data flow execution statistics.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "executionId": "",
+      "packageName": "",
+      "taskName": "",
+      "subcomponentName": "",
+      "phase": "",
+      "startTime": "",
+      "endTime": "",
+      "executionPath": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Property                   | Type   | Description                                                         | Example                        |
+| -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
+| **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**          | String | This is set to `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **category**               | String | The category of diagnostic logs                                     | `SSISPackageExecutionComponentPhases` |
+| **correlationId**          | String | The unique ID for tracking a particular operation                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**        | String | The name of your ADF                                                | `MyADFv2` |
+| **integrationRuntimeName** | String | The name of your SSIS IR                                            | `MySSISIR` |
+| **level**                  | String | The level of diagnostic logs                                        | `Informational` |
+| **executionId**            | String | The unique ID for tracking a particular execution in SSISDB         | `1` (1 signifies executions related to packages **not** stored in SSISDB/invoked via T-SQL) |
+| **packageName**            | String | The name of your executed package file                              | `MyPackage.dtsx` |
+| **taskName**               | String | The name of executed data flow task                                 | `Data Flow Task` |
+| **subcomponentName**       | String | The name of data flow component                                     | `Derived Column` |
+| **phase**                  | String | The name of execution phase                                         | `AcquireConnections` |
+| **startTime**              | String | The time when execution phase starts in UTC format                  | `2017-06-28T21:00:27.3534352Z` |
+| **endTime**                | String | The time when execution phase ends in UTC format                    | `2017-06-28T21:00:27.3534352Z` |
+| **executionPath**          | String | The path of execution for data flow task                            | `\Transformation\Data Flow Task` |
+| **resourceId**             | String | The unique ID of your ADF resource                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+
+#### SSIS execution data statistics log attributes
+
+Here are the log attributes of data movements through each leg of data flow pipelines, from upstream to downstream components, that are generated by SSIS package executions on your SSIS IR. They convey similar information as [SSISDB execution data statistics table or view](https://docs.microsoft.com/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) that shows row counts of data moved through data flow tasks. They're generated when you select `Verbose` logging level and useful for computing data flow throughput.
+
+```json
+{
+   "time": "",
+   "operationName": "",
+   "category": "",
+   "correlationId": "",
+   "dataFactoryName": "",
+   "integrationRuntimeName": "",
+   "level": "",
+   "properties": {
+      "executionId": "",
+      "packageName": "",
+      "taskName": "",
+      "dataflowPathIdString": "",
+      "dataflowPathName": "",
+      "sourceComponentName": "",
+      "destinationComponentName": "",
+      "rowsSent": "",
+      "createdTime": "",
+      "executionPath": ""
+   },
+   "resourceId": ""
+}
+```
+
+| Property                     | Type   | Description                                                        | Example                        |
+| ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
+| **time**                     | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
+| **operationName**            | String | This is set to `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **category**                 | String | The category of diagnostic logs                                    | `SSISPackageExecutionDataStatistics` |
+| **correlationId**            | String | The unique ID for tracking a particular operation                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
+| **dataFactoryName**          | String | The name of your ADF                                               | `MyADFv2` |
+| **integrationRuntimeName**   | String | The name of your SSIS IR                                           | `MySSISIR` |
+| **level**                    | String | The level of diagnostic logs                                       | `Informational` |
+| **executionId**              | String | The unique ID for tracking a particular execution in SSISDB        | `1` (1 signifies executions related to packages **not** stored in SSISDB/invoked via T-SQL) |
+| **packageName**              | String | The name of your executed package file                             | `MyPackage.dtsx` |
+| **taskName**                 | String | The name of executed data flow task                                | `Data Flow Task` |
+| **dataflowPathIdString**     | String | The unique ID for tracking data flow path                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
+| **dataflowPathName**         | String | The name of data flow path                                         | `ADO NET Source Output` |
+| **sourceComponentName**      | String | The name of data flow component that sends data                    | `SQLDB Table3` |
+| **destinationComponentName** | String | The name of data flow component that receives data                 | `Derived Column` |
+| **rowsSent**                 | String | The number of rows sent by source component                        | `500` |
+| **createdTime**              | String | The time when row values are obtained in UTC format                | `2017-06-28T21:00:27.3534352Z` |
+| **executionPath**            | String | The path of execution for data flow task                           | `\Transformation\Data Flow Task` |
+| **resourceId**               | String | The unique ID of your ADF resource                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### Log Analytics schema
 
@@ -542,6 +838,69 @@ Log Analytics inherits the schema from Monitor with the following exceptions:
     | $.properties.SystemParameters | SystemParameters | Dynamic |
     | $.properties.Tags | Tags | Dynamic |
 
+## Monitor SSIS operations with Azure Monitor
+
+To lift & shift your SSIS workloads, you can [provision SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) that supports:
+
+- Running packages deployed into SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance (Project Deployment Model)
+- Running packages deployed into file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
+
+Once provisioned, you can [check SSIS IR operational status using Azure PowerShell or on the **Monitor** hub of ADF portal](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime). With Project Deployment Model, SSIS package execution logs are stored in SSISDB internal tables or views, so you can query, analyze, and visually present them using designated tools like SSMS. With Package Deployment Model, SSIS package execution logs can be stored in file system or Azure Files as CSV files that you still need to parse and process using other designated tools before you can query, analyze, and visually present them.
+
+Now with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform) integration, you can query, analyze, and visually present all metrics and logs generated from SSIS IR operations and SSIS package executions on Azure portal. Additionally, you can also raise alerts on them.
+
+### Configure diagnostic settings and workspace for SSIS operations
+
+To send all metrics and logs generated from SSIS IR operations and SSIS package executions to Azure Monitor, you need to [configure diagnostics settings and workspace for your ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#configure-diagnostic-settings-and-workspace).
+
+### SSIS operational metrics
+
+SSIS operational [metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics).
+
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started), [presentation on Azure dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), and [near-real time alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
+
+![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### SSIS operational alerts
+
+To raise alerts on SSIS operational metrics from ADF portal, [select the **Alerts & metrics** page of ADF **Monitor** hub and follow the step-by-step instructions provided](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts).
+
+![Raising SSIS operational alerts from ADF portal](media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png)
+
+To raise alerts on SSIS operational metrics from Azure portal, [select the **Alerts** page of Azure **Monitor** hub and follow the step-by-step instructions provided](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-alerts).
+
+![Raising SSIS operational alerts from Azure portal](media/data-factory-monitor-oms/azure-monitor-alerts-ssis.png)
+
+### SSIS operational logs
+
+SSIS operational [logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) are events generated by SSIS IR operations and SSIS package executions that provide enough context on any identified issues and are useful for root cause analysis. 
+
+When you configure diagnostic settings and workspace for your ADF on Azure Monitor, you can select the relevant SSIS operational logs and send them to Log Analytics that's based on Azure Data Explorer. In there, they'll be made available for [analysis using rich query language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), [presentation on Azure dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), and [near-real time alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+
+![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+The schemas and content of SSIS package execution logs in Azure Monitor and Log Analytics are similar to the schemas of SSISDB internal tables or views.
+
+| Azure Monitor log categories          | Log Analytics tables                     | SSISDB internal tables/views              |
+| ------------------------------------- | ---------------------------------------- | ----------------------------------------- |
+| `SSISIntegrationRuntimeLogs`          | `ADFSSISIntegrationRuntimeLogs`          |                                           |
+| `SSISPackageEventMessageContext`      | `ADFSSISPackageEventMessageContext`      | `[internal].[event_message_context]`      |
+| `SSISPackageEventMessages`            | `ADFSSISPackageEventMessages`            | `[internal].[event_messages]`             |
+| `SSISPackageExecutableStatistics`     | `ADFSSISPackageExecutableStatistics`     | `[internal].[executable_statistics]`      |
+| `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
+| `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
+
+For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Analytics schemas for ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
+
+Your selected SSIS package execution logs are always sent to Log Analytics regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SSDT, via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
+
+When querying SSIS IR operation logs on Logs Analytics, you can use **OperationName** and **ResultType** properties that are set to `Start/Stop/Maintenance` and `Started/InProgress/Succeeded/Failed`, respectively. 
+
+![Querying SSIS IR operation logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+When querying SSIS package execution logs on Logs Analytics, you can join them using **OperationId**/**ExecutionId**/**CorrelationId** properties. **OperationId**/**ExecutionId** are always set to `1` for all operations/executions related to packages **not** stored in SSISDB/invoked via T-SQL.
+
+![Querying SSIS package execution logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
 ## Next steps
 [Monitor and manage pipelines programmatically](monitor-programmatically.md)

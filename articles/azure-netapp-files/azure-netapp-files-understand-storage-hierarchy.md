@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/27/2020
+ms.date: 08/10/2020
 ms.author: b-juche
 ---
 # What is the storage hierarchy of Azure NetApp Files
@@ -45,9 +45,6 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - A volume is measured by logical capacity consumption and is scalable. 
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- A volume cannot be moved across capacity pools. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you cannot move the volumes from Capacity Pool 1 to Capacity Pool 2.
-- A volume cannot be deleted until all its snapshots have been deleted.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   

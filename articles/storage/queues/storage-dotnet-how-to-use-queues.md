@@ -8,7 +8,7 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # Get started with Azure Queue storage using .NET

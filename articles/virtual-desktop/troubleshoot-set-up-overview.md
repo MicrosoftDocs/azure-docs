@@ -1,28 +1,22 @@
 ---
 title: Windows Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshooting overview, feedback, and support
+# Troubleshooting overview, feedback, and support for Windows Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 This article provides an overview of the issues you may encounter when setting up a Windows Virtual Desktop environment and provides ways to resolve the issues.
 
-## Report issues during public preview
+## Report issues
 
-To report issues or suggest features during public preview for the Spring 2020 release, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features. When you report an issue related to the public preview release, make sure to label the problem type as **Spring 2020 Update (Preview)**.
+To report issues or suggest features for Windows Virtual Desktop with Azure Resource Manager integration, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features.
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
 
@@ -35,7 +29,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Session host pool Azure Virtual Network (VNET) and Express Route settings               | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), then select the appropriate service (under the Networking category). |
-| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop aren't being used | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), then select **Virtual Machine running Windows** for the service. <br> <br> For issues with the Azure Resource Manager templates that are provided with Windows Virtual Desktop, see Azure Resource Manager template errors section of [Host pool creation](troubleshoot-set-up-issues.md). |
+| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop aren't being used | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), then select **Windows Virtual Desktop** for the service. <br> <br> For issues with the Azure Resource Manager templates that are provided with Windows Virtual Desktop, see Azure Resource Manager template errors section of [Host pool creation](troubleshoot-set-up-issues.md). |
 | Managing Windows Virtual Desktop session host environment from the Azure portal    | [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/). <br> <br> For management issues when using Remote Desktop Services/Windows Virtual Desktop PowerShell, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) or [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, select **Configuration and management** for the problem type, then select **Issues configuring environment using PowerShell** for the problem subtype. |
 | Managing Windows Virtual Desktop configuration tied to host pools and application groups (app groups)      | See [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), or [open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, then select the appropriate problem type.|
 | Deploying and manage FSLogix Profile Containers | See [Troubleshooting guide for FSLogix products](/fslogix/fslogix-trouble-shooting-ht/) and if that doesn't resolve the issue, [Open an Azure support request](https://azure.microsoft.com/support/create-ticket/), select **Windows Virtual Desktop** for the service, select **FSLogix** for the problem type, then select the appropriate problem subtype. |

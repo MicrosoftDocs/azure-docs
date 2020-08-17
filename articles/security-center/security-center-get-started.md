@@ -1,6 +1,6 @@
 ---
-title: Upgrade to Standard tier - Azure Security Center
-description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
+title: Upgrade to standard tier - Azure Security Center
+description: This quickstart shows you how to upgrade to Security Center's standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -17,14 +17,14 @@ ms.author: memildin
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
-Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-In this article, you upgrade to the Standard tier for added security and install the Log Analytics agent on your virtual machines to monitor for security vulnerabilities and threats.
+In this article, you upgrade to the standard tier for added security and install the Log Analytics agent on your virtual machines to monitor for security vulnerabilities and threats.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-To upgrade a subscription to the Standard tier, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
+To upgrade a subscription to the standard tier, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
 ## Enable your Azure subscription
 
@@ -42,10 +42,10 @@ Within minutes of launching Security Center the first time, you may see:
 - **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
 - An inventory of **Compute & apps**, **Networking**, **Data security**, and **Identity & access** resources that are now being assessed by Security Center along with the security posture of each.
 
-To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Log Analytics agent.
+To take full advantage of Security Center, you need to complete the steps below to upgrade to the standard tier and install the Log Analytics agent.
 
-## Upgrade to the Standard tier
-For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
+## Upgrade to the standard pricing tier
+For the purpose of the Security Center quickstarts and tutorials you must upgrade to the standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. Under the Security Center main menu, select **Getting started**.
  
@@ -79,11 +79,11 @@ With this new insight into your Azure VMs, Security Center can provide additiona
   ![Recommendations][8]
 
 ## Clean up resources
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
 1. Return to the Security Center main menu and select **Pricing & settings**.
 2. Click on the subscription that you want to change to the free tier.
-3. Select **Pricing tier** and select **Free** to change subscription from Standard tier to Free tier.
+3. Select **Pricing tier** and select **Free** to change subscription from standard tier to Free tier.
 5. Select **Save**.
 
 If you wish to disable automatic provisioning:
@@ -98,10 +98,15 @@ If you wish to disable automatic provisioning:
 >
 
 ## Next steps
-In this quickstart you upgraded to Standard tier and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
+In this quickstart you upgraded to standard tier and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

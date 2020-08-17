@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Translate speech-to-text, C# (UWP) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: lisaweixu
 manager: nitinme
@@ -9,7 +8,6 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
-ms.author: erhopf
 ms.topic: include
 ---
 

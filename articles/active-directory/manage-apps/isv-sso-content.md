@@ -2,18 +2,19 @@
 title: Enable SSO for your multi-tenant application
 description: Guidance for independent software vendors on integrating with Azure active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
+
 # Enable Single Sign-on for your multi-tenant application  
 
 When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
@@ -56,4 +57,4 @@ There are many advantages to enabling SSO in your multi-tenant application. When
 1. [Create your Azure Tenant](isv-tenant-multi-tenant-app.md) and test your application
 1. [Create and publish SSO documentation on your site](isv-create-sso-documentation.md).
 1. [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)  and partner with Microsoft to create documentation on Microsoft’s site.
-1. [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial#gtm).

@@ -14,7 +14,7 @@ ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
 ---
 
-# Try the Speech service for free''
+# Try the Speech service for free
 
 In this article, you choose an option to easily test the Speech service free of charge so you can discover what the service can do, and decide whether it's right for your needs. Choose one of the two following options depending on your situation and use-case:
 
@@ -92,5 +92,5 @@ To switch from one subscription to another, for example when your free trial exp
 Complete one of our 10-minute quickstarts or check out our SDK samples:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+> [Quickstart: Recognize speech with the Speech CLI](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programmer-tool-spx)
 > [Speech SDK samples](speech-sdk.md#sample-source-code)

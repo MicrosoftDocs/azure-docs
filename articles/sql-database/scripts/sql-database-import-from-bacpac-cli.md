@@ -4,7 +4,7 @@ description: Azure CLI example script to import a BACPAC file into a database in
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: load & move data
+ms.custom: load & move data, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
@@ -40,7 +40,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
 | [az sql db import](/cli/azure/sql/db#az-sql-db-import) | Database import command. |

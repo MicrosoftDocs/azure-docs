@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: java
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
 # Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Java Service SDK

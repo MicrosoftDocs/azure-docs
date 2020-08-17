@@ -34,10 +34,7 @@ The maximum number of documents you can send in a single request will depend on 
 
 #### [Version 3](#tab/version-3)
 
-> [!NOTE]
-> If your v3 API request exceeds these limits, but is within the v2 limits, a warning will be returned in the API response. Starting 7/15/2020, a 400 error code will be returned instead. 
-
-The following limits have changed in v3 of the API. Exceeding the limits below will generate a warning in the API response.
+The following limits have changed in v3 of the API. Exceeding the limits below will generate an HTTP 400 error code.
 
 
 | Feature | Max Documents Per Request | 

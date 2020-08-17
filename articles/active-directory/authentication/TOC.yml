@@ -36,6 +36,8 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Prompts and session lifetime
+      href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
       href: concept-mfa-data-residency.md
     - name: Licenses
@@ -222,7 +224,9 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets
-    href: /powershell/azure/overview
+    href: /powershell/azure/
+  - name: Microsoft Graph REST API beta
+    href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions
     href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Resources

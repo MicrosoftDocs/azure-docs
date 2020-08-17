@@ -1,7 +1,7 @@
 ---
 title: Payout details by region - Microsoft commercial marketplace
 description: Learn how the estimated time to transfer payments, and the Microsoft storefronts from which you can receive payments, vary depending on your country/region and payout account type.
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher

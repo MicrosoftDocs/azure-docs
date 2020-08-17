@@ -30,7 +30,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Run a Python (Django) web app with PostgreSQL in Azure App Service
-            url: ../app-service/containers/tutorial-python-postgresql-app.md
+            url: ../app-service/tutorial-python-postgresql-app.md
           - text: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
             url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
 

@@ -29,18 +29,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When you create a cluster to use a spot node pool, that cluster must also use Virtual Machine Scale Sets for node pools and the *Standard* SKU load balancer. You must also add an additional node pool after you create your cluster to use a spot node pool. Adding an additional node pool is covered in a later step, but you first need to enable a preview feature.
 
-> [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Register spotpoolpreview preview feature
 
 To create an AKS cluster that uses a spot node pool, you must enable the *spotpoolpreview* feature flag on your subscription. This feature provides the latest set of service enhancements when configuring a cluster.
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 Register the *spotpoolpreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 

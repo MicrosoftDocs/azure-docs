@@ -108,7 +108,7 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 
@@ -177,7 +177,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** Virtual machines deployed in an availability set or in virtual machine scale sets use update domains. When performing maintenance, Azure honors the update domain constraint and doesn't reboot VMs from a different update domain (within the same availability set). Azure also waits for at least 30 minutes before moving to the next group of VMs. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/windows/availability.md).
+For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/availability.md).
 
 **Q: How can I be notified about planned maintenance?**
 

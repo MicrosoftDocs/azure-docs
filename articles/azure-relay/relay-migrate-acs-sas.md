@@ -1,25 +1,13 @@
 ---
 title:  Azure Relay - Migrate to Shared Access Signature authorization
 description: Describes how to migrate Azure Relay applications from using Azure Active Directory Access Control Service to Shared Access Signature authorization.
-services: service-bus-relay
-documentationcenter: ''
-author: clemensv
-manager: timlt
-editor: ''
-
-ms.service: service-bus-relay
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Azure Relay - Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
 
-Azure Relay applications historically had a choice of using two different authorization models: the [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) token model provided directly by the Relay service, and a federated model where the management of authorization rules is managed inside by the [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), and tokens obtained from ACS are passed to Relay for authorizing access to the desired features.
+Azure Relay applications historically had a choice of using two different authorization models: the [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) token model provided directly by the Relay service, and a federated model where the management of authorization rules is managed inside by the [Azure Active Directory](../active-directory/index.yml) Access Control Service (ACS), and tokens obtained from ACS are passed to Relay for authorizing access to the desired features.
 
 The ACS authorization model has long been superseded by [SAS authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md) as the preferred model, and all documentation, guidance, and samples exclusively use SAS today. Moreover, it is no longer possible to create new Relay namespaces that are paired with ACS.
 
@@ -63,5 +51,3 @@ To learn more about Azure Relay authentication, see the following topics:
 
 * [Azure Relay authentication and authorization](relay-authentication-and-authorization.md)
 * [Service Bus authentication with Shared Access Signatures](../service-bus-messaging/service-bus-sas.md)
-
-

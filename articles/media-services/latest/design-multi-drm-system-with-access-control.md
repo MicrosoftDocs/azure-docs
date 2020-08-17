@@ -210,7 +210,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 For information on Azure AD:
 
 * You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v2-overview.md).
-* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
+* You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### Some issues in implementation
 
@@ -218,8 +218,10 @@ Use the following troubleshooting information for help with implementation issue
 
 * The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     In the [JWT Decoder](http://jwt.calebb.net/), you see **aud** and **iss**, as shown in the JWT:
 
@@ -231,11 +233,15 @@ Use the following troubleshooting information for help with implementation issue
 
 * Use the correct issuer when you set up dynamic CENC protection.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     The following doesn't work:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     The GUID is the Azure AD tenant ID. The GUID can be found in the **Endpoints** pop-up menu in the Azure portal.
 
@@ -245,7 +251,7 @@ Use the following troubleshooting information for help with implementation issue
 
 * Set the proper TokenType when you create restriction requirements.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    `objTokenRestrictionTemplate.TokenType = TokenType.JWT;`
 
     Because you add support for JWT (Azure AD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set the token to TokenType.SWT.
 

@@ -4,13 +4,14 @@ description: This article describes how to backup and restore model metadata and
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
+ms.custom: references_regions 
 
 ---
 
-# Backup and restore
+# Analysis Services database backup and restore
 
 Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 

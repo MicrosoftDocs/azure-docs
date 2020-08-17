@@ -1,6 +1,6 @@
 ---
 title: Upload an Azure Service Management Certificate | Microsoft Docs
-description: Learn how to upload the Service Management certificate for the Azure portal.
+description: Learn how to upload the Service Management certificate for the Azure portal. Management certificates let you authenticate with the classic deployment model.
 services: cloud-services
 documentationcenter: .net
 author: georgewallace

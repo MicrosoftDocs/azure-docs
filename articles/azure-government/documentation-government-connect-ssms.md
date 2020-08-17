@@ -4,8 +4,6 @@ description: Manage your subscription in Azure Government by connecting with SQL
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
-manager: zakramer
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 02/07/2019
-ms.author: femila
 ---
 
 # Develop with SQL Server Management Studio 

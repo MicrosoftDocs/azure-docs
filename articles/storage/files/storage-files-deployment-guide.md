@@ -1,9 +1,9 @@
 ---
 title: How to deploy Azure Files | Microsoft Docs
-description: Learn how to deploy Azure Files from start to finish.
+description: Learn how to deploy Azure Files from start to finish. Transfer data into Azure Files. Automatically mount on needed computers or servers.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files

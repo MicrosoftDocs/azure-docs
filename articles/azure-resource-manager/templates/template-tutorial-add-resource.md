@@ -4,7 +4,8 @@ description: Describes the steps to create your first Azure Resource Manager tem
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Add a resource to your ARM template
