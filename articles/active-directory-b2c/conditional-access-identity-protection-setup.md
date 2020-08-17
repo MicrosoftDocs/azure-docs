@@ -18,14 +18,16 @@ ms.collection: M365-identity-device-management
 
 ## Prerequisites
 
-- Azure AD B2C tenant that is linked to a subscription
-- An account that is assigned the Global Administrator role or the Security administrator role.
+- Your Azure AD B2C tenant must be [linked to an Azure AD subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
+- To use sign-in and user risk-based Conditional Access, Azure AD Premium P2 is required.
+- To manage Identity Protection and Conditional Access in your B2C tenant, you'll need an account that is assigned the Global Administrator role or the Security administrator role.
+
 
 ### To select the Azure AD Premium P2 pricing tier
 
 To use these features in your tenant, you first need to switch to the Azure AD Premium P2 pricing tier. 
 
-1. Go to your subscription that hosts your Azure AD B2C tenant.
+1. Go to the Azure AD subscription that hosts your Azure AD B2C tenant.
 2. Search for the Azure AD B2C resource.
 3. In the resource overview, under Pricing tier, select **change**.
 
