@@ -12,7 +12,6 @@ ms.custom: devx-track-java
 # Build and deploy apps to Azure Spring Cloud
 This document illustrates deployment of microservice applications to Azure Spring Cloud using:
 * Azure CLI
-* Maven
 * Intellij
 
 Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).

@@ -11,22 +11,22 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Deploy your first Azure Spring Cloud application
 
-This quickstart shows you how to deploy an Spring Cloud helloworld application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
+This quickstart explains how to deploy a Spring Cloud Hello-World application to Azure. Azure Spring Cloud enables Spring Cloud based microservice applications to run on Azure. 
 
-You can find the sample application code used in this tutorial in our [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
+The sample application code used in this tutorial is at the [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you've completed this example, the sample application will be accessible online and ready to be managed via the Azure portal.
 
-Following this quickstart, you will learn how to:
+This quickstart explains how to:
 
 > [!div class="checklist"]
 > * Generate a basic Spring Cloud project
 > * Provision a service instance
 > * Build and deploy the app with public endpoint
-> * Streaming logs in real time
+> * Stream logs in real time
 
 ## Prerequisites
 
 >[!Note]
-> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) to learn more.
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/), or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 To complete this quickstart:
 
@@ -39,14 +39,14 @@ To complete this quickstart:
 >[!TIP]
 > To skip the spring boot basics in this section, you can clone our sample repo `git clone https://github.com/yucwan/azure-spring-cloud-helloworld.git` and jump ahead to **Provision a service instance** section.
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin), we generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
 ```url
 https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin
 ```
 
   ![Initializr page](media/spring-cloud-quickstart-java/initializr-page.png)
 
-1. Click Generate when all the dependencies are added. Download and unpack the package, then add the following dependency to the application `pom.xml` file.
+1. Click **Generate** when all the dependencies are set. Download and unpack the package, then add the following dependency to the application `pom.xml` file.
 
     ```xml
         <dependency>
@@ -56,7 +56,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
         </dependency>
     ```
 
-1. Create a web controller for a simple web application by adding `src/main/java/com/example/springboot/HelloController.java` as following:
+1. Create a web controller for a simple web application by adding `src/main/java/com/example/springboot/HelloController.java` as follows:
 
     ```java
     package com.example.demo;
@@ -82,9 +82,9 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
 
-2. From the top search box, search for **Azure Spring Cloud**.
+2. From the top search box, search for *Azure Spring Cloud*.
 
-3. Select **Azure Spring Cloud** from the results.
+3. Select *Azure Spring Cloud* from the results.
 
     ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
@@ -151,25 +151,26 @@ az extension add --name spring-cloud
 ---
 
 ## Build and deploy the application
-Make sure you are executing the following command at the root of the project.
-1. Build the project using Maven for example
+Make sure to execute the following command at the root of the project.
+
+1. Build the project using Maven, for example:
 
     ```console
     mvn clean package -DskipTests
     ```
 
-1. Install the Azure Spring Cloud extension for the Azure CLI using the following command
+1. Install the Azure Spring Cloud extension for the Azure CLI using the following command:
 
     ```azurecli
     az extension add --name spring-cloud
     ```
-1. Create app with public endpoint assigned
+1. Create app with public endpoint assigned:
 
     ```azurecli
     az spring-cloud app create -n demo -s <service instance name> -g <resource group name> --is-public
     ```
 
-1. Deploy the Jar file to the app created  
+1. Deploy the Jar file to the app created:
 
     ```azurecli
     az spring-cloud app deploy -n demo -s <service instance name> -g <resource group name> --jar-path target\demo-0.0.1-SNAPSHOT.jar
@@ -178,7 +179,7 @@ Make sure you are executing the following command at the root of the project.
 
 ## Streaming logs in real time
 
-1. You can use the following command to get real time logs from the App.
+1. Use the following command to get real time logs from the App.
 
     ```azurecli
     az spring-cloud app logs -n demo -s <service instance name> -g <resource group name> -f
@@ -186,7 +187,7 @@ Make sure you are executing the following command at the root of the project.
     
     **Need a screenshot**
     
-2. For advanced logs analytics features, visit "Logs" tab in the menu on [Azure Portal](https://portal.azure.com/). Be aware that logs here have a latency around a few minutes.
+2. For advanced logs analytics features, visit **Logs** tab in the menu on [Azure Portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
   ![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png)
 
