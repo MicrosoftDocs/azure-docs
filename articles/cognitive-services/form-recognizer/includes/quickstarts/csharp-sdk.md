@@ -197,7 +197,7 @@ This section demonstrates how to manage the custom models stored in your account
 
 The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage-model_count)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
 ### List the models currently stored in the resource account
 
