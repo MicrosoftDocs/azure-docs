@@ -67,7 +67,7 @@ This article shows how to create a Media Services account using the Azure portal
 
 ### Set the Azure subscription
 
-[!INCLUDE [Set the Azure subscription with CLI](includes/task-set-azure-subscription-cli.md]
+[!INCLUDE [Set the Azure subscription with CLI](./includes/task-set-azure-subscription-cli.md]
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
@@ -77,7 +77,7 @@ az account set --subscription mySubscriptionId
 
 ### Create a resource group
 
-[!INCLUDE [Create a resource group with CLI](includes/task-create-resource-group-cli.md]
+[!INCLUDE [Create a resource group with CLI](./includes/task-create-resource-group-cli.md]
 
 Create a resource group using the following command. An Azure resource group is a logical container into which resources like Azure Media Services accounts and the associated Storage accounts are deployed and managed.
 
@@ -89,7 +89,7 @@ az group create --name amsResourceGroup --location westus2
 
 ### Create a storage account
 
-[!INCLUDE [Create a storage account with CLI](includes/task-create-storage-account-cli.md]
+[!INCLUDE [Create a storage account with CLI](./includes/task-create-storage-account-cli.md]
 
 When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. For more information about how storage accounts are used in Media Services, see [Storage accounts](storage-account-concept.md).
 
@@ -109,7 +109,7 @@ az storage account create --name storageaccountforams \
 
 ### Create a Media Services account
 
-[!INCLUDE [Create a Media Services account with CLI](includes/task-create-media-services-account-cli.md]
+[!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md]
 
 The following Azure CLI command creates a new Media Services account. You can replace the following values: `amsaccount`  `storageaccountforams` (must match the value you gave for your storage account), and `amsResourceGroup` (must match the value you gave for the resource group).
 
