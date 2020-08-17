@@ -43,19 +43,18 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Ekarda supports **SP and IDP** initiated SSO
 * Ekarda supports **Just In Time** user provisioning
 
-* Once you configure Ekarda you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure Ekarda, you can enforce session control, which protects against exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Ekarda from the gallery
 
 To configure the integration of Ekarda into Azure AD, you need to add Ekarda from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. To add the new application, select **New application**.
 1. In the **Add from the gallery** section, type **Ekarda** in the search box.
 1. Select **Ekarda** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Ekarda
 
@@ -76,17 +75,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Ekarda** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, select the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 	
-	a. Click **Upload metadata file**.
+	a. Select **Upload metadata file**.
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+	b. Select the **folder logo** to select the metadata file, and then select **Upload**.
 
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Ekarda section textbox:
+	c. When the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Ekarda section textbox:
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
@@ -99,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://my.ekarda.com/users/saml_acs/<COMPANY_ID>`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Select **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
@@ -107,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Ekarda Client support team](mailto:contact@ekarda.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **Certificate(Base64)** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, select the copy button to copy **Certificate(Base64)** and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -125,7 +124,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. In the **Name** field, enter `B.Simon`.  
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
@@ -141,26 +140,26 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, and then select the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then select the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, select the **Assign** button.
 
 ## Configure Ekarda SSO
 
 1. In a different web browser window, sign in to your Ekarda company site as an administrator.
 
-1. Click on **Admin** -> **My Account**.
+1. Select **Admin** -> **My Account**.
 
     ![Ekarda Configuration](./media/ekarda-tutorial/ekarda.png)    
 
-1. At the bottom of the page you will find the **SAML SETTINGS** section where you will configure that SAML integration.
+1. At the bottom of the page, you will find the **SAML SETTINGS** section where you will configure that SAML integration.
 1. On the following page, perform the following steps:
 
     ![Ekarda Configuration](./media/ekarda-tutorial/ekarda1.png)
 
-    a. Click on **Service Provider metadata** link and save it as file in your computer.
+    a. Select the **Service Provider metadata** link and save it as file in your computer.
 
-    b. Select the CheckBox **Enable SAML** .
+    b. Select the CheckBox **Enable SAML**.
 
     c. In the **IDP Entity ID** textbox, paste the **Entity ID** value, which you have copied from the Azure portal.
 
@@ -172,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     g. Select the **Enable SLO** in **OPTIONS** section.
 
-    h. Click on **Update**.
+    h. Select **Update**.
 
 ### Create Ekarda test user
 
@@ -182,20 +181,17 @@ In this section, a user called B.Simon is created in Ekarda. Ekarda supports jus
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Ekarda tile in the Access Panel, you should be automatically signed in to the Ekarda for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Ekarda tile in the Access Panel, you should be automatically signed in to the Ekarda for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Try Ekarda with Azure AD](https://aad.portal.azure.com/)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* Use [Ekarda's enterprise eCard solution](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) to provision any number of staff to send eCards that are branded with your company logo to their clients and colleagues. Learn more about provisioning [Ekarda as an SSO solution](https://support.ekarda.com/#SSO-Implementation).
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Try Ekarda with Azure AD](https://aad.portal.azure.com/)
-
-- Use [Ekarda's enterprise eCard solution](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) to provision any number of staff to send eCards that are branded with your company logo to their clients and colleagues. Learn more about provisioning [Ekarda as an SSO solution](https://support.ekarda.com/#SSO-Implementation).
-
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Ekarda with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [How to protect Ekarda with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
