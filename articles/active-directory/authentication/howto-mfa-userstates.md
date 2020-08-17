@@ -23,7 +23,7 @@ For Azure AD free tenants without Conditional Access, you can [use security defa
 
 If needed, you can instead enable each account for per-user Azure Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remember MFA on trusted devices_ feature is turned on).
 
-Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access or you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure Multi-Factor Authentication](concept-mfa-licensing.md).
+Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access and you don't want to use security defaults. For more information on the different ways to enable MFA, see [Features and licenses for Azure Multi-Factor Authentication](concept-mfa-licensing.md).
 
 > [!IMPORTANT]
 >
@@ -40,7 +40,7 @@ A user's state reflects whether an admin has enrolled them in per-user Azure Mul
 | State | Description | Legacy authentication affected | Browser apps affected | Modern authentication affected |
 |:---:| --- |:---:|:--:|:--:|
 | Disabled | The default state for a user not enrolled in per-user Azure Multi-Factor Authentication. | No | No | No |
-| Enabled | The user is enrolled in per-user Azure Multi-Factor Authentication, but can still use their password for legacy authentication. If the user hasn't yet registered MFA authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
+| Enabled | The user is enrolled in per-user Azure Multi-Factor Authentication, but can still use their password for legacy authentication. If the user hasn't yet registered MFA authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). | No. Legacy authentication continues to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
 | Enforced | The user is enrolled per-user in Azure Multi-Factor Authentication. If the user hasn't yet registered authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). Users who complete registration while in the *Enabled* state are automatically moved to the *Enforced* state. | Yes. Apps require app passwords. | Yes. Azure Multi-Factor Authentication is required at sign-in. | Yes. Azure Multi-Factor Authentication is required at sign-in. |
 
 All users start out *Disabled*. When you enroll users in per-user Azure Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*. Administrators may move users between states, including from *Enforced* to *Enabled* or *Disabled*.
@@ -85,7 +85,7 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/), you
 * *Enforced*
 * *Disabled*  
 
-In general, don't move users directly to the *Enforced* state unless they are already registered for MFA. If you do so, legacy auth apps stop working because the user hasn't gone through Azure Multi-Factor Authentication registration and obtained an [app password](howto-mfa-app-passwords.md). However, in some cases this behavior may be desired, but impacts user experience until the user registers.
+In general, don't move users directly to the *Enforced* state unless they are already registered for MFA. If you do so, legacy authentication apps stop working because the user hasn't gone through Azure Multi-Factor Authentication registration and obtained an [app password](howto-mfa-app-passwords.md). In some cases this behavior may be desired, but impacts user experience until the user registers.
 
 To get started, install the *MSOnline* module using [Install-Module](/powershell/module/powershellget/install-module) as follows:
 
