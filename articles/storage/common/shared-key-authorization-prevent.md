@@ -1,7 +1,7 @@
 ---
 title: Prevent authorization with Shared Key (preview)
 titleSuffix: Azure Storage
-description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview). Microsoft recommends that you disallow Shared Key authorization when possible to help prevent data breaches.
+description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
 services: storage
 author: tamram
 
@@ -14,9 +14,9 @@ ms.reviewer: fryu
 
 # Prevent Shared Key authorization for an Azure Storage account (preview)
 
-Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
+Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview).
 
-Microsoft recommends that you disallow Shared Key authorization when possible to help improve storage account security and to enable auditing with identity information. When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
 > Azure Storage supports Azure AD authorization for requests to Blob and Queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files or Table storage that use Shared Key authorization, including shared access signatures (SAS), will fail. Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
@@ -27,7 +27,7 @@ This article describes how to detect requests sent with Shared Key authorization
 
 ## Detect the type of authorization used by client applications
 
-When you disallow Shared Key authorization for a storage account, requests from clients that are using Shared Key authorization will fail. To understand how disallowing Shared Key authorization may affect client applications before you make this change, enable logging and metrics for the storage account. You can then analyze patterns of requests to your account over a period of time to determine how requests are being authorized.
+When you disallow Shared Key authorization for a storage account, requests from clients that are using the account access keys for Shared Key authorization will fail. To understand how disallowing Shared Key authorization may affect client applications before you make this change, enable logging and metrics for the storage account. You can then analyze patterns of requests to your account over a period of time to determine how requests are being authorized.
 
 Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a shared access signature (SAS). Use logs to determine which clients are sending those requests.
 
@@ -57,7 +57,7 @@ Follow these steps to create a metric that tracks requests made with Shared Key 
     1. In the **Values** field, select *Account Key* and *SAS*.
 1. In the upper-right corner, select the time range for which you want to view the metric. You can also indicate how granular the aggregation of requests should be, by specifying intervals anywhere from 1 minute to 1 month. For example, set the **Time range** to 30 days and the **Time granularity** to 1 day to see requests aggregated by day over the past 30 days.
 
-After you have configured the metric, requests to your storage account will begin to appear on the graph. The following image shows requests that were authorized with Shared Key or made with a SAS token. Requests are aggregated over the past thirty minutes.
+After you have configured the metric, requests to your storage account will begin to appear on the graph. The following image shows requests that were authorized with Shared Key or made with a SAS token. Requests are aggregated per day over the past thirty days.
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key":::
 
@@ -110,9 +110,12 @@ You can also configure an alert rule based on this query to notify you about req
 
 After you have analyzed how requests to your storage account are being authorized, you can take action to prevent access via Shared Key. But first, you need to update any applications that are using Shared Key authorization to use Azure AD instead. You can monitor logs and metrics as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to track the transition. For more information about using Azure AD with blob and queue data, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
-When you are confident that you can safely reject requests that are authorized with Shared Key, you can take action to prevent access via Shared Key by setting the **AllowSharedKeyAccess** property for the account to **false**.
+When you are confident that you can safely reject requests that are authorized with Shared Key, you can set the **AllowSharedKeyAccess** property for the storage account to **false**.
 
 The **AllowSharedKeyAccess** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests that are authorized with Shared Key when the property value is **null** or when it is **true**.
+
+> [!IMPORTANT]
+> If any clients are currently accessing data in your storage account with Shared Key, then Microsoft recommends that you migrate those clients to Azure AD before disallowing Shared Key access to the storage account.
 
 # [Azure portal](#tab/portal)
 
@@ -211,7 +214,7 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 ## About the preview
 
-The preview for disallowing Shared Key authorization is available in Azure Public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
+The preview for disallowing Shared Key authorization is available in the Azure public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -220,13 +223,16 @@ The preview includes the limitations described in the following sections.
 
 ### Metrics and logging report all requests made with a SAS regardless of how they are authorized
 
-Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures in the preview. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures in the preview. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently, and behave differently when Shared Key access is disallowed:
+
+- A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+- A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
 
 When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS. For more information about how Azure Storage responds to a SAS when the **AllowSharedKeyAccess** property is set to **false**, see [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### Requests with SAS tokens are permitted for queues, tables, and files when AllowSharedKeyAccess is false
 
-When the **AllowSharedKeyAccess** property is set to **false**, shared access signatures that target queue, table, or Azure Files resources are permitted in the preview. Both a service SAS and an account SAS are always authorized with Shared Key, and both are permitted when Shared Key access is disallowed for the storage account.
+When the **AllowSharedKeyAccess** property is set to **false**, shared access signatures that target queue, table, or Azure Files resources are permitted in the preview. Both a service SAS and an account SAS are always authorized with Shared Key, and both are permitted when Shared Key access is disallowed for the storage account during the preview.
 
 ## Next steps
 
