@@ -25,7 +25,7 @@ There could be outliers in the data in random frequency. In those situations, RP
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Azure Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configured with a [Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## Setup
