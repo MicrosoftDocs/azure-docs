@@ -254,6 +254,22 @@ The running jobs will continue. The pending jobs will wait for scheduling with f
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication.  For more information, see [Getting stuck in safe mode](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
+### LLAP Daemons count
+
+In case of LLAP cluster, there's an additional check that runs at regular interval to match the LLAP daemons count with the number of active worker nodes. This check runs at regular interval when autoscale is enabled and after the autoscale is disabled, this check runs once before the autoscale service exits. During this check, if it determines that the LLAP daemons count is greater/lesser than the number of active worker nodes, it balances the LLAP daemon count to match the active worker node count. This matching is done by making the YARN Flex API call directly, the LLAP daemon count config is not changed through Ambari or persisted in the LLAP configuration. Hence, the matching is done as long as the autoscale is running, once autoscale is disabled, it matches for one final time and then autoscale service exits. After, disabling autoscale, if LLAP service is restarted, there can be a mismatch in the LLAP daemons count and the number of current active worker nodes as the LLAP daemon count was not persisted in the LLAP configurations.
+
+Let's take the below scenario:
+1. A LLAP autoscale enabled cluster is created with 3 worker nodes and load based autoscale is enabled with minimum worker nodes as 3 and maximum worker nodes as 10.
+2. The LLAP daemons count config according to LLAP configuration and Ambari is 3, since the cluster got created with 3 worker nodes.
+3. Then an autoscale up is triggered due to load on the cluster, the cluster is now scaled to 10 nodes.
+4. The autoscale check running at regular interval notices that the LLAP daemons count is 3, but the number of active worker node is 10, it makes a Flex API call that now increases the LLAP daemons count to 10 to match the current active worker node. The call is made directly using the Flex API call and not through Ambari, hence, the new LLAP daemon count is not updated in the LLAP configuration.
+5. Autoscale is now disabled. The check is run one more time to match the LLAP daemons count with the active worker node count for graceful exit of autoscale service. But since the LLAP daemons count and the active worker node count is matched, it doesn't need to do anything.
+6. The cluster now has 10 worker nodes and 10 LLAP daemons.
+7. The LLAP service is restarted.
+8. During restart, it checks the LLAP daemons count configuration in the LLAP configuration and notices the value as 3, so it spins up 3 instance of daemons, but the number of worker node is 10. There is now a mismatch between the two.
+
+When this happens, we need to manually increase the LLAP daemons count to match the current active worker node count.
+
 ## Next steps
 
 Read about guidelines for scaling clusters manually in [Scaling guidelines](hdinsight-scaling-best-practices.md)
