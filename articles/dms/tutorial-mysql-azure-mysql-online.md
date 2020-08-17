@@ -82,8 +82,8 @@ To complete this tutorial, you need to:
 
 * The user must have the ReplicationAdmin role with the following privileges:
 
-  * **REPLICATION CLIENT** - Required for Change Processing tasks only. In other words, Full Load only tasks don't require this privilege.
-  * **REPLICATION REPLICA** - Required for Change Processing tasks only. In other words, Full Load only tasks don't require this privilege.
+  * **REPLICATION CLIENT** 
+  * **REPLICATION REPLICA** 
   * **SUPER** - Only required in versions earlier than MySQL 5.6.6.
 
 ## Migrate the sample schema
@@ -139,7 +139,6 @@ Run the drop foreign key (which is the second column) in the query result to dro
 > [!NOTE]
 > Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
 > Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) instead. 
-
 
 > [!IMPORTANT]
 > If importing data using a backup, remove the CREATE DEFINER commands manually or by using the --skip-definer command when performing a mysqldump. DEFINER requires super privileges to create and is restricted in Azure Database for MySQL.
