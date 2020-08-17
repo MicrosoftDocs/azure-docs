@@ -66,7 +66,8 @@ If the number of extracted sentences does not match the two files with the same
 base name, Custom Translator will still run the sentence aligner on `.align`
 files.
 
-## I tried uploading my TMX, but it says "document processing failed".
+## I tried uploading my TMX, but it says "document processing failed"
+
 
 Ensure that the TMX conforms to the TMX 1.4b Specification at
 <https://www.gala-global.org/tmx-14b>.
