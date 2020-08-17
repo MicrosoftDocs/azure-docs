@@ -32,14 +32,14 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + AutoML raises a new error code from dataprep when content is modified while being read.
     + Updated normalization for forecasting metrics to occur by grain.
     + Improved calculation of forecast quantiles when lookback features are disabled.
-    + Fixed bool sparse matrix handling when computing explanations after AutoML
+    + Fixed bool sparse matrix handling when computing explanations after AutoML.
   + **azureml-core**
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
     + Add image_name and image_label parameters to Model.package() to enable renaming the built package image.
     + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) at once.
     + Enable registering credential-less ADLS Gen2 datastore.
-    + Improved error message when trying to download or mount an incorrect dataset type
-    + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection
+    + Improved error message when trying to download or mount an incorrect dataset type.
+    + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection.
     + Experimental Decorator shows class name for easier identification.
     + Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
   + **azureml-datadrift**
