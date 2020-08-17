@@ -34,7 +34,7 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku Premium_LRS --max-shares 2
 ```
 
 # [PowerShell](#tab/azure-powershell)
