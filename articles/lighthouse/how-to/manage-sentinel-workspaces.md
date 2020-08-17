@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 06/17/2020
+ms.date: 08/12/2020
 ms.topic: how-to
 ---
 
@@ -66,7 +66,7 @@ You can also deploy workbooks directly in an individual tenant that you manage f
 
 ## Run queries across Azure Sentinel workspaces
 
-You can create and save Log Analytics queries for threat detection centrally in the managing tenant. These queries can then be run across all of your customers' Azure Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+You can create and save Log Analytics queries for threat detection centrally in the managing tenant, including [built-in hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can then be run across all of your customers' Azure Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## Use automation for cross-workspace management
 

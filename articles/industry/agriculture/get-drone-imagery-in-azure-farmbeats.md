@@ -48,9 +48,9 @@ Follow these steps.
 5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username.
 6. Run the following script:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 

@@ -46,7 +46,7 @@ The performance characteristics for both modes do vary based on the use case, an
 
 ## Setting the render mode
 
-The render mode used on a Remote Rendering VM is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`.
+The render mode used on a Remote Rendering server is specified during `AzureSession.ConnectToRuntime` via the `ConnectToRuntimeParams`.
 
 ```cs
 async void ExampleConnect(AzureSession session)
