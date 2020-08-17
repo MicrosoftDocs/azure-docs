@@ -48,3 +48,7 @@ The following table compares key feature of MSIX app attach and app layering.
 | Infrastructure       | Additional infrastructure required (servers, clients, and so on) | Storage only   |
 | Administration       | Requires maintenance and update   | Simplifies app updates |
 | User experience      | Impacts user sign-in time. Boundary exists between OS state, app state, and user data.  | Delivered apps are indistinguishable from locally installed applications. |
+
+## Next steps
+
+If you want to learn more about MSIX app attach, check out our [glossary](app-attach-glossary.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).

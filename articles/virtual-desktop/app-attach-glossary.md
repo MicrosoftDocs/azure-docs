@@ -110,3 +110,7 @@ The following table is a performance comparison between VHD and CimFS. These num
 | Memory consumption | 6% (of 8 GB)                      | 2% (of 8 GB)       |
 | CPU (count spike)          | Maxed out multiple times | No impact |
 
+## Next steps
+
+If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
+
