@@ -14,8 +14,6 @@ After completing this quickstart, you will understand the key concepts of the Ba
 
 ![Diagram showing an overview of the Azure Batch app workflow.](./media/quick-run-dotnet/sampleapp.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
