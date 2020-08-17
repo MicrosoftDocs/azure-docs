@@ -59,7 +59,7 @@ Design your model with categories of user intentions called **[intents](luis-con
 |`When does your store open?`|StoreHoursAndLocation|open|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
-Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs, or with the [**LUIS portal**](https://www.luis.ai), or both.
+Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs, or with the [**LUIS portal**](https://www.luis.ai), or both. Learn more how to build with the [portal](get-started-portal-build-app.md) and the [SDK client libraries](quickstart-sdk).
 
 ## Step 2: Get the query prediction
 
@@ -118,6 +118,11 @@ Other Cognitive Services used with LUIS:
 * [Speech service](../Speech-Service/overview.md) converts spoken language requests into text.
 
 LUIS provides Text Analytics service features of [sentiment analysis](luis-how-to-publish-app#configuring-publish-settings) and [key phrase extraction](luis-reference-prebuilt-keyphrase.md) as part of your existing LUIS resources.
+
+## Learn with the Quickstarts
+
+Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal-build-app.md) and the [SDK client libraries](quickstart-sdk).
+
 
 ## Next steps
 
