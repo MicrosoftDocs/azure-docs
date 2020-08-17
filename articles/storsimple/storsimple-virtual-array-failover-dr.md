@@ -1,6 +1,6 @@
 ---
 title: Failover and disaster recovery for StorSimple Virtual Array
-description: Learn more about how to failover your StorSimple Virtual Array.
+description: Learn about disaster recovery for your Microsoft Azure StorSimple Virtual Array, including the detailed steps to fail over to another virtual array.
 services: storsimple
 documentationcenter: NA
 author: alkohli

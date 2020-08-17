@@ -5,6 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ---
 # Azure Cache for Redis development FAQs

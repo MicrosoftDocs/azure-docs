@@ -56,6 +56,10 @@ Operating Systems where the module can be installed:
 - macOS
 - Windows
 
+> [!NOTE]
+> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on OMI.
+> This causes an error on any environment with OpenSSL 1.1 or later.
+
 The Guest Configuration resource module requires the following software:
 
 - PowerShell 6.2 or later. If it isn't yet installed, follow
@@ -291,6 +295,8 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Version**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
+- **Tag** adds one or more tag filters to the policy definition
+- **Category** sets the category metadata field in the policy definition
 
 The following example creates the policy definitions in a specified path from a custom policy package:
 
@@ -313,15 +319,6 @@ The following files are created by `New-GuestConfigurationPolicy`:
 
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
-
-> [!Note]
-> The latest Guest Configuration module includes a new parameters:
-> - **Tag** adds one or more tag filters to the policy definition
->   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
-> - **Category** sets the category metadata field in the policy definition
->   - If the parameter is not included, the category will default to Guest Configuration.
-> These features are currently in preview and require Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet.
 The cmdlet only has the **Path** parameter that points to the location of the JSON files
@@ -468,10 +465,6 @@ updated.
 
 
 ### Filtering Guest Configuration policies using Tags
-
-> [!Note]
-> This feature is currently in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
 
 The policies created by cmdlets in the Guest Configuration module can optionally include
 a filter for tags. The **-Tag** parameter of `New-GuestConfigurationPolicy` supports

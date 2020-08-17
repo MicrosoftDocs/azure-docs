@@ -27,6 +27,9 @@ You might consider executing a [manual failover](../database/high-availability-s
 - Verify if a failover changes end-to-end performance because of changes in the network latency
 - In some cases of query performance degradations, manual failover can help mitigate the performance issue.
 
+> [!NOTE]
+> Ensuring that your applications are failover resilient prior to deploying to production will help mitigate the risk of application faults in production and will contribute to application availability for your customers.
+
 ## Initiate manual failover on SQL Managed Instance
 
 ### Using PowerShell
