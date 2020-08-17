@@ -172,7 +172,7 @@
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL validator (sample)
         href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
-      - name: IoT Hub integration sample
+      - name: DPS and IoT Hub integration sample
         href: https://github.com/Azure-Samples/digital-twins-iothub-integration    
   - name: Azure tools
     items: 
