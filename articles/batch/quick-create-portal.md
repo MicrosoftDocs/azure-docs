@@ -2,7 +2,7 @@
 title: Azure Quickstart - Run your first Batch job in the Azure portal
 description:  Learn how to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 08/17/2020
 ms.custom: mvc
 ---
 
@@ -18,7 +18,7 @@ Get started with Azure Batch by using the Azure portal to create a Batch account
 
 Follow these steps to create a sample Batch account for test purposes. You need a Batch account to create pools and jobs. As shown here, you can link an Azure storage account with the Batch account. Although not required for this quickstart, the storage account is useful to deploy applications and store input and output data for most real-world workloads.
 
-1. In the Azure portal, Select **Create a resource** > **Compute** > **Batch Service**. 
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Compute** > **Batch Service**. 
 
    :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Screenshot of Batch Service in the Azure Marketplace.":::
 

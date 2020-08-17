@@ -2,16 +2,15 @@
 title: PowerShell sample - Application Proxy apps with identical certs
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Get all Azure AD Proxy application apps that are published with the identical certificate
