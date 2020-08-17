@@ -258,11 +258,7 @@ To find full information on the REST API specifications, please review the [crea
 * For full templates that use managed disks visit the following Azure Quickstart Repo links.
     * [Windows VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Linux VM with managed disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-<<<<<<< HEAD:includes/virtual-machines-using-managed-disks-template-deployments.md
-* Visit the [Azure Managed Disks Overview](../articles/virtual-machines/managed-disks-overview.md) document to learn more about managed disks.
-=======
 * Visit the [Azure Managed Disks Overview](~/articles/virtual-machines/windows/managed-disks-overview.md) document to learn more about managed disks.
->>>>>>> 5af7d9669fb6645b673f87892463e2c18f0ed62f:articles/virtual-machines/using-managed-disks-template-deployments.md
 * Review the template reference documentation for virtual machine resources by visiting the [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines) document.
 * Review the template reference documentation for disk resources by visiting the [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks) document.
 * For information on how to use managed disks in Azure virtual machine scale sets, visit the [Use data disks with scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) document.
