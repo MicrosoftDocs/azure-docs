@@ -6,13 +6,13 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ---
 # What is MSIX app attach?
 
-MSIX is a new packaging format that offers many features aimed to improve packaging experience for all Windows app. to learn more about MSIX, see the [MSIX overview](/windows/msix/overview).
+MSIX is a new packaging format that offers many features aimed to improve packaging experience for all Windows apps. To learn more about MSIX, see the [MSIX overview](/windows/msix/overview).
 
 MSIX app attach is a way to deliver MSIX applications to both physical and virtual machines. However, MSIX app attach is different from regular MSIX because it's made especially for Windows Virtual Desktop. This article will describe what MSIX app attach is and what it can do for you.
 
@@ -44,7 +44,7 @@ The following table compares key feature of MSIX app attach and app layering.
 |-----|-----------------------------|--------------------|
 | Format               | Different app layering technologies require different proprietary formats. | Works with the native MSIX packaging format.        |
 | Repackaging overhead | Proprietary formats require sequencing and repackaging per update.         | Apps published as MSIX don't require repackaging. However, if the MSIX package isn't available, repackaging overhead still applies. |
-| Ecosystem            | N/A (for example, if vendors don't ship App-V)  | MSIX is Microsoft's mainstream technology that key ISV partners and in-house apps like Office are adopting. You can use MSIX on both virtual desktops and physical Windows computers. |
+| Ecosystem            | N/A (for example, vendors don't ship App-V)  | MSIX is Microsoft's mainstream technology that key ISV partners and in-house apps like Office are adopting. You can use MSIX on both virtual desktops and physical Windows computers. |
 | Infrastructure       | Additional infrastructure required (servers, clients, and so on) | Storage only   |
 | Administration       | Requires maintenance and update   | Simplifies app updates |
 | User experience      | Impacts user sign in time. Boundary exists between OS state, app state, and user data.  | Delivered apps are indistinguishable from locally installed applications. |
