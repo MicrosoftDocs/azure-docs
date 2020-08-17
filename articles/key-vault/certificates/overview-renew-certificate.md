@@ -61,7 +61,7 @@ If the certificate issued is in 'disabled' status in the Azure portal, proceed t
   Create a certificate with validity of 1 month and then set the life-time action for rotation at 1%. This setting will rotate the certificate in 7.2 hours.
   
 * Will the tags be replicated after auto-renewal of the certificate?
-  No, tags would not replicate unless the user manually copies the tags themselves.
+  Yes, the tags would be replicated after auto-renewal.
 
 ### See Also
 *	[Integrating Key Vault with DigiCert Certificate Authority](how-to-integrate-certificate-authority.md)
