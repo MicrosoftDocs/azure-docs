@@ -112,7 +112,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         - In general, we don't recommend the use of [Azure Standard HDD disks](../../disks-types.md#standard-hdd).
         - Use [Azure Premium Storage](../../disks-types.md#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
         - Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
-        - Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write Accelerator limits and usage, as documented in [Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+        - Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write Accelerator limits and usage, as documented in [Write Accelerator](../../how-to-enable-write-accelerator.md).
         - For the different DBMS types, check the [generic SAP-related DBMS documentation](./dbms_guide_general.md) and the DBMS-specific documentation that the generic document points to.
         - For more information about SAP HANA, see [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md).
         - Never mount Azure data disks to an Azure Linux VM by using the device ID. Instead, use the universally unique identifier (UUID). Be careful when you use graphical tools to mount Azure data disks, for example. Double-check the entries in /etc/fstab to make sure the UUID is used to mount the disks. You can find more details in [this article](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).

@@ -273,9 +273,9 @@ data volumes of database software. Whereas for the transaction log Azure host di
 
 Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
 Azure disk types depending on cost and throughput requirements. For the log volume, high I/O throughput is required.  In case of using the VM type M64-32ms it is 
-mandatory to enable [Write Accelerator](../../linux/how-to-enable-write-accelerator.md). Azure Write Accelerator provides optimal disk write latency for the transaction
+mandatory to enable [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator provides optimal disk write latency for the transaction
 log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about Write Accelerator can be
-found [here](../../windows/how-to-enable-write-accelerator.md)
+found [here](../../how-to-enable-write-accelerator.md)
 
 
 Here are a few examples about sizing the log volume:
