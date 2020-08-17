@@ -82,7 +82,7 @@ of the configuration within the machine.
 ## Supported client types
 
 Guest Configuration policies are inclusive of new versions. Older versions of operating systems
-available in the Azure Marketplace are excluded if the Guest Configuration agent isn't compatible.
+available in Azure Marketplace are excluded if the Guest Configuration agent isn't compatible.
 The following table shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
