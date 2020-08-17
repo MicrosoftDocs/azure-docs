@@ -501,7 +501,7 @@ HolographicFrame HolographicAppMain::Update()
 
 #### Coordinate system update
 
-We need to agree with the rendering service on a coordinate system to use. To access the coordinate system that we want to use, we need the `m_stationaryReferenceFrame` which is created at the end of function `HolographicAppMain::OnHolographicDisplayIsAvailableChanged`.
+We need to agree with the rendering service on a coordinate system to use. To access the coordinate system that we want to use, we need the `m_stationaryReferenceFrame` that is created at the end of function `HolographicAppMain::OnHolographicDisplayIsAvailableChanged`.
 
 This coordinate system usually does not change, so this is a one time initialization. It must be called again if your application changes the coordinate system.
 
@@ -509,7 +509,7 @@ The code above sets the coordinate system once within the `Update` function as s
 
 #### Camera update
 
-We need to update the camera clip planes so that server- and local camera are kept in sync. We can do that at the very end of the `Update` function:
+We need to update the camera clip planes so that server camera is kept in sync with the local camera. We can do that at the very end of the `Update` function:
 
 ```cpp
     ...
@@ -538,7 +538,6 @@ We need to update the camera clip planes so that server- and local camera are ke
 }
 
 ```
-
 
 ### Rendering
 
