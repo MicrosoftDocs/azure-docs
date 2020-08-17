@@ -66,9 +66,9 @@ This command creates a session. It returns the ID of the new session. You need t
 
 **Request body:**
 
-* maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
+* maxLeaseTime (timespan): a timeout value when the session will be decommissioned automatically
 * models (array): asset container URLs to preload
-* size (string): the VM size (**"standard"** or **"premium"**). See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
+* size (string): the server size to configure ([**"standard"**](../reference/vm-sizes.md) or [**"premium"**](../reference/vm-sizes.md)). See specific [size limitations](../reference/limits.md#overall-number-of-polygons).
 
 **Responses:**
 
@@ -125,7 +125,7 @@ This command updates a session's parameters. Currently you can only extend the l
 
 **Request body:**
 
-* maxLeaseTime (timespan): a timeout value when the VM will be decommissioned automatically
+* maxLeaseTime (timespan): a timeout value when the session will be decommissioned automatically
 
 **Responses:**
 

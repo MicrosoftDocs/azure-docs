@@ -35,10 +35,10 @@ Every session undergoes multiple phases.
 
 When you ask ARR to [create a new session](../how-tos/session-rest-api.md#create-a-session), the first thing it does is to return a session [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). This UUID allows you to query information about the session. The UUID and some basic information about the session are persisted for 30 days, so you can query that information even after the session has been stopped. At this point, the **session state** will be reported as **Starting**.
 
-Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the *Standard* or *Premium* size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md#get-sessions-properties).
+Next, Azure Remote Rendering tries to find a server that can host your session. There are two parameters for this search. First, it will only reserve servers in your [region](../reference/regions.md). That's because the network latency across regions may be too high to guarantee a decent experience. The second factor is the desired *size* that you specified. In each region, there is a limited number of servers that can fulfill the [*Standard*](../reference/vm-sizes.md) or [*Premium*](../reference/vm-sizes.md) size request. Consequently, if all servers of the requested size are currently in use in your region, session creation will fail. The reason for failure [can be queried](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> If you request a *Standard* VM size and the request fails due to high demand, that doesn't imply that requesting a *Premium* server will fail, as well. So if it is an option for you, you can try falling back to a *Premium* VM.
+> If you request a *Standard* server size and the request fails due to high demand, that doesn't imply that requesting a *Premium* server will fail, as well. So if it is an option for you, you can try falling back to a *Premium* server size.
 
 When the service finds a suitable server, it has to copy the proper virtual machine (VM) onto it to turn it into an Azure Remote Rendering host. This process takes several minutes. Afterwards the VM is booted and the **session state** transitions to **Ready**.
 
@@ -67,7 +67,7 @@ A session may also be stopped because of some failure.
 In all cases, you won't be billed further once a session is stopped.
 
 > [!WARNING]
-> Whether you connect to a session, and for how long, doesn't affect billing. What you pay for the service depends on the *session duration*, that means the time that a server is exclusively reserved for you, and the requested hardware capabilities (the VM size). If you start a session, connect for five minutes and then don't stop the session, such that it keeps running until its lease expires, you will be billed for the full session lease time. Conversely, the *maximum lease time* is mostly a safety net. It does not matter whether you request a session with a lease time of eight hours, then only use it for five minutes, if you manually stop the session afterwards.
+> Whether you connect to a session, and for how long, doesn't affect billing. What you pay for the service depends on the *session duration*, that means the time that a server is exclusively reserved for you, and the requested hardware capabilities (the [allocated size](../reference/vm-sizes.md)). If you start a session, connect for five minutes and then don't stop the session, such that it keeps running until its lease expires, you will be billed for the full session lease time. Conversely, the *maximum lease time* is mostly a safety net. It does not matter whether you request a session with a lease time of eight hours, then only use it for five minutes, if you manually stop the session afterwards.
 
 #### Extend a session's lease time
 

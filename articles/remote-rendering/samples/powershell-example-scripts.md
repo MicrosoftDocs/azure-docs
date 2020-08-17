@@ -83,7 +83,7 @@ For `region` see the [list of available regions](../reference/regions.md).
 
 This structure must be filled out if you want to run **RenderingSession.ps1**.
 
-- **vmSize:** Selects the size of the virtual machine. Select *standard* or *premium*. Shut down rendering sessions when you don't need them anymore.
+- **vmSize:** Selects the size of the virtual machine. Select [*standard*](../reference/vm-sizes.md) or [*premium*](../reference/vm-sizes.md). Shut down rendering sessions when you don't need them anymore.
 - **maxLeaseTime:** The duration for which you want to lease the VM. It will be shut down when the lease expires. The lease time can be extended later (see below).
 
 ### assetConversionSettings
