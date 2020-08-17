@@ -37,7 +37,7 @@ Changing user states isn't recommended unless your Azure AD licenses don't inclu
 
 A user's state reflects whether an admin has enrolled them in per-user Azure Multi-Factor Authentication. User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
-| State | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
+| State | Description | Legacy authentication affected | Browser apps affected | Modern authentication affected |
 |:---:| --- |:---:|:--:|:--:|
 | Disabled | The default state for a user not enrolled in per-user Azure Multi-Factor Authentication. | No | No | No |
 | Enabled | The user is enrolled in per-user Azure Multi-Factor Authentication, but can still use their password for legacy authentication. If the user hasn't yet registered MFA authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
