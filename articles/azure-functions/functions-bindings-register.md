@@ -37,19 +37,19 @@ You can use extension bundles with version 2.x and later versions of the Functio
 
 Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
 
-To add an extension bundle to your function app, add the `extensionBundle` section to your function app. In many cases, Visual Studio Code and Azure Functions Core Tools will automatically add it for you.
+To add an extension bundle to your function app, add the `extensionBundle` section to *host.json*. In many cases, Visual Studio Code and Azure Functions Core Tools will automatically add it for you.
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 This table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
 
-| Bundle version | host.json version range | Included extensions |
+| Bundle version | Version in host.json | Included extensions |
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 
 > [!NOTE]
-> While you can specify custom version ranges, we recommend you use a version range from this table.
+> While you can a specify custom version range in host.json, we recommend you use a version value from this table.
 
 ### <a name="explicitly-install-extensions"></a>Explicitly install extensions
 
