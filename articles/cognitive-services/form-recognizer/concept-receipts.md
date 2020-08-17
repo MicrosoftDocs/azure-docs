@@ -15,53 +15,23 @@ ms.author: pafarley
 
 # Receipt concepts
 
-Azure Form Recognizer includes several Prebuilt models for unique form types and scenarios. These prebuilt models are pre-trained on images of receipts and ready to use off-the-shelf&mdash;no manual data labeling or model training required.  
-
-One of these Prebuilt models is our Prebuilt Receipt API. This API combines powerful Optical Character Recognition (OCR) capabilities with our Receipt Understanding model to extract key information from sales receipts in English. We detect and extract fields such as merchant name, transaction date, transaction total, line items, and more. 
-
-## Prebuilt Receipt API 
-
-### Input requirements 
-
-* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF 
-* For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed. 
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
-* The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller. 
-
-## Best Practices 
-
-Currently, sales receipts are supported in the Pre-built Receipt API. This is the type of receipt you would commonly get at a restaurant, retailer, or grocery store.  
-
-**Pre-built Receipt v2.0** (GA) supports sales receipts in the EN-US market 
-
-**Pre-built Receipt v2.1-preview.1** (Public Preview) adds additional support for the following EN receipt locales: 
-* EN-AU 
-* EN-CA 
-* EN-GB 
-* EN-IN 
-
-> [!NOTE]
-> Language input 
->
-> Prebuilt Receipt v2.1-preview.1 has an optional request parameter to specify receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.1, the model will default to the EN-US model.
-
-## Sample Receipt API output 
-
-![sample receipt](./media/contoso-receipt-small.png)
+Form Recognizer can analyze receipts using one of its prebuilt models. The receipts API extracts key information from sales receipts in English, such as merchant name, transaction date, transaction total, line items, and more. 
 
 ## Understanding Receipts 
 
-Thousands of paper receipts are printed daily around the world. Many businesses and individuals rely on manually extracting data from these receipts, whether it is for business expense reports, reimbursements, tax purposes, budgeting, and more. Often in these scenarios, images of the physical receipt are required for validation purposes.  
+Many businesses and individuals still rely on manually extracting data from their sales receipts, whether for business expense reports, reimbursements, tax purposes, budgeting, or other purposes. Often in these scenarios, images of the physical receipt are required for validation purposes.  
 
-However, extracting data from these Receipts can be very tricky. Receipts can be crumpled and hard to read, and many smartphone images of receipts can be low quality. Receipt templates and fields can vary greatly by market, region, and merchant. These challenges in both data extraction and field detection make Receipt processing a unique problem.  
+Automatically extracting data from these Receipts can be complicated. Receipts may be crumpled and hard to read, and smartphone images of receipts may be low quality. Also, receipt templates and fields can vary greatly by market, region, and merchant. These challenges in both data extraction and field detection make receipt processing a unique problem.  
 
-Using Optical Character Recognition (OCR) and our Receipt model, we were able to create the Prebuilt Receipt API to enable receipt processing scenarios. Because the model is pre-trained on our data, you can easily analyze your receipts in one step – no model training or labeling required. With the Receipt API, extract key fields such as merchant name, transaction total, and more. 
+Using Optical Character Recognition (OCR) and our prebuilt receipt model, the receipts API enables these receipt processing scenarios. Because the model is pre-trained on our data, you can easily analyze your receipts in one step&mdash;no model training or labeling required.
+
+![sample receipt](./media/contoso-receipt-small.png)
 
 ## What does the Receipt API do? 
 
-The Receipt API extracts key fields from sales receipts. For more on input requirements and supported receipt types, please see our API reference or the input requirements and best practices.  
+The prebuilt receipt API extracts the contents of sales receipts&mdash;the type of receipt you would commonly get at a restaurant, retailer, or grocery store.
 
-**Fields Extracted:**
+### Fields Extracted
 
 * Merchant Name 
 * Merchant Address 
@@ -74,11 +44,31 @@ The Receipt API extracts key fields from sales receipts. For more on input requi
 * Tip 
 * Line-item extraction (for example item quantity, item price, item name)
 
-## Additional Features: 
+### Additional features
+
+The receipts API also returns the following information:
 
 * Receipt Type (such as itemized, credit card, and so on)
 * Field confidence level (each field returns an associated confidence value)
 * OCR raw text (OCR-extracted text output for the entire receipt)
+
+## Input requirements
+
+[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+
+## Supported locales 
+
+* **Pre-built Receipt v2.0** (GA) supports sales receipts in the EN-US locale
+* **Pre-built Receipt v2.1-preview.1** (Public Preview) adds additional support for the following EN receipt locales: 
+  * EN-AU 
+  * EN-CA 
+  * EN-GB 
+  * EN-IN 
+
+  > [!NOTE]
+  > Language input 
+  >
+  > Prebuilt Receipt v2.1-preview.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (EN-AU), Canada (EN-CA), Great Britain (EN-GB), and India (EN-IN), you can specify the locale to get improved results. If no locale is specified in v2.1-preview.1, the model will default to the EN-US model.
 
 ## Customer Scenarios  
 
@@ -98,4 +88,5 @@ The Receipt output is also very useful for general book-keeping for business or 
 
 ### Consumer Behavior 
 
-Receipts contain useful data which can be used to analyze consumer behavior and shopping trends. With the Receipt API, you can quickly and easily analyze consumer behavior on a large scale. Sales receipts can be tricky to analyze because of the large variety of merchants— our Prebuilt Receipt API can analyze these receipts out of the box, no model training or labeling required.  
+Receipts contain useful data which can be used to analyze consumer behavior and shopping trends. With the Receipt API, you can quickly and easily analyze consumer behavior on a large scale. Sales receipts can be tricky to analyze because of the large variety of merchants— our Prebuilt Receipt API can analyze these receipts out of the box, no model training or labeling required.
+
