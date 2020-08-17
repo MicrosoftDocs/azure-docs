@@ -68,7 +68,7 @@ By default, the server that you create is not publicly accessible. You need to g
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows firewall rules for connection security.](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
   
-Select **Add current client IP address**, and then select **Save**. You can add more IPs or provide an IP range to connect to your server from those IPs. For more information, see [Firewall rules in Azure Database for PostgreSQL](./concepts-firewall-rules.md).
+Select **Add current client IP address**, and then select **Save**. You can add more IP addresses or provide an IP range to connect to your server from those IP addresses. For more information, see [Firewall rules in Azure Database for PostgreSQL](./concepts-firewall-rules.md).
    
 > [!NOTE]
 > To avoid connectivity issues, check if your network allows outbound traffic over port 5432. Azure Database for PostgreSQL uses that port.  

@@ -21,7 +21,7 @@ This quickstart shows how to use [Azure CLI](https://docs.microsoft.com/cli/azur
 ## Prerequisites
 This article requires you to run the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account by using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
+You need to log in to your account by using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
 
 ```azurecli-interactive
 az login
@@ -61,7 +61,7 @@ sku-name|GP_Gen5_2| Name of the pricing tier and compute configuration. Follow t
 
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
->- To view all the arguments for **az postgres server create** command, see [this reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
+>- To view all the arguments for **az postgres server create** command, see [this reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
 >- SSL is enabled by default on your server. For more information on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md).
 
 ## Configure a server-level firewall rule 
@@ -116,8 +116,8 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 }
 ```
 
-## Connect to Azure Database for PostgreSQL server by using psql
-The [psql](https://www.postgresql.org/docs/current/static/app-psql.html) client is a popular choice for connecting to PostgreSQL servers. You can connect to your server by using psql with [Azure Cloud Shell](../cloud-shell/overview.md). You can also use psql on your local environment if you have it available. An empty database, *postgres*, is automatically created with a new PostgreSQL server. You can use that database to connect with psql, as shown in the following code. 
+## Connect to the Azure Database for PostgreSQL server by using psql
+The [psql](https://www.postgresql.org/docs/current/static/app-psql.html) client is a popular choice for connecting to PostgreSQL servers. You can connect to your server by using psql with [Azure Cloud Shell](../cloud-shell/overview.md). You can also use psql on your local environment if you have it available. An empty database, **postgres**, is automatically created with a new PostgreSQL server. You can use that database to connect with psql, as shown in the following code. 
 
    ```bash
  psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
