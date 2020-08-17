@@ -91,11 +91,15 @@ public class App
         String cacheHostname = System.getenv("REDISCACHEHOSTNAME");
         String cachekey = System.getenv("REDISCACHEKEY");
 
-        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
+        // Connect to clustered Azure Cache for Redis over the TLS/SSL port using the key.
         JedisShardInfo shardInfo = new JedisShardInfo(cacheHostname, 6380, useSsl);
         shardInfo.setPassword(cachekey); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);      
-
+        
+        // comment line 95- 97 and uncomment below two lines to connect to non-clustered Azure Cache for Redis over the TLS/SSL port using the key.
+        // Jedis jedis = new Jedis(cacheHostname, 6380, useSsl);
+        // jedis.auth(cachekey);
+        
         // Perform cache operations using the cache connection object...
 
         // Simple PING command        
