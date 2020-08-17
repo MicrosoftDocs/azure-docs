@@ -32,6 +32,7 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 
 ## Use the Azure portal
 
+<!-- Move this section. This section should be moved to conceptual.  It doesn't belong in task based -->
 The Azure portal provides a way to quickly create an Azure Media Services account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.
 
 Currently, you can use the [Azure portal](https://portal.azure.com/) to:
@@ -41,8 +42,7 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 * [get info about accessing APIs](./access-api-howto.md). 
 
 For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
-
-This article shows how to create a Media Services account using the Azure portal.
+<!-- Move this section. This section should be moved to conceptual.  It doesn't belong in task based -->
 
 ### Use the Azure portal to create a Media Services account
 
