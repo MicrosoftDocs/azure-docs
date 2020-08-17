@@ -11,6 +11,9 @@ ms.date: 11/27/2018
 
 This article provides troubleshooting steps that can help you resolve Azure Site Recovery errors related to the VM agent and extension.
 
+## Low system resources
+
+This issue occurs when the system has low available memory, and is not able to allocate memory for mobility service installation. Ensure that enough memory has been freed up for the installation to proceed and complete successfully.
 
 ## Azure Site Recovery extension time-out  
 

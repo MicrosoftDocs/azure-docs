@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Publish a Managed Service offer to Azure Marketplace
 
-In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in Partner Center. Customers who purchase the offer will then delegate  subscriptions or resource groups, allowing you to manage them through [Azure Lighthouse](../overview.md).
+In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in Partner Center. Customers who purchase the offer will then delegate subscriptions or resource groups, allowing you to manage them through [Azure Lighthouse](../overview.md).
 
 ## Publishing requirements
 
