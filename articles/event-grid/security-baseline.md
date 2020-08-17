@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/17/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -166,7 +166,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32708.).
 
 **Guidance**: For resources in virtual networks that need
-access to your Azure Event Grid resources, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+access to your Azure Event Grid resources, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 - [How to use service tag for Azure Event Grid](network-security.md#service-tags)
 
@@ -598,7 +598,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32737.).
 
-**Guidance**: For the underlying platform which is managed by Microsoft,
+**Guidance**: For the underlying platform, which is managed by Microsoft,
 Microsoft treats all customer content as sensitive and goes to great lengths to
 guard against customer data loss and exposure. To ensure customer data within
 Azure remains secure, Microsoft has implemented and maintains a suite of robust
@@ -629,7 +629,7 @@ Government and Azure operated by 21Vianet in China, Event Grid supports only
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32739.).
 
-**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Event Grid. Implement third-party solution if required for compliance purposes.
+**Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Event Grid. Implement third-party solution if necessary for compliance purposes.
 
 For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
@@ -891,7 +891,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Define and implement standard security configurations for your Azure Event Grid service with Azure Policy. Use Azure Policy aliases in the "Microsoft.EventGrid" namespace to create custom policies to audit or enforce the configuration of your Azure Event Grid services.
 
-Azure Resource Manager has the ability to export the template in Java-Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization before deployments.
+Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization before deployments.
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
