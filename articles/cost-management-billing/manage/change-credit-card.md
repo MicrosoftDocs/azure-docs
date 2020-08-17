@@ -6,7 +6,7 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 05/22/2020
 ms.author: banders
 ---
 # Add, update, or remove a credit card for Azure
