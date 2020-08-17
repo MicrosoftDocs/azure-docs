@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -127,6 +127,8 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 - To deploy Private Endpoint for your Web App using Azure CLI, see [How to connect privately to a Web App with Azure CLI][howtoguide2]
 - To deploy Private Endpoint for your Web App using PowerShell, see [How to connect privately to a Web App with PowerShell][howtoguide3]
 - To deploy Private Endpoint for your Web App using Azure template, see [How to connect privately to a Web App with Azure template][howtoguide4]
+- End-to-end example, how to connect a frontend web app to a secured backend web app with VNet injection and private endpoint with ARM template, see this [quickstart][howtoguide5]
+- End-to-end example, how to connect a frontend web app to a secured backend web app with VNet injection and private endpoint with terraform, see this [sample][howtoguide6]
 
 
 <!--Links-->
@@ -143,3 +145,5 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
 [howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend

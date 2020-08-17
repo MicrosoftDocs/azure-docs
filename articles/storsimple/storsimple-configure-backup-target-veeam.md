@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 series as backup target with Veeam | Microsoft Docs
-description: Describes the StorSimple backup target configuration with Veeam.
+description: Learn about the StorSimple backup target configuration with Veeam and best practices for integrating both solutions.
 services: storsimple
 documentationcenter: ''
 author: harshakirank

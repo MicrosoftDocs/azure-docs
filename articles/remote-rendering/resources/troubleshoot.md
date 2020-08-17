@@ -100,7 +100,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 **The model exceeds the limits of the selected VM, specifically the maximum number of polygons:**
 
-See specific [VM size limits](../reference/limits.md#overall-number-of-polygons).
+See specific [server size limits](../reference/limits.md#overall-number-of-polygons).
 
 **The model is not inside the camera frustum:**
 
@@ -145,7 +145,7 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 If the rendered image looks like this:
 ![Checkerboard](../reference/media/checkerboard.png)
-then the renderer hits the [polygon limits for the standard VM size](../reference/vm-sizes.md). To mitigate, either switch to **premium VM** size or reduce the number of visible polygons.
+then the renderer hits the [polygon limits for the standard configuration size](../reference/vm-sizes.md). To mitigate, either switch to **premium** configuration size or reduce the number of visible polygons.
 
 ## The rendered image in Unity is upside-down
 
