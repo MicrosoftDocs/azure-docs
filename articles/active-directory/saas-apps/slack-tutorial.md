@@ -62,7 +62,7 @@ To configure the integration of Slack into Azure AD, you need to add Slack from 
 1. In the **Add from the gallery** section, type **Slack** in the search box.
 1. Select **Slack** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Slack
+## Configure and test Azure AD SSO for Slack
 
 Configure and test Azure AD SSO with Slack using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Slack.
 
@@ -92,15 +92,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `https://slack.com`
-    c. For **Reply URL**, enter one of the following URL:
-
+	
+    c. For **Reply URL**, enter one of the following URL pattern:
 	| Reply URL|
 	|----------|
 	| `https://<DOMAIN NAME>.slack.com/sso/saml` |
-	| `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` | 
+	| `https://<DOMAIN NAME>.enterprise.slack.com/sso/saml` |
 
 	> [!NOTE]
-	> These values aren't real. You need to update these values with the actual sign-on URL and reply URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. You need to update these values with the actual Sign-on URL and Reply URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 	> [!NOTE]
 	> The value for **Identifier (Entity ID)** can be a variable if you have more than one Slack instance that you need to integrate with the tenant. Use the pattern `https://<DOMAIN NAME>.slack.com`. In this scenario, you also must pair with another setting in Slack by using the same value.

@@ -55,7 +55,7 @@ To configure the integration of Concur into Azure AD, you need to add Concur fro
 1. In the **Add from the gallery** section, type **Concur** in the search box.
 1. Select **Concur** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Concur
+## Configure and test Azure AD SSO for Concur
 
 Configure and test Azure AD SSO with Concur using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Concur.
 
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<customer-domain>.concursolutions.com`
 	
-	c. For **Reply URL**, enter one of the following URL:
+	c. For **Reply URL**, enter one of the following URL pattern:
 
 	| Reply URL|
 	|----------|
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://<customer-domain>.concursolutions.com` | 
 	
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL, Reply URL and Identifier. Contact [Concur Client support team](https://www.concur.co.in/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Concur Client support team](https://www.concur.co.in/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
