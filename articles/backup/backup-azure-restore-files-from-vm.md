@@ -26,7 +26,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 3. In the Backup dashboard menu, select **File Recovery**.
 
-    ![File recovery button](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     The **File Recovery** menu opens.
 
@@ -36,7 +36,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 5. To download the software used to copy files from the recovery point, select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a python script is generated).
 
-    ![Generated password](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Download Executable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure downloads the executable or script to the local computer.
 
@@ -50,7 +50,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 7. Make sure [you have the right machine](#selecting-the-right-machine-to-run-the-script) to execute the script. If the right machine is the same machine where you downloaded the script, then you can continue to the download section. From the download location (usually the *Downloads* folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
 
-    ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Executable output](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
 
