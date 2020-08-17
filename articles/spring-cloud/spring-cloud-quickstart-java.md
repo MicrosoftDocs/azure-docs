@@ -116,7 +116,7 @@ az extension add --name spring-cloud
 
 ### Provision a service instance
 
-1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
+1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud:
 
     ```azurecli
         az login

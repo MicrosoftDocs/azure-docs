@@ -1,6 +1,6 @@
 ---
 title:  "Quickstart - Introduction to Piggymetrics sample app"
-description: Describes the sample app used in deployment Azure Spring Cloud.
+description: Describes the Piggymetrics sample app used in deployment Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
