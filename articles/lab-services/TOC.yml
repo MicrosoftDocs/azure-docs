@@ -52,6 +52,8 @@
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
+    - name: Cost management for labs
+      href: cost-management-guide.md        
 - name: How-to guides
   items:
   - name: Administrator guide
@@ -86,8 +88,6 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
-    - name: Cost management for labs
-      href: cost-management-guide.md
   - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs
