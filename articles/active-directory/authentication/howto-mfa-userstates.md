@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 08/17/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -17,38 +17,43 @@ ms.collection: M365-identity-device-management
 ---
 # Enable per-user Azure Multi-Factor Authentication to secure sign-in events
 
-There are two ways to secure user sign-in events by requiring multi-factor authentication in Azure AD. The first, and preferred, option is to set up a Conditional Access policy that requires multi-factor authentication under certain conditions. The second option is to enable each user for Azure Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remembered devices_ feature is turned on).
+To secure user sign-in events in Azure AD, you can require multi-factor authentication (MFA). Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach to protect users. Conditional Access is an Azure AD Premium P1 or P2 feature that lets you apply rules to require MFA as needed in certain scenarios. To get started using Conditional Access, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-> [!NOTE]
-> Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses don't include Conditional Access as it requires users to perform MFA every time they sign in. To get started using Conditional Access, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+For Azure AD free tenants without Conditional Access, you can [use security defaults to protect users](../fundamentals/concept-fundamentals-security-defaults.md). Users are prompted for MFA as needed, but you can't define your own rules to control the behavior.
+
+If needed, you can instead enable each account for per-user Azure Multi-Factor Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the _remember MFA on trusted devices_ feature is turned on).
+
+Changing user states isn't recommended unless your Azure AD licenses don't include Conditional Access or you don't want to use security defaults.
+
+> [!IMPORTANT]
 >
-> For Azure AD free tenants without Conditional Access, you can [use security defaults to protect users](../fundamentals/concept-fundamentals-security-defaults.md).
+> This article details how to view and change the status for per-user Azure Multi-Factor Authentication. If you use Conditional Access or security defaults, you don't review or enable user accounts using these steps.
 
 ## Azure Multi-Factor Authentication user states
+
+A user's state reflects whether an admin has enrolled them in per-user Azure Multi-Factor Authentication.
+
+All users start out *Disabled*. When you enroll users in per-user Azure Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*. Administrators may move users between states, including from *Enforced* to *Enabled* or *Disabled*.
 
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
 
 > [!IMPORTANT]
 > Enabling Azure Multi-Factor Authentication through a Conditional Access policy doesn't change the state of the user. Don't be alarmed if users appear disabled. Conditional Access doesn't change the state.
 >
-> **You shouldn't enable or enforce users if you're using Conditional Access policies.**
+> **Don't enable or enforce users if you use Conditional Access policies.**
 
-| Status | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
+| State | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | The default state for a user not enrolled in Azure Multi-Factor Authentication. | No | No | No |
-| Enabled | The user has been enrolled in Azure Multi-Factor Authentication, but can still use their password for basic authentication. If the user hasn't yet registered MFA authentication methods, they will receive a prompt to register the next time they sign in using modern authentication (e.g. via a web browser). | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
-| Enforced | The user has been enrolled in Azure Multi-Factor Authentication. If the user hasn't yet registered authentication methods, they will receive a prompt to register the next time they sign in using modern authentication (e.g. via a web browser). Users who complete registration while in the *Enabled* state will automatically move to the *Enforced* state. | Yes. Apps require app passwords. | Yes. Azure Multi-Factor Authentication is required at login. | Yes. Azure Multi-Factor Authentication is required at login. |
-
-A user's state reflects whether an admin has enrolled them in Azure Multi-Factor Authentication.
-
-All users start out *Disabled*. When you enroll users in Azure Multi-Factor Authentication, their state changes to *Enabled*. When enabled users sign in and complete the registration process, their state changes to *Enforced*. Administrators may move users between states, including from *Enforced* to *Enabled* or *Disabled*.
+| Disabled | The default state for a user not enrolled in per-user Azure Multi-Factor Authentication. | No | No | No |
+| Enabled | The user is enrolled in per-user Azure Multi-Factor Authentication, but can still use their password for legacy authentication. If the user hasn't yet registered MFA authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
+| Enforced | The user is enrolled per-user in Azure Multi-Factor Authentication. If the user hasn't yet registered authentication methods, they receive a prompt to register the next time they sign in using modern authentication (such as via a web browser). Users who complete registration while in the *Enabled* state are automatically moved to the *Enforced* state. | Yes. Apps require app passwords. | Yes. Azure Multi-Factor Authentication is required at sign-in. | Yes. Azure Multi-Factor Authentication is required at sign-in. |
 
 > [!NOTE]
-> If MFA is re-enabled on a user and the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI. In this case, the administrator must move the user directly to *Enforced*.
+> If per-user MFA is re-enabled on a user and the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI. In this case, the administrator must move the user directly to *Enforced*.
 
 ## View the status for a user
 
-Use the following steps to access the Azure portal page where you can view and manage user states:
+To view and manage user states, complete the following steps to access the Azure portal page:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Search for and select *Azure Active Directory*, then select **Users** > **All users**.
@@ -59,17 +64,17 @@ Use the following steps to access the Azure portal page where you can view and m
 
 ## Change the status for a user
 
-To change the Azure Multi-Factor Authentication state for a user, complete the following steps:
+To change the per-user Azure Multi-Factor Authentication state for a user, complete the following steps:
 
-1. Use the preceding steps to get to the Azure Multi-Factor Authentication **users** page.
-1. Find the user you want to enable for Azure Multi-Factor Authentication. You might need to change the view at the top to **users**.
+1. Use the previous steps to [view the status for a user](#view-the-status-for-a-user) to get to the Azure Multi-Factor Authentication **users** page.
+1. Find the user you want to enable for per-user Azure Multi-Factor Authentication. You might need to change the view at the top to **users**.
    ![Select the user to change status for from the users tab](./media/howto-mfa-userstates/enable1.png)
 1. Check the box next to the name(s) of the user(s) to change the state for.
 1. On the right-hand side, under **quick steps**, choose **Enable** or **Disable**. In the following example, the user *John Smith* has a check next to their name and is being enabled for use:
    ![Enable selected user by clicking Enable on the quick steps menu](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
-   > *Enabled* users are automatically switched to *Enforced* when they register for Azure Multi-Factor Authentication. Don't manually change the user state to *Enforced* unless the user is already registered or if it is acceptable for the user to experience interruption in connections to basic authentication protocols.
+   > *Enabled* users are automatically switched to *Enforced* when they register for Azure Multi-Factor Authentication. Don't manually change the user state to *Enforced* unless the user is already registered or if it is acceptable for the user to experience interruption in connections to legacy authentication protocols.
 
 1. Confirm your selection in the pop-up window that opens.
 
@@ -83,7 +88,7 @@ To change the user state by using [Azure AD PowerShell](/powershell/azure/), you
 * *Enforced*
 * *Disabled*  
 
-In general, don't move users directly to the *Enforced* state unless they are already registered for MFA. If you do so, non-browser-based apps stop working because the user hasn't gone through Azure Multi-Factor Authentication registration and obtained an [app password](howto-mfa-app-passwords.md). However, in some cases this may be desired behavior, but will impact user experience until the user registers.
+In general, don't move users directly to the *Enforced* state unless they are already registered for MFA. If you do so, legacy auth apps stop working because the user hasn't gone through Azure Multi-Factor Authentication registration and obtained an [app password](howto-mfa-app-passwords.md). However, in some cases this behavior may be desired, but impacts user experience until the user registers.
 
 To get started, install the *MSOnline* module using [Install-Module](/powershell/module/powershellget/install-module) as follows:
 
