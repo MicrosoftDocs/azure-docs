@@ -30,7 +30,7 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 
 ## Install the Teams desktop app
 
-This section will show you how to install the Teams desktop app on your Windows 10 Multi-session or Windows 10 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi/).
+This section will show you how to install the Teams desktop app on your Windows 10 Multi-session or Windows 10 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
 ### Prepare your image for Teams
 
@@ -65,7 +65,7 @@ The following table lists the latest versions of the WebSocket Service:
 
 You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Windows Virtual Desktop environment:
 
-1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
+1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
       > [!NOTE]
       > Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
@@ -119,7 +119,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 ## Known issues and limitations
 
-Using Teams in a virtualized environment is different from using Teams in a non-virtualized environment. For more information about the limitations of Teams in virtualized environments, check out [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi#known-issues-and-limitations/).
+Using Teams in a virtualized environment is different from using Teams in a non-virtualized environment. For more information about the limitations of Teams in virtualized environments, check out [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
 
 ### Client deployment, installation, and setup
 
@@ -137,7 +137,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
 
-For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues/)
+For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues)
 
 ## UserVoice site
 
