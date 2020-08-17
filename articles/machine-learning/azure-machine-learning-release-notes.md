@@ -46,7 +46,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-datadrift**
     + Mark create_from_model API in DataDriftDetector as to be deprecated.
   + **azureml-dataprep**
-    + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type.
   + **azureml-pipeline-core**
     + Fixed bug when deserializing pipeline graph which contains registered datasets.
