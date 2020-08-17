@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
+ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Python app using Azure Cosmos DB's API for MongoDB
@@ -18,7 +19,7 @@ ms.date: 12/26/2018
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 In this quickstart, you use an Azure Cosmos DB for Mongo DB API account or the Azure Cosmos DB Emulator to run a Python Flask To-Do web app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.

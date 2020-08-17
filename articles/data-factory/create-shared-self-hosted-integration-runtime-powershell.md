@@ -11,7 +11,7 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
+ms.date: 06/10/2020
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -24,21 +24,19 @@ This guide shows you how to create a shared self-hosted integration runtime in A
 
 To create a shared self-hosted IR using Azure Data Factory UI, you can take following steps:
 
-1. In the self-hosted IR to be shared, grant permission to the data factory in which you want to create the linked IR.
+1. In the self-hosted IR to be shared, select **Grant permission to another Data factory** and in the "Integration runtime setup" page, select the Data factory in which you want to create the linked IR.
       
-    ![Button for granting permission on the Sharing tab](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Selections for assigning permissions](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Button for granting permission on the Sharing tab](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Note the resource ID of the self-hosted IR to be shared.
-      
-   ![Location of the resource ID](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. Note and copy the above "Resource ID" of the self-hosted IR to be shared.
+         
 3. In the data factory to which the permissions were granted, create a new self-hosted IR (linked) and enter the resource ID.
       
-   ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Button for creating a self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## Create a shared self-hosted IR using Azure PowerShell
 
@@ -153,7 +151,7 @@ The response contains the authentication key for this self-hosted integration ru
 #### Create another data factory
 
 > [!NOTE]  
-> This step is optional. If you already have the data factory that you want to share with, skip this step.
+> This step is optional. If you already have the data factory that you want to share with, skip this step. But in order to add or remove role assignments to other data factory, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

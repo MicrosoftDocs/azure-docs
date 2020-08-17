@@ -1,6 +1,6 @@
 ---
 title: Manage user-assigned managed identity - Azure CLI - Azure AD
-description: Step by step instructions on how to create, list and delete a user-assigned managed identity using the Azure CLI.
+description: Step-by-step instructions on how to create, list, and delete a user-assigned managed identity using the Azure CLI.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -10,28 +10,29 @@ editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2020
 ms.author: markvi
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurecli
 ---
 
 # Create, list or delete a user-assigned managed identity using the Azure CLI
 
 
-Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list and delete a user-assigned managed identity using Azure CLI.
+In this article, you learn how to create, list, and delete a user-assigned managed identity using Azure CLI.
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
     - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user-assigned managed identity.
 
 

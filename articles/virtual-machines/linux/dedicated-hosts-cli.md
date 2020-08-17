@@ -3,7 +3,7 @@ title: Deploy Linux VMs to dedicated hosts using the CLI
 description: Deploy VMs to dedicated hosts using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cynthn
 
@@ -22,13 +22,21 @@ Make sure that you have installed Azure CLI version 2.0.70 or later, and signed 
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
- 
 
 ## Create resource group 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create the resource group with az group create. The following example creates a resource group named *myDHResourceGroup* in the *East US* location.
 
 ```bash
 az group create --name myDHResourceGroup --location eastus 
+```
+ 
+## List Available host SKUs in a region
+Not all host SKUs are available in all regions, and availability zones. 
+
+List host availability, and any offer restrictions before you start provisioning dedicated hosts. 
+
+```bash
+az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
 ## Create a host group 

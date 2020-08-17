@@ -4,16 +4,12 @@ description: Describes the different clone types and usage, and explains how you
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 12/05/2017
+ms.topic: how-to
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
@@ -47,7 +43,7 @@ Consider the following information when cloning a volume.
 
 You can create a clone on the same device, another device, or even a cloud appliance by using a local or cloud snapshot.
 
-The procedure below describes how to create a clone from the backup catalog.  An alternative method to initiate clone is to go to **Volumes**, select a volume, then right-click to invoke the context menu and select **Clone**.
+The procedure below describes how to create a clone from the backup catalog.  
 
 Perform the following steps to create a clone of your volume from the backup catalog.
 

@@ -30,7 +30,7 @@ When your web application needs to authenticate the user and run a user flow, it
 
 In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter, and specifies the user flow to run. To get a feel for how the request works, try pasting the request into a browser and running it. Replace `{tenant}` with the name of your tenant. Replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of the application you've previously registered in your tenant. Also change the policy name (`{policy}`) to the policy name that you have in your tenant, for example `b2c_1_sign_in`.
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
@@ -60,7 +60,7 @@ After the user completes the user flow, a response is returned to your applicati
 
 A successful response using `response_mode=fragment` would look like:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
@@ -75,7 +75,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 Error responses can also be sent to the `redirect_uri` parameter so that the application can handle them appropriately:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -94,13 +94,13 @@ Just receiving an ID token is not enough to authenticate the user. Validate the 
 
 Azure AD B2C has an OpenID Connect metadata endpoint, which allows an application to get information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your B2C tenant. For example, the metadata document for the `b2c_1_sign_in` user flow in `fabrikamb2c.onmicrosoft.com` is located at:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
 ```
 
 One of the properties of this configuration document is `jwks_uri`, whose value for the same user flow would be:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
@@ -132,7 +132,7 @@ You can redeem the authorization code that you acquired (by using `response_type
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
-```HTTP
+```http
 POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 A successful token response looks like:
 
-```JSON
+```json
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -175,7 +175,7 @@ A successful token response looks like:
 
 Error responses look like:
 
-```JSON
+```json
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -191,7 +191,7 @@ Error responses look like:
 
 Now that you've successfully acquired an access token, you can use the token in requests to your back-end web APIs by including it in the `Authorization` header:
 
-```HTTP
+```http
 GET /tasks
 Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -201,7 +201,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ID tokens expire in a short period of time. Refresh the tokens after they expire to continue being able to access resources. You can refresh a token by submitting another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` parameter instead of the `code` parameter:
 
-```HTTP
+```http
 POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -222,7 +222,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 A successful token response looks like:
 
-```JSON
+```json
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -244,7 +244,7 @@ A successful token response looks like:
 
 Error responses look like:
 
-```JSON
+```json
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -262,7 +262,7 @@ When you want to sign the user out of the application, it isn't enough to clear 
 
 To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 

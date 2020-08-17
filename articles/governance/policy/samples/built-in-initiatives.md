@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy initiatives
 description: List built-in policy initiatives for Azure Policy. Categories include Regulatory Compliance, Guest Configuration, and more.
-ms.date: 04/26/2020
+ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: generated
 ---
@@ -14,9 +14,17 @@ The name on each built-in links to the initiative definition source on the
 **category** property in **metadata**. To jump to a specific **category**, use the menu on the right
 side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
 
+## Cosmos DB
+
+[!INCLUDE [azure-policy-samples-policysets-cosmos-db](../../../../includes/policy/samples/bycat/policysets-cosmos-db.md)]
+
 ## Guest Configuration
 
 [!INCLUDE [azure-policy-samples-policysets-guest-configuration](../../../../includes/policy/samples/bycat/policysets-guest-configuration.md)]
+
+## Kubernetes
+
+[!INCLUDE [azure-policy-samples-policysets-kubernetes](../../../../includes/policy/samples/bycat/policysets-kubernetes.md)]
 
 ## Monitoring
 

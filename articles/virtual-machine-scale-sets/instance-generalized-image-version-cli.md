@@ -1,5 +1,5 @@
 ---
-title: Create a scale set from a generalized image 
+title: Create a scale set from a generalized image with Azure CLI
 description: Create a scale set using a generalized image in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Create a scale set from a generalized image
+# Create a scale set from a generalized image with Azure CLI
 
 Create a scale set from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md) using the Azure CLI. If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image](instance-specialized-image-version-cli.md).
 

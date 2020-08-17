@@ -15,7 +15,7 @@
     href: tutorial-enable-sspr-writeback.md
   - name: Configure custom banned password lists
     href: tutorial-configure-custom-password-protection.md
-  - name: Integrate Azure Identity Protection
+  - name: Enable risk-based sign-in protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
   expanded: true
@@ -36,6 +36,8 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
+    - name: Prompts and session lifetime
+      href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
     - name: Data residency
       href: concept-mfa-data-residency.md
     - name: Licenses
@@ -80,6 +82,8 @@
       href: howto-mfa-userstates.md
     - name: Configure authentication providers
       href: concept-mfa-authprovider.md
+    - name: Use app passwords
+      href: howto-mfa-app-passwords.md
     - name: Directory Federation
       items:
       - name: Windows Server 2016 AD FS Adapter
@@ -138,6 +142,8 @@
       href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Use SMS-based authentication (preview)
     href: howto-authentication-sms-signin.md
+  - name: Use email address sign-in (preview)
+    href: howto-authentication-use-email-signin.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
@@ -167,6 +173,8 @@
       href: howto-mfaserver-deploy-userportal.md
     - name: Mobile App Web Service
       href: howto-mfaserver-deploy-mobileapp.md
+    - name: Configure settings
+      href: howto-mfa-server-settings.md
     - name: Configure high availability
       href: howto-mfaserver-deploy-ha.md
     - name: Upgrade MFA Server
@@ -216,15 +224,17 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets
-    href: /powershell/azure/overview
+    href: /powershell/azure/
+  - name: Microsoft Graph REST API beta
+    href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions
     href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Resources
   items:
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates

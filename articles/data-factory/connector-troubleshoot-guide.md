@@ -5,9 +5,10 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/09/2020
+ms.date: 07/20/2020
 ms.author: jingwang
 ms.reviewer: craigg
+ms.custom: has-adal-ref
 ---
 
 # Troubleshoot Azure Data Factory Connectors
@@ -152,12 +153,28 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-### Error code:  AdlsGen2TimeoutError
+### Error code: AdlsGen2TimeoutError
 
 - **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## Azure Data Lake Storage Gen1
+
+### Error message: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+
+- **Symptoms**: Copy activity fails with the following error: 
+
+    ```
+    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    ```
+
+- **Cause**: The certificate validation failed during TLS handshake.
+
+- **Resolution**: Workaround: Use staged copy to skip the TLS validation for ADLS Gen1. You need to reproduce this issue and gather netmon trace, and then engage your network team to check the local network configuration following [this article](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
+
+
+    ![Troubleshoot ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+
 
 ### Error message: The remote server returned an error: (403) Forbidden
 
@@ -199,7 +216,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
-- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Recommendation**:  In logical SQL server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### Error code:  SqlOperationFailed
@@ -218,6 +235,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
 - **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to the storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+
 
 
 ### Error code:  SqlUnauthorizedAccess
@@ -368,7 +386,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
-### Error message: Java exception message:HdfsBridge::CreateRecordReader
+### Error message: Java exception message: HdfsBridge::CreateRecordReader
 
 - **Symptoms**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
 
@@ -420,7 +438,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,,ColumnB'.
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,, ColumnB'.
 
 - **Recommendation**:  Check the first row, and fix the value if there is empty value.
 
@@ -674,7 +692,7 @@ For more troubleshooting help, try these resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
             

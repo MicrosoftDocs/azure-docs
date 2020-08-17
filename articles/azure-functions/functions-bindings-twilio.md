@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
-ms.custom: H1Hack27Feb2017
+ms.custom: "devx-track-csharp, H1Hack27Feb2017"
 ---
 
 # Twilio binding for Azure Functions
@@ -237,7 +237,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # [Java](#tab/java)
 
-The following example shows how to use the [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send an SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
+The following example shows how to use the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation to send an SMS message. Values for `to`, `from`, and `body` are required in the attribute definition even if you override them programmatically.
 
 ```java
 package com.function;
@@ -315,7 +315,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-Place [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
+Place [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) annotation on an [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) parameter where `T` may be any native Java type such as `int`, `String`, `byte[]`, or a POJO type.
 
 ---
 

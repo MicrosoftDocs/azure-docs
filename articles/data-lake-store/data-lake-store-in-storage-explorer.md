@@ -4,7 +4,7 @@ description: Learn how to access and manage your Azure Data Lake Storage Gen1 da
 
 author: jejiang
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
 

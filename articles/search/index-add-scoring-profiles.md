@@ -4,28 +4,23 @@ titleSuffix: Azure Cognitive Search
 description: Boost search rank scores for Azure Cognitive Search results by adding scoring profiles.
 
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 05/06/2020
 ---
 # Add scoring profiles to an Azure Cognitive Search index
 
 *Scoring* computes a search score for each item in a rank ordered result set. Every item in a search result set is assigned a search score, then ranked highest to lowest.
 
  Azure Cognitive Search uses default scoring to compute an initial score, but you can customize the calculation through a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
+
+ The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## Scoring profile definitions
 
  A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters.  
 
@@ -61,7 +56,7 @@ translation.priority.mt:
  To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter `scoringProfile=geo` in the request.  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
  This query searches on the term ‘inn’ and passes in the current location. Notice that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
@@ -77,7 +72,7 @@ The search score is computed based on statistical properties of the data and the
 
  Search score values can be repeated throughout a result set. For example, you might have 10 items with a score of 1.2, 20 items with a score of 1.0, and 20 items with a score of 0.5. When multiple hits have the same search score, the ordering of same scored items is not defined, and is not stable. Run the query again, and you might see items shift position. Given two items with an identical score, there is no guarantee which one appears first.  
 
-## When to use custom scoring  
+## When to add scoring logic 
  You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting hits that bring benefits to your business can be an important factor in deciding to use scoring profiles.  
 
  Relevancy-based ordering is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles drive the ‘relevance’ option. The definition of relevance is controlled by you, predicated on business objectives and the type of search experience you want to deliver.  
@@ -254,7 +249,7 @@ The search score is computed based on statistical properties of the data and the
 ##  <a name="bkmk_interpolation"></a> Set interpolations  
  Interpolations allow you to set the shape of the slope used for scoring. Because scoring is high to low, the slope is always decreasing, but the interpolation determines the curve of the downward slope. The following interpolations can be used:  
 
-|||  
+| Interpolation | Description |  
 |-|-|  
 |`linear`|For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.|  
 |`constant`|For items that are within the start and ending range, a constant boost will be applied to the rank results.|  

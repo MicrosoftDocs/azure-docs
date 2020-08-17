@@ -4,7 +4,7 @@ description: Learn how to enable diagnostic logging and add instrumentation to y
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Enable diagnostics logging for apps in Azure App Service
@@ -188,6 +188,8 @@ The following table shows the supported log types and descriptions:
 | AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | TBD | File changes via FTP and Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Container logs |
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

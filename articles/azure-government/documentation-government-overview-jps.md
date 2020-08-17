@@ -4,8 +4,6 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
-manager: zakramer
 
 ms.assetid: ef582573-b6d6-4f74-8dcc-d31b2807ff24
 ms.service: azure-government
@@ -14,7 +12,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/14/2016
-ms.author: ryansoc
 
 ---
 # Justice and Public Safety (JPS) in Azure Government

@@ -1,13 +1,13 @@
 ---
 title: Testing Azure VM network throughput
 titlesuffix: Azure Virtual Network
-description: Learn how to test Azure virtual machine network throughput.
+description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017

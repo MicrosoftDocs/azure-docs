@@ -1,12 +1,13 @@
 ---
-title: Azure Automation State Configuration continuous deployment with Chocolatey
-description: Describes DevOps continuous deployment using Azure Automation state configuration with the Chocolatey package manager. Includes an example with full JSON Resource Manager template and PowerShell source.
+title: Set up Azure Automation continuous deployment with Chocolatey
+description: This article tells how to set up continuous deployment with State Configuration and the Chocolatey package manager.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
+ms.custom: references_regions
 ---
-# Provide continuous deployment to virtual machines using Automation State Configuration and Chocolatey
+# Set up continuous deployment with Chocolatey
 
 In a DevOps world, there are many tools to assist with various points in the continuous integration
 pipeline. Azure Automation [State Configuration](automation-dsc-overview.md) is a welcome new addition to the options that DevOps teams can employ. 
@@ -17,9 +18,6 @@ This article demonstrates how to set up Continuous Deployment (CD) for a Windows
 the role, for example, a website, and go from there to additional roles.
 
 ![Continuous Deployment for IaaS VMs](./media/automation-dsc-cd-chocolatey/cdforiaasvm.png)
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## At a high level
 
@@ -264,10 +262,8 @@ provides more details. This [GitHub repo](https://github.com/Microsoft/vso-agent
 
 ## Next steps
 
-- For an overview, see [Azure Automation State Configuration](automation-dsc-overview.md).
-- To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md).
-- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+- For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
+- To get started using the feature, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
+- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
-- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).

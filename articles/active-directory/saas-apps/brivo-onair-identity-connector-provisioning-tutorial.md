@@ -50,17 +50,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Brivo Onair Identity Connector for provisioning
 
-1.    Sign in to your [Brivo Onair Identity Connector Admin Console](https://acs.brivo.com/login/). Navigate to **Account > Account Settings**.
+1. Sign in to your [Brivo Onair Identity Connector Admin Console](https://acs.brivo.com/login/). Navigate to **Account > Account Settings**.
 
-    ![Brivo Onair Identity Connector Admin Console](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
+   ![Brivo Onair Identity Connector Admin Console](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2.  Click on **Azure AD** tab. On the **Azure AD** details page re-enter the password of your senior administrator account. Click on **Submit**.
+2. Click on **Azure AD** tab. On the **Azure AD** details page re-enter the password of your senior administrator account. Click on **Submit**.
 
-    ![Brivo Onair Identity Connector azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
+   ![Brivo Onair Identity Connector azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.    Click on **Copy Token** button and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Brivo Onair Identity Connector application in the Azure portal.
+3. Click on **Copy Token** button and save the **Secret Token**. This value will be entered in the Secret Token field in the Provisioning tab of your Brivo Onair Identity Connector application in the Azure portal.
 
-    ![Brivo Onair Identity Connector token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
+   ![Brivo Onair Identity Connector token](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 
 ## Add Brivo Onair Identity Connector from the gallery
 

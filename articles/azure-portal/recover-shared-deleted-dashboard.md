@@ -5,7 +5,7 @@ services: azure-portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/21/2020
-ms.topic: conceptual
+ms.topic: troubleshooting
 
 ms.service: azure-portal
 manager:  mtillman

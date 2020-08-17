@@ -8,13 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/06/2020
+ms.date: 06/30/2020
 ---
 # What is Azure Cognitive Search?
 
-Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your code or a tool invokes data ingestion (indexing) to create and load an index. Optionally, you can add cognitive skills to apply AI processes during indexing. Doing so can add new information and structures useful for search and other scenarios.
+Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
 
-On the other side of your service, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Cognitive Search, with query execution over a persisted index that you create, own, and store in your service.
+In a custom solution, a search service sits between two primary workloads: content ingestion and queries. Your code or a tool defines a schema and invokes data ingestion (indexing) to load an index into Azure Cognitive Search. Optionally, you can add cognitive skills to apply AI processes during indexing. Doing so can create new information and structures useful for search and knowledge mining scenarios.
+
+Once an index exists, your application code issues query requests to a search service and handles responses. The search experience is defined in your client using functionality from Azure Cognitive Search, with query execution over a persisted index that you create, own, and store in your service.
 
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
 
@@ -26,7 +28,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Consolidation of heterogeneous content types into a private, single, searchable index. Queries are always over an index that you create and load with documents, and the index always resides in the cloud on your Azure Cognitive Search service. You can populate an index with streams of JSON documents from any source or platform. Alternatively, for content sourced on Azure, you can use an *indexer* to pull data into an index. Index definition and management/ownership is a key reason for using Azure Cognitive Search.
 
-+ Raw content is large undifferentiated text, image files, or application files such as Office content types on an Azure data source such as Azure Blob storage or Cosmos DB. You can apply cognitive skills during indexing to add structure or extract meaning from image and application files.
++ Raw content is large undifferentiated text, image files, or application files such as Office content types on an Azure data source such as Azure Blob storage or Cosmos DB. You can apply cognitive skills during indexing to add structure or extract searchable text from image and application files.
 
 + Easy implementation of search-related features. Azure Cognitive Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
@@ -48,8 +50,8 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 | AI&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Features |
 |-------------------|----------|
-|AI processing during indexing | [**AI enrichment**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
-| Storing enriched content for analysis and consumption in non-search scenarios | [**Knowledge store (preview)**](knowledge-store-concept-intro.md) is an extension of AI-based indexing. With Azure storage as a backend, you can save enrichments created during indexing. These artifacts can be used to help you design better skillsets, or create shape and structure out of  amorphous or ambiguous data. You can create projections of these structures that target specific workloads or users. You can also directly analyze the extracted data, or load it into other apps.<br/><br/> |
+|AI processing during indexing | [**AI enrichment**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. You can also [integrate Azure Machine Learning authored skills](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-aml-custom-skill). |
+| Storing enriched content for analysis and consumption in non-search scenarios | [**Knowledge store**](knowledge-store-concept-intro.md) is an extension of AI-based indexing. With Azure Storage as a backend, you can save enrichments created during indexing. These artifacts can be used to help you design better skillsets, or create shape and structure out of  amorphous or ambiguous data. You can create projections of these structures that target specific workloads or users. You can also directly analyze the extracted data, or load it into other apps.<br/><br/> |
 | Cached content | [**Incremental enrichment (preview)**](cognitive-search-incremental-indexing-conceptual.md) limits processing to just the documents that are changed by specific edit to the pipeline, using cached content for the parts of the pipeline that do not change. |
 
 | Data&nbsp;import/indexing | Features |
@@ -63,7 +65,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 |-------------------|----------|
 | Tools for prototyping and inspection | In the portal, you can use the [**Import data wizard**](search-import-data-portal.md) to configure indexers, index designer to stand up an index, and [**Search explorer**](search-explorer.md) to test queries and refine scoring profiles. You can also open any index to view its schema. |
 | Monitoring and diagnostics | [**Enable monitoring features**](search-monitor-usage.md) to go beyond the metrics-at-a-glance that are always visible in the portal. Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no additional configuration required.|
-| Server-side encryption | [**Microsoft-managed encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) is built into the internal storage layer and is irrevocable. Optionally, you can supplement the default encryption with [**customer-managed encryption keys**](search-security-manage-encryption-keys.md). Keys that you create and manage in Azure Key Vault are used to encrypt indexes and synonym maps in Azure Cognitive Search. |
+| Server-side encryption | [**Microsoft-managed encryption-at-rest**](search-security-overview.md#encrypted-transmissions-and-storage) is built into the internal storage layer and is irrevocable. Optionally, you can supplement the default encryption with [**customer-managed encryption keys**](search-security-manage-encryption-keys.md). Keys that you create and manage in Azure Key Vault are used to encrypt indexes and synonym maps in Azure Cognitive Search. |
 | Infrastructure | The **highly available platform** ensures an extremely reliable search service experience. When scaled properly, [Azure Cognitive Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Fully managed and scalable** as an end-to-end solution, Azure Cognitive Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.<br/><br/>|
 
 ## How to use Azure Cognitive Search
@@ -124,7 +126,7 @@ While many tasks can be performed in the portal, Azure Cognitive Search is inten
 
 |Platform |Description |
 |-----|------------|
-|[REST](/rest/api/searchservice/) | HTTP commands supported by any programming platform and language, including Xamarin, Java, and JavaScript|
+|[REST](/rest/api/searchservice/) | HTTP commands supported by any programming platform and language, including Java, Python, and JavaScript|
 |[.NET SDK](search-howto-dotnet-sdk.md) | .NET wrapper for the REST API offers efficient coding in C# and other managed-code languages targeting the .NET Framework |
 
 ## Free trial
@@ -149,11 +151,6 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 
 Search engines are the common drivers of information retrieval in mobile apps, on the web, and in corporate data stores. Azure Cognitive Search gives you tools for creating a search experience similar to those on large commercial web sites.
 
-In this 9-minute video from program manager Liam Cavanagh, learn how integrating a search engine can benefit your app. Short demos cover key features in Azure Cognitive Search, and what a typical workflow looks like. 
+In this 15-minute video, program manager Luis Cabrera introduces Azure Cognitive Search. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minutes covers key features and use-cases.
-+ 3-4 minutes covers service provisioning. 
-+ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-+ 6-9 minutes covers Search explorer and various queries.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

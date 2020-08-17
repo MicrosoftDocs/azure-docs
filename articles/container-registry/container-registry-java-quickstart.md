@@ -2,6 +2,7 @@
 title: Quickstart - Build and push Java container images to Azure Container Registry using Maven and Jib
 description: Build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
 author: KarlErickson
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
@@ -146,7 +147,7 @@ Finally, you'll update your project configuration and use the command prompt to 
 Congratulations! Now you have your containerized Java App build on Azure supported JDK pushed to your ACR. You can now test the image by deploying it to Azure App Service, or pulling it to local with command (replacing the placeholder):
 
 ```bash
-docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:v1
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 ```
 
 ## Next steps
@@ -172,4 +173,4 @@ For more information, see the following resources:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Using a custom Docker image for Azure Web App on Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)
+* [Using a custom Docker image for Azure Web App on Linux](../app-service/tutorial-custom-container.md)

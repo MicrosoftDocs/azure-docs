@@ -12,10 +12,7 @@ ms.custom: seodec18
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
 and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as your Azure subscription credentials.
 
-* **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. It's the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
-of the app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)). When a user is granted app access via Role-Based Access Control (RBAC) or coadmin permissions, that user can use their own user-level credentials until the access is revoked. Do not share these credentials with other Azure users.
-
-* **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials for each app are generated automatically at app creation. They can't be configured manually, but can be reset anytime. For a user to be granted access to app-level credentials via (RBAC), that user must be contributor or higher on the app (including Website Contributor built-in role). Readers are not allowed to publish, and can't access those credentials.
+[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 ## <a name="userscope"></a>Configure user-level credentials
 
@@ -40,17 +37,17 @@ In the Azure portal, you must have at least one app before you can access the de
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<any_app>** > **Deployment center** > **FTP** > **Dashboard**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Shows how you can select the FTP dashboard from the Deployment center in Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Or, if you've already configured Git deployment, select **App Services** > **&lt;any_app>** > **Deployment center** > **FTP/Credentials**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Shows how you can select the FTP dashboard from the Deployment center in Azure App Services for your configured Git deployment.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Select **User Credentials**, configure the user name and password, and then select **Save Credentials**.
 
 Once you have set your deployment credentials, you can find the *Git* deployment username in your app's **Overview** page,
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Shows how to find the Git deployment user name on your app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 If Git deployment is configured, the page shows a **Git/deployment username**; otherwise, an **FTP/deployment username**.
 

@@ -20,10 +20,13 @@ ms.author: apimpm
 
 Azure API Management supports multi-region deployment, which enables API publishers to distribute a single Azure API management service across any number of supported Azure regions. Multi-region feature helps reduce request latency perceived by geographically distributed API consumers and improves service availability if one region goes offline.
 
-A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary region. Additional regions can be added to the Primary or Secondary regions. An API Management gateway component is deployed to every selected Primary and Secondary region. Incoming API requests are automatically directed to the closest region. If a region goes offline, the API requests will be automatically routed around the failed region to the next closest gateway.
+A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary region. Additional units can be added to the Primary or Secondary regions. An API Management gateway component is deployed to every selected Primary and Secondary region. Incoming API requests are automatically directed to the closest region. If a region goes offline, the API requests will be automatically routed around the failed region to the next closest gateway.
 
 > [!NOTE]
 > Only the gateway component of API Management is deployed to all regions. The service management component and developer portal are hosted in the Primary region only. Therefore, in case of the Primary region outage, access to the developer portal and ability to change configuration (e.g. adding APIs, applying policies) will be impaired until the Primary region comes back online. While the Primary region is offline available Secondary regions will continue to serve the API traffic using the latest configuration available to them.
+
+>[!IMPORTANT]
+> The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 

@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
+ms.custom: references_regions
 ---
 
 # Azure Security Center for IoT prerequisites
@@ -25,7 +26,7 @@ This article provides an explanation of the different components of the Azure Se
 ## Minimum requirements
 
 - IoT Hub Standard tier
-  - RBAC role **Owner** level privileges
+  - Azure role **Owner** level privileges
 - [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Azure Security Center (recommended)
   - Use of Azure Security Center is a recommendation, and not a requirement. Without Azure Security Center, you'll be unable to view your other Azure resources within IoT Hub.

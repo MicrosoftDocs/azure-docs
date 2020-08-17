@@ -12,8 +12,8 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 03/19/2020
+ms.topic: how-to
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -56,6 +56,35 @@ In Azure RBAC, to list access, you list the role assignments. To list role assig
     > | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal.<br/>If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed.<br/>This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
     > | `$filter=atScope()+and+assignedTo('{objectId}')` | Lists role assignments for the specified user or service principal and at the specified scope. |
     > | `$filter=principalId+eq+'{objectId}'` | Lists role assignments for a specified user, group, or service principal. |
+
+The following request lists all role assignments for the specified user at subscription scope:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()+and+assignedTo('{objectId1}')
+```
+
+The following shows an example of the output:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+                "principalId": "{objectId1}",
+                "scope": "/subscriptions/{subscriptionId1}",
+                "createdOn": "2019-01-15T21:08:45.4904312Z",
+                "updatedOn": "2019-01-15T21:08:45.4904312Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "name": "{roleAssignmentId1}"
+        }
+    ]
+}
+```
 
 ## Next steps
 

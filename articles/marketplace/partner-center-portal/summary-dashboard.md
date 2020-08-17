@@ -1,12 +1,12 @@
 ---
 title: Summary dashboard for Partner Center analytics in Commercial Marketplace
 description: Learn how to access graphs, trends, and values of aggregate data that summarize marketplace activity from the Summary dashboard in Partner Center.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Summary dashboard in commercial marketplace analytics
@@ -65,7 +65,7 @@ The **Customers by geography** heatmap displays a customer count on a world map.
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
 - The heatmap has a supplementary grid to view the details of customer count, order count, normalized usage hours in the specific location.
-- You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
+- You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 - A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
 
 ### Growth trend charts

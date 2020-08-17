@@ -545,7 +545,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to control access to the Azure Database for PostgreSQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. RBAC does not affect user permissions within the database.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for PostgreSQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. RBAC does not affect user permissions within the database.
 
 How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -902,7 +902,7 @@ How to provide Key Vault authentication with a managed identity: https://docs.mi
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Azure Database for PostgreSQL server supports Azure Active Directory authentication (in preview) to access databases.  While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
+**Guidance**: Azure Database for PostgreSQL server supports Azure Active Directory authentication to access databases.  While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
 
 For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for PostgreSQL server, use Managed Service Identity in conjunction with Azure Key Vault to store and retrieve credentials for Azure Database for PostgreSQL server. Ensure Key Vault Soft Delete is enabled.
 

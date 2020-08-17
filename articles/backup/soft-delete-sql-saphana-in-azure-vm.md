@@ -10,7 +10,8 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
 [Soft delete](backup-azure-security-feature-cloud.md) is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
 
-Once preview is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
+>[!NOTE]
+>Once preview is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 
 ## Steps to enroll in preview
 
@@ -75,7 +76,7 @@ Once preview is enabled for a subscription it is not possible to disable soft de
 
    ![Undelete warning](./media/soft-delete-sql-saphana-in-azure-vm/undelete-warning.png)
 
-5. At this point, you can also restore the data by selecting **Restore** for the chosen restore point.
+5. At this point, you can also restore the data by selecting **Restore** for the chosen soft deleted backup item.
 
    ![Restore VM](./media/soft-delete-sql-saphana-in-azure-vm/restore-vm.png)
 
@@ -92,7 +93,7 @@ The sequence of steps for using  Azure PowerShell is the same as in the Azure po
 
 ### Delete the backup item using Azure PowerShell
 
-Delete the backup item using the [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet.
+Delete the backup item using the [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS cmdlet.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -110,7 +111,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Then, perform the undo-deletion operation using the [Undo-AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.8.0) PS cmdlet.
+Then, perform the undo-deletion operation using the [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS cmdlet.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
@@ -124,4 +125,5 @@ Disabling this feature isn't recommended. The only circumstance where you should
 
 ## Next steps
 
-- [Overview of security features in Azure Backup](security-overview.md)
+- Read the [frequently asked questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) about soft delete
+- Read about all the [security features in Azure Backup](security-overview.md)
