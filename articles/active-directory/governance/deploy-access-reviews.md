@@ -445,7 +445,7 @@ Access needs to groups and applications for employees and guests likely change o
 
 To reduce the risk associated with stale role assignments, you should regularly review access of privileged Azure AD roles.
 
-![review azure ad roles](./media/deploy-access-review/8-review-azuread-roles-picker.png)
+![review azure ad roles](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Follow the instructions in the links below:
 
