@@ -95,7 +95,7 @@ test_labels = test_data.pop(label).values
 
 ## Training and validation data
 
-You can specify separate train and validation sets directly in the `AutoMLConfig` object. The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task.  Learn more about the [AutoMLConfig](#configure-and-run-experiment).
+You can specify separate train and validation sets directly in the `AutoMLConfig` object.   Learn more about the [AutoMLConfig](#configure-experiment).
 
 For time series forecasting, **Rolling Origin Cross Validation (ROCV)** is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. 
 
@@ -116,8 +116,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 
 ## Configure experiment
-
-Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
+The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
 
 ### Featurization steps
 
@@ -168,7 +167,7 @@ The following table summarizes these additional parameters.
 |`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. For example, when trying to forecast demand for a product, the demand in any month may depend on the price of specific commodities 3 months prior. In this example, you may want to lag the target (demand) negatively by 3 months so that the model is training on the correct relationship.||
-|`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](target-rolling-window-aggregation).||
+|`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
 |`enable_dnn`|Enable Forecasting DNNs.||
 
 The following code, 
