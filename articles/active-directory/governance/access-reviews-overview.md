@@ -46,6 +46,9 @@ Azure AD enables you to collaborate with users from inside your organization and
 - **Ask group owners to confirm they still need guests in their groups:** Employee access might be automated with some on premises Identity and Access Management (IAM), but not invited guests. If a group gives guests access to business sensitive content, then it's the group owner's responsibility to confirm the guests still have a legitimate business need for access.
 - **Have reviews recur periodically:** You can set up recurring access reviews of users at set frequencies such as weekly, monthly, quarterly or annually, and the reviewers will be notified at the start of each review. Reviewers can approve or deny access with a friendly interface and with the help of smart recommendations.
 
+>[!NOTE]
+If you are ready to try Access reviews take a look at [Create an access review of groups or applications](create-access-review.md)
+
 ## Where do you create reviews?
 
 Depending on what you want to review, you will create your access review in Azure AD access reviews, Azure AD enterprise apps (in preview), or Azure AD PIM.
@@ -63,16 +66,14 @@ Depending on what you want to review, you will create your access review in Azur
 
 ### How many licenses must you have?
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
+Your directory needs at least as many Azure AD Premium P2 licenses as the number of employees who will be performing the following tasks:
 
 - Member and guest users who are assigned as reviewers
 - Member and guest users who perform a self-review
 - Group owners who perform an access review
 - Application owners who perform an access review
 
-Azure AD Premium P2 licenses are **not** required for the following tasks:
-
-- No licenses are required for users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews.
+Azure AD Premium P2 licenses are **not** required for users with the Global Administrator or User Administrator roles who set up access reviews, configure settings, or apply the decisions from the reviews.
 
 For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use Azure AD business-to-business (B2B) to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
 
