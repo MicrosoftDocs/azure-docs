@@ -26,6 +26,24 @@ After this, you should be able to re-run the command.
 
 This is the result of a known issue in Cloud Shell: [*Getting token from Cloud Shell intermittently fails with 400 Client Error: Bad Request*](https://github.com/Azure/azure-cli/issues/11749).
 
+## Scripted instance setup does not work for user role assignment
+
+Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Owner (Preview)* role is not successfully assigned to the user, and this will impact ability to create other resources down the road.
+
+To determine whether your role assignment was successfully set up after running the script, follow the instructions in the [*Verify user role assignment*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) section of the setup article. If your user is not shown with this role, this issue affects you.
+
+### Troubleshooting steps
+
+To resolve, you can set up your role assignment manually using either the CLI or Azure portal. 
+
+Follow these instructions:
+* [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
+* [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions)
+
+### Possible causes
+
+For users logged in with a personal [Microsoft account (MSA)](https://account.microsoft.com/account), your user's Principal ID that identifies you in commands like this may be different from your user's login email, making it difficult for the script to discover and use to assign the role properly.
+
 ## "Azure.Identity.AuthenticationFailedException" after browser authentication
 
 When writing authentication code in your Azure Digital Twins applications and using version **1.2.0** of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library** (currently the latest version available), you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
