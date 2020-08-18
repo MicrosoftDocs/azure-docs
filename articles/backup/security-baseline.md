@@ -349,7 +349,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to configure Azure Backup to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -905,7 +905,7 @@ Backup customer managed keys within Azure Key Vault.
 
 - [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Understand encryption in Azure Backup](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Understand encryption in Azure Backup](./backup-encryption.md)
 
 **Azure Security Center monitoring**: Not applicable
 

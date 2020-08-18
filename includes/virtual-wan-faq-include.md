@@ -253,6 +253,9 @@ IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet th
 
 A minimum version of 05-01-2020 (May 1 2020) is required. 
 
+### Any Virtual WAN limits?
+Virtual WAN Limits : https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
+
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
 See [Basic and Standard Virtual WANs](../articles/virtual-wan/virtual-wan-about.md#basicstandard). For pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
