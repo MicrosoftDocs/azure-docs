@@ -162,7 +162,7 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
 
 1. Assign the service principal as a member of the group that was created.
 
-    - Replace `<ServerName>` with your Azure SQL logical server name, or your Managed Instance name. For more information, see the section, [Add Azure SQL service identity to the group](#add-azure-sql-service-identity-to-the-group)
+    - Replace `<ServerName>` with your Azure SQL logical server name, or your Managed Instance name. For more information, see the section, [Add Azure SQL service identity to the group](#add-azure-sql-managed-identity-to-the-group)
 
     ```powershell
     # Returns the service principal of your Azure SQL resource
