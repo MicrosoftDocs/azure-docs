@@ -151,9 +151,9 @@ Some scenarios, like those that involve Conditional Access related to a device I
 For more information, see [Mobile app that calls web APIs](scenario-mobile-overview.md).
 
 > [!NOTE]
-> A mobile app that uses MSAL.iOS, MSAL.Android, or MSAL.NET on Xamarin can have app protection policies applied to it. For instance, the policies might prevent a user from copying protected text. The mobile app is managed by Intune and is recognized by Intune as a managed app. For more information, see [Microsoft Intune App SDK overview](https://docs.microsoft.com/intune/app-sdk).
+> A mobile app that uses MSAL.iOS, MSAL.Android, or MSAL.NET on Xamarin can have app protection policies applied to it. For instance, the policies might prevent a user from copying protected text. The mobile app is managed by Intune and is recognized by Intune as a managed app. For more information, see [Microsoft Intune App SDK overview](/intune/app-sdk).
 >
-> The [Intune App SDK](https://docs.microsoft.com/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Azure AD on its own.
+> The [Intune App SDK](/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Azure AD on its own.
 
 ### Protected web API
 
@@ -302,5 +302,5 @@ For more information, see [Microsoft-supported libraries by OS/language](referen
 
 ## Next steps
 
-* Learn more about [authentication basics](authentication-scenarios.md) and [access tokens in the Microsoft identity platform](access-tokens.md).
+* Learn more about [authentication basics](./authentication-vs-authorization.md) and [access tokens in the Microsoft identity platform](access-tokens.md).
 * Learn more about [securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).

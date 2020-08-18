@@ -122,6 +122,10 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
+### Can I use NAT-T on my VPN connections?
+
+Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels.  In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
+
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You need to configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.

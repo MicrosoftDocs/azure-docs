@@ -94,7 +94,7 @@ The router can have four routing statuses: Provisioned, Provisioning, Failed, or
 * A **None** status indicates that the Virtual hub did not provision the router. This can happen if the Virtual WAN is of type *Basic*, or if the virtual hub was deployed prior to the service being made available.
 * A **Failed** status indicates failure during instantiation. In order to instantiate or reset the router, you can locate the **Reset Router** option by navigating to the virtual hub Overview page in the Azure portal.
 
-Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets in a virtual WAN.
+Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets connected to a single virtual Hub.
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 

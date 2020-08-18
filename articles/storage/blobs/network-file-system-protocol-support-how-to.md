@@ -16,7 +16,7 @@ ms.custom: references_regions
 You can mount a container in Blob storage from a Windows or Linux-based Azure Virtual Machine (VM) or a Windows or Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, and Canada Central.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central.
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
@@ -87,7 +87,7 @@ As you configure the account, choose these values:
 
 |Setting | Value|
 |----|---|
-|Location|One of the following regions: US East, US Central, and Canada Central |
+|Location|One of the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central |
 |Performance|Premium|
 |Account kind|BlockBlobStorage|
 |Replication|Locally-redundant storage (LRS)|

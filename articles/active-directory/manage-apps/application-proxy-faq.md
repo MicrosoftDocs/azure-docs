@@ -27,6 +27,9 @@ This page answers frequently asked questions about Azure Active Directory (Azure
 
 To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 
+### What happens to Azure AD Application Proxy in my tenant, if my license expires?
+If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
+
 ### Why is the "Enable Application Proxy button grayed out?
 
 Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.

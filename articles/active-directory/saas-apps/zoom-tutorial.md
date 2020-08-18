@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zoom | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoom.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Zoom
@@ -86,6 +79,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `<companyname>.zoom.us`
 
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<companyname>.zoom.us`
+
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -139,13 +135,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click the **Single Sign-On** tab.
 
-    ![Single sign-on tab](./media/zoom-tutorial/ic784700.png "Single sign-on")
+    ![Single sign-on tab](./media/zoom-tutorial/zoom-sso1.png "Single sign-on")
 
 3. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
 4. In the Single Sign-On section, perform the following steps:
 
-    ![Single sign-on section](./media/zoom-tutorial/ic784701.png "Single sign-on")
+    ![Single sign-on section](./media/zoom-tutorial/zoom-sso2.png "Single sign-on")
 
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
@@ -165,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
 
-    g. Click **Save**.
+    g. Click **Save Changes**.
 
     > [!NOTE]
 	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)

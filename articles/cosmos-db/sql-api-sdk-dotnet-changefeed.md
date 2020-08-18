@@ -45,6 +45,9 @@ ms.author: anfeldma
 
 ### v2 builds
 
+### <a name="2.3.2"/>2.3.2
+* Added lease store compatibility with [V3 SDK](sql-api-sdk-dotnet-standard.md) which enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
+
 ### <a name="2.3.1"/>2.3.1
 * Corrected a case when `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` close reason was sent to `FeedProcessing.IChangeFeedObserver.CloseAsync` if the partition cannot be found or if the target replica is not up to date up with the read session. In these cases `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` and `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` close reasons are now used.
 * Added a new close reason `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` that is sent to close the change feed observer when the target replica is not up to date up with the read session.
@@ -188,6 +191,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |August 11, 2020 |--- |
 | [2.3.1](#2.3.1) |July 30, 2020 |--- |
 | [2.3.0](#2.3.0) |April 2, 2020 |--- |
 | [2.2.8](#2.2.8) |October 28, 2019 |--- |

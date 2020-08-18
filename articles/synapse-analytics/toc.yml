@@ -220,6 +220,8 @@
         href: ./spark/apache-spark-version-support.md
       - name: What is Delta Lake
         href: ./spark/apache-spark-what-is-delta-lake.md
+      - name: Delta Lake functional overview
+        href: ./spark/apache-spark-delta-lake-overview.md
       - name: Apache Spark performance
         href: ./spark/apache-spark-performance.md
       - name: Apache Spark Auto Scale behavior
@@ -283,7 +285,7 @@
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
       - name: Machine learning predictions
-        href: ./sql-data-warehouse/sql-data-warehouse-predict.md
+        href: ./sql-data-warehouse/sql-data-warehouse-predict.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Tables
         items:
         - name: Overview
@@ -468,6 +470,8 @@
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Query Azure Cosmos DB analytical store with Apache Spark for Azure Synapse Analytics
         href: ./synapse-link/how-to-query-analytical-store-spark.md
+      - name: Copy data from Synapse Link into a SQL pool using Apache Spark
+        href: ./synapse-link/how-to-copy-to-sql-pool.md
     - name: Synapse SQL
       items:
       - name: Query data in storage

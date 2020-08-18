@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: devx-track-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Continuous delivery by using GitHub Action
