@@ -22,7 +22,9 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
-> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../aks/scale-cluster.md).
+> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see 
+- [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
+- [Set up cluster autoscaler in AKS](..aks/cluster-autoscaler.md)
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
