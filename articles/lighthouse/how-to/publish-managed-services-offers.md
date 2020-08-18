@@ -23,12 +23,11 @@ The following table can help determine whether to onboard customers by publishin
 
 |**Consideration**  |**Managed Service offer**  |**ARM templates**  |
 |---------|---------|---------|
-|Requires [Partner Center account](../../marketplace/partner-center-portal/create-account.md)   |Yes         |         |
+|Requires [Partner Center account](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
 |Requires [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
 |Available to new customers through Azure Marketplace     |Yes     |No       |
 |Can limit offer to specific customers     |Yes (only with private offers, which can't be used with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program)         |Yes         |
 |Requires customer acceptance in Azure portal     |Yes     |No   |
-|Requires Owner access to customer tenant   |No       |Yes     |
 |Can use automation to onboard multiple subscriptions, resource groups, or customers |No     |Yes    |
 |Immediate access to new built-in roles and Azure Lighthouse features     |Not alwys (generally available after some delay)         |Yes         |
 
