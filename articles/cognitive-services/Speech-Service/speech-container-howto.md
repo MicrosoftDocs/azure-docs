@@ -217,11 +217,16 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 #### Docker pull for the Neural Text-to-speech container
 
+> [!IMPORTANT]
+> * The `latest` tag pulls the `en-US` locale and `arianeural` voice, which is the only voice currently available for this container.
+
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
 docker pull neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
 ```
+
+When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-synthesis-markup) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 ***
 
