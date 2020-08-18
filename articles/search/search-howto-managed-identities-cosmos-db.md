@@ -53,11 +53,9 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 3 - Create the data source
 
-A **data source** specifies the data to index, credentials, and policies for identifying changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers.
+The [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) support the managed identities connection string. Below is an example of how to create a data source to index data from Cosmos DB using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) and a managed identity connection string. The REST API, .NET SDK, and the Azure portal use the same managed identity connection string format.
 
-When using managed identities to authenticate to the data source, the **credentials** will not include an account key.
-
-Example of how to create a Cosmos DB data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+When using managed identities to authenticate, the **credentials** will not include an account key.
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -88,8 +86,6 @@ The body of the request contains the data source definition, which should includ
 | **container** | Contains the following elements: <br/>**name**: Required. Specify the ID of the database collection to be indexed.<br/>**query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Cognitive Search can index.<br/>For the MongoDB API, Gremlin API, and Cassandra API, queries are not supported. |
 | **dataChangeDetectionPolicy** | Recommended |
 |**dataDeletionDetectionPolicy** | Optional |
-
-The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string.
 
 ### 4 - Create the index
 
