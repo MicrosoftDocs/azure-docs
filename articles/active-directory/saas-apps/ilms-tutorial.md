@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with iLMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iLMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate iLMS with Azure Active Directory
 
