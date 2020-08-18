@@ -49,7 +49,7 @@ There are two common tools used to create an SAS address (URL):
 
     ![Copying the URI.](media/vm/create-sas-uri-shared-access-signature-details.png)
 
-This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name:
+    This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name.
 
 9. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
 
