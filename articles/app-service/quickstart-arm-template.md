@@ -122,7 +122,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 * [Deploy from local Git](deploy-local-git.md)
 * [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
-* [Python with Postgres](tutorial-pythong-postgresql-app.md)
+* [Python with Postgres](tutorial-python-postgresql-app.md)
 * [PHP with MySQL](tutorial-php-mysql-app.md)
 * [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 * [Map custom domain](app-service-web-tutorial-custom-domain.md)
