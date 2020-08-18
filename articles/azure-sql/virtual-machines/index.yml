@@ -32,6 +32,10 @@ landingContent:
             url: windows/sql-vm-create-powershell-quickstart.md
           - text: Create Linux SQL VM (portal)
             url: linux/sql-vm-create-portal-quickstart.md 
+      - linkListType: video
+        links:
+          - text: SQL Server on Azure VM overview
+            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
       - linkListType: overview 
         links:
           - text: What's new? 
@@ -44,7 +48,6 @@ landingContent:
             url: windows/migrate-to-vm-from-sql-server.md
           - text: Security considerations
             url: windows/security-considerations-best-practices.md
-
           - text: Performance guidelines
             url: windows/performance-guidelines-best-practices.md
           - text: Pricing guidance 
@@ -103,7 +106,7 @@ landingContent:
             url: linux/rhel-high-availability-listener-tutorial.md 
 
   # Card 
-  - title: Reference 
+  - title: Learn Azure SQL 
     linkLists:
       - linkListType: learn
         links:
@@ -117,6 +120,10 @@ landingContent:
           url: https://aka.ms/azuresqlbootcamp
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
+
+  # Card 
+  - title: Reference 
+    linkLists:
       - linkListType: deploy
         links:
         - text: Azure CLI samples

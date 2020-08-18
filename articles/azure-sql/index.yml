@@ -173,10 +173,8 @@ landingContent:
           - text: Design first database (C#)
             url: database/design-first-database-csharp-tutorial.md
 
-
-
   # Card 
-  - title: Reference 
+  - title: Learn Azure SQL 
     linkLists:
       - linkListType: learn
         links:
@@ -190,6 +188,11 @@ landingContent:
           url: https://aka.ms/azuresqlbootcamp
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
+
+
+  # Card 
+  - title: Reference 
+    linkLists:
       - linkListType: deploy
         links:
         - text: Azure CLI samples
