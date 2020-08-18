@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure AD SSO integration with Trend Micro Web Security (TMWS)'
 description: Learn how to configure single sign-on between Azure Active Directory and Trend Micro Web Security (TMWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 827285d3-8e65-43cd-8453-baeda32ef174
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Trend Micro Web Security (TMWS)
