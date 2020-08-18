@@ -115,7 +115,7 @@ automl_config = AutoMLConfig(task='forecasting',
 ```
 
 
-## Configure and run experiment
+## Configure experiment
 
 Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
 
@@ -131,6 +131,7 @@ However, the following steps are performed only for `forecasting` task types:
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
 
+To get a summary of what features are created as result of these steps, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency)
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
@@ -138,7 +139,23 @@ However, the following steps are performed only for `forecasting` task types:
 > predictions, the same featurization steps applied during training are applied to
 > your input data automatically.
 
-To get a summary of what features are created as result of these steps, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency)
+#### Customize featurization
+
+You also have the option to customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions. 
+
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. 
+
+If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
+Supported customizations for forecasting tasks include:
+
+|Customization|Definition|
+|--|--|
+|**Column purpose update**|Override the auto-detected feature type for the specified column.|
+|**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
+|**Drop columns** |Specifies columns to drop from being featurized.|
+
+
 ### Configuration settings
 
 Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. 
@@ -151,7 +168,7 @@ The following table summarizes these additional parameters.
 |`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. For example, when trying to forecast demand for a product, the demand in any month may depend on the price of specific commodities 3 months prior. In this example, you may want to lag the target (demand) negatively by 3 months so that the model is training on the correct relationship.||
-|`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model.||
+|`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](target-rolling-window-aggregation).||
 |`enable_dnn`|Enable Forecasting DNNs.||
 
 The following code, 
@@ -193,6 +210,70 @@ automl_config = AutoMLConfig(task='forecasting',
                              verbosity=logging.INFO,
                              **time_series_settings)
 ```
+
+## Optional configurations
+Additional optional configurations are available for forecasting tasks, such as enabling deep learning and  
+specifying a target rolling window aggregation. 
+
+### Configure a DNN enabled forecasting experiment
+
+> [!NOTE]
+> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs.
+
+In addition to the standard set up of a forecasting AutoML experiment, you can leverage deep learning with deep neural networks, DNNs, for forecasting tasks. To do so, set the `enable_dnn` parameter in the `AutoMLConfig` to true. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see How to 
+Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
+
+Deep learning models have three intrinsic capabilities:
+1. They can learn from arbitrary mappings from inputs to outputs
+1. They support multiple inputs and outputs
+1. They can automatically extract patterns in input data that spans over long sequences
+
+Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model.
+
+Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. 
+
+
+Models| Description | Benefits
+----|----|---
+Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. To leverage this model, install it locally using `pip install fbprophet`. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
+Auto-ARIMA (Preview)|Auto-Regressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow or next year.| Great for univariate series, since the past values are used to predict the future values.
+ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle the most demanding forecasting tasks, capturing nonlinear local and global trends in your data as well as relationships between time series.|Capable of leveraging complex trends in your data and readily scales to the largest of datasets.
+
+
+View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example leveraging DNNs.
+
+
+### Target Rolling Window Aggregation
+Often the best information a forecaster can have is the recent value of the target. Creating cumulative statistics of the target may increase the accuracy of your predictions. Target rolling window aggregations allow you to add a rolling aggregation of data values as features.
+
+To enable target rolling windows set the `target_rolling_window_size` to your desired integer window size. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             target_rolling_window_size=3)
+```
+
+For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window of size three by setting `target_rolling_window_size=3` in the `AutoMLConfig` constructor. 
+
+The table shows resulting feature engineering that occurs when window aggregation is applied. Columns for **minimum, maximum,** and **sum** are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the timestamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the **demand values** for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
+
+![alt text](./media/how-to-auto-train-forecast/target-roll.svg)
+
+Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
+
+View a Python code example leveraging the [target rolling window aggregate feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+
+## Run the experiment 
 
 When you have your `AutoMLConfig` object ready, you can submit the experiment. After the model finishes, retrieve the best run iteration.
 
@@ -246,93 +327,6 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 > Values cannot be predicted for number of periods greater than the `forecast_horizon`. The model must be re-trained with a larger horizon to predict future values beyond
 > the current horizon.
 
-## Configure a DNN enabled forecasting experiment
-
-> [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs.
-In addition to the standard set up of a forecasting AutoML experiment, you can leverage deep learning with deep neural networks, DNNs for forecasting tasks. To do so, set the `enable_dnn` parameter in the `AutoMLConfig` to true. 
-
-```python
-automl_config = AutoMLConfig(task='forecasting',
-                             enable_dnn=True,
-                             ...
-                             **time_series_settings)
-```
-
-
-View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example leveraging DNNs.
-
-### Time-series and deep learning models
-
-Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
-
-Deep learning models have three intrinsic capabilities:
-1. They can learn from arbitrary mappings from inputs to outputs
-1. They support multiple inputs and outputs
-1. They can automatically extract patterns in input data that spans over long sequences
-
-Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. Learn how to [configure your experiment for deep learning](#configure-a-dnn-enable-forecasting-experiment).
-
-Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. 
-
-Models| Description | Benefits
-----|----|---
-Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. To leverage this model, install it locally using `pip install fbprophet`. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
-Auto-ARIMA (Preview)|Auto-Regressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow or next year.| Great for univariate series, since the past values are used to predict the future values.
-ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle the most demanding forecasting tasks, capturing nonlinear local and global trends in your data as well as relationships between time series.|Capable of leveraging complex trends in your data and readily scales to the largest of datasets.
-
-## Optional configuration
-
-Additional optional configurations are available for forecasting tasks, such as customized featurization and 
-specifying a target rolling window aggregation. 
-
-### Customize featurization
-You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions. 
-
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
-
-Supported customizations for forecasting tasks include:
-
-|Customization|Definition|
-|--|--|
-|**Column purpose update**|Override the auto-detected feature type for the specified column.|
-|**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
-|**Drop columns** |Specifies columns to drop from being featurized.|
-
-Create the `FeaturizationConfig` object by defining your featurization configurations:
-```python
-featurization_config = FeaturizationConfig()
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
-```
-
-### Target Rolling Window Aggregation
-Often the best information a forecaster can have is the recent value of the target. Creating cumulative statistics of the target may increase the accuracy of your predictions. Target rolling window aggregations allow you to add a rolling aggregation of data values as features.
-
-To enable target rolling windows set the `target_rolling_window_size` to your desired integer window size. 
-
-```python
-automl_config = AutoMLConfig(task='forecasting',
-                             enable_dnn=True,
-                             ...
-                             target_rolling_window_size=3)
-```
-
-For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window of size three by setting `target_rolling_window_size=3` in the `AutoMLConfig` constructor. 
-
-The table shows resulting feature engineering that occurs when window aggregation is applied. Columns for **minimum, maximum,** and **sum** are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the timestamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the **demand values** for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
-
-![alt text](./media/how-to-auto-train-forecast/target-roll.svg)
-
-Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
-
-View a Python code example leveraging the [target rolling window aggregate feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ## Example notebooks
 See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
