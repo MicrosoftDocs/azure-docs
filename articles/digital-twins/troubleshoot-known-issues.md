@@ -48,9 +48,6 @@ For users logged in with a personal [Microsoft account (MSA)](https://account.mi
 
 When writing authentication code in your Azure Digital Twins applications using the latest version (version **1.2.0**) of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
 
->[!NOTE]
-> Adding the library to your project without specifying a version will default to this latest version.
-
 The affected method is used in the following articles: 
 * [*Tutorial: Code a client app*](tutorial-code.md)
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)
@@ -62,11 +59,14 @@ The issue includes an error response of "Azure.Identity.AuthenticationFailedExce
 
 To resolve, have your applications explicitly use Azure.Identity version **1.1.1**. With this version of the library, the browser should load and authenticate as expected.
 
+>[!NOTE]
+> It's not sufficient to add the library without specifying any version, as that will still default to the latest **1.2.0**. You'll need to specify version **1.1.1** explicitly.
+
 ### Possible causes
 
 This is an incompatibility between Azure Digital Twins and the latest version of the Azure.Identity library, version **1.2.0**. 
 
-If you add the library to your project without specifying a version, it will default to this latest version.
+You will see this issue if you use version **1.2.0** in your application, or if you add the library to your project without specifying a version (as that also defaults to this latest version).
 
 ## Next steps
 
