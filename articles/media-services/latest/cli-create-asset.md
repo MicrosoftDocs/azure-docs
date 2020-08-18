@@ -28,7 +28,7 @@ This article shows how to create a Media Services Asset to upload content to.
 
 ## [CLI](#tab/cli/)
 
-[!INCLUDE [Create an asset with CLI](./includes/create-asset-cli.md)]
+[!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
 ## [CLI Shell](#tab/clishell/)
 
