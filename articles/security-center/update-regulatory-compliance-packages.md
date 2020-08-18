@@ -69,6 +69,8 @@ The following steps explain how to add a package to monitor your compliance with
     
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
+1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
+
 1. From Security Center's sidebar, select **Regulatory compliance** again to go back to the regulatory compliance dashboard.
     * Your new standard appears in your list of Industry & regulatory standards. 
     * If you've added **Azure CIS 1.1.0 (New)**, the original *static* view of your Azure CIS 1.1.0 compliance will also remain alongside it. It may be automatically removed in the future.
