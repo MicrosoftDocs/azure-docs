@@ -69,7 +69,7 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 For the disks containing the Db2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
+For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 ## Recommendation on VM and disk structure for IBM Db2 deployment
 
