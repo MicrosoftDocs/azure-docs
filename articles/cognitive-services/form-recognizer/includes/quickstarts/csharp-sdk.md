@@ -81,7 +81,7 @@ static void Main(string[] args)
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.1
+dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
