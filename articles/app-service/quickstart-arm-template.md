@@ -121,8 +121,8 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 ## Next steps
 
 * [Deploy from local Git](deploy-local-git.md)
-* [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
-* [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-* [PHP with MySQL](app-service-web-tutorial-php-mysql.md)
+* [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+* [Python with Postgres](tutorial-pythong-postgresql-app.md)
+* [PHP with MySQL](tutorial-php-mysql-app.md)
 * [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 * [Map custom domain](app-service-web-tutorial-custom-domain.md)
