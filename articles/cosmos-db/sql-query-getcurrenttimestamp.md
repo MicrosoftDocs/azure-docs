@@ -20,13 +20,13 @@ GetCurrentTimestamp ()
   
 ## Return types
   
-  Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
 ## Remarks
 
-  GetCurrentTimestamp() is a nondeterministic function.
-  
-  The result returned is UTC (Coordinated Universal Time).
+GetCurrentTimestamp() is a nondeterministic function. The result returned is UTC (Coordinated Universal Time).
+
+This system function will not utilize the index.
 
 ## Examples
   
