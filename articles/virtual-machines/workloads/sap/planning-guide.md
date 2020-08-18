@@ -1825,7 +1825,7 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-More details can be found in this documentation: <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability>
+More details can be found in this documentation: <https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability>
 
 #### Azure Storage Redundancy
 
@@ -1892,7 +1892,7 @@ Deploying a few SAP application server instances in their dedicated VMs and assu
 
 ![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
 
-More details can be found in this documentation: <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability>
+More details can be found in this documentation: <https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability>
 
 #### High Availability for SAP Central Services on Azure
 
