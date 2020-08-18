@@ -3,7 +3,7 @@ title: Azure Functions custom handlers (preview)
 description: Learn to use Azure Functions with any language or runtime version.
 author: craigshoemaker
 ms.author: cshoe
-ms.date: 7/20/2020
+ms.date: 8/18/2020
 ms.topic: article
 ---
 
@@ -42,7 +42,7 @@ To implement a custom handler, you need the following aspects to your applicatio
 - A *function.json* file for each function (inside a folder that matches the function name)
 - A command, script, or executable, which runs a web server
 
-The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and an custom handler executable named *server.exe*.
+The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and an custom handler executable named *handler.exe*.
 
 ```bash
 | /MyQueueFunction
@@ -50,7 +50,7 @@ The following diagram shows how these files look on the file system for a functi
 |
 | host.json
 | local.settings.json
-| server.exe
+| handler.exe
 ```
 
 ### Configuration
@@ -68,7 +68,7 @@ A custom handler is defined by configuring the *host.json* file with details on 
   "version": "2.0",
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "server.exe"
+      "defaultExecutablePath": "handler.exe"
     }
   }
 }
@@ -85,7 +85,7 @@ You can also change the working directory used by the executable with `workingDi
   "version": "2.0",
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "app/server.exe",
+      "defaultExecutablePath": "app/handler.exe",
       "arguments": [
         "--database-connection-string",
         "%DATABASE_CONNECTION_STRING%"
@@ -114,6 +114,9 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
   }
 }
 ```
+
+> [!NOTE]
+> `Custom` may not be recognized as a valid runtime on the Linux Premium or App Service plans. If that is your deployment target, set `FUNCTIONS_WORKER_RUNTIME` to an empty string.
 
 ### Function metadata
 
@@ -181,7 +184,7 @@ By convention, function responses are formatted as key/value pairs. Supported ke
 
 | <nobr>Payload key</nobr>   | Data type | Remarks                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | object    | Holds response values as defined by the `bindings` array the *function.json* file.<br /><br />For instance, if a function is configured with a blob storage output binding named "blob", then `Outputs` contains a key named `blob`, which is set to the blob's value. |
+| `Outputs`     | object    | Holds response values as defined by the `bindings` array in *function.json*.<br /><br />For instance, if a function is configured with a queue output binding named "myQueueOutput", then `Outputs` contains a key named `myQueueOutput`, which is set by the custom handler to the messages that are sent to the queue. |
 | `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
 | `ReturnValue` | string    | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
@@ -192,7 +195,11 @@ This is an example of a response payload.
   "Outputs": {
     "res": {
       "body": "Message enqueued"
-    }
+    },
+    "myQueueOutput": [
+      "queue message 1",
+      "queue message 2"
+    ]
   },
   "Logs": [
     "Log message 1",
@@ -223,7 +230,6 @@ In a folder named *order*, the *function.json* file configures the HTTP-triggere
   "bindings": [
     {
       "type": "httpTrigger",
-      "authLevel": "anonymous",
       "direction": "in",
       "name": "req",
       "methods": ["post"]
@@ -246,14 +252,14 @@ In a folder named *order*, the *function.json* file configures the HTTP-triggere
 
 This function is defined as an [HTTP triggered function](./functions-bindings-http-webhook-trigger.md) that returns an [HTTP response](./functions-bindings-http-webhook-output.md) and outputs a [Queue storage](./functions-bindings-storage-queue-output.md) message.
 
-At the root of the app, the *host.json* file is configured to run an executable file named `server.exe` (`server` in Linux or macOS).
+At the root of the app, the *host.json* file is configured to run an executable file named `handler.exe` (`handler` in Linux or macOS).
 
 ```json
 {
   "version": "2.0",
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "server.exe"
+      "defaultExecutablePath": "handler.exe"
     }
   },
   "extensionBundle": {
@@ -305,7 +311,7 @@ Content-Type: application/json
 > [!NOTE]
 > Some portions of the payload were removed for brevity.
 
-*server.exe* is the compiled Go custom handler program that runs a web server and responds to function invocation requests from the Functions host.
+*handler.exe* is the compiled Go custom handler program that runs a web server and responds to function invocation requests from the Functions host.
 
 ```go
 package main
@@ -429,14 +435,14 @@ In a folder named *hello*, the *function.json* file configures the HTTP-triggere
 
 The function is configured to accept both `GET` and `POST` requests and the result value is provided via an argument named `res`.
 
-At the root of the app, the *host.json* file is configured to run `server.exe` and `enableForwardingHttpRequest` is set to `true`.
+At the root of the app, the *host.json* file is configured to run `handler.exe` and `enableForwardingHttpRequest` is set to `true`.
 
 ```json
 {
   "version": "2.0",
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "server.exe"
+      "defaultExecutablePath": "handler.exe"
     },
     "enableForwardingHttpRequest": true
   }
@@ -460,7 +466,7 @@ Content-Type: application/json
 }
 ```
 
-The file *server.go* file implements a web server and HTTP function.
+The file *handler.go* file implements a web server and HTTP function.
 
 ```go
 package main
@@ -513,10 +519,8 @@ When creating a function app in Azure for custom handlers, we recommend you sele
 To deploy a custom handler app using Azure Functions Core Tools, run the following command.
 
 ```bash
-func azure functionapp publish $functionAppName --no-build --force
+func azure functionapp publish $functionAppName
 ```
-
-This command currently configures `FUNCTIONS_WORKER_RUNTIME` to `None`. This is valid. In the future, the command will be updated to set it to the correct value of `Custom`.
 
 > [!NOTE]
 > Ensure all files required to run your custom handler are in the folder and included in the deployment. If your custom handler is a binary executable or has platform-specific dependencies, ensure these files match the target deployment platform.
@@ -542,7 +546,7 @@ To change the function app's default log level, configure the `logLevel` setting
   "version": "2.0",
   "customHandler": {
     "description": {
-      "defaultExecutablePath": "server.exe"
+      "defaultExecutablePath": "handler.exe"
     }
   },
   "logging": {
