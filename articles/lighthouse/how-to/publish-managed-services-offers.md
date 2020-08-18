@@ -29,7 +29,7 @@ The following table can help determine whether to onboard customers by publishin
 |Can limit offer to specific customers     |Yes (only with private offers, which can't be used with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program)         |Yes         |
 |Requires customer acceptance in Azure portal     |Yes     |No   |
 |Can use automation to onboard multiple subscriptions, resource groups, or customers |No     |Yes    |
-|Immediate access to new built-in roles and Azure Lighthouse features     |Not alwys (generally available after some delay)         |Yes         |
+|Immediate access to new built-in roles and Azure Lighthouse features     |Not always (generally available after some delay)         |Yes         |
 
 ## Create your offer
 
