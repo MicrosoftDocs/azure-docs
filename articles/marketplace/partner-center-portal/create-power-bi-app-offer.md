@@ -215,6 +215,8 @@ Both logos are required and are used in different places in the marketplace list
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 #### Screenshots
 
 Add at least one and up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in PNG format.

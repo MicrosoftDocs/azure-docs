@@ -134,13 +134,15 @@ In this section, you can provide logos and images that will be used when showing
 
 Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Large** (between 216 x 216 and 350 x 350 px)
+- **Large** (from 216 x 216 to 350 x 350 px)
 - **Medium** (90 x 90 px)
 - **Small** (48 x 48 px)
 
 All three logos are required for use in different places in the listing:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 

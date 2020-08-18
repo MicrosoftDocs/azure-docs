@@ -290,6 +290,8 @@ This field is required.
    -   The medium logo appears when you create a new resource in Microsoft Azure.
    -   The small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
 
+    [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
+
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
 

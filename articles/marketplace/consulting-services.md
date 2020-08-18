@@ -86,7 +86,7 @@ Before you register, you can start collecting and preparing the content that wil
 |Setup for new publishers  |
 | - |
 | MPN ID |
-| Company logos: 48 x 48 pixels (optional), 216 x 216 pixels to 350 x 350 pixels (required) |
+| Company logos: 48 x 48 pixels (optional); from 216 x 216 pixels to 350 x 350 pixels (required) |
 | Lead destination |
 |
 

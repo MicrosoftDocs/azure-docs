@@ -190,12 +190,14 @@ In this section, you can provide logos and images that will be used when showing
 
 Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-- **Large** (between 216 x 216 and 350 x 350 px)
+- **Large** (from 216 x 216 to 350 x 350 px)
 - **Small** (48 x 48 px)
 
 Both logo sizes are required for use in different places in the listing:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
