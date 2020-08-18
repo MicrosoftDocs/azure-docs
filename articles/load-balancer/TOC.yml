@@ -1,4 +1,4 @@
-- name: Load Balancer Documentation
+- name: Load Balancer documentation
   href: index.yml
 - name: Overview
   items:
@@ -6,7 +6,7 @@
     href: load-balancer-overview.md
   - name: What's new?
     href: whats-new.md
-- name: Quickstart
+- name: Quickstarts
   items:
   - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
@@ -128,14 +128,14 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: Outbound-only load balancer configuration
     href: egress-only.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot Azure Load Balancer
-    href: load-balancer-troubleshoot.md
-  - name: Troubleshoot common deployment errors
-    href: load-balancer-common-deployment-errors.md
-  - name: Resolve common outbound connection issues
-    href: troubleshoot-outbound-connection.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot Azure Load Balancer
+      href: load-balancer-troubleshoot.md
+    - name: Troubleshoot common deployment errors
+      href: load-balancer-common-deployment-errors.md
+    - name: Resolve common outbound connection issues
+      href: troubleshoot-outbound-connection.md
 - name: Reference
   items:
   - name: Code samples
