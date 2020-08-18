@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 08/17/2020
 ---
 
-# Configure automatic shutdown of VMs on disconnect setting for a lab account
+# Configure automatic shutdown of VMs for a lab account
 
 You can enable or disable automatic shutdown of Windows lab VMs (template or student) after a remote desktop connection is disconnected. You can also specify how long Lab Services should wait for the user to reconnect before automatically shutting down.
 
