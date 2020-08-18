@@ -24,7 +24,7 @@ This article shows how to create a Media Services Asset to upload content to.
 
 ## Prerequisites
 
-[Create a Media Services account](./create-account-howto.md).
+Follow the steps in [Create a Media Services account](./create-account-howto.md) to create the needed Media Services account and resource group to create an asset.
 
 ## [CLI](#tab/cli/)
 
