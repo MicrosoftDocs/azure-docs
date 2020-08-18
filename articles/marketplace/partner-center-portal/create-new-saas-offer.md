@@ -274,10 +274,10 @@ This field is required.
   - **Engineering contact** (required) – For technical questions.
   - **Channel Manager contact** (required) – For reseller questions related to the CSP program.
 
-#### Files and Images
+#### Files and images
 
 - **Documents** (required) – Add related marketing documents for your offer, in PDF format, of at least one and up to three documents per offer.
-- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images. Adding a **Wide** logo is optional.
+- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images later. Adding a **Wide** logo is optional.
 
     Three logo sizes are required for use in different places in the listing; one is optional:
 

@@ -86,7 +86,7 @@ The listing page is where you provide the text and images that customers see whe
 | Useful links Title + URL  | Optional. |
 | Supporting Documents Title + File  | Required, min 1 and max 3. Must be PDF file format. |
 | Screenshots  | Required, min 1 screenshot and max 5; four or more recommended. Must be 1280 X 720 in PNG format. |
-| Store logos (Small, Medium, Large)  | The Large logo (216 x 216) is required. Partner Center will use this to create a Small (48 x 48 pixels) and a Medium (90 x 90 pixels) size logo. You can optionally replace these with different images. Logos must be in PNG format. |
+| Store logos (Small, Medium, Large)  | The Large logo (between 216 x 216 and 350 x 350 pixels) is required. Partner Center will use this to create a Small (48 x 48 pixels) and a Medium (90 x 90 pixels) size logo. You can optionally replace these with different images later. Logos must be in PNG format. |
 | Videos name + URL + thumbnail  | Optional, recommended, max 4 videos. Thumbnail must be 1280 x 720 in PNG format. Video must be hosted in YouTube or Vimeo. |
 | Contacts (CSP Program,  Engineering, Support)  | Engineering and Support contact required (Name, email, and phone number); CSP Program contact optional but recommended. |
 | Support URL  | Required. |

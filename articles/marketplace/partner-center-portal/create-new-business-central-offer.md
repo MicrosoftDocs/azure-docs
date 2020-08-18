@@ -177,7 +177,7 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 ### Store logos
 
-Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image.
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image later.
 
 Both logo sizes are required for use in different places in the listing:
 
