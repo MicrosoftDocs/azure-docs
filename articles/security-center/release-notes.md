@@ -34,6 +34,7 @@ Updates in August include:
 - [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 
 ### Asset inventory - powerful new view of the security posture of your assets
@@ -122,6 +123,17 @@ If you have scripts, queries, or automations referring to the previous recommend
 |[**Vulnerability assessment should be enabled on virtual machines**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Built-in + BYOL|
 ||||
 
+
+### New AKS security policies added to ASC_default initiative – for use by private preview customers only
+
+To ensure that newly-created Kubernetes workloads are secure by default, Security Center is adding Kubernetes level policy management, hardening, and enforcement with admission control.
+
+The early phase of this project includes a private preview and the addition of new (disabled) policies to the ASC_default initiative.
+
+You can safely ignore these policies and there will be no impact on your environment.If you'd like to enable them, please sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
+
+1. **Single Preview** – To join only this private preview. Explicitly mention “ASC Continuous Scan” as the preview you would like to join.
+1. **Ongoing Program** – To be added to this and future private previews. You will need to complete a profile and privacy agreement.
 
 
 ## July 2020
