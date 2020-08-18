@@ -49,7 +49,7 @@ using Azure.DigitalTwins.Core;
 To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library. Here are two that are commonly used (even together in the same application):
 
 * [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) is intended for interactive applications, and can be used to create an authenticated SDK client
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) works great in cases where you need managed identities (MSI), and is a good candidate for working with Azure Functions."
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) works great in cases where you need managed identities (MSI), and is a good candidate for working with Azure Functions
 
 ### InteractiveBrowserCredential method
 The [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method is intended for interactive applications and will bring up a web browser for authentication.
