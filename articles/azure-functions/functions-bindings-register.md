@@ -41,7 +41,7 @@ To add an extension bundle to your function app, add the `extensionBundle` secti
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-This table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
+The following table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
 
 | Bundle version | Version in host.json | Included extensions |
 | --- | --- | --- |

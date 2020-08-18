@@ -11,7 +11,7 @@ If you aren't able to use extension bundles, you can use Azure Functions Core To
 > [!IMPORTANT]
 > You can't explicitly install extensions in a function app that is using extension bundles. Remove the `extensionBundle` section in *host.json* before explicitly installing extensions.
 
-Some reasons you might need to install extensions manually:
+The following items describe some reasons you might need to install extensions manually:
 
 * You need to access a specific version of an extension not available in a bundle.
 * You need to access a custom extension not available in a bundle.
