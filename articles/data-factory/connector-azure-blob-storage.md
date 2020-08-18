@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
+ms.date: 08/18/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -421,7 +421,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 
 ### Blob storage as a sink type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy sink:
 
