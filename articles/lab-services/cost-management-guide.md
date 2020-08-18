@@ -74,7 +74,7 @@ These settings can be configured at both the lab account level and the lab level
 
 #### Details about auto-shutdown settings
 
-1. Automatically disconnect users from virtual machines that the OS deems idle (Windows-only).
+* Automatically disconnect users from virtual machines that the OS deems idle (Windows-only).
 
     > [!NOTE]
     > This setting is only available for Windows virtual machines.
@@ -102,7 +102,7 @@ These settings can be configured at both the lab account level and the lab level
     
     > [!div class="mx-imgBorder"]
     > ![Subscription cost analysis](./media/cost-management-guide/vm-idle-diagram.png)
-1. Automatically shut down virtual machines when users disconnect (Windows & Linux).
+* Automatically shut down virtual machines when users disconnect (Windows & Linux).
     
     This setting supports both Windows and Linux virtual machines. When this setting is on, automatic shutdown will occur when:
     
@@ -113,7 +113,7 @@ These settings can be configured at both the lab account level and the lab level
     > Only [specific distributions and versions of Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) are supported.
     
     You can specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 
-1. Automatically shut down virtual machines that are started but users don't connect.
+* Automatically shut down virtual machines that are started but users don't connect.
      
     Inside a lab, a user might start a virtual machine but never connect to it. For example:
     
