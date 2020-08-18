@@ -24,8 +24,8 @@ The following reference pages are available to describe the Azure App Configurat
 
 ## Protocol
 
-- [Authentication](./rest-api-authentication/index.md)
-- [Authorization](./rest-api-authorization/index.md)
+- [Authentication](./rest-api-authentication-index.md)
+- [Authorization](./rest-api-authorization-index.md)
 - [Consistency Model](./rest-api-consistency.md)
 - [Common Headers](./rest-api-headers.md)
 - [Throttling](./rest-api-throttling.md)
@@ -33,5 +33,5 @@ The following reference pages are available to describe the Azure App Configurat
 
 ## Development
 
-- [Fiddler](./docs/Development/fiddler.md)
-- [Postman](./docs/Development/postman.md)
+- [Fiddler](./rest-api-fiddler.md)
+- [Postman](./rest-api-postman.md)

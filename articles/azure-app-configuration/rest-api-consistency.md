@@ -11,11 +11,11 @@ ms.date: 08/17/2020
 
 # Real-time Consistency
 
-Due to the nature of some distributed systems, **real-time** consistency between requests can't (or it's very hard) to be enforced implicitly. A solution is to allow protocol support in the form of multiple  **Synchronization Tokens**. Synchronization tokens are optional.
+Due to the nature of some distributed systems, real-time consistency between requests is difficult to enforce implicitly. A solution is to allow protocol support in the form of multiple **synchronization tokens**. Synchronization tokens are optional.
 
 ## Initial request
 
-In order to guarantee **real-time** consistency between different client instances and requests, use optional ``Sync-Token`` request/response headers.
+In order to guarantee real-time consistency between different client instances and requests, use optional `Sync-Token` request/response headers.
 
 Syntax:
 
@@ -23,15 +23,15 @@ Syntax:
 Sync-Token: <id>=<value>;sn=<sn>
 ```
 
-|Parameter||
+|Parameter|Description|
 | -- | -- |
-| ```<id>``` | Token ID (opaque) |
-| ```<value>``` | Token value  (opaque). Allows base64 encoded string |
-| ```<sn>``` | Token sequence number (version). Higher means newer version of the same token. Allows for better concurrency and client caching. The client may choose to use only token's last version, since token versions are inclusive. Not required for requests. |
+| `<id>` | Token ID (opaque) |
+| `<value>` | Token value  (opaque). Allows base64 encoded string |
+| `<sn>` | Token sequence number (version). Higher means newer version of the same token. Allows for better concurrency and client caching. The client may choose to use only token's last version, since token versions are inclusive. Not required for requests. |
 
 ## Response
 
-The service provides a ``Sync-Token`` header with each response.
+The service provides a `Sync-Token` header with each response.
 
 ```http
 Sync-Token: jtqGc1I4=MDoyOA==;sn=28
@@ -39,13 +39,13 @@ Sync-Token: jtqGc1I4=MDoyOA==;sn=28
 
 ## Subsequent requests
 
-Any subsequent request is guaranteed **real-time** consistent response in relation to the provided ``Sync-Token``.
+Any subsequent request is guaranteed **real-time** consistent response in relation to the provided `Sync-Token`.
 
 ```http
 Sync-Token: <id>=<value>
 ```
 
-If the ``Sync-Token`` header is omitted from the request, then it's possible for the service to respond with cached data during a short period of time (up to a few seconds), before it settles internally. This may cause inconsistent reads if changes have occurred immediately before reading.
+If the `Sync-Token` header is omitted from the request, then it's possible for the service to respond with cached data during a short period of time (up to a few seconds), before it settles internally. This may cause inconsistent reads if changes have occurred immediately before reading.
 
 ## Mutiple sync-tokens
 

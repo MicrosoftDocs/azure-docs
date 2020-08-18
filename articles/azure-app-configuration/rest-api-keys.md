@@ -9,6 +9,7 @@ ms.date: 08/17/2020
 ---
 
 # Keys
+
 api-version: 1.0
 
 The following syntax represents a key resource:
@@ -25,7 +26,7 @@ Key resources support the following operation:
 
 - List
 
-For all operations ``name`` is an optional filter parameter. If omitted, it implies *any* key.
+For all operations `name` is an optional filter parameter. If omitted, it implies *any* key.
 
 ## Prerequisites
 
@@ -58,8 +59,7 @@ Content-Type: application/vnd.microsoft.appconfig.keyset+json; charset=utf-8"
 
 ## Pagination
 
-The result is paginated if the number of items returned exceeds the response limit. Follow the optional ``Link`` response headers and use ``rel="next"`` for navigation. 
-Alternatively the content provides a next link in the form of the ``@nextLink`` property. The next link contains ``api-version`` parameter.
+The result is paginated if the number of items returned exceeds the response limit. Follow the optional `Link` response headers and use `rel="next"` for navigation. Alternatively the content provides a next link in the form of the `@nextLink` property. The next link contains `api-version` parameter.
 
 ```http
 GET /keys?api-version={api-version} HTTP/1.1
@@ -92,17 +92,16 @@ GET /keys?name={key-name}&api-version={api-version}
 
 The following filters are supported:
 
-|Key Name||
+|Key Filter|Effect|
 |--|--|
-|```name``` is omitted or ```name=*```|Matches **any** key|
-|```name=abc```|Matches a key named  **abc**|
-|```name=abc*```|Matches key names that start with **abc**|
-|```name=abc,xyz```|Matches key names **abc** or **xyz** (limited to 5 CSV)|
+|`name` is omitted or `name=*`|Matches **any** key|
+|`name=abc`|Matches a key named  **abc**|
+|`name=abc*`|Matches key names that start with **abc**|
+|`name=abc,xyz`|Matches key names **abc** or **xyz** (limited to 5 CSV)|
 
-The following characters are reserved: ```*```, ```\```, ```,```
+The following characters are reserved: `*`, `\`, `,`
 
-If a reserved character is part of the value, then it must be escaped using ```\{Reserved Character}```. Non-reserved characters can also be escaped.
-
+If a reserved character is part of the value, then it must be escaped using `\{Reserved Character}`. Non-reserved characters can also be escaped.
 
 ## Filter validation
 
@@ -145,7 +144,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## Request specific fields
 
-Use the optional ``$select`` query string parameter and provide comma separated list of requested fields. If the ``$select`` parameter is omitted, the response contains the default set.
+Use the optional `$select` query string parameter and provide comma separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
 
 ```http
 GET /keys?$select=name&api-version={api-version} HTTP/1.1

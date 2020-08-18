@@ -159,14 +159,14 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 ### Supported filters
 
-|Key||
+|Key Filter|Effect|
 |--|--|
 |`key` is omitted or `key=*`|Matches **any** key|
 |`key=abc`|Matches a key named **abc**|
 |`key=abc*`|Matches keys names that start with **abc**|
 |`key=abc,xyz`|Matches keys names **abc** or **xyz** (limited to 5 CSV)|
 
-|Label||
+|Label Filter|Effect|
 |--|--|
 |`label` is omitted or `label=*`|Matches **any** label|
 |`label=%00`|Matches KV without label|

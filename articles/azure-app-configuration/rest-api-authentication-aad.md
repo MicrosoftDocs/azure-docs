@@ -10,11 +10,11 @@ ms.date: 08/17/2020
 
 # Azure Active Directory Authentication
 
-HTTP requests may be authenticated using the **Bearer** authentication scheme with a token acquired from Azure Active Directory (AAD). These requests must be transmitted over TLS. 
+HTTP requests may be authenticated using the **Bearer** authentication scheme with a token acquired from Azure Active Directory (AAD). These requests must be transmitted over TLS.
 
 ## Prerequisites
 
-The principal that will be used to request an AAD token must be assigned to one of the applicable [App Configuration roles](../authorization/aad.md)
+The principal that will be used to request an AAD token must be assigned to one of the applicable [App Configuration roles](./rest-api-authorization-aad.md)
 
 Provide each request with all HTTP headers required for Authentication. The minimum required are:
 

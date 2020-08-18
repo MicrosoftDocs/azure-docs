@@ -109,7 +109,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### Supported filters
 
-|Key||
+|Key Filter|Effect|
 |--|--|
 |`key` is omitted or `key=*`|Matches **any** key|
 |`key=abc`|Matches a key named  **abc**|
@@ -118,7 +118,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=*abc*`|Matches keys names that contain **abc**|
 |`key=abc,xyz`|Matche keys names **abc** or **xyz** (limited to 5 CSV)|
 
-|Label||
+|Label Filter|Effect|
 |--|--|
 |`label` is omitted or `label=`|Matches entry without label|
 |`label=*`|Matches **any** label|

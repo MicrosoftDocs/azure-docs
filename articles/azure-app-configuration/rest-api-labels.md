@@ -93,7 +93,7 @@ GET /labels?name={label-name}&api-version={api-version}
 
 ### Supported filters
 
-|Key Name||
+|Key Filter|Effect|
 |--|--|
 |`name` is omitted or `name=*`|Matches **any** label|
 |`name=abc`|Matches a label named  **abc**|
