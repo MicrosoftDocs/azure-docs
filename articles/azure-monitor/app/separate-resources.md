@@ -37,7 +37,7 @@ Each Application Insights resource comes with metrics that are available out-of-
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To make it easier to change the ikey as the code moves between stages of production, set it in code instead of in the configuration file.
+To make it easier to change the ikey as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded/static value.
 
 Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 

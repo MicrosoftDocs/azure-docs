@@ -64,13 +64,13 @@ In addition, there are a couple of things that you might need to do in some circ
     - A backup policy specifies when backups are taken, and how long they're stored.
     - The details of the default policy are listed under the drop-down menu.
 
-    ![Open Scenario blade](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![Choose backup policy](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 1. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Under **Virtual Machines**, select **Add**.
 
-    ![Open Scenario blade](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+    ![Add virtual machines](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
 1. Choose the encrypted VMs you want to back up using the select policy, and select **OK**.
 
