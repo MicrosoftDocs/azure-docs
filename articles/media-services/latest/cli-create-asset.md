@@ -22,9 +22,15 @@ ms.custom: devx-track-azurecli
 
 The Azure CLI script in this article shows how to create a Media Services Asset to upload content to.
 
-## Prerequisites 
+## Prerequisites
 
 [Create a Media Services account](./create-account-howto.md).
+
+## [CLI](#tab/cli/)
+
+[!INCLUDE [Create an asset with CLI](./includes/create-asset-cli.md)]
+
+## [CLI Shell](#tab/clishell/)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
