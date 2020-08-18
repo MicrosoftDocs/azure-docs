@@ -413,7 +413,7 @@ If your organization doesn't permit connecting to specific resources by using th
 
 ## Get ready for deployment
 
-Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To find these connection resources without opening your logic app, review the resource group for your logic app by using the Azure portal. You can either review the connection resource definitions in the Azure portal or download your logic app into Visual Studio, which is the easiest way to create a valid parameterized Azure Resource Manager template.
+Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, you can either [inspect the resource group for your logic app by using the Azure portal](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#view-resource-definitions) or [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ## Next steps
 
