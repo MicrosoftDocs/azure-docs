@@ -55,7 +55,7 @@ Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://d
 
 - If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 
-- If you ware using AD free edition, enable **security defaults** in Azure Active Directory as described in the [AD documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+- If you're using AD free edition, enable **security defaults** in Azure Active Directory as described in the [AD documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
 
 ## Next steps
