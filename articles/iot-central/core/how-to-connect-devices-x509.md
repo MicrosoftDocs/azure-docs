@@ -100,11 +100,6 @@ You can now connect devices that have an X.509 certificate derived from this pri
 
 2. Copy the _mytestdevice_key.pem_ and _mytestdevice_cert.pem_ to the folder where you created the environmentalSensor.js application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
 
-    ```cmd/sh
-    copy .\mytestdevice_cert.pem ..\environmental-sensor\mytestdevice_cert.pem
-    copy .\mytestdevice_key.pem ..\environmental-sensor\mytestdevice_key.pem
-    ```
-
 3. Navigate to folder that contains the environmentalSensor.js application and run the following command to install the X.509 package:
 
     ```cmd/sh
@@ -113,8 +108,7 @@ You can now connect devices that have an X.509 certificate derived from this pri
 
 4. Edit the **environmentalSensor.js** file.
     - Replace **_ID Scope_** with the `id scope` noted above. 
-    - Replace **_Device ID_** with the `device id` noted in **Step 1** above.
-
+    - Replace **_Device ID_** with `mytestdevice`.
 
 5. Edit the `require` statements as follows:
 
@@ -133,8 +127,6 @@ You can now connect devices that have an X.509 certificate derived from this pri
 
     ```javascript
     var provisioningHost = 'global.azure-devices-provisioning.net';
-    var idScope = 'Your Scope ID';
-    var registrationId = 'mytestdevice';
     var deviceCert = {
       cert: fs.readFileSync('mytestdevice_cert.pem').toString(),
       key: fs.readFileSync('mytestdevice_key.pem').toString()
@@ -158,8 +150,9 @@ You can now connect devices that have an X.509 certificate derived from this pri
     node environmentalSensor.js
     ```   
 
-You can also verify that telemetry appears on the dashboard.
+    You can also verify that telemetry appears on the dashboard.
 
+    ![Telemetry](./media/how-to-connect-devices-x509/telemetry.png)
 
 ## Generate self-signed device key
 
@@ -170,13 +163,13 @@ Create a self-signed X.509 device certificate and then derive an intermediate de
 
   ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
-    node create_test_cert.js device mytestprimarycert
-    node create_test_cert.js device mytestsecondarycert mytestprimarycert
+    node create_test_cert.js device mytestselfcertprimary
+    node create_test_cert.js device mytestselfcertsecondary mytestselfcertprimary
   ```
 
 ## Create individual enrollment
 
-1. In the Azure IoT Central application, Click **Devices**, and create a new device with **Device ID** as _mytestprimarycert_ from the Environmental Sensor device template. 
+1. In the Azure IoT Central application, Click **Devices**, and create a new device with **Device ID** as _mytestselfcertprimary_ from the Environmental Sensor device template. 
 
 2. Open the device you created and select **Connect**
 
@@ -185,11 +178,38 @@ Create a self-signed X.509 device certificate and then derive an intermediate de
     ![Individual enrollment](./media/how-to-connect-devices-x509/individual-device-connect.png)
 
 
-4. Select **file** option under primary and upload the certificate file called mytestprimarycert_cert.pem that you generated previously. 
+4. Select **file** option under primary and upload the certificate file called mytestselfcertprimary_cert.pem that you generated previously. 
 
-5. Upload _mytestsecondarycert_cert.pem_ file under Secondary and click **Save**.
+5. Upload _mytestselfcertsecondary_cert.pem_ file under Secondary and click **Save**.
 
     ![Individual enrollment Certificate Upload](./media/how-to-connect-devices-x509/individual-enrollment.png)
 
 The device is now provisioned with X.509 certificate.
 
+
+
+## Simulate the Device for individual enrollment
+
+1. In the Azure IoT Central application, Click **Devices**, and create a new device with _mytestselfcertprimary_ as the **Device ID** from the Environmental Sensor device template. Note down the **ID Scope**
+
+
+2. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ to the folder where you created the environmentalSensor.js application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
+
+
+4. Edit the **environmentalSensor.js** file as follows and save it.
+    - Replace **_ID Scope_** with the `id scope` noted above. 
+    - Replace **_Device ID_** with `mytestselfcertprimary`.
+    - Replace **var deviceCert** as:
+    ```cmd\sh
+    var deviceCert = {
+    cert: fs.readFileSync('mytestselfcertprimary_cert.pem').toString(),
+    key: fs.readFileSync('mytestselfcertprimary_key.pem').toString()
+    };
+    ```
+5. Execute the script and verify the device was provisioned successfully.
+
+    ```cmd/sh
+    node environmentalSensor.js
+    ```   
+
+You can repeat the above steps for _mytestselfcertsecondary_ certificate as well.
