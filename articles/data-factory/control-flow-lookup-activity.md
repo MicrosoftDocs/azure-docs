@@ -10,10 +10,11 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 08/17/2020
 ---
 
 # Lookup activity in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. Use it in the following scenario:
@@ -31,18 +32,17 @@ The following data sources are supported for Lookup activity. The largest number
 
 ```json
 {
-    "name": "LookupActivity",
-    "type": "Lookup",
-    "typeProperties": {
-        "source": {
-            "type": "<source type>"
-            <additional source specific properties (optional)>
+    "name":"LookupActivity",
+    "type":"Lookup",
+    "typeProperties":{
+        "source":{
+            "type":"<source type>"
         },
-        "dataset": { 
-            "referenceName": "<source dataset name>",
-            "type": "DatasetReference"
+        "dataset":{
+            "referenceName":"<source dataset name>",
+            "type":"DatasetReference"
         },
-        "firstRowOnly": false
+        "firstRowOnly":<true or false>
     }
 }
 ```
@@ -108,79 +108,138 @@ This pipeline contains two activities: Lookup and Copy.
 
 ```json
 {
-    "name": "LookupPipelineDemo",
-    "properties": {
-        "activities": [
+    "name":"LookupPipelineDemo",
+    "properties":{
+        "activities":[
             {
-                "name": "LookupActivity",
-                "type": "Lookup",
-                "typeProperties": {
-                    "source": {
-                        "type": "BlobSource"
+                "name":"LookupActivity",
+                "type":"Lookup",
+                "dependsOn":[
+
+                ],
+                "policy":{
+                    "timeout":"7.00:00:00",
+                    "retry":0,
+                    "retryIntervalInSeconds":30,
+                    "secureOutput":false,
+                    "secureInput":false
+                },
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "source":{
+                        "type":"JsonSource",
+                        "storeSettings":{
+                            "type":"AzureBlobStorageReadSettings",
+                            "recursive":true
+                        },
+                        "formatSettings":{
+                            "type":"JsonReadSettings"
+                        }
                     },
-                    "dataset": { 
-                        "referenceName": "LookupDataset", 
-                        "type": "DatasetReference" 
-                    }
+                    "dataset":{
+                        "referenceName":"LookupDataset",
+                        "type":"DatasetReference"
+                    },
+                    "firstRowOnly":false
                 }
             },
             {
-                "name": "CopyActivity",
-                "type": "Copy",
-                "typeProperties": {
-                    "source": { 
-                        "type": "SqlSource", 
-                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.firstRow.tableName}" 
-                    },
-                    "sink": { 
-                        "type": "BlobSink" 
+                "name":"CopyActivity",
+                "type":"Copy",
+                "dependsOn":[
+                    {
+                        "activity":"LookupActivity",
+                        "dependencyConditions":[
+                            "Succeeded"
+                        ]
                     }
-                },                
-                "dependsOn": [ 
-                    { 
-                        "activity": "LookupActivity", 
-                        "dependencyConditions": [ "Succeeded" ] 
-                    }
-                 ],
-                "inputs": [ 
-                    { 
-                        "referenceName": "SourceDataset", 
-                        "type": "DatasetReference" 
-                    } 
                 ],
-                "outputs": [ 
-                    { 
-                        "referenceName": "SinkDataset", 
-                        "type": "DatasetReference" 
-                    } 
+                "policy":{
+                    "timeout":"7.00:00:00",
+                    "retry":0,
+                    "retryIntervalInSeconds":30,
+                    "secureOutput":false,
+                    "secureInput":false
+                },
+                "userProperties":[
+
+                ],
+                "typeProperties":{
+                    "source":{
+                        "type":"AzureSqlSource",
+                        "sqlReaderQuery":{
+                            "value":"select * from @{activity('LookupActivity').output.firstRow.tableName}",
+                            "type":"Expression"
+                        },
+                        "queryTimeout":"02:00:00",
+                        "partitionOption":"None"
+                    },
+                    "sink":{
+                        "type":"DelimitedTextSink",
+                        "storeSettings":{
+                            "type":"AzureBlobStorageWriteSettings"
+                        },
+                        "formatSettings":{
+                            "type":"DelimitedTextWriteSettings",
+                            "quoteAllText":true,
+                            "fileExtension":".txt"
+                        }
+                    },
+                    "enableStaging":false,
+                    "translator":{
+                        "type":"TabularTranslator",
+                        "typeConversion":true,
+                        "typeConversionSettings":{
+                            "allowDataTruncation":true,
+                            "treatBooleanAsNumber":false
+                        }
+                    }
+                },
+                "inputs":[
+                    {
+                        "referenceName":"SourceDataset",
+                        "type":"DatasetReference"
+                    }
+                ],
+                "outputs":[
+                    {
+                        "referenceName":"SinkDataset",
+                        "type":"DatasetReference"
+                    }
                 ]
             }
-        ]
-	}
+        ],
+        "annotations":[
+
+        ],
+        "lastPublishTime":"2020-08-17T02:33:35Z"
+    }
 }
 ```
 
 ### Lookup dataset
-The **lookup** dataset is the **sourcetable.json** file in the Azure Storage lookup folder specified by the **AzureStorageLinkedService** type. 
+The **lookup** dataset is the **sourcetable.json** file in the Azure Storage lookup folder specified by the **AzureBlobStorageLinkedService** type. 
 
 ```json
 {
-	"name": "LookupDataset",
-	"properties": {
-		"type": "AzureBlob",
-		"typeProperties": {
-			"folderPath": "lookup",
-			"fileName": "sourcetable.json",
-			"format": {
-				"type": "JsonFormat",
-				"filePattern": "SetOfObjects"
-			}
-		},
-		"linkedServiceName": {
-			"referenceName": "AzureStorageLinkedService",
-			"type": "LinkedServiceReference"
-		}
-	}
+    "name": "LookupDataset",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureBlobStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Json",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": "sourcetable.json",
+                "container": "lookup"
+            }
+        }
+    }
 }
 ```
 
@@ -190,74 +249,55 @@ The **source** dataset uses the output of the Lookup activity, which is the name
 ```json
 {
     "name": "SourceDataset",
-	"properties": {
-		"type": "AzureSqlTable",
-		"typeProperties":{
-			"tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
-		},
-		"linkedServiceName": {
-			"referenceName": "AzureSqlLinkedService",
-			"type": "LinkedServiceReference"
-		}
-	}
-}
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureSqlDatabase",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [],
+        "typeProperties": {
+            "table": {
+                "value": "@('LookupActivity').output.firstRow.tableName",
+                "type": "Expression"
+            }
+        }
+    }
 ```
 
 ### **Sink** dataset for Copy Activity
-Copy Activity copies data from the SQL table to the **filebylookup.csv** file in the **csv** folder in Azure Storage. The file is specified by the **AzureStorageLinkedService** property. 
+Copy Activity copies data from the SQL table to the **filebylookup.csv** file in the **csv** folder in Azure Storage. The file is specified by the **AzureBlobStorageLinkedService** property. 
 
 ```json
 {
-	"name": "SinkDataset",
-	"properties": {
-		"type": "AzureBlob",
-		"typeProperties": {
-			"folderPath": "csv",
-			"fileName": "filebylookup.csv",
-			"format": {
-				"type": "TextFormat"                                                                    
-			}
-		},
-		"linkedServiceName": {
-			"referenceName": "AzureStorageLinkedService",
-			"type": "LinkedServiceReference"
-		}
-	}
-}
-```
-
-### Azure Storage linked service
-This storage account contains the JSON file with the names of the SQL tables. 
-
-```json
-{
+    "name": "SinkDataset",
     "properties": {
-        "type": "AzureStorage",
+        "linkedServiceName": {
+            "referenceName": "AzureBlobStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
         "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
-        }
-    },
-        "name": "AzureStorageLinkedService"
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": "filebylookup.csv",
+                "container": "csv"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "quoteChar": "\""
+        },
+        "schema": []
+    }
 }
 ```
 
-### Azure SQL Database linked service
-This Azure SQL Database instance contains the data to be copied to Blob storage. 
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-		"typeProperties": {
-			"connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
-		}
-	}
-}
-```
 
 ### sourcetable.json
+
+You can use following format for **sourcetable.json**.
 
 #### Set of objects
 
