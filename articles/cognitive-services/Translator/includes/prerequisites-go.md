@@ -11,4 +11,4 @@ ms.author: erhopf
 This quickstart requires:
 
 * [Go](https://golang.org/doc/install)
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)

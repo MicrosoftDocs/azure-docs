@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x

@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
 ---
@@ -57,8 +57,11 @@ Good news again! Azure Key Vaults will also take care of auto-renewal of self-si
 If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the Certificate Operation to view the error message for that certificate.
 
 ### Frequently asked questions
-Will the tags be replicated after auto-renewal of the certificate?
-No, tags would not replicate unless the user manually copies the tags themselves.
+* How can I test the autorotation feature of the certificate?
+  Create a certificate with validity of 1 month and then set the life-time action for rotation at 1%. This setting will rotate the certificate in 7.2 hours.
+  
+* Will the tags be replicated after auto-renewal of the certificate?
+  Yes, the tags would be replicated after auto-renewal.
 
 ### See Also
 *	[Integrating Key Vault with DigiCert Certificate Authority](how-to-integrate-certificate-authority.md)

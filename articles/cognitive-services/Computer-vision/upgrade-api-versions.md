@@ -1,7 +1,7 @@
 ---
 title: Upgrade to v3.0 of the Computer Vision API
 titleSuffix: Azure Cognitive Services
-description: Learn how to upgrade from v2.0 and v2.1 to v3.0 of the Computer Vision API.
+description: Learn how to upgrade to Computer Vision v3.0 Read API from v2.0/v2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -15,9 +15,9 @@ ROBOTS: NOINDEX
 ---
 
 
-# Upgrade to v3.0 of Computer Vision API from v2.0 and v2.1
+# Upgrade to Computer Vision v3.0 Read API from v2.0/v2.1
 
-This guide shows how to modify your existing code to migrate from v2.0 or v2.1 of Computer Vision API to v3.0 for users of the REST API. 
+This guide shows how to upgrade your existing Computer Vision v2.0 or v2.1 REST API code to v3.0 Read operations. 
 
 ## Upgrade `Batch Read File` to `Read`
 

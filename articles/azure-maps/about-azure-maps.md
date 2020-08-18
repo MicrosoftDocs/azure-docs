@@ -72,7 +72,7 @@ To learn more about the service, see the [Mobility service documentation](https:
 
 ### Render service
 
-The [Render service V2](https://docs.microsoft.com/est/api/maps/renderv2) that is now in Preview introduces a new version of the [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
+The [Render service V2](https://docs.microsoft.com/rest/api/maps/renderv2) that is now in Preview introduces a new version of the [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
 
