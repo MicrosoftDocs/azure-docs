@@ -120,8 +120,6 @@
     items:
     - name: Overview
       href: platform/data-platform.md
-    - name: Data locations
-      href: platform/data-locations.md
     - name: Metrics
       href: platform/data-platform-metrics.md
     - name: Logs
@@ -210,45 +208,39 @@
       href: platform/diagnostic-settings.md
   - name: Log Analytics
     items:
+    - name: Overview
+      displayname: Log Analytics workspace, log query, log queries, query, queries
+      href: log-query/log-analytics-overview.md
+    - name: Simple logs experience
+      href: log-query/simple-logs.md
+    - name: Tutorial
+      displayname: Log Analytics workspace, log query, log queries, query, queries
+      href: log-query/get-started-portal.md
     - name: Workspaces
       items:
-      - name: Design a workspace deployment
-        href: platform/design-logs-deployment.md
       - name: Create a workspace
         items:
-        - name: Use Azure portal
+        - name: Azure portal
           href: learn/quick-create-workspace.md 
-        - name: Use Azure CLI
+        - name: Azure CLI
           href: learn/quick-create-workspace-cli.md
-        - name: Use PowerShell
+        - name: PowerShell
           href: platform/powershell-workspace-configuration.md
-        - name: Use Resource Manager template
+        - name: Resource Manager template
           href: platform/template-workspace-configuration.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
+      - name: Design a workspace deployment
+        href: platform/design-logs-deployment.md
+      - name: Manage access
+        displayName: Log Analytics workspace
+        href: platform/manage-access.md
       - name: Move a workspace
         href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
-      - name: Manage access
-        href: platform/manage-access.md
-    - name: Log query overview
-      displayname: log query, log queries, query, queries
-      href: log-query/log-query-overview.md
-    - name: Simple logs experience
-      href: log-query/simple-logs.md
-    - name: Tutorials
-      items:
-      - name: Log Analytics tutorial
-        href: log-query/get-started-portal.md
-      - name: Log queries tutorial
-        href: log-query/get-started-queries.md
     - name: Log data
       items:
-      - name: Log data structure
-        href: log-query/logs-structure.md
-      - name: Query scope
-        href: log-query/scope.md
       - name: Standard properties
         href: platform/log-standard-properties.md
       - name: Computer groups
@@ -259,8 +251,6 @@
         href: log-query/query-language.md
       - name: Language differences
         href: log-query/data-explorer-difference.md
-      - name: Useful operators
-        href: log-query/useful-operators.md
       - name: Functions
         href: log-query/functions.md
       - name: Transition from log search
@@ -285,22 +275,10 @@
           href: log-query/charts.md
         - name: Search queries
           href: log-query/search-queries.md
-      - name: Cheatsheets
-        items:
-        - name: SQL
-          href: log-query/sql-cheatsheet.md
-        - name: Splunk
-          href: log-query/splunk-cheatsheet.md
     - name: Cross resource
       items:
       - name: Cross-resource queries
         href: log-query/cross-workspace-query.md
-      - name: app expression
-        href: log-query/app-expression.md
-      - name: workspace expression
-        href: log-query/workspace-expression.md   
-      - name: resource expression
-        href: log-query/resource-expression.md   
       - name: Unify application data resources
         href: log-query/unify-app-resource-data.md
     - name: Examples and guidance
