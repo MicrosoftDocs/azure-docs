@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 08/18/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 
@@ -26,7 +26,7 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 * [Connect a VNet to a hub](virtual-wan-site-to-site-portal.md#hub)
 
-## <a name="endpoint"></a>Create Private Link Endpoint
+## <a name="endpoint"></a>Create a private link endpoint
 
 You can create a private link endpoint for many different services. In this example, we will use Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
 
@@ -40,7 +40,7 @@ Clicking on the private endpoint we have created, you should see its private IP 
 
 :::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL endpoint" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
-## <a name="connectivity"></a>Verify connectivity from the same virtual network
+## <a name="connectivity"></a>Verify connectivity from the same VNet
 
 In this example, we will verify connectivity to the Azure SQL Database from an Ubuntu virtual machine with MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
 
@@ -72,7 +72,7 @@ As you can see, we are using a special SQL query that gives us the source IP add
 
 Note that you need to set the variables `username` and `password` to match the credentials defined in the Azure SQL Database to make the examples in this guide work.
 
-## <a name="vnet"></a>Connect from a different virtual network across Virtual WAN
+## <a name="vnet"></a>Connect from a different VNet
 
 Now that one VNet in Azure Virtual WAN has connectivity to the private endpoint, all of the other VNets and branches connected to Virtual WAN can have access to it as well. You need to provide connectivity through any of the models supported by Azure Virtual WAN, such as the [Any-to-any scenario](scenario-any-to-any.md) or the [Shared Services VNet scenario](scenario-shared-services-vnet.md), to name two examples.
 
