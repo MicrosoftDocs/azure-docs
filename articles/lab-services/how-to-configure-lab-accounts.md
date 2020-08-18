@@ -7,7 +7,11 @@ ms.date: 08/17/2020
 
 # Configure automatic shutdown of VMs for a lab account
 
-You can enable or disable automatic shutdown of Windows lab VMs (template or student) after a remote desktop connection is disconnected. You can also specify how long Lab Services should wait for the user to reconnect before automatically shutting down.
+You can enable several auto-shutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
+ 
+1. Automatically disconnect users from virtual machines that the OS deems idle (Windows-only).
+1. Automatically shut down virtual machines when users disconnect (Windows & Linux).
+1. Automatically shut down virtual machines that are started but users don't connect.
 
 Review details about the automatic shutdown in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) section.
 
