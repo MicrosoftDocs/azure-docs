@@ -711,7 +711,7 @@ namespace that hosts the Hybrid Connection, typically of the form
 
 The request can contain arbitrary extra HTTP headers, including
 application-defined ones. All supplied headers, except those directly defined
-in RFC7230 (see [request message](#Request message)) flow to the listener and
+in RFC7230 (see [Request message](#request-message)) flow to the listener and
 can be found on the `requestHeader` object of the **request** message.
 
 The query string parameter options are as follows:
