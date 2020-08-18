@@ -292,7 +292,7 @@
   - name: Azure Monitor for SAP Solutions Providers
     href: azure-monitor-providers.md
   - name: Configure Azure Monitor for SAP Solutions
-    href: sap-azure-monitor.md
+    href: ams-quickstart.md
   - name: Azure Monitor for SAP Solutions FAQ
     href: azure-monitor-faq.md
 - name: Reference
