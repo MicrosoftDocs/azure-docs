@@ -41,7 +41,7 @@ The Azure Linux Agent is already pre-installed on the Azure Marketplace images a
 
 ## Image update cadence
 
-Azure requires that the publishers of the endorsed Linux distributions regularly update their images in the Azure Marketplace with the latest patches and security fixes, at a quarterly or faster cadence. Updated images in the Azure Marketplace are available automatically to customers as new versions of an image SKU. More information about how to find Linux images: [Find Linux VM images in the Azure Marketplace](./cli-ps-findimage.md).
+Azure requires that the publishers of the endorsed Linux distributions regularly update their images in the Azure Marketplace with the latest patches and security fixes, at a quarterly or faster cadence. Updated images in the Marketplace are available automatically to customers as new versions of an image SKU. More information about how to find Linux images: [Find Linux VM images in the Azure Marketplace](./cli-ps-findimage.md).
 
 ## Azure-tuned kernels
 
@@ -68,12 +68,12 @@ Microsoft has two (2) channels of migration for CoreOS users.
 
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
-Credativ is an independent consulting and services company that specializes in the development and implementation of professional solutions by using free software. As leading open-source specialists, Credativ has international recognition with many IT departments that use their support. In conjunction with Microsoft, Credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy). Both images are specially designed to run on Azure and can be easily managed via the platform. Credativ will also support the long-term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
+Credativ is an independent consulting and services company that specializes in the development and implementation of professional solutions by using free software. As leading open-source specialists, Credativ has international recognition with many IT departments that use their support. In conjunction with Microsoft, Credativ is currently preparing corresponding Debian images for Debian 8 (Jessie) and Debian before 7 (Wheezy). Both images are specially designed to run on Azure and can be easily managed via the platform. Credativ will also support the long term maintenance and updating of the Debian images for Azure through its Open Source Support Centers.
 
 ### Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
 
-Kinvolk is the company behind Flatcar Container Linux, continuing the original CoreOS vision for a minimal, immutable and auto-updating foundation for containerized applications. As a minimal distro, Flatcar contains just those packages required for deploying containers. Its immutable file system guarantees consistency and security, while its auto-update capabilities, enable you to be always up-to-date with the latest security fixes. 
+Kinvolk is the company behind Flatcar Container Linux, continuing the original CoreOS vision for a minimal, immutable, and auto-updating foundation for containerized applications. As a minimal distro, Flatcar contains just those packages required for deploying containers. Its immutable file system guarantees consistency and security, while its auto-update capabilities, enable you to be always up to date with the latest security fixes. 
 
 Flatcar Container Linux is backed up by Kinvolk's global team of Linux and container technology experts who offer an optional commercial support subscription that includes 24x7 response, security and technical alerts, and exclusive Azure-optimized images including a Long Term Support channel.
 
