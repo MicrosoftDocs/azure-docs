@@ -57,7 +57,7 @@ A. Data Box is supports data ingestion only within the same commerce boundary. I
 
 1. Order Data Box in Canada by choosing a storage account in Cananda. The device would be shipped to a location in Canada.
 
-2. Once the Data Box is filled in Canada, these would need to be returned to the Canada DC for upload into a Canada Storage Account.
+2. Once data copy is done, return the device to the source Azure datacenter in Canada. The data gets uploaded to the destination storage account in the Canada Azure region chosen while ordering the Data Box.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This would incur additional bandwidth charges.
 
