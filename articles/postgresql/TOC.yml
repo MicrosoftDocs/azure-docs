@@ -38,7 +38,7 @@
         href: connect-go.md
   - name: Hyperscale (Citus)
     items:
-    - name: Create DB - Portal
+    - name: Create server group - Portal
       href: quickstart-create-hyperscale-portal.md
 - name: Tutorials
   items:
