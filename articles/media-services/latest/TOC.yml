@@ -246,7 +246,7 @@
   - name: Create and manage assets
     items:
     - name: Create an asset
-      href: cli-create-asset.md
+      href: how-to-create-asset.md
     - name: Manage assets
       href: manage-asset-concept.md  
       displayName: name, naming, file name, upload, output, download
