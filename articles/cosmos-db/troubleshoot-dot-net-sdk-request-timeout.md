@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Cosmos DB HTTP 408 or Request timeout issues with the .NET SDK
-description: Diagnose and fix .NET SDK request timeout exceptions.
+title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with the .NET SDK
+description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.date: 08/06/2020
@@ -10,7 +10,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB .NET SDK request timeout
-The HTTP 408 error occurs if the SDK wasn't able to complete the request before the timeout limit occurs.
+The HTTP 408 error occurs if the SDK was unable to complete the request before the timeout limit occurred.
 
 ## Customize the timeout on the Azure Cosmos DB .NET SDK
 
@@ -18,20 +18,20 @@ The SDK has two distinct alternatives to control timeouts, each with a different
 
 ### RequestTimeout
 
-The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK v2) configuration allows you to set a timeout that affects each individual network request. An operation started by a user can span multiple network requests (for example, there could be throttling). This configuration would apply for each network request on the retry. This isn't an end-to-end operation request timeout.
+The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK v2) configuration allows you to set a timeout that affects each individual network request. An operation started by a user can span multiple network requests (for example, there could be throttling). This configuration would apply for each network request on the retry. This timeout isn't an end-to-end operation request timeout.
 
 ### CancellationToken
 
-All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests. In between network requests, the CancellationToken might be checked and an operation canceled if the related token is expired. CancellationToken should be used to define an approximate expected timeout on the operation scope.
+All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests. In between network requests, the cancellation token might be checked and an operation canceled if the related token is expired. The cancellation token should be used to define an approximate expected timeout on the operation scope.
 
 > [!NOTE]
-> CancellationToken is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up. Instead, after the time is up, it cancels when it's safe to do so.
+> The CancellationToken parameter is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up. Instead, after the time is up, it cancels when it's safe to do so.
 
 ## Troubleshooting steps
 The following list contains known causes and solutions for request timeout exceptions.
 
-### 1. High CPU utilization (most common case)
-For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum(not average) CPU utilization. CPU spikes are more common with cross partition queries where it might do multiple connections for a single query.
+### 1. High CPU utilization is the most common case
+For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum(not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
@@ -58,7 +58,7 @@ Creating multiple client instances might lead to connection contention and timeo
 Follow the [performance tips](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage), and use a single CosmosClient instance across an entire process.
 
 ### 4. Hot partition key
-Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's RU/s, while the RU/s on other physical partitions go unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
+Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
 
 #### Solution:
 Choose a good partition key that evenly distributes request volume and storage. Learn how to [change your partition key](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).
@@ -76,10 +76,10 @@ Large requests or responses can lead to head-of-line blocking on the channel and
 The client application that uses the SDK should be scaled up or out.
 
 ### 7. Failure rate is within the Azure Cosmos DB SLA
-The application should be able to handle transient failures and retry when necessary. 408 exceptions aren't retried because on create paths it's not possible to know if the service created the item or if it didn't. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts, which would break from the ambiguity of an existing item versus conflict from a create retry.
+The application should be able to handle transient failures and retry when necessary. Any 408 exceptions aren't retried because on create paths it's impossible to know if the service created the item or not. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts, which would break from the ambiguity of an existing item versus conflict from a create retry.
 
 ### 8. Failure rate violates the Azure Cosmos DB SLA
-Please contact Azure support.
+Contact [Azure Support](https://aka.ms/azure-support).
 
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
