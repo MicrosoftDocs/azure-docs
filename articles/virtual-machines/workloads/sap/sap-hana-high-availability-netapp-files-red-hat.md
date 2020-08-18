@@ -408,32 +408,32 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    Started with HANA 2.0 SPS 01, MDC is the default option. When you install HANA system, SYSTEMDB and a tenant with same SID will be created together. In some case you do not want the default tenant. In case, if you don’t want to create initial tenant along with the installation you can follow SAP Note [2629711](https://launchpad.support.sap.com/#/notes/2629711)
 
-   Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
-   Choose installation: Enter **1** (for install)
-   Select additional components for installation: Enter **1**.
-   Enter Installation Path [/hana/shared]: press Enter to accept the default
-   Enter Local Host Name [..]: Press Enter to accept the default
-   Do you want to add additional hosts to the system? (y/n) [n]: **n**
-   Enter SAP HANA System ID: Enter **HN1**.
-   Enter Instance Number [00]: Enter **03** 
-   Select Database Mode / Enter Index [1]: press Enter to accept the default
-   Select System Usage / Enter Index [4]: enter **4** (for custom)
-   Enter Location of Data Volumes [/hana/data]: press Enter to accept the default
-   Enter Location of Log Volumes [/hana/log]: press Enter to accept the default
-   Restrict maximum memory allocation? [n]: press Enter to accept the default
-   Enter Certificate Host Name For Host '...' [...]: press Enter to accept the default
-   Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password
-   Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm
-   Enter System Administrator (hn1adm) Password: Enter the system administrator password
-   Confirm System Administrator (hn1adm) Password: Enter the system administrator password again to confirm
-   Enter System Administrator Home Directory [/usr/sap/HN1/home]: press Enter to accept the default
-   Enter System Administrator Login Shell [/bin/sh]: press Enter to accept the default
-   Enter System Administrator User ID [1001]: press Enter to accept the default
-   Enter ID of User Group (sapsys) [79]: press Enter to accept the default
-   Enter Database User (SYSTEM) Password: Enter the database user password.
-   Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
-   Restart system after machine reboot? [n]: press Enter to accept the default
-   Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
+1.    Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
+1.    Choose installation: Enter **1** (for install)
+1.    Select additional components for installation: Enter **1**.
+1.    Enter Installation Path [/hana/shared]: press Enter to accept the default
+1.    Enter Local Host Name [..]: Press Enter to accept the default
+1.    Do you want to add additional hosts to the system? (y/n) [n]: **n**
+1.    Enter SAP HANA System ID: Enter **HN1**.
+1.    Enter Instance Number [00]: Enter **03** 
+1.    Select Database Mode / Enter Index [1]: press Enter to accept the default
+1.    Select System Usage / Enter Index [4]: enter **4** (for custom)
+1.    Enter Location of Data Volumes [/hana/data]: press Enter to accept the default
+1.    Enter Location of Log Volumes [/hana/log]: press Enter to accept the default
+1.    Restrict maximum memory allocation? [n]: press Enter to accept the default
+1.    Enter Certificate Host Name For Host '...' [...]: press Enter to accept the default
+1.    Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password
+1.    Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm
+1.    Enter System Administrator (hn1adm) Password: Enter the system administrator password
+1.    Confirm System Administrator (hn1adm) Password: Enter the system administrator password again to confirm
+1.    Enter System Administrator Home Directory [/usr/sap/HN1/home]: press Enter to accept the default
+1.    Enter System Administrator Login Shell [/bin/sh]: press Enter to accept the default
+1.    Enter System Administrator User ID [1001]: press Enter to accept the default
+1.    Enter ID of User Group (sapsys) [79]: press Enter to accept the default
+1.    Enter Database User (SYSTEM) Password: Enter the database user password.
+1.    Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
+1.    Restart system after machine reboot? [n]: press Enter to accept the default
+1.    Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
 
 4. **[A]** Upgrade SAP Host Agent
 
