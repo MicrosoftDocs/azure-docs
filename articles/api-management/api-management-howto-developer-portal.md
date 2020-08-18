@@ -31,7 +31,7 @@ This article describes the differences between self-hosted and managed versions 
 The new developer portal addresses many limitations of the legacy portal. It features a visual drag-and-drop editor for editing content and a dedicated panel for designers to style the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](#automate). Lastly, the portal's codebase is open-source, so [you can extend it with custom functionality](#managed-vs-self-hosted).
 
 > [!IMPORTANT]
-> The legacy developer portal is now deprecated and it will receive security updates only. It will be retired and removed from API Management services in September 2023.
+> The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in September 2023 - at which point it will be removed from all API Management services.
 
 The new developer portal is incompatible with the legacy portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance. Remaining configuration, like the list of APIs, Products, users, identity providers, is automatically shared across both portals.
 
