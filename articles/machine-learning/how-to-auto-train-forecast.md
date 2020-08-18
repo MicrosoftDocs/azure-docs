@@ -9,25 +9,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ---
 
 # Auto-train a time-series forecast model
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning, AutoML, in the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
 
 For a low code experience, see the [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md) for a time-series forecasting example using automated machine learning in the [Azure Machine Learning studio](https://ml.azure.com/).
 
-Unlike classical time series methods, in automated ML past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. 
+Unlike classical time series methods, in automated ML, past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. 
 
 The following examples show you how to:
 
 * Prepare data for time series modeling
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object
 * Run predictions with time-series data
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
 ## Prerequisites
 
@@ -37,7 +35,14 @@ The following examples show you how to:
 
 ## Preparing data
 
-The most important difference between a forecasting regression task type and regression task type within automated machine learning is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. Consider the following snapshot of a file `sample.csv`.
+The most important difference between a forecasting regression task type and regression task type within AutoML is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
+
+Consider the following snapshot of a file `sample.csv`.
+This data set is of daily sales data for a company that has two different stores, A and B. Additionally, there are features for
+
+ *  `week_of_year`: allows the model to detect weekly seasonality.
+* `day_datetime`: represents a clean time series with daily frequency.
+* `sales_quantity`: the target column for running predictions. 
 
 ```output
 day_datetime,store,sales_quantity,week_of_year
@@ -53,7 +58,8 @@ day_datetime,store,sales_quantity,week_of_year
 9/7/2018,B,650,36
 ```
 
-This data set is a simple example of daily sales data for a company that has two different stores, A and B. Additionally, there is a feature for `week_of_year` that will allow the model to detect weekly seasonality. The field `day_datetime` represents a clean time series with daily frequency, and the field `sales_quantity` is the target column for running predictions. Read the data into a Pandas dataframe, then use the `to_datetime` function to ensure the time series is a `datetime` type.
+
+Read the data into a Pandas dataframe, then use the `to_datetime` function to ensure the time series is a `datetime` type.
 
 ```python
 import pandas as pd
@@ -61,7 +67,12 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-In this case, the data is already sorted ascending by the time field `day_datetime`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. Assume the data contains 1,000 records, and make a deterministic split in the data to create training and test data sets. Identify the label column name and set it to label. In this example, the label will be `sales_quantity`. Then separate the label field from `test_data` to form the `test_target` set.
+In this case, the data is already sorted ascending by the time field `day_datetime`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. 
+
+The following code, 
+* Assumes the data contains 1,000 records, and makes a deterministic split in the data to create training and test data sets. 
+* Identifies the label column as `sales_quantity`.
+* Separates the label field from `test_data` to form the `test_target` set.
 
 ```python
 train_data = data.iloc[:950]
@@ -72,7 +83,7 @@ label =  "sales_quantity"
 test_labels = test_data.pop(label).values
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > When training a model for forecasting future values, ensure all the features used in
 > training can be used when running predictions for your intended horizon. For example, when
 > creating a demand forecast, including a feature for current stock price could massively
@@ -83,14 +94,18 @@ test_labels = test_data.pop(label).values
 <a name="config"></a>
 
 ## Training and validation data
-You can specify separate train and validation sets directly in the `AutoMLConfig` constructor. Learn more about the [AutoMLConfig](#configure-and-run-experiment).
 
-### Rolling Origin Cross Validation
-For time series forecasting, Rolling Origin Cross Validation (ROCV) is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds.  
+You can specify separate train and validation sets directly in the `AutoMLConfig` object. The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task.  Learn more about the [AutoMLConfig](#configure-and-run-experiment).
+
+For time series forecasting, **Rolling Origin Cross Validation (ROCV)** is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. 
 
 ![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
 
-This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations` parameter in your AutoMLConfig. Learn more about how auto ML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks when you pass the training and validation data together and set the number of cross validation folds with the `n_cross_validations` parameter in your AutoMLConfig.
+
+For additional cross validation and data split options, see [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md).
+
+Learn more about how Auto ML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -102,7 +117,13 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ## Configure and run experiment
 
-Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist specific for time-series data. The following pre-processing steps are performed:
+Configuration for a forecasting model is similar to the setup of a standard regression model, but certain featurization steps and configuration options exist specifically for time-series data. 
+
+### Featurization steps
+
+In every automated machine learning experiment, automatic scaling and normalization techniques are applied to your data by default. These techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. Learn more about  default featurization steps in [Featurization in AutoML](how-to-configure-auto-features.md#automatic-featurization)
+
+However, the following steps are performed only for `forecasting` task types:
 
 * Detect time-series sample frequency (for example, hourly, daily, weekly) and create new records for absent time points to make the series continuous.
 * Impute missing values in the target (via forward-fill) and feature columns (using median column values)
@@ -110,20 +131,37 @@ Configuring a forecasting model is similar to setting up a standard regression m
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
 
-The [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object defines the settings and data necessary for an automated machine learning task. Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. The following table explains each parameter and its usage.
+
+> [!NOTE]
+> Automated machine learning featurization steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same featurization steps applied during training are applied to
+> your input data automatically.
+
+To get a summary of what features are created as result of these steps, see [Featurization transparency](how-to-configure-auto-features.md#featurization-transparency)
+### Configuration settings
+
+Similar to a regression problem, you define standard training parameters like task type, number of iterations, training data, and number of cross-validations. For forecasting tasks, there are additional parameters that must be set that affect the experiment. 
+
+The following table summarizes these additional parameters.
 
 | Parameter&nbsp;name | Description | Required |
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
-|`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series.||
+|`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. For example, when trying to forecast demand for a product, the demand in any month may depend on the price of specific commodities 3 months prior. In this example, you may want to lag the target (demand) negatively by 3 months so that the model is training on the correct relationship.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model.||
 |`enable_dnn`|Enable Forecasting DNNs.||
 
-See the [reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for more information.
-
-Create the time-series settings as a dictionary object. Set the `time_column_name` to the `day_datetime` field in the data set. Define the `time_series_id_column_names` parameter to ensure that **two separate time-series groups** are created for the data; one for store A and B. Lastly, set the `forecast_horizon` to 50 in order to predict for the entire test set. Set a forecast window to 10 periods with `target_rolling_window_size`, and specify a single lag on the target values for two periods ahead with the `target_lags` parameter. It is recommended to set `forecast_horizon`, `target_rolling_window_size` and `target_lags` to "auto" which will automatically detect these values for you. In the example below, "auto" settings have been used for these parameters. 
+The following code, 
+* Creates the `time-series settings` as a dictionary object. 
+* Sets the `time_column_name` to the `day_datetime` field in the data set. 
+* Defines the `time_series_id_column_names` parameter to `"store"`. This ensures that **two separate time-series groups** are created for the data; one for store A and B.
+* Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
+* Sets a forecast window to 10 periods with `target_rolling_window_size`
+* Specifies a single lag on the target values for two periods ahead with the `target_lags` parameter. 
+* Sets the `forecast_horizon`, `target_rolling_window_size` and `target_lags` to the recommended "auto" setting, which will automatically detect these values for you.
 
 ```python
 time_series_settings = {
@@ -136,15 +174,7 @@ time_series_settings = {
 }
 ```
 
-> [!NOTE]
-> Automated machine learning pre-processing steps (feature normalization, handling missing data,
-> converting text to numeric, etc.) become part of the underlying model. When using the model for
-> predictions, the same pre-processing steps applied during training are applied to
-> your input data automatically.
-
-By defining the `time_series_id_column_names` in the code snippet above, AutoML will create two separate time-series groups, also known as multiple time-series. If no time series identifiers are defined, AutoML will assume that the dataset is a single time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
-
-Now create a standard `AutoMLConfig` object, specifying the `forecasting` task type, and submit the experiment. After the model finishes, retrieve the best run iteration.
+These `time_series_settings` are then passed into your standard `AutoMLConfig` object along with the `forecasting` task type, primary metric, exit criteria and training data. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -162,69 +192,65 @@ automl_config = AutoMLConfig(task='forecasting',
                              enable_ensembling=False,
                              verbosity=logging.INFO,
                              **time_series_settings)
+```
 
+When you have your `AutoMLConfig` object ready, you can submit the experiment. After the model finishes, retrieve the best run iteration.
+
+```python
 ws = Workspace.from_config()
 experiment = Experiment(ws, "forecasting_example")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
-## Customize featurization
-You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions. 
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+## Forecasting with best model
 
-Supported customizations include:
+Use the best model iteration to forecast values for the test data set.
 
-|Customization|Definition|
-|--|--|
-|**Column purpose update**|Override the auto-detected feature type for the specified column.|
-|**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
-|**Drop columns** |Specifies columns to drop from being featurized.|
+The `forecast()` function allows specifications of when predictions should start, unlike the `predict()`, which is typically used for classification and regression tasks.
 
-Create the `FeaturizationConfig` object by defining your featurization configurations:
-```python
-featurization_config = FeaturizationConfig()
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
-```
+In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin will be at the end of training data in this case. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
 
-### Target Rolling Window Aggregation
-Often the best information a forecaster can have is the recent value of the target. Creating cumulative statistics of the target may increase the accuracy of your predictions. Target rolling window aggregations allows you to add a rolling aggregation of data values as features. To enable target rolling windows set the `target_rolling_window_size` to your desired integer window size. 
-
-An example of this can be seen when predicting energy demand. You might add a rolling window feature of three days to account for thermal changes of heated spaces. In the example below, we've created this window of size three by setting `target_rolling_window_size=3` in the `AutoMLConfig` constructor. The table shows feature engineering that occurs when window aggregation is applied. Columns for minimum, maximum, and sum are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the time-stamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the demand values for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
-
-![alt text](./media/how-to-auto-train-forecast/target-roll.svg)
-
-Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
-
-View a Python code example leveraging the [target rolling window aggregate feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
-
-### View feature engineering summary
-
-For time-series task types in automated machine learning, you can view details from the feature engineering process. The following code shows each raw feature along with the following attributes:
-
-* Raw feature name
-* Number of engineered features formed out of this raw feature
-* Type detected
-* Whether feature was dropped
-* List of feature transformations for the raw feature
+You can also use the `forecast_destination` parameter in the `forecast()` function to forecast values up until a specified date.
 
 ```python
-fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+label_query = test_labels.copy().astype(np.float)
+label_query.fill(np.nan)
+label_fcst, data_trans = fitted_pipeline.forecast(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
+
+Calculate RMSE (root mean squared error) between the `actual_labels` actual values, and the forecasted values in `predict_labels`.
+
+```python
+from sklearn.metrics import mean_squared_error
+from math import sqrt
+
+rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
+rmse
+```
+
+Now that the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. 
+
+Supply a data set in the same format as the test set `test_data` but with future datetimes, and the resulting prediction set is the forecasted values for each time-series step. Assume the last time-series records in the data set were for 12/31/2018. To forecast demand for the next day (or as many periods as you need to forecast, <= `forecast_horizon`), create a single time series record for each store for 01/01/2019.
+
+```output
+day_datetime,store,week_of_year
+01/01/2019,A,1
+01/01/2019,A,1
+```
+
+Repeat the necessary steps to load this future data to a dataframe and then run `best_run.predict(test_data)` to predict future values.
+
+> [!NOTE]
+> Values cannot be predicted for number of periods greater than the `forecast_horizon`. The model must be re-trained with a larger horizon to predict future values beyond
+> the current horizon.
 
 ## Configure a DNN enabled forecasting experiment
 
 > [!NOTE]
-> DNN support for forecasting in Automated Machine Learning is in Preview and not supported for local runs.
-
-In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. Learn more about [the AutoMLConfig](#configure-and-run-experiment). 
+> DNN support for forecasting in Automated Machine Learning is in **preview** and not supported for local runs.
+In addition to the standard set up of a forecasting AutoML experiment, you can leverage deep learning with deep neural networks, DNNs for forecasting tasks. To do so, set the `enable_dnn` parameter in the `AutoMLConfig` to true. 
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -252,50 +278,61 @@ Automated ML provides users with both native time-series and deep learning model
 Models| Description | Benefits
 ----|----|---
 Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. To leverage this model, install it locally using `pip install fbprophet`. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
-Auto-ARIMA (Preview)|AutoRegressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow or next year.| Great for univariate series, since the past values are used to predict the future values.
+Auto-ARIMA (Preview)|Auto-Regressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow or next year.| Great for univariate series, since the past values are used to predict the future values.
 ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle the most demanding forecasting tasks, capturing nonlinear local and global trends in your data as well as relationships between time series.|Capable of leveraging complex trends in your data and readily scales to the largest of datasets.
 
+## Optional configuration
 
+Additional optional configurations are available for forecasting tasks, such as customized featurization and 
+specifying a target rolling window aggregation. 
 
-## Forecasting with best model
+### Customize featurization
+You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions. 
 
-Use the best model iteration to forecast values for the test data set.
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-The `forecast()` function should be used instead of `predict()`, this will allow specifications of when predictions should start. In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin will be at the end of training data in this case, as it would normally be when using `predict()`. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
+Supported customizations for forecasting tasks include:
 
-You can also use the `forecast_destination` parameter in the `forecast()` function to forecast values up until a specified date.
+|Customization|Definition|
+|--|--|
+|**Column purpose update**|Override the auto-detected feature type for the specified column.|
+|**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
+|**Drop columns** |Specifies columns to drop from being featurized.|
+
+Create the `FeaturizationConfig` object by defining your featurization configurations:
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
+### Target Rolling Window Aggregation
+Often the best information a forecaster can have is the recent value of the target. Creating cumulative statistics of the target may increase the accuracy of your predictions. Target rolling window aggregations allow you to add a rolling aggregation of data values as features.
+
+To enable target rolling windows set the `target_rolling_window_size` to your desired integer window size. 
 
 ```python
-label_query = test_labels.copy().astype(np.float)
-label_query.fill(np.nan)
-label_fcst, data_trans = fitted_pipeline.forecast(
-    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             target_rolling_window_size=3)
 ```
 
-Calculate RMSE (root mean squared error) between the `actual_labels` actual values, and the forecasted values in `predict_labels`.
+For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window of size three by setting `target_rolling_window_size=3` in the `AutoMLConfig` constructor. 
 
-```python
-from sklearn.metrics import mean_squared_error
-from math import sqrt
+The table shows resulting feature engineering that occurs when window aggregation is applied. Columns for **minimum, maximum,** and **sum** are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the timestamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the **demand values** for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
 
-rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
-rmse
-```
+![alt text](./media/how-to-auto-train-forecast/target-roll.svg)
 
-Now that the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. Supply a data set in the same format as the test set `test_data` but with future datetimes, and the resulting prediction set is the forecasted values for each time-series step. Assume the last time-series records in the data set were for 12/31/2018. To forecast demand for the next day (or as many periods as you need to forecast, <= `forecast_horizon`), create a single time series record for each store for 01/01/2019.
+Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
 
-```output
-day_datetime,store,week_of_year
-01/01/2019,A,1
-01/01/2019,A,1
-```
-
-Repeat the necessary steps to load this future data to a dataframe and then run `best_run.predict(test_data)` to predict future values.
-
-> [!NOTE]
-> Values cannot be predicted for number of periods greater than the `forecast_horizon`. The model must be re-trained with a larger horizon to predict future values beyond
-> the current horizon.
-
+View a Python code example leveraging the [target rolling window aggregate feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ## Example notebooks
 See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
