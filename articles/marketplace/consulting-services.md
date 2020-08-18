@@ -67,7 +67,7 @@ For more information about competencies, go to the [Microsoft Partner Network Co
 
 System-integrator partners can submit consulting-service offers for the following 20 countries/regions:
 
-| Countries  |  |   |   |
+| Countries | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Australia | Belgium | Canada | Denmark |
 | Finland  | France | Germany  | India   |
