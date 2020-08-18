@@ -22,7 +22,7 @@ TicksToDateTime (<Ticks>)
 
 *Ticks*  
 
-A signed integer whose value is the number of 100 nanosecond ticks which have elapsed since the Unix epoch.
+A signed numeric value, the current number of 100 nanosecond ticks that have elapsed since the Unix epoch. In other words, it is the number of 100 nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
 ## Return types
 

@@ -51,13 +51,13 @@ TimestampToDateTime will return `undefined` if the timestamp value specified is 
 The following example converts the timestamp to a DateTime:
 
 ```sql
-SELECT TimestampToDateTime(1594252800000) AS DateTime
+SELECT TimestampToDateTime(1594227912345) AS DateTime
 ```
 
 ```json
 [
     {
-        "DateTime": "2020-07-09T00:00:00.0000000Z"
+        "DateTime": "2020-07-08T17:05:12.3450000Z"
     }
 ]
 ```  
