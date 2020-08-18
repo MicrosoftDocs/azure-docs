@@ -28,7 +28,7 @@ Sign in to the Azure portal at https://portal.azure.com
 > [!NOTE]
 >  Ensure that the systems you want to monitor are reachable from within the selected virtual network.
 
-![Display of the Azure portal configuration options](media/azure-monitor-sap/azure-monitor-quickstart-2.png)
+![Display of the Azure portal configuration options](./media/azure-monitor-sap/azure-monitor-quickstart-2.png)
 
 > [!IMPORTANT]
 > Selecting **Share** for Data sharing with Microsoft  enables our support teams get more
@@ -40,7 +40,7 @@ visibility and provider improved support.
 
 1. Select the **Provider** tab to add the providers you want to configure. You can add multiple providers one after another or add them after deploying the monitoring resource. 
 
-![Shows the provider tab to add additional providers to your Azure Monitor for SAP Solutions](media/azure-monitor-sap/azure-monitor-quickstart-3.png)
+![Shows the provider tab to add additional providers to your Azure Monitor for SAP Solutions](./media/azure-monitor-sap/azure-monitor-quickstart-3.png)
 
 
 2. Select **Add provider** and choose **SAP HANA** from the drop down. 
@@ -56,7 +56,7 @@ visibility and provider improved support.
 
 7. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-![Image of configuration options when adding provider information](media/azure-monitor-sap/azure-monitor-quickstart-4.png)
+![Image of configuration options when adding provider information](./media/azure-monitor-sap/azure-monitor-quickstart-4.png)
 
 ### High-availability cluster (Pacemaker) provider
 
@@ -71,7 +71,7 @@ visibility and provider improved support.
 
 4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-![alt text required](media/azure-monitor-sap/azure-monitor-quickstart-5.png)
+![alt text required](./media/azure-monitor-sap/azure-monitor-quickstart-5.png)
 
 ### Microsoft SQL Server provider
 
@@ -113,4 +113,4 @@ GO
 
 ## What's next
 
-Learn more about [Azure Monitor for SAP Solutions](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq)
+Learn more about [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
