@@ -76,8 +76,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3
     ```
 ## Provision an instance of Azure Spring Cloud
 
-#### [Portal](#tab/Azure-portal)
-
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
@@ -103,53 +101,6 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 6. Click **Review and create**.
 
 #### [CLI](#tab/Azure-CLI)
-## Provision a service instance using the Azure CLI extension
-The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
-
-### Install the Azure CLI extension
-
-Sign in to your Azure subscription.  Install the Azure Spring Cloud extension for the Azure CLI using the following command
-
-```azurecli
-az extension add --name spring-cloud
-```
-
-### Provision a service instance
-
-1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud:
-
-    ```azurecli
-        az login
-        az account list -o table
-        az account set --subscription <Name or ID of subscription from the last step>
-    ```
-
-2. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
-
-3. Create a resource group to contain your Azure Spring Cloud service.
-
-    ```azurecli
-        az group create --location eastus --name <resource group name>
-    ```
-
-    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
-
-4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
-
-    ```azurecli
-        az spring-cloud create -n <service instance name> -g <resource group name>
-    ```
-
-    The service instance will take around five minutes to deploy.
-
-5. Set your default resource group name and cluster name using the following commands:
-
-    ```azurecli
-        az configure --defaults group=<resource group name>
-        az configure --defaults spring-cloud=<service instance name>
-    ```
----
-
 ## Build and deploy the application
 Make sure to execute the following command at the root of the project.
 
@@ -190,6 +141,70 @@ Make sure to execute the following command at the root of the project.
 2. For advanced logs analytics features, visit **Logs** tab in the menu on [Azure Portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
   ![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png)
+
+#### [IntelliJ](#tab/IntelliJ)
+
+The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
+
+### Prerequisites
+* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
+* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+
+### Install the plug-in
+You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
+
+1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
+
+    ![Select Configure](media/spring-cloud-intellij-howto/configure-plugin-1.png)
+
+1. Search for Azure Toolkit for IntelliJ.  Click **Install**.
+
+    ![Install plugin](media/spring-cloud-intellij-howto/install-plugin.png)
+
+1. Click **Restart IDE**.
+
+### Deployment procedures
+The following procedures deploy the Piggymetrics application using the IntelliJ IDEA.  Before deployment, complete the examples to [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
+
+* Open gs-spring-boot project
+* Deploy to Azure Spring Cloud
+* Show streaming logs
+
+### Open helloworld project
+
+1. cd into `helloworld`.
+1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
+1. Select `helloworld` folder.
+
+    ![Import Project](media/spring-cloud-quickstart-java/intellij-new-project.png)
+
+### Deploy gateway app to Azure Spring Cloud
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+
+1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
+
+    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
+
+1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
+1. In the **Artifact** textbox, select *com.piggymetrics:gateway:1.0-SNAPSHOT*.
+1. In the **Subscription** textbox, verify your subscription.
+1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. In the **App:** textbox, select **Create app...**.
+1. Enter *gateway*, then click **OK**.
+
+
+    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
+
+1. In the **Before launch** section of the dialog, double click *Run Maven Goal**.
+1. In the **Working directory** textbox, navigate to the *piggymetrics/gateway* folder.
+1. In the **Command line** textbox, enter *package -DskipTests*.
+1. Click **OK**.
+1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
+
+1. The plug-in will run the command `mvn package` on the `gateway` app and deploy the jar generated by the `package` command.
+
+---
 
 ## Next steps
 
