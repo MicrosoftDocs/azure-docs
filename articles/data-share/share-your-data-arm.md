@@ -44,7 +44,7 @@ The template performs the following tasks:
 
 * Create a storage account and a container used as the Data share data source.
 * Create a Data share account and a Data share.
-* Create a role assignment to grant the Storage Blob Data Reader role to the source data share resource. See [Roles and requirements for Azure Data Share](./concepts-role-permissions.md).
+* Create a role assignment to grant the Storage Blob Data Reader role to the source data share resource. See [Roles and requirements for Azure Data Share](./concepts-roles-permissions.md).
 * Add a dataset to the Date share.
 * Add recipients to the Data share.
 * Enable a snapshot schedule for the Data share.
@@ -55,7 +55,7 @@ This template is created for learning purposes. In practice, you usually have so
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-It is because the deployment is trying to create the dataset before the RBAC assignment gets finalized.
+It is because the deployment is trying to create the dataset before the RBAC assignment gets finalized. Despite the error message, the deployment could be successful.  You would still be able to walk through [Review deployed resources](#review-deployed-resources).
 
 ## Deploy the template
 
@@ -96,4 +96,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this tutorial, you learnt how to create an Azure Data Share and invite recipients. To learn about how a Data Consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.
+In this tutorial, you learnt how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.
