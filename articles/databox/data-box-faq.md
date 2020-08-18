@@ -52,14 +52,16 @@ A.  For information on which countries/regions the Data Box is available, go to 
 ### Q. Which regions can I store data in with Data Box?
 A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
-### Q. How can I move data from my on-premises data in one country/commerce boundary to an Azure region in a different country/commerce boundary?
-A. Data Box supports data ingestion or egress only within the same commerce boundary. In all other cases, you may need to take additional action. For e.g., If you had on-premises data in Canada that you wanted to move to Azure West US region, then you could achieve it in the following way:
+### Q. How can I import my on-premises source data to an Azure region in a different country/commerce boundary or export data from an Azure region in one country to a different country?
+A. Data Box supports data ingestion or egress only within the same commerce boundary. In all other cases, you may need to take additional action. 
 
-1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped to the address in Canada provided during order creation.
+For e.g., In the import scenario, if you had on-premises data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
 
-2. Once data copy is done, return the device to the source Azure datacenter in Canada. The data gets uploaded to the destination storage account in the Canada Azure region chosen while ordering the Data Box.
+1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from the Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
 
-3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This would incur additional bandwidth charges.
+2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
+
+3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This step would incur additional bandwidth charges that is not included in the Data Box billing.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
