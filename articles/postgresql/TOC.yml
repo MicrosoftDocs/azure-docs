@@ -296,12 +296,6 @@
       - name: Resource Manager template
         href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: Flexible server
-  items:
-  - name: Quickstarts
-    expanded: true
-    items:
-    - name: Create DB - Portal
-      href: quickstart-create-flexible-server-portal.md
 - name: Hyperscale (Citus)
   items:
   - name: Quickstarts
