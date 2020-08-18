@@ -187,17 +187,17 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
-1. In the **Artifact** textbox, select *com.piggymetrics:gateway:1.0-SNAPSHOT*.
+1. In the **Artifact** textbox, select *demo-0.0.1-SNAPSHOT.jar*.
 1. In the **Subscription** textbox, verify your subscription.
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
 1. In the **App:** textbox, select **Create app...**.
-1. Enter *gateway*, then click **OK**.
+1. Enter *helloworld*, then click **OK**.
 
 
-    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
+    ![Deploy to Azure OK](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)
 
 1. In the **Before launch** section of the dialog, double click *Run Maven Goal**.
-1. In the **Working directory** textbox, navigate to the *piggymetrics/gateway* folder.
+1. In the **Working directory** textbox, navigate to the *helloworld* folder.
 1. In the **Command line** textbox, enter *package -DskipTests*.
 1. Click **OK**.
 1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
