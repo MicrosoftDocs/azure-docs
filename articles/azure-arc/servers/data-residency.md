@@ -2,7 +2,7 @@
 title: Data residency
 description: Data residency and information about Azure Arc enabled servers (preview).
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 08/18/2020
 ms.custom: references_regions
 ---
 
@@ -23,8 +23,22 @@ Metadata information about the connected machine are also collected. Specificall
 * Computer fully qualified domain name (FQDN)
 * Connected Machine agent version
 
-Where is the data replicated within the region? Ryan will ask the Devs to weigh-in and determine if we need to be explicit here. What other data is collected that is not specified here and should be listed/described? What about geo-redundancy of the data when a regional datacenter is impacted by a disaster? How secure is the data? How does the service maintain availability in a disaster scenario or other issue that impacts service availability?
+Arc enabled servers allows you to specify the region where your data will be stored. Microsoft may replicate to other regions for data resiliency, but Microsoft will not replicate or move data outside the geography. This data is stored in the region where the Azure Arc machine resource is configured. For example, if the machine is registered with Arc in the East US region, this data is stored in the US region.
 
-This data is stored in the region where the Azure Arc machine resource is configured. For example, if the machine is registered with Arc in the East US region, this data is stored in the US region.
+The following table highlights the source and target region where your data is replicated to.
+
+|Primary region | Replicated region |
+|---------------|-------------------|
+|West US 2 |West Central US |
+|South Central US |North Central US |
+|UK South |UK West |
+|Southeast Asia |East Asia |
+|West Europe |North Europe |
+|East US |Central US |
+|Australia East | Australia Southeast |
+|East US2 |Central US |
+|North Europe |West Europe |
+
+Ryan will ask the Devs to weigh-in and determine if we need to be explicit here. What other data is collected that is not specified here and should be listed/described? What about geo-redundancy of the data when a regional datacenter is impacted by a disaster? How secure is the data? How does the service maintain availability in a disaster scenario or other issue that impacts service availability?
 
 ## Next steps
