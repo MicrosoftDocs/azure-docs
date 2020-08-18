@@ -130,11 +130,11 @@ cosmos.queryMetricsEnabled=true
 
 ### 3.0.0-beta.1 (2020-08-17)
 #### New features
-* Updated group id to `com.azure`.
-* Updated artifact id to `azure-spring-data-2-3-cosmos`.
+* Updated group ID to `com.azure`.
+* Updated artifact ID to `azure-spring-data-2-3-cosmos`.
 * Updated azure-cosmos SDK dependency to `4.3.2-beta.2`.
 * Support for auditing entities - automatic management of createdBy, createdDate, lastModifiedBy and lastModifiedDate annotated fields.
-* `@GeneratedValue` annotation support for automatic id generation for id fields of `String` type.
+* `@GeneratedValue` annotation support for automatic id generation for ID fields of `String` type.
 * Multi-database configuration support for single cosmos account with multiple databases and multiple cosmos accounts with multiple databases.
 * Support for `@Version` annotation on any string field.
 * Updated sync APIs return types to `Iterable` types instead of `List`.
