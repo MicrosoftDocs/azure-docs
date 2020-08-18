@@ -25,7 +25,7 @@ As shown in the following figure, Azure Traffic Manager provides load balancing 
 
 Connection over the virtual network between the two AVS private cloud regions, West US and West Europe, and an on-premises server in East US, uses an ExpressRoute gateway.   
 
-[ ![Traffic Manager integration with AVS](media/traffic-manager/traffic-manager-topology.png) ](media/traffic-manager/traffic-manager-topology.png#lightbox)
+![Traffic Manager integration with AVS](media/traffic-manager/traffic-manager-topology.png)
  
 ## Prerequisites
 
