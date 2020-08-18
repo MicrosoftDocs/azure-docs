@@ -15,16 +15,21 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Query units in Azure Digital Twins 
+# Query Units in Azure Digital Twins 
 
-A Query Unit (QU) unit in Azure Digital Twins is a unit of on-demand computation made available to execute your Azure Digital Twins queries using the Query API. It abstracts the system resources such as CPU, IOPS and memory that are required to perform query operation supported by Azure Digital Twins. The complexity of the query affects how many QUs are consumed to execute that query. Query Unit is a Pay-As-You-Go dimension. You pay for number of Query Units consumed to execute your Azure Digital Twins queries. 
+Azure Digital Twins determines how you are billed for query operations in your instance using **Query Units (QUs)**.
+
+An Azure Digital Twins Query Unit is a unit of on-demand computation that's made available to execute your [Azure Digital Twins queries](how-to-query-graph.mc) using the [Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). It abstracts away the system resources like CPU, IOPS and memory that are required to perform query operations supported by Azure Digital Twins. The complexity of the query affects how many QUs are consumed to execute that query. 
+
+Query Unit is a [Pay-As-You-Go](https://azure.microsoft.com/pricing/) dimension. In Azure, you pay for number of Query Units consumed to execute your Azure Digital Twins queries. This article explains how to understand Query Units and track their charges.
 
 ## Find the Query Unit charge in Azure Digital Twins 
 
-You can examine the response header to track the number of QUs that are consumed by any Azure Digital Twins query by inspecting “query-charge” in the response sent back from Azure Digital Twins. The SDKs allow you to extract the query-charge header from the pageable response. Here's an example of how to query for digital twins and how to iterate over the pageable response to extract the query-charge header. 
+When you run a query using the Azure Digital Twins [Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query), you can examine the response header to track the number of QUs that the query consumed. Look for "query-charge" in the response sent back from Azure Digital Twins. 
 
+The Azure Digital Twins [SDKs](how-to-use-apis-sdks.md) allow you to extract the query-charge header from the pageable response. This section shows how to query for digital twins and how to iterate over the pageable response to extract the query-charge header. 
 
-The following code snippet demonstrates how you could extract the query charges incurred when calling the query API. It iterates over the response pages first to access to the query-charge header, and then the digital twin results within each page. 
+The following code snippet demonstrates how you can extract the query charges incurred when calling the query API. It iterates over the response pages first to access the query-charge header, and then iterates over the digital twin results within each page. 
  
 ```csharp
 AsyncPageable<string> asyncPageableResponseWithCharge = client.QueryAsync("SELECT * FROM digitaltwins"); 
@@ -61,6 +66,9 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 
 ## Next steps
 
-For Azure Digital Twins query and Query Unit related limits, see [*Reference: Service limits in public preview*](reference-service-limits.md).
+To learn more about querying Azure Digital Twins, visit:
+* [*Concepts: Query language*](concepts-query-language.md)
+* [*How-to: Query the twin graph*](how-to-query-graph.md)
+* [Query API reference documentation](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins).
 
-[Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins).
+You can find Azure Digital Twins query-related limits in [*Reference: Service limits in public preview*](reference-service-limits.md).
