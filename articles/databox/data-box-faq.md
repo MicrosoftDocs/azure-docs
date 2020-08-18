@@ -57,7 +57,7 @@ A. Data Box supports data ingestion or egress only within the same commerce boun
 
 For e.g., In the import scenario, if you had on-premises data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
 
-1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from the Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
+1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
 
 2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
