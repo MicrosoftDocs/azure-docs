@@ -1,6 +1,6 @@
 ---
-title: Copy data from and to Snowflake
-description: Learn how to copy data from and to Snowflake by using Azure Data Factory.
+title: Copy and transform data in Snowflake
+description: Learn how to copy and transform data in Snowflake by using Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019
 ms.date: 08/18/2020
 ---
 
-# Copy data from and to Snowflake by using Azure Data Factory
+# Copy and transform data in Snowflake by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Snowflake. For more information about Data Factory, see the [introductory article](introduction.md).
+This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information about Data Factory, see the [introductory article](introduction.md).
 
 ## Supported capabilities
 
