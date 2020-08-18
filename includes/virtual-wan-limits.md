@@ -19,3 +19,4 @@
 | Aggregate throughput per Virtual WAN VPN gateway |20 Gbps |
 | Throughput per Virtual WAN VPN connection (2 tunnels) | 2 Gbps with 1 Gbps/IPsec tunnel |
 | Aggregate throughput per Virtual WAN ExpressRoute gateway |20 Gbps 
+| Virtual Machines per Virtual WAN | 2000
