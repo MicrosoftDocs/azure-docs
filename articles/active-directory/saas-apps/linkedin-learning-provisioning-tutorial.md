@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure LinkedIn Learning for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to LinkedIn Learning.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-
-ms.assetid: 21e2f470-4eb1-472c-adb9-4203c00300be
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: Zhchia
