@@ -128,12 +128,11 @@ cosmos.queryMetricsEnabled=true
 
 ## Release history
 
-### 3.0.0-beta.1 (8/17/2020)
-
+### 3.0.0-beta.1 (2020-08-17)
 #### New features
 * Updated group id to `com.azure`.
 * Updated artifact id to `azure-spring-data-2-3-cosmos`.
-* Updated azure-cosmos SDK dependency to `4.3.1`.
+* Updated azure-cosmos SDK dependency to `4.3.2-beta.1`.
 * Support for auditing entities - automatic management of createdBy, createdDate, lastModifiedBy and lastModifiedDate annotated fields.
 * `@GeneratedValue` annotation support for automatic id generation for id fields of `String` type.
 * Multi-database configuration support for single cosmos account with multiple databases and multiple cosmos accounts with multiple databases.
@@ -142,7 +141,6 @@ cosmos.queryMetricsEnabled=true
 * Exposed `CosmosClientBuilder` from Cosmos SDK as spring bean to `@Configuration` class.
 * Updated `CosmosConfig` to contain query metrics and response diagnostics processor implementation.
 * Support for returning `Optional` data type for single result queries.
-
 #### Renames
 * `CosmosDbFactory` to `CosmosFactory`.
 * `CosmosDBConfig` to `CosmosConfig`.
@@ -151,7 +149,6 @@ cosmos.queryMetricsEnabled=true
 * `DocumentIndexingPolicy` annotation to `CosmosIndexingPolicy` annotation.
 * `DocumentQuery` to `CosmosQuery`.
 * application.properties flag `populateQueryMetrics` to `queryMetricsEnabled`.
-
 #### Key bug fixes
 * Scheduling diagnostics logging task to `Parallel` threads to avoid blocking Netty I/O threads.
 * Fixed optimistic locking on delete operation.
