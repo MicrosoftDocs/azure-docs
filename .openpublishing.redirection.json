@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/users-groups-roles/users-restrict-guest-permissions.md",
+      "redirect_url": "/azure/active-directory/fundamentals/users-default-permissions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-api-management-certs.md",
       "redirect_url": "/previous-versions/azure/azure-api-management-certs",
       "redirect_document_id": false
