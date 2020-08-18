@@ -144,7 +144,7 @@
       - name: Serverless
         href: serverless.md
       - name: Choose between provisioned throughput and serverless
-        href: throughput-vs-serverless.md
+        href: throughput-serverless.md
     - name: SQL query
       items:
       - name: Getting started

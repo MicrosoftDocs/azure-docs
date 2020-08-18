@@ -36,8 +36,8 @@ Azure Cosmos DB is available in two different capacity modes: [provisioned throu
 
 In some situations, it may be unclear whether provisioned throughput or serverless should be chosen for a given workload. To help with this decision, you can estimate:
 
-- your workload's **burstability** requirement, that is what's the maximum amount of RUs you may need to consume in one second
-- your overall **expected consumption**, that is what's the total number of RUs you may consume over a month (you can estimate this with the help of the table shown [here](plan-manage-costs.md#estimating-serverless-costs))
+- Your workload's **burstability** requirement, that is what's the maximum amount of RUs you may need to consume in one second
+- Your overall **expected consumption**, that is what's the total number of RUs you may consume over a month (you can estimate this with the help of the table shown [here](plan-manage-costs.md#estimating-serverless-costs))
 
 If your workload requires to burst above 5,000 RU per second, provisioned throughput should be chosen because serverless containers can't burst above this limit. If not, you can compare the cost of both modes based on your expected consumption.
 
@@ -58,7 +58,7 @@ If your workload requires to burst above 5,000 RU per second, provisioned throug
 (these examples are not accounting for the storage cost, which is the same between the two modes)
 
 > [!NOTE]
-> See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
+> The costs shown in the previous example are for demonstration purposes only. See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
 ## Next steps
 

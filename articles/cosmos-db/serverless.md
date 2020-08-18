@@ -27,9 +27,9 @@ When using Azure Cosmos DB, every database operation has a cost expressed in [Re
 
 Azure Cosmos DB serverless best fits scenarios where you expect:
 
-- **light traffic**, because provisioning capacity in such situations isn't required and may be cost-prohibitive
-- **moderate burstability**, because serverless containers can deliver up to 5,000 Request Units per second
-- **moderate performance**, because serverless containers have [specific performance characteristics](#performance)
+- **Light traffic**: Because provisioning capacity in such situations isn't required and may be cost-prohibitive
+- **Moderate burstability**: Because serverless containers can deliver up to 5,000 Request Units per second
+- **Moderate performance**: Because serverless containers have [specific performance characteristics](#performance)
 
 For these reasons, Azure Cosmos DB serverless should be considered for the following types of workload:
 
@@ -39,7 +39,7 @@ For these reasons, Azure Cosmos DB serverless should be considered for the follo
 - Proof of concept
 - Non-critical application with light traffic
 
-See the [how to choose between provisioned throughput and serverless](throughput-vs-serverless.md) article for more guidance on how to choose the offer that best fits your use-case.
+See the [how to choose between provisioned throughput and serverless](throughput-serverless.md) article for more guidance on how to choose the offer that best fits your use-case.
 
 ## Using serverless resources
 
@@ -88,5 +88,5 @@ Serverless resources yield specific performance characteristics that are differe
 Get started with serverless with the following articles:
 
 - [Request Units in Azure Cosmos DB](request-units.md)
-- [Choose between provisioned throughput and serverless](throughput-vs-serverless.md)
+- [Choose between provisioned throughput and serverless](throughput-serverless.md)
 - [Pricing model in Azure Cosmos DB](how-pricing-works.md)

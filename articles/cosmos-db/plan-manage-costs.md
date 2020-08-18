@@ -13,10 +13,10 @@ ms.date: 08/19/2020
 
 This article describes how you can plan and manage costs for Azure Cosmos DB by:
 
-- estimating what will be your cost before you create any resources,
-- reviewing the estimated costs as you start using your resources,
-- using the cost management features to set budgets and monitor costs,
-- reviewing the forecasted costs and identifying spending trends to reveal areas where you might want to act.
+- Estimating what will be your cost before you create any resources
+- Reviewing the estimated costs as you start using your resources
+- Using the cost management features to set budgets and monitor costs
+- Reviewing the forecasted costs and identifying spending trends to reveal areas where you might want to act
 
 Understand that the costs for Azure Cosmos DB are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you’re billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Cosmos DB. After you’re familiar with managing costs for Azure Cosmos DB, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
@@ -26,7 +26,7 @@ Cost analysis supports different kinds of Azure account types. To view the full 
 
 ## Provisioned throughput or serverless
 
-Azure Cosmos DB supports 2 types of capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). The way you get charged for your Azure Cosmos DB usage varies a lot between these 2 modes, so it's important to choose the one that works best for your workload. See the [how to choose between provisioned throughput and serverless](throughput-vs-serverless.md) article for guidance and recommendations on how to make this choice.
+Azure Cosmos DB supports two types of capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). The way you get charged for your Azure Cosmos DB usage varies a lot between these two modes, so it's important to choose the one that works best for your workload. See the [how to choose between provisioned throughput and serverless](throughput-serverless.md) article for guidance and recommendations on how to make this choice.
 
 ## Estimating provisioned throughput costs with capacity calculator
 
@@ -52,6 +52,9 @@ If you plan to use Azure Cosmos DB in serverless mode, you need to estimate how 
 > Pay attention to the Notes above. For a more accurate estimation of the actual costs of your operations, you can use the [Azure Cosmos Emulator](local-emulator.md) and [measure the exact RU cost of your operations](find-request-unit-charge.md). Although the Azure Cosmos Emulator doesn't support serverless, it reports a standard RU charge for database operations and can be used for this estimation.
 
 Once you have computed the total number of Request Units and GB of storage you're likely to consume over a month, the following formula will return your cost estimate: **([Number of Request units] / 1,000,000 * $0.25) + ([GB of storage] * $0.25)**.
+
+> [!NOTE]
+> The costs shown in the previous example are for demonstration purposes only. See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
 ## Review estimated costs from the Azure portal
 

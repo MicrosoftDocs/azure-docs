@@ -25,7 +25,7 @@ The pricing model of Azure Cosmos DB simplifies the cost management and planning
 
 The pricing model in Azure Cosmos DB is consistent across all APIs. For more information, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), [Understanding your Azure Cosmos DB bill](understand-your-bill.md) and [How Azure Cosmos DB pricing model is cost-effective for customers](total-cost-ownership.md).
 
-If you deploy your Azure Cosmos DB account to a non-government region in the US, currently the minimum price for both database and the container-based throughput in provisioned throughput mode is approximately $24/month. There is no minimum price in serverless mode. The pricing varies depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
+If you deploy your Azure Cosmos DB account to a non-government region in the US, there is a minimum price for both database and container-based throughput in provisioned throughput mode. There is no minimum price in serverless mode. The pricing varies depending on the region you are using, see the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for latest pricing information.
 
 ## Try Azure Cosmos DB for free
 
