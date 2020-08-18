@@ -94,7 +94,7 @@ Traditionally in scale-up environment all file systems for SAP HANA are mounted 
 
 In order to achieve SAP HANA High Availability of scale-up system on [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/) NFS shares, we need some additional resource configuration in the cluster, in order for HANA resources to recover, when one node loses access to the NFS shares on ANF.  The cluster manages the NFS mounts, allowing it to monitor the health of the resources. The dependencies between the file system mounts and the SAP HANA resources are enforced.  
 
-![SAP HANA HA Scale-up on ANF](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-rhel.png)
+![SAP HANA HA Scale-up on ANF](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
 
 SAP HANA filesystems are mounted on NFS shares using Azure NetApp Files on each node. File systems /hana/data, /hana/log, and /hana/shared are unique to each node. 
 
