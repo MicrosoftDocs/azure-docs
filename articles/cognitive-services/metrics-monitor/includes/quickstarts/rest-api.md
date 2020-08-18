@@ -22,5 +22,17 @@ ms.author: aahi
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a [Product Name] resource"  target="_blank">create a [Product Name] resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to [Product Name]. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-   
-## Setting up
+* The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
+
+> [!CAUTION]
+> The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
+
+### Add a data feed from a sample or data source
+
+### Check ingestion status
+
+###	Setup detection configuration and alert configuration
+
+###	Query anomaly detection results
+
+###	Diagnose anomalies

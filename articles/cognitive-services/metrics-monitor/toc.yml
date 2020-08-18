@@ -21,3 +21,6 @@
     href: how-tos/web-portal.md
   - name: Send alerts
     href: How-tos/alerts.md
+- name: Reference
+  - name: Data feed configurations
+    data-feeds-from-different-sources.md

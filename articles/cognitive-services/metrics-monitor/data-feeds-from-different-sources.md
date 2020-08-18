@@ -18,29 +18,27 @@ Use this article to find the settings and requirements for connecting different 
 
 ## Azure Blob Storage (JSON)
 
-* **Connection String**: [String]. Please refer to [View and copy a connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) for information on how to retrieve the connection string from Azure Blob Storage.
+* **Connection String**: See the Azure Blob Storage [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) article for information on retrieving this string.
 
-* **Container**: Project "Gualala" will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
+* **Container**: Metrics monitor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
-* **Blob Template**
-The is the template of the Blob file names. For example: */%Y/%m/X_%Y-%m-%d-%h-%M.json*. The following placeholders are supported:
+* **Blob Template**: The is the template of the Blob file names. For example: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. The following placeholders are supported:
   * %Y=year in format yyyy
   * %m=month in format MM
   * %d=day in format dd
   * %h=hour in format HH
   * %M=minute in format mm
 
-* **JSON format version**
-This defines the data schema in the JSON files. Currently Project "Gualala" supports two versions.
-  * "v1" (Default value)
-  Only metrics Name and metrics Value are accepted. For example:
+* **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Monitor supports two versions:
+  * v1 (Default value)
+  Only the metrics *Name* and *Value* are accepted. For example:
 
   ``` JSON
   {"count":11, "revenue":1.23}
   ```
 
-  * "v2"
-  Dimensions and timestamp are also accepted. For example:
+  * v2
+  The metrics *Dimensions* and *timestamp* are also accepted. For example:
   
   ``` JSON
   [
@@ -49,11 +47,11 @@ This defines the data schema in the JSON files. Currently Project "Gualala" supp
   ]
   ```
 
-Please note that in one JSON file, only one timestamp is allowed. [TBD - not clear]
+Please note that only one timestamp is allowed per JSON file. [TBD]
 
 ## Azure Cosmos DB (SQL)
 
-You need to grant Project "Gualala" access to your data source by adding the following entity in the Cosmos VC Access Permission box: [TBD]] 
+You need to grant Metric Monitor access to your data source by adding the following entity in the Cosmos VC Access Permission box: [TBD]] 
 
 Connection String: Please refer to Get the MongoDB connection string by using the quick start for information on how to retrieve the connection string from Azure Blob Storage. 
 

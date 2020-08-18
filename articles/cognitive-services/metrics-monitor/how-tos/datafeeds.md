@@ -14,7 +14,7 @@ ms.author: aahi
 
 # How to: add data feeds to Metrics Monitor
 
-Learn how to create data feeds in Metrics Monitor to pull your time series data from different types of data sources. This article will guide you through key concepts for adding data feeds and common data schema requirements for time series data.
+Learn how to create data feeds in Metrics Monitor to pull your time series data from different sources. This article will guide you through key concepts for adding data feeds and common data schema requirements for time series data.
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
 
