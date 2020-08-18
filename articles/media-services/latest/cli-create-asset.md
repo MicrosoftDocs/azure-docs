@@ -32,8 +32,6 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
----
-
 ## [CLI Shell](#tab/clishell/)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
@@ -45,4 +43,5 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 ---
 
 ## Next steps
+
 [Manage assets](manage-asset-concept.md)
