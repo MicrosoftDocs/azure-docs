@@ -41,7 +41,7 @@ The Azure Linux Agent is already pre-installed on Azure Marketplace images and i
 
 ## Image update cadence
 
-Azure requires that the publishers of the endorsed Linux distributions regularly update their images in Azure Marketplace with the latest patches and security fixes, at a quarterly or faster cadence. Updated images in the Marketplace are available automatically to customers as new versions of an image SKU. More information about how to find Linux images: [Find Linux VM images in the Azure Marketplace](./cli-ps-findimage.md).
+Azure requires that the publishers of the endorsed Linux distributions regularly update their images in Azure Marketplace with the latest patches and security fixes, at a quarterly or faster cadence. Updated images in the Marketplace are available automatically to customers as new versions of an image SKU. More information about how to find Linux images: [Find Linux VM images in Azure Marketplace](./cli-ps-findimage.md).
 
 ## Azure-tuned kernels
 
