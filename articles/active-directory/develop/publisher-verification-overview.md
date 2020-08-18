@@ -38,13 +38,13 @@ There are a few pre-requisites for publisher verification, some of which will ha
 
 -  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
 
--  An Azure AD tenant with a DNS-verified [custom domain](../fundamentals/add-custom-domain.md). The custom domain must match the domain of the email address used during verification in the previous step. 
+-  An app registered in an Azure AD tenant, with a [Publisher Domain](howto-configure-publisher-domain.md) configured.
 
--  An app registered in an Azure AD tenant, with a [Publisher Domain](howto-configure-publisher-domain.md) configured using the same domain as previously used. 
+-  The domain of the email address used during MPN account verification must either match the publisher domain configured on the app or a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) added to the Azure AD tenant. 
 
 -  The user performing verification must be authorized to make changes to both the app registration in Azure AD and the MPN account in Partner Center. 
 
-    -  In Azure AD this user must either be the Owner of the app or have one of the following [roles](../users-groups-roles/directory-assign-admin-roles.md): Application Admin, Cloud Application Admin, Global Admin. 
+    -  In Azure AD this user must be a member of one of the following [roles](../users-groups-roles/directory-assign-admin-roles.md): Application Admin, Cloud Application Admin, or Global Admin. 
 
     -  In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD).
     
