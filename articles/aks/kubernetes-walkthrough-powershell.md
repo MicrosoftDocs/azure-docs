@@ -133,12 +133,6 @@ the sample Azure Vote Python applications, and the other for a Redis instance. T
 [Kubernetes Services is also created - an internal service for the Redis
 instance, and an external service to access the Azure Vote application from the internet.
 
-> [!TIP]
-> In this quickstart, you manually create and deploy your application manifests to the AKS cluster.
-> In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate
-> and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and
-> development environments, and work together with others on your team.
-
 Create a file named `azure-vote.yaml` and copy in the following YAML definition. If you use the
 Azure Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or
 physical system:
