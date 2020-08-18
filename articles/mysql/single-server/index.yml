@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: concepts-servers.md
+            url: ../concepts-servers.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
@@ -81,14 +81,13 @@ landingContent:
             url: ../connect-python.md
           - text: Connect using Node.js
             url: ../connect-nodejs.md
-          - text: Connect using Ruby
 # Card 4
   - title: Manage and migrate data
     linkLists:
       - linkListType: concept
         links:
           - text: Understanding Server parameters
-            url: ../concepts-server-parameters
+            url: ../concepts-server-parameters.md
           - text: Understand Virtual Networks
             url: ../concepts-data-access-and-security-vnet.md
           - text: Migrate using dump and restore
@@ -96,7 +95,7 @@ landingContent:
           - text: Migrate using import and export
             url: ../concepts-migrate-import-export.md
           - text : Monitoring
-            url: concepts-monitoring,md
+            url: ../concepts-monitoring.md
       - linkListType: how-to-guide
         links:
           - text: Configure server parameters
