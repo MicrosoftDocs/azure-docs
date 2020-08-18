@@ -116,7 +116,7 @@ A certificate creates the secure TLS connection for your custom domain.
 
 You must use a PFX certificate, to ensure all required intermediate certificates are included. The certificate must include the private key.
 
-There's no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are supported. 
+Most common certificate signature methods are supported such as Subject Alternative Name (SAN). 
 
 You can use wildcard certificates as long as the wildcard matches the external URL. You must use wildcard certificates for [wildcard applications](application-proxy-wildcard.md). If you want to use the certificate to also access subdomains, you must add the subdomain wildcards as subject alternative names in the same certificate. For example, a certificate for *\*.adventure-works.com* won't work for *\*.apps.adventure-works.com* unless you add *\*.apps.adventure-works.com* as a subject alternative name. 
 
