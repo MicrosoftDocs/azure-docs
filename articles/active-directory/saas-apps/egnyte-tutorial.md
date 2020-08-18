@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Egnyte | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Egnyte.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Egnyte
 
