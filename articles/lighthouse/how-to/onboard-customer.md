@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 08/12/2020
+ms.date: 08/19/2020
 ms.topic: how-to
 ---
 
@@ -133,7 +133,7 @@ The template you choose will depend on whether you are onboarding an entire subs
 |Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> The process described here requires a separate subscription-level deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one subscription-level deployment.
+> The process described here requires a separate deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
 >
 > Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
 
@@ -194,12 +194,16 @@ The last authorization in the example above adds a **principalId** with the User
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, a user in the customer's tenant must deploy the Azure Resource Manager template within their tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard). The deployment may be done by using PowerShell or Azure CLI, as shown below.
+Once you have updated your parameter file, a user in the customer's tenant must deploy the Azure Resource Manager template within their tenant. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
 > This subscription-level deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 >
 > If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
+
+### Azure portal
+
+TKTKTK button info
 
 ### PowerShell
 
