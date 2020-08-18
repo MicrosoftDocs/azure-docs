@@ -262,7 +262,7 @@ Your template has a `resources` object, which is an array that contains definiti
 
 ### View resource definitions
 
-To review the resource definitions for all the resources in an Azure resource group, follow these steps or [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+To review the resource definitions for all the resources in an Azure resource group, either [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment, or follow these steps in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
