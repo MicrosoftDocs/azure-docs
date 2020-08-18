@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Azure Digital Twins determines how you are billed for query operations in your instance using **Query Units (QUs)**.
 
-An Azure Digital Twins Query Unit is a unit of on-demand computation that's made available to execute your [Azure Digital Twins queries](how-to-query-graph.mc) using the [Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). It abstracts away the system resources like CPU, IOPS and memory that are required to perform query operations supported by Azure Digital Twins. The complexity of the query affects how many QUs are consumed to execute that query. 
+An Azure Digital Twins Query Unit is a unit of on-demand computation that's made available to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). It abstracts away the system resources like CPU, IOPS and memory that are required to perform query operations supported by Azure Digital Twins. The complexity of the query affects how many QUs are consumed to execute that query. 
 
 Query Unit is a [Pay-As-You-Go](https://azure.microsoft.com/pricing/) dimension. In Azure, you pay for number of Query Units consumed to execute your Azure Digital Twins queries. This article explains how to understand Query Units and track their charges.
 
