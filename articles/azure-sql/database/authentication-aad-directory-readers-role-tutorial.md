@@ -69,11 +69,11 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
 
     - Go to the **Azure Active Directory** resource. Under the **Manage** setting, select **Enterprise applications**. The **Object ID** is the identity of the instance.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-mi-sp.png" alt-text="azure-ad-mi-sp":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="azure-ad-managed-instance-service-principal":::
 
 1. Go to the **Azure Active Directory** resource. Under **Managed**, go to **Groups**. Select the group that you created. Under the **Managed** setting of your group, select **Members**. Select **Add members** and add your SQL Managed Instance service principal as a member of the group by searching for the name found above.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-mi-sp.png" alt-text="azure-ad-add-mi-sp":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="azure-ad-add-managed-instance-service-principal":::
 
 > [!NOTE]
 > It can take a few minutes to propagate the service principal permissions through the Azure system, and allow access to Azure AD Graph API. You may have to wait a few minutes before you provision an Azure AD admin for SQL Managed Instance.
