@@ -215,14 +215,6 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 # [Neural Text-to-speech](#tab/ntts)
 
-#### Request access to the container registry
-
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
-
 #### Docker pull for the Neural Text-to-speech container
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
