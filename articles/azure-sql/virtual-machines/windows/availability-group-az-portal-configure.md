@@ -29,7 +29,7 @@ To configure an Always On availability group, you must have the following prereq
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md) using the same domain account for the SQL Server service on each VM.
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions
@@ -105,9 +105,13 @@ Create the availability group using the Azure portal. To do so, follow these ste
 
 You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
+  > [!NOTE]
+  > Your **Replication health** in the **High availability** page of the Azure portal will show as **Not healthy** until you add databases to your availability group. 
+
+
 ## Add database to availability group
 
-After the availability creation completes, add your databases to your availability group. The below steps use the SQL Server Management Studio (SSMS) GUI but you can use [Transact-SQL or PowerShell](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) as well. 
+Add your databases to your availability group after deployment completes. The below steps use the SQL Server Management Studio (SSMS) GUI but you can use [Transact-SQL or PowerShell](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) as well. 
 
 To add databases to your availability group using SQL Server Management Studio, follow these steps:
 
@@ -123,6 +127,11 @@ To add databases to your availability group using SQL Server Management Studio, 
 1. Select **OK** to save your settings and add your database to the availability group. 
 1. After the database is added, refresh **Object Explorer** to confirm the status of your database as `synchronized`. 
 
+After databases are added, you can check the status of your availability group in the Azure portal: 
+
+:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Right-click the availability group in object explorer and choose to Add database":::
+
+
 
 ## Check deployment history
 
@@ -137,6 +146,17 @@ To view the logs for the deployment, and check the deployment history, follow th
 
 
    :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Select the deployment you're interested in learning more about." :::
+
+## Common errors
+
+Review the following common errors and their resolutions. 
+
+### The account which is used to start up sql service is not a domain account
+
+This is an indication that the resource provider could not access the SQL Server service with the provided credentials. Some common resolutions:
+- Ensure your domain controller is running.
+- Validate the credentials provided in the portal match those of the SQL Server service. 
+
 
 
 
