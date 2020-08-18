@@ -79,7 +79,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. In C#, the following code can acquire the token on behalf of the application. For a complete sample on how to query data from a Gen1 environment, read [Query data using C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+        See the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo to access the C# code. 
 
    1. The token can then be passed in the `Authorization` header when the application calls the Azure Time Series Insights API.
 
