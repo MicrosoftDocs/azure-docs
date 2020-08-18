@@ -59,7 +59,7 @@ For e.g., In the import scenario, if you had on-premises data in Canada that you
 
 1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
 
-2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
+2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This step would incur additional bandwidth charges for moving data out over the network.
 
