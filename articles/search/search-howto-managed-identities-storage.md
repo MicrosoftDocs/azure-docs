@@ -15,8 +15,7 @@ ms.date: 05/18/2020
 # Set up a connection to an Azure Storage account using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
-> You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Support for setting up a connection to a data source using a managed identity is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 
 This page describes how to set up an indexer connection to an Azure storage account using a managed identity instead of providing credentials in the data source object connection string.
 
@@ -65,6 +64,8 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 3 - Create the data source
 
+The [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) support the managed identity connection string. Below is an example of how to create a data source to index data from a storage account using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+
 When indexing from a storage account, the data source must have the following required properties:
 
 * **name** is the unique name of the data source within your search service.
@@ -92,8 +93,6 @@ api-key: [admin key]
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 }   
 ```
-
-The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 4 - Create the index
 

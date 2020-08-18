@@ -44,7 +44,7 @@ Backups per day (via DPM/MABS) | Two scheduled backups per day.
 Monthly/yearly backup| Not supported when backing up with Azure VM extension. Only daily and weekly is supported.<br/><br/> You can set up the policy to retain daily/weekly backups for monthly/yearly retention period.
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
-Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM; However even if the time change is reverted, successful backup isn't guaranteed.
+Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM; however even if the time change is reverted, successful backup isn't guaranteed.
 Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Backup and restore are supported for VMs with [orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) set to 3. <br><br>Availability sets are unsupported.
 
 ## Operating system support (Windows)
@@ -150,7 +150,7 @@ Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Support
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in all regions except National Clouds (Azure Government, Azure China 21Vianet, and Azure Germany).<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
+Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in all regions.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
