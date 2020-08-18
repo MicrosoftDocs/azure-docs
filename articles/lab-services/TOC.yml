@@ -24,6 +24,8 @@
     href: classroom-labs-fundamentals.md
   - name: Capacity limits
     href: capacity-limits.md  
+  - name: Cost management for labs
+    href: cost-management-guide.md        
   - name: Scenarios
     items:  
     - name: Use Lab Services for conducting classes
@@ -52,8 +54,6 @@
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
-    - name: Cost management for labs
-      href: cost-management-guide.md        
 - name: How-to guides
   items:
   - name: Administrator guide
