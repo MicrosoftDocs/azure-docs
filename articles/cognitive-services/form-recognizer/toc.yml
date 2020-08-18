@@ -34,6 +34,10 @@
         href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
+    - name: Use prebuilt business card model
+      items:
+      - name: Python
+        href: quickstarts/python-business-cards.md
     - name: Get text layout information
       items:
       - name: Python
@@ -44,6 +48,12 @@
     href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
+- name: Concepts
+  items:
+  - name: Receipts
+    href: concept-receipts.md
+  - name: Business cards
+    href: concept-business-cards.md
 - name: How-to guides
   items:
   - name: Build a training data set
