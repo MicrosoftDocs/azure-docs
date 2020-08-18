@@ -3,9 +3,9 @@ title: Exchange messages with Azure Service Bus
 description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 07/31/2020
 tags: connectors
 ---
 
@@ -26,7 +26,7 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * A Service Bus namespace and messaging entity, such as a queue. These items and your logic app need to use the same Azure subscription. If you don't have these items, learn how to [create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -40,7 +40,7 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 Confirm that your logic app has permissions for accessing your Service Bus namespace.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account.
 
 1. Go to your Service Bus *namespace*. On the namespace page, under **Settings**, select **Shared access policies**. Under **Claims**, check that you have **Manage** permissions for that namespace.
 
@@ -49,7 +49,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 1. Get the connection string for your Service Bus namespace. You need this string when you provide the connection information in your logic app.
 
    1. On the **Shared access policies** pane, select **RootManageSharedAccessKey**.
-   
+
    1. Next to your primary connection string, select the copy button. Save the connection string for later use.
 
       ![Copy Service Bus namespace connection string](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
@@ -170,4 +170,3 @@ For other technical details about triggers, actions, and limits, which are descr
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-

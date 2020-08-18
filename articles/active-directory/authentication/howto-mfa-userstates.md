@@ -53,7 +53,7 @@ Use the following steps to access the Azure portal page where you can view and m
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Search for and select *Azure Active Directory*, then select **Users** > **All users**.
 1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
-    [![](media/howto-mfa-userstates/selectmfa-cropped.png "Select Multi-Factor Authentication from the Users window in Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+    [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. A new page opens that displays the user state, as shown in the following example.
    ![Screenshot that shows example user state information for Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 

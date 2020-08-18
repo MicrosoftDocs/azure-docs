@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in St
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A StarLeaf tenant](https://www.starleaf.com/solutions/).
+* [A StarLeaf tenant](https://starleaf.com/).
 * A user account in StarLeaf with Admin permissions.
 
 ## Assign users to StarLeaf

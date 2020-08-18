@@ -1,6 +1,6 @@
 ---
 title: View and Download Azure usage and charges
-description: Describes how to download or view your Azure daily usage and charges.
+description: Learn how to download or view your Azure daily usage and charges, and see additional available resources.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders

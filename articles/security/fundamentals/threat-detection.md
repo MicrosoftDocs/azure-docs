@@ -1,6 +1,6 @@
 ---
 title: Azure advanced threat detection | Microsoft Docs
-description: Learn about Azure AD Identity Protection and its capabilities.
+description: Learn about built-in advanced threat detection functionality for Azure, such as the Azure AD Identity Protection service. 
 services: security
 documentationcenter: na
 author: UnifyCloud

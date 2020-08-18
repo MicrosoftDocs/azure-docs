@@ -112,6 +112,10 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
     > [!NOTE]
     > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
 
+### User secrets and other configuration providers
+
+If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
+
 ## Run your application
 
 Run your application and make requests to it. Telemetry should now flow to Application Insights. The Application Insights SDK automatically collects incoming web requests to your application, along with the following telemetry as well.
@@ -452,7 +456,9 @@ This SDK requires `HttpContext`, and hence does not work in any non-HTTP applica
 
 ## Open-source SDK
 
-[Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+
+For the latest updates and bug fixes [consult the release notes](./release-notes.md).
 
 ## Next steps
 

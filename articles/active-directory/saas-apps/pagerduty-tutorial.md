@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with PagerDuty | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PagerDuty.
 services: active-directory
@@ -35,6 +35,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * PagerDuty single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> If you are using MFA or Passwordless authentication with Azure AD then switch off the AuthnContext value in the SAML Request. Otherwise Azure AD will throw the error on mismatch of the AuthnContext and will not send the token back to the application.
 
 ## Scenario description
 

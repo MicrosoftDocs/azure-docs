@@ -9,7 +9,8 @@ ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/19/2020
-ms.author: lcozzens
+ms.author: lcozzens 
+ms.custom: devx-track-azurecli
 ---
 
 # Export from an Azure App Configuration store

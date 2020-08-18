@@ -52,7 +52,7 @@ However, at least one of your emergency access accounts should not have the same
 
 ### Exclude at least one account from Conditional Access policies
 
-During an emergency, you do not want a policy to potentially block your access to fix an issue. At least one emergency access account should be excluded from all Conditional Access policies. If you have enabled a [baseline policy](../conditional-access/baseline-protection.md), you should exclude your emergency access accounts.
+During an emergency, you do not want a policy to potentially block your access to fix an issue. At least one emergency access account should be excluded from all Conditional Access policies.
 
 ## Federation guidance
 

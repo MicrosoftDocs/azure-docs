@@ -38,10 +38,10 @@ To create a digital twin, you need to provide:
 
 Optionally, you can provide initial values for all properties of the digital twin. 
 
-> [!TIP]
-> Only properties that have been set at least once are returned when you retrieve a twin with GetDigitalTwin.  
-
 The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-created twins if you need an instant response. 
 
 ### Initialize properties
 
@@ -91,6 +91,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 This call returns twin data as a JSON string. 
+
+> [!TIP]
+> Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
 
 To retrieve multiple twins using a single API call, see the query API examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
 
@@ -175,7 +178,14 @@ You can read more about the serialization helper classes in [*How-to: Use the Az
 
 To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+A patch call can update as many properties on a single twin as you'd like (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
 
 Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
@@ -197,6 +207,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 You can create patches manually, or by using a serialization helper class in the [SDK](how-to-use-apis-sdks.md). Here is an example of each.
 
 #### Create patches manually
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -271,6 +282,19 @@ The patch for this situation needs to update both the model and the twin's tempe
   }
 ]
 ```
+
+### Handle conflicting update calls
+
+Azure Digital Twins ensures that all incoming requests are processed one after the other. This means that even if multiple functions try to update the same property on a twin at the same time, there's **no need** for you to write explicit locking code to handle the conflict.
+
+This behavior is on a per-twin basis. 
+
+As an example, imagine a scenario in which these three calls arrive at the same time: 
+*	Write property A on *Twin1*
+*	Write property B on *Twin1*
+*	Write property A on *Twin2*
+
+The two calls that modify *Twin1* are executed one after another, and change messages are generated for each change. The call to modify *Twin2* may be executed concurrently with no conflict, as soon as it arrives.
 
 ## Delete a digital twin
 

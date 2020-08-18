@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 08/13/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -141,13 +141,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Zendesk SSO
 
+1. To automate the configuration within **Zendesk**, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![image](./media/target-process-tutorial/install_extension.png)
+
+1. After adding extension to the browser, click on **setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
 1. If you want to setup Zendesk manually, open a new web browser window and sign into your Zendesk company site as an administrator and perform the following steps:
 
-2. Click **Admin**.
+1. Click **Admin**.
 
-3. In the left navigation pane, click **Settings**, and then click **Security**.
+1. In the left navigation pane, click **Settings**, and then click **Security**.
 
-4. On the **Security** page, perform the following steps:
+1. On the **Security** page, perform the following steps:
 
 	![Security](./media/zendesk-tutorial/ic773089.png "Security")
 

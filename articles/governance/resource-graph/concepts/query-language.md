@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -16,6 +16,7 @@ This article covers the language components supported by Resource Graph:
 - [Resource Graph tables](#resource-graph-tables)
 - [Resource Graph custom language elements](#resource-graph-custom-language-elements)
 - [Supported KQL language elements](#supported-kql-language-elements)
+- [Scope of the query](#query-scope)
 - [Escape characters](#escape-characters)
 
 ## Resource Graph tables
@@ -141,6 +142,42 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[top](/azure/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limit of 3 `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
 |[where](/azure/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
+
+## Query scope
+
+The scope of the subscriptions from which resources are returned by a query depend on the method of
+accessing Resource Graph. Azure CLI and Azure PowerShell populate the list of subscriptions to
+include in the request based on the context of the authorized user. The list of subscriptions can be
+manually defined for each with the **subscriptions** and **Subscription** parameters, respectively.
+In REST API and all other SDKs, the list of subscriptions to include resources from must be
+explicitly defined as part of the request.
+
+As a **preview**, REST API version `2020-04-01-preview` adds a property to scope the query to a
+[management group](../../management-groups/overview.md). This preview API also makes the
+subscription property optional. If neither the management group or subscription list are defined,
+the query scope is all resources the authenticated user can access. The new `managementGroupId`
+property takes the management group ID, which is different from the name of the management group.
+When `managementGroupId` is specified, resources from the first 5000 subscriptions in or under the
+specified management group hierarchy are included. `managementGroupId` can't be used at the same
+time as `subscriptions`.
+
+Example: Query all resources within the hierarchy of the management group named 'My Management
+Group' with ID 'myMG'.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  ```
+
+- Request Body
+
+  ```json
+  {
+      "query": "Resources | summarize count()",
+      "managementGroupId": "myMG"
+  }
+  ```
 
 ## Escape characters
 

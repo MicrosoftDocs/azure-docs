@@ -93,11 +93,11 @@ After creating the Recovery Services vault, the next step is to configure the va
 
      After creating the backup policy, associate the policy with the virtual machines.
 
-1. Under **Virtual Machines**, select **Add".
+1. Under **Virtual Machines**, select **Add**.
 
      ![Add virtual machines](./media/tutorial-backup-vm-at-scale/add-virtual-machines.png)
 
-1. The **Select virtual machines** pane will open. select *myVM* and select **OK** to deploy the backup policy to the virtual machines.
+1. The **Select virtual machines** pane will open. Select *myVM* and select **OK** to deploy the backup policy to the virtual machines.
 
     All virtual machines that are in the same location, and aren't already associated with a backup policy, appear. *myVMH1* and *myVMR1* are selected to be associated with the *Finance* policy.
 
@@ -151,7 +151,7 @@ If you plan to continue on to work with subsequent tutorials, don't clean up the
 
 1. On the **myRecoveryServicesVault** dashboard, select **3** under **Backup Items** to open the Backup Items menu.
 
-    ![Backup items](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Open Backup items menu](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. On the **Backup Items** menu, select **Azure Virtual Machine** to open the list of virtual machines associated with the vault.
 
@@ -180,7 +180,7 @@ If you plan to continue on to work with subsequent tutorials, don't clean up the
 
 1. When there are no more items in the vault, select **Delete**.
 
-    ![Select Stop backup to delete vault](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Select delete](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Once the vault is deleted, you'll return to the list of Recovery Services vaults.
 

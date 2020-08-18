@@ -181,11 +181,20 @@ These actions will reset the notebook state and will reset all variables in the 
 The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
-1. Use the terminal window to create a new environment.
+1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+    ```shell
+    conda create --name newenv
+    ```
 1. Activate the environment.  For example, after creating `newenv`:
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

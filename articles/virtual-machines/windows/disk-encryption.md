@@ -29,7 +29,7 @@ The following sections describe each of the options for key management in greate
 
 ### Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
+By default, managed disks use platform-managed encryption keys. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys.
 
 ### Customer-managed keys
 

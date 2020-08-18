@@ -174,7 +174,7 @@ The Alert details page includes the following sections:
 
 ## Role-based access control (RBAC) for your alert instances
 
-The consumption and management of alert instances requires the user to have the built-in RBAC roles of either [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) or [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from the subscription level to granular assignments at a resource level. For example, if a user only has monitoring contributor access for virtual machine `ContosoVM1`, that user can consume and manage only alerts generated on `ContosoVM1`.
+The consumption and management of alert instances requires the user to have the Azure built-in roles of either [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) or [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from the subscription level to granular assignments at a resource level. For example, if a user only has monitoring contributor access for virtual machine `ContosoVM1`, that user can consume and manage only alerts generated on `ContosoVM1`.
 
 ## Manage your alert instances programmatically
 
@@ -208,4 +208,3 @@ Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get 
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
 - [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
-

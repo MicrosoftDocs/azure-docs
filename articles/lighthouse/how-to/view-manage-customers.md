@@ -1,13 +1,16 @@
 ---
 title: View and manage customers and delegated resources
-description: As a service provider using Azure Lighthouse, you can view all of your delegated customer resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 07/06/2020
+description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
+ms.date: 08/12/2020
 ms.topic: how-to
 ---
 
 # View and manage customers and delegated resources
 
-Service providers using [Azure Lighthouse](../overview.md) can use the **My customers** page in the [Azure portal](https://portal.azure.com) to view delegated customer resources and subscriptions. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+Service providers using [Azure Lighthouse](../overview.md) can use the **My customers** page in the [Azure portal](https://portal.azure.com) to view delegated customer resources and subscriptions. 
+
+> [!TIP]
+> While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
 
@@ -37,7 +40,7 @@ You can view the following info from this page:
 
 ## View and manage delegations
 
-Delegations show the subscription/resource group that has been delegated , along with the users and permissions that have access to it. To view this info, select **Delegations** on the left side of the **My customers** page.
+Delegations show the subscription or resource group that has been delegated, along with the users and permissions that have access to it. To view this info, select **Delegations** on the left side of the **My customers** page.
 
 Filters at the top of the page let you sort and group your access assignment info or filter by specific customers, offers, or keywords.
 

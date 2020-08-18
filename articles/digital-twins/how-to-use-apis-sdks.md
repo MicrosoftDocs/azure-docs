@@ -44,7 +44,7 @@ The data plane APIs are used to manage the elements within your Azure Digital Tw
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-The most current data plane API version for public preview is _**2020-05-31-preview**_.
+The most current data plane API version for public preview is _**2020-05-31-preview**_. The _2020-03-01-preview_ API version for data plane operations has now been deprecated.
 
 To use the data plane APIs:
 * You can call the APIs directly, by...
@@ -285,7 +285,7 @@ API metrics such as requests, latency, and failure rate can be viewed in the [Az
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins":::
 
 From here, you can view the metrics for your instance and create custom views.
 

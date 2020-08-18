@@ -37,7 +37,7 @@ To enable group writeback, use the following steps:
 6. On the **Writeback page**, select an Active Directory organizational unit (OU) to store objects that are synchronized from Office 365 to your on-premises organization, and then click **Next**.
 7. On the **Ready** to configure page, click **Configure**.
 8. When the wizard is complete, click **Exit** on the Configuration complete page.
-9. Open the Windows PowerShell on the Azure Active Directory Connect server, and run the following commands.
+9. Open the Windows PowerShell as an Administrator on the Azure Active Directory Connect server, and run the following commands.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>

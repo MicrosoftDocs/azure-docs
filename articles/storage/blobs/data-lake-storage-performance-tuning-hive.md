@@ -1,6 +1,6 @@
 ---
 title: 'Tune performance: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines.
+description: Understand tuning guidelines for I/O intensive queries using Hive, HDInsight, and Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage

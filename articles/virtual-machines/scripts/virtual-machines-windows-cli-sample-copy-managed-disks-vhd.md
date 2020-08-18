@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: "mvc,seodec18"
+ms.custom: "mvc,seodec18, devx-track-azurecli"
 ---
 
 # Export/Copy a managed disk to a storage account using the Azure CLI

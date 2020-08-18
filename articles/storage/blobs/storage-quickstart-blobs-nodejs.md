@@ -8,6 +8,7 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-javascript
 ---
 
 # Quickstart: Manage blobs with JavaScript v12 SDK in Node.js

@@ -4,7 +4,8 @@ description: Create your first Azure Resource Manager template. In the tutorial,
 author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 

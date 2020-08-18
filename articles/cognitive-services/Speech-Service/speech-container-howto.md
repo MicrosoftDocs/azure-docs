@@ -349,7 +349,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Text-to-speech* container from the container image.
-* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -389,7 +389,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Custom Text-to-speech* container from the container image.
-* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).

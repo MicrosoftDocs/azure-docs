@@ -80,7 +80,7 @@ The architecture looks like:
 
 This setup is not well suited to achieving great Recovery Point Objective (RPO) and Recovery Time Objective (RTO) times. RTO times especially would suffer due to the need to fully restore the complete database by using the copied backups. However, this setup is useful for recovering from unintended data deletion on the main instances. With this setup, at any time, you can restore to a certain point in time, extract the data, and import the deleted data into your main instance. Hence, it might make sense to use a backup copy method in combination with other high-availability functionality. 
 
-While backups are being copied, you might be able to use a smaller VM than the main VM that the SAP HANA instance is running on. Keep in mind that you can attach a smaller number of VHDs to smaller VMs. For information about the limits of individual VM types, see [Sizes for Linux virtual machines in Azure](../../linux/sizes.md).
+While backups are being copied, you might be able to use a smaller VM than the main VM that the SAP HANA instance is running on. Keep in mind that you can attach a smaller number of VHDs to smaller VMs. For information about the limits of individual VM types, see [Sizes for Linux virtual machines in Azure](../../sizes.md).
 
 ### SAP HANA system replication without automatic failover
 

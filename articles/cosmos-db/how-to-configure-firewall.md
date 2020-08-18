@@ -5,7 +5,8 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/31/2019
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure IP firewall in Azure Cosmos DB
