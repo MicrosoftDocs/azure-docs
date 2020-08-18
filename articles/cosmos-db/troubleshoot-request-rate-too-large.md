@@ -16,7 +16,7 @@ A "Request rate too large" message or error code 429 indicates that your request
 The following section contains known causes and solutions for too many requests.
 
 ### Check the metrics
-Check the [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to see the number of 429 exceptions.
+Check [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to see the number of 429 exceptions.
 
 #### Cause:
 The consumed throughput (Request Units per second) has exceeded the [provisioned throughput](set-throughput.md). The SDK automatically retries requests based on the specified retry policy. If you get this failure often, consider increasing the throughput on the collection. Check the portal's metrics to see if you're getting 429 errors. Review your partition key to ensure it results in an [even distribution of storage and request volume](partition-data.md).

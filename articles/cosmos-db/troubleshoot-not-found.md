@@ -13,9 +13,9 @@ ms.reviewer: sngun
 The HTTP status code 404 represents that the resource no longer exists.
 
 ## Expected behavior
-There are many valid scenarios where an application is expecting a 404 and correctly handles the scenario.
+There are many valid scenarios where an application expects a code 404 and correctly handles the scenario.
 
-## Not found was returned for an item that should exist or does exist
+## A not found exception was returned for an item that should exist or does exist
 Here are the possible reasons for a status code 404 to be returned if the item should exist or does exist.
 
 ### 1. Race condition
@@ -73,11 +73,11 @@ while (invalidItemsIterator.HasMoreResults)
 }
 ```
 
-### 4. Time to Live (TTL) purge
-The item had the [Time to Live (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) property set. The item was purged because the Time to Live property expired.
+### 4. Time to Live purge
+The item had the [Time to Live (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) property set. The item was purged because the TTL property expired.
 
 #### Solution:
-Change the Time to Live property to prevent the item from being purged.
+Change the TTL property to prevent the item from being purged.
 
 ### 5. Lazy indexing
 The [lazy indexing](index-policy.md#indexing-mode) hasn't caught up.

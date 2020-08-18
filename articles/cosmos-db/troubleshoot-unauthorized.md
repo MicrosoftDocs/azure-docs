@@ -32,7 +32,7 @@ The 401 MAC signature issue will be consistent and happens for all calls using t
 The key is misconfigured on the application and is using the wrong key for the account, or the entire key wasn't copied.
 
 ### 3. The application is using the read-only keys for write operations
-The 401 MAC signature issue is only occurring for write operations like create or replace, but read requests succeed.
+The 401 MAC signature issue only occurs for write operations like create or replace, but read requests succeed.
 
 #### Solution:
 Switch the application to use a read/write key to allow the operations to complete successfully.

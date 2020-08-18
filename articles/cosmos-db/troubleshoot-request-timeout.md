@@ -16,7 +16,7 @@ Azure Cosmos DB returned an HTTP 408 request timeout.
 The following list contains known causes and solutions for request timeout exceptions.
 
 ### 1. Check the SLA
-Check the [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to see if the number of 408 exceptions violates the Azure Cosmos DB SLA.
+Check [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to see if the number of 408 exceptions violates the Azure Cosmos DB SLA.
 
 #### Solution 1: It didn't violate the Azure Cosmos DB SLA
 The application should handle this scenario and retry on these transient failures.
