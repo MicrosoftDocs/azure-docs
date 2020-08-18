@@ -182,6 +182,8 @@ To update properties a digital twin, you write the information you want to repla
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+A patch call can update as many properties on a single twin as you'd like (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
+
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
 
@@ -205,6 +207,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 You can create patches manually, or by using a serialization helper class in the [SDK](how-to-use-apis-sdks.md). Here is an example of each.
 
 #### Create patches manually
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -279,6 +282,19 @@ The patch for this situation needs to update both the model and the twin's tempe
   }
 ]
 ```
+
+### Handle conflicting update calls
+
+Azure Digital Twins ensures that all incoming requests are processed one after the other. This means that even if multiple functions try to update the same property on a twin at the same time, there's **no need** for you to write explicit locking code to handle the conflict.
+
+This behavior is on a per-twin basis. 
+
+As an example, imagine a scenario in which these three calls arrive at the same time: 
+*	Write property A on *Twin1*
+*	Write property B on *Twin1*
+*	Write property A on *Twin2*
+
+The two calls that modify *Twin1* are executed one after another, and change messages are generated for each change. The call to modify *Twin2* may be executed concurrently with no conflict, as soon as it arrives.
 
 ## Delete a digital twin
 
