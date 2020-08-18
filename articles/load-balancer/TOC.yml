@@ -6,8 +6,6 @@
     href: load-balancer-overview.md
   - name: What's new?
     href: whats-new.md
-  - name: Frequently asked questions
-    href: load-balancer-faqs.md
 - name: Quickstart
   items:
   - name: Create public load balancer - Portal
@@ -175,3 +173,5 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
+  - name: FAQ
+    href: load-balancer-faqs.md
