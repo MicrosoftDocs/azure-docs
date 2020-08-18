@@ -160,7 +160,7 @@
         items:
         - name: Create Azure AD guest users and set as an Azure AD admin
           href: database/authentication-aad-guest-users.md
-        - name: Assign Directory Reader role to groups
+        - name: Assign Directory Readers role to groups
           href: database/authentication-aad-directory-readers-role-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
