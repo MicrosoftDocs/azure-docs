@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -53,7 +53,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -102,7 +102,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 If the connected organization changes to a different domain, the organization's name changes, or you want to change the sponsors, you can update the connected organization by following the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -119,7 +119,7 @@ If the connected organization changes to a different domain, the organization's 
 
 If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 

@@ -33,8 +33,9 @@ Double check that the firewall or proxy is configured to allow the following por
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |  
+|*.agentsvc.azure-automation.net |Port 443 |Outbound|Yes |  
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 
@@ -99,4 +100,3 @@ If the query returns results, then you need to determine if a particular data ty
     |8000 |HealthService |This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. | Event ID 2136 from source HealthService is written together with this event and can indicate the agent is unable to communicate with the service, possibly due to misconfiguration of the proxy and authentication settings, network outage, or the network firewall/proxy does not allow TCP traffic from the computer to the service.| 
     |10102 and 10103 |Health Service Modules |Workflow could not resolve data source. |This can occur if the specified performance counter or instance does not exist on the computer or is incorrectly defined in the workspace data settings. If this is a user-specified [performance counter](data-sources-performance-counters.md#configuring-performance-counters), verify the information specified is following the correct format and exists on the target computers. |
     |26002 |Health Service Modules |Workflow could not resolve data source. |This can occur if the specified Windows event log does not exist on the computer. This error can be safely ignored if the computer is not expected to have this event log registered, otherwise if this is a user-specified [event log](data-sources-windows-events.md#configuring-windows-event-logs), verify the information specified is correct. |
-

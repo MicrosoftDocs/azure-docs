@@ -111,9 +111,3 @@ If the recovery point has snapshot and that is the latest RP available, it is re
 
 Instant restore feature is enabled for everyone and cannot be disabled. You can reduce the snapshot retention to a minimum of one day.
 
->[!NOTE]
-> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
->
->Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
->
->**To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com**

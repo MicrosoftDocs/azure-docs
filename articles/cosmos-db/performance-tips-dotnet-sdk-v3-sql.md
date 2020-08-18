@@ -3,8 +3,8 @@ title: Azure Cosmos DB performance tips for .NET SDK v3
 description: Learn client configuration options to improve Azure Cosmos DB .NET v3 SDK performance.
 author: j82w
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/23/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: jawilley
 
 ---
@@ -67,15 +67,12 @@ How a client connects to Azure Cosmos DB has important performance implications,
      If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So direct mode offers better performance because there are fewer network hops. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
 
      When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md). In that case, gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
-
-
-In gateway mode, Azure Cosmos DB uses port 443 and ports 10250, 10255, and 10256 when you're using the Azure Cosmos DB API for MongoDB. Port 10250 maps to a default MongoDB instance without geo-replication. Ports 10255 and 10256 map to the MongoDB instance that has geo-replication.
      
-When you use TCP in direct mode, in addition to the gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports (when using direct mode on [private endpoints](./how-to-configure-private-endpoints.md), the full range of TCP ports - from 0 to 65535 - has to be open). The ports are open by default for the standard Azure VM configuration. If these ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. This table shows the connectivity modes available for various APIs and the service ports used for each API:
+When you use the TCP in the direct mode, in addition to the gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. When using direct mode on [private endpoints](./how-to-configure-private-endpoints.md), the full range of TCP ports - from 0 to 65535 should be open. The ports are open by default for the standard Azure VM configuration. If these ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. The following table shows the connectivity modes available for various APIs and the service ports used for each API:
 
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443)    |
+|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
 |Direct    |     TCP    |  .NET SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
 
 Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. TCP protocol uses TLS for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
@@ -83,9 +80,8 @@ Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Addi
 For SDK V3, you configure the connection mode when you create the `CosmosClient` instance, in `CosmosClientOptions`. Remember that direct mode is the default.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+string connectionString = "<your-account-connection-string>";
+CosmosClient client = new CosmosClient(connectionString,
 new CosmosClientOptions
 {
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
@@ -94,6 +90,18 @@ new CosmosClientOptions
 
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway.
 
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
+
+**Ephemeral port exhaustion**
+
+If you see a high connection volume or high port usage on your instances, first verify that your client instances are singletons. In other words, the client instances should be unique for the lifetime of the application.
+
+When running on the TCP protocol, the client optimizes for latency by using the long-lived connections as opposed to the HTTPS protocol, which terminates the connections after 2 minutes of inactivity.
+
+In scenarios where you have sparse access and if you notice a higher connection count when compared to the gateway mode access, you can:
+
+* Configure the [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) property to `PrivatePortPool` (effective with framework version>= 4.6.1 and .NET Core version >= 2.0): This property allows the SDK to use a small pool of ephemeral ports for different Azure Cosmos DB destination endpoints.
+* Configure the [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) property must be greater than or equal to 10 minutes. The recommended values are between 20 minutes and 24 hours.
 
 <a id="same-region"></a>
 
@@ -101,7 +109,8 @@ Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS
 
 When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 ms to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
 
-![The Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
+
    <a id="increase-threads"></a>
 
 **Increase the number of threads/tasks**
@@ -133,7 +142,7 @@ When working on Azure Functions, instances should also follow the existing [guid
 
 **Disable content response on write operations**
 
-For workloads that have heave create payloads set the EnableContentResponseOnWrite request option to false. The service will no longer return the created or updated resource to the SDK. Normally the application has the object being created so it does not need the service to return it. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
+For workloads that have heavy create payloads set the EnableContentResponseOnWrite request option to false. The service will no longer return the created or updated resource to the SDK. Normally the application has the object being created so it does not need the service to return it. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
@@ -210,7 +219,7 @@ Throughput is provisioned based on the number of [Request Units](request-units.m
 
 The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDFs, and the size of the source dataset all influence the cost of query operations.
 
-To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
+To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
 
 ```csharp
 // Measure the performance (Request Units) of writes
@@ -230,11 +239,13 @@ The request charge returned in this header is a fraction of your provisioned thr
 
 **Handle rate limiting/request rate too large**
 
-When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
+When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
 
+```xml
     HTTP Status 429,
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
+```
 
 The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 

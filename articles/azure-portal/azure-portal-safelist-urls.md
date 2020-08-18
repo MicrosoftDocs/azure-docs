@@ -49,6 +49,7 @@ The URL endpoints to safelist for the Azure portal are specific to the Azure clo
 #### [U.S. Government Cloud](#tab/us-government-cloud)
 
 ```
+*.applicationinsights.us
 *.azure.us
 *.loganalytics.us
 *.microsoft.us

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and manage Windows VMs in Azure that use multiple NICs 
 description: Learn how to create and manage a Windows VM that has multiple NICs attached to it by using Azure PowerShell or Resource Manager templates.
 author: cynthn
@@ -10,7 +10,7 @@ ms.author: cynthn
 
 ---
 # Create and manage a Windows virtual machine that has multiple NICs
-Virtual machines (VMs) in Azure can have multiple virtual network interface cards (NICs) attached to them. A common scenario is to have different subnets for front-end and back-end connectivity. You can associate multiple NICs on a VM to multiple subnets, but those subnets must all reside in the same virtual network (vNet). This article details how to create a VM that has multiple NICs attached to it. You also learn how to add or remove NICs from an existing VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly.
+Virtual machines (VMs) in Azure can have multiple virtual network interface cards (NICs) attached to them. A common scenario is to have different subnets for front-end and back-end connectivity. You can associate multiple NICs on a VM to multiple subnets, but those subnets must all reside in the same virtual network (vNet). This article details how to create a VM that has multiple NICs attached to it. You also learn how to add or remove NICs from an existing VM. Different [VM sizes](../sizes.md) support a varying number of NICs, so size your VM accordingly.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ### Create virtual network and subnets
 A common scenario is for a virtual network to have two or more subnets. One subnet may be for front-end traffic, the other for back-end traffic. To connect to both subnets, you then use multiple NICs on your VM.
 
-1. Define two virtual network subnets with [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example defines the subnets for *mySubnetFrontEnd* and *mySubnetBackEnd*:
+1. Define two virtual network subnets with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The following example defines the subnets for *mySubnetFrontEnd* and *mySubnetBackEnd*:
 
     ```powershell
     $mySubnetFrontEnd = New-AzVirtualNetworkSubnetConfig -Name "mySubnetFrontEnd" `
@@ -37,7 +37,7 @@ A common scenario is for a virtual network to have two or more subnets. One subn
         -AddressPrefix "192.168.2.0/24"
     ```
 
-2. Create your virtual network and subnets with [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVnet*:
+2. Create your virtual network and subnets with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVnet*:
 
     ```powershell
     $myVnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
@@ -49,7 +49,7 @@ A common scenario is for a virtual network to have two or more subnets. One subn
 
 
 ### Create multiple NICs
-Create two NICs with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface). Attach one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates NICs named *myNic1* and *myNic2*:
+Create two NICs with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). Attach one NIC to the front-end subnet and one NIC to the back-end subnet. The following example creates NICs named *myNic1* and *myNic2*:
 
 ```powershell
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
@@ -68,7 +68,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 Typically you also create a [network security group](../../virtual-network/security-overview.md) to filter network traffic to the VM and a [load balancer](../../load-balancer/load-balancer-overview.md) to distribute traffic across multiple VMs.
 
 ### Create the virtual machine
-Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. For more information, see [Windows VM sizes](sizes.md).
+Now start to build your VM configuration. Each VM size has a limit for the total number of NICs that you can add to a VM. For more information, see [Windows VM sizes](../sizes.md).
 
 1. Set your VM credentials to the `$cred` variable as follows:
 
@@ -76,13 +76,13 @@ Now start to build your VM configuration. Each VM size has a limit for the total
     $cred = Get-Credential
     ```
 
-2. Define your VM with [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig). The following example defines a VM named *myVM* and uses a VM size that supports more than two NICs (*Standard_DS3_v2*):
+2. Define your VM with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The following example defines a VM named *myVM* and uses a VM size that supports more than two NICs (*Standard_DS3_v2*):
 
     ```powershell
     $vmConfig = New-AzVMConfig -VMName "myVM" -VMSize "Standard_DS3_v2"
     ```
 
-3. Create the rest of your VM configuration with [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage). The following example creates a Windows Server 2016 VM:
+3. Create the rest of your VM configuration with [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). The following example creates a Windows Server 2016 VM:
 
     ```powershell
     $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
@@ -98,14 +98,14 @@ Now start to build your VM configuration. Each VM size has a limit for the total
         -Version "latest"
    ```
 
-4. Attach the two NICs that you previously created with [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+4. Attach the two NICs that you previously created with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic1.Id -Primary
     $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Create your VM with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm):
+5. Create your VM with [New-AzVM](/powershell/module/az.compute/new-azvm):
 
     ```powershell
     New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
@@ -114,21 +114,21 @@ Now start to build your VM configuration. Each VM size has a limit for the total
 6. Add routes for secondary NICs to the OS by completing the steps in [Configure the operating system for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Add a NIC to an existing VM
-To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](resize-vm.md).
+To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual NIC, then start the VM. Different [VM sizes](../sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](resize-vm.md).
 
-1. Deallocate the VM with [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
+1. Deallocate the VM with [Stop-AzVM](/powershell/module/az.compute/stop-azvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
     ```powershell
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Get the existing configuration of the VM with [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). The following example gets information for the VM named *myVM* in *myResourceGroup*:
+2. Get the existing configuration of the VM with [Get-AzVm](/powershell/module/az.compute/get-azvm). The following example gets information for the VM named *myVM* in *myResourceGroup*:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. The following example creates a virtual NIC with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) named *myNic3* that is attached to *mySubnetBackEnd*. The virtual NIC is then attached to the VM named *myVM* in *myResourceGroup* with [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface):
+3. The following example creates a virtual NIC with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) named *myNic3* that is attached to *mySubnetBackEnd*. The virtual NIC is then attached to the VM named *myVM* in *myResourceGroup* with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
     ```powershell
     # Get info for the back end subnet
@@ -161,7 +161,7 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
     Update-AzVM -VM $vm -ResourceGroupName "myResourceGroup"
     ```
 
-4. Start the VM with [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
+4. Start the VM with [Start-AzVm](/powershell/module/az.compute/start-azvm):
 
     ```powershell
     Start-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -172,19 +172,19 @@ To add a virtual NIC to an existing VM, you deallocate the VM, add the virtual N
 ## Remove a NIC from an existing VM
 To remove a virtual NIC from an existing VM, you deallocate the VM, remove the virtual NIC, then start the VM.
 
-1. Deallocate the VM with [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
+1. Deallocate the VM with [Stop-AzVM](/powershell/module/az.compute/stop-azvm). The following example deallocates the VM named *myVM* in *myResourceGroup*:
 
     ```powershell
     Stop-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-2. Get the existing configuration of the VM with [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). The following example gets information for the VM named *myVM* in *myResourceGroup*:
+2. Get the existing configuration of the VM with [Get-AzVm](/powershell/module/az.compute/get-azvm). The following example gets information for the VM named *myVM* in *myResourceGroup*:
 
     ```powershell
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. Get information about the NIC remove with [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface). The following example gets information about *myNic3*:
+3. Get information about the NIC remove with [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface). The following example gets information about *myNic3*:
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
@@ -193,14 +193,14 @@ To remove a virtual NIC from an existing VM, you deallocate the VM, remove the v
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. Remove the NIC with [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) and then update the VM with [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm). The following example removes *myNic3* as obtained by `$nicId` in the preceding step:
+4. Remove the NIC with [Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface) and then update the VM with [Update-AzVm](/powershell/module/az.compute/update-azvm). The following example removes *myNic3* as obtained by `$nicId` in the preceding step:
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
         Update-AzVm -ResourceGroupName "myResourceGroup"
     ```   
 
-5. Start the VM with [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm):
+5. Start the VM with [Start-AzVm](/powershell/module/az.compute/start-azvm):
 
     ```powershell
     Start-AzVM -Name "myVM" -ResourceGroupName "myResourceGroup"
@@ -216,7 +216,7 @@ Azure Resource Manager templates provide a way to create multiple instances of a
 }
 ```
 
-For more information, see [creating multiple instances by using *copy*](../../resource-group-create-multiple.md). 
+For more information, see [creating multiple instances by using *copy*](../../azure-resource-manager/templates/copy-resources.md). 
 
 You can also use `copyIndex()` to append a number to a resource name. You can then create *myNic1*, *MyNic2* and so on. The following code shows an example of appending the index value:
 
@@ -283,6 +283,4 @@ Azure assigns a default gateway to the first (primary) network interface attache
     The route listed with *192.168.1.1* under **Gateway**, is the route that is there by default for the primary network interface. The route with *192.168.2.1* under **Gateway**, is the route you added.
 
 ## Next steps
-Review [Windows VM sizes](sizes.md) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports. 
-
-
+Review [Windows VM sizes](../sizes.md) when you're trying to create a VM that has multiple NICs. Pay attention to the maximum number of NICs that each VM size supports. 

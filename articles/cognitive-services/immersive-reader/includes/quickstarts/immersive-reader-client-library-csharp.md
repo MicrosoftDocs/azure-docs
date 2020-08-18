@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
+ms.custom: devx-track-javascript
 ---
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
 In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader client library. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -300,7 +301,8 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 ## Next steps
 
-* View the [Node.js quickstart](../../quickstart-nodejs.md) to see what else you can do with the Immersive Reader client library using Node.js
+* View the [Node.js quickstart](../../tutorial-nodejs.md) to see what else you can do with the Immersive Reader client library using Node.js
+* View the [Android tutorial](../../tutorial-android.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
+* View the [iOS tutorial](../../tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
 * View the [Python tutorial](../../tutorial-python.md) to see what else you can do with the Immersive Reader client library using Python
-* View the [iOS tutorial](../../tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader client library using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)

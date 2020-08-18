@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -17,7 +17,12 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use risk detections for user sign-ins to trigger Azure Multi-Factor Authentication or password changes
 
-To protect your users, you can configure risk-based policies in Azure Active Directory (Azure AD) that automatically respond to risky behaviors. Azure AD Identity Protection policies can automatically block a sign-in attempt or require additional action, such as require a password change or prompt for Azure Multi-Factor Authentication. These policies work with existing Azure AD Conditional Access policies as an extra layer of protection for org organization. Users may never trigger a risky behavior in one of these policies, but your organization is protected if an attempt to compromise your security is made.
+To protect your users, you can configure risk-based policies in Azure Active Directory (Azure AD) that automatically respond to risky behaviors. Azure AD Identity Protection policies can automatically block a sign-in attempt or require additional action, such as require a password change or prompt for Azure Multi-Factor Authentication. These policies work with existing Azure AD Conditional Access policies as an extra layer of protection for your organization. Users may never trigger a risky behavior in one of these policies, but your organization is protected if an attempt to compromise your security is made.
+
+> [!IMPORTANT]
+> This tutorial shows an administrator how to enable risk-based Azure Multi-Factor Authentication.
+>
+> If your IT team hasn't enabled the ability to use Azure Multi-Factor Authentication or you have problems during sign-in, reach out to your helpdesk for additional assistance.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +37,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD Premium P2 trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P2 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* privileges.
 * Azure AD configured for self-service password reset and Azure Multi-Factor Authentication

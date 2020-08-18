@@ -92,6 +92,9 @@ Once you sign in with GitHub, then enter the repository information.
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Next Build button":::
 
+> [!NOTE]
+>  If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 ### Build
 
 Next, add configuration details specific to your preferred front-end framework.

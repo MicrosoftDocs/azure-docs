@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Set up a CI/CD pipeline for a Java app with Azure DevOps Starter

@@ -9,10 +9,8 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/03/2020
 ms.author: jingwang
 
 ---
@@ -34,6 +32,8 @@ This Zoho connector is supported for the following activities:
 
 You can copy data from Zoho to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
+This connector supports Xero access token authentication and OAuth 2.0 authentication.
+
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 ## Getting started
@@ -49,13 +49,19 @@ The following properties are supported for Zoho linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Zoho** | Yes |
+| connectionProperties | A group of properties that defines how to connect to Zoho. | Yes |
+| ***Under `connectionProperties`:*** | | |
 | endpoint | The endpoint of the Zoho server (`crm.zoho.com/crm/private`). | Yes |
+| authenticationType | Allowed values are `OAuth_2.0` and `Access Token`. | Yes |
+| clientId | The client ID associated with your Zoho application. | Yes for OAuth 2.0 authentication | 
+| clientSecrect | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
+| refreshToken | The OAuth 2.0 refresh token associated with your Zoho application, used to refresh the access token when it expires. Refresh token will never expire. To get a refresh token, you must request the `offline` access_type, learn more from [this article](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes for OAuth 2.0 authentication |
 | accessToken | The access token for Zoho authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
 
-**Example:**
+**Example: OAuth 2.0 authentication**
 
 ```json
 {
@@ -63,11 +69,50 @@ The following properties are supported for Zoho linked service:
     "properties": {
         "type": "Zoho",
         "typeProperties": {
-            "endpoint" : "crm.zoho.com/crm/private",
-            "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
-            }
+            "connectionProperties": { 
+                "authenticationType":"OAuth_2.0", 
+                "endpoint": "crm.zoho.com/crm/private", 
+                "clientId": "<client ID>", 
+                "clientSecrect": {
+                    "type": "SecureString",
+                    "value": "<client secret>"
+                },
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+```
+
+**Example: access token authentication**
+
+```json
+{
+    "name": "ZohoLinkedService",
+    "properties": {
+        "type": "Zoho",
+        "typeProperties": {
+            "connectionProperties": { 
+                "authenticationType":"Access Token", 
+                "endpoint": "crm.zoho.com/crm/private", 
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }
         }
     }
 }

@@ -61,10 +61,10 @@ There are two steps to granting your VM access to a database:
 
 This section shows how to create a contained user in the database that represents the VM's system assigned identity. For this step, you need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
-* [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
-* [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Universal Authentication with SQL Database and Azure Synapse Analytics (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configure and manage Azure Active Directory authentication with SQL Database or Azure Synapse Analytics](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL Database requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications) and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL Database checks the AAD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
+SQL DB requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications), and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the AAD display name during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
 
 **To create a contained user:**
 

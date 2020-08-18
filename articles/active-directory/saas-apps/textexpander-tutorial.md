@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TextExpander | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TextExpander.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 53e6727c-58b6-48dd-95d7-cece80884bd3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with TextExpander
@@ -40,7 +34,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* TextExpander supports **SP and IDP** initiated SSO
+* TextExpander supports **IDP** initiated SSO
 * TextExpander supports **Just In Time** user provisioning
 * Once you configure TextExpander you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -87,11 +81,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.textexpander.com/acs/<ORGID>`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://app.textexpander.com/ssoSignin`
-
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [TextExpander Client support team](mailto:support@smilesoftware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -101,11 +90,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, TextExpander application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.email |
-	| firstName | | user.givenname |
-	| lastName | | user.surname |
+	| Name | Source Attribute|
+	| ---- | --------------- |
+	| email | user.email |
+	| firstName | user.givenname |
+	| lastName | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

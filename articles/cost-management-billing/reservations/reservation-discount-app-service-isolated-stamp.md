@@ -1,6 +1,6 @@
 ---
 title: Reservation discounts for Azure App Service
-description: Learn how reservation discounts apply to Azure App Service Isolated Stamps.
+description: Learn how reservation discounts apply to Azure App Service Isolated Stamps. Discounts are automatically applied to the Stamp Fee in a region.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing

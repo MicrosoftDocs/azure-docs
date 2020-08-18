@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with dmarcian | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and dmarcian.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a04b9383-3a60-4d54-9412-123daaddff3b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate dmarcian with Azure Active Directory
@@ -82,29 +75,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	| -- |
-	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 	
-    | |
-	|--|
-	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
-	| `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
 	 
 	> [!NOTE] 
 	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial.

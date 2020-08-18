@@ -67,7 +67,7 @@ The rest of this document focuses on the CLI method to provision and accept term
 
 ## Use the Red Hat Gold Images from the Azure CLI
 
-The following instructions walk you through the initial deployment process for a RHEL VM by using the Azure CLI. These instructions assume that you have the [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The following instructions walk you through the initial deployment process for a RHEL VM by using the Azure CLI. These instructions assume that you have the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Make sure you use all lowercase letters in the publisher, offer, plan, and image references for all the following commands.
@@ -198,7 +198,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
-- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
+- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../linux/shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
 
     ```azurecli
     az vm create –image \

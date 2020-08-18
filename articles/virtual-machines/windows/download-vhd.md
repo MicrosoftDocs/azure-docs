@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
 ---
@@ -17,7 +17,7 @@ In this article, you learn how to download a Windows virtual hard disk (VHD) fil
 
 ## Optional: Generalize the VM
 
-If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. 
+If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. 
 
 To use the VHD as an image to create other VMs, generalize the VM.
 
@@ -40,7 +40,7 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 
 ## Generate download URL
 
-To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
 
 1. On the page for the VM, click **Disks** in the left menu.
 1. Select the operating system disk for the VM.
@@ -63,4 +63,3 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 - Learn how to [upload a VHD file to Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 - [Create managed disks from unmanaged disks in a storage account](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Manage Azure disks with PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

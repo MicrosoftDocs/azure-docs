@@ -1,15 +1,16 @@
 ---
 title: "Tutorial: Register an application"
 titleSuffix: Azure AD B2C
-description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
+description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -58,7 +59,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 
 Once the application registration is complete, enable the implicit grant flow:
 
-1. Under **Manage**, select **Authentication**.
+1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
@@ -91,7 +92,7 @@ If your application exchanges an authorization code for an access token, you nee
 #### [App registrations](#tab/app-reg-ga/)
 
 1. In the **Azure AD B2C - App registrations** page, select the application you created, for example *webapp1*.
-1. Under **Manage**, select **Certificates & secrets**.
+1. In the left menu, under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
 1. Under **Expires**, select a duration for which the secret is valid, and then select **Add**.

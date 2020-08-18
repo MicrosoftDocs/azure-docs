@@ -4,8 +4,8 @@ description: This article helps you determine which reservation you should purch
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 08/04/2020
 ms.author: banders
 ---
 
@@ -86,6 +86,8 @@ Note the following points:
 Reservation purchases calculated by the recommendations engine are shown on the **Recommended** tab in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Here's an example image.
 
 ![Image showing recommendations](./media/determine-reservation-purchase/select-product-ri.png)
+
+Learn more about [recommendations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 
 ## Recommendations in the Cost Management Power BI app
 

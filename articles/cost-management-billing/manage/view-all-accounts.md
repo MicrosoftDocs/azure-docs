@@ -1,11 +1,11 @@
 ---
 title: View your billing accounts in Azure portal 
-description: Learn how to view your billing accounts in Azure portal.
+description: Learn how to view your billing accounts in the Azure portal. See scope information for Enterprise, Microsoft Customer, and Microsoft Partner Agreements.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/22/2020
 ms.author: banders
 ---
 
@@ -17,7 +17,7 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-- **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. You can have a maximum of 500 subscriptions in an Enterprise Agreement.
+- **Enterprise Agreement**: A billing account for an Enterprise Agreement is created when your organization signs an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. You can have a maximum of 2000 subscriptions in an Enterprise Agreement.
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) may have a billing account for a Microsoft Customer Agreement as well. You can have a maximum of 20 subscriptions in a Microsoft Customer Agreement. For more information, see [Get started with your billing account for Microsoft Customer Agreement](../understand/mca-overview.md).
 
@@ -34,7 +34,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 |Scope  |Definition  |
 |---------|---------|
-|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one ore more subscriptions.  |
+|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one or more subscriptions.  |
 |Subscription     |  Represents a grouping of Azure resources. Invoice is generated at this scope. Other billing information such as payment methods and usage address is associated to this scope.|
 
 ### Enterprise Agreement

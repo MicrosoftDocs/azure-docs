@@ -70,7 +70,7 @@ The following database solutions are supported with backup feature:
 
 4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective pages. When you're done, click **Select**.
 
-5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.
+5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL Database or MySQL), then click **OK**.
 
     ![Choose storage account](./media/manage-backup/configure-database.png)
 
@@ -146,7 +146,7 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 ## How backups are stored
 After you have made one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
-The database backup for the app is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](https://technet.microsoft.com/library/hh710052.aspx).
+The database backup for the app is stored in the root of the .zip file. For SQL Database, this is a BACPAC file (no file extension) and can be imported. To create a database in Azure SQL Database based on the BACPAC export, see [Import a BACPAC file to create a database in Azure SQL Database](../azure-sql/database/database-import.md).
 
 > [!WARNING]
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
@@ -155,7 +155,7 @@ The database backup for the app is stored in the root of the .zip file. For a SQ
 
 ## Automate with scripts
 
-You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 For samples, see:
 

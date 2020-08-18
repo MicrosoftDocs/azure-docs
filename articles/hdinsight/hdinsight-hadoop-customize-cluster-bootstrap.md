@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
 ---
@@ -43,7 +43,7 @@ For information on installing additional components on HDInsight cluster during 
 
 ## Prerequisites
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 ## Use Azure PowerShell
 

@@ -25,7 +25,7 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
 1. Go to the **Notebooks** tab, select `…` next to **My Notebooks** and create a **New Notebook**. Select **Python 3** as the default Kernel.
 
-   ![Create a new notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Create a new notebook":::
 
 1. After a new notebook is created, you can rename it to something like **VisualizeRetailData.ipynb.**
 
@@ -44,7 +44,7 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    To run a cell, select `Shift + Enter` Or select the cell and choose **Run Active Cell** option at the data explorer navigation bar.
 
-   ![Run the active cell](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Run the active cell":::
 
    The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created. 
 
@@ -55,7 +55,7 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    You can also refresh the **Data** tab and see the newly created resources:
 
-   ![Refresh the data tab to see the new container](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Refresh the data tab to see the new container":::
 
 1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
 
@@ -130,7 +130,7 @@ In a new notebook cell, run the following code to read the first 10 items from t
 df_cosmos.head(10)
 ```
 
-![Run query to get top 10 items](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Run query to get top 10 items":::
 
 ## Run queries and analyze your data
 
@@ -143,7 +143,7 @@ In this section, you will run some queries on the data retrieved.
    display(df_revenue.head(5))
    ```
 
-   ![Total sales revenue output](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Total sales revenue output":::
 
 * **Query2:** To get a list of top five purchased items, open a new notebook cell and run the following code:
 
@@ -154,7 +154,7 @@ In this section, you will run some queries on the data retrieved.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Top five purchased items](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Top five purchased items":::
 
 ## Visualize your data  
 
@@ -230,7 +230,7 @@ In this section, you will run some queries on the data retrieved.
 
    The output displays the world map with different colors. The colors darker to lighter represent the countries/regions with highest revenue to lowest revenue.
 
-   ![Countries/regions revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Countries/regions revenue map visualization":::
 
 1. Let's see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let's plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 
@@ -281,7 +281,7 @@ In this section, you will run some queries on the data retrieved.
    show(p)
    ```
 
-   ![Visualize purchase conversion rate](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualize purchase conversion rate":::
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -35,7 +35,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 1. Open the *TrustFrameworkExtensions.xml* file.
 2. If it doesn't exist already, add a **ClaimsSchema** element and its child elements as the first element under the **BuildingBlocks** element:
 
-    ```XML
+    ```xml
     <ClaimsSchema>
       <ClaimType Id="logonIdentifier">
         <DisplayName>User name or email address that the user can use to sign in</DisplayName>
@@ -58,7 +58,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
 3. After **ClaimsSchema**, add a **ClaimsTransformations** element and its child elements to the **BuildingBlocks** element:
 
-    ```XML
+    ```xml
     <ClaimsTransformations>
       <ClaimsTransformation Id="CreateSubjectClaimFromObjectID" TransformationMethod="CreateStringClaim">
         <InputParameters>
@@ -84,7 +84,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
 4. Locate the **ClaimsProvider** element that has a **DisplayName** of `Local Account SignIn` and add following technical profile:
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
       <DisplayName>Local Account SignIn</DisplayName>
       <Protocol Name="OpenIdConnect" />
@@ -99,6 +99,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
         <Item Key="response_types">id_token</Item>
         <Item Key="response_mode">query</Item>
         <Item Key="scope">email openid</Item>
+        <Item Key="grant_type">password</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="logonIdentifier" PartnerClaimType="username" Required="true" DefaultValue="{OIDC:Username}"/>
@@ -106,8 +107,8 @@ Complete the steps in [Get started with custom policies in Azure Active Director
         <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="password" />
         <InputClaim ClaimTypeReferenceId="scope" DefaultValue="openid" />
         <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
-        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="00000000-0000-0000-0000-000000000000" />
-        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="00000000-0000-0000-0000-000000000000" />
+        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppId" />
+        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppId" />
       </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="oid" />
@@ -124,7 +125,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
 5. Add following **ClaimsProvider** elements with their technical profiles to the **ClaimsProviders** element:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -178,7 +179,7 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
 6. Add a **UserJourneys** element and its child elements to the **TrustFrameworkPolicy** element:
 
-    ```XML
+    ```xml
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
       <OrchestrationSteps>
@@ -226,7 +227,7 @@ Next, update the relying party file that initiates the user journey that you cre
 3. Change the value of the **ReferenceId** attribute in **DefaultUserJourney** to `ResourceOwnerPasswordCredentials`.
 4. Change the **OutputClaims** element to only contain the following claims:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
     <OutputClaim ClaimTypeReferenceId="displayName" DefaultValue="" />
@@ -263,7 +264,7 @@ Use your favorite API development application to generate an API call, and revie
 
 The actual POST request looks like the following example:
 
-```HTTPS
+```https
 POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -273,7 +274,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 
 A successful response with offline-access looks like the following example:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
     "token_type": "Bearer",
@@ -305,7 +306,7 @@ Construct a POST call like the one shown here. Use the information in the follow
 
 A successful response looks like the following example:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhT...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQn...",

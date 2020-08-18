@@ -1,7 +1,7 @@
 ---
 title: Storage account overview
 titleSuffix: Azure Storage
-description: Understand options for creating and using an Azure Storage account.
+description: Read an overview of storage accounts in Azure Storage. Review account naming, performance tiers, access tiers, redundancy, encryption, endpoints, and more.
 services: storage
 author: tamram
 
@@ -180,6 +180,8 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 ## Storage account billing
 
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 

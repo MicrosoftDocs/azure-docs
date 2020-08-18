@@ -95,14 +95,15 @@ We start by adding the necessary includes. Add the following include to file Hol
 #include <AzureRemoteRendering.h>
 ```
 
-...and this additional `include` directive to file HolographicAppMain.cpp:
+...and these additional `include` directives to file HolographicAppMain.cpp:
 
 ```cpp
 #include <AzureRemoteRendering.inl>
 #include <RemoteRenderingExtensions.h>
+#include <windows.perception.spatial.h>
 ```
 
-For simplicity of code, we define the following namespace shortcut at the top of file HolographicAppMain.h, after the `include` directive:
+For simplicity of code, we define the following namespace shortcut at the top of file HolographicAppMain.h, after the `include` directives:
 
 ```cpp
 namespace RR = Microsoft::Azure::RemoteRendering;
@@ -143,7 +144,6 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
     // 1. One time initialization
     {
         RR::RemoteRenderingInitialization clientInit;
-        memset(&clientInit, 0, sizeof(RR::RemoteRenderingInitialization));
         clientInit.connectionType = RR::ConnectionType::General;
         clientInit.graphicsApi = RR::GraphicsApiType::WmrD3D11;
         clientInit.toolId = "<sample name goes here>"; // <put your sample name here>
@@ -151,7 +151,11 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         clientInit.forward = RR::Axis::Z_Neg;
         clientInit.right = RR::Axis::X;
         clientInit.up = RR::Axis::Y;
-        RR::StartupRemoteRendering(clientInit);
+        if (RR::StartupRemoteRendering(clientInit) != RR::Result::Success)
+        {
+            // something fundamental went wrong with the initialization
+            throw std::exception("Failed to start remote rendering. Invalid client init data.");
+        }
     }
 
 
@@ -187,7 +191,6 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         {
             // create a new session
             RR::RenderingSessionCreationParams init;
-            memset(&init, 0, sizeof(RR::RenderingSessionCreationParams));
             init.MaxLease.minute = 10; // session is leased for 10 minutes
             init.Size = RR::RenderingSessionVmSize::Standard;
             auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);
@@ -291,7 +294,7 @@ namespace HolographicApp
         bool m_modelLoadTriggered = false;
         float m_modelLoadingProgress = 0.f;
         bool m_modelLoadFinished = false;
-
+        bool m_needsCoordinateSystemUpdate = true;
     }
 ```
 
@@ -414,9 +417,13 @@ void HolographicAppMain::OnConnectionStatusChanged(RR::ConnectionStatus status, 
 
 ### Per frame update
 
-We have to tick the client once per simulation tick. Class `HolographicApp1Main` provides a good hook for per-frame updates. Furthermore we need to poll the session's status and see if it has transitioned to `Ready` state. If we have successfully connected, we finally kick off the model loading via `StartModelLoading`.
+We have to update the client once per simulation tick and do some additional state updates. Function `HolographicAppMain::Update` provides a good hook for per-frame updates.
 
-Add the following code to the body of function `HolographicApp1Main::Update`:
+#### State machine update
+
+We need to poll the session's status and see if it has transitioned to `Ready` state. If we have successfully connected, we finally kick off the model loading via `StartModelLoading`.
+
+Add the following code to the body of function `HolographicAppMain::Update`:
 
 ```cpp
 // Updates the application state once per frame.
@@ -479,9 +486,57 @@ HolographicFrame HolographicAppMain::Update()
         }
     }
 
+    if (m_needsCoordinateSystemUpdate && m_stationaryReferenceFrame && m_graphicsBinding)
+    {
+        // Set the coordinate system once. This must be called again whenever the coordinate system changes.
+        winrt::com_ptr<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem> ptr{ m_stationaryReferenceFrame.CoordinateSystem().as<ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem>() };
+        m_graphicsBinding->UpdateUserCoordinateSystem(ptr.get());
+        m_needsCoordinateSystemUpdate = false;
+    }
+
     // Rest of the body:
     ...
 }
+```
+
+#### Coordinate system update
+
+We need to agree with the rendering service on a coordinate system to use. To access the coordinate system that we want to use, we need the `m_stationaryReferenceFrame` that is created at the end of function `HolographicAppMain::OnHolographicDisplayIsAvailableChanged`.
+
+This coordinate system usually does not change, so this is a one time initialization. It must be called again if your application changes the coordinate system.
+
+The code above sets the coordinate system once within the `Update` function as soon as we both have a reference coordinate system and a connected session.
+
+#### Camera update
+
+We need to update the camera clip planes so that server camera is kept in sync with the local camera. We can do that at the very end of the `Update` function:
+
+```cpp
+    ...
+    if (m_isConnected)
+    {
+        // Any near/far plane values of your choosing.
+        constexpr float fNear = 0.1f;
+        constexpr float fFar = 10.0f;
+        for (HolographicCameraPose const& cameraPose : prediction.CameraPoses())
+        {
+            // Set near and far to the holographic camera as normal
+            cameraPose.HolographicCamera().SetNearPlaneDistance(fNear);
+            cameraPose.HolographicCamera().SetFarPlaneDistance(fFar);
+        }
+
+        // The API to inform the server always requires near < far. Depth buffer data will be converted locally to match what is set on the HolographicCamera.
+        auto settings = *m_api->CameraSettings();
+        settings->NearPlane(std::min(fNear, fFar));
+        settings->FarPlane(std::max(fNear, fFar));
+        settings->EnableDepth(true);
+    }
+
+    // The holographic frame will be used to get up-to-date view and projection matrices and
+    // to present the swap chain.
+    return holographicFrame;
+}
+
 ```
 
 ### Rendering

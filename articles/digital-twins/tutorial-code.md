@@ -48,7 +48,7 @@ This will create several files inside your directory, including one called *Prog
 Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -101,8 +101,8 @@ The first thing your app will need to do is authenticate against the Azure Digit
 
 In order to authenticate, you need three pieces of information:
 * The *Directory (tenant) ID* for your subscription
-* The *Application (client) ID* created when you set up the service instance earlier
-* The *hostName* of your service instance
+* The *Application (client) ID* created when you set up the Azure Digital Twins instance earlier
+* The *hostName* of your Azure Digital Twins instance
 
 >[!TIP]
 > If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
@@ -177,7 +177,7 @@ In the directory where you created your project, create a new *.json* file calle
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -188,7 +188,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Next, prepare to use the asynchronous methods in the C# service SDK, by changing the `Main` method signature to allow for async execution. 
@@ -219,8 +218,7 @@ In your command window, run the program with this command:
 ```cmd/sh
 dotnet run
 ```
-
-You'll notice that right now, there is no output indicating the call was successful. 
+"Upload a model" will be printed in the output, but there is no output yet to indicate whether or not models were uploaded successfully.
 
 To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
 
@@ -289,29 +287,25 @@ Add a new `using` statement at the top, as you will need the built-in .NET Json 
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Then, add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
 
 ```csharp
-// Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+// Initialize twin data
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", $"Hello World!");
+
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+        twinData.Id = $"{prefix}{i}";
+        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin: {rex.Status}:{rex.Message}");  
+        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
     }
 }
 ```
@@ -324,7 +318,7 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the relationship base type in the SDK:
+To be able to create relationships, add a `using` statement for the relationship base type in the SDK:skip this if already added.
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -452,6 +446,7 @@ namespace minimal
             var typeList = new List<string>();
             string dtdl = File.ReadAllText("SampleModel.json");
             typeList.Add(dtdl);
+
             // Upload the model to the service
             try {
                 await client.CreateModelsAsync(typeList);
@@ -465,21 +460,16 @@ namespace minimal
                 Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
             }
 
-            // Initialize twin metadata
-            var meta = new Dictionary<string, object>
-            {
-                { "$model", "dtmi:com:contoso:SampleModel;1" },
-            };
-            // Initialize the twin properties
-            var initData = new Dictionary<string, object>
-            {
-                { "$metadata", meta },
-                { "data", "Hello World!" }
-            };
+            // Initialize twin data
+            BasicDigitalTwin twinData = new BasicDigitalTwin();
+            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+            twinData.CustomProperties.Add("data", $"Hello World!");
+    
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+                    twinData.Id = $"{prefix}{i}";
+                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -543,7 +533,7 @@ namespace minimal
 ```
 ## Clean up resources
  
-The instance used in this tutorial can be reused in the next tutorial, [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
+The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
  
 If you no longer need the resources created in this tutorial, follow these steps to delete them.
 
@@ -573,8 +563,8 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md)
+> [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
-* [How-to: Manage a twin model](how-to-manage-model.md)
-* [Concepts: Custom models](concepts-models.md)
+* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*Concepts: Custom models*](concepts-models.md)

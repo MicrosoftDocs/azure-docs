@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,8 +33,8 @@ The following steps will help create a Conditional Access policy to block legacy
    1. Select **Done**.
 1. Under **Cloud apps or actions**, select **All cloud apps**.
    1. Select **Done**.
-1. Under **Conditions** > **Client apps (preview)**, set **Configure** to **Yes**.
-   1. Check only the boxes **Mobile apps and desktop clients** > **Other clients**.
+1. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
+   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**.
    1. Select **Select**.

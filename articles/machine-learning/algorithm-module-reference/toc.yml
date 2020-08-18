@@ -68,10 +68,14 @@
         href: boosted-decision-tree-regression.md
       - name: Decision Forest Regression
         href: decision-forest-regression.md
+      - name: Fast Forest Quantile Regression
+        href: fast-forest-quantile-regression.md
       - name: Linear Regression
         href: linear-regression.md
       - name: Neural Network Regression
         href: neural-network-regression.md
+      - name: Poisson Regression
+        href: poisson-regression.md
   - name: Clustering
     items: 
     - name: K-Means Clustering
@@ -146,6 +150,10 @@
     href: preprocess-text.md
   - name: Latent Dirichlet Allocation
     href: latent-dirichlet-allocation.md
+  - name: Score Vowpal Wabbit Model
+    href: score-vowpal-wabbit-model.md
+  - name: Train Vowpal Wabbit Model
+    href: train-vowpal-wabbit-model.md
 - name: Computer vision
   items: 
   - name: Apply Image Transformation
@@ -155,7 +163,7 @@
   - name: Init Image Transformation
     href: init-image-transformation.md
   - name: Split Image Directory
-    href: split-to-image-directory.md
+    href: split-image-directory.md
   - name: DenseNet
     href: densenet.md
   - name: ResNet
@@ -166,8 +174,12 @@
     href: evaluate-recommender.md
   - name: Score SVD Recommender
     href: score-svd-recommender.md
+  - name: Score Wide and Deep Recommender
+    href: score-wide-and-deep-recommender.md
   - name: Train SVD Recommender
     href: train-svd-recommender.md
+  - name: Train Wide and Deep Recommender
+    href: train-wide-and-deep-recommender.md
 - name: Anomaly Detection
   items: 
   - name: PCA-Based Anomaly Detection
