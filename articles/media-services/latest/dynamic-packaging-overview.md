@@ -2,7 +2,7 @@
 title: Dynamic packaging in Azure Media Services v3
 titleSuffix: Azure Media Services
 description: This article gives an overview of dynamic packaging in Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/13/2020 
-ms.author: juliako
+ms.date: 08/18/2020 
+ms.author: inhenkel
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
 

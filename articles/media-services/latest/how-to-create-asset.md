@@ -58,4 +58,4 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 ## Next steps
 
-[Manage assets](manage-asset-concept.md)
+[Media Services Overview](media-services-overview.md)
