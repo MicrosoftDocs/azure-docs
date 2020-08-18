@@ -605,7 +605,12 @@ public class CustomNameResolver : INameResolver
 {
     public string Resolve(string name)
     {
-        return ConfigurationManager.AppSettings[name].ToString();
+        var config = new ConfigurationBuilder()
+             .SetBasePath(Directory.GetCurrentDirectory())
+             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+             .AddEnvironmentVariables()
+             .Build();
+            return config[name].ToString();
     }
 }
 ```
