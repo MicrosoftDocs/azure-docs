@@ -447,8 +447,8 @@ Message sending: Id = 9
 ## Next steps
 For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
+[Azure SDK for Java]: /java/api/overview/azure/
+[Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression

@@ -505,6 +505,17 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-spark-all-minus-sql
+# Owner: euang
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
 - id: aml-control-methods
   # Owner: gopalv
   title: Azure Machine Learning control plane
@@ -514,3 +525,32 @@ groups:
     title: Python SDK
   - id: cli
     title: Azure CLI
+- id: speech-full-stack
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-spx
+    title: CLI
+- id: programming-languages-voice-assistants
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-more
+    title: More languages...

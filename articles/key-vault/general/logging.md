@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault logging | Microsoft Docs
-description: Use this tutorial to help you get started with Azure Key Vault logging.
+description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin

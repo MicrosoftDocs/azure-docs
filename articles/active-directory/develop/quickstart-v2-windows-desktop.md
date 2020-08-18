@@ -174,4 +174,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Try out the Windows desktop tutorial for a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart.
 
 > [!div class="nextstepaction"]
-> [Call Graph API tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
+> [Call Graph API tutorial](./tutorial-v2-windows-desktop.md)

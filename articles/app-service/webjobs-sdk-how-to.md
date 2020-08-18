@@ -4,6 +4,7 @@ description: Learn more about how to write code for the WebJobs SDK. Create even
 author: ggailey777
 
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga

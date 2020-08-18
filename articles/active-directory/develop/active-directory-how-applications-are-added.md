@@ -71,7 +71,7 @@ Like application objects, service principals can also be created through multipl
   * When you subscribe to Office 365 or begin a trial, one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.
   * Some Office 365 services like SharePoint create service principals on an ongoing basis to allow secure communication between components including workflows.
 * When an admin adds an application from the app gallery (this will also create an underlying app object)
-* Add an application to use the [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
+* Add an application to use the [Azure AD Application Proxy](../manage-apps/application-proxy.md)
 * Connect an application for single sign on using SAML or password single sign-on (SSO)
 * Programmatically via the Microsoft Graph API or PowerShell
 
@@ -101,8 +101,8 @@ Applications that you add yourself (represented as **App (yours)** in the diagra
   * Claims transformation rules
   * Attribute mappings (User provisioning)
 * For more detailed information on the service principal and application objects, see the Microsoft Graph API reference documentation:
-  * [Application](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [Service Principal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Application](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Service Principal](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## Why do applications integrate with Azure AD?
 

@@ -289,13 +289,17 @@
         - name: Customize encoder presets
           href: customize-encoder-presets-how-to.md
         - name: Create an overlay transform
-          href: how-to-create-overlay.md  
+          href: how-to-create-overlay.md
+        - name: Generate thumbnails with .NET
+          href: media-services-generate-thumbnails-dotnet.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md    
+        href: custom-preset-rest-howto.md
+      - name: Generate thumbnails with REST
+        href: media-services-generate-thumbnails-rest.md
     - name: Subclip a video
       items:
       - name: With .NET
