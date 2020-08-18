@@ -23,7 +23,7 @@ Access to groups and applications for employees and guests changes over time. To
 
 For a video walkthrough of the process of enabling and creating Access Reviews watch this video:
 
->[VIDEO https://www.youtube.com/watch?v=X1SL2uubx9M]
+>[!VIDEO https://www.youtube.com/watch?v=X1SL2uubx9M]
 
 This article describes how to create one or more access reviews for group members or application access.
 
