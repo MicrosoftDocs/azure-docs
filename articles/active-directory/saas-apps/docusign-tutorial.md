@@ -62,7 +62,7 @@ To configure the integration of DocuSign into Azure AD, you must add DocuSign fr
 1. Select **DocuSign** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for DocuSign
+## Configure and test Azure AD SSO for DocuSign
 
 Configure and test Azure AD SSO with DocuSign by using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between an Azure AD user and the corresponding user in DocuSign.
 

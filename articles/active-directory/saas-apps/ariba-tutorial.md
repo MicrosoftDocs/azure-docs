@@ -66,21 +66,21 @@ To configure the integration of Ariba into Azure AD, you need to add Ariba from 
 
 	 ![Ariba in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with Ariba based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Ariba needs to be established.
 
 To configure and test Azure AD single sign-on with Ariba, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Ariba Single Sign-On](#configure-ariba-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Ariba SSO](#configure-ariba-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Ariba test user](#create-ariba-test-user)** - to have a counterpart of Britta Simon in Ariba that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with Ariba, perform the following steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-### Configure Ariba Single Sign-On
+### Configure Ariba SSO
 
 To get SSO configured for your application, call Ariba support team on **1-866-218-2155** and they'll assist you further on how to provide them the downloaded **Certificate (Base64**) file.
 
@@ -188,7 +188,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in Ariba. Work with Ariba support team at **1-866-218-2155** to add the users in the Ariba platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on 
+### Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

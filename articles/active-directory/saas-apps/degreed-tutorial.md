@@ -71,21 +71,21 @@ To configure the integration of Degreed into Azure AD, you need to add Degreed f
 
 	 ![Degreed in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with Degreed based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Degreed needs to be established.
 
 To configure and test Azure AD single sign-on with Degreed, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Degreed Single Sign-On](#configure-degreed-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Degreed SSO](#configure-degreed-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Degreed test user](#create-degreed-test-user)** - to have a counterpart of Britta Simon in Degreed that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -133,7 +133,7 @@ To configure Azure AD single sign-on with Degreed, perform the following steps:
 
 	c. Logout URL
 
-### Configure Degreed Single Sign-On
+### Configure Degreed SSO
 
 To configure single sign-on on **Degreed** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Degreed support team](mailto:admin@degreed.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -198,7 +198,7 @@ There is no action item for you in this section. A new user is created during an
 > If you need to create a user manually, you need to contact the [Degreed support team](mailto:admin@degreed.com).
 
 
-### Test single sign-on 
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

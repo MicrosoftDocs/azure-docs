@@ -65,21 +65,21 @@ To configure the integration of SumTotalCentral into Azure AD, you need to add S
 
 	 ![SumTotalCentral in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with SumTotalCentral based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in SumTotalCentral needs to be established.
 
 To configure and test Azure AD single sign-on with SumTotalCentral, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure SumTotalCentral Single Sign-On](#configure-sumtotalcentral-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure SumTotalCentral SSO](#configure-sumtotalcentral-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create SumTotalCentral test user](#create-sumtotalcentral-test-user)** - to have a counterpart of Britta Simon in SumTotalCentral that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with SumTotalCentral, perform the following
 
 	c. Logout URL
 
-### Configure SumTotalCentral Single Sign-On
+### Configure SumTotalCentral SSO
 
 To configure single sign-on on **SumTotalCentral** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SumTotalCentral support team](http://www.sumtotalsystems.com/support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -186,7 +186,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in SumTotalCentral. Work with [SumTotalCentral support team](http://www.sumtotalsystems.com/support/) to add the users in the SumTotalCentral platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
