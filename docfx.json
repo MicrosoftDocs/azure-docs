@@ -651,6 +651,10 @@
         "articles/media-services/azure-media-player/*.md": "media-player",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge"
       },
+      "no-loc": {
+        "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
+        "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
+      },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
         "articles/azure-app-configuration/**/*.md": ["Azure","AppConfig"],
