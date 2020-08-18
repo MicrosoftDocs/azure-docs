@@ -10,6 +10,8 @@ ms.custom: references_regions
 
 All your backed-up data is automatically encrypted when stored in the cloud using Azure Storage encryption, which helps you meet your security and compliance commitments. This data at rest is encrypted using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. In addition to encryption at rest, all your backup data in transit is transferred over HTTPS. It always remains on the Azure backbone network.
 
+## Levels of encryption in Azure Backup
+
 Azure Backup includes encryption on two levels:
 
 - **Encryption of data in the Recovery Services vault**
