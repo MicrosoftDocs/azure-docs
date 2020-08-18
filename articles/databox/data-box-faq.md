@@ -59,7 +59,7 @@ A. Data Box is supports data ingestion only within the same commerce boundary. I
 
 2. Once the Data Box is filled in Canada, these would need to be returned to the Canada DC for upload into a Canada Storage Account.
 
-3. You can then use a tool like AzCopy to copy the data to an US storage account via the Azure backbone (This would have egress charges).
+3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This would incur additional bandwidth charges.
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
