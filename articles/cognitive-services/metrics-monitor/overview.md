@@ -38,6 +38,3 @@ The workflow is simple: you submit data for analysis and handle outputs in your 
 4. Use the REST API or Client libraries to customize your instance.
 
 ## Next Steps
-
-- [Create a Metrics Monitor instance](create-instance.md)
-

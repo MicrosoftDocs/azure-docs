@@ -12,7 +12,7 @@ ms.date: 08/17/2020
 ms.author: aahi
 ---
 
-## Alert Settings
+# How-to: Configure alerts
 
 After an anomaly is detected by your Metrics Monitor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
 

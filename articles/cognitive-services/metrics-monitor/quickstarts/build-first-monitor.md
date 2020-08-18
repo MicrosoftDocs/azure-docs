@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: metrics-monitoring
+ms.subservice: 
 ms.topic: quickstart
 ms.date: 07/30/2020
 ms.author: aahi
@@ -94,5 +94,4 @@ When detection is applied, click one of the metrics listed in data feed to find 
 
 ## Next Steps
 
-- [Add a data feed](../howto/datafeeds/add-data-feeds-overview.md)
-- [Tune detecting configuration](../howto/metrics/tune-detecting-config.md)
+- [Add a data feed](../how-tos/datafeeds.md)

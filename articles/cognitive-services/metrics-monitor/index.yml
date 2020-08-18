@@ -34,4 +34,4 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Add a data feed
-          url: how-tos/datafeed.md    
+          url: how-tos/datafeeds.md    
