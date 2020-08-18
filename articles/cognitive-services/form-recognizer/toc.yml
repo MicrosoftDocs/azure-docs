@@ -37,7 +37,7 @@
     - name: Use prebuilt business card model
       items:
       - name: Python
-        href: tbd
+        href: quickstarts/python-business-cards.md
     - name: Get text layout information
       items:
       - name: Python
