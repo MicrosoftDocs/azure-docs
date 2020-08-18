@@ -15,7 +15,7 @@ ms.date: 08/18/2020
 
 # Copy data from and to Snowflake by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Snowflake. For more information about Data Factory, see the [introductory article](introduction.md).
 
@@ -30,7 +30,7 @@ This Snowflake connector is supported for the following activities:
 For the Copy activity, this Snowflake connector supports the following functions:
 
 - Copy data from Snowflake that utilizes Snowflake's [COPY into [location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) command to achieve the best performance.
-- Copy data to Snowflake that takes advantage of Snowflake's [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure.
+- Copy data to Snowflake that takes advantage of Snowflake's [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports Snowflake on Azure. Snowflake as sink is not supported when you author copy activity in Azure Synapse Analytics workspace.
 
 ## Get started
 
@@ -402,9 +402,9 @@ The below table lists the properties supported by Snowflake source. You can edit
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Snowflake dataset or in the source options when using inline dataset. | No | String | For inline dataset only:<br>tableName<br>schemaName |
-| Query | If you select Query as input, enter a query for fetching data from Snowflake. This setting overrides any table that you've chosen in dataset. | No | String | query |
-| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake internal data transfer is recommended (enable staging as false).<br><br>When you execute a data flow activity with Snowflake sources from a pipeline and with staging enabled, you need to additionally set the staging store in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). Note Snowflake requires [**Azure Blob storage**](connector-azure-blob-storage.md##shared-access-signature-authentication) with **shared access signature** authentication. | No | `true` or `false` | staged |
+| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Snowflake dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName<br>schemaName |
+| Query | If you select Query as input, enter a query to fetch data from Snowflake. This setting overrides any table that you've chosen in dataset. | No | String | query |
+| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake [internal data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer) is recommended (enable staging as false).<br>When you execute a data flow activity with Snowflake sources from a pipeline and with staging enabled, you need to additionally set the staging store in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). Note Snowflake requires [**Azure Blob storage**](connector-azure-blob-storage.md#shared-access-signature-authentication) with **shared access signature** authentication as staging. | No | `true` or `false` | staged |
 
 #### Snowflake source script examples
 
@@ -435,17 +435,17 @@ The below table lists the properties supported by Snowflake sink. You can edit t
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Update method | Specify what operations are allowed on your Snowflake destination. The default is to only allow inserts. <br>To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| Update method | Specify what operations are allowed on your Snowflake destination.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | Key columns | For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | No | Array | keys |
 | Table action | Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
-| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake internal data transfer is recommended (enable staging as false).<br/><br/>When you execute a data flow activity with Snowflake sinks from a pipeline and with staging enabled, you need to additionally set the staging store in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). Note Snowflake requires [**Azure Blob storage**](connector-azure-blob-storage.md#shared-access-signature-authentication) with **shared access signature** authentication. | No | `true` or `false` | staged |
+| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake [internal data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer) is recommended (enable staging as false).<br/>When you execute a data flow activity with Snowflake sinks from a pipeline and with staging enabled, you need to additionally set the staging store in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). Note Snowflake requires [**Azure Blob storage**](connector-azure-blob-storage.md#shared-access-signature-authentication) with **shared access signature** authentication as staging. | No | `true` or `false` | staged |
 
 #### Snowflake sink script examples
 
 When you use Snowflake dataset as sink type, the associated data flow script is:
 
 ```
-SnowflakeRowCRUD sink(allowSchemaDrift: true,
+IncomingStream sink(allowSchemaDrift: true,
 	validateSchema: false,
 	deletable:true,
 	insertable:true,
@@ -461,7 +461,7 @@ SnowflakeRowCRUD sink(allowSchemaDrift: true,
 If you use inline dataset, the associated data flow script is:
 
 ```
-SnowflakeRowCRUD sink(allowSchemaDrift: true,
+IncomingStream sink(allowSchemaDrift: true,
 	validateSchema: false,
 	format: 'table',
 	tableName: 'table',
