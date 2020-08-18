@@ -15,13 +15,46 @@ Use the information in the following tables to troubleshoot errors that you enco
 We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Backup Server (MABS):
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Ensure there is network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Ensure there's network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary, restart and retry the operation
 - [Ensure 5-10% free volume space is available on scratch folder location](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
-- If registration is failing, then ensure the server on which you are trying to install Azure Backup Server is not already registered with another vault
+- If registration is failing, then ensure the server on which you're trying to install Azure Backup Server isn't already registered with another vault
 - If Push install fails, check if DPM agent is already present. If yes, then uninstall the agent and retry the installation
 - [Ensure no other process or antivirus software is interfering with Azure Backup](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
 - Ensure that the SQL Agent service is running and set to automatic in the MABS server<br>
+
+## Configure antivirus for MABS server
+
+MABS is compatible with most popular antivirus software products. We recommend the following steps to avoid conflicts:
+
+1. **Disable real-time monitoring** - disable real-time monitoring by the antivirus software for the following:
+    - `C:\Program Files<MABS Installation path>\XSD` folder
+    - `C:\Program Files<MABS Installation path>\Temp` folder
+    - Drive letter of Modern Backup Storage volume
+    - Replica and transfer logs: To do this, disable real-time monitoring of **dpmra.exe**, which is located in the folder `Program Files\Microsoft Azure Backup Server\DPM\DPM\bin`. Real-time monitoring degrades performance because the antivirus software scans the replicas each time MABS synchronizes with the protected server, and scans all affected files each time MABS applies changes to the replicas.
+    - Administrator console: To avoid an impact on performance, disable real-time monitoring of the **csc.exe** process. The **csc.exe** process is the C\# compiler, and real-time monitoring can degrade the performance because the antivirus software scans files that the **csc.exe** process emits when it generates XML messages. **CSC.exe** is located in the following paths:
+        - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
+        - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
+    - For the MARS agent installed on the MABS server, we recommend that you exclude the following files and locations:
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` as a process
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
+        - Scratch location (if you're not using the standard location)
+2. **Disable real-time monitoring on the protected server**: Disable the real-time monitoring of **dpmra.exe**, which is located in the folder `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, on the protected server.
+3. **Configure anti-virus software to delete the infected files on protected servers and the MABS server**: To prevent data corruption of replicas and recovery points, configure the antivirus software to delete infected files, rather than automatically cleaning or quarantining them. Automatic cleaning and quarantining might cause the antivirus software to modify files, making changes that MABS can't detect.
+
+You should run a manual synchronization with a consistency. Check the job each time that the antivirus software deletes a file from the replica, even though the replica is marked as inconsistent.
+
+### MABS installation folders
+
+The default installation folders for DPM are as follows:
+
+- `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM`
+
+You can also run the following command to find the install folder path:
+
+```cmd
+Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
+```
 
 ## Invalid vault credentials provided
 
