@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mind Tools Toolkit | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mind Tools Toolkit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Mind Tools Toolkit
 
