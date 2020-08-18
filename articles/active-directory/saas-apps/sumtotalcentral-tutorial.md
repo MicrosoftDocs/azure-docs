@@ -107,8 +107,11 @@ To configure Azure AD single sign-on with SumTotalCentral, perform the following
     b. In the **Identifier (Entity ID)** text box, type a value:
     `SumTotalFederationGateway`
 
+    c. In the **Reply URL** textbox, enter a URL using the following pattern:    
+    `https://<subdomain>.sumtotalsystems.com/Broker/Token/CUSTOM_URL`
+
 	> [!NOTE]
-	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [SumTotalCentral Client support team](http://www.sumtotalsystems.com/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update the value with the actual Sign-On URL and Reply URL. Contact [SumTotalCentral Client support team](http://www.sumtotalsystems.com/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 

@@ -102,11 +102,14 @@ To configure Azure AD single sign-on with Cherwell, perform the following steps:
 
     ![Cherwell Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.cherwellondemand.com/cherwellclient`
 
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<companyname>.cherwellondemand.com/cherwellclient`
+	
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Cherwell Client support team](https://cherwellsupport.com/CherwellPortal) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL and Reply URL. Contact [Cherwell Client support team](https://cherwellsupport.com/CherwellPortal) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

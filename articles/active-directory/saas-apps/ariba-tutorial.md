@@ -112,8 +112,17 @@ To configure Azure AD single sign-on with Ariba, perform the following steps:
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `http://<subdomain>.procurement-2.ariba.com`
 
+    c. For **Reply URL**, enter one of the following URL pattern:
+	| Reply URL|
+	|----------|
+	| `https://<subdomain>.ariba.com/CUSTOM_URL` |
+	| `https://<subdomain>.procurement-eu.ariba.com/CUSTOM_URL` |
+	| `https://<subdomain>.procurement-eu.ariba.com` |
+	| `https://<subdomain>.procurement-2.ariba.com` |
+	| `https://<subdomain>.procurement-2.ariba.com/CUSTOM_URL` |
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Contact Ariba Client support team at **1-866-218-2155** to get these values.. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact Ariba Client support team at **1-866-218-2155** to get these values.. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

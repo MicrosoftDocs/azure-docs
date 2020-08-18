@@ -113,8 +113,11 @@ To configure Azure AD single sign-on with Degreed, perform the following steps:
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://degreed.com/<instancename>`
 
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://degreed.com/SAML/<instancename>`
+	
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Degreed Client support team](mailto:admin@degreed.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [Degreed Client support team](mailto:admin@degreed.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
