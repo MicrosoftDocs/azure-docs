@@ -49,21 +49,17 @@ Assign the proper App Configuration role assignments to the credentials being us
   
 ## Use in Builds
 
-This section will cover how to use the Azure App Configuration Push task in the DevOps Build Pipelines.
+This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
-  - If you're creating a new build pipeline:
-    1. Select where your code is and then configure a pipeline to use.
-    1. Select **Show assistant** on the right side of the pipeline and search for the **Azure App Configuration Push** task.
-  - If you're using an existing build pipeline:
-    1. Select the **Edit** button in the top-right corner to edit the build pipeline. 
-    1. Navigate to the **Tasks** tab, and search for the **Azure App Configuration Push** Task.
-1. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. The **Configuration File Path** parameter begins at the root of the file repository.
-1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
+  - If you're creating a new build pipeline, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration Push** task.
+  - If you're using an existing build pipeline, navigate to the **Tasks** tab when editing the pipeline, and search for the **Azure App Configuration Push** Task.
+2. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. The **Configuration File Path** parameter begins at the root of the file repository.
+3. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in Releases
 
-This section will cover how to use the Azure App Configuration Push task in the DevOps Release Pipelines.
+This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipelines.
 
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
