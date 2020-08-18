@@ -22,7 +22,7 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 This article requires that you already have a disk encryption set to use for your image.
 
-- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./windows/disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
 - To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
