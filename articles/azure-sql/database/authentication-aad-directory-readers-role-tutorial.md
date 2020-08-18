@@ -52,7 +52,7 @@ To check and manage the group that was created, go back to the **Groups** pane i
 
 :::image type="content" source="media/authentication-aad-directory-readers-role/aad-group-created.png" alt-text="aad-group-created":::
 
-### Add Azure SQL service identity to the group
+### Add Azure SQL managed identity to the group
 
 > [!NOTE]
 > We're using SQL Managed Instance for this example, but similar steps can be applied for SQL Database or Azure Synapse to achieve the same results.
@@ -154,7 +154,7 @@ Assigning the **Directory Readers** role to the server identity isn't required f
 
 For subsequent steps, the Global Administrator or Privileged Role Administrator user is no longer needed.
 
-1. Using an owner of the group, that also manages the Azure SQL resource, run the following command to connect to your Azure AD. You may need to run PowerShell as an administrator.
+1. Using an owner of the group, that also manages the Azure SQL resource, run the following command to connect to your Azure AD.
 
     ```powershell
     Connect-AzureAD
