@@ -61,10 +61,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
     } 
 } 
 ```
- 
-## Query Unit considerations 
-
-<!-- Need inputs from John and Dan for things that affect the # of query units consumed. -->
 
 ## Next steps
 
