@@ -21,7 +21,7 @@ In this featured video, we show you how to deploy an Azure Static Web App.
 
 > [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
 
-[How to deploy an Azure Static Web App](https://www.youtube.com/embed/H2MPsgujpNk)
+[How to deploy an Azure Static Web App](https://www.youtube.com/watch?v=H2MPsgujpNk)
 
 Catch up on these recent videos you may have missed:
 
