@@ -136,7 +136,7 @@
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
         - name: REST API
-          href: https://go.microsoft.com/fwlink/?linkid=2078296
+          href: rest-api.md
     - name: Feature management
       items:
         - name: .NET Core library
