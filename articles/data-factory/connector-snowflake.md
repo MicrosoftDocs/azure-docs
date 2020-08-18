@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
+ms.date: 08/18/2020
 ---
 
 # Copy data from and to Snowflake by using Azure Data Factory
@@ -24,6 +24,7 @@ This article outlines how to use the Copy activity in Azure Data Factory to copy
 This Snowflake connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md) table
+- [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 For the Copy activity, this Snowflake connector supports the following functions:
@@ -391,6 +392,89 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 ]
 ```
 
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read from and write to tables in Snowflake. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use a Snowflake dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
+
+### Source properties
+
+The below table lists the properties supported by Snowflake source. You can edit these properties in the **Source options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table | If you select Table as input, data flow will fetch all the data from the table specified in the Snowflake dataset or in the source options when using inline dataset. | No | String | For inline dataset only:<br>tableName<br>schemaName |
+| Query | If you select Query as input, enter a query for fetching data from Snowflake. This setting overrides any table that you've chosen in dataset. | No | String | query |
+| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake internal data transfer is recommended (enable staging as false). | No | `true` or `false` | staged |
+
+#### Snowflake source script examples
+
+When you use Snowflake dataset as source type, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	query: 'select * from MyTable',
+	format: 'query',
+	staged: false) ~> SnowflakeSource
+```
+
+If you use inline dataset, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	format: 'query',
+	query: 'select * from MyTable',
+	store: 'snowflake',
+	staged: false) ~> SnowflakeSource
+```
+
+### Sink properties
+
+The below table lists the properties supported by Snowflake sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update method | Specify what operations are allowed on your Snowflake destination. The default is to only allow inserts. <br>To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| Key columns | For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | No | Array | keys |
+| Table action | Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
+| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake internal data transfer is recommended (enable staging as false). | No | `true` or `false` | staged |
+
+#### Snowflake sink script examples
+
+When you use Snowflake dataset as sink type, the associated data flow script is:
+
+```
+SnowflakeRowCRUD sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:false,
+	keys:['movieId'],
+	format: 'table',
+	staged: false,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+If you use inline dataset, the associated data flow script is:
+
+```
+SnowflakeRowCRUD sink(allowSchemaDrift: true,
+	validateSchema: false,
+	format: 'table',
+	tableName: 'table',
+	schemaName: 'schema',
+	deletable: true,
+	insertable: true,
+	updateable: true,
+	upsertable: false,
+	store: 'snowflake',
+	staged: false,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## Lookup activity properties
 
