@@ -51,7 +51,7 @@ When writing authentication code in your Azure Digital Twins applications and us
 This method is used in the following articles: 
 * [*Tutorial: Code a client app*](tutorial-code.md)
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)
-* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis.sdks.md).
+* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
 
 The issue includes an error response of "Azure.Identity.AuthenticationFailedException" when trying to authenticate in a browser window. The browser window may fail to start up completely, or appear to authenticate the user successfully, while the client application still fails with the error.
 
