@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD:articles/virtual-machines/disks-shared-enable.md
 title: Enable shared disks for Azure managed disks
 description: Configure an Azure managed disk with shared disks so that you can share it across multiple VMs
 author: roygara
@@ -9,17 +8,6 @@ ms.date: 07/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-=======
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 08/17/2020
- ms.author: rogarana
- ms.custom: include file
->>>>>>> e93723d4757bc2ad6f3463ab6ef4e1e6498ada9a:includes/virtual-machines-enable-shared-disk.md
 ---
 
 # Enable shared disk
