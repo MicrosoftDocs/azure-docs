@@ -130,6 +130,8 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Enable-AzureADSSO -Enable $false`.
+   
+   At this point Seamless SSO is disabled but the domains will remain configured in case you would like to enable Seamless SSO back. If you would like to remove the domains from Seamless SSO configuration completely, call the following cmdlet after you completed step 5 above: `Disable-AzureADSSOForest -DomainFqdn <fqdn>`.
 
    >[!IMPORTANT]
    >Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.

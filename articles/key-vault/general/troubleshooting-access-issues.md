@@ -6,7 +6,7 @@ ms.author: sebansal
 ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 
 ---
 # Troubleshooting Azure key vault access policy issues
