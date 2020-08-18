@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Evaluate Recommender
 
-This article describes how to use the Evaluate Recommender module in Azure Machine Learning designer (preview). The goal is to measure the accuracy of predictions that a recommendation model has made. By using this module, you can evaluate different kinds of recommendations:  
+This article describes how to use the Evaluate Recommender module in Azure Machine Learning designer. The goal is to measure the accuracy of predictions that a recommendation model has made. By using this module, you can evaluate different kinds of recommendations:  
   
 -   Ratings predicted for a user and an item    
 -   Items recommended for a user  

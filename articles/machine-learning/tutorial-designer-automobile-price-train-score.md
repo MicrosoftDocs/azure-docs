@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predict car prices with the designer (preview)'
+title: 'Tutorial: Predict car prices with the designer'
 titleSuffix: Azure Machine Learning
 description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
 
@@ -13,7 +13,7 @@ ms.date: 06/28/2020
 ms.custom: designer
 ---
 
-# Tutorial: Predict automobile price with the designer (preview)
+# Tutorial: Predict automobile price with the designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this two-part tutorial, you learn how to use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop tool that lets you create machine learning models without a single line of code.

@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot designer (preview) module errors
+title: Troubleshoot designer module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module error codes in Azure Machine Learning designer (preview)
+description: Troubleshoot module error codes in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,9 +11,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
 ---
-# Exceptions and error codes for the designer (preview)
+# Exceptions and error codes for the designer
 
-This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
+This article describes the error messages and exception codes in Azure Machine Learning designer to help you troubleshoot your machine learning pipelines.
 
 You can find the error message in the designer following these steps:  
 

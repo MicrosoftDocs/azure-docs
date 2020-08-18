@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 # Two-Class Support Vector Machine module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a model that is based on the support vector machine algorithm. 
 
