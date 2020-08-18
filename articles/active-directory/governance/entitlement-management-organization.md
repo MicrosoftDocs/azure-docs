@@ -131,6 +131,10 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 
+## Managing a connected organization programmatically
+
+You can also create, list, update and delete connected organizations using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+
 ## Next steps
 
 - [Govern access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
