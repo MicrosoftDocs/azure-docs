@@ -114,14 +114,30 @@ To add databases to your availability group using SQL Server Management Studio, 
 1. Connect to one of your SQL Server VMs by using your preferred method, such as Remote Desktop Connection (RDP). 
 1. Open SQL Server Management Studio (SSMS).
 1. Connect to your SQL Server instance. 
-1. Expand **Always On High Availability** in **Object Explorer**
-1. Expand **Availability Groups**, right-click your availability group and choose to **Add database...**
+1. Expand **Always On High Availability** in **Object Explorer**.
+1. Expand **Availability Groups**, right-click your availability group and choose to **Add database...**.
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Right-click the availability group in object explorer and choose to Add database":::
 
 1. Follow the prompts to select the database(s) you want to add to your availability group. 
 1. Select **OK** to save your settings and add your database to the availability group. 
 1. After the database is added, refresh **Object Explorer** to confirm the status of your database as `synchronized`. 
+
+
+## Check deployment history
+
+Changes to the cluster and availability group via the portal are done through deployments. Deployment history can provide greater detail if there are issues with creating, or onboarding the cluster, or with creating the availability group.
+
+To view the logs for the deployment, and check the deployment history, follow these steps:
+
+1. Sign into the [Azure portal](https://portal.azure.com).
+1. Navigate to your resource group.
+1. Select **Deployments** under **Settings**
+1. Select the deployment of interest to learn more about the deployment. 
+
+
+   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Select the deployment you're interested in learning more about." :::
+
 
 
 ## Next steps
