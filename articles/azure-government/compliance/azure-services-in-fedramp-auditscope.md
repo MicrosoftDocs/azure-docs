@@ -240,7 +240,6 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Cloud Services](https://azure.microsoft.com/services/cloud-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) |  |  |  |  | :heavy_check_mark:
 | [Cognitive Services: Face](https://azure.microsoft.com/services/cognitive-services/face/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Cognitive Services: Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Cognitive Services: Speech Services](https://azure.microsoft.com/services/cognitive-services/directory/speech/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
