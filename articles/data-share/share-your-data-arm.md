@@ -72,7 +72,7 @@ It is because the deployment is trying to create the dataset before the RBAC ass
     * **Invitation Email**: enter the data share recipient's Azure login email address.  Email alias doesn't work.
 
     Use the default value for the rest of the settings.
-1. select *** agree to the terms and conditions stated above**, and the select **Purchase**.
+1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.
 
 ## Review deployed resources
 
