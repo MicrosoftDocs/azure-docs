@@ -12,27 +12,32 @@ services: iot-central
 
 # How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
 
-In this article, learn how to connect devices with both group and individual enrollments using X.509 certificates
+IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. [This tutorial](./tutorial-connect-device-nodejs.md). used SAS. In this article, learn how to modify the code sample to use X.509.  X.509 certificates are recommended in production environments. For more information, [see](./concepts-get-connected.md).
 
-## Prerequisites and setup your environment
+This article shows two ways of using X.509 - group enrollments typically used in a production environment, and individual enrollments useful for testing.
+
+## Prerequisites and set up your environment
 
 - Completion of [Create and connect a client application to your Azure IoT Central application (Node.js)](./tutorial-connect-device-nodejs.md).
 - [Git](https://git-scm.com/download/).
-- Download and Install [OpenSSL](https://www.openssl.org/) from [here](https://sourceforge.net/projects/openssl/). 
+- Download and Install [OpenSSL](https://www.openssl.org/). If you're using Windows, you can use the binaries from the [OpenSSL page on SourceForge](https://sourceforge.net/projects/openssl/).
 
 
 
-## Connect devices using X.509 certificate for group enrollment entry
+## Generate root and device key
 
-In this section, you will use a self-signed X.509 certificate to connect devices for enrollment groups, which are used to enroll multiple related devices.
+In this section, you will use an X.509 certificate to connect devices for enrollment groups, which are used to enroll multiple related devices.
 
-1. Open a command prompt. Clone the GitHub repo for the code samples:
+> [!NOTE]
+> This way of generating X.509 certs is just for testing. For a production environment you should use your official, secure mechanism for certificate generation.
+
+1. Open a command prompt. Clone the GitHub repository for the certificate generation scripts:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-node.git
     ```
 
-2. Navigate to the certificate generator script and build the project. 
+2. Navigate to the certificate generator script and install the required packages:
 
     ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
@@ -42,19 +47,30 @@ In this section, you will use a self-signed X.509 certificate to connect devices
 3. Create a root certificate and then derive a device certificate by running the script. Be sure to only use lower-case alphanumerics and hyphens for certificate name.
 
     ```cmd/sh
-    node create_test_cert.js root [commonName]
-    node create_test_cert.js device <commonName> [parentCommonName]
+    node create_test_cert.js root mytestrootcert
+    node create_test_cert.js device mytestdevice mytestrootcert
     ```
 
+This will produce three files each for the root and the device certificate
 
-4. Now open your IoT Central application and navigate to **Administration**  in the left pane and click on **Device connection**. 
+filename | contents
+-------- | --------
+\<name\>_cert.pem | The public portion of the X509 certificate
+\<name\>_key.pem | The private key for the X509 certificate
+\<name\>_fullchain.pem | The entire keychain for the X509 certificate.
 
-2. Click **Enrollment Groups**, and create a new enrollment group with Attestation type as **Certificates (X.509)** in the list.
+
+## Create a group enrollment
+
+
+1. Now open your IoT Central application and navigate to **Administration**  in the left pane and click on **Device connection**. 
+
+2. Select + **Create enrollment group**, and create a new enrollment group called _MyX509Group_ with an Attestation type of **Certificates (X.509)**:
 
 
 3. Open the enrollment group you created and click **Manage Primary**. 
 
-4. Select **file** option and upload the root certificate pem file, which you created above.
+4. Select **file** option and upload the root certificate file called mytestrootcert_cert.pem that you generated previously:
 
 
     ![Certificate Upload](./media/how-to-connect-devices-x509/certificate-upload.png)
@@ -65,7 +81,7 @@ In this section, you will use a self-signed X.509 certificate to connect devices
 
     ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
-    node create_test_cert.js verification --ca {root-certificate}_cert.pem --key {root-certificate}_key.pem --nonce  {verification-code}
+    node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
     ```
 
 6. Upload the signed verification certificate _verification_cert.pem_ to complete the verification.
@@ -73,86 +89,107 @@ In this section, you will use a self-signed X.509 certificate to connect devices
     ![Certificate Upload](./media/how-to-connect-devices-x509/verified.png)
 
 
-
+You can now connect devices that have an X.509 certificate derived from this primary root certificate. After you save the enrollment group, make a note of the ID Scope.
 
 
 ## Simulate the device
 
 
-1. In the Azure IoT Central application, Click **Devices**, and create a new device under **Environmental Sensor** device template that  uses the deviceCommonName of the device cert you created previously. Note down the _ID Scope_ and _Device ID_.
+1. In the Azure IoT Central application, Click **Devices**, and create a new device with _mytestdevice_ as the **Device ID** from the Environmental Sensor device template.
 
-2. Copy your _certificate_ and _key_ to the _environmental sensor_ folder.
+
+2. Copy the _mytestdevice_key.pem_ and _mytestdevice_cert.pem_ to the folder where you created the environmentalSensor.js application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
 
     ```cmd/sh
-    copy .\{device-certificate-name}_cert.pem ..\environmental-sensor\{device-certificate-name}_cert.pem
-    copy .\{device-certificate-name}_key.pem ..\environmental-sensor\{device-certificate-name}_key.pem
+    copy .\mytestdevice_cert.pem ..\environmental-sensor\mytestdevice_cert.pem
+    copy .\mytestdevice_key.pem ..\environmental-sensor\mytestdevice_key.pem
     ```
 
+3. Navigate to folder that contains the environmentalSensor.js application and run the following command to install the X.509 package:
 
-4. Edit the **environmentalSensor.js** file. Save the file after making the following changes.
-    - Replace `id scope` with the **_ID Scope_** noted in **Step 1** above. 
-    - Replace `registration id` with the **_Device ID_** noted in **Step 1** above.
+    ```cmd/sh
+    npm install azure-iot-security-x509 --save
+    ```
+
+4. Edit the **environmentalSensor.js** file.
+    - Replace **_ID Scope_** with the `id scope` noted above. 
+    - Replace **_Device ID_** with the `device id` noted in **Step 1** above.
 
 
-5. Add the following `require` statements at the start of the **environmentalSensor.js** file:
+5. Edit the `require` statements as follows:
 
     ```javascript
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
+    var Message = require('azure-iot-device').Message;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     var fs = require('fs');
-    var Transport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var X509Security = require('azure-iot-security-x509').X509Security;
     ```
 
-6. Add the following variable declarations to the **environmentalSensor.js** file:
+6. Edit the section that creates the client as follows. Add the **scope ID** you made a note of previously:
+
 
     ```javascript
-    var transport = new Transport();
-    var securityClient = new X509Security(registrationId, deviceCert);
-    var deviceClient = ProvisioningDeviceClient.create(provisioningHost, idScope, transport, securityClient);
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = 'Your Scope ID';
+    var registrationId = 'mytestdevice';
     var deviceCert = {
-
-      cert: fs.readFileSync('device-certificate-name_cert.pem', 'utf8'),
-      key: fs.readFileSync('device-certificate-name_key.pem', 'utf8')
+      cert: fs.readFileSync('mytestdevice_cert.pem').toString(),
+      key: fs.readFileSync('mytestdevice_key.pem').toString()
     };
-
+    var provisioningSecurityClient = new X509Security(registrationId, deviceCert);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
     ```
-7. Replace `device-certificate-name_cert.pem` and `device-certificate-name_key.pem` with the files you copied in **Step 2** above.
 
-8. To connect the device with the X.509 certificate you created, add the following code to the file:
+7. Modify the section that opens the connection as follows:
 
    ```javascript
-
-    // Register the device.  Do not force a re-registration.
-    deviceClient.register(function(err, result) {
-      if (err) {
-        console.log("error registering device: " + err);
-      } else {
-        console.log('registration succeeded');
-        console.log('assigned hub=' + result.assignedHub);
-        console.log('deviceId=' + result.deviceId);
-        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';x509=true';
-        var hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
-        hubClient.setOptions(deviceCert);
-        hubClient.open(function(err) {
-          if (err) {
-            console.error('Failure opening iothub connection: ' + err.message);
-          } else {
-            console.log('Client connected');
-            var message = new Message('Hello world');
-            hubClient.sendEvent(message, function(err, res) {
-              if (err) console.log('send error: ' + err.toString());
-              if (res) console.log('send status: ' + res.constructor.name);
-              process.exit(1);
-            });
-          }
-        });
-      }
-    });
-
+    var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';x509=true';
+    hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+    hubClient.setOptions(deviceCert);
     ```
 
-5. Execute the script and verify the device was provisioned successfully.
+8. Execute the script and verify the device was provisioned successfully.
 
     ```cmd/sh
     node environmentalSensor.js
     ```   
 
+You can also verify that telemetry appears on the dashboard.
+
+
+## Generate self-signed device key
+
+
+In this section, you will use a self-signed X.509 certificate to connect devices for individual enrollment, which are used to enroll a single device. Self-signed certificates are for testing only.
+
+Create a self-signed X.509 device certificate and then derive an intermediate device certificate from the parent device certificate by running the script. Be sure to only use lower-case alphanumerics and hyphens for certificate name.
+
+  ```cmd/sh
+    cd azure-iot-sdk-node/provisioning/tools
+    node create_test_cert.js device mytestprimarycert
+    node create_test_cert.js device mytestsecondarycert mytestprimarycert
+  ```
+
+## Create individual enrollment
+
+1. In the Azure IoT Central application, Click **Devices**, and create a new device with **Device ID** as _mytestprimarycert_ from the Environmental Sensor device template. 
+
+2. Open the device you created and select **Connect**
+
+3. Select **Individual Enrollments** as the Connect Method and **Certificates (X.509)** as mechanism.
+
+    ![Individual enrollment](./media/how-to-connect-devices-x509/individual-device-connect.png)
+
+
+4. Select **file** option under primary and upload the certificate file called mytestprimarycert_cert.pem that you generated previously. 
+
+5. Upload _mytestsecondarycert_cert.pem_ file under Secondary and click **Save**.
+
+    ![Individual enrollment Certificate Upload](./media/how-to-connect-devices-x509/individual-enrollment.png)
+
+The device is now provisioned with X.509 certificate.
 
