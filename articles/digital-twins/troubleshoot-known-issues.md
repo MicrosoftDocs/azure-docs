@@ -46,9 +46,12 @@ For users logged in with a personal [Microsoft account (MSA)](https://account.mi
 
 ## "Azure.Identity.AuthenticationFailedException" after browser authentication
 
-When writing authentication code in your Azure Digital Twins applications and using version **1.2.0** of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library** (currently the latest version available), you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
+When writing authentication code in your Azure Digital Twins applications using the latest version (version **1.2.0**) of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
 
-This method is used in the following articles: 
+>[!NOTE]
+> Adding the library to your project without specifying a version will default to this latest version.
+
+The affected method is used in the following articles: 
 * [*Tutorial: Code a client app*](tutorial-code.md)
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)
 * [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
@@ -57,11 +60,13 @@ The issue includes an error response of "Azure.Identity.AuthenticationFailedExce
 
 ### Troubleshooting steps
 
-To resolve, have your applications use Azure.Identity version **1.1.1** instead. With this version of the library, the browser should load and authenticate as expected.
+To resolve, have your applications explicitly use Azure.Identity version **1.1.1**. With this version of the library, the browser should load and authenticate as expected.
 
 ### Possible causes
 
-This is an incompatibility between Azure Digital Twins and Azure.Identity version **1.2.0**.
+This is an incompatibility between Azure Digital Twins and the latest version of the Azure.Identity library, version **1.2.0**. 
+
+If you add the library to your project without specifying a version, it will default to this latest version.
 
 ## Next steps
 
