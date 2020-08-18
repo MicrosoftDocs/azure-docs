@@ -119,7 +119,7 @@ Before initiating the failover, your output will indicate the current primary re
 You will not be able to see the same output with GP service tier as the one above shown for BC. This is because GP service tier is based on a single node only. T-SQL query output for GP service tier will show a single node only before and after the failover. The loss of connectivity from your client during the failover, typically lasting under a minute, will be the indication of the failover execution.
 
 > [!IMPORTANT]
-> Completion of the failover process (not the actual short unavailability) might take several minutes at a time in case of high-intensity workloads. This is because the instance engine is taking care of all current transactions and catch up on the secondary node, prior to being able to fail over.
+> Completion of the failover process (not the actual short unavailability) might take several minutes at a time in case of high-intensity workloads. This is because the instance engine is taking care of all current transactions on the primary and catch up on the secondary node, prior to being able to failover.
 
 > [!NOTE]
 > Functional limitations of user-initiated manual failover are:
