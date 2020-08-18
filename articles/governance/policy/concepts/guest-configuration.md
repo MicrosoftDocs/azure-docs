@@ -7,9 +7,9 @@ ms.topic: conceptual
 # Understand Azure Policy's Guest Configuration
 
 Azure Policy can audit settings inside a machine, both for machines running in Azure and
-[Arc Connected Machines](../../../azure-arc/servers/overview.md).
-The validation is performed by the Guest Configuration
-extension and client. The extension, through the client, validates settings such as:
+[Arc Connected Machines](../../../azure-arc/servers/overview.md). The validation is performed by the
+Guest Configuration extension and client. The extension, through the client, validates settings such
+as:
 
 - The configuration of the operating system
 - Application configuration or presence
@@ -82,7 +82,7 @@ of the configuration within the machine.
 ## Supported client types
 
 Guest Configuration policies are inclusive of new versions. Older versions of operating systems
-available in the Azure Marketplace are excluded if the Guest Configuration agent isn't compatible.
+available in Azure Marketplace are excluded if the Guest Configuration agent isn't compatible.
 The following table shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
@@ -100,37 +100,34 @@ of the operating systems in the table above.
 
 ## Network requirements
 
-Virtual machines in Azure can use either their local network adapter
-or a private link to communicate with the Guest Configuration service.
+Virtual machines in Azure can use either their local network adapter or a private link to
+communicate with the Guest Configuration service.
 
-Azure Arc machines connect using the on-premises network infrastructure
-to reach Azure services and report compliance status.
+Azure Arc machines connect using the on-premises network infrastructure to reach Azure services and
+report compliance status.
 
 ### Communicate over virtual networks in Azure
 
-Virtual machines using virtual networks for communication will require outbound
-access to Azure datacenters on port `443`. If you're using a private virtual
-network in Azure that doesn't allow outbound traffic, configure exceptions with
-Network Security Group rules. The service tag "GuestAndHybridManagement" can be
-used to reference the Guest Configuration service.
+Virtual machines using virtual networks for communication will require outbound access to Azure
+datacenters on port `443`. If you're using a private virtual network in Azure that doesn't allow
+outbound traffic, configure exceptions with Network Security Group rules. The service tag
+"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
 
 ### Communicate over private link in Azure
 
-Virtual machines can use [private link](../../../private-link/private-link-overview.md)
-for communication to the Guest Configuration service. Apply tag with the name
-`EnablePrivateNeworkGC` and value `TRUE` to enable this feature. The tag can be
-applied before or after Guest Configuration policies are applied to the machine.
+Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
+communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
+and value `TRUE` to enable this feature. The tag can be applied before or after Guest Configuration
+policies are applied to the machine.
 
 Traffic is routed using the Azure
-[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md)
-to establish
-a secure, authenticated channel with Azure platform resources.
+[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md) to
+establish a secure, authenticated channel with Azure platform resources.
 
 ### Azure Arc connected machines
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity
-to the Guest Configuration service.
-Details about network and proxy requirements provided in the
+Nodes located outside Azure that are connected by Azure Arc require connectivity to the Guest
+Configuration service. Details about network and proxy requirements provided in the
 [Azure Arc documentation](../../../azure-arc/servers/overview.md).
 
 To communicate with the Guest Configuration resource provider in Azure, machines require outbound
@@ -149,10 +146,14 @@ the initiative that manage identity creation. The IF conditions in the policy de
 correct behavior based on the current state of the machine resource in Azure.
 
 If the machine doesn't currently have any managed identities, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on
+virtual machines with no
+identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
 If the machine currently has a user-assigned system identity, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with a user-assigned identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on
+virtual machines with a user-assigned
+identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## Guest Configuration definition requirements
 
