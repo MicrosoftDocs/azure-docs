@@ -209,7 +209,7 @@
         href: howto-mfa-nps-extension-errors.md
   - name: Troubleshoot
     items:
-    - name: Troubleshoot SSPR
+    - name: SSPR
       href: active-directory-passwords-troubleshoot.md
     - name: SSPR FAQ
       href: active-directory-passwords-faq.md
@@ -217,6 +217,8 @@
       href: multi-factor-authentication-faq.md
     - name: NPS extension
       href: howto-mfa-nps-extension-errors.md
+    - name: Passwordless hybrid FIDO2 security keys
+      href: howto-authentication-passwordless-faq-troubleshoot.md
 - name: Reference
   items:
   - name: MFA user guide
