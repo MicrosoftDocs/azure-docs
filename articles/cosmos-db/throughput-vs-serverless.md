@@ -62,6 +62,6 @@ If your workload requires to burst above 5,000 RU per second, provisioned throug
 
 ## Next steps
 
-- Read more about [provisioning throughput on Azure Cosmos DB](set=throughput.md)
+- Read more about [provisioning throughput on Azure Cosmos DB](set-throughput.md)
 - Read more about [Azure Cosmos DB serverless](serverless.md)
 - Get familiar with the concept of [Request Units](request-units.md)
