@@ -120,25 +120,3 @@ Run the application with the `python` command on your quickstart file.
 ```console
 python quickstart-file.py
 ```
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-* [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
-
-## Troubleshooting
-
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Next article]()
-
-* [What is the [Product Name] API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)

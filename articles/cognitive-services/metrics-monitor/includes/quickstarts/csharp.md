@@ -139,25 +139,3 @@ dotnet run
 ```
 
 ---
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Troubleshooting
-
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Next article]()
-
-* [What is the [Product Name] API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
