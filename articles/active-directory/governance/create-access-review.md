@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
-You can view a video walkthrough of the process of enabling and creating Access Reviews in this video:
+You can watch a quick video talking about enabling Access Reviews:
 
 >[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
