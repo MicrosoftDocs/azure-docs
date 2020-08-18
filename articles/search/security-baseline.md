@@ -4,7 +4,7 @@ description: The Azure Cognitive Search security baseline provides procedural gu
 author: msmbaldwin
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/18/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
