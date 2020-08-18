@@ -68,7 +68,7 @@
       href: how-to-manage-lab-accounts.md
     - name: Manage labs in a lab account
       href: manage-labs.md
-    - name: Configure autom shutdown of VMs for a lab account
+    - name: Configure auto-shutdown of VMs for a lab account
       href: how-to-configure-lab-accounts.md
     - name: Add a lab creator
       href: add-lab-creator.md
@@ -106,7 +106,7 @@
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop connection for Linux
       href: how-to-enable-remote-desktop-linux.md
-    - name: Configure auto shutdown of VMs for a lab
+    - name: Configure auto-shutdown of VMs for a lab
       href: how-to-enable-shutdown-disconnect.md       
     - name: Enable nested virtualization on a template VM
       items:
