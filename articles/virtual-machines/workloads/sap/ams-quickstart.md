@@ -3,14 +3,14 @@ title: Deploy Azure Monitor for SAP solutions with the Azure portal
 description: Deploy Azure Monitor for SAP solutions with the Azure portal
 author: sameeksha91
 ms.author: sakhare
-ms.topic: quickstart
+ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ---
 
-# Deploy Azure Monitor for SAP solutions with Azure portal
+# Deploy Azure Monitor for SAP Solutions with Azure portal
 
-Azure Monitor for SAP Solutions (AMS) resources can be created through the [Azure portal](https://azure.microsoft.com/features/azure-portal). This method provides a browser-based user interface to deploy Azure Monitor for SAP solutions and configure providers.
+Azure Monitor for SAP Solutions (AMS) resources can be created through the [Azure portal](https://azure.microsoft.com/features/azure-portal). This method provides a browser-based user interface to deploy Azure Monitor for SAP Solutions and configure providers.
 
 ## Sign in to Azure portal
 
@@ -22,8 +22,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 ![Image shows selecting the Azure Monitor for SAP solutions offer from the Azure marketplace](./media/azure-monitor-sap/azure-monitor-quickstart-1.png)
 
-
-2. In the **Basics** tab, provide required values. If applicable, you can use an existing Log Analytics workspace.
+2. In the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
 
 > [!NOTE]
 >  Ensure that the systems you want to monitor are reachable from within the selected virtual network.
@@ -31,8 +30,7 @@ Sign in to the Azure portal at https://portal.azure.com
 ![Display of the Azure portal configuration options](./media/azure-monitor-sap/azure-monitor-quickstart-2.png)
 
 > [!IMPORTANT]
-> Selecting **Share** for Data sharing with Microsoft  enables our support teams get more
-visibility and provider improved support.
+> Selecting **Share** for Data sharing with Microsoft enables our support teams to provide additional support.
 
 ## Configure providers
 
@@ -45,14 +43,13 @@ visibility and provider improved support.
 
 2. Select **Add provider** and choose **SAP HANA** from the drop down. 
 
-3. Insert the Private IP for the HANA server.
+3. Input the Private IP for the HANA server.
 
-4. Insert the name pf the Database tenant you want to use. You can choose any tenant however we recommend using SYSTEMDB as it enables monitoring for wider areas. 
+4. Input the name of the Database tenant you want to use. You can choose any tenant however, we recommend using **SYSTEMDB** as it enables a wider array of monitoring  areas. 
 
-5. Insert SQL port number associated with your HANA database. The port number should be in the format of
-*3(Instance#)13* or *3(instance#)15*. 
+5. Input the SQL port number associated with your HANA database. The port number should be in the format of *3 + instance# + 13* or *3 + instance# + 15*. For example, 30013 or 30015. 
 
-6. Insert the Database username you want to use. Ensure that database user has the **monitoring** and **catalog read** roles assigned. 
+6. Input the Database username you want to use. Ensure that database user has the **monitoring** and **catalog read** roles assigned. 
 
 7. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
@@ -60,14 +57,14 @@ visibility and provider improved support.
 
 ### High-availability cluster (Pacemaker) provider
 
-1. Choose **High-availability cluster (Pacemaker)** from the drop down. 
+1. Select **High-availability cluster (Pacemaker)** from the drop down. 
+
 > [!IMPORTANT]
 > To configure the High-availability cluster (Pacemaker) provider, ensure that ha_cluster_provider is installed in each node. For more information see [HA cluster exporter](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
 
-
- 2. Enter the Prometheus endpoint in the form of http://IP:9664/metrics. 
+2. Input the Prometheus endpoint in the form of http://IP:9664/metrics. 
  
-3. Enter the System ID (SID), hostname and cluster name
+3. Input the System ID (SID), hostname and cluster name.
 
 4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
