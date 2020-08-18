@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/15/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -62,6 +62,12 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 | Additional risk detected | Real-time or Offline | This detection indicates that one of the above premium detections was detected. Since the premium detections are visible only to Azure AD Premium P2 customers, they are titled "additional risk detected" for customers without Azure AD Premium P2 licenses. |
 
 ## Common questions
+
+### Risk levels
+
+Identity Protection categorizes risk into three tiers: low, medium, and high. 
+
+While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 
 ### Leaked credentials
 
