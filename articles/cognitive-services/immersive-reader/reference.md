@@ -137,13 +137,13 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     onPreferencesChanged?: (value: string) => any; // Executes when the user's preferences have changed.
 }
 ```
-### Cookie Policy Option
+### Cookie Policy Options
 
 ```typescript
 enum CookiePolicy { Disable, Enable }
 ```
 
-This cookiePolicy option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader settings, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the cookiePolicy option to CookiePolicy.Enable when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the cookie policy option is enabled.
+The Immersive Reader stores it settings, or user preferences, in cookies. This cookiePolicy option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the cookiePolicy option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the cookie policy option is enabled.
 
 | Setting | Description |
 | --------- | ----------- |
@@ -164,9 +164,11 @@ This cookiePolicy option **disables** the use of cookies by default in order to 
 | Part of Speech Labels Enabled | Sets whether the superscript text label of each highlighted Part of Speech is toggled on or off. |
 | Picture Dictionary Enabled | Sets whether Picture Dictionary is toggled on or off. |
 | Content Hybrid Mode | A boolean that turns vertical text spacing on without toggling text spacing on, this setting is determined by other features of the Immersive Reader such as Part of Speech Labels that require more vertical space between lines of text. |
-| Read Aloud State | Stores the following settings: the number representing the chosen Speed at which text is read aloud, and the voice chosen (male or female).  |
-| Translation State | Determines whether text translation is toggled on or off the Immersive Reader is loaded. Stores the following settings: A boolean that sets whether text translation is toggled on or off when the Immersive Reader is loaded, and the chosen language |
+| Read Aloud State | Stores the following settings: the number representing the chosen Speed at which text is read aloud, and the chosen voice gender (male or female).  |
+| Translation State | Determines whether text translation is toggled on or off when the Immersive Reader is loaded. Stores the following settings: A boolean that sets whether text translation is toggled on or off when the Immersive Reader is loaded, and the chosen language |
 | Dialog State | Stores whether the first run experience has already been shown. |
+
+### Read Aloud Options
 
 ```typescript
 type ReadAloudOptions = {
@@ -179,6 +181,8 @@ type ReadAloudOptions = {
 > [!NOTE]
 > Due to browser limitations, autoplay is not supported in Safari.
 
+### Translation Options
+
 ```typescript
 type TranslationOptions = {
     language: string;                         // Set the translation language, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation.
@@ -186,6 +190,8 @@ type TranslationOptions = {
     autoEnableWordTranslation?: boolean;      // Automatically enable word translation.
 };
 ```
+
+### Display Options
 
 ```typescript
 type DisplayOptions = {
