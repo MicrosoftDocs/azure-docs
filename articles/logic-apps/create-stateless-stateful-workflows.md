@@ -18,16 +18,17 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
 
 * *Stateful*
 
-  Stateful workflow apps save the input and output for each action in external storage, which makes run details and history review possible after each run finishes. These workflow apps provide high resiliency if or when outages happen. After services and systems are restored, you can reconstruct interrupted workflow runs from the saved state and rerun the workflows to completion. Create stateful workflow apps when you need to keep, review, or reference data from previous events.
+  Create stateful workflow apps when you need to keep, review, or reference data from previous events. These workflows save the input and output for each action in external storage, which makes run details and history review possible after each run finishes. Stateful workflows provide high resiliency if or when outages happen. After services and systems are restored, you can reconstruct interrupted workflow runs from the saved state and rerun the workflows to completion.
 
 * *Stateless*
 
-  Stateless workflow apps save the input and output for each action only in memory, rather than in external storage. These workflow apps provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. Create stateless workflows when you don't need to keep, review, or reference data from previous events.
+  Create stateless workflow apps when you don't need to keep, review, or reference data from previous events. These workflows save the input and output for each action only in memory, rather than in external storage. Stateless workflows provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#enable-run-history) for stateless workflows.
 
-   > [!NOTE]
-   > To more easily debug stateless workflow apps, you can [enable run history](#enable-run-history).
-   >
-   > Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+  Here are some considerations for stateless workflows:
+
+  * Stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+
+<a name="nested-workflow-behavior"></a>
 
 ### Nested workflow behavior
 
@@ -41,13 +42,13 @@ Here are the various behavior patterns that nested workflows can follow when a p
 
 * Synchronous pattern ("fire and forget")
 
-  The child immediately returns a `202 ACCEPTED` response that acknowledges the call, and the parent continues to the next action without waiting. The run history for child stateful workflows is available for you to review. To enable this behavior, in the trigger's JSON definition, set the `OperationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  The child confirms receiving the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the resulting output from the child. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
 
-  <*What does this mean?*> Child workflows that don't return responses are triggered using the synchronous pattern?
+  To enable this behavior, in the trigger's JSON definition, set the `OperationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger and wait
 
-  This pattern applies to child stateless workflows where the parent waits for a response, which is the output from the child workflow. This pattern works similar to using the built-in [HTTP trigger or action to call a child workflow](../connectors/connectors-native-http.md). Currently, all stateless workflows require a response.
+  For a child stateless workflow, the parent waits for a response that returns the resulting output from the child. This pattern works similar to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These patterns apply only to child stateless workflows.
 
 This table specifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types:
 
@@ -413,6 +414,8 @@ In your workflow app's JSON definition (`workflow.json`) file, you can change th
 ```
 
 ## Deploy to Docker container
+
+By using the .NET Core command-line interface (CLI), you can build a Docker container for deploying your workflow app.
 
 1. To build your project, open a command-line prompt, and run this command:
 
