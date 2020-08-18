@@ -7,7 +7,7 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 05/25/2020
 ms.custom: subject-armqs
-zone_pivot_groups: app-service-containers-windows-linux
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 # Create App Service web app using an Azure Resource Manager template
 
