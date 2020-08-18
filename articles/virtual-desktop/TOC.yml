@@ -158,6 +158,8 @@
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
     href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+  - name: Azure example scenarios
+    href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
 - name: Resources
   items:
   - name: PowerShell

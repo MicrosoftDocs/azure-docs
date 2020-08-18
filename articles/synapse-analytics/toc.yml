@@ -74,10 +74,10 @@
     href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
-    - name: Predict NYC Taxi cab tips
+    - name: Run a regression experiment using Azure AutoML
+      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+    - name: Create a classification model using Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md 
-    - name: Augmenting Apache Spark with additional libraries
-      href: ./spark/apache-spark-azure-portal-add-libraries.md
   - name: Data Analyst
     items:
     - name: Use SQL on-demand to analyze and Synapse Studio to visualize
@@ -216,8 +216,6 @@
         href: ./spark/apache-spark-overview.md
       - name: Apache Spark concepts
         href: ./spark/apache-spark-concepts.md
-      - name: Runtime language and library support
-        href: ./spark/apache-spark-version-support.md
       - name: What is Delta Lake
         href: ./spark/apache-spark-what-is-delta-lake.md
       - name: Apache Spark performance
@@ -226,6 +224,12 @@
         href: ./spark/apache-spark-autoscale.md
     - name: Development
       items:
+      - name: Libraries 
+        items:
+        - name: Add and manage libraries
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
+        - name: Runtime language and library support
+          href: ./spark/apache-spark-version-support.md
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
       - name: .NET for Apache Spark
