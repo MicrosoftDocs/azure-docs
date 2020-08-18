@@ -27040,13 +27040,13 @@
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-how-to-v1.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-how-to-v1",
-      "redirect_document_id": true
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-how-to.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-how-to",
-      "redirect_document_id": true
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-preparing-hard-drives-import-v1.md",
@@ -27115,18 +27115,18 @@
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-setup.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-setup",
-      "redirect_document_id": true
+      "redirect_url": "/azure/storage/common/storage-import-export-tool-setup-v1",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-import-export-tool-troubleshooting-v1.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-tool-troubleshooting-v1",
-      "redirect_document_id": true
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-import-export-using-the-rest-api.md",
-      "redirect_url": "/azure/storage/common/storage-import-export-using-the-rest-api",
-      "redirect_document_id": true
+      "redirect_url": "/azure/storage/common/storage-import-export-service",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-incremental-snapshots.md",
@@ -29106,6 +29106,11 @@
     {
       "source_path": "articles/sentinel/connect-logstash.md",
       "redirect_url": "/azure/sentinel/connect-data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/connect-microsoft-waf.md",
+      "redirect_url": "/azure/sentinel/connect-azure-waf",
       "redirect_document_id": false
     },
     {
