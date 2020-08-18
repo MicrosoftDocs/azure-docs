@@ -55,7 +55,7 @@ A. Data Box is supported for all regions within US, West Europe, North Europe, F
 ### Q. How can I move data from my on-premises data in one country/commerce boundary to an Azure region in a different country/commerce boundary?
 A. Data Box is supports data ingestion only within the same commerce boundary. In all other cases, you may need to take additional action. For e.g., If you had on-premises data in Canada that you wanted to move to Azure West US region, then you could achieve it in the following way:
 
-1. Order Data Box in Canada by choosing a storage account in Cananda. The device would be shipped to a location in Canada.
+1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped to the address in Canada provided during order creation.
 
 2. Once data copy is done, return the device to the source Azure datacenter in Canada. The data gets uploaded to the destination storage account in the Canada Azure region chosen while ordering the Data Box.
 
