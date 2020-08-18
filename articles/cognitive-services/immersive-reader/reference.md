@@ -143,10 +143,10 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 enum CookiePolicy { Disable, Enable }
 ```
 
-The Immersive Reader stores it settings, or user preferences, in cookies. This cookiePolicy option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the cookiePolicy option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the cookie policy option is enabled.
+The Immersive Reader stores it settings, or user preferences, in cookies. This cookiePolicy option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the *cookiePolicy option* to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the *cookiePolicy option* is enabled.
 
 | Setting | Description |
-| --------- | ----------- |
+| ------------------------------ | -------------------------------------------------------------- |
 | Text Size | The number that represents the chosen text size in pixels. |
 | Font Family | The chosen font (Calibri, Sitka or Comic Sans). |
 | Text Spacing | One of two number choices that sets whether text spacing toggled on or off. |
