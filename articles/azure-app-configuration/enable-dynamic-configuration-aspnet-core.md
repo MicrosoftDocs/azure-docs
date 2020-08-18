@@ -56,7 +56,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 1. Select **Apply**.
 
     > [!NOTE]
-    > If you are not using a sentinel key, every key you want to watch must be registered manually. 
+    > If you're not using a sentinel key, you'll need to manually register every key you want to watch.
 
 ## Reload data from App Configuration
 
