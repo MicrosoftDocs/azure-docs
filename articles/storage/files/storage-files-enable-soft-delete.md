@@ -32,7 +32,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 ## Prerequisite
 
-Soft delete cmdlets are only available in the [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) and [2.3.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) versions of the Az.Storage module. 
+Soft delete cmdlets are currently only available in the [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) and [2.3.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) versions of the Az.Storage module. 
 
 ## Getting started
 
