@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -67,7 +67,7 @@ Each performance tier uses a slightly different unit of measure for their data w
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## Capacity limits
 
@@ -95,14 +95,14 @@ To see its true capabilities for scaling, especially at larger DWUs, we recommen
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
+Azure built-in roles such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
 ## View current DWU settings
 
 To view the current DWU setting:
 
 1. Open SQL Server Object Explorer in Visual Studio.
-2. Connect to the master database associated with the logical SQL Database server.
+2. Connect to the master database associated with the logical SQL server.
 3. Select from the sys.database_service_objectives dynamic management view. Here is an example:
 
 ```sql
@@ -144,7 +144,7 @@ With T-SQL you can view the current DWUsettings, change the settings, and check 
 
 To change the DWUs:
 
-1. Connect to the master database associated with your logical SQL Database server.
+1. Connect to the master database associated with your server.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
@@ -180,7 +180,7 @@ You cannot check the database state for scale-out operations with the Azure port
 
 To check the status of DWU changes:
 
-1. Connect to the master database associated with your logical SQL Database server.
+1. Connect to the master database associated with your server.
 2. Submit the following query to check database state.
 
 ```sql

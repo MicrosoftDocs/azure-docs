@@ -19,13 +19,13 @@ The [common alert schema](https://aka.ms/commonAlertSchemaDocs) provides a stand
 ## Prerequisites 
 
 This article assumes that the reader is familiar with 
-* Setting up alert rules ([metric](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [activity log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
-* Setting up [action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* Enabling the [common alert schema](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema#how-do-i-enable-the-common-alert-schema) from within action groups
+* Setting up alert rules ([metric](./alerts-metric.md), [log](./alerts-log.md), [activity log](./alerts-activity-log.md))
+* Setting up [action groups](./action-groups.md)
+* Enabling the [common alert schema](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) from within action groups
 
 ## Create a logic app leveraging the common alert schema
 
-1. Follow the [steps outlined to create your logic app](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
+1. Follow the [steps outlined to create your logic app](./action-groups-logic-app.md). 
 
 1.  Select the trigger: **When a HTTP request is received**.
 
@@ -126,13 +126,13 @@ This article assumes that the reader is familiar with
       if(equals(triggerBody()?['data']?['essentials']?['monitoringService'],'Application Insights'),triggerBody()?['data']?['alertContext']?['SearchResults'],'NA')
     ```
     
-     Learn more about [writing logic app expressions](https://docs.microsoft.com/azure/logic-apps/workflow-definition-language-functions-reference#logical-comparison-functions).
+     Learn more about [writing logic app expressions](../../logic-apps/workflow-definition-language-functions-reference.md#logical-comparison-functions).
 
     
 
 
 ## Next steps
 
-* [Learn more about action groups](../../azure-monitor/platform/action-groups.md).
+* [Learn more about action groups](./action-groups.md).
 * [Learn more about the common alert schema](https://aka.ms/commonAlertSchemaDocs).
 

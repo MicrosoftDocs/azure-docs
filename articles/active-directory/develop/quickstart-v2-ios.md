@@ -67,74 +67,50 @@ This quickstart applies to both iOS and macOS apps. Some steps are needed only f
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
-
-#### Step 2: Download the sample project
-
-- [Download the Code Sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [Download the Code Sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+> 
+> #### Step 2: Download the sample project
+> > [!div id="autoupdate_ios" class="nextstepaction"]
+> > [Download the code sample for iOS]()
+> 
+> > [!div id="autoupdate_macos" class="nextstepaction"]
+> > [Download the code sample for macOS]()
+> [!div renderon="docs"]
+> #### Step 2: Download the sample project
+> 
+> - [Download the code sample for iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+> - [Download the code sample for macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
 #### Step 3: Install dependencies
 
 In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
 
-#### Step 4: Configure your project
-
-> [!div renderon="docs"]
-> If you selected Option 1 above, you can skip these steps.
-
 > [!div renderon="portal" class="sxs-lookup"]
-> 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the client ID that you saved when you registered your app in the portal earlier in the quickstart:
->    ```swift
->    let kClientID = "Enter_the_Application_Id_Here"
->    ```
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kAuthority' with the following code snippet:
->    ```swift
->    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
->    ```
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kGraphEndpoint' with the following code snippet:
->    ```swift
->    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
->    ```
-> 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
-> 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.Enter_the_Bundle_Id_Here</string>
->          </array>
->       </dict>
->    </array>
->    ```
-> 1. Build & run the app!
-> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 4: Your app is configured and ready to run
+> We have configured your project with values of your app's properties and it's ready to run.
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-> [!div renderon="docs"]
 >
+> [!div renderon="docs"]
+>#### Step 4: Configure your project
+> If you selected Option 1 above, you can skip these steps.
 > 1. Extract the zip file and open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
-> 1. If you're building an app for [Azure AD national clouds](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
->     ```objective-c
+> 1. If you're building an app for [Azure AD national clouds](/graph/deployments#app-registration-and-token-service-root-endpoints), replace the line starting with 'let kGraphEndpoint' and 'let kAuthority' with correct endpoints. For global access, use default values:
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
-> 1. Other endpoints are documented [here](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
->     ```objective-c
+> 1. Other endpoints are documented [here](/graph/deployments#app-registration-and-token-service-root-endpoints). For example, to run the quickstart with Azure AD Germany, use following:
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
-> 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
+> 1. Right-click **Info.plist** and select **Open As** > **Source Code**.
+> 1. Under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -194,7 +170,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `clientId` | The Application ID from the application registered in *portal.azure.com* |
 > | `authority` | The Microsoft identity platform endpoint. In most of cases this will be *https<span/>://login.microsoftonline.com/common* |
@@ -258,7 +234,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Where:||
+> |Where:| Description |
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs  (`api://<Application ID>/access_as_user`) |
 
@@ -278,7 +254,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (`api://<Application ID>/access_as_user`) |
 > | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `accountsFromDeviceForParameters:completionBlock:` and passing correct `accountIdentifier` |
@@ -290,6 +266,6 @@ Try out the tutorial for iOS and macOS for a complete step-by-step guide on buil
 ### Learn how to create the application used in this quickstart
 
 > [!div class="nextstepaction"]
-> [Call Graph API tutorial for iOS and macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Call Graph API tutorial for iOS and macOS](./tutorial-v2-ios.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 05/20/2020
+ms.date: 07/06/2020
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -11,9 +11,8 @@ understand which portion of the rule the resource isn't compliant with. It's als
 understand what change altered a previously compliant resource to make it non-compliant. There are
 two ways to find this information:
 
-> [!div class="checklist"]
-> - [Compliance details](#compliance-details)
-> - [Change history (Preview)](#change-history)
+- [Compliance details](#compliance-details)
+- [Change history (Preview)](#change-history)
 
 ## Compliance details
 
@@ -159,7 +158,7 @@ Install-Module Az.GuestConfiguration
 You can view the current status of all Guest Assignments for a VM using the following command:
 
 ```azurepowershell-interactive
-Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
 ```
 
 ```output
@@ -173,7 +172,7 @@ To view only the _reason_ phrase that describes why the VM is _Non-compliant_, r
 Reason child property.
 
 ```azurepowershell-interactive
-Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
 ```
 
 ```output
@@ -216,13 +215,13 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history"/>Change history (Preview)
+## <a name="change-history"></a>Change history (Preview)
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode
 deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history
 provides details about when a change was detected and a _visual diff_ for each change. A change
-detection is triggered when the Resource Manager properties are added, removed, or altered.
+detection is triggered when the Azure Resource Manager properties are added, removed, or altered.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.

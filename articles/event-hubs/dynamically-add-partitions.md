@@ -1,14 +1,8 @@
 ---
 title: Dynamically add partitions to an event hub in Azure Event Hubs
 description: This article shows you how to dynamically add partitions to an event hub in Azure Event Hubs. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/23/2020
-ms.author: spelluru 
-ms.reviewer: shvija
+ms.date: 06/23/2020
 ---
 
 # Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs
@@ -34,7 +28,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### CLI
-Use the [az eventhubs eventhub update](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
+Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -65,13 +59,13 @@ Use the `AlterTopics` API (for example, via **kafka-topics** CLI tool) to increa
 ## Event Hubs clients
 Let's look at how Event Hubs clients behave when the partition count is updated on an event hub. 
 
-When you add a partition to an existing even hub, the event hub client receives a “MessagingException” from the service informing the clients that entity metadata (entity is your event hub and metadata is the partition information) has been altered. The clients will automatically reopen the AMQP links, which would then pick up the changed metadata information. The clients then operate normally.
+When you add a partition to an existing even hub, the event hub client receives a `MessagingException` from the service informing the clients that entity metadata (entity is your event hub and metadata is the partition information) has been altered. The clients will automatically reopen the AMQP links, which would then pick up the changed metadata information. The clients then operate normally.
 
 ### Sender/producer clients
 Event Hubs provides three sender options:
 
 - **Partition sender** – In this scenario, clients send events directly to a partition. Although partitions are identifiable and events can be sent directly to them, we don't recommend this pattern. Adding partitions doesn't impact this scenario. We recommend that you restart applications so that they can detect newly added partitions. 
-- **Partition key sender** – in this scenario, clients sends the events with a key so that all events belonging to that key end up in the same partition. In this case, service hashes the key and routes to the corresponding partition. The partition count update can cause out-of-order issues due to hashing change. So, if you care about ordering, ensure that your application consumes all events from existing partitions before you increase the partition count.
+- **Partition key sender** – in this scenario, clients sends the events with a key so that all events belonging to that key end up in the same partition. In this case, service hashes the key and routes to the corresponding partition. The partition count update can cause out-of-order issues because of hashing change. So, if you care about ordering, ensure that your application consumes all events from existing partitions before you increase the partition count.
 - **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
 
 ### Receiver/consumer clients
@@ -85,7 +79,7 @@ Event Hubs provides direct receivers and an easy consumer library called the [Ev
 ## Apache Kafka clients
 This section describes how Apache Kafka clients that use the Kafka endpoint of Azure Event Hubs behave when the partition count is updated for an event hub. 
 
-Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases. For a list of configurations, see [Apache Kafka configurations for Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases. For a list of configurations, see [Apache Kafka configurations for Event Hubs](apache-kafka-configurations.md).
 
 ### Sender/producer clients
 Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the new partitions are added to the producer’s metadata view, they'll be available for producer requests.
@@ -101,7 +95,7 @@ When a consumer group member performs a metadata refresh and picks up the newly 
     > While the existing data preserves ordering, partition hashing will be broken for messages hashed after the partition count changes due to addition of partitions.
 - Adding partition to an existing topic or event hub instance is recommended in the following cases:
     - When you use the round robin (default) method of sending events
-	 - Kafka default partitioning strategies, example – StickyAssignor strategy
+	 - Kafka default partitioning strategies, example – Sticky Assignor strategy
 
 
 ## Next steps

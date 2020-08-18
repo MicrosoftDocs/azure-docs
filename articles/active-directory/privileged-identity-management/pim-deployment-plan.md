@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: 
 ms.collection: M365-identity-device-management
@@ -22,9 +22,9 @@ This step-by-step guide describes how to plan the deployment of Privileged Ident
 
 > [!TIP]
 > Throughout this article, you will see items marked as:
-> 
+>
 > :heavy_check_mark: **Microsoft recommends**
-> 
+>
 > These are general recommendations, and you should only implement if they apply to your specific enterprise needs.
 
 ## Learn about Privileged Identity Management
@@ -47,7 +47,8 @@ To use Privileged Identity Management, your directory must have one of the follo
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+- Microsoft 365 Education A5
+- Microsoft 365 Enterprise E5
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
@@ -76,7 +77,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](pim
 
 **Azure AD roles** – These roles are all in Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
 
-**Azure resource roles** – These roles are linked to an Azure resource, resource group, subscription, or management group. Privileged Identity Management provides just-in-time access to both built-in roles like Owner, User Access Administrator, and Contributor, as well as [custom roles](../../role-based-access-control/custom-roles.md). For more information about Azure resource roles, see [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+**Azure resource roles** – These roles are linked to an Azure resource, resource group, subscription, or management group. Privileged Identity Management provides just-in-time access to both built-in roles like Owner, User Access Administrator, and Contributor, as well as [custom roles](../../role-based-access-control/custom-roles.md). For more information about Azure resource roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 For more information, see [Roles you cannot manage in Privileged Identity Management](pim-roles.md).
 
@@ -109,7 +110,7 @@ The following section helps you identify all the stakeholders that are involved 
 | Name and email | **Subscription / Resource owner**<br/>A representative from the IT owners of each subscription or resource that you want to deploy Privileged Identity Management for | SO/R/I |
 | Name and email | **Security owner**<br/>A representative from the security team that can sign off that the plan meets the security requirements of your organization. | SO/R |
 | Name and email | **IT support manager / Helpdesk**<br/>A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. | R/I |
-| Name and email for pilot users | **RBAC role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once Privileged Identity Management is implemented. | I |
+| Name and email for pilot users | **Azure role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once Privileged Identity Management is implemented. | I |
 
 ### Enable Privileged Identity Management
 
@@ -136,9 +137,9 @@ Follow these steps to enforce the principle of least privilege for your Azure AD
 
 1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../users-groups-roles/roles-delegate-by-task.md), which explains the least privileged role for specific tasks.
 
-1. List who has privileged roles in your organization. You can use the [Privileged Identity Management wizard](pim-security-wizard.md#run-the-wizard) to get to a page like the following.
+1. List who has privileged roles in your organization. You can use the Privileged Identity Management [Discovery and insights (preview)](pim-security-wizard.md) to get to a page like the following.
 
-    ![Discover privileged roles pane showing who has privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Discovery and insights (preview) page to reduce exposure via privileged roles](./media/pim-deployment-plan/new-preview-page.png)
 
 1. For all Global Administrators in your organization, find out why they need the role. Based on reading the previous documentation, if the person’s job can be performed by one or more granular administrator roles, you should remove them from the Global Administrator role and make assignments accordingly inside Azure Active Directory (As a reference: Microsoft currently only has about 10 administrators with the Global Administrator role. Learn more at [how Microsoft uses Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 

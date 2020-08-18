@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Whimsical | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Whimsical.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3a1bab37-e0a8-4710-a927-b80bea80d9f5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Whimsical
@@ -34,7 +28,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Whimsical single sign-on (SSO) enabled subscription.
+* Whimsical Team Workspace.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -92,9 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://whimsical.com/@<TENANT_NAME>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Whimsical Client support team](mailto:help@whimsical.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Your specific values will be shown on the SAML setup screen inside Whimsical Workspace settings. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Whimsical application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The Whimsical application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
@@ -109,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up Whimsical** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Whimsical** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -145,7 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Whimsical SSO
 
-To configure single sign-on on **Whimsical** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Whimsical support team](mailto:help@whimsical.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Whimsical** side, you need to upload the **Federation Metadata XML** you just downloaded to your [workspace settings](https://whimsical.com/workspace/settings).
+
+![Whimsical Workspace SAML setup](media/whimsical-tutorial/saml-setup.png)
+
+Uploading the **Federation Metadata XML** should be the only step you need to take in Whimsical to set up the SAML SSO connection.
 
 ### Create Whimsical test user
 

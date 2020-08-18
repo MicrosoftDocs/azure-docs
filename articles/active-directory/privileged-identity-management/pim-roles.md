@@ -29,7 +29,7 @@ You cannot manage the following classic subscription administrator roles in Priv
 - Service Administrator
 - Co-Administrator
 
-For more information about the classic subscription administrator roles, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For more information about the classic subscription administrator roles, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## What about Office 365 admin roles?
 

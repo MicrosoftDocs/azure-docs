@@ -38,7 +38,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Publish application definition
-            url: publish-managed-app-definition-quickstart.md
+            url: ./publish-service-catalog-app.md
           - text: Deploy service catalog app
             url: deploy-service-catalog-quickstart.md
       - linkListType: tutorial

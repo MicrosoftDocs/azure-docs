@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with EthicsPoint Incident Management (EPIM) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EthicsPoint Incident Management (EPIM).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8cb31a4c-9309-469b-93ac-daf0d3c7a3e6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with EthicsPoint Incident Management (EPIM)
 
@@ -104,10 +97,10 @@ To configure Azure AD single sign-on with EthicsPoint Incident Management (EPIM)
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     
-    | |
-	|--|
-	| `https://<companyname>.navexglobal.com`|
-	| `https://<companyname>.ethicspointvp.com`|
+    ```http
+    https://<companyname>.navexglobal.com
+    https://<companyname>.ethicspointvp.com
+    ```
 
     b. In the **Identifier** box, type a URL using the following pattern:
     `https://<companyname>.navexglobal.com/adfs/services/trust`

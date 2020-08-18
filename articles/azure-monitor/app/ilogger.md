@@ -10,7 +10,7 @@ ms.reviewer: mbullwin
 # ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 
 ASP.NET Core supports a logging API that works with different kinds of built-in and third-party logging providers. Logging is done by calling **Log()** or a variant of it on *ILogger* instances. This article demonstrates how to use *ApplicationInsightsLoggerProvider* to capture ILogger logs in  console and ASP.NET Core applications. This article also describes how ApplicationInsightsLoggerProvider integrates with other Application Insights telemetry.
-To learn more, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+To learn more, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 ## ASP.NET Core applications
 
@@ -21,7 +21,7 @@ ApplicationInsightsLoggerProvider is enabled by default in [Microsoft.Applicatio
 
 ILogger logs that ApplicationInsightsLoggerProvider captures are subject to the same configuration as any other telemetry that's collected. They have the same set of TelemetryInitializers and TelemetryProcessors, use the same TelemetryChannel, and are correlated and sampled in the same way as other telemetry. If you use version 2.7.1 or later, no action is required to capture ILogger logs.
 
-Only *Warning* or higher ILogger logs (from all [categories](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)) are sent to Application Insights by default. But you can [apply filters to modify this behavior](#control-logging-level). Additional steps are required to capture ILogger logs from **Program.cs** or **Startup.cs**. (See [Capturing ILogger logs from Startup.cs and Program.cs in ASP.NET Core applications](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
+Only *Warning* or higher ILogger logs (from all [categories](/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)) are sent to Application Insights by default. But you can [apply filters to modify this behavior](#control-logging-level). Additional steps are required to capture ILogger logs from **Program.cs** or **Startup.cs**. (See [Capturing ILogger logs from Startup.cs and Program.cs in ASP.NET Core applications](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps).)
 
 If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK or you want to just use ApplicationInsightsLoggerProvider without any other Application Insights monitoring, use the following procedure:
 
@@ -203,7 +203,7 @@ Microsoft.ApplicationInsights.AspNet SDK versions before 2.7.1 supported a loggi
 
 You can still use the old provider. (It will be removed only in a major version change to 3.*xx*.) But we recommend that you migrate to the new provider for the following reasons:
 
-- The previous provider lacks support for [log scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
+- The previous provider lacks support for [log scopes](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
 - Logs can now be captured much earlier in the application startup pipeline. Logs from the **Program** and **Startup** classes can now be captured.
 - With the new provider, filtering is done at the framework level itself. You can filter logs to the Application Insights provider in the same way as for other providers, including built-in providers like Console, Debug, and so on. You can also apply the same filters to multiple providers.
 - In ASP.NET Core (2.0 and later), the recommended way to  [enable logging providers](https://github.com/aspnet/Announcements/issues/255) is by using extension methods on ILoggingBuilder in **Program.cs** itself.
@@ -214,7 +214,7 @@ You can still use the old provider. (It will be removed only in a major version 
 ## Console application
 
 > [!NOTE]
-> There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md).
+> There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](./worker-service.md).
 
 The following code shows a sample console application that's configured to send ILogger traces to Application Insights.
 
@@ -316,7 +316,7 @@ The following section shows how to override the default TelemetryConfiguration b
 
 ## Control logging level
 
-The ASP.NET Core *ILogger* infra has a built-in mechanism to apply [log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering). This lets you control the logs that are sent to each registered provider, including the Application Insights provider. The filtering can be done either in configuration (typically by using an *appsettings.json* file) or in code. This facility is provided by the framework itself. It's not specific to the Application Insights provider.
+The ASP.NET Core *ILogger* infra has a built-in mechanism to apply [log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering). This lets you control the logs that are sent to each registered provider, including the Application Insights provider. The filtering can be done either in configuration (typically by using an *appsettings.json* file) or in code. This facility is provided by the framework itself. It's not specific to the Application Insights provider.
 
 The following examples apply filter rules to ApplicationInsightsLoggerProvider.
 
@@ -390,7 +390,7 @@ If you experience double logging when you debug from Visual Studio, set `EnableD
 
 ### I updated to [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1, and logs from ILogger are captured automatically. How do I turn off this feature completely?
 
-See the [Control logging level](../../azure-monitor/app/ilogger.md#control-logging-level) section to see how to filter logs in general. To turn-off ApplicationInsightsLoggerProvider, use `LogLevel.None`:
+See the [Control logging level](#control-logging-level) section to see how to filter logs in general. To turn-off ApplicationInsightsLoggerProvider, use `LogLevel.None`:
 
 **In code:**
 
@@ -435,7 +435,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the Microsoft.ApplicationInsights.AspNetCore package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#frequently-asked-questions).
+> If you use the Microsoft.ApplicationInsights.AspNetCore package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](./asp-net-core.md#frequently-asked-questions).
 
 
 ### What Application Insights telemetry type is produced from ILogger logs? Or where can I see ILogger logs in Application Insights?
@@ -496,5 +496,6 @@ This code is required only when you use a standalone logging provider. For regul
 
 Learn more about:
 
-* [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)
-* [.NET trace logs in Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
+* [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
+

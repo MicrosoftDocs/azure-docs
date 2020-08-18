@@ -26,5 +26,5 @@ This article shows how to use Azure AD PowerShell to set a token lifetime policy
 
 ## Next steps
 
-* See [Configurable token lifetimes in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) to learn how to configure token lifetimes issued by Azure AD, including how to set token lifetimes for all apps in your organization, for a multi-tenant app, or for a specific service principal in your organization. 
-* [Azure AD Token Reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* See [Configurable token lifetimes in Azure AD](./active-directory-configurable-token-lifetimes.md) to learn how to configure token lifetimes issued by Azure AD, including how to set token lifetimes for all apps in your organization, for a multi-tenant app, or for a specific service principal in your organization. 
+* [Azure AD Token Reference](./id-tokens.md)

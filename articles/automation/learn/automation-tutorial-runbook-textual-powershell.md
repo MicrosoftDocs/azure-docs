@@ -9,7 +9,7 @@ ms.topic: tutorial
 ---
 # Tutorial: Create a PowerShell runbook
 
-This tutorial walks you through the creation of a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation. PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal.
+This tutorial walks you through the creation of a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation. PowerShell runbooks are based on Windows PowerShell. You can directly edit the code of the runbook using the text editor in the Azure portal.
 
 > [!div class="checklist"]
 > * Create a simple PowerShell runbook
@@ -37,7 +37,7 @@ PowerShell runbooks have the same lifecycle, capabilities, and management as Pow
 | Command Execution | Support serial execution only. | Support both serial and parallel execution.|
 | Runspace | A single runspace runs everything in a script. | A separate runspace can be used for an activity, a command, or a script block. |
 
-In addition to these differences, PowerShell runbooks have some [syntactic differences](https://technet.microsoft.com/magazine/dn151046.aspx) from PowerShell Workflow runbooks.
+In addition to these differences, PowerShell runbooks have some [syntactic differences](/previous-versions/technet-magazine/dn151046(v=msdn.10)) from PowerShell Workflow runbooks.
 
 ## Step 1 - Create runbook
 
@@ -125,7 +125,7 @@ The runbook that you have created is still in Draft mode. It needs to be publish
 
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. To do this, the runbook must be able to authenticate using the Run As account that was automatically created when you created your Automation account.
 
-As shown in the example below, the Run As connection is made with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet. If you are managing resources across multiple subscriptions, you need to use the `AzContext` parameter with [Get-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+As shown in the example below, the Run As connection is made with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet. If you are managing resources across multiple subscriptions, you need to use the `AzContext` parameter with [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
 
 > [!NOTE]
 > For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. You can use these cmdlets or you can [update your modules](../automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
@@ -138,15 +138,15 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
    # Wrap authentication in retry logic for transient network failures
    $logonAttempt = 0
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -168,15 +168,15 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
 
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -192,22 +192,22 @@ As shown in the example below, the Run As connection is made with the [Connect-A
 
 Now that your runbook is authenticating to your Azure subscription, you can manage resources. Let's add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and just hard-code that name in the runbook for now.
 
-1. To your runbook script, add the [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet to start the virtual machine. As shown below, the cmdlet starts a virtual machine with the name `VMName` and with a resource group named `ResourceGroupName`.
+1. To your runbook script, add the [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet to start the virtual machine. As shown below, the cmdlet starts a virtual machine with the name `VMName` and with a resource group named `ResourceGroupName`.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
    Disable-AzContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -234,15 +234,15 @@ Your runbook currently starts the virtual machine that you hard-coded in the run
    Disable-AzContextAutosave –Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
-   while(!($connectionResult) -And ($logonAttempt -le 10))
+   while(!($connectionResult) -and ($logonAttempt -le 10))
    {
        $LogonAttempt++
        # Logging in to Azure...
-       $connectionResult =    Connect-AzAccount `
-                                  -ServicePrincipal `
-                                  -Tenant $connection.TenantID `
-                                  -ApplicationId $connection.ApplicationID `
-                                  -CertificateThumbprint $connection.CertificateThumbprint
+       $connectionResult = Connect-AzAccount `
+                               -ServicePrincipal `
+                               -Tenant $connection.TenantID `
+                               -ApplicationId $connection.ApplicationID `
+                               -CertificateThumbprint $connection.CertificateThumbprint
 
        Start-Sleep -Seconds 30
    }
@@ -269,8 +269,7 @@ Your runbook currently starts the virtual machine that you hard-coded in the run
 ## Next steps
 
 * For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](/powershell/scripting/overview).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 * To get started with graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
 * To get started with PowerShell Workflow runbooks, see [Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).

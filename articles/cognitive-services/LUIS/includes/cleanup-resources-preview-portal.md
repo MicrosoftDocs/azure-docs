@@ -8,7 +8,6 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.custom: include file
 ms.date: 03/02/2020
 ms.author: diberry
 ---

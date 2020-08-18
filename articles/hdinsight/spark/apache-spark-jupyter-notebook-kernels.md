@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ---
@@ -54,8 +54,10 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
 
     So, you **don't** have to run statements like the following to set the contexts:
 
-         sc = SparkContext('yarn-client')
-         sqlContext = HiveContext(sc)
+    ```sql
+    sc = SparkContext('yarn-client')
+    sqlContext = HiveContext(sc)
+    ```
 
     Instead, you can directly use the preset contexts in your application.
 
@@ -93,8 +95,10 @@ The `%%sql` magic supports different parameters that you can use to control the 
 
 **Example:**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2
-    SELECT * FROM hivesampletable
+```sql
+%%sql -q -m sample -r 0.1 -n 500 -o query2
+SELECT * FROM hivesampletable
+```
 
 The statement above does the following actions:
 
@@ -116,9 +120,11 @@ If your cluster uses Azure Storage as the default storage account, Jupyter noteb
 
 The way notebooks are saved to the storage account is compatible with [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). If you SSH into the cluster you can use the file management commands:
 
-    hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
+| Command | Description |
+|---------|-------------|
+| `hdfs dfs -ls /HdiNotebooks` | # List everything at the root directory – everything in this directory is visible to Jupyter from the home page |
+| `hdfs dfs –copyToLocal /HdiNotebooks` | # Download the contents of the HdiNotebooks folder|
+| `hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks` | # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter |
 
 Whether the cluster uses Azure Storage or Azure Data Lake Storage as the default storage account, the notebooks are also saved on the cluster headnode at `/var/lib/jupyter`.
 
@@ -126,7 +132,7 @@ Whether the cluster uses Azure Storage or Azure Data Lake Storage as the default
 
 Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrome.
 
-## Feedback
+## Suggestions
 
 The new kernels are in evolving stage and will mature over time. So the APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. The feedback is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Feedback** section at the bottom of this article.
 

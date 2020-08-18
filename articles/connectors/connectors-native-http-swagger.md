@@ -23,11 +23,11 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
 
   * The Swagger file must be hosted on an HTTPS URL that's publicly accessible.
 
-  * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
+  * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
   To reference a Swagger file that's not hosted or that doesn't meet the security and cross-origin requirements, you can [upload the Swagger file to a blob container in an Azure storage account](#host-swagger), and enable CORS on that storage account so that you can reference the file.
 
-  The examples in this topic use the [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
+  The examples in this topic use the [Cognitive Services Face API](../cognitive-services/face/overview.md), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -113,7 +113,7 @@ This built-in action makes an HTTP request to the URL for the Swagger file that 
 
 You can reference a Swagger file that's not hosted or that doesn't meet the security and cross-origin requirements by uploading that file to blob container in an Azure storage account and enabling CORS on that storage account. To create, set up, and store Swagger files in Azure Storage, follow these steps:
 
-1. [Create an Azure storage account](../storage/common/storage-create-storage-account.md).
+1. [Create an Azure storage account](../storage/common/storage-account-create.md).
 
 1. Now enable CORS for the blob. On your storage account's menu, select **CORS**. On the **Blob service** tab, specify these values, and then select **Save**.
 
@@ -161,3 +161,4 @@ Here is more information about the outputs from an HTTP + Swagger trigger or act
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

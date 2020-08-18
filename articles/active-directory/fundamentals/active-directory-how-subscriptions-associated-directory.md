@@ -2,17 +2,17 @@
 title: Add an existing Azure subscription to your tenant - Azure AD
 description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18, contperfq4"
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,7 +27,7 @@ If your subscription expires, you lose access to all the other resources associa
 All of your users have a single *home* directory for authentication. Your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
 
 > [!Important]
-> When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+> When you associate a subscription to a different directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
 > Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 >
@@ -38,7 +38,7 @@ All of your users have a single *home* directory for authentication. Your users 
 
 Before you can associate or add your subscription, do the following tasks:
 
-- Review the following list of changes and how you might be affected:
+- Review the following list of changes that will occur after you associate or add your subscription, and how you might be affected:
 
   - Users that have been assigned roles using RBAC will lose their access
   - Service Administrator and Co-Administrators will lose access
@@ -67,13 +67,13 @@ To associate an existing subscription to your Azure AD directory, follow these s
 
     ![Change the directory page, showing the directory to change to](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    The directory is changed for the subscription and you get a success message.
+    After the directory is changed for the subscription, you will get a success message.
 
-    ![Success message about directory change](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+  1. Select **Switch directories** on the subscription page to go to your new directory. 
 
-Use **Switch directory** to go to your new directory. It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter**. Make sure the moved subscription isn't hidden. You may need to sign out of the Azure portal and sign back in to see the new directory.
+      ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+      It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter**. Make sure the moved subscription isn't hidden. You may need to sign out of the Azure portal and sign back in to see the new directory.
 
 Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md).
 
@@ -81,7 +81,7 @@ Changing the subscription directory is a service-level operation, so it doesn't 
 
 After you associate a subscription to a different directory, you might need to do the following tasks to resume operations:
 
-- If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/general/subscription-move-fix.md).
+- If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/general/move-subscription.md).
 
 - If you used system-assigned Managed Identities for resources, you must re-enable these identities. If you used user-assigned Managed Identities, you must re-create these identities. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
@@ -91,6 +91,6 @@ After you associate a subscription to a different directory, you might need to d
 
 - To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- To learn more about how Microsoft Azure controls resource access, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- To learn more about how Microsoft Azure controls resource access, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - To learn more about how to assign roles in Azure AD, see [Assign administrator and non-administrator roles to users with Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

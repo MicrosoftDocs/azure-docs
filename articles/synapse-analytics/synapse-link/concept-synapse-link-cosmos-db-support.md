@@ -4,8 +4,8 @@ description: Understand the current list of actions supported by Azure Synapse L
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
-ms.topic: quickstart
-ms.subservice: 
+ms.topic: conceptual
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
@@ -13,13 +13,16 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Link (preview) for Azure Cosmos DB supported features
 
-This article describes the functionalities that are currently supported in Azure Synapse Link for Azure Cosmos DB. 
+This article describes the functionalities that are currently supported in Azure Synapse Link for Azure Cosmos DB.
 
 ## Azure Synapse support
 
 There are two types of containers in Azure Cosmos DB:
 * HTAP container - A container with Synapse Link enabled. This container has both transactional store and analytical store. 
 * OLTP container - A container with only transaction store; Synapse Link is not enabled. 
+
+> [!IMPORTANT]
+> Azure Synapse Link for Azure Cosmos DB is currently supported for workspaces that do not have managed virtual network enabled. 
 
 You can connect to an Azure Cosmos DB container without enabling Synapse Link, in which case you can only read/write to the transactional store. What follows a is list of the currently supported features within Synapse Link for Azure Cosmos DB. 
 

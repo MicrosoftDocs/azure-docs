@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Citrix ShareFile | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Citrix ShareFile.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Citrix ShareFile
 
@@ -107,22 +100,17 @@ To configure Azure AD single sign-on with Citrix ShareFile, perform the followin
 
     b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
 
-	| |
-	|---|
-	| `https://<tenant-name>.sharefile.com`|
-	| `https://<tenant-name>.sharefile.com/saml/info`|
-	| `https://<tenant-name>.sharefile1.com/saml/info`|
-	| `https://<tenant-name>.sharefile1.eu/saml/info`|
-	| `https://<tenant-name>.sharefile.eu/saml/info`|
-	| |
-	
+    - `https://<tenant-name>.sharefile.com`
+	- `https://<tenant-name>.sharefile.com/saml/info`
+	- `https://<tenant-name>.sharefile1.com/saml/info`
+	- `https://<tenant-name>.sharefile1.eu/saml/info`
+	- `https://<tenant-name>.sharefile.eu/saml/info`
+
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
 	
-	| |
-	|---|
-	| `https://<tenant-name>.sharefile.com/saml/acs`|
-	| `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
-	| `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+	- `https://<tenant-name>.sharefile.com/saml/acs`
+	- `https://<tenant-name>.sharefile.eu/saml/<URL path>`
+	- `https://<tenant-name>.sharefile.com/saml/<URL path>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

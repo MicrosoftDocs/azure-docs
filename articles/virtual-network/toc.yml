@@ -1,4 +1,4 @@
-- name: Virtual Network Documentation
+- name: Virtual Network documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,6 +12,8 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
+  - name: Create virtual network - ARM template
+    href: quick-create-template.md
   expanded: true
 - name: Tutorials
   items:
@@ -80,8 +82,10 @@
       href: virtual-network-for-azure-services.md 
   - name: IP services
     items:
-    - name: IP addressing
-      href: virtual-network-ip-addresses-overview-arm.md
+    - name: Public IPs
+      href: public-ip-addresses.md
+    - name: Private IPs
+      href: private-ip-addresses.md
     - name: Public IP prefix
       href: public-ip-address-prefix.md
     - name: IPv6 for Azure VNet

@@ -37,7 +37,7 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016 and
 
 ## See also
 
-[Client libraries](analysis-services-data-providers.md)   
+[Client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Manage your server](analysis-services-manage.md)     
 
 

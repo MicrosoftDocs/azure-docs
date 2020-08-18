@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Java

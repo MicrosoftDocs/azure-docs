@@ -3,7 +3,7 @@ title: Monitor Java applications running in any environment - Azure Monitor Appl
 description: Application performance monitoring for Java applications running on any environment with Java standalone agent without instrumenting the app. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
-
+ms.custom: devx-track-java
 ---
 
 # Configuring JVM args Java standalone agent for Azure Monitor Application Insights
@@ -12,7 +12,7 @@ ms.date: 04/16/2020
 
 ## Azure environments
 
-Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Configure [App Services](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## Spring Boot
 

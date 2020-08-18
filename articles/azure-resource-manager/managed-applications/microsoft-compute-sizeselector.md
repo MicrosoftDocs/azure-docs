@@ -16,11 +16,11 @@ A control for selecting a size for one or more virtual machine instances.
 
 The user sees a selector with default values from the element definition.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft-compute-sizeselector.png)
 
 After selecting the control, the user sees an expanded view of the available sizes.
 
-![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft-compute-sizeselector-expanded.png)
 
 ## Schema
 

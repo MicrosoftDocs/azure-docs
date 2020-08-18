@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -21,22 +21,31 @@ The following table outlines the regions ultra disks are available in, as well a
 |Regions  |Number of availability zones supporting ultra disks  |
 |---------|---------|
 |US Gov Virginia     |None         |
+|US Gov Arizona     |None         |
 |South Central US     |None         |
 |Central US     |Three zones         |
 |West US     |None         |
 |West US 2    |Three zones         |
 |East US     |Three zones         |
-|East US 2     |Two zones         |
+|East US 2     |Three zones         |
 |SouthEast Asia     |Three zones         |
+|East Asia     |None         |
 |North Europe     |Three zones          |
 |West Europe     |Three zones          |
 |UK South     |Three zones          |
-|Japan East     |Two zones         |
+|Japan East     |Three zones         |
+|France Central    |Two zones        |
+|Brazil South    |None        |
+|Australia East    |Three zones        |
+|Canada Central*    |Three zones        |
 
-
+\* Contact Azure Support to get access to Availability Zones for this region.
 
 - Are only supported on the following VM series:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
+    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
+    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)
@@ -47,6 +56,7 @@ The following table outlines the regions ultra disks are available in, as well a
 - Can only be created as empty disks  
 - Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption
 - Doesn't currently support integration with Azure Backup or Azure Site Recovery
+- Only supports un-cached reads and un-cached writes
 - The current maximum limit for IOPS on GA VMs is 80,000.
 
 Azure ultra disks offer up to 16 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, contact Azure Support.

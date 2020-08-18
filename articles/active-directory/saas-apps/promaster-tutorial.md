@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ProMaster (by Inlogik) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ProMaster (by Inlogik).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 348dbd37-dc4f-49df-bb90-53d249d456b3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with ProMaster (by Inlogik)
 
@@ -90,29 +85,26 @@ To configure Azure AD single sign-on with ProMaster (by Inlogik), perform the fo
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-    | `https://secure.inlogik.com/<COMPANYNAME>`|
-	| `https://<CUSTOMDOMAIN>/SAMLBASE`|
-	| |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>
+    https://<CUSTOMDOMAIN>/SAMLBASE
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
-	| `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
-	| |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>/saml/acs
+    https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://secure.inlogik.com/<COMPANYNAME>`|
-	| `https://<CUSTOMDOMAIN>/SAMLBASE`|
-	| |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>
+    https://<CUSTOMDOMAIN>/SAMLBASE
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ProMaster (by Inlogik) Client support team](https://www.inlogik.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

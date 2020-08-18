@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ---
 
 # Customize your text translations
 
-The Custom Translator is feature of the Translator service, which allows users to customize Microsoft Translator’s advanced neural machine translation when translating text using Translator (version 3 only).
+The Custom Translator is feature of the Translator service, which allows users to customize Microsoft Translator's advanced neural machine translation when translating text using Translator (version 3 only).
 
 The feature can also be used to customize speech translation when used with [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
@@ -42,14 +42,14 @@ More details about the various levels of customization based on available data c
 
 ## Custom Translator versus Hub
 
-|   | **Hub** | **Custom Translator**|
-|:-----|:----:|:----:|
-|Customization Feature Status	| General Availability	| General Availability |
-| Text API version	| V2 only	| V3 only |
-| SMT customization	| Yes	| No |
-| NMT customization	| No	| Yes |
-| New unified Speech services customization	| No	| Yes |
-| [No Trace](https://www.aka.ms/notrace) | Yes	| Yes |
+| Feature | Hub | Custom Translator |
+| ------- | :-: | :---------------: |
+|Customization Feature Status    | General Availability    | General Availability |
+| Text API version    | V2 only    | V3 only |
+| SMT customization    | Yes    | No |
+| NMT customization    | No    | Yes |
+| New unified Speech services customization    | No    | Yes |
+| [No Trace](https://www.aka.ms/notrace) | Yes    | Yes |
 
 ## Collaborative Translations Framework
 
