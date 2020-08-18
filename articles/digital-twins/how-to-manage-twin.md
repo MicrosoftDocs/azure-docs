@@ -38,18 +38,20 @@ To create a digital twin, you need to provide:
 
 Optionally, you can provide initial values for all properties of the digital twin. 
 
-The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
+The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
 > [!TIP]
 > After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-created twins if you need an instant response. 
 
-### Initialize properties
+### Initialize model and properties
 
 The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin.
 
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
 #### Create twins using manually-created data
+
+Without the use of any custom helper classes, you can represent a twin's properties in a `Dictionary<string, object>`, where the `string` is the name of the property and the `object` is an object representing the property and its value.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -68,6 +70,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 ```
 
 #### Create twins with the helper class
+
+The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object more directly. You may still want to build the list of properties using a `Dictionary<string, object>`, which can then be added to the twin object as its `CustomProperties` directly.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
