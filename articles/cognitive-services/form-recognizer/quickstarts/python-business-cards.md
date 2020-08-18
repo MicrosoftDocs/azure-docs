@@ -127,13 +127,9 @@ while n_try < n_tries:
 
 The script will print responses to the console until the **Analyze Business Card** operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the business card, and the `"understandingResults"` field contains key/value information for the most relevant parts of the business card.
 
-See the following business card image and its corresponding JSON output. The output has been shortened for readability.
-
 ![A business card from Contoso company](../media/business-card-english.jpg)
 
 The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
-
-TBD JSON
 
 ## Next steps
 
