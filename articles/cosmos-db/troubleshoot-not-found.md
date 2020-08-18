@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Cosmos DB not found exception
-description: Learn how to diagnose and fix a not found exception.
+title: Troubleshoot Azure Cosmos DB not found exceptions
+description: Learn how to diagnose and fix not found exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.date: 07/13/2020
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB not found exception
+# Diagnose and troubleshoot Azure Cosmos DB not found exceptions
 The HTTP status code 404 represents that the resource no longer exists.
 
 ## Expected behavior
