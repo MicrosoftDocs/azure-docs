@@ -41,9 +41,7 @@
     - name: Create users 
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Bulk create users
-      href: users-bulk-add.md
-    - name: Restrict guest user permissions
-      href: users-restrict-guest-permissions.md
+      href: users-bulk-add.md    
     - name: Manage user profiles
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: My Staff delegation
@@ -70,19 +68,19 @@
       href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Dynamic groups and B2B   
       href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Manage multiple tenants
+  - name: Manage your directory
     items:
-    - name: Azure AD tenant management    
+    - name: Azure AD organizations    
       href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage domain names
       href: domains-manage.md
-    - name: Delete a tenant    
+    - name: Delete a directory    
       href: directory-delete-howto.md
     - name: Multiple directories    
       href: licensing-directory-independence.md
-    - name: Self-service sign-up    
+    - name: Self-service signup    
       href: directory-self-service-signup.md
-    - name: Take over a tenant    
+    - name: Take over a directory    
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
