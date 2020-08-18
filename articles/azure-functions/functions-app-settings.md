@@ -230,7 +230,7 @@ For Consumption & Premium plans only. The file path to the function app code and
 The maximum number of instances that the function app can scale out to. Default is no limit.
 
 > [!IMPORTANT]
-> This setting is in preview.  An [app property for function max scale out](./functions-scale#limit-scale-out) has been added and is the recommended way to limit scale out.
+> This setting is in preview.  An [app property for function max scale out](./functions-scale.md#limit-scale-out) has been added and is the recommended way to limit scale out.
 
 |Key|Sample value|
 |---|------------|
