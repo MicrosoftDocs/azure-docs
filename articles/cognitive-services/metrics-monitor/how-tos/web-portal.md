@@ -12,7 +12,7 @@ ms.date: 08/17/2020
 ms.author: aahi
 ---
 
-## How to configure your Metrics Monitor instance using the web portal
+# How to: configure your Metrics Monitor instance using the web portal
 
 Use this article to start configuring your Metrics Monitor instance using the web portal. 
 
@@ -28,7 +28,7 @@ On the left side of the page lays metric-level detecting configuration, you can 
 
 There are additional parameters like *Direction*, and *valid anomaly* that can be used to further tune the configuration. You can combine different detection methods as well. 
 
-![Configuration combination](../media/config_combination.png "Configuration combination")
+![Configuration combination](../media/configuration-combination.png "Configuration combination")
 
 ### Tune detecting configuration for specific series or group of series
 
@@ -36,23 +36,23 @@ Sometimes series pattern or criteria on determining an anomaly may not be the sa
 
 Click 'Advanced settings' in detecting configuration section, a pop-up window will be displayed. There're two sections named 'Configuration for series group' and 'Configuration for specific series'. Click '+' button to create a group-level/ series-level configuration. 
 
-![Advanced configuration](../media/advanced_configuration.png "Advanced configuration")
+![Advanced configuration](../media/advanced-configuration.png "Advanced configuration")
 
 Parameters to be set for group-level/ series-level configuration are similar with metric-level configuration. But you may need to specify at least one dimension value for group-level configuration to identify a group of series. And specify all dimension values for series-level configuration to identify a specific series.
 
 ## View diagnostic insights
 
-With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Project "Gualala" performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause digging. Those are been exposed as **diagnostics insights** by a set of powerful features. 
+With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Metrics Monitor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Those are been exposed as **diagnostics insights** by a set of powerful features. 
 
 To view the diagnostic insights, you can just click on the red dots on time series visualizations which stand for anomalies that detected. A pop-up window will be displayed with a link to incident analysis page. 
 
-![Incident link](../media/incident_link.png "Incident link")
+![Incident link](../media/incident-link.png "Incident link")
 
-You will be pivoted to the incident analysis page which the anomaly belongs to with bunch of diagnostics insights. At the top, there're some statistics about the incident like 'Severity', 'Anomalies involved', and incident impacted 'Start time' and 'End time'. 
+You will be pivoted to the incident analysis page which the anomaly belongs to with bunch of diagnostics insights. At the top, there're some statistics about the incident like **Severity**, **Anomalies involved**, and incident impacted **Start time** and **End time**. 
 
 Below that shows ancestor anomaly of the incident and automated root cause advice. This automated root cause advice is analyzed upon diagnosing tree through all related anomalies on deviation, distribution and contribution to parent anomalies, which would most likely to be the root cause of the incident. 
 
-![Incident diagnostic](../media/incident_diagnostic.png "Incident diagnostic")
+![Incident diagnostic](../media/incident-diagnostic.png "Incident diagnostic")
 
 Based on these, you can already get a straightforward view of what is happening and the impact of the incident as well as the most potential root cause. So that immediate action could be taken to resolve incident as soon as possible. 
 

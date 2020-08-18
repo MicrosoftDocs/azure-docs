@@ -16,8 +16,6 @@ ms.author: aahi
 
 Learn how to create data feeds in Metrics Monitor to pull your time series data from different sources. This article will guide you through key concepts for adding data feeds and common data schema requirements for time series data.
 
-[!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
-
 ## Avoid loading partial data
 
 Partial data is caused by inconsistencies between the data stored in Metrics Monitor and the data source. This can happen when the data source is updated after Metrics Monitor has finished pulling data. Metrics Monitor pulls data from a given data source once.
@@ -34,7 +32,7 @@ To avoid loading partial data, we recommend two approaches:
 
 2. Set the ingestion time offset parameter:
 
-    Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#step-7-advanced-settings) for details.
+    Set the **Ingestion time offset** parameter for your data feed to delay the ingestion until the data is fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#advanced-settings) for details.
 
 ###  Backfill your datafeed
 
@@ -43,7 +41,7 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 - The end time is exclusive.
 - Anomaly detection is re-triggered on selected range only.
 
-![Backfill Datafeed](img/backfill-datafeed.png)
+![Backfill Datafeed](../media/datafeeds/backfill-datafeed.png)
 
 ## Add a data feed using the web Portal
 
@@ -51,14 +49,17 @@ After signing into your Metrics Monitor portal with your Active Directory accoun
 
 ### Add connection settings
 
-Next you'll input a set of parameters to connect your time-series data source. See the [data feed parameters]() for details.
-
+Next you'll input a set of parameters to connect your time-series data source. 
 * **Source Type**: The type of data source where your time series data is stored.
 * **Granularity**: The interval between consecutive data points in your time series data. Currently we support these options: Yearly, Monthly, Weekly, Daily, Hourly, and Customize. The customization option supports the lowest interval of 60 seconds.
   * **Seconds**: The number of seconds when granularityName is set as "Customize".
 * **Ingest data since (UTC)**: The baseline start time for data ingestion while startOffsetInSeconds is often used to add an offset to help with data consistency.
 
-Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into [desired schema](#data-schema-requirements). There're other unique fields than those two for some data source types. For details, please refer to [Add data feeds from different data sources](add-data-feeds-from-different-data-sources.md).
+Next, you'll need to specify the connection information of the data source as well as the custom queries which are used to convert the data into the required schema. For details on the other fields and connecting different types of data sources, see [Add data feeds from different data sources](add-data-feeds-from-different-data-sources.md).
+
+#### Data schema requirements
+
+[!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
 
 ### Verify the connection and load the data schema
 
@@ -71,7 +72,7 @@ After the connection string and query string are set, select **Verify and get sc
 
 Once the data schema is loaded and shown like below, select the appropriate fields.
 
-The timestamp of a data point. If omitted, Project "Gualala" will use the timestamp when the data point is ingested instead. For each data feed, you could specify at most one column as timestamp. If it prompts that certaion column cannot be specified as Timestamp, please check your query or data source, whether there are different timestamps in the query result (not only in the preview data). If yes, please modify your query (or split source files), to make it include only one timestamp in each result by running the query with certain @StartTime (or other placeholders) at runtime. Because when doing the data ingestion, it can consume only one slice (one day, one hour, ... according to the granularity) of time-series data from the given source each time.
+If the timestamp of a data point is omitted, Metrics Monitor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Monitor can only consume only one slice (one day, one hour, ... according to the granularity) of time-series data from the given source each time.
 
 |Selection  |Description  |Notes  |
 |---------|---------|---------|
@@ -93,8 +94,6 @@ Row ID | Timestamp | Country | Language | Income
 
 If *Country* is a dimension and *Language* is set as *Ignored*, then row one and row two have the same dimensions. Metrics Monitor will arbitrarily use one value from the two rows. Metrics Monitor will not aggregate the rows in this case.
 
-![Schema configuration](../media/configureschema.png "Schema configuration")
-
 ### Specify a name for onboarded data feed
  
 Give a custom name for the data feed, which will be displayed on the portal. Click on **Submit**. 
@@ -102,7 +101,7 @@ Give a custom name for the data feed, which will be displayed on the portal. Cli
 ## Check the ingestion progress of your data feed
 In the data feed details page, you can use the ingestion progress bar to view status information.
 
-![Ingestion Progress](img/ingestion-progress.png)
+![Ingestion Progress](../media/datafeeds/ingestion-progress.png)
 
 ### Check ingestion failure details
 
@@ -111,7 +110,7 @@ To check ingestion failure details:
 2. Click **Status** then choose **Failed** or **Error**.
 3. Hover over a failed ingestion, and view the details message that appears.
 
-![Check Failed Ingestion](img/check-failed-ingestion.png)
+![Check Failed Ingestion](../media/datafeeds/check-failed-ingestion.png)
 
 A *failed* status indicates the ingestion for this data source will be retried later.
 An *Error* status indicates Metrics Monitor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.
@@ -198,7 +197,7 @@ Metrics Monitor can automatically generate the data cube (sum) during ingestion,
 
 A data feed is considered not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
 
-Currently, Metrics Monitor only supports Web Hooks for alerting you when a data feed is not available. Please refer to [Create hooks](create-hooks.md) for details of creating a hook.
+Currently, Metrics Monitor only supports Web Hooks for alerting you when a data feed is not available. See the [Alerts](alerts.md#-create-a-web-hook) for details.
 
 ## Advanced settings
 
@@ -242,7 +241,7 @@ For example, if the timestamp = 2018-12-01, Metrics Monitor starts to pull the d
 
 Action link templates are used to predefine actionable HTTP urls, which consist of the placeholders `%datafeed`, `%metric`, `%timestamp`, `%detect_config`, and `%tagset`. You can use the template to redirect from an anomaly or an incident to a specific URL to drill down.
 
-![Action link template](img/action-link-template.png "Action link template")
+![Action link template](../media/action-link-template.png "Action link template")
 
 If you have filled in the action link you can click the **Go to action link** on the incident list's action option, and incident tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
 
@@ -319,4 +318,4 @@ datafeedName| Data feed Name | String | YES | The custom name of the data feed.
 
 ## Next steps
 
-* Learn the unique settings and requirements for time series stored in different type of data sources from [Adding Metrics Monitor data feeds from different data sources](add-data-feeds-from-different-data-sources.md)
+* Learn the unique settings and requirements for time series stored in different type of data sources from [Adding Metrics Monitor data feeds from different data sources](../data-feeds-from-different-sources.md)

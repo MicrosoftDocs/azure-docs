@@ -10,8 +10,6 @@ ms.date: 07/13/2020
 ms.author: aahi
 ---
 
-## Data schema requirements
-
 Metrics Monitor is a service for time series anomaly detection, diagnostics and analysis. As an AI powered service, it uses your data to train a model. The service accepts tables of aggregated data with the following columns:
 
 * **Measure** [required]: one or more columns containing numeric values.
