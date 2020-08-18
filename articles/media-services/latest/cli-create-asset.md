@@ -26,6 +26,8 @@ This article shows how to create a Media Services Asset.  You will use an asset 
 
 Follow the steps in [Create a Media Services account](./create-account-howto.md) to create the needed Media Services account and resource group to create an asset.
 
+## Methods
+
 ## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
