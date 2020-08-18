@@ -22,5 +22,6 @@
   - name: Send alerts
     href: How-tos/alerts.md
 - name: Reference
+  items:
   - name: Data feed configurations
     href: data-feeds-from-different-sources.md
