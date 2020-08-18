@@ -305,17 +305,23 @@ For assistance configuring users for Multi-Factor Authentication see the article
 
 This section provides instructions for configuring VPN to use MFA for client authentication with the VPN server.
 
+> [!NOTE]
+> The REQUIRE_USER_MATCH registry key is case sensitive. All values must be set in UPPER CASE format.
+>
+
 After you install and configure the NPS extension, all RADIUS-based client authentication that is processed by this server is required to use MFA. If all your VPN users are not enrolled in Azure Multi-Factor Authentication, you can do either of the following:
 
 * Set up another RADIUS server to authenticate users who are not configured to use MFA.
 
 * Create a registry entry that allows challenged users to provide a second authentication factor if they are enrolled in Azure Multi-Factor Authentication.
 
-Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_, and set the value to *True* or *False*.
+Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_, and set the value to *TRUE* or *FALSE*.
 
 ![The "Require User Match" setting](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-If the value is set to *True* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *False*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *False* setting only in testing or in production environments during an onboarding period.
+If the value is set to *TRUE* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *FALSE*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *FALSE* setting only in testing or in production environments during an onboarding period.
+
+
 
 ### Obtain the Azure Active Directory tenant ID
 
