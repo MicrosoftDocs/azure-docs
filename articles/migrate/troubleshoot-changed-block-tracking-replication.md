@@ -138,7 +138,7 @@ The possible causes include:
        1. [Download](https://go.microsoft.com/fwlink/?linkid=2138966) the azcopy tool onto the appliance.
        2. _Run the following command after downloading azcopy in the Azure Migrate appliance:_
     
-        _azcopy bench_ _https://[account].blob.core.windows.net/[container]?\[SAS]_
+        ```_azcopy bench_ _https://[account].blob.core.windows.net/[container]?\[SAS]_```
     
         To get the values of account, container, and SAS, follow the steps mentioned below:
     
