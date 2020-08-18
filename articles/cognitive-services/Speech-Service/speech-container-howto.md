@@ -39,6 +39,8 @@ The following prerequisites before using Speech containers:
 | Docker Engine | You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br> |
 | Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands. |
 | Speech resource | In order to use these containers, you must have:<br><br>An Azure _Speech_ resource to get the associated API key and endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages. They are both required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page |
+| Neural Text-to-speech | Uses a more advanced model for more natural sounding utterances | 1.0.0 |
+
 
 ## Request access to the container registry
 
@@ -69,31 +71,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 The following table describes the minimum and recommended allocation of resources for each Speech container.
 
-# [Speech-to-text](#tab/stt)
-
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-
-# [Custom Speech-to-text](#tab/cstt)
-
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
 | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
-
-# [Text-to-speech](#tab/tts)
-
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
 | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
-
-# [Custom Text-to-speech](#tab/ctts)
-
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
 | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
-
-***
+| Neural Text-to-speech | 6 core, 2-GB memory | 8 core, 4-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -129,6 +113,12 @@ Container images for Speech are available in the following Container Registry.
 | Container | Repository |
 |-----------|------------|
 | Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
+
+# [Neural Text-to-speech](#tab/ntts)
+
+| Container | Repository |
+|-----------|------------|
+| Neural Text-to-speech | `neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
 
 ***
 
@@ -222,6 +212,24 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 > [!NOTE]
 > The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
+
+# [Neural Text-to-speech](#tab/ntts)
+
+#### Request access to the container registry
+
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+
+[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+
+#### Docker pull for the Neural Text-to-speech container
+
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
+
+```Docker
+docker pull neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
+```
 
 ***
 
@@ -396,6 +404,25 @@ This command:
 * If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+# [Neural Text-to-speech](#tab/ntts)
+
+To run the *Neural Text-to-speech* container, execute the following `docker run` command.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 6 \
+neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+This command:
+
+* Runs a Neural Text-to-speech container from the container image.
+* Allocates 6 CPU cores and 2 gigabyte (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
 ***
 
 > [!IMPORTANT]
@@ -409,7 +436,7 @@ This command:
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
 | Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
-| Text-to-speech and Custom Text-to-speech | `http://localhost:5000` | HTTP |
+| Text-to-speech (including Custom and Neural) | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

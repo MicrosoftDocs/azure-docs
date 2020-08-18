@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 08/18/2020
 ms.author: aahi
 ---
 
