@@ -94,6 +94,8 @@
     href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
+  - name: Use Azure Advisor
+    href: azure-advisor-integration.md
 - name: Concepts
   items:
   - name: Safe URL list
