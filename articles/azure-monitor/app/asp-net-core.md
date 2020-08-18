@@ -33,6 +33,8 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
+For Visual Studio for Mac use the [manual guidance](#enable-application-insights-server-side-telemetry-no-visual-studio). Only the Windows version of Visual Studio supports this procedure.
+
 1. Open your project in Visual Studio.
 
     > [!TIP]
