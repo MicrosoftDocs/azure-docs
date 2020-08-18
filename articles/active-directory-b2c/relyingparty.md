@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -188,7 +188,15 @@ The **Protocol** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. |
 
-## OutputClaims
+### Metadata
+
+When the protocol is `SAML`, a metadata element contains the following elements.
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Response. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Assertion, see [SAML issuer technical profile metadata](saml-issuer-technical-profile.md#metadata). |
+
+### OutputClaims
 
 The **OutputClaims** element contains the following element:
 
