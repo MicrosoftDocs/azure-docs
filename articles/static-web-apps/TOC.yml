@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Build your fist static web app
+    - name: Build your first static web app
       expanded: true
       items:
         - name: Visual Studio Code
