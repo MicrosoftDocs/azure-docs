@@ -5,7 +5,7 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ms.date: 03/30/2018
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
@@ -639,9 +639,9 @@ To run the app locally:
 
 ## Publish and run in Azure
 
-### Provision a SQL Azure database for the app
+### Provision a database for the app
 
-In this section, you will provision a new SQL Azure database for the app to use while hosted in Azure.
+In this section, you will provision a new database in SQL Database for the app to use while hosted in Azure.
 
 1. In the [Azure portal](https://portal.azure.com/), Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -677,8 +677,8 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
     | Placeholder | Suggested value |
     | --- | --- |
-    | *{your_username}* | Use the **server admin login** for the database server you just created. |
-    | *{your_password}* | Use the password for the database server you just created. |
+    | *{your_username}* | Use the **server admin login** for the server you just created. |
+    | *{your_password}* | Use the password for the server you just created. |
 
     By adding the username and password as an Application Setting, your username and password are not included in your code. This approach helps protect those credentials.
 

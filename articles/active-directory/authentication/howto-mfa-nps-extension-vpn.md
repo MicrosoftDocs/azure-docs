@@ -242,9 +242,9 @@ In this section, you configure your VPN server to use RADIUS authentication. The
     b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
     c. In the **Time-out (seconds)** box, enter a value of **30**.  
-    The timeout value is necessary to allow enough time to complete the second authentication factor.
+    The timeout value is necessary to allow enough time to complete the second authentication factor. Some VPNs or regions require time-out settings greater than 30 seconds to prevent users from receiving multiple phone calls. If users do experience this issue, increase the **Time-out (seconds)** value in increments of 30 seconds until the issue doesn't reoccur.
 
-    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Select **OK**.
 
@@ -305,31 +305,33 @@ For assistance configuring users for Multi-Factor Authentication see the article
 
 This section provides instructions for configuring VPN to use MFA for client authentication with the VPN server.
 
+> [!NOTE]
+> The REQUIRE_USER_MATCH registry key is case sensitive. All values must be set in UPPER CASE format.
+>
+
 After you install and configure the NPS extension, all RADIUS-based client authentication that is processed by this server is required to use MFA. If all your VPN users are not enrolled in Azure Multi-Factor Authentication, you can do either of the following:
 
 * Set up another RADIUS server to authenticate users who are not configured to use MFA.
 
 * Create a registry entry that allows challenged users to provide a second authentication factor if they are enrolled in Azure Multi-Factor Authentication.
 
-Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_, and set the value to *True* or *False*.
+Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_, and set the value to *TRUE* or *FALSE*.
 
 ![The "Require User Match" setting](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-If the value is set to *True* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *False*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *False* setting only in testing or in production environments during an onboarding period.
+If the value is set to *TRUE* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *FALSE*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *FALSE* setting only in testing or in production environments during an onboarding period.
 
-### Obtain the Azure Active Directory GUID ID
 
-As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. Obtain the ID by doing the following:
+
+### Obtain the Azure Active Directory tenant ID
+
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
+1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
+1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
 
-2. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-
-3. Select **Properties**.
-
-4. To copy your Azure AD ID, select the **Copy** button.
-
-    ![Azure AD Directory ID in the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### Install the NPS extension
 
@@ -383,7 +385,7 @@ To use the script, provide the extension with your Azure Active Directory admini
 
 5. At the command prompt, paste the tenant ID that you copied earlier, and then select Enter.
 
-    ![Input the Azure AD Directory ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Input the Azure AD Tenant ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     The script creates a self-signed certificate and performs other configuration changes. The output is like that in the following image:
 
@@ -409,7 +411,9 @@ After you've successfully authenticated by using the secondary method, you are g
 
 To view successful sign-in events in the Windows Event Viewer logs query the Windows Security log, on the NPS server, by entering the following PowerShell command:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![PowerShell security Event Viewer](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -419,7 +423,9 @@ You can also view the security log or the Network Policy and Access Services cus
 
 On the server where you installed the NPS extension for Azure Multi-Factor Authentication, you can find Event Viewer application logs that are specific to the extension at *Application and Services Logs\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Example Event Viewer AuthZ logs pane](./media/howto-mfa-nps-extension-vpn/image46.png)
 

@@ -7,6 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
+ms.custom: devx-track-python
 ---
 
 # Azure HDInsight: Python samples

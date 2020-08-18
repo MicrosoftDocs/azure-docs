@@ -105,7 +105,7 @@ Your settings should look something like this:
 
 ### Set up CI/CD for automated deployment to Azure VM
 
-To set up a continuous delivery pipeline with Azure Pipelines, see [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+To set up a continuous delivery pipeline with Azure Pipelines, see [Deploy to a Windows Virtual Machine](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

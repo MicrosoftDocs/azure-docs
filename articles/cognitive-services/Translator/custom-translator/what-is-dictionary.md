@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator, I want to understand how to use a dictionary to build a custom translation model.
@@ -19,10 +19,10 @@ A dictionary is an aligned pair of documents that specifies a list of phrases or
 Dictionaries only work for projects in language pairs that have a fully supported Microsoft general neural network model behind them. [View the complete list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## Phrase dictionary
-When you include a phrase dictionary in training your model, any word or phrase listed is translated in the way you specified. The rest of the sentence is translated as usual. You can use a phrase dictionary to specify phrases that shouldn't be translated by providing the same untranslated phrase in the source and target file in the dictionary.
+Phrase dictionary is case-sensitive. It is an exact find and replace operation. When you include a phrase dictionary in training your model, any word or phrase listed is translated in the way you specified. The rest of the sentence is translated as usual. You can use a phrase dictionary to specify phrases that shouldn't be translated by providing the same untranslated phrase in the source and target file in the dictionary.
 
 ## Sentence dictionary
-The sentence dictionary allows you to specify an exact target translation for a source sentence. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry.  If only a portion of the sentence matches, the entry won't match.  When a match is detected, the target entry of the sentence dictionary will be returned.
+The sentence dictionary is case-insensitive. The sentence dictionary allows you to specify an exact target translation for a source sentence. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. If the source dictionary entry ends with punctuation, it is ignored during the match. If only a portion of the sentence matches, the entry won't match.  When a match is detected, the target entry of the sentence dictionary will be returned.
 
 ## Dictionary-only trainings
 You can train a model using only dictionary data. To do this, select only the dictionary document (or multiple dictionary documents) that you wish to include and tap Create model. Since this is a dictionary-only training, there is no minimum number of training sentences required. Your model will typically complete training much faster than a standard training.  The resulting models will use the Microsoft baseline models for translation with the addition of the dictionaries you have added.  You will not get a test report.
@@ -36,6 +36,7 @@ You can train a model using only dictionary data. To do this, select only the di
 - The phrase dictionary should be used sparingly. So, be aware that when a phrase within a sentence is replaced, the context within that sentence is lost or limited for translating the rest of the sentence. The result is that while the phrase or word within the sentence will translate according to the provided dictionary, the overall translation quality of the sentence will often suffer.
 - The phrase dictionary works well for compound nouns like product names (“Microsoft SQL Server”), proper names (“City of Hamburg”), or features of the product (“pivot table”). It does not work equally well for verbs or adjectives because these are typically highly inflected in the source or in the target language. Best practices is to avoid phrase dictionary entries for anything but compound nouns.
 - When using a phrase dictionary, capitalization and punctuation are important. Dictionary entries will only match words and phrases in the input sentence that use exactly the same capitalization and punctuation as specified in the source dictionary file. Also the translations will reflect the capitalization and punctuation provided in the target dictionary file. For example, if you trained an English to Spanish system that uses a phrase dictionary that specifies “US” in the source file, and “EE.UU.” in the target file. When you request translation of a sentence that includes the word “us” (not capitalized), this would NOT match the dictionary. However if you request translation of a sentence that contains the word “US” (capitalized) then it would match the dictionary and the translation would contain “EE.UU.” Note that the capitalization and punctuation in the translation may be different than specified in the dictionary target file, and may be different from the capitalization and punctuation in the source. It follows the rules of the target language.
+- When using a sentence dictionary, the end of sentence punctuation is ignored. For example, if your source dictionary contains "this sentence ends with punctuation!", then any translation requests containing "this sentence ends with punctuation" would match.
 - If a word appears more than once in a dictionary file, the system will always use the last entry provided. Hence, your dictionary should not contain multiple translations of the same word.
 
 ## Next steps

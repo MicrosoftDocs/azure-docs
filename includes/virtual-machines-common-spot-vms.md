@@ -4,7 +4,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/23/2019
+ ms.date: 07/20/2020
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -16,9 +16,13 @@ The amount of available capacity can vary based on size, region, time of day, an
 
 ## Eviction policy
 
-VMs can be evicted based on capacity or the max price you set. For virtual machines, the eviction policy is set to *Deallocate* which moves your evicted VMs to the stopped-deallocated state, allowing you to redeploy the evicted VMs at a later time. However, reallocating Spot VMs will be dependent on there being available Spot capacity. The deallocated VMs will count against your spot vCPU quota and you will be charged for your underlying disks. 
+VMs can be evicted based on capacity or the max price you set. When creating a Spot VM, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
-Users can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you will be charged storage costs for the underlying disks. 
+
+If you would like your VM to be deleted when it is evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you will not continue to be charged for the storage. 
+
+You can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 
 | Option | Outcome |
@@ -30,7 +34,8 @@ Users can opt-in to receive in-VM notifications through [Azure Scheduled Events]
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You will never be charged above the standard price.| 
-| Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set t a new max price, then update the VM. |
+| Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set a new max price, then update the VM. |
+
 
 ## Limitations
 
@@ -38,9 +43,17 @@ The following VM sizes are not supported for Spot VMs:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Spot VMs can't currently use ephemeral OS disks.
-
 Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
+
+<a name="channel"></a>
+
+The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
+
+-	Enterprise Agreement
+-	Pay-as-you-go
+-	Sponsored
+- For Cloud Service Provider (CSP), contact your partner
+
 
 ## Pricing
 
@@ -70,23 +83,6 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 **Q:** Can I request for additional quota for Spot?
 
 **A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**Q:** What channels support Spot VMs?
-
-**A:** See the table below for Spot VM availability.
-
-<a name="channel"></a>
-
-| Azure Channels               | Azure Spot VMs Availability       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Pay As You Go                | Yes                               |
-| Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Microsoft Customer Agreement | Yes                               |
-| Benefits                     | Not available                     |
-| Sponsored                    | Not available                     |
-| Free Trial                   | Not available                     |
 
 
 **Q:** Where can I post questions?

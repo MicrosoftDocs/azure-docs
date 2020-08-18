@@ -206,7 +206,7 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

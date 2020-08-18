@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Salesforce | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Salesforce.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Salesforce
@@ -90,8 +84,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 
     Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. In the **Reply URL** textbox, type the value using the following pattern:
 
-    b. In the **Identifier** textbox, type the value using the following pattern:
+    Enterprise account: `https://<subdomain>.my.salesforce.com`
+
+    Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. In the **Identifier** textbox, type the value using the following pattern:
 
     Enterprise account: `https://<subdomain>.my.salesforce.com`
 

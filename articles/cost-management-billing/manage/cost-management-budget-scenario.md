@@ -5,8 +5,8 @@ author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.topic: reference
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 
@@ -285,28 +285,26 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
                 "startDate": "2018-06-01T00:00:00Z",
                 "endDate": "2018-10-31T00:00:00Z"
                 },
-                "filters": {
-                },
+                "filters": {},
             "notifications": {
                 "Actual_GreaterThan_80_Percent": {
                     "enabled": true,
                     "operator": "GreaterThan",
                     "threshold": 80,
-                    "contactEmails": [
-                    ],
-                    "contactRoles": [
-                    ],
+                    "contactEmails": [],
+                    "contactRoles": [],
                     "contactGroups": [
-                    "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}
+                        "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
                     ]
                 },
-            "Actual_EqualTo_100_Percent": {
-                    "operator": "EqualTo",
-                    "threshold": 100,
-                    "contactGroups": [
-                "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
-                    ]
-                }
+               "Actual_EqualTo_100_Percent": {
+                       "operator": "EqualTo",
+                       "threshold": 100,
+                       "contactGroups": [
+                           "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
+                       ]
+                   }
+               }
             }
         }
     ```

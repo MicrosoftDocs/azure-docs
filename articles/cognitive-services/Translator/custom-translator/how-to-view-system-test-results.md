@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
@@ -104,6 +104,6 @@ To update deployment settings:
 
 ## Next steps
 
-- Start using your deployed custom translation model via [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage subscription key.
 - Learn [how to migrate your workspace and project](how-to-migrate.md) from [Microsoft Translator Hub](https://hub.microsofttranslator.com)

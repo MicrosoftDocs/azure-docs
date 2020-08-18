@@ -30,6 +30,8 @@ landingContent:
             url: concepts.md
           - text: Load Balancer components
             url: components.md
+          - text: What's new?
+            url: whats-new.md
           - text: Load Balancer SKUs
             url: skus.md     
   # Card (optional)
@@ -98,6 +100,8 @@ landingContent:
             url: load-balancer-troubleshoot.md
           - text: Common Azure Load Balancer errors
             url: load-balancer-common-deployment-errors.md
+          - text: Resolve common outbound connection issues
+            url: troubleshoot-outbound-connection.md
       
      # Card
   - title: Reference

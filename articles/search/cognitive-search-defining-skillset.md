@@ -13,7 +13,11 @@ ms.date: 11/04/2019
 
 # How to create a skillset in an AI enrichment pipeline in Azure Cognitive Search 
 
-AI enrichment extracts and enriches data to make it searchable in Azure Cognitive Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset can use [built-in skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: Creating a custom skill in an AI enrichment pipeline](cognitive-search-create-custom-skill-example.md) for more information).
+![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
+
+A skillset defines the operations that extract and enrich data to make it searchable. A skillset executes after text and image content are extracted from source documents, and after any fields from the source document are (optionally) mapped to destination fields in an index or knowledge store.
+
+A skillset contains one or more *cognitive skills* that represent a specific enrichment operation, like translating text, extracting key phrases, or performing optical character recognition from an image file. To create a skillset, you can use [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or custom skills that contain models or processing logic that you provide (see [Example: Creating a custom skill in an AI enrichment pipeline](cognitive-search-create-custom-skill-example.md) for more information).
 
 In this article, you learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Cognitive Search [indexer](search-indexer-overview.md). One part of pipeline design, covered in this article, is constructing the skillset itself. 
 
@@ -51,7 +55,7 @@ In the diagram, the *document cracking* step happens automatically. Essentially,
 A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. Using the [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset), you can define a skillset that corresponds to the previous diagram: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -243,7 +247,7 @@ Until now, this structure has been internal-only, memory-only, and used only in 
 
 ## Add a knowledge store
 
-[Knowledge store](knowledge-store-concept-intro.md) is a preview feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
+[Knowledge store](knowledge-store-concept-intro.md) is a feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
 
 A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [Create a knowledge store in REST](knowledge-store-create-rest.md).
 

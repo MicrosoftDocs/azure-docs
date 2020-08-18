@@ -8,7 +8,7 @@ ms.date: 04/26/2020
 
 # Add assessment tools
 
-This article describes how to add assessment tools in [Azure Migrate](migrate-overview.md). 
+This article describes how to add assessment tools in [Azure Migrate](./migrate-services-overview.md). 
 
 - If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).-
 - If you've added an ISV tool, or Movere, for assessment, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
@@ -19,7 +19,7 @@ This article describes how to add assessment tools in [Azure Migrate](migrate-ov
 2. Select the assessment scenario you want to use:
 
     - To discover and assess machines and workloads for migration to Azure, select **Assess and migrate servers**.
-    - To assess on-premises SQL machines, select **Assess and migrate databases**.
+    - To assess on-premises SQL Server databases, select **Assess and migrate databases**.
     - To assess on-premises web apps, select **Assess and migrate web apps**.
 
     ![Assessment scenario](./media/how-to-assess/assess-scenario.png)

@@ -4,7 +4,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
@@ -14,7 +14,7 @@ ms.reviewer: sadodd
 
 The purpose of the change feed is to provide transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. The change feed provides **ordered**, **guaranteed**, **durable**, **immutable**, **read-only** log of these changes. Client applications can read these logs at any time, either in streaming or in batch mode. The change feed enables you to build efficient and scalable solutions that process change events that occur in your Blob Storage account at a low cost.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 The change feed is stored as [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
 
@@ -32,7 +32,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 
   - Build connected application pipelines that react to change events or schedule executions based on created or changed object.
   
-Change feed is a prerequisite feature for [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
+Change feed is a prerequisite feature for [Object Replication](object-replication-overview.md) and [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Change feed provides a durable, ordered log model of the changes that occur to a blob. Changes are written and made available in your change feed log  within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to quickly react to changes that occur to a blob. 
@@ -66,7 +66,7 @@ Enable change feed on your storage account by using Azure portal:
 
 4. Choose the **Save** button to confirm your **Data Protection** settings.
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Screenshot that shows the data protection settings.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### [PowerShell](#tab/azure-powershell)
 

@@ -3,19 +3,17 @@ title: Unexpected application in my applications list | Microsoft Docs
 description: How to see all applications in your tenant and understand how applications appear in your All Applications list under Enterprise Applications
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
-
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
@@ -63,9 +61,9 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
 
 5. When you add a new application registration by creating a custom-developed application using the [V2.0 Application Registration portal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
-6. When you add an application you’re developing using Visual Studio’s [ASP.net Authentication Methods](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6. When you add an application you’re developing using Visual Studio’s [ASP.net Authentication Methods](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
 
-7. When you create a service principal object using the [Azure AD PowerShell Module](/powershell/azure/install-adv2?view=azureadps-2.0)
+7. When you create a service principal object using the [Azure AD PowerShell Module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
 8. When you [consent to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) as an administrator to use data in your tenant
 

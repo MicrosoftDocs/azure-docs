@@ -64,7 +64,7 @@ You can also use the [Azure Cosmos DB Emulator](local-emulator.md) to develop an
 
 To ask a technical question, you can post to one of these two question and answer forums:
 
-* [MSDN forum](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -146,7 +146,7 @@ Yes, the SQL API supports cross-document transactions expressed as JavaScript-st
 
 A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-* For SQL API, a container maps to a Container.
+* For SQL API, the resource is called a container.
 * For Cosmos DB's API for MongoDB accounts, a container maps to a Collection.
 * For Cassandra and Table API accounts, a container maps to a Table.
 * For Gremlin API accounts, a container maps to a Graph.

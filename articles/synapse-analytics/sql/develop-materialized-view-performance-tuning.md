@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
@@ -35,7 +35,7 @@ Most of the standard view requirements still apply to a materialized view. For d
 |Extra storage                   | No                                           | Yes
 |Syntax                          | CREATE VIEW                                  | CREATE MATERIALIZED VIEW AS SELECT
 
-## Benefits of using materialized views
+## Benefits of materialized views
 
 A properly designed materialized view provides the following benefits:
 

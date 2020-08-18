@@ -8,6 +8,7 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
+ms.custom: devx-track-javascript
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service

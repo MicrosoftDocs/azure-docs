@@ -38,10 +38,10 @@ The cmdlets in the following table create and manage Automation connections with
 
 |Cmdlet|Description|
 |---|---|
-|[Get-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Retrieves information about a connection.|
-|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Creates a new connection.|
-|[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Removes an existing connection.|
-|[Set-AzAutomationConnectionFieldValue](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Sets the value of a particular field for an existing connection.|
+|[Get-AzAutomationConnection](/powershell/module/az.automation/get-azautomationconnection?view=azps-3.7.0)|Retrieves information about a connection.|
+|[New-AzAutomationConnection](/powershell/module/az.automation/new-azautomationconnection?view=azps-3.7.0)|Creates a new connection.|
+|[Remove-AzAutomationConnection](/powershell/module/Az.Automation/Remove-AzAutomationConnection?view=azps-3.7.0)|Removes an existing connection.|
+|[Set-AzAutomationConnectionFieldValue](/powershell/module/Az.Automation/Set-AzAutomationConnectionFieldValue?view=azps-3.7.0)|Sets the value of a particular field for an existing connection.|
 
 ## Internal cmdlets to access connections
 
@@ -187,6 +187,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## Next steps
 
-* [Manage modules in Azure Automation](shared-resources/modules.md)
-* [Runbook execution in Azure Automation](automation-runbook-execution.md)
-* [State Configuration overview](automation-dsc-overview.md)
+* To learn more about the cmdlets used to access connections, see [Manage modules in Azure Automation](shared-resources/modules.md).
+* For general information about runbooks, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* For details of DSC configurations, see [State Configuration overview](automation-dsc-overview.md).

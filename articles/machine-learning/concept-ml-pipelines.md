@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
+ms.custom: devx-track-python
 ---
 
 # What are Azure Machine Learning pipelines?

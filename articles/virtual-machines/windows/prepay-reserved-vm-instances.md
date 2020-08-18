@@ -10,5 +10,5 @@ ms.date: 03/27/2020
 ms.author: banders
 
 ---
-# Save costs with Azure Reserved VM Instances
+# Save costs with Azure Reserved VM Instances (Windows)
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]

@@ -112,13 +112,13 @@ This table provides details about job-related fields.
 
 | **Field**                      | **Data Type** | **Description**                                              |
 | ------------------------------ | ------------- | ------------------------------------------------------------ |
-| ResourceId                     | Text          | Resource identifier for data being collected. For example,   Recovery Services vault resource ID |
+| ResourceId                     | Text          | Resource identifier for data being collected. For example, Recovery Services vault resource ID |
 | OperationName                  | Text          | This field represents name of the current operation - Job    |
-| Category                       | Text          | This field represents category of diagnostics data pushed   to Azure Monitor logs - AddonAzureBackupJobs |
+| Category                       | Text          | This field represents category of diagnostics data pushed to Azure Monitor logs - AddonAzureBackupJobs |
 | AdhocOrScheduledJob            | Text          | Field to specify if the job is Ad Hoc or Scheduled           |
-| BackupItemUniqueId             | Text          | Unique ID used to identify the backup item related to the   storage entity |
-| BackupManagementServerUniqueId | Text          | Unique ID used to identify the backup management server   related to the storage entity |
-| BackupManagementType           | Text          | Provider type for performing backup, for example, IaaSVM,   FileFolder to which this alert belongs to |
+| BackupItemUniqueId             | Text          | Unique ID used to identify the backup item related to the storage entity |
+| BackupManagementServerUniqueId | Text          | Unique ID used to identify the backup management server related to the storage entity |
+| BackupManagementType           | Text          | Provider type for performing backup, for example, IaaSVM, FileFolder to which this job belongs to |
 | DataTransferredInMB            | Number        | Data transferred in MB for this job                          |
 | JobDurationInSecs              | Number        | Total job duration in seconds                                |
 | JobFailureCode                 | Text          | Failure Code string because of which job failure happened    |
@@ -127,14 +127,14 @@ This table provides details about job-related fields.
 | JobStartDateTime               | DateTime      | Date and time when job started running                       |
 | JobStatus                      | Text          | Status of the finished job, for example, Completed, Failed   |
 | JobUniqueId                    | Text          | Unique ID to identify the job                                |
-| ProtectedContainerUniqueId     | Text          | Unique identifier of the protected server associated with   the alert |
+| ProtectedContainerUniqueId     | Text          | Unique identifier of the protected server associated with the job |
 | RecoveryJobDestination         | Text          | Destination of a recovery job, where the data is recovered   |
 | RecoveryJobRPDateTime          | DateTime      | The date, time when the recovery point that is being recovered   was created |
 | RecoveryJobLocation            | Text          | The location where the recovery point that is being   recovered was stored |
 | RecoveryLocationType           | Text          | Type of the Recovery Location                                |
 | SchemaVersion                  | Text          | Current version of the schema, for example **V2**            |
-| State                          | Text          | Current state of the alert object, for example, Active,   Deleted |
-| VaultUniqueId                  | Text          | Unique identifier of the protected vault associated with   the alert |
+| State                          | Text          | Current state of the job object, for example, Active,   Deleted |
+| VaultUniqueId                  | Text          | Unique identifier of the protected vault associated with the job |
 | SourceSystem                   | Text          | Source system of the current data - Azure                    |
 
 ## AddonAzureBackupPolicy
@@ -199,7 +199,7 @@ This table provides details about storage-related fields.
 | BackupManagementServerUniqueId | Text          | Field to uniquely identify the Backup Management Server the   Backup Item is protected through, if applicable |
 | BackupManagementType           | Text          | Provider type for server doing backup job. For example,   IaaSVM, FileFolder |
 | PreferredWorkloadOnVolume      | Text          | Workload for which this volume is the preferred storage      |
-| ProtectedContainerUniqueId     | Text          | Unique identifier of the protected server associated with   the alert |
+| ProtectedContainerUniqueId     | Text          | Unique identifier of the protected container associated with the backup item |
 | SchemaVersion                  | Text          | Version of the schema. For example, **V2**                   |
 | State                          | Text          | State of the backup item object. For example, Active,   Deleted |
 | StorageAllocatedInMBs          | Number        | Size of storage allocated by the corresponding backup item   in the corresponding storage of type Disk |
@@ -214,5 +214,5 @@ This table provides details about storage-related fields.
 
 ## Next steps
 
-- [Learn how to send diagnostics data to Log Analytics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
-- [Learn how to write queries on Resource specific tables](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)
+- [Learn how to send diagnostics data to Log Analytics](./backup-azure-diagnostic-events.md)
+- [Learn how to write queries on Resource specific tables](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries)

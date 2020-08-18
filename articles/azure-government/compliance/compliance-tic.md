@@ -1,6 +1,6 @@
 ---
 title: Trusted Internet Connections guidance for Azure
-description: Trusted Internet Connections guidance for Azure and SaaS services
+description: Learn about Trusted Internet Connections (TIC) guidance for Azure and software-as-a-service (SaaS) services.
 services: azure-government
 author: femila
 
@@ -146,7 +146,7 @@ Services that support deployment of dedicated instances into a virtual network o
 
 |Service                               |Availability      |
 |--------------------------------------|------------------|
-|Azure SQL Database Managed Instance   | Public preview   |
+|Azure SQL Managed Instance   | Public preview   |
 |Azure Kubernetes Service (AKS)        | Public preview   |
 |Azure Service Fabric                  | GA               |
 |Azure API Management                  | GA               |
@@ -243,7 +243,7 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Web and mobile | API applications | | App Service Environment | |
 | Containers | Azure Container Service | | | Yes |
 | Containers | Azure Kubernetes Service (AKS) \* | | | Yes |
-| Database | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
+| Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
 | Database | Azure Database for MySQL | | | Yes |
 | Database | Azure Database for PostgreSQL | | | Yes |
 | Database | Azure SQL Data Warehouse | | | Yes |

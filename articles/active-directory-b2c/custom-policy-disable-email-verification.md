@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -30,11 +30,11 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
 1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
 1. Add the following claims provider to the `ClaimsProviders` element:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>

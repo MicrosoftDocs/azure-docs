@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Maxient Conduct Manager Software | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Maxient Conduct Manager Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 85e71b76-cac3-4ce6-a35f-796d2cb7bdb5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Maxient Conduct Manager Software
@@ -66,7 +59,7 @@ Configure and test Azure AD SSO with Maxient Conduct Manager Software. For SSO t
 To configure and test Azure AD SSO with Maxient Conduct Manager Software, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to authenticate for use with the Maxient Conduct Manager Software
-    1. **[Assign all users to use Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** - to allow everyone at your institution to be able to authenticate.
+    1. **[Assign all users to use Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - to allow everyone at your institution to be able to authenticate.
 1. **[Test Azure AD Setup With Maxient](#test-with-maxient)** - to verify whether the configuration works, and the correct attributes are being released
 
 ## Configure Azure AD SSO

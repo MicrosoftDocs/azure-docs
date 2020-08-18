@@ -273,7 +273,7 @@ The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 |    5K   |   18 |  P4   |
 |    10K  |   36 |  P6   |
 
-[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your SQL Azure database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
 
 #### Cosmos DB
 |Ingestion Rate (events per second) | Streaming Units | Output Resources  |
@@ -284,7 +284,7 @@ The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 
 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibility level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1, which is the default compatibility level for new jobs. The solution uses CosmosDB containers partitioned on /deviceId and the rest of solution is identically configured.
 
-All [Streaming at Scale azure samples](https://github.com/Azure-Samples/streaming-at-scale) use an Event Hub fed by load simulating test clients as input. Each input event is a 1KB JSON document, which translates configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for up to 1K devices:
+All [Streaming at Scale Azure samples](https://github.com/Azure-Samples/streaming-at-scale) use an Event Hub as input that is fed by load simulating test clients. Each input event is a 1KB JSON document, which translates configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for up to 1K devices:
 
 ```
 {
@@ -309,7 +309,7 @@ Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks 
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

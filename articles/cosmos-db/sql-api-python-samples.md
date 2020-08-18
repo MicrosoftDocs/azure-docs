@@ -8,6 +8,7 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 05/20/2020
 ms.author: sngun
+ms.custom: devx-track-python
 
 ---
 # Azure Cosmos DB Python examples

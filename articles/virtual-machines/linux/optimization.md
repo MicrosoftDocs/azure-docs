@@ -4,7 +4,7 @@ description: Learn some optimization tips to make sure you have set up your Linu
 author: rickstercdn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks

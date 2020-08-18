@@ -1,6 +1,5 @@
 ---
-title: REST API error codes
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): REST API error codes - Azure'
 description: These error codes could be returned by an operation on an Azure Machine Learning web service.
 keywords: 
 services: machine-learning
@@ -17,8 +16,9 @@ ms.date: 11/16/2016
  
 # Azure Machine Learning Studio (classic) REST API Error Codes
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
- 
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 The following error codes could be returned by an operation on an Azure Machine Learning Studio (classic) web service.
  
 ## BadArgument (HTTP status code 400)

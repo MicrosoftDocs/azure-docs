@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with KnowledgeOwl | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and KnowledgeOwl.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2ae30996-864d-4872-90bc-f770e1ea159a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with KnowledgeOwl
@@ -83,34 +76,34 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 	
-	| | |
-	|-|-|
-	| `https://app.knowledgeowl.com/sp`|
-	| `https://app.knowledgeowl.com/sp/id/<unique ID>`|
+    ```http
+    https://app.knowledgeowl.com/sp
+    https://app.knowledgeowl.com/sp/id/<unique ID>
+    ```
 
 	b. In the **Reply URL** text box, type a URL using the following pattern:
 	
-	| | |
-	|-|-|
-	| `https://subdomain.knowledgeowl.com/help/saml-login`|
-	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
-	| `https://subdomain.knowledgeowl.com/home/saml-login`|
-	| `https://privatedomain.com/help/saml-login`|
-	| `https://privatedomain.com/docs/saml-login`|
-	| `https://privatedomain.com/home/saml-login`|
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 	
-	| | |
-	|-|-|
-	| `https://subdomain.knowledgeowl.com/help/saml-login`|
-	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
-	| `https://subdomain.knowledgeowl.com/home/saml-login`|
-	| `https://privatedomain.com/help/saml-login`|
-	| `https://privatedomain.com/docs/saml-login`|
-	| `https://privatedomain.com/home/saml-login`|
+    ```http
+    https://subdomain.knowledgeowl.com/help/saml-login
+    https://subdomain.knowledgeowl.com/docs/saml-login
+    https://subdomain.knowledgeowl.com/home/saml-login
+    https://privatedomain.com/help/saml-login
+    https://privatedomain.com/docs/saml-login
+    https://privatedomain.com/home/saml-login
+    ```
 
 	> [!NOTE]
 	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.

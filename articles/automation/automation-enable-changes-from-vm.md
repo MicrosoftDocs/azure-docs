@@ -17,7 +17,7 @@ This article describes how you can use an Azure VM to enable the [Change Trackin
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to manage machines.
+* [Automation account](./index.yml) to manage machines.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
@@ -36,16 +36,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 5. Choose the Log Analytics workspace and Automation account, and click **Enable** to enable Change Tracking and Inventory for the VM. The setup takes up to 15 minutes to complete. 
 
-## <a name="scope-configuration"></a>Check the scope configuration
-
-Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to enable for the feature. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. For more information, see [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md).
-
 ## Next steps
 
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Work with scope configurations for Change Tracking and Inventory](automation-scope-configurations-change-tracking.md)
-* [Identify software on a VM](automation-tutorial-installed-software.md)
-* [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md)
-* [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
+* For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

@@ -7,7 +7,7 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Design an Azure Database for MariaDB using Azure CLI

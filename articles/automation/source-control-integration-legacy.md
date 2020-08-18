@@ -50,7 +50,7 @@ If you already have a GitHub account and a repository that you want to link to A
 5. Once you click **OK**, source control integration is now configured for your Automation account and should be updated with your GitHub information. You can now click on this part to view all your source control sync job history.  
 
     ![Values for the current configured source control configuration](media/source-control-integration-legacy/automation-RepoValues.png)
-6. After you set up source control, Two [variable assets](automation-variables.md) are created in your Automation account. Additionally, an authorized application is added to your GitHub account.
+6. After you set up source control, Two [variable assets](./shared-resources/variables.md) are created in your Automation account. Additionally, an authorized application is added to your GitHub account.
 
    * The variable **Microsoft.Azure.Automation.SourceControl.Connection** contains the values of the connection string, as shown below.  
 
@@ -78,7 +78,7 @@ If you already have a GitHub account and a repository that you want to link to A
 
 Runbook check in allows you to push the changes you have made to a runbook in Azure Automation into your source control repository. Below are the steps to check in a runbook:
 
-1. From your Automation account, [create a new textual runbook](automation-first-runbook-textual.md), or [edit an existing, textual runbook](automation-edit-textual-runbook.md). This runbook can be either a PowerShell Workflow or a PowerShell script runbook.  
+1. From your Automation account, [create a new textual runbook](./learn/automation-tutorial-runbook-textual.md), or [edit an existing, textual runbook](automation-edit-textual-runbook.md). This runbook can be either a PowerShell Workflow or a PowerShell script runbook.  
 2. After you edit your runbook, save it and click **Check-in** on the edit page.  
 
     ![A window showing the checkin to GitHub button](media/source-control-integration-legacy/automation-CheckinButton.png)
@@ -126,5 +126,5 @@ To disconnect from your GitHub account, open the Repository Synchronization page
 
 ## Next steps
 
-* [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Azure Automation: Integrating Runbook Source Control using Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* For integrating source control in Azure Automation, see [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* For integrating runbook source control with Visual Studio Online, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).  

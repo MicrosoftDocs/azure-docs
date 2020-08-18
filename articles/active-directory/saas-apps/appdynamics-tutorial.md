@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with AppDynamics | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AppDynamics.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with AppDynamics
 

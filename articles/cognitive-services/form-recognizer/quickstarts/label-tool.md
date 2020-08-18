@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ---
 
@@ -16,13 +16,13 @@ ms.author: pafarley
 
 In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 To complete this quickstart, you must have:
 
-- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 ## Create a Form Recognizer resource
 
@@ -129,7 +129,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
    1. Click **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
-1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
+1. In the main editor, click to select words from the highlighted text elements.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms.
@@ -139,6 +139,8 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
     > * Don't include keys in your tagged fields&mdash;only the values.
     > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
+    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
+    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
 ![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
 
@@ -161,11 +163,32 @@ The following value types and variations are currently supported:
 * `time`
 * `integer`
 
+> [!NOTE]
+> See these rules for date formatting:
+> 
+> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> The day and month can each be written as one or two digits, and the year can be two or four digits:
+> * 1-1-2020
+> * 1-01-20
+>
+> If a DMY date string has eight digits, the delimiter is optional:
+> * 01012020
+> * 01 01 2020
+>
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 Jan 2020
+
 ## Train a custom model
 
 Click the Train icon on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./curl-train-extract.md) or [client library](./client-library.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 

@@ -2,10 +2,10 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 08/17/2020
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
+This article shows you how to get started using the Custom Vision client library with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
 
 ## Prerequisites
 
@@ -13,9 +13,9 @@ This article shows you how to get started using the Custom Vision SDK with Pytho
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDK for Python, run the following command in PowerShell:
+To install the Custom Vision service client library for Python, run the following command in PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -39,7 +39,7 @@ See the [create_project](https://docs.microsoft.com/python/api/azure-cognitivese
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry, Region
 from msrest.authentication import ApiKeyCredentials
 
 ENDPOINT = "<your API endpoint>"
@@ -157,7 +157,7 @@ for file_name in scissors_image_regions.keys():
     with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
-upload_result = trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=tagged_images_with_regions))
 if not upload_result.is_batch_successful:
     print("Image batch upload failed.")
     for image in upload_result.images:

@@ -1,6 +1,6 @@
 --- 
 title: Quickstart - Create an Azure VMware VM on a Private Cloud - Azure VMware Solution by CloudSimple
-description: Describes how to create an Azure VMware VM on a CloudSimple Private Cloud 
+description: Learn how to create a VMware virtual machine on CloudSimple Private Cloud. Access the CloudSimple portal from the Azure portal. 
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/16/2019 
@@ -117,9 +117,9 @@ Linux offers various packages for setting up DNS servers.  Here is a link to ins
 
 These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
 
-[Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+[Windows Server as DNS Server](/windows-server/networking/dns/dns-top)
 
-[Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+[Windows Server as DHCP Server](/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## Customize networking configuration (Optional)
 

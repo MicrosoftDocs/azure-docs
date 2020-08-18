@@ -4,7 +4,7 @@ description: Learn about how to connect and authenticate using Managed Identity 
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ---
 
@@ -17,6 +17,9 @@ This article shows you how to use a user-assigned identity for an Azure Virtual 
 > * Create a user in the database that represents the VM's user-assigned identity
 > * Get an access token using the VM identity and use it to query an Azure Database for MySQL server
 > * Implement the token retrieval in a C# example application
+
+> [!IMPORTANT]
+> Connecting with Managed Identity is only available for MySQL 5.7 and newer.
 
 ## Prerequisites
 

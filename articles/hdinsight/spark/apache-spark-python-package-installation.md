@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: seoapr2020
+ms.topic: how-to
+ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
 ---
 
@@ -36,17 +36,17 @@ There are two types of open-source components that are available in the HDInsigh
 > [!IMPORTANT]
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), `https://stackoverflow.com`. Also Apache projects have project sites on `https://apache.org`.
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [Microsoft Q&A question page for HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), `https://stackoverflow.com`. Also Apache projects have project sites on `https://apache.org`.
 
 ## Understand default Python installation
 
 HDInsight Spark cluster is created with Anaconda installation. There are two Python installations in the cluster, Anaconda Python 2.7 and Python 3.5. The table below shows the default Python settings for Spark, Livy, and Jupyter.
 
-| |Python 2.7|Python 3.5|
+|Setting |Python 2.7|Python 3.5|
 |----|----|----|
 |Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Default set to 2.7|N/A|
-|Livy|Default set to 2.7|N/A|
+|Spark version|Default set to 2.7|N/A|
+|Livy version|Default set to 2.7|N/A|
 |Jupyter|PySpark kernel|PySpark3 kernel|
 
 ## Safely install external Python packages
@@ -141,7 +141,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
 ## Known issue
 
-There's a known bug for Anaconda version `4.7.11`, `4.7.12`, and `4.8.0`. If you see your script actions hanging at `"Collecting package metadata (repodata.json): ...working..."` and failing with `"Python script has been killed due to timeout after waiting 3600 secs"`. You can download [this script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) and run it as script actions on all nodes to fix the issue.
+There's a known bug for Anaconda version `4.7.11`, `4.7.12`, and `4.8.0`. If you see your script actions stops responding at `"Collecting package metadata (repodata.json): ...working..."` and failing with `"Python script has been killed due to timeout after waiting 3600 secs"`. You can download [this script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) and run it as script actions on all nodes to fix the issue.
 
 To check your Anaconda version, you can SSH to the cluster header node and run `/usr/bin/anaconda/bin/conda --v`.
 

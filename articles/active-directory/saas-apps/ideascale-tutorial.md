@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with IdeaScale | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IdeaScale.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e16dda6b-fdf9-43cc-9bbb-a523f085a8af
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with IdeaScale
 
@@ -107,10 +100,10 @@ To configure Azure AD single sign-on with IdeaScale, perform the following steps
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `http://<companyname>.ideascale.com`  |
-	| `https://<companyname>.ideascale.com` |
+    ```http
+    http://<companyname>.ideascale.com
+    https://<companyname>.ideascale.com
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [IdeaScale Client support team](https://support.ideascale.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

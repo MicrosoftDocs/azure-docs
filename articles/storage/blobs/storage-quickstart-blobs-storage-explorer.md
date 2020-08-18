@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create a blob with Azure Storage Explorer
 titleSuffix: Azure Storage
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a container and a blob, download the blob to your local computer, and view all of the blobs in the container.
+description: Learn how to use Azure Storage Explorer to create a container and a blob, download the blob to your local computer, and view all of the blobs in the container.
 services: storage
 author: tamram
 
@@ -36,7 +36,7 @@ Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen pr
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
+When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

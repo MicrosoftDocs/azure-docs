@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/12/2019
@@ -29,8 +29,8 @@ At present, no Office 365 workload consumes these attributes.
 
 You configure which additional attributes you want to synchronize in the custom settings path in the installation wizard.
 
->[!NOTE]
->The Available Attributes box is case-sensitive.
+> [!NOTE]
+> In Azure AD Connect versions earlier than 1.2.65.0, the search box for **Available Attributes** is case-sensitive.
 
 ![Schema extension wizard](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 

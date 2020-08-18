@@ -1,8 +1,9 @@
 ---
-title: Supported Resource Manager resource types
-description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 05/21/2020
+title: Supported Azure Resource Manager resource types
+description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
+ms.date: 08/10/2020
 ms.topic: reference
+ms.custom: generated
 ---
 # Azure Resource Graph table and resource type reference
 
@@ -14,6 +15,7 @@ part of a **table** in Resource Graph.
 
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
+- microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
 ## alertsmanagementresources
@@ -179,7 +181,6 @@ part of a **table** in Resource Graph.
 - microsoft.desktopvirtualization/applicationgroups
 - microsoft.desktopvirtualization/hostpools
 - microsoft.desktopvirtualization/workspaces
-- microsoft.detonationservice/detonationinstances
 - microsoft.devices/elasticpools
 - microsoft.devices/elasticpools/iothubtenants
 - microsoft.devices/iothubs
@@ -480,13 +481,6 @@ part of a **table** in Resource Graph.
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuses
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuses/servers
-- microsoft.security/securitystatuses/subnets
-- microsoft.security/securitystatuses/virtualmachines
-- microsoft.security/securitystatusessummaries
 
 ## Next steps
 

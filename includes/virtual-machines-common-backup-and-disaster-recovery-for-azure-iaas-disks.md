@@ -1,4 +1,4 @@
-﻿---
+---
 title: "include file"
 description: "include file"
 services: storage
@@ -175,7 +175,7 @@ A snapshot is a representation of an object at a specific point in time. A snaps
 
 ### Create snapshots while the VM is running
 
-Although you can take a snapshot at any time, if the VM is running, there is still data being streamed to the disks. The snapshots might contain partial operations that were in flight. Also, if there are several disks involved, the snapshots of different disks might have occurred at different times. These scenarios may cause to the snapshots to be uncoordinated. This lack of co-ordination is especially problematic for striped volumes whose files might be corrupted if changes were being made during backup.
+Although you can take a snapshot at any time, if the VM is running, there is still data being streamed to the disks. The snapshots might contain partial operations that were in flight. Also, if there are several disks involved, the snapshots of different disks might have occurred at different times. These scenarios may cause to the snapshots to be uncoordinated. This lack of coordination is especially problematic for striped volumes whose files might be corrupted if changes were being made during backup.
 
 To avoid this situation, the backup process must implement the following steps:
 
@@ -228,7 +228,7 @@ For VMs with multiple disks, you must copy all the snapshots that are part of th
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Other considerations
 
@@ -254,9 +254,6 @@ The main difference between geo-redundant storage and read-access geo-redundant 
 If it turns out to be a significant outage, the Azure team might trigger a geo-failover and change the primary DNS entries to point to secondary storage. At this point, if you have either geo-redundant storage or read-access geo-redundant storage enabled, you can access the data in the region that used to be the secondary. In other words, if your storage account is geo-redundant storage and there is a problem, you can access the secondary storage only if there is a geo-failover.
 
 For more information, see [What to do if an Azure Storage outage occurs](../articles/storage/common/storage-disaster-recovery-guidance.md).
-
->[!NOTE] 
->Microsoft controls whether a failover occurs. Failover is not controlled per storage account, so it's not decided by individual customers. To implement disaster recovery for specific storage accounts or virtual machine disks, you must use the techniques described previously in this article.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

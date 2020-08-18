@@ -127,7 +127,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 ```
 ## Job error codes
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Next steps
 
