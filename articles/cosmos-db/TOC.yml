@@ -1265,9 +1265,11 @@
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
         href: sql-api-sdk-java.md  
-      - name: Spring Data Connector for SQL API
-        href: sql-api-sdk-java-spring.md                
-      - name: Spark Connector for SQL API
+      - name: Spring Data Connector v2
+        href: sql-api-sdk-java-spring-v2.md                
+      - name: Spring Data Connector v3
+        href: sql-api-sdk-java-spring-v3.md        
+      - name: Spark Connector
         href: sql-api-sdk-java-spark.md                
       - name: Java bulk executor library v2
         href: sql-api-sdk-bulk-executor-java.md      

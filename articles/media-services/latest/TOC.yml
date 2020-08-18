@@ -70,10 +70,7 @@
   - name: Assets
     items: 
     - name: Assets
-      href: assets-concept.md   
-    - name: Manage assets
-      href: manage-asset-concept.md  
-      displayName: name, naming, file name, upload, output, download  
+      href: assets-concept.md  
   - name: Processing files
     items:
     - name: Transforms and jobs
@@ -246,10 +243,15 @@
         href: configure-connect-python-howto.md
     - name: Reset account credentials
       href: cli-reset-account-credentials.md
-  - name: Upload content
+  - name: Create and manage assets
     items:
     - name: Create an asset
       href: cli-create-asset.md
+    - name: Manage assets
+      href: manage-asset-concept.md  
+      displayName: name, naming, file name, upload, output, download
+  - name: Upload content
+    items:
     - name: From HTTPS
       displayName: upload
       href: job-input-from-http-how-to.md
@@ -262,7 +264,7 @@
         displayName: upload
         href: upload-files-rest-how-to.md
       - name: With CLI
-        href: cli-upload-file-asset.md     
+        href: cli-upload-file-asset.md
   - name: Create transforms and jobs
     items:
     - name: Create transforms
