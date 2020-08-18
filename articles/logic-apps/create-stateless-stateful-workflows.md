@@ -24,9 +24,7 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
 
   Create stateless workflow apps when you don't need to keep, review, or reference data from previous events. These workflows save the input and output for each action only in memory, rather than in external storage. Stateless workflows provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. For easier debugging, you can [enable run history](#enable-run-history) for stateless workflows.
 
-  Here are some considerations for stateless workflows:
-
-  * Stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+  Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
 <a name="nested-workflow-behavior"></a>
 
@@ -34,21 +32,21 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
 
 You can [make a workflow callable](../logic-apps/logic-apps-http-endpoint.md) by other workflows by using the [Request](../connectors/connectors-native-reqres.md) trigger, [HTTP Webhook](../connectors/connectors-native-webhook.md) trigger, or managed connector triggers that have the [ApiConnectionWehook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
-Here are the various behavior patterns that nested workflows can follow when a parent workflow calls a child workflow:
+Here are the behavior patterns that nested workflows can follow after a parent workflow calls a child workflow:
 
 * Asynchronous polling pattern
 
-  The parent continually checks the child's run history until the child finishes running and doesn't wait for a response to the original call that they sent to the child workflow. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
+  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
 
 * Synchronous pattern ("fire and forget")
 
-  The child confirms receiving the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the resulting output from the child. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
+  The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
 
-  To enable this behavior, in the trigger's JSON definition, set the `OperationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  To enable this behavior, in the workflow's JSON definition, set the `OperationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger and wait
 
-  For a child stateless workflow, the parent waits for a response that returns the resulting output from the child. This pattern works similar to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These patterns apply only to child stateless workflows.
+  For a child stateless workflow, the parent waits for a response that returns the results from the child. This pattern works similar to using the built-in [HTTP trigger or action](../connectors/connectors-native-http.md) to call a child workflow. Child stateless workflows that don't include a Response action immediately return a `202 ACCEPTED` response, but the parent waits for the child to finish before continuing to the next action. These behaviors apply only to child stateless workflows.
 
 This table specifies the child workflow's behavior based on whether the parent and child are stateful, stateless, or are mixed workflow types:
 
@@ -292,6 +290,8 @@ The workflow in this example adds this trigger and these actions:
    | **Body** | Yes | `Hello from your example workflow app!` | The email body content |
    ||||
 
+1. On the designer toolbar, select **Save**.
+
 1. Continue by following one of these paths:
 
    * [Debug and test your workflow app on your local computer](#debug-test-workflow-locally).
@@ -346,7 +346,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
 1. On the Visual Studio Code toolbar, on the **Run** menu, select **Start Debugging** (F5).
 
-   The **Terminal** window appears so that you can review the debugging session and details.
+   The **Terminal** window opens so that you can monitor the debugging session.
 
 1. After the debugging process completes, find the callback URL for the endpoint on the Request trigger.
 
@@ -384,6 +384,10 @@ To add your own code that you can directly call and run from your workflow app, 
 
       ![Screenshot that shows Postman and callback URL in the address box with Send button selected](./media/create-stateless-stateful-workflows/postman-test-call-back-url.png)
 
+      The example workflow sends an email that appears similar to this example:
+
+      ![Screenshot that shows Outlook email as described in the example](./media/create-stateless-stateful-workflows/workflow-app-result-email.png)
+
 1. In Visual Studio Code, return to your workflow app's overview page.
 
    After the request that you sent triggers the workflow, the overview page shows the workflow's run history.
@@ -391,6 +395,14 @@ To add your own code that you can directly call and run from your workflow app, 
    ![Screenshot that shows your workflow's overview page with run history](./media/create-stateless-stateful-workflows/post-trigger-call.png)
 
 1. To view the run history details, open the ellipses (**...**) list, and select **Show Run**.
+
+   ![Screenshot that shows your workflow's run history row with ellipses and "Show Run" selected](./media/create-stateless-stateful-workflows/show-run-history.png)
+
+   Visual Studio Code shows the run history details for each action.
+
+1. To view the raw inputs and outputs for a trigger or action, expand the step that you want to inspect, and select **Show raw inputs** or **Show raw outputs**.
+
+   ![Screenshot that shows your workflow's run history details with the "Send an email" action expanded](./media/create-stateless-stateful-workflows/run-history-details.png)
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
