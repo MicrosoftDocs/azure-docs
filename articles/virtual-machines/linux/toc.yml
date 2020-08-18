@@ -982,7 +982,7 @@
       - name: Enable encryption at host - CLI
         href: disks-enable-host-based-encryption-cli.md
       - name: Enable encryption at host - Portal
-        href: disks-enable-host-based-encryption-portal.md
+        href: ../disks-enable-host-based-encryption-portal.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal

@@ -1,26 +1,34 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 07/07/2020
- ms.author: rogarana
- ms.custom: include file
+title: Enable end-to-end encryption using encryption at host - Azure portal - managed disks
+description: Use encryption at host to enable end-to-end encryption on your Azure managed disks - Azure portal.
+author: roygara
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 07/23/2020
+ms.author: rogarana
+ms.subservice: disks
+ms.custom: references_regions
 ---
+
+# Enable end-to-end encryption using encryption at host - Azure portal
+
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see:
+
+* Linux: [Encryption at host - End-to-end encryption for your VM data](./linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+
+* Windows: [Encryption at host - End-to-end encryption for your VM data](./windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](virtual-machines-disks-encryption-at-host-restrictions.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](~/includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
 ### Supported regions
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](virtual-machines-disks-encryption-at-host-regions.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](~/includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](~/includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
 ## Prerequisites
 
@@ -35,7 +43,7 @@ Sign in to the Azure portal using the [provided link](https://aka.ms/diskencrypt
 
 Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk encryption set, if you haven't already.
 
-[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](virtual-machines-disks-encryption-create-key-vault-portal.md)]
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](~/includes/virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
 ## Deploy a VM
 
@@ -55,3 +63,7 @@ You must deploy a new VM to enable encryption at host, it cannot be enabled on e
 1. Finish the VM deployment process, make selections that fit your environment.
 
 You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
+
+## Next steps
+
+[Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/EncryptionAtHost)
