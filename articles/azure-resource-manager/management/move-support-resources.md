@@ -739,7 +739,7 @@ Jump to a resource provider namespace:
 > | quotas | No | No |
 > | resourcetypes | No | No |
 > | validatesubscriptionmoveavailability | No | No |
-> | virtualmachines | Yes | No |
+> | virtualmachines | Yes | Yes |
 > | virtualmachines / diagnosticsettings | No | No |
 > | virtualmachines / metricdefinitions | No | No |
 > | virtualmachines / metrics | No | No |
