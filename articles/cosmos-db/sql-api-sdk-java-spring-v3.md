@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
@@ -33,9 +33,9 @@ ms.custom: devx-track-java
 
 The Spring Data Azure Cosmos DB v3 for Core (SQL) allows developers to utilize Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
 
-Spring Data Azure Cosmos DB takes a dependency on the Spring framework. Azure Cosmos DB SDK team releases Maven artifacts for Spring framework v2.2 and v2.3.
+Spring Data Azure Cosmos DB takes a dependency on the Spring Data framework. Azure Cosmos DB SDK team releases Maven artifacts for Spring Data v2.2 and v2.3.
 
-The [Spring framework](https://spring.io/projects/spring-framework) is a programming and configuration model which streamlines Java application development. To quote the organization's website, Spring streamlines the "plumbing" of applications using dependency injection. Many developers like Spring because building and testing applications becomes more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this idea of handling the plumbing with an eye towards web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model for accessing datastores such as Azure Cosmos DB from the context of a Spring or Spring Boot application. 
+The [Spring framework](https://spring.io/projects/spring-framework) is a programming and configuration model which streamlines Java application development. To quote the organization's website, Spring streamlines the "plumbing" of applications using dependency injection. Many developers like Spring because building and testing applications becomes more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this idea of handling the plumbing with an eye towards web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model and framework for accessing datastores such as Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 
 You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) applications.
 
@@ -64,7 +64,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 Two Spring Data Azure Cosmos DB v3 Maven artifacts are available.
 
-Artifact that depends on Spring framework v2.2:
+Artifact that depends on Spring Data framework v2.2:
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -73,7 +73,7 @@ Artifact that depends on Spring framework v2.2:
 </dependency>
 ```
 
-Artifact that depends on Spring framework v2.3:
+Artifact that depends on Spring Data framework v2.3:
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
@@ -104,23 +104,23 @@ cosmos.queryMetricsEnabled=true
 ### Document operations
 
 [Create](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmos/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmos/SampleApplication.java?name=Create)]
+[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
 
 [Delete](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmos/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmos/SampleApplication.java?name=Delete)]
+[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
 
 # [Query](#tab/queries)
 
 ### Query
 
 [Query](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmos/SampleApplication.java):
-[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmos/SampleApplication.java?name=Query)]
+[!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-2-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
 
 ---
 
 ## Helpful content
 
-| Content | Spring framework v2.2 | Spring framework v2.3 |
+| Content | Spring Data framework v2.2 | Spring Data framework v2.3 |
 |---|---|
 | **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
 |**Contribute to SDK** | [Spring Data Azure Cosmos DB repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [Spring Data Azure Cosmos DB repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
