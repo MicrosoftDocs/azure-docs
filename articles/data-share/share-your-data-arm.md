@@ -21,15 +21,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* The data share recipient's Azure login e-mail address (E-mail alias won't work).
-* If the source Azure data store is in a different Azure subscription than the one you use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located.
-
-### Share from a storage account
-
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role.
-* Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Review the template
 
@@ -39,14 +31,14 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The following resources are defined in the template:
 
-* [Microsoft.Storage/storageAccounts](azure/templates/microsoft.storage/storageaccounts):
-* [Microsoft.Storage/storageAccounts/blobServices/containers](azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
-* [Microsoft.Storage/storageAccounts/providers/roleAssignments](azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts](rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/accounts/shares](rest/api/datashare/shares/create)
-* [Microsoft.DataShare/accounts/shares/dataSets](rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/accounts/shares/invitations](rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/accounts/shares/synchronizationSettings](rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
+* [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [Microsoft.DataShare/accounts](/rest/api/datashare/accounts/create)
+* [Microsoft.DataShare/accounts/shares](/rest/api/datashare/shares/create)
+* [Microsoft.DataShare/accounts/shares/dataSets](/rest/api/datashare/datasets/create)
+* [Microsoft.DataShare/accounts/shares/invitations](/rest/api/datashare/invitations/create)
+* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
 
 The template performs the following tasks:
 
@@ -67,9 +59,20 @@ It is because the deployment is trying to create the dataset before the RBAC ass
 
 ## Deploy the template
 
-Select the following image to sign in to Azure and open the template.
+1. Select the following image to sign in to Azure and open the template.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
+1. Select or enter the following values:
+
+    * **Subscription**: select an Azure subscription used to create the data share and the other resources.
+    * **Resource group**: select **Create new** to create a new resource group or select an existing resource group.
+    * **Location**: select a location for the resource group.
+    * **Project Name**: enter a project name.  The project name is used for generating resource names.  See the variable definitions in the previous template.
+    * **location**: select a location for the resources.  You can use the same location for the resource group.
+    * **Invitation Email**: enter the data share recipient's Azure login email address.  Email alias doesn't work.
+
+    Use the default value for the rest of the settings.
+1. select *** agree to the terms and conditions stated above, and the select **Purchase**.
 
 ## Review deployed resources
 
