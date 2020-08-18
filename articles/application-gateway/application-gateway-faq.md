@@ -255,7 +255,7 @@ Sample NSG configuration for private IP only access:
 
 ### What certificates does Application Gateway support?
 
-Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, and wildcard certificates.
+Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, multi-domain (SAN) certificates, and wildcard certificates.
 
 ### What cipher suites does Application Gateway support?
 

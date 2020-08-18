@@ -72,13 +72,14 @@ This article answers common questions about Azure Files features and functionali
     > [!NOTE]
     > You cannot create Azure file shares from Blob storage accounts or *premium* general purpose (GPv1 or GPv2) storage accounts. Standard Azure file shares must created in *standard* general purpose accounts only and premium Azure file shares must be created in FileStorage storage accounts only. *Premium* general purpose (GPv1 and GPv2) storage accounts are for premium page blobs only. 
 
+* <a id="file-locking"></a>
+  **Does Azure Files support file locking?**  
+    Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
     The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
 
-  **Does Azure Files support file locking?**  
-    Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -203,6 +204,13 @@ This article answers common questions about Azure Files features and functionali
 **What data compliance policies does Azure Files support?**  
 
    Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), and go to the [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**How can I audit file access and changes in Azure Files?**
+
+  There are two options that provide auditing functionality for Azure Files:
+  - If users are accessing the Azure file share directly, [Azure Storage logs (preview)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
+  - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or 3rd party product to track file changes and user access on the Windows Server. 
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
@@ -269,7 +277,6 @@ This article answers common questions about Azure Files features and functionali
 **Are there REST APIs to support Get/Set/Copy directory/file Windows ACLs?**
 
     Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or later) REST API. We also support persisting Windows ACLs in REST based tools: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## On-premises access
 
