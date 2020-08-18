@@ -1,11 +1,11 @@
 ---
-title: Enable shutdown of VMs on disconnect Azure Lab Services | Microsoft Docs
+title: Configure automatic shutdown of VMs for a lab in Azure Lab Services 
 description: Learn how to enable or disable automatic shutdown of VMs when a remote desktop connection is disconnected.  
 ms.topic: article
 ms.date: 08/17/2020
 ---
 
-# Enable automatic shutdown of VMs on disconnect
+# Configure automatic shutdown of VMs for a lab
 
 This article shows you how you can enable or disable automatic shutdown lab VMs (template or student) after a remote desktop connection is disconnected. You can also specify how long the VMs should wait for the user to reconnect before automatically shutting down.
 
