@@ -113,9 +113,10 @@ To configure Azure AD single sign-on with Ariba, perform the following steps:
     `http://<subdomain>.procurement-2.ariba.com`
 
     c. For **Reply URL**, enter one of the following URL pattern:
+
 	| Reply URL|
 	|----------|
-	| `https://<subdomain>.ariba.com/CUSTOM_URL` |
+    | `https://<subdomain>.ariba.com/CUSTOM_URL` |
 	| `https://<subdomain>.procurement-eu.ariba.com/CUSTOM_URL` |
 	| `https://<subdomain>.procurement-eu.ariba.com` |
 	| `https://<subdomain>.procurement-2.ariba.com` |
