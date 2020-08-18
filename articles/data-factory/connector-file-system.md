@@ -6,13 +6,11 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 08/18/2020
 ms.author: jingwang
-
 ---
 
 # Copy data to or from a file system by using Azure Data Factory
@@ -202,7 +200,7 @@ The following properties are supported for file system under `storeSettings` set
 
 ### File system as sink
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for file system under `storeSettings` settings in format-based copy sink:
 

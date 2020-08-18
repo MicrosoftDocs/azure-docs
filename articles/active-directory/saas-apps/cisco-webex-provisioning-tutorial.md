@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Cisco Webex for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Cisco Webex.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia 
+ms.author: zhchia
 ---
 
 # Tutorial: Configure Cisco Webex for automatic user provisioning
