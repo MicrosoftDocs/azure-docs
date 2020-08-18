@@ -54,22 +54,6 @@ landingContent:
             url: transact-sql-tsql-differences-sql-server.md
 
   # Card 
-  - title: Learn Azure SQL 
-    linkLists:
-      - linkListType: learn
-        links:
-        - text: Azure SQL for beginners
-          url: https://aka.ms/azuresql4beginners
-        - text: Azure SQL fundamentals 
-          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
-        - text: Azure SQL hands-on labs
-          url: https://aka.ms/asqlworkshop
-        - text: Azure SQL bootcamp 
-          url: https://aka.ms/azuresqlbootcamp
-        - text: Educational SQL resources
-          url: /sql/sql-server/educational-sql-resources
-
-  # Card 
   - title: Business continuity  
     linkLists:
       - linkListType: how-to-guide
@@ -124,6 +108,21 @@ landingContent:
           - text: Resource management 
             url: elastic-pool-resource-management.md
 
+  # Card 
+  - title: Learn Azure SQL 
+    linkLists:
+      - linkListType: learn
+        links:
+        - text: Azure SQL for beginners
+          url: https://aka.ms/azuresql4beginners
+        - text: Azure SQL fundamentals 
+          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+        - text: Azure SQL hands-on labs
+          url: https://aka.ms/asqlworkshop
+        - text: Azure SQL bootcamp 
+          url: https://aka.ms/azuresqlbootcamp
+        - text: Educational SQL resources
+          url: /sql/sql-server/educational-sql-resources
 
   # Card 
   - title: Reference 

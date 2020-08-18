@@ -126,12 +126,14 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+        - text: Azure portal
+          url: windows/sql-vm-create-portal-quickstart.md
         - text: Azure CLI samples
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: /cli/azure/sql/vm
         - text: PowerShell samples
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: windows/sql-vm-create-powershell-quickstart.md
         - text: ARM template samples 
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: windows/create-sql-vm-resource-manager-template.md
       - linkListType: download
         links:
         - text: SQL Server Management Studio (SSMS)
