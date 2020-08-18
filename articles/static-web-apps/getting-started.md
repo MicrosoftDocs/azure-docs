@@ -32,14 +32,14 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
 
 ## Create a static web app
 
-Inside Visual Studio Code, click on the Azure logo in the Activity Bar to open the Azure extensions window.
+Inside Visual Studio Code, select the Azure logo in the Activity Bar to open the Azure extensions window.
 
 :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure Logo":::
 
 > [!NOTE]
 > If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
 
-Place your mouse over the _Static Web Apps_ label and click on the **plus sign**.
+Place your mouse over the _Static Web Apps_ label and select the **plus sign**.
 
 :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 

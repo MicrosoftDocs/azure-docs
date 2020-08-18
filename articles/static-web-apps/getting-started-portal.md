@@ -27,10 +27,10 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 Now that the repository is created, you can create a static web app from the Azure portal.
 
 - Navigate to the [Azure portal](https://portal.azure.com)
-- Click **Create a Resource**
+- Select **Create a Resource**
 - Search for **Static Web Apps**
-- Click **Static Web Apps (Preview)**
-- Click **Create**
+- Select **Static Web Apps (Preview)**
+- Select **Create**
 
 ### Basics
 
@@ -44,7 +44,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
   - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
 - Select a _Region_ closest to you
 - Select the **Free** _SKU_
-- Click the **Sign-in with GitHub** button and authenticate with GitHub
+- Select the **Sign-in with GitHub** button and authenticate with GitHub
 
 Once you sign in with GitHub, then enter the repository information.
 
@@ -53,7 +53,7 @@ Once you sign in with GitHub, then enter the repository information.
 - Select your preferred _Organization_
 - Select **my-first-web-static-app** from the _Repository_ drop-down
 - Select **master** from the _Branch_ drop-down
-- Click the **Next: Build >** button to edit the build configuration
+- Select the **Next: Build >** button to edit the build configuration
 
 :::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Next Build button":::
 
@@ -90,7 +90,7 @@ Next, add configuration details specific to your preferred front-end framework.
 
 ---
 
-Click the **Review + create** button.
+Select the **Review + create** button.
 
 :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
@@ -100,11 +100,11 @@ To change these values after you create the app, you can edit the [workflow file
 
 After the request validates, you can continue to create the application.
 
-Click the **Create** button
+Select the **Create** button
 
 :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
 
-Once the resource is created, click the **Go to resource** button
+Once the resource is created, select the **Go to resource** button
 
 :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
 
@@ -116,9 +116,9 @@ If you're not going to continue to use this application, you can delete the Azur
 
 1. Open the [Azure portal](https://portal.azure.com)
 1. Search for **my-first-web-static-app** from the top search bar
-1. Click on the app name
-1. Click on the **Delete** button
-1. Click **Yes** to confirm the delete action
+1. Select on the app name
+1. Select on the **Delete** button
+1. Select **Yes** to confirm the delete action
 
 ## Next steps
 
