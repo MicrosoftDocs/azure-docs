@@ -107,6 +107,12 @@ The following request headers will not be forwarded to a backend when using cach
 - Content-Length
 - Transfer-Encoding
 
+## Cache duration
+
+Cache duration can be configured in both the Front Door Designer and in Rules Engine. The cache duration set in the Frontdoor designer is the minimum cache duration. This override will not work if the cache control header from the origin has greater TTL than override value. 
+
+The cache duration set via Rules Engine is a true cache override, meaning that it will use the override value irrespective of what the origin response header is.
+
 ## Next steps
 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).

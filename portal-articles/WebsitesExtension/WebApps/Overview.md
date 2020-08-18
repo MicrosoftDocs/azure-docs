@@ -15,18 +15,18 @@ ms.author: sewatson
 Azure App Service enables you to build and host web applications in the programming language of your choice without managing infrastructure nor the language or web framework runtime. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps Services, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
 
 ## Windows, Linux, and Docker
-[Web Apps](/app-service/overview) is App Service's main offering for building and hosting web applications using Windows environments. Developers who prefer a Linux environment may choose [App Service for Linux](/app-service/containers/app-service-linux-intro). Developers can also deploy Docker images directly into App Service for Linux to deploy custom runtimes/frameworks.
+[Web Apps](/app-service/overview) is App Service's main offering for building and hosting web applications using Windows environments. Developers who prefer a Linux environment may choose [App Service for Linux](/app-service/overview#app-service-on-linux). Developers can also deploy Docker images directly into App Service for Linux to deploy custom runtimes/frameworks.
 
 ## 5-Minute Quickstarts
 
 Learn how to deploy your first application to the cloud using App Service for Web Apps:
 
-- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
-- [PHP](/azure/app-service/app-service-web-get-started-php)
-- [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/containers/quickstart-python)
-- [HTML](/azure/app-service/app-service-web-get-started-html)
+- [.NET](/azure/app-service/quickstart-dotnetcore)
+- [Node.js](/azure/app-service/quickstart-nodejs)
+- [PHP](/azure/app-service/quickstart-php)
+- [Java](/azure/app-service/quickstart-java)
+- [Python](/azure/app-service/quickstart-python)
+- [HTML](/azure/app-service/quickstart-html)
 
 ## Step-by-Step Tutorials
 
@@ -34,9 +34,9 @@ Learn how to deploy, manage, and monitor secure web applications on Azure.
 
 - Create an application using:
   - [.NET with Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-  - [Node.js with MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Node.js with MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app)
   - [Java with MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python with PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
+  - [Python with PostgreSQL](/app-service/tutorial-python-postgresql-app)
 - [Map an existing custom domain to your application](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Bind an SSL certificate to your application](/azure/app-service/configure-ssl-bindings)
 

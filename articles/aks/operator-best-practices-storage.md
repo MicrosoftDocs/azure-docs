@@ -84,7 +84,7 @@ For more information about storage class options, see [storage reclaim policies]
 
 ## Secure and back up your data
 
-**Best practice guidance** - Back up your data using an appropriate tool for your storage type, such as Velero or Azure Site Recovery. Verify the integrity, and security, of those backups.
+**Best practice guidance** - Back up your data using an appropriate tool for your storage type, such as Velero or Azure Backup. Verify the integrity, and security, of those backups.
 
 When your applications store and consume data persisted on disks or in files, you need to take regular backups or snapshots of that data. Azure Disks can use built-in snapshot technologies. You may need to look for your applications to flush writes to disk before you perform the snapshot operation. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], back up the data from persistent volumes and regularly test the restore operations to verify data integrity and the processes required.
 

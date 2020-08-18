@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ARES for Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ARES for Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 002b941e-0345-43f8-a102-baab9bb1e1dd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ARES for Enterprise
 

@@ -22,6 +22,8 @@
   items:
     - name: Manually scale an app
       href: spring-cloud-tutorial-scale-manual.md
+    - name: Autoscale an app
+      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alerts and action groups
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Use IntelliJ to deploy apps
@@ -45,6 +47,8 @@
     href: ./policy-samples.md
 - name: Concepts
   items: 
+    - name: Understand app and deployment
+      href: spring-cloud-concept-understand-app-and-deployment.md
     - name: Understand quotas and limits
       href: spring-cloud-quotas.md
     - name: Understand metrics

@@ -222,24 +222,18 @@
   items:
   - name: Get started
     items:
-    - name: Create an account
+    - name: Find your Azure subscription
+      href: how-to-set-azure-subscription.md
+    - name: Create a Media Services account
       href: create-account-howto.md
       displayName: portal, cli, storage
-    - name: Reset the account credentials
-      href: cli-reset-account-credentials.md   
     - name: Access API
       displayName: portal, cli
-      href: access-api-howto.md   
-    - name: Scale media reserved units
-      href: media-reserved-units-cli-how-to.md   
-    - name: Create an asset
-      href: cli-create-asset.md 
-  - name: Developer guides
-    items:
+      href: access-api-howto.md
     - name: Develop with REST
       items:
       - name: Connect with Postman
-        href: media-rest-apis-with-postman.md       
+        href: media-rest-apis-with-postman.md
     - name: Develop with SDKs
       items:
       - name: Connect with Java
@@ -250,8 +244,12 @@
         href: configure-connect-nodejs-howto.md
       - name: Connect with Python
         href: configure-connect-python-howto.md
+    - name: Reset account credentials
+      href: cli-reset-account-credentials.md
   - name: Upload content
     items:
+    - name: Create an asset
+      href: cli-create-asset.md
     - name: From HTTPS
       displayName: upload
       href: job-input-from-http-how-to.md
@@ -282,6 +280,8 @@
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
     - name: Encode with a custom transform
+    - name: Scale media reserved units
+      href: media-reserved-units-cli-how-to.md
       items:
       - name: With .NET
         displayName: encode, encoding, custom, transform
@@ -289,13 +289,17 @@
         - name: Customize encoder presets
           href: customize-encoder-presets-how-to.md
         - name: Create an overlay transform
-          href: how-to-create-overlay.md  
+          href: how-to-create-overlay.md
+        - name: Generate thumbnails with .NET
+          href: media-services-generate-thumbnails-dotnet.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md    
+        href: custom-preset-rest-howto.md
+      - name: Generate thumbnails with REST
+        href: media-services-generate-thumbnails-rest.md
     - name: Subclip a video
       items:
       - name: With .NET
