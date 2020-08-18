@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: seoapr2020, tracking-python
+ms.topic: how-to
+ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
 ---
 
@@ -42,11 +42,11 @@ There are two types of open-source components that are available in the HDInsigh
 
 HDInsight Spark cluster is created with Anaconda installation. There are two Python installations in the cluster, Anaconda Python 2.7 and Python 3.5. The table below shows the default Python settings for Spark, Livy, and Jupyter.
 
-| |Python 2.7|Python 3.5|
+|Setting |Python 2.7|Python 3.5|
 |----|----|----|
 |Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Default set to 2.7|N/A|
-|Livy|Default set to 2.7|N/A|
+|Spark version|Default set to 2.7|N/A|
+|Livy version|Default set to 2.7|N/A|
 |Jupyter|PySpark kernel|PySpark3 kernel|
 
 ## Safely install external Python packages

@@ -1,16 +1,8 @@
 ---
 title: Troubleshoot connectivity issues - Azure Event Hubs | Microsoft Docs
 description: This article provides information on troubleshooting connectivity issues with Azure Event Hubs. 
-services: event-hubs
-documentationcenter: na
-author: spelluru
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Troubleshoot connectivity issues - Azure Event Hubs
@@ -51,7 +43,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### Verify that IP addresses are allowed in your corporate firewall
-When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - EventHub](network-security.md#service-tags).
+When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Also, verify that the IP address for your namespace is allowed. To find the right IP addresses to allow for your connections, follow these steps:
 
@@ -78,13 +70,16 @@ If you use the zone redundancy for your namespace, you need to do a few addition
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones. 
 
+### Verify that AzureEventGrid service tag is allowed in your network security groups
+If your application is running inside a subnet and there is an associated network security group, confirm whether the internet outbound is allowed or AzureEventGrid service tag is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
+
 ### Check if the application needs to be running in a specific subnet of a vnet
 Confirm that your application is running in a virtual network subnet that has access to the namespace. If it's not, run the application in the subnet that has access to the namespace or add the IP address of the machine on which application is running to the [IP firewall](event-hubs-ip-filtering.md). 
 
 When you create a virtual network service endpoint for an event hub namespace, the namespace accepts traffic only from the subnet that's bound to the service endpoint. There is an exception to this behavior. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. For more information, see [Network service endpoints](event-hubs-service-endpoints.md).
 
 ### Check the IP Firewall settings for your namespace
-Check that your IP address of the machine on which the application is running isn't blocked by the IP firewall.  
+Check that the public IP address of the machine on which the application is running isn't blocked by the IP firewall.  
 
 By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
@@ -111,9 +106,9 @@ Enable diagnostic logs for [Event Hubs virtual network connection events](event-
 ### Check if the namespace can be accessed using only a private endpoint
 If the Event Hubs namespace is configured to be accessible only via private endpoint, confirm that the client application is accessing the namespace over the private endpoint. 
 
-[Azure Private Link service](../private-link/private-link-overview.md) enables you to access Azure Event Hubs over a **private endpoint** in your virtual network. A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
+[Azure Private Link service](../private-link/private-link-overview.md) enables you to access Azure Event Hubs over a **private endpoint** in your virtual network. A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [Configure private endpoints](private-link-service.md). 
+For more information, see [Configure private endpoints](private-link-service.md). See the **Validate that the private endpoint connection works** section to confirm that a private endpoint is used. 
 
 ### Troubleshoot network-related issues
 To troubleshoot network-related issues with Event Hubs, follow these steps: 
@@ -163,7 +158,7 @@ Transient connectivity issues may occur because of backend service upgrades and 
 - The applications may be disconnected from the service for a few seconds.
 - Requests may be momentarily throttled.
 
-If the application code utilizes SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow. Otherwise, retry connecting to the service after a couple of minutes to see if the issues go away. 
+If the application code utilizes SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow. Catching these transient errors, backing off and then retrying the call will ensure that your code is resilient to these transient issues.
 
 ## Next steps
 See the following articles:

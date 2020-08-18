@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IBM Digital Business Automation on Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IBM Digital Business Automation on Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 46f9c739-cd21-4d84-9b65-8e0e381e85ea
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with IBM Digital Business Automation on Cloud
@@ -90,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
     > [!Note]
-    > Customers can obtain the metadata file for their Cloud subscription from the [DBAoC DevOps team](mailto:supportbpmoncloud@us.ibm.com).
+    > Customers can obtain the metadata file for their Cloud subscription from the [IBM Digital Business Automation on Cloud Client support team](mailto:supportbpmoncloud@us.ibm.com).
 
 1. If you don't have **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 

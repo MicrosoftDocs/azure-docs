@@ -3,27 +3,36 @@ title: Upload content to an Azure Media Services asset using Azure CLI
 description: The Azure CLI script in this topic shows how to create a Media Services Asset to upload content to.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: 
 
 ms.assetid:
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.custom: devx-track-azurecli
 ---
 
-# CLI example: Create an Asset
+# Create an Asset
 
-The Azure CLI script in this article shows how to create a Media Services Asset to upload content to.
+This article shows how to create a Media Services Asset.  You will use an asset to hold media content for encoding and streaming.  To learn more about Media Services assets, read [Assets in Azure Media Services v3](assets-concept.md)
 
-## Prerequisites 
+## Prerequisites
 
-[Create a Media Services account](create-account-cli-how-to.md).
+Follow the steps in [Create a Media Services account](./create-account-howto.md) to create the needed Media Services account and resource group to create an asset.
+
+## Methods
+
+## [CLI](#tab/cli/)
+
+[!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
+
+## [CLI Shell](#tab/clishell/)
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -31,6 +40,8 @@ The Azure CLI script in this article shows how to create a Media Services Asset 
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
+---
+
 ## Next steps
 
-[Media Services overview](media-services-overview.md)
+[Manage assets](manage-asset-concept.md)

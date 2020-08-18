@@ -23,7 +23,7 @@ The tables in this section list the [Live Event](live-events-outputs-concept.md)
 
 ## LiveEventConnectionRejected
 
-When you subscribe to the [Event Grid](https://docs.microsoft.com/azure/event-grid/) events for a live event, you may see one of the following errors from the [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected)  event.
+When you subscribe to the [Event Grid](../../event-grid/index.yml) events for a live event, you may see one of the following errors from the [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected)  event.
 
 | Result code | Description |
 | ----------- | ----------- |

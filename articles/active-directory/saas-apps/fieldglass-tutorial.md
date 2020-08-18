@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Fieldglass | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Fieldglass.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Fieldglass
 
@@ -106,10 +99,10 @@ To configure Azure AD single sign-on with Fieldglass, perform the following step
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 	
-    | |
-	|--|
-	| `https://www.fieldglass.net/<company name>`|
-	| `https://<company name>.fgvms.com/<company name>`|
+    ```http
+    https://www.fieldglass.net/<company name>
+    https://<company name>.fgvms.com/<company name>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Fieldglass Client support team](https://www.fieldglass.com/customer-support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

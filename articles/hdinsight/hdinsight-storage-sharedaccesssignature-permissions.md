@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ---
@@ -26,7 +26,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * An existing [storage container](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -416,7 +416,9 @@ Use the following steps to verify that you can only read and list items on the S
 
     You receive a message similar to the following text:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     This error occurs because the storage location is read+list only. Use the following command to put the data on the default storage for the cluster, which is writable:
 

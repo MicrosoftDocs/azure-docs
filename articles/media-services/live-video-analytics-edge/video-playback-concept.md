@@ -41,7 +41,7 @@ As described in [media graph file sink](media-graph-concept.md#file-sink), you c
 
 ## Next steps
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)
+[Azure IoT Edge](../../iot-edge/index.yml)
 <!--
 ## Next steps
 

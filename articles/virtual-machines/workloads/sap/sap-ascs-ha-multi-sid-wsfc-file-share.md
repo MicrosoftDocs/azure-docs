@@ -41,10 +41,10 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
-> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../../availability-zones/az-overview.md)
 > 
 
-For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) instead of the basic SKU of the Azure load balancer.
+For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md) instead of the basic SKU of the Azure load balancer.
 
 ## Prerequisites
 

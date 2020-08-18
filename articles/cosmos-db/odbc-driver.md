@@ -63,7 +63,7 @@ Let's get started with the ODBC driver.
 1. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 
 1.	Click **Advanced Options** and set the following values:
-    *  **REST API Version**: Select the [REST API version](https://docs.microsoft.com/rest/api/cosmos-db/) for your operations. The default 2015-12-16. If you have containers with [large partition keys](large-partition-keys.md) and require REST API version 2018-12-31:
+    *  **REST API Version**: Select the [REST API version](/rest/api/cosmos-db/) for your operations. The default 2015-12-16. If you have containers with [large partition keys](large-partition-keys.md) and require REST API version 2018-12-31:
         - Type in **2018-12-31** for REST API version
         - In the **Start** menu, type "regedit" to find and open the **Registry Editor** application.
         - In Registry Editor, navigate to the path: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -192,7 +192,7 @@ You can define and create views as part of the sampling process. These views are
 
 To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the container to sample. 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
 
 
 Then in the **View Definitions** window, do the following:
@@ -222,7 +222,7 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. In the **From ODBC** window, select the data source name you created, and then click **OK**. You can leave the **Advanced Options** entries blank.
 
-    ![Choose Data source name (DSN) in Power BI Get Data](./media/odbc-driver/odbc-driver-power-bi-get-data-3.png)
+   :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-3.png" alt-text="Choose Data source name (DSN) in Power BI Get Data":::
 
 1. In the **Access a data source using an ODBC driver** window, select **Default or Custom** and then click **Connect**. You do not need to include the **Credential connection string properties**.
 
@@ -232,15 +232,18 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. To visualize the data in Power BI desktop, check the box in front of the table name, and then click **Load**.
 
-1. In Power BI Desktop, on the far left, select the Data tab ![Data tab in Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) to confirm your data was imported.
+1. In Power BI Desktop, on the far left, select the Data tab :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: to confirm your data was imported. 
 
-1. You can now create visuals using Power BI by clicking on the Report tab ![Report tab in Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. You can now create visuals using Power BI by clicking on the Report tab :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png":::, clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## Troubleshooting
 
 If you receive the following error, ensure the **Host** and **Access Key** values you copied the Azure portal in [Step 2](#connect) are correct and then retry. Use the copy buttons to the right of the **Host** and **Access Key** values in the Azure portal to copy the values error free.
 
-    [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```output
+[HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}
+```
+
 
 ## Next steps
 

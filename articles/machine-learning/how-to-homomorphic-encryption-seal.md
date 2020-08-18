@@ -1,19 +1,19 @@
 ---
-title: Deploy an encrypted inferencing service
+title: Deploy an encrypted inferencing service (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use Microsoft SEAL to deploy an encrypted prediction service for image classification
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 05/18/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 #intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data
 ---
 
-# How to deploy an encrypted inferencing web service
+# How to deploy an encrypted inferencing web service (preview)
 
 Learn how to deploy an image classification model as an encrypted inferencing web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). The web service is a Docker container image that contains the model and scoring logic.
 

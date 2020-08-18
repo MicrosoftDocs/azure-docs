@@ -1,22 +1,10 @@
 ---
 title: Create custom artifacts for your DevTest Labs virtual machine | Microsoft Docs
-description: Learn how to author your own artifacts to use with Azure DevTest Labs.
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Learn how to create artifacts to use with Azure DevTest Labs to deploy and set up applications after you provision a virtual machine.
 ms.topic: article
-ms.date: 05/30/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Create custom artifacts for your DevTest Labs virtual machine
 
 Watch the following video for an overview of the steps described in this article:
@@ -31,23 +19,25 @@ You can use *artifacts* to deploy and set up your application after you provisio
 ## Artifact definition file format
 The following example shows the sections that make up the basic structure of a definition file:
 
-    {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-      "title": "",
-      "description": "",
-      "iconUri": "",
-      "targetOsType": "",
-      "parameters": {
-        "<parameterName>": {
-          "type": "",
-          "displayName": "",
-          "description": ""
-        }
-      },
-      "runCommand": {
-        "commandToExecute": ""
+```json
+  {
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "",
+    "description": "",
+    "iconUri": "",
+    "targetOsType": "",
+    "parameters": {
+      "<parameterName>": {
+        "type": "",
+        "displayName": "",
+        "description": ""
       }
+    },
+    "runCommand": {
+      "commandToExecute": ""
     }
+  }
+```
 
 | Element name | Required? | Description |
 | --- | --- | --- |
@@ -64,13 +54,15 @@ In the parameters section of the definition file, specify which values a user ca
 
 To define parameters, use the following structure:
 
-    "parameters": {
-      "<parameterName>": {
-        "type": "<type-of-parameter-value>",
-        "displayName": "<display-name-of-parameter>",
-        "description": "<description-of-parameter>"
-      }
+```json
+  "parameters": {
+    "<parameterName>": {
+      "type": "<type-of-parameter-value>",
+      "displayName": "<display-name-of-parameter>",
+      "description": "<description-of-parameter>"
     }
+  }
+```
 
 | Element name | Required? | Description |
 | --- | --- | --- |
@@ -122,12 +114,14 @@ The following list shows common functions:
 
 The following example shows how to use expressions and functions to construct a value:
 
-    runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
-    , ' -RawPackagesList ', parameters('packages')
-    , ' -Username ', parameters('installUsername')
-    , ' -Password ', parameters('installPassword'))]"
-    }
+```json
+  runCommand": {
+      "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+  , ' -RawPackagesList ', parameters('packages')
+  , ' -Username ', parameters('installUsername')
+  , ' -Password ', parameters('installPassword'))]"
+  }
+```
 
 ## Create a custom artifact
 

@@ -29,11 +29,9 @@ enterprise-ready governance. This environment is composed of:
   used for the Certificates, Keys, and Secrets deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your migration
-- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard
-  version) provides threat protection for your migrated workloads.
 - Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) providing
   an isolated network and subnets for your virtual machine.
-- Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) for discovery and
+- Deploy [Azure Migrate Project](../../../../migrate/migrate-services-overview.md) for discovery and
   assessment. We're adding the tools for Server assessment, Server migration, Database assessment,
   and Database migration.  
 

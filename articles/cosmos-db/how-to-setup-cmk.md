@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/05/2020
 ms.author: thweiss
 ---
 
@@ -23,7 +23,7 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), go to your Azure subscription, and select **Resource providers** under the **Settings** tab:
 
-   !["Resource providers" entry from the left menu](./media/how-to-setup-cmk/portal-rp.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Resource providers entry from the left menu":::
 
 1. Search for the **Microsoft.DocumentDB** resource provider. Verify if the resource provider is already marked as registered. If not, choose the resource provider and select **Register**:
 
@@ -46,7 +46,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
-   !["Access policies" from the left menu](./media/how-to-setup-cmk/portal-akv-ap.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Access policies from the left menu":::
 
 1. Select **+ Add Access Policy**.
 
@@ -60,11 +60,13 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
 1. Select **Add** to add the new access policy.
 
+1. Select **Save** on the Key Vault instance to save all changes.
+
 ## Generate a key in Azure Key Vault
 
 1. From the Azure portal, go the Azure Key Vault instance that you plan to use to host your encryption keys. Then, select **Keys** from the left menu:
 
-   !["Keys" entry from the left menu](./media/how-to-setup-cmk/portal-akv-keys.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Keys entry from the left menu":::
 
 1. Select **Generate/Import**, provide a name for the new key, and select an RSA key size. A minimum of 3072 is recommended for best security. Then select **Create**:
 
@@ -223,7 +225,15 @@ Rotating the customer-managed key used by your Azure Cosmos account can be done 
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Create a new key version":::
 
-- Swap the key currently used with a totally different one by updating the `keyVaultKeyUri` property of your account. Here's how to do it in PowerShell:
+- Swap the key currently used with a totally different one by updating the key URI on your account. From the Azure portal, go to your Azure Cosmos account and select **Data Encryption** from the left menu:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="The Data Encryption menu entry":::
+
+    Then, replace the **Key URI** with the new key you want to use and select **Save**:
+
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Update the key URI":::
+
+    Here's how to do achieve the same result in PowerShell:
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -282,7 +292,11 @@ Not currently, but container-level keys are being considered.
 
 ### How can I tell if customer-managed keys are enabled on my Azure Cosmos account?
 
-You can programmatically fetch the details of your Azure Cosmos account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
+From the Azure portal, go to your Azure Cosmos account and watch for the **Data Encryption** entry in the left menu; if this entry exists, customer-managed keys are enabled on your account:
+
+:::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="The Data Encryption menu entry":::
+
+You can also programmatically fetch the details of your Azure Cosmos account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
 
 ### How do customer-managed keys affect a backup?
 

@@ -6,6 +6,7 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
+ms.custom: devx-track-java
 ---
 
 # Authenticate Azure Spring Cloud with Key Vault in GitHub Actions

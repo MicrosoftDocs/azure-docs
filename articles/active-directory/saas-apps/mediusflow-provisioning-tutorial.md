@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MediusFlow.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: c6c65170-c5cb-44f6-81f8-25d972759e2c
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
@@ -48,14 +43,14 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure MediusFlow to support provisioning with Azure AD
 
-### Activate the Office 365 app within MediusFlow
+### Activate the Microsoft 365 app within MediusFlow
 Start by enabling the access of the Azure AD login and the Azure AD configuration feature within MediusFlow by performing the following steps:
 
 #### User login
-To, enable the login flow to Office 365/Azure AD refer [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
+To enable the login flow to Microsoft 365/Azure AD refer to [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
 
 #### User transfer configuration
-To, enable the configuration portal of the users for provisioning from Azure AD refer [this](
+To enable the configuration portal of the users for provisioning from Azure AD refer to [this](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) article.
 
 #### Configure user provisioning
@@ -90,7 +85,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 	![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
 
-8. To get the users imported with a pre-defined set of roles, companies and other general configurations in MediusFlow, you will need to configure it that first. Start by adding the configuration by clicking on **Add new configuration**.
+8. To get the users imported with a pre-defined set of roles, companies and other general configurations in MediusFlow, you will need to configure it first. Start by adding the configuration by clicking on **Add new configuration**.
 
 	![Config users](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
 
@@ -198,7 +193,7 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## Additional resources

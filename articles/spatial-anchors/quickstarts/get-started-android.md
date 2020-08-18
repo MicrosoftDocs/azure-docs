@@ -82,7 +82,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `public AzureSpatialAnchorsManager(Session arCoreSession)` and add the following line, substituting in your account domain from earlier: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 # [NDK](#tab/openproject-ndk)
 
@@ -92,7 +92,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `AzureSpatialAnchorsApplication::StartCloudSession()` and add the following line, substituting in your account domain from earlier: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 ---
 

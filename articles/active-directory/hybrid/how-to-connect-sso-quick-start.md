@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -157,9 +157,9 @@ There are two ways to modify users' Intranet zone settings:
 
 4. Enter the following values in appropriate fields and click **OK**.
    - **Key Path**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Value name**: ***https***.
-   - **Value type**: ***REG_DWORD***.
-   - **Value data**: ***00000001***.
+   - **Value name**: ***https***
+   - **Value type**: ***REG_DWORD***
+   - **Value data**: ***00000001***
  
      ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  

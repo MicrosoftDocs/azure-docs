@@ -1,10 +1,7 @@
 ---
 title: Manage app groups for Windows Virtual Desktop portal - Azure
 description: How to manage Windows Virtual Desktop app groups with the Azure portal.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
@@ -13,10 +10,7 @@ manager: lizross
 # Tutorial: Manage app groups with the Azure portal
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
 The default app group created for a new Windows Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
 
@@ -49,16 +43,16 @@ the following process:
     > ![A screenshot of the Basics tab in the Azure portal.](media/basics-tab.png)
 
 6. If you want to add application groups to your host pool, select **Host pools** in the menu on the left side of the screen.
-   
+
     Next, select the name of the host pool you want to add application groups to.
-   
+
     After that, select **Application groups** from the menu on the left side of the screen, then select **+Add**.
 
     Finally, select the subscription group and resource group you want to create the app group in. You can either select the name of an existing resource group from the drop-down menu or select **Create new** to make a new one.
 
       >[!NOTE]
       >When you add application groups to your host pool, the host pool that's related to the application group is already selected because you navigated from it.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![A screenshot of the Basics tab with the host pool preselected.](media/host-pool-selected.png)
 
@@ -80,7 +74,7 @@ the following process:
 
 12.  Select the **Applications** tab, then select **+Add applications**.
 
-13.  To add an application from the start menu: 
+13.  To add an application from the start menu:
 
       - Go to **Application source** and select **Start menu** from the drop-down menu. Next, go to **Application** and choose the application from the drop-down menu.
 
@@ -111,7 +105,7 @@ the following process:
 16.  If you want to register the app group to a workspace, go to **Register application group** and select **Yes**. If you'd rather register the app group at a later time, select **No**.
 
 17.  If you select **Yes**, you can select an existing workspace to register your app group to.
-       
+
        >[!NOTE]
        >You can only register the app group to workspaces created in the same location as the host pool. Also. if you've previously registered another app group from the same host pool as your new app group to a workspace, it will be selected and you can't edit it. All app groups from a host pool must be registered to the same workspace.
 

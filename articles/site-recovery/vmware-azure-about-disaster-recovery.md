@@ -16,8 +16,11 @@ This article provides an overview of disaster recovery for on-premises VMware VM
 
 A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include: 
 
-- [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
+- [Azure Backup](../backup/backup-overview.md) backs up your on-premises and Azure VM data. You can back up a file and folders, specific workloads, or an entire VM. 
 - [Azure Site Recovery](site-recovery-overview.md) provides resilience and disaster recovery for apps and workloads running on on-premises machines, or Azure IaaS VMs. Site Recovery orchestrates replication, and handles failover to Azure when outages occur. It also handles recovery from Azure to your primary site. 
+
+> [!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## How does Site Recovery do disaster recovery?
 

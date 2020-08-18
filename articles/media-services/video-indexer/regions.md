@@ -9,7 +9,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
-ms.author: anzaman
+ms.author: kumud
 ---
 
 # Azure regions in which Video Indexer exists

@@ -4,7 +4,8 @@ description: Create your first Azure Resource Manager template. In the tutorial,
 author: mumian
 ms.date: 06/10/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
@@ -26,7 +27,7 @@ Let's start by making sure you have the tools you need to create and deploy temp
 
 ### Editor
 
-Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+Templates are JSON files. To create templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ### Command-line deployment
 

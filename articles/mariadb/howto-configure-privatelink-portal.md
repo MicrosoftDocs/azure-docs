@@ -4,7 +4,7 @@ description: Learn how to configure private link for Azure Database for MariaDB 
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ---
 
@@ -15,7 +15,7 @@ A Private Endpoint is the fundamental building block for private link in Azure. 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for MariaDB supports General Purpose and Memory Optimized pricing tiers.
+> The private link feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the database server is in one of these pricing tiers.
 
 ## Sign in to Azure
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -204,7 +204,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 ## Access the MariaDB server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 

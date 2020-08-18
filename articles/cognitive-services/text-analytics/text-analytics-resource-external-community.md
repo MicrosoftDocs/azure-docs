@@ -18,7 +18,7 @@ ms.author: aahi
 
 ## Blogs
 
-+ [Text Analytics API original announcement (Azure blog)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
++ [Text Analytics API original announcement (Azure blog)](https://azure.microsoft.com/blog/using-text-analytics-in-call-centers/)
 
 + [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (AutomationNext blog)](https://automationnext.wordpress.com/tag/text-analytics/)
 

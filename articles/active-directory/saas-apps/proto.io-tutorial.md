@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Proto.io | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Proto.io.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a68387de-6dfe-44b6-a9e3-94242f180e28
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Proto.io
@@ -101,11 +95,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Proto.io application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.mail |
-	| fname | | user.givenname |
-	| lname | | user.surname |
+	| Name | Source Attribute|
+	| --------------- | --------- |
+	| email | user.mail |
+	| fname | user.givenname |
+	| lname | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

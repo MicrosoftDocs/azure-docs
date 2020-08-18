@@ -4,9 +4,10 @@ description: Specifications for the HBv2-series VMs.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
-ms.date: 02/03/2020
+ms.topic: conceptual
+ms.date: 08/06/2020
 ms.author: amverma
+ms.reviewer: jushiman
 ---
 
 # HBv2-series
@@ -37,4 +38,7 @@ Memory Preserving Updates: Not Supported
 
 ## Next steps
 
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+- Learn more about [configuring your VMs](./workloads/hpc/configure.md), [enabling InfiniBand](./workloads/hpc/enable-infiniband.md), [setting up MPI](./workloads/hpc/setup-mpi.md) and optimizing HPC applications for Azure at [HPC Workloads](./workloads/hpc/overview.md).
+- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

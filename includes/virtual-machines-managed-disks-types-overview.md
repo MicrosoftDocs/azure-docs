@@ -18,8 +18,8 @@ Azure managed disks currently offers four disk types, each type is aimed towards
 
 The following table provides a comparison of ultra disks, premium solid-state drives (SSD), standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.
 
-|   | Ultra disk   | Premium SSD   | Standard SSD   | Standard HDD   |
-|---------|---------|---------|---------|---------|
+| Detail | Ultra disk | Premium SSD | Standard SSD | Standard HDD |
+| ------ | ---------- | ----------- | ------------ | ------------ |
 |Disk type   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |IO-intensive workloads such as [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and dev/test   |Backup, non-critical, infrequent access   |
 |Max disk size   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |

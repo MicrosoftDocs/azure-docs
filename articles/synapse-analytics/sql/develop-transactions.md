@@ -1,18 +1,18 @@
 ---
-title: Using transactions
+title: Use transactions
 description: Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Using transactions in SQL pool
+# Use transactions in SQL pool
 
 Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
 
@@ -179,7 +179,7 @@ All that has changed is that the ROLLBACK of the transaction had to happen befor
 
 It is also worth noting that SQL pool does not implement or support the ERROR_LINE() function. If you have this in your code, you need to remove it to be compliant with SQL pool. Use query labels in your code instead to implement equivalent functionality. For more details, see the [LABEL](develop-label.md) article.
 
-## Using THROW and RAISERROR
+## Use of THROW and RAISERROR
 
 THROW is the more modern implementation for raising exceptions in SQL pool but RAISERROR is also supported. There are a few differences that are worth paying attention to however.
 
