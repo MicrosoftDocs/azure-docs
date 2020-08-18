@@ -3,7 +3,7 @@ title: 'Share a private link service across Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Steps to configure Private Link in Virtual WAN
 services: virtual-wan
-author: cherylmc
+author: erjosito
 
 ms.service: virtual-wan
 ms.topic: how-to
