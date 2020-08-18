@@ -9,7 +9,7 @@ ms.custom: CLI
 
 <!-- Create a resource group -->
 
-Use the following command the create a resource group. Select the geographic region that will be used to store the media and metadata records for your Media Services account. This region will be used to process and stream your media.
+Use the following command to create a resource group. Select the geographic region that will be used to store the media and metadata records for your Media Services account. This region will be used to process and stream your media.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
