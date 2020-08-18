@@ -35,7 +35,7 @@ We have provided these guidelines specifically for Premium Storage because workl
 >
 > If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](./disks-types.md) and [Scalability targets for premium page blob storage accounts](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
+Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](./linux/disks-types.md) and [Scalability targets for premium page blob storage accounts](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
 
 ## Application performance indicators
 
@@ -409,10 +409,13 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 
-> * For Linux: [Benchmark your application on Azure Disk Storage](./linux/disks-benchmarks.md)
-> * For Windows: [Benchmarking a disk](./windows/disks-benchmarks.md).
+* For Linux: [Benchmark your application on Azure Disk Storage](./linux/disks-benchmarks.md)
+* For Windows: [Benchmarking a disk](./windows/disks-benchmarks.md).
 
-Learn more about the available disk types: [Select a disk type](./disks-types.md)  
+Learn more about the available disk types:
+
+* For Linux: [Select a disk type](./linux/disks-types.md)
+* For Windows: [Select a disk type](./windows//disks-types.md)
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 

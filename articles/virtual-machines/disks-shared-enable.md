@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD:articles/virtual-machines/disks-shared-enable.md
 title: Enable shared disks for Azure managed disks
 description: Configure an Azure managed disk with shared disks so that you can share it across multiple VMs
 author: roygara
@@ -8,6 +9,17 @@ ms.date: 07/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
+=======
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: roygara
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 08/17/2020
+ ms.author: rogarana
+ ms.custom: include file
+>>>>>>> e93723d4757bc2ad6f3463ab6ef4e1e6498ada9a:includes/virtual-machines-enable-shared-disk.md
 ---
 
 # Enable shared disk
@@ -44,13 +56,13 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku Premium_LRS --max-shares 2
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -MaxSharesCount 2
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 ```
