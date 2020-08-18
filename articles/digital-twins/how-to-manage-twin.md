@@ -77,7 +77,6 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
-twin.Id = "myNewRoomID";
 twin.Metadata = new DigitalTwinMetadata();
 twin.Metadata.ModelId = "dtmi:example:Room;1";
 // Initialize properties
@@ -89,13 +88,11 @@ twin.CustomProperties = props;
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
 
-
 >[!NOTE]
-> `BasicDigitalTwin` objects come with an `Id` field. By default, the ID in this data object can't be null, and it needs to match the ID parameter passed to the `CreateDigitalTwin` call. This is why the example above sets an ID of `"myNewRoomID"` for the twin data object before passing it in.
+> `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin` call. For the example above, this would look like:
 >
-> Alternatively, you can use the `IgnoreNullValues` option for serialization in order to omit null values from the data object that is sent to the service. This will allow you to bypass adding any ID to the twin data object:
 >```csharp
-> client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin, new JsonSerializerOptions { IgnoreNullValues = true }));
+>twin.Id = "myNewRoomID";
 >```
 
 ## Get data for a digital twin
