@@ -29,8 +29,9 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 3. On the *Create alert rule* page that follows, you can follow the prompts to define conditions, actions to be triggered, and alert details.     
     * **Scope** details should fill automatically with the details for your instance.
     * You will define **Condition** and **Action group** details to customize alert triggers and responses.
-    * In the Alert rule details section, enter your **Alert rule name, Description (optional)**. You can enable the alert rule upon creation by selecting the **Enable alert rule upon creation** checkbox.
-Click on **Create alert rule** button to create your alert rule.
+    * In the **Alert rule details section**, enter your _Alert rule name_, _Description (optional)_. You can select the _Enable alert rule upon creation checkbox_ if you want the alert to become active as soon as it is created.
+
+Select _Create alert rule_ button to create your alert rule.
 
     :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot showing the Create Alert Rule page with sections for scope, condition, and action group" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 

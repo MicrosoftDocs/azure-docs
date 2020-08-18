@@ -453,12 +453,9 @@ az ad app delete --id <your-application-ID>
 
 Finally, delete the project sample folder you downloaded from your local machine.
 
-You can go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
-
 ## Next steps
 
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)
+* [*Concepts: Custom models*](concepts-models.md)   
