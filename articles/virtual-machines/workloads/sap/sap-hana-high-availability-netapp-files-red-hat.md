@@ -18,6 +18,36 @@ ms.author: radeltch
 
 # High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux
 
+[dbms-guide]:dbms-guide.md
+[deployment-guide]:deployment-guide.md
+[planning-guide]:planning-guide.md
+
+[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
+[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
+[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
+
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1410736]:https://launchpad.support.sap.com/#/notes/1410736
+[1900823]:https://launchpad.support.sap.com/#/notes/1900823
+[2292690]:https://launchpad.support.sap.com/#/notes/2292690
+[2455582]:https://launchpad.support.sap.com/#/notes/2455582
+[2593824]:https://launchpad.support.sap.com/#/notes/2593824
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+
+[sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
+
+[sap-hana-ha]:sap-hana-high-availability.md
+[nfs-ha]:high-availability-guide-suse-nfs.md
+
 This article describes how to configure SAP HANA System Replication in Scale-up deployment, when the HANA file systems are mounted via NFS, using Azure NetApp Files (ANF). In the example configurations and installation commands, instance number **03**, and HANA System ID **HN1** are used. SAP HANA Replication consists of one primary node and at least one secondary node.
 
 When steps in this document are marked with the following prefixes, the meaning is as follows:
@@ -42,9 +72,9 @@ Read the following SAP Notes and papers first:
 - SAP Note [2243692](https://launchpad.support.sap.com/#/notes/2243692) has information about SAP licensing on Linux in Azure.
 - SAP Note [1999351](https://launchpad.support.sap.com/#/notes/1999351) has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 - [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
-- [Azure Virtual Machines planning and implementation for SAP on Linux.](local://base_request.html/planning-guide.md)
-- [Azure Virtual Machines deployment for SAP on Linux (this article).](local://base_request.html/deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP on Linux.](local://base_request.html/dbms-guide.md)
+- [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
+- [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
+- [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 - [SAP HANA system replication in pacemaker cluster.](https://access.redhat.com/articles/3004101)
 - General RHEL documentation
 	- [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -195,82 +225,82 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 6.	Create Virtual Machine 2 (**hanadb2**).  
 7.	While creating virtual machine, we will not be adding any disk as all our mount points will be on NFS shares from Azure NetApp Files. 
 8.	If using standard load balancer, follow these configuration steps:
-	-	First, create a front-end IP pool:
-		-	Open the load balancer, select **frontend IP pool**, and select **Add**.
-		-	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-		-	Set the **Assignment** to **Static** and enter the IP address (for example, **10.32.0.10**).
-		-	Select **OK**.
-		-	After the new front-end IP pool is created, note the pool IP address.
-	-	Next, create a back-end pool:
-		-	Open the load balancer, select **backend pools**, and select **Add**.
-		-	Enter the name of the new back-end pool (for example, **hana-backend**).
-		-	Select **Add a virtual machine**.
-		-	Select ** Virtual machine**.
-		-	Select the virtual machines of the SAP HANA cluster and their IP addresses.
-		-	Select **Add**.
-	-	Next, create a health probe:
-		-	Open the load balancer, select **health probes**, and select **Add**.
-		-	Enter the name of the new health probe (for example, **hana-hp**).
-		-	Select TCP as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-		-	Select **OK**.
-	-	Next, create the load-balancing rules:
-		-	Open the load balancer, select **load balancing rules**, and select **Add**.
-		-	Enter the name of the new load balancer rule (for example, **hana-lb**).
-		-	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
-		-	Select **HA Ports**.
-		-	Increase the **idle timeout** to 30 minutes.
-		-	Make sure to **enable Floating IP**.
-		-	Select **OK**.
+	1.	First, create a front-end IP pool:
+		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
+		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.32.0.10**).
+		1.	Select **OK**.
+		1.	After the new front-end IP pool is created, note the pool IP address.
+	1.	Next, create a back-end pool:
+		1.	Open the load balancer, select **backend pools**, and select **Add**.
+		1.	Enter the name of the new back-end pool (for example, **hana-backend**).
+		1.	Select **Add a virtual machine**.
+		1.	Select ** Virtual machine**.
+		1.	Select the virtual machines of the SAP HANA cluster and their IP addresses.
+		1.	Select **Add**.
+	1.	Next, create a health probe:
+		1.	Open the load balancer, select **health probes**, and select **Add**.
+		1.	Enter the name of the new health probe (for example, **hana-hp**).
+		1.	Select TCP as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+		1.	Select **OK**.
+	1.	Next, create the load-balancing rules:
+		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
+		1.	Enter the name of the new load balancer rule (for example, **hana-lb**).
+		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+		1.	Select **HA Ports**.
+		1.	Increase the **idle timeout** to 30 minutes.
+		1.	Make sure to **enable Floating IP**.
+		1.	Select **OK**.
 
 > [!NOTE] 
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).
 
 9. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
-	-	Configure the load balancer. First, create a front-end IP pool:
-		-	Open the load balancer, select **frontend IP pool**, and select **Add**.
-		-	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-		-	Set the **Assignment** to **Static** and enter the IP address (for example, **10.32.0.10**).
-		-	Select **OK**.
-		-	After the new front-end IP pool is created, note the pool IP address.
-	-	Next, create a back-end pool:
-		-	Open the load balancer, select **backend pools**, and select **Add**.
-		-	Enter the name of the new back-end pool (for example, **hana-backend**).
-		-	Select **Add a virtual machine**.
-		-	Select the availability set created in step 3.
-		-	Select the virtual machines of the SAP HANA cluster.
-		-	Select **OK**.
-	-	Next, create a health probe:
-		-	Open the load balancer, select **health probes**, and select **Add**.
-		-	Enter the name of the new health probe (for example, **hana-hp**).
-		-	Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-		-	Select **OK**.
-	-	For SAP HANA 1.0, create the load-balancing rules:
-		-	Open the load balancer, select **load balancing rules**, and select **Add**.
-		-	Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
-		-	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-		-	Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
-		-	Increase the **idle timeout** to 30 minutes.
-		-	Make sure to **enable Floating IP**.
-		-	Select **OK**.
-		-	Repeat these steps for port 3**03**17.
-	-	For SAP HANA 2.0, create the load-balancing rules for the system database:
-		-	Open the load balancer, select **load balancing rules**, and select **Add**.
-		-	Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
-		-	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
-		-	Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
-		-	Increase the **idle timeout** to 30 minutes.
-		-	Make sure to **enable Floating IP**.
-		-	Select **OK**.
-		-	Repeat these steps for port 3**03**14.
-	-	For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
-		-	Open the load balancer, select **load balancing rules**, and select **Add**.
-		-	Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
-		-	Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
-		-	Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
-		-	Increase the **idle timeout** to 30 minutes.
-		-	Make sure to **enable Floating IP**.
-		-	Select **OK**.
-		-	Repeat these steps for ports 3**03**41 and 3**03**42.
+	1.	Configure the load balancer. First, create a front-end IP pool:
+		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
+		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.32.0.10**).
+		1.	Select **OK**.
+		1.	After the new front-end IP pool is created, note the pool IP address.
+	1.	Next, create a back-end pool:
+		1.	Open the load balancer, select **backend pools**, and select **Add**.
+		1.	Enter the name of the new back-end pool (for example, **hana-backend**).
+		1.	Select **Add a virtual machine**.
+		1.	Select the availability set created in step 3.
+		1.	Select the virtual machines of the SAP HANA cluster.
+		1.	Select **OK**.
+	1.	Next, create a health probe:
+		1.	Open the load balancer, select **health probes**, and select **Add**.
+		1.	Enter the name of the new health probe (for example, **hana-hp**).
+		1.	Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+		1.	Select **OK**.
+	1.	For SAP HANA 1.0, create the load-balancing rules:
+		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
+		1.	Enter the name of the new load balancer rule (for example, hana-lb-3**03**15).
+		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
+		1.	Keep the **Protocol** set to **TCP**, and enter port 3**03**15.
+		1.	Increase the **idle timeout** to 30 minutes.
+		1.	Make sure to **enable Floating IP**.
+		1.	Select **OK**.
+		1.	Repeat these steps for port 3**03**17.
+	1.	For SAP HANA 2.0, create the load-balancing rules for the system database:
+		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
+		1.	Enter the name of the new load balancer rule (for example, hana-lb-3**03**13).
+		1.	Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**).
+		1.	Keep the **Protocol** set to **TCP**, and enter port 3**03**13.
+		1.	Increase the **idle timeout** to 30 minutes.
+		1.	Make sure to **enable Floating IP**.
+		1.	Select **OK**.
+		1.	Repeat these steps for port 3**03**14.
+	1.	For SAP HANA 2.0, first create the load-balancing rules for the tenant database:
+		1.	Open the load balancer, select **load balancing rules**, and select **Add**.
+		1.	Enter the name of the new load balancer rule (for example, hana-lb-3**03**40).
+		1.	Select the frontend IP address, backend pool, and health probe you created earlier (for example, **hana-frontend**).
+		1.	Keep the **Protocol** set to **TCP**, and enter port 3**03**40.
+		1.	Increase the **idle timeout** to 30 minutes.
+		1.	Make sure to **enable Floating IP**.
+		1.	Select **OK**.
+		1.	Repeat these steps for ports 3**03**41 and 3**03**42.
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -378,32 +408,32 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    Started with HANA 2.0 SPS 01, MDC is the default option. When you install HANA system, SYSTEMDB and a tenant with same SID will be created together. In some case you do not want the default tenant. In case, if you don’t want to create initial tenant along with the installation you can follow SAP Note [2629711](https://launchpad.support.sap.com/#/notes/2629711)
 
-   - Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
-   - Choose installation: Enter **1** (for install)
-   - Select additional components for installation: Enter **1**.
-   - Enter Installation Path [/hana/shared]: press Enter to accept the default
-   - Enter Local Host Name [..]: Press Enter to accept the default
-   - Do you want to add additional hosts to the system? (y/n) [n]: **n**
-   - Enter SAP HANA System ID: Enter **HN1**.
-   - Enter Instance Number [00]: Enter **03** 
-   - Select Database Mode / Enter Index [1]: press Enter to accept the default
-   - Select System Usage / Enter Index [4]: enter **4** (for custom)
-   - Enter Location of Data Volumes [/hana/data]: press Enter to accept the default
-   - Enter Location of Log Volumes [/hana/log]: press Enter to accept the default
-   - Restrict maximum memory allocation? [n]: press Enter to accept the default
-   - Enter Certificate Host Name For Host '...' [...]: press Enter to accept the default
-   - Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password
-   - Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm
-   - Enter System Administrator (hn1adm) Password: Enter the system administrator password
-   - Confirm System Administrator (hn1adm) Password: Enter the system administrator password again to confirm
-   - Enter System Administrator Home Directory [/usr/sap/HN1/home]: press Enter to accept the default
-   - Enter System Administrator Login Shell [/bin/sh]: press Enter to accept the default
-   - Enter System Administrator User ID [1001]: press Enter to accept the default
-   - Enter ID of User Group (sapsys) [79]: press Enter to accept the default
-   - Enter Database User (SYSTEM) Password: Enter the database user password.
-   - Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
-   - Restart system after machine reboot? [n]: press Enter to accept the default
-   - Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
+   Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
+   Choose installation: Enter **1** (for install)
+   Select additional components for installation: Enter **1**.
+   Enter Installation Path [/hana/shared]: press Enter to accept the default
+   Enter Local Host Name [..]: Press Enter to accept the default
+   Do you want to add additional hosts to the system? (y/n) [n]: **n**
+   Enter SAP HANA System ID: Enter **HN1**.
+   Enter Instance Number [00]: Enter **03** 
+   Select Database Mode / Enter Index [1]: press Enter to accept the default
+   Select System Usage / Enter Index [4]: enter **4** (for custom)
+   Enter Location of Data Volumes [/hana/data]: press Enter to accept the default
+   Enter Location of Log Volumes [/hana/log]: press Enter to accept the default
+   Restrict maximum memory allocation? [n]: press Enter to accept the default
+   Enter Certificate Host Name For Host '...' [...]: press Enter to accept the default
+   Enter SAP Host Agent User (sapadm) Password: Enter the host agent user password
+   Confirm SAP Host Agent User (sapadm) Password: Enter the host agent user password again to confirm
+   Enter System Administrator (hn1adm) Password: Enter the system administrator password
+   Confirm System Administrator (hn1adm) Password: Enter the system administrator password again to confirm
+   Enter System Administrator Home Directory [/usr/sap/HN1/home]: press Enter to accept the default
+   Enter System Administrator Login Shell [/bin/sh]: press Enter to accept the default
+   Enter System Administrator User ID [1001]: press Enter to accept the default
+   Enter ID of User Group (sapsys) [79]: press Enter to accept the default
+   Enter Database User (SYSTEM) Password: Enter the database user password.
+   Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm.
+   Restart system after machine reboot? [n]: press Enter to accept the default
+   Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
 
 4. **[A]** Upgrade SAP Host Agent
 
