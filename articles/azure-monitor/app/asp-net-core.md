@@ -33,6 +33,8 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
+For Visual Studio for Mac use the [manual guidance](#enable-application-insights-server-side-telemetry-no-visual-studio). Only the Windows version of Visual Studio supports this procedure.
+
 1. Open your project in Visual Studio.
 
     > [!TIP]
@@ -111,6 +113,10 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
     > [!NOTE]
     > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
+
+### User secrets and other configuration providers
+
+If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## Run your application
 

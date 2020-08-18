@@ -2,16 +2,15 @@
 title: PowerShell sample - Assign group to an Application Proxy app
 description: PowerShell example that assigns a group to an Azure Active Directory (Azure AD) Application Proxy application.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Assign a group to a specific Azure AD Application Proxy application
