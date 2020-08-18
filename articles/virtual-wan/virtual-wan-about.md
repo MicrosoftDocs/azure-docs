@@ -98,7 +98,7 @@ Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connect
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 
-Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled. This flag can be located in the Azure Virtual WAN settings in the Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
+Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled and BGP is supported in VPN and ExpressRoute connections. This flag can be located in the Azure Virtual WAN settings in Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
 
 ### <a name="routing"></a>Custom Routing
 
