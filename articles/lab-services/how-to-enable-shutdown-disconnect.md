@@ -15,7 +15,7 @@ A lab account administrator can configure this setting for the lab account in wh
 
 ## Configure for the lab level
 
-You can configure the auto-shutdown setting in the [labs.azure.com](labs.azure.com).
+You can configure the auto-shutdown setting in the [Azure Lab Services](https://labs.azure.com/).
 
 * when creating a lab (in **Lab policies**), or
 * after the lab is created (in **Settings**)
