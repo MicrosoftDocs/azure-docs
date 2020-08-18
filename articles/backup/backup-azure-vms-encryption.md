@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/18/2020
 ---
 # Back up and restore encrypted Azure virtual machines
 
@@ -10,7 +10,9 @@ This article describes how to back up and restore Windows or Linux Azure virtual
 
 ## Encryption using platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. For more information, see [Backup of Azure VMs with disks encrypted using platform-managed keys](backup-encryption.md#backup-of-azure-vms-with-disks-encrypted-using-platform-managed-keys).
+By default, all the disks in your VMs are automatically encrypted-at-rest using platform-managed keys (PMK) that use [storage service encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). You can back up these VMs using Azure Backup without any specific actions required to support encryption on your end. For more information about encryption with platform-managed keys, [see this article](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
+
+![Encrypted disks](./media/backup-encryption/encrypted-disks.png)
 
 ## Encryption using customer-managed keys
 
