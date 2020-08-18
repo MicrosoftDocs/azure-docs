@@ -36,7 +36,7 @@ These options are shown below.
 
 1. Create a new resource group to contain the template spec.
 
-   ```azurepowershell
+   ```azurecli
    New-AzResourceGroup `
      -Name templateSpecRG `
      -Location westus2
@@ -52,6 +52,29 @@ These options are shown below.
      -Location westus2 `
      -TemplateJsonFile "c:\Templates\azuredeploy.json"
    ```
+
+# [CLI](#tab/azure-cli)
+
+1. When you create a template spec with CLI, you can pass in a local template. Copy the following template and save it locally to a file named **azuredeploy.json**. This quickstart assumes you've saved to a path **c:\Templates\azuredeploy.json** but you can use any path.
+
+   :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+1. Create a new resource group to contain the template spec.
+
+    ```azurecli
+    az group create \
+      --name templateSpecRG \
+      --location westus2
+    ```
+
+1. Then, create the template spec in that resource group. You give the new template spec the name **storageSpec**.
+
+    ```azurecli
+    az deployment group create \
+      --name storageSpec \
+      --resource-group templateSpecRG \
+      --template-file "c:\Templates\azuredeploy.json"
+    ```
 
 # [ARM Template](#tab/azure-resource-manager)
 
@@ -181,34 +204,67 @@ You can now deploy the template spec. Deploying the template spec is just like d
 
 1. Create a resource group to contain the new storage account.
 
-   ```azurepowershell
-   New-AzResourceGroup `
-     -Name storageRG `
-     -Location westus2
-   ```
+    ```azurepowershell
+    New-AzResourceGroup `
+      -Name storageRG `
+      -Location westus2
+    ```
 
 1. Get the resource ID of the template spec.
 
-   ```azurepowershell
-   $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
-   ```
+    ```azurepowershell
+    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
+    ```
 
 1. Deploy the template spec.
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-     -TemplateSpecId $id `
-     -ResourceGroupName storageRG
-   ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -TemplateSpecId $id `
+      -ResourceGroupName storageRG
+    ```
 
 1. You provide parameters exactly as you would for an ARM template. Redeploy the template spec with a parameter for the storage account type.
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-     -TemplateSpecId $id `
-     -ResourceGroupName storageRG `
-     -StorageAccountType Standard_GRS
-   ```
+    ```azurepowershell
+    New-AzResourceGroupDeployment `
+      -TemplateSpecId $id `
+      -ResourceGroupName storageRG `
+      -StorageAccountType Standard_GRS
+    ```
+
+# [CLI](#tab/azure-cli)
+
+1. Create a resource group to contain the new storage account.
+
+    ```azurecli
+    az group create \
+      --name storageRG \
+      --location westus2
+    ```
+
+1. Get the resource ID of the template spec.
+
+    ```azurecli
+    $id = az template-specs show -n storageSpec -g templateSpecRG -v 0.1 --query "id"
+    ```
+
+1. Deploy the template spec.
+
+    ```azurecli
+    az deployment group create \
+      -s $id \
+      -g storageRG
+    ```
+
+1. You provide parameters exactly as you would for an ARM template. Redeploy the template spec with a parameter for the storage account type.
+
+    ```azurecli
+    az deployment group create \
+      -s $id \
+      -g storageRG \
+      --parameters StorageAccountType='Standard_GRS'
+    ```
 
 # [ARM Template](#tab/azure-resource-manager)
 
