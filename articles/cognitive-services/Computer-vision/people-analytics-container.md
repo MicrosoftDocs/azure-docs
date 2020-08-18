@@ -20,20 +20,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-You must meet the following prerequisites before using the People Analytics container:
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* Once you have your Azure subscription, create a Computer Vision resource  in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to run the People Analytics container. You'll use your key and endpoint later.
 
-| Required | Purpose |
+### People Analytics container requirements
+
+| Requirement | Description |
 |--|--|
 | Camera | The People Analytics container is not tied to a specific camera brand. The camera device needs to support Real Time Streaming Protocol(RTSP) and H.264 encoding, needs to be accessible to the host computer, and needs to be capable of streaming at 15FPS and 1080p resolution. |
-| Edge hardware device | You need a compute device to run the People Analytics container. This device requires a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other device with an NVIDIA Tesla T4 GPU. We will refer to this device as the **host computer**. |
-| Linux OS | You need [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) installed on the **host computer**.  |
-| NVIDIA CUDA Toolkit and Drivers | [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) need to be installed on the **host computer**.<br>Reboot.<br>After reboot, run these instructions from a terminal window on the **host computer**:<br>`nvidia-smi`<br>Check the output and verify that the NVIDIA GPU is detected.<br>
-| NVIDIA MPS | The  host computer GPU(s) need to be configured for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service). |
-| Docker Engine | [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and the [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) need to be installed on the **host computer**.  For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the container to connect with and send billing data to Azure.   |
-| Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands. |
-| Azure IoT Hub | You should have a basic understanding of Azure IoT Hub service and deployment configurations as you will need to deploy an instance of Azure IoT Hub service. For documentation, see the [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) documentation. 
-|Azure IoT Edge| You should have a basic understanding of Azure IoT Edge deployment configurations as you will need to install the Azure IoT Edge runtime on the **host computer**. For documentation, see the [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux) documentation.<br>To manually provision the IoT Edge device, you need to provide it with a [connection string](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device#register-in-the-azure-portal) that you can create by registering the **host computer**  as an IoT Edge in your Azure IoT Hub instance.|
-|Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+| Compute device | To run the People Analytics container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/en-us/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other device with an NVIDIA Tesla T4 GPU. We will refer to this device as the host computer. |
+| Linux OS | [Ubuntu Desktop 18.04 LTS](https://ubuntu.com/download/desktop) must be installed on the host computer.  |
+
+In this article, you will download and install the following software packages. The host computer must be able to run the following:
+
+* [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) and [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 
+* Configurations for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service).
+* [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
+* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) runtime.
+* [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/) 
 
 ## Request access to the private container registry
 
@@ -46,7 +51,9 @@ Fill out and submit the [request form](https://aka.ms/cognitivegate) to request 
 
 ## Setup the host computer
 
-It is recommended that you use an [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) device for your **host computer**. If you need to configure a desktop or any other edge machine, skip to the next section titled **Setup a Desktop Machine**.
+It is recommended that you use an [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) device for your host computer. Click **Desktop Machine** if you're configuring a different device.
+
+#### [Azure Stack Edge device](#tab/azure-stack-edge)
 
 ### Azure Stack Edge device configuration
 
@@ -102,13 +109,13 @@ Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge comp
 
     For help troubleshooting the Azure Stack Edge device, please go to the [Troubleshooting](Project-Archon-Telemetry.md) page.
 
-## Optional - Setup a Desktop Machine
+#### [Desktop machine](#tab/desktop-machine)
 
 Follow these instructions if your host computer isn't an Azure Stack Edge device. Otherwise skip to the **Enable NVIDIA MPS** section.
 
 ### System Requirements
 
-The **host computer** requires a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+The host computer requires a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 
 #### Hardware Requirements(Minimum)
 
@@ -126,7 +133,11 @@ The **host computer** requires a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en
 * 2 T4 GPUs
 * 50 GB of SSD space
 
+---
+
 #### Install NVIDIA CUDA Toolkit and Nvidia graphics drivers on the host computer
+
+Use the following bash script to install the required Nvidia graphics drivers, and CUDA Toolkit.
 
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
@@ -137,7 +148,7 @@ sudo apt-get update
 sudo apt-get -y install cuda
 ```
 
-Reboot, and run the following command.
+Reboot the host computer, and run the following command.
 
 ```bash
 nvidia-smi
@@ -149,7 +160,7 @@ You should see the following output.
 
 ### Install Docker CE and nvidia-docker2 on the host computer
 
-Install Docker CE.
+Install Docker CE on the host computer.
 
 ```bash
 sudo apt-get update
@@ -160,7 +171,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
 
-Install *nvidia-docker-2*.
+Install the *nvidia-docker-2* software package.
 
 ```bash
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
@@ -173,7 +184,10 @@ sudo systemctl restart docker
 
 ## Enable NVIDIA MPS on the host computer
 
-For best performance and utilization, configure the **host computer's** GPU(s) for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). Run the MPS instructions from a terminal window on the host computer (not inside your Docker container instance).
+> [!TIP]
+> Run the MPS instructions from a terminal window on the host computer. Not inside your Docker container instance.
+
+For best performance and utilization, configure the host computer's GPU(s) for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf). 
 
 ```bash
 # Set GPU(s) compute mode to EXCLUSIVE_PROCESS
@@ -208,9 +222,9 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## Deploy the People Analytics container on the host computer using Azure IoT Hub and Azure IoT Edge
 
-Fist, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service, either using the Standard tier (S1) for the Free tier(F0) IoT resource. If your **host computer** is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
+First, create an instance of an [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) service, either using the Standard (S1) or Free (F0) tier pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
 
-Follow these instructions to create an instance of Azure IoT Hub in Azure CLI. Make sure to replace the name of the parameters as you see fit. Alternatively, you can create the Azure IoT Hub on the [Azure Portal](https://portal.azure.com/).
+Follow these instructions to create an instance of Azure IoT Hub using the Azure CLI. Make sure to replace the name of the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure Portal](https://portal.azure.com/).
 
 ```bash
 az login
@@ -223,14 +237,14 @@ az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-
 ```
  
 
-If the **host computer** is **not** an Azure Stack Edge, you need to install [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux) and register the **host computer** as an IoT Edge in your Azure IoT Hub instance using a [connection string](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge-linux) and register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run this command in Azure CLI later to replace the names with your own.
 
 ```bash
 az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
 ```
-On the **host computer** open  /etc/iotedge/config.yaml for editing. Replace ADD DEVICE CONNECTION STRING HERE with the conection string. Save and close the file. 
-Run this command to restart the IoT Edge service on the **host computer**.
+On the host computer open  /etc/iotedge/config.yaml for editing. Replace ADD DEVICE CONNECTION STRING HERE with the conection string. Save and close the file. 
+Run this command to restart the IoT Edge service on the host computer.
 
 ```bash
 sudo systemctl restart iotedge
@@ -239,7 +253,7 @@ sudo systemctl restart iotedge
 
 ## How to deploy the container on Azure IoT Edge on the host computer 
 
-Deploy the People Analytics container as an **IoT Module** on the **host computer** either from [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) or [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Set the image URI to the location of your Azure Container Registry.<br>
+Deploy the People Analytics container as an **IoT Module** on the host computer either from [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) or [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Set the image URI to the location of your Azure Container Registry.<br>
 Set the **Container Create Options** for the **IoT Edge Module** as shown below: 
 
 ```json
@@ -329,7 +343,7 @@ You need to update this file with your own deployment settings. For instance, yo
                     "type": "docker"
                 },
 ```
-Once you update the deployment.json file with your own settings and selection of AI skills, you may use this command in [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) to deploy the container on the **host computer** as an IoT Edge Module. 
+Once you update the deployment.json file with your own settings and selection of AI skills, you may use this command in [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) to deploy the container on the host computer as an IoT Edge Module. 
 
 ```bash
 az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<IoT Hub name>" --content deployment.json --target-condition "deviceId='<IoT Edge device name>'" –subscription "<subscriptionId>"
@@ -338,7 +352,7 @@ az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<I
 * deployment name: Pick a name for the deployment
 * IoT Hub name: Your Azure IoT Hub name. 
 * deployment.json: The name of the deployment file. 
-* IoT Edge device name: Your IoT Edge device name for the **host computer**. 
+* IoT Edge device name: Your IoT Edge device name for the host computer. 
 * Subscription: subscription Id or name
 
 This command starts the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure Portal to see the deployment status. The status may show as "417 – The device’s deployment configuration is not set" until the device finishes downloading the container images and starts running.
@@ -349,7 +363,7 @@ You can [add AI skills](people-analytics-ai-skills.md) for detection and trackin
 
 There are several ways to validate that the container is running. Locate the *Runtime Status* in the **IoT Edge Module Settings** for the People Analytics module in your Azure IoT Hub instance on Azure Portal. Validate that the **Desired Value** and **Reported Value** for the *Runtime Status* is `Running`.
 
-Once the deployment is complete and the container is running, the **host computer** will start sending events to the Azure IoT Hub. If you used the .Debug version of the skills, you’ll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
+Once the deployment is complete and the container is running, the host computer will start sending events to the Azure IoT Hub. If you used the .Debug version of the skills, you’ll see a visualizer window for each camera you configured in the deployment manifest. You can now define the lines and zones you want to monitor in the deployment manifest and follow the instructions to deploy again. 
 
 ### Re-deploying / Deleting the deployment
 
