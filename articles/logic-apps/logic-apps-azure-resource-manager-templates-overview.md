@@ -260,6 +260,8 @@ Your template has a `resources` object, which is an array that contains definiti
 > [!NOTE]
 > Templates can include resource definitions for multiple logic apps, so make sure that all your logic app resources specify the same Azure resource group. When you deploy the template to an Azure resource group by using Visual Studio, you're prompted for which logic app that you want to open. Also, your Azure resource group project can contain more than one template, so make sure that you select the correct parameters file when prompted.
 
+<a name="view-resource-definitions"></a>
+
 ### View resource definitions
 
 To review the resource definitions for all the resources in an Azure resource group, either [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment, or follow these steps in the Azure portal:
