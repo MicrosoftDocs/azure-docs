@@ -175,7 +175,7 @@ Models can also be removed from the service, in one of two ways:
 
 These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
 
-### Decommissioning
+#### Decommissioning
 
 Here is the code to decommission a model:
 

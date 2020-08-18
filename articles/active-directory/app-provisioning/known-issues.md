@@ -61,9 +61,12 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 - Provisioning nested groups isn't supported. 
 - Provisioning to B2C tenants isn't supported because of the size of the tenants. 
 
+**The provisioning interval is fixed**
+The [time](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) between provisioning cycles is currently not configurable. 
+
 **Changes not moving from target app to Azure AD**
 
-The app provisioning service isn't aware of changes made in external apps. So, no action is taken to roll back. The app provisioning service relies on changes made in Azure AD.  
+The app provisioning service isn't aware of changes made in external apps. So, no action is taken to roll back. The app provisioning service relies on changes made in Azure AD. 
 
 **Provisioning cycle continues until completion**
 
