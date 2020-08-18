@@ -26,7 +26,7 @@ This section shows a few basic SPX commands that are often useful for first-time
 spx
 ```
 
-Notice **see also** help topics listed right of command parameters. You can also search topics by keyword. For example, enter the following command to see a list of help topics about examples:
+Notice **see also** help topics listed right of command parameters. You can also search topics by keyword. For example, enter the following command to see a list of help topics about Speech CLI examples:
 
 ```shell
 spx help find --topics "examples"
