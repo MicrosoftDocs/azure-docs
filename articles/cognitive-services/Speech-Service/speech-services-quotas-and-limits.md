@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 # Speech Services Quotas and Limits
 
-This article contains a quick reference and the detailed description of Azure Cognitive Speech Services Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices helping to avoid request throttling. 
+This article contains a quick reference and the **detailed description** of Azure Cognitive Speech Services Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling. 
 
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -57,10 +57,10 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 <sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice).<br/> 
 
 ## Detailed description, Quota adjustment, and best practices
-Before requesting a quota increase (where applicable) make sure, that it is really needed. Speech Services is using technologies like [Azure Autoscale](../../azure-monitor/platform/autoscale-overview.md) and [AKS Autoscaler](../../aks/cluster-autoscaler.md) to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your payload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state is usually transient and should not last long.
+Before requesting a quota increase (where applicable) ensure that it is necessary. Speech service is using technologies like [Azure Autoscale](../../azure-monitor/platform/autoscale-overview.md) and [AKS Autoscaler](../../aks/cluster-autoscaler.md) to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your payload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state is usually transient and should not last long.
 
 ### General best practices to mitigate throttling during autoscaling
-To minimize the issues related to throttling (Response Code 429), we recommend using the following techniques:
+To minimize issues related to throttling (Response Code 429), we recommend using the following techniques:
 - Implement retry logic in your application
 - Avoid sharp changes in the payload. Increase the payload gradually <br/>
 *Example.* Your application is using Text-to-Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.   
@@ -68,10 +68,10 @@ To minimize the issues related to throttling (Response Code 429), we recommend u
   - See [Speech-to-Text example](#speech-to-text-example-of-a-workload-pattern-best-practice)
 - Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and can not be adjusted  
 
-The next sections describe specific cases of adjusting Quotas.<br/>
+The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-Speech. Increasing Transcription Concurrent Request limit for Custom voice](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice)
 
-### Speech-to-Text. Increasing Online Transcription Concurrent Request limit
+### Speech-to-text: increasing online transcription concurrent request limit
 By default the number of concurrent requests is limited to 20 per Speech resource (Base model) or per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
@@ -132,14 +132,14 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing
 
-### Speech-to-Text. Example of a workload pattern best practice
+### Speech-to-text: example of a workload pattern best practice
 This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It is not an "exact recipe", but merely a template we invite to follow and adjust as necessary.
 
 Let us suppose that a Speech resource has the Concurrent Request limit set to 300. Start the workload from 20 concurrent connections and increase the load by 20 concurrent connections every 1.5-2 minutes. Control the Service responses and implement the logic that falls back (reduces the load) if you get too many Response Codes 429. Then retry in 1-2-4-4 minute pattern. (That is retry the load increase in 1 min, if still does not work, then in 2 min, and so on)
 
 Generally, it is highly recommended to test the workload and the workload patterns before going to production.
 
-### Text-to-Speech. Increasing Transcription Concurrent Request limit for Custom Voice
+### Text-to-speech: increasing transcription concurrent request limit for Custom Voice
 By default the number of concurrent requests for a Custom Voice endpoint is limited to 10. For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
