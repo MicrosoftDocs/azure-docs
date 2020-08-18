@@ -19,25 +19,26 @@ ms.custom: "seo-lt-2019"
 # Configure an availability group for SQL Server on Azure VM (Azure portal)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use the [Azure portal](https://portal.azure.com) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group. 
+This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
 
-Deployment of the availability group is still done manually through SQL Server Management Studio (SSMS) or Transact-SQL (T-SQL). 
+Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
+
 
 ## Prerequisites
 
-To configure an Always On availability group, you must have the following prerequisites: 
+To configure an Always On availability group using the Azure portal, you must have the following prerequisites: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md) using the same domain account for the SQL Server service on each VM.
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md) and are using the same domain account for the SQL Server service on each VM.
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions
 
-You need the following account permissions to configure the Always On availability group by using the Azure CLI: 
+You need the following account permissions to configure the availability group by using the Azure portal: 
 
 - An existing domain user account that has **Create Computer Object** permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
-- The domain user account that controls SQL Server. 
+- The domain user account that controls SQL Server. This should be the same account for every SQL Server VM you intend to add to the availability group. 
 
 ## Configure cluster
 
@@ -51,7 +52,7 @@ If you already have a cluster, skip this section and move to [Onboard existing c
 If you do not already have an existing cluster, create it by using the Azure portal with these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
-1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
+1. Navigate to your [SQL virtual machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource. 
 1. Select **High Availability** under **Settings**. 
 1. Select **+ New Windows Server failover cluster** to open the **Configure Windows Failover cluster** page.  
 
@@ -92,6 +93,9 @@ Create the availability group using the Azure portal. To do so, follow these ste
 1. Select **+ Create Always On availability group** to open the **Create availability group** page.
 1. Enter a name for the availability group. 
 1. Select **Configure listener** to open the **Configure availability group listener** page. 
+
+   :::image type="content" source="media/availability-group-az-portal-configure/new-availability-group.png" alt-text="Provide a name for the availablity group and configure a listener":::
+
 1. Fill out the values, and either use an existing load balancer, or select **Create new** to create a new load balancer.  Select **Apply** to save your settings and create your listener and load balancer. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Fill out the values in the form to create your new listener and load balancer":::
@@ -106,12 +110,12 @@ Create the availability group using the Azure portal. To do so, follow these ste
 You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
   > [!NOTE]
-  > Your **Replication health** in the **High availability** page of the Azure portal will show as **Not healthy** until you add databases to your availability group. 
+  > Your **Replication health** on the **High Availability** page of the Azure portal will show as **Not healthy** until you add databases to your availability group. 
 
 
 ## Add database to availability group
 
-Add your databases to your availability group after deployment completes. The below steps use the SQL Server Management Studio (SSMS) GUI but you can use [Transact-SQL or PowerShell](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) as well. 
+Add your databases to your availability group after deployment completes. The below steps use SQL Server Management Studio (SSMS) but you can use [Transact-SQL or PowerShell](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) as well. 
 
 To add databases to your availability group using SQL Server Management Studio, follow these steps:
 
@@ -133,7 +137,11 @@ After databases are added, you can check the status of your availability group i
 
 
 
-## Check deployment history
+## Troubleshooting
+
+If you run into issues, you can check the deployment history, and review the common errors as well as their resolutions. 
+
+### Check deployment history
 
 Changes to the cluster and availability group via the portal are done through deployments. Deployment history can provide greater detail if there are issues with creating, or onboarding the cluster, or with creating the availability group.
 
@@ -147,17 +155,15 @@ To view the logs for the deployment, and check the deployment history, follow th
 
    :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Select the deployment you're interested in learning more about." :::
 
-## Common errors
+### Common errors
 
 Review the following common errors and their resolutions. 
 
-### The account which is used to start up sql service is not a domain account
+#### The account which is used to start up sql service is not a domain account
 
 This is an indication that the resource provider could not access the SQL Server service with the provided credentials. Some common resolutions:
 - Ensure your domain controller is running.
 - Validate the credentials provided in the portal match those of the SQL Server service. 
-
-
 
 
 ## Next steps
