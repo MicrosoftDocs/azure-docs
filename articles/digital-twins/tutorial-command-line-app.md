@@ -310,9 +310,6 @@ az ad app delete --id <your-application-ID>
 
 Finally, delete the project sample folder you downloaded to your local machine.
 
-Start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)
-
 You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 

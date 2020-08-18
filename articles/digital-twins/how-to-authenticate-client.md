@@ -54,7 +54,7 @@ To authenticate with the .NET SDK, use one of the credential-obtaining methods t
 ### InteractiveBrowserCredential method
 The [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method is intended for interactive applications and will bring up a web browser for authentication.
 
-To use the InteractiveBrowserCredentials to create an authenticated SDK client, add this code:
+To use the interactive browser credentials to create an authenticated SDK client, add this code:
 
 ```csharp
 // Your client / app registration ID
