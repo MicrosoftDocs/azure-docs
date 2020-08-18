@@ -50,7 +50,7 @@ The following steps verify the correct configuration of your application gateway
     - AVS-GW-EUS (on premises)
     - AVS-GW-WEU
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list1.png" alt-text="List of application gateways." lightbox="media/traffic-manager/app-gateways-list1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="List of application gateways." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Select one of your previously deployed application gateways. A window opens showing various information on the application gateway. Select **Backend pools** to verify the configuration of one of the backend pools.
 
@@ -76,7 +76,7 @@ In our scenario, an NSX-T segment is configured in the AVS environment where the
 
    :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Linked segments.":::    
 
-3. In the VM VSphere client, select the virtual machine to view its details. Note its IP address matches what we saw in step 3 of the preceding section: 172.29.1.10.
+3. In the VM vSphere client, select the virtual machine to view its details. Note its IP address matches what we saw in step 3 of the preceding section: 172.29.1.10.
 
     :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Virtual machine details.":::    
 
