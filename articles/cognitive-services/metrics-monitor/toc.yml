@@ -17,5 +17,7 @@
   items:
   - name: Data feeds
     href: how-tos/datafeeds.md
-  - name: Use the web portal
+  - name: Configure the instance using the web portal
     href: how-tos/web-portal.md
+  - name: Send alerts
+    href: How-tos/alerts.md

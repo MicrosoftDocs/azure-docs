@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
-ms.topic: quickstart
-ms.date: 07/27/2020
+ms.topic: conceptual
+ms.date: 08/17/2020
 ms.author: aahi
 ---
 
@@ -18,17 +18,15 @@ Use this article to start configuring your Metrics Monitor instance using the we
 
 ### Tune metric-level detecting configuration
 
-On the left side of the page lays metric-level detecting configuration, you can update parameters to impact detecting results for all time series globally. There're three detecting methods been supported: smart detection, change threshold, hard threshold to support on different scenarios. 
+On the left side of the page lays metric-level detecting configuration, you can update parameters to impact detecting results for all time series globally. There are three detecting methods: *smart detection*, *change threshold*, and *hard threshold*:
 
-- Smart detection method is powered by machine learning which learns series pattern from historical data and use the pattern for future detection. **Sensitivity** is the most important parameter to tune the detection results. By dragging it to a smaller or larger value, you will get different results instantly from the visualization on the right. Choose one that suits for your scenario and save it. 
+- Smart detection is powered by machine learning that learns patterns from historical data, and uses them for future detection. **Sensitivity** is the most important parameter to tune the detection results. You can drag it to a smaller or larger value to affect the visualization on the right side of the page. Choose one that suits for your scenario and save it. 
 
-- Change threshold method is normally used in scenario that metric data normally stays around a certain range and doesn't expect to have obvious change over time. The threshold is set according to **Change percentage**. The change is updated instantly as well. 
+- *Change threshold* is normally used when metric data generally stays around a certain range. The threshold is set according to **Change percentage**. 
 
-- Hard threshold method is the basic method been used in traditional anomaly detection. You're able to set a upper bound and/or a lower bound to determine expected value range. Any points fall out of the boundary will be identified as an anomaly. 
+- *Hard threshold* is a basic method for anomaly detection. You're able to set a upper bound and/or a lower bound to determine expected value range. Any points fall out of the boundary will be identified as an anomaly. 
 
-There're additional parameters like 'Direction', 'Valid anomaly'... which could be leveraged to tune and identify a true anomaly combined with business scenario. 
-
-Project "Gualala" support combinations of different detecting configurations. For example to combine 'Smart detection' and 'Hard threshold' to filter out tiny anomalies without real business impact. You can even specify the operator to be used for either 'And' or 'OR'. 
+There are additional parameters like *Direction*, and *valid anomaly* that can be used to further tune the configuration. You can combine different detection methods as well. 
 
 ![Configuration combination](../media/config_combination.png "Configuration combination")
 
