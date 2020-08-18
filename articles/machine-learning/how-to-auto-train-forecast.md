@@ -105,7 +105,7 @@ This strategy will preserve the time series data integrity and eliminate the ris
 
 For additional cross validation and data split options, see [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md).
 
-Learn more about how Auto ML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -227,7 +227,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
-To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see How to 
+To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
 Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
 Deep learning models have three intrinsic capabilities:
