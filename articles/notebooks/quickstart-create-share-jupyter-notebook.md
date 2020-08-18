@@ -1,6 +1,6 @@
 ---
-title: Create and share a Jupyter notebook on Azure Notebooks Preview
-description: Quickly create and run a Jupyter notebook on Azure Notebooks Preview, then share that notebook with others.
+title: Create and share a Jupyter Notebook on Azure Notebooks Preview
+description: Quickly create and run a Jupyter Notebook on Azure Notebooks Preview, then share that notebook with others.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others. Jupyter lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation.
+In this quickstart, you create and run a Jupyter Notebook on Azure Notebooks, then share that notebook with others. Jupyter lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter Notebooks in the cloud with no installation.
 
 ## Prerequisites
 None.
@@ -86,7 +86,7 @@ None.
 
 1. Select the save icon to save your work:
 
-    ![Save icon on the Jupyter notebook toolbar](media/quickstarts/hello-results-save-icon.png)
+    ![Save icon on the Jupyter Notebook toolbar](media/quickstarts/hello-results-save-icon.png)
 
 1. Select the **File** > **Close and Halt** menu command to stop the server and close the browser window.
 
@@ -101,4 +101,4 @@ On the project page, you can also use the **Share** menu to obtain a link, creat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Create and run a Jupyter Notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
