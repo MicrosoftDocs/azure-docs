@@ -455,6 +455,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "cosmosdb-cassandra-python-sample",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
       "branch": "master"
