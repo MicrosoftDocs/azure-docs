@@ -6,7 +6,7 @@
     href: load-balancer-overview.md
   - name: What's new?
     href: whats-new.md
-- name: Quickstart
+- name: Quickstarts
   items:
   - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
