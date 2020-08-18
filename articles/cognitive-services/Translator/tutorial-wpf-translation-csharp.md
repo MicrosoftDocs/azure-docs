@@ -258,7 +258,7 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 ## Get supported languages
 
-The Translator currently supports more than 60 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
+The Translator currently supports more than 70 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
 
 In this section, we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 
