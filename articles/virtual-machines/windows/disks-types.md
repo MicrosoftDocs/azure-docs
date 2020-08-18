@@ -7,6 +7,7 @@ ms.date: 06/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # What disk types are available in Azure?

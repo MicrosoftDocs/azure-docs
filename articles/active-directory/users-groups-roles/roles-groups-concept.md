@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -56,7 +56,7 @@ The following scenarios are not supported right now:
 
 - You can't create or modify a dynamic group when the role is assigned via a group.
 - The **Enable staged rollout for managed user sign-in** feature doesn't support assignment via group.
-- *Azure AD P2 licensed customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
+- *Azure AD P2 licensed customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). Specifically, don't assign a role to a role-assignable group when it's being created *and* assign a role to the group using PIM later. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
   - End time for the role assignment might display incorrectly.
   - In the PIM portal, **My Roles** can show only one role assignment regardless of how many methods by which the assignment is granted (through one or more groups and directly).
 - *Azure AD P2 licensed customers only* Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.  

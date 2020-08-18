@@ -230,7 +230,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
 |[NCI](https://www.nciinc.com/)|
-|[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
+|[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](https://www.newwave.io)|
 |[NexustTek](https://www.nexustek.com/)|
