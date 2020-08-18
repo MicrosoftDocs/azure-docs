@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Machine Learning Service
-description: The Machine Learning Service security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
+title: Azure security baseline for Azure Machine Learning
+description: The Azure Machine Learning security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/18/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,9 +12,9 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Machine Learning Service
+# Azure security baseline for Azure Machine Learning
 
-The Azure Security Baseline for the Machine Learning Service contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+The Azure Security Baseline for Microsoft Azure Machine Learning contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
