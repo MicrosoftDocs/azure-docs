@@ -6,12 +6,14 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 08/13/2020
+ms.date: 08/17/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ---
 
 # Configuring Azure Spatial Anchors in a Unity project
+
+This guide will show you how to get started with the Azure Spatial Anchors SDK in your Unity project.
 
 ## Requirements
 
@@ -30,7 +32,7 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 1. In a file explorer, navigate to your Unity project's `Packages` folder. Open the project manifest file, `manifest.json`, in a text editor.
 2. At the top of the file, at the same level as the `dependencies` section, add the following entry to include the Azure Spatial Anchors registry to your project. The `scopedRegistries` entry tells Unity where to look for the Azure Spatial Anchors SDK packages.
 
-[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
+    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
 
 #### Add the SDK package(s) to your Unity project
 
@@ -42,7 +44,7 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 
 1. For each platform (Android/iOS/HoloLens) that you would like to support in your project, add an entry with the package name and package version to the `dependencies` section in your project manifest. See below for an example.
 
-[!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=12-14)]
+    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-22&highlight=12-14)]
 
 2. Save and close the `manifest.json` file. When you return to Unity, Unity should automatically detect the project manifest change and retrieve the specified packages. You can expand the `Packages` folder in your Project view to verify that the right packages have been imported.
 
@@ -54,10 +56,10 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 4. Open your `mainTemplate.gradle` file in a text editor. 
 5. In the `dependencies` section, paste the following dependencies:
 
-```gradle
-implementation('com.squareup.okhttp3:okhttp:[3.11.0]')
-implementation('com.microsoft.appcenter:appcenter-analytics:[1.10.0]')
-```
+    ```gradle
+    implementation('com.squareup.okhttp3:okhttp:[3.11.0]')
+    implementation('com.microsoft.appcenter:appcenter-analytics:[1.10.0]')
+    ```
 
 When it's all done, your `dependencies` section should look something like this:
 
