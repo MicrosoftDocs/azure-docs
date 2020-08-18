@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/13/2020
+ms.date: 08/18/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles

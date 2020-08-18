@@ -29,6 +29,9 @@ Download and fill in the bulk upload CSV template to help you successfully creat
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
 
+> [!WARNING]
+> If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
+
 ### CSV template structure
 
 The rows in a downloaded CSV template are as follows:
