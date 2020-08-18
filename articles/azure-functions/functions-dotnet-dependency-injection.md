@@ -253,7 +253,7 @@ Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configurati
 > [!NOTE]
 > Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
 
-To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's *StartUp* class.
+To specify additional configuration sources, override the `ConfigureAppConfiguration` method in your function app's `StartUp` class.
 
 The following sample adds configuration values from a base and an optional environment-specific app settings files.
 
@@ -283,9 +283,9 @@ namespace MyNamespace
 
 Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. For more information on using configuration providers, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
 
-A `FunctionsHostBuilderContext` can be obtained from `IFunctionsConfigurationBuilder.GetContext()`. Use it to retrieve the current environment name and resolve the location of configuration files in your function app folder.
+A `FunctionsHostBuilderContext` is obtained from `IFunctionsConfigurationBuilder.GetContext()`. Use this context to retrieve the current environment name and resolve the location of configuration files in your function app folder.
 
-By default, configuration files such as *appsettings.json* are not automatically copied to the function app's output folder. Update your *.csproj* file like this sample to ensure the files are copied.
+By default, configuration files such as *appsettings.json* are not automatically copied to the function app's output folder. Update your *.csproj* file to match the following sample to ensure the files are copied.
 
 ```xml
 <None Update="appsettings.json">
@@ -298,7 +298,7 @@ By default, configuration files such as *appsettings.json* are not automatically
 ```
 
 > [!IMPORTANT]
-> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the *FunctionsStartup* class will result in a function app startup error.
+> For function apps running in the Consumption or Premium plans, modifications to configuration values used in triggers can cause scaling errors. Any changes to these properties by the `FunctionsStartup` class results in a function app startup error.
 
 ## Next steps
 
