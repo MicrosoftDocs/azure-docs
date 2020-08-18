@@ -46,7 +46,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
 
-Once you sign in with GitHub, then enter the repository information.
+After you sign in with GitHub, enter the repository information.
 
 :::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Repository details":::
 
@@ -90,7 +90,7 @@ Next, add configuration details specific to your preferred front-end framework.
 
 ---
 
-Click the **Review + create** button.
+Select **Review + create**.
 
 :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
