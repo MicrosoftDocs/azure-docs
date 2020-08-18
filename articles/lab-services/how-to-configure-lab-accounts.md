@@ -13,7 +13,7 @@ You can enable several auto-shutdown cost control features to proactively preven
 1. Automatically shut down virtual machines when users disconnect (Windows & Linux).
 1. Automatically shut down virtual machines that are started but users don't connect.
 
-Review details about the automatic shutdown in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) section.
+Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) section.
 
 ## Enable automatic shutdown
 
