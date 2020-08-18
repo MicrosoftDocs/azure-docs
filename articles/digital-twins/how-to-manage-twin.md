@@ -45,7 +45,9 @@ The model and initial property values are provided through the `initData` parame
 
 ### Initialize model and properties
 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
+
+So first, you will create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this into the API call for the `initdata` parameter.
 
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
@@ -75,6 +77,7 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
+twin.Id = "myNewRoomID";
 twin.Metadata = new DigitalTwinMetadata();
 twin.Metadata.ModelId = "dtmi:example:Room;1";
 // Initialize properties
@@ -85,6 +88,15 @@ twin.CustomProperties = props;
 
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
+
+
+>[!NOTE]
+> `BasicDigitalTwin` objects come with an `Id` field. By default, the ID in this data object can't be null, and it needs to match the ID parameter passed to the `CreateDigitalTwin` call. This is why the example above sets an ID of `"myNewRoomID"` for the twin data object before passing it in.
+>
+> Alternatively, you can use the `IgnoreNullValues` option for serialization in order to omit null values from the data object that is sent to the service. This will allow you to bypass adding any ID to the twin data object:
+>```csharp
+> client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin, new JsonSerializerOptions { IgnoreNullValues = true }));
+>```
 
 ## Get data for a digital twin
 
