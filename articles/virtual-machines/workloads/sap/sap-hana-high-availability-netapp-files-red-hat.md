@@ -120,7 +120,7 @@ The SAP HANA System Replication configuration uses a dedicated virtual hostname 
 - Probe Port: Port 62503
 - Load-balancing rules: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP (if using Basic Azure Load balancer)  
 
-## Set up the Azure NetApp File Infrastructure
+## Set up the Azure NetApp File infrastructure
 
 Before you proceed with the set up for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](https://docs.microsoft.com/azure/azure-netapp-files/).
 
@@ -130,7 +130,7 @@ For information about the availability of Azure NetApp Files by Azure region, se
 
 Before you deploy Azure NetApp Files, request onboarding to Azure NetApp Files by going to [Register for Azure NetApp Files instructions](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register).
 
-### Deploy Azure NetApp Files Resources
+### Deploy Azure NetApp Files resources
 
 The following instructions assume that you've already deployed your [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
@@ -162,7 +162,7 @@ The following instructions assume that you've already deployed your [Azure virtu
 	- Volume hanadb2-log-mnt00001 (nfs://10.32.2.4:/hanadb2-log-mnt00001)
 	- Volume hanadb2-shared-mnt00001 (nfs://10.32.2.4:/hanadb2-shared-mnt00001)
 
-### Important Considerations
+### Important considerations
 
 As you are creating your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the following consideration:
 
@@ -177,7 +177,7 @@ As you are creating your Azure NetApp Files for SAP HANA Scale-up systems, be aw
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in proximity.
 
-### Sizing of HANA Database on Azure NetApp Files
+### Sizing of HANA database on Azure NetApp Files
 
 The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels).
 
@@ -307,7 +307,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 > [!IMPORTANT]
 > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview). See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
-## Mount the Azure NetApp Files Volume
+## Mount the Azure NetApp Files volume
 
 1. **[A]** Create mount points for the HANA database volumes. 
 
@@ -381,7 +381,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    ​For more details on how to change **nfs_disable_idmapping** parameter, see [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883). 
 
 
-## SAP HANA Installation
+## SAP HANA installation
 
 1. **[A]** Set up host name resolution for all hosts.
 
@@ -452,7 +452,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    sudo firewall-cmd --zone=public --add-port=62503/tcp –permanent
    ```
 
-## Configure SAP HANA System Replication
+## Configure SAP HANA system replication
 
 Follow the steps in Set up [SAP HANA System Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-sap-hana-20-system-replication) to configure SAP HANA System Replication. 
 
@@ -460,11 +460,11 @@ Follow the steps in Set up [SAP HANA System Replication](https://docs.microsoft.
 
 This section describes necessary steps required for cluster to operate seamlessly when SAP HANA is installed on NFS shares using Azure NetApp Files. 
 
-### Create a Pacemaker Cluster
+### Create a Pacemaker cluster
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) in Azure to create a basic Pacemaker cluster for this HANA server.
 
-### Configure Filesystem Resources
+### Configure filesystem resources
 
 In this example each cluster node has its own HANA NFS filesystems /hana/shared, /hana/data, and /hana/log.   
 
@@ -535,7 +535,7 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
    > [!TIP]
    > If your configuration includes file systems, outside of group `hanadb1_nfs` or `hanadb2_nfs`, then include the `sequential=false` option, so that there are no ordering dependencies among the file systems. All file systems must start before `hana_nfs1_active`, but they do not need to start in any order relative to each other. For more details see [How do I configure SAP HANA System Replication in Scale-Up in a Pacemaker cluster when the HANA filesystems are on NFS shares](https://access.redhat.com/solutions/5156571)
 
-### Configure SAP HANA Cluster Resources
+### Configure SAP HANA cluster resources
 
 1. Follow the steps in [Create SAP HANA cluster resources](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#create-sap-hana-cluster-resources) to create the SAP HANA Resources in the cluster. Once SAP HANA resources are created, we need to create a location rule constraint between SAP HANA resources and Filesystems (NFS Mounts)
 
@@ -586,7 +586,7 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
 
-## Test the cluster Setup
+## Test the cluster setup
 
 This section describes how you can test your setup. 
 
