@@ -26,7 +26,7 @@ Cost analysis supports different kinds of Azure account types. To view the full 
 
 ## Provisioned throughput or serverless
 
-Azure Cosmos DB supports 2 types of capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). The way you get charged for your Azure Cosmos DB usage varies a lot between these 2 modes, so it's important to choose the one that works best for your workload. See the [how to choose offer](throughput-vs-serverless.md) article for guidance and recommendations on how to make this choice.
+Azure Cosmos DB supports 2 types of capacity modes: [provisioned throughput](set-throughput.md) and [serverless](serverless.md). The way you get charged for your Azure Cosmos DB usage varies a lot between these 2 modes, so it's important to choose the one that works best for your workload. See the [how to choose between provisioned throughput and serverless](throughput-vs-serverless.md) article for guidance and recommendations on how to make this choice.
 
 ## Estimating provisioned throughput costs with capacity calculator
 

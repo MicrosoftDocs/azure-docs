@@ -41,17 +41,27 @@ In some situations, it may be unclear whether provisioned throughput or serverle
 
 If your workload requires to burst above 5,000 RU per second, provisioned throughput should be chosen because serverless containers can't burst above this limit. If not, you can compare the cost of both modes based on your expected consumption.
 
-Example: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 20,000,000 RUs over a month.
+**Example 1**: a workload is expected to burst to a maximum of 10,000 RU/s and consume a total of 20,000,000 RUs over a month.
+
+- Only provisioned throughput mode can deliver a throughput of 10,000 RU/s
+
+**Example 2**: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 20,000,000 RUs over a month.
 
 - In provisioned throughput mode, you would provision a container with 500 RU/s for a monthly cost of: $0.008 * 5 * 730 = **$29.20**
-- In serverless mode, you would only pay for the consumed RUs: $0.25 * 20 = **$5.00**
+- In serverless mode, you would pay for the consumed RUs: $0.25 * 20 = **$5.00**
 
-(not accounting for the storage cost, which is the same between the two modes)
+**Example 3**: a workload is expected to burst to a maximum of 500 RU/s and consume a total of 250,000,000 RUs over a month.
+
+- In provisioned throughput mode, you would provision a container with 500 RU/s for a monthly cost of: $0.008 * 5 * 730 = **$29.20**
+- In serverless mode, you would pay for the consumed RUs: $0.25 * 250 = **$62.50**
+
+(these examples are not accounting for the storage cost, which is the same between the two modes)
 
 > [!NOTE]
 > See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
 ## Next steps
 
+- Read more about [provisioning throughput on Azure Cosmos DB](set=throughput.md)
 - Read more about [Azure Cosmos DB serverless](serverless.md)
 - Get familiar with the concept of [Request Units](request-units.md)
