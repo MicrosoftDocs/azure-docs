@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Configure Speech service containers
 
-Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The four speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, and **custom-text-to-speech**.
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The four speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, **neural-text-to-speech** and **custom-text-to-speech**.
 
 The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings.
 
@@ -219,6 +219,29 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## [Neural Text-to-speech](#tab/ntts)
+
+### Basic example for Neural Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 6 \
+neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example for Neural Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 6 \
+neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
