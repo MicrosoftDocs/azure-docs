@@ -20,7 +20,7 @@ ms.custom: devx-track-azurecli
 
 # Create an Asset
 
-This article shows how to create a Media Services Asset to upload content to.
+This article shows how to create a Media Services Asset.  You will use an asset to hold media content for encoding and streaming.  To learn more about Media Services assets, read [Assets in Azure Media Services v3](assets-concept.md)
 
 ## Prerequisites
 
@@ -39,5 +39,4 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
 ## Next steps
-
-[Media Services overview](media-services-overview.md)
+[Manage assets](manage-asset-concept.md)
