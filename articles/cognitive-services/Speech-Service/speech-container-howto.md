@@ -27,7 +27,7 @@ Speech containers enable customers to build a speech application architecture th
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.3.1 |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 | Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
-| Neural Text-to-speech | Uses a more advanced model for more natural sounding utterances | 1.0.0 |
+| Neural Text-to-speech | Uses a more advanced model for more natural sounding utterances. | 1.0.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -226,7 +226,7 @@ Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/
 docker pull neuraltts.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
 ```
 
-When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-synthesis-markup) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
+When constructing a *Neural Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
 ***
 
