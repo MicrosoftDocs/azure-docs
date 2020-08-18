@@ -6,7 +6,7 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
-ms.date: 08/17/2020
+ms.date: 08/18/2020
 ---
 
 # Create an Azure Cache for Redis using a Resource Manager template
@@ -63,10 +63,7 @@ The following resources are defined in the template:
 ## Review deployed resources
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open the data share account that you created.
-1. From the left menu, select **Send Shares**.  You shall see the storage account listed.
-1. Select the storage account.  Under **Details**, you shall see the synchronization setting as you configured in the template.
-1. Select **Invitations** from the top. You shall see the email address that you specified when you deploy the template. The **Status** shall be **Pending**.
+1. Open the Redis cache that you created.
 
 ## Clean up resources
 
