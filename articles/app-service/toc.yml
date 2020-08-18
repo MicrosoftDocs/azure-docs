@@ -27,6 +27,8 @@
     href: quickstart-ruby.md
   - name: Static HTML site
     href: quickstart-html.md
+  - name: ARM Template
+    href: quickstart-arm-template.md
   - name: Custom container
     href: quickstart-custom-container.md
   - name: Multi-container app
