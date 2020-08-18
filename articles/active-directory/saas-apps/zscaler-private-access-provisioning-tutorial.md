@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Zscaler Private Access (ZPA) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zscaler Private Access (ZPA).
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: ee9128c3-ff02-4739-8c51-0693d8451742
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
