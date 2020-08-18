@@ -21,7 +21,8 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **A storage account**: To create one, see [Create an Azure Storage account](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). The storage account is used for diagnostic data.
 
 ## Review the template
 
@@ -31,8 +32,8 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The following resources are defined in the template:
 
-* [Microsoft.Cache/Redis]
-* [Microsoft.Insights/diagnosticsettings]
+* [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
+* [Microsoft.Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
 
 > [!NOTE]
 > Resource Manager templates for the new [Premium tier](cache-overview.md#service-tiers) are also available.
@@ -52,10 +53,9 @@ The following resources are defined in the template:
 
     * **Subscription**: select an Azure subscription used to create the data share and the other resources.
     * **Resource group**: select **Create new** to create a new resource group or select an existing resource group.
-    * **Location**: select a location for the resource group.
-    * **Project Name**: enter a project name.  The project name is used for generating resource names.  See the variable definitions in the previous template.
-    * **location**: select a location for the resources.  You can use the same location for the resource group.
-    * **Invitation Email**: enter the data share recipient's Azure login email address.  Email alias doesn't work.
+    * **Location**: select a location for the resource group. The storage account and the Redis cache must be in the same region. By default the Redis cache uses the same location as the resource group. So, specify the same location as the storage account.
+    * **Redis Cache Name**: enter a name for the Redis cache.
+    * **Existing Diagnostics Storage Account**: enter the resource ID of a storage account. The syntax is **/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>**.
 
     Use the default value for the rest of the settings.
 1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.
@@ -66,8 +66,6 @@ The following resources are defined in the template:
 1. Open the data share account that you created.
 1. From the left menu, select **Send Shares**.  You shall see the storage account listed.
 1. Select the storage account.  Under **Details**, you shall see the synchronization setting as you configured in the template.
-
-    ![Azure Data Share Storage Account Synchronization settings](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Select **Invitations** from the top. You shall see the email address that you specified when you deploy the template. The **Status** shall be **Pending**.
 
 ## Clean up resources
@@ -82,4 +80,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this tutorial, you learnt how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.
+In this tutorial, you learnt how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. To learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis, see [Create a Web App plus Azure Cache for Redis using a template](./cache-web-app-arm-with-redis-cache-provision.md).
