@@ -905,7 +905,7 @@ Backup customer managed keys within Azure Key Vault.
 
 - [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Understand encryption in Azure Backup](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Understand encryption in Azure Backup](./backup-encryption.md)
 
 **Azure Security Center monitoring**: Not applicable
 

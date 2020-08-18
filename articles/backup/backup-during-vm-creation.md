@@ -44,7 +44,7 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
 
 >[!NOTE]
->[SSE and PMK are the default encryption methods](backup-encryption.md#backup-of-azure-vms-with-disks-encrypted-using-platform-managed-keys) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
+>[SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
 
 ## Azure Backup resource group for Virtual Machines
 
