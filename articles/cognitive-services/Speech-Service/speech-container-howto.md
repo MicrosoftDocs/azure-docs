@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/18/2020
 ms.author: aahi
 ---
 
@@ -16,7 +16,7 @@ ms.author: aahi
 
 Containers enable you to run some of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
-Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are four different containers available. The two standard containers are **Speech-to-text** and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**. Speech containers have the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
+Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are five different containers available. The two standard containers are **Speech-to-text**, and **Text-to-speech**. The two custom containers are **Custom Speech-to-text** and **Custom Text-to-speech**. The **Neural Text-to-speech** additionally provides more natural utterances, through the use of a more advanced model. Speech containers have the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
 
 > [!IMPORTANT]
 > All speech containers are currently offered as part of a [Public "Gated" Preview](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). An announcement will be made when speech containers progress to General Availability (GA).
@@ -198,7 +198,7 @@ The following tag is an example of the format:
 For all of the supported locales and corresponding voices of the **text-to-speech** container, please see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
+> When constructing a *Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-AriaRUS`.
 
 # [Custom Text-to-speech](#tab/ctts)
 
@@ -246,7 +246,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 # [Speech-to-text](#tab/stt)
 
-To run the *Speech-to-text* container, execute the following `docker run` command.
+To run the Standard *Speech-to-text* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -344,7 +344,7 @@ This command:
 
 # [Text-to-speech](#tab/tts)
 
-To run the *Text-to-speech* container, execute the following `docker run` command.
+To run the Standard *Text-to-speech* container, execute the following `docker run` command.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -356,7 +356,7 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs a *Text-to-speech* container from the container image.
+* Runs a Standard *Text-to-speech* container from the container image.
 * Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
@@ -435,10 +435,12 @@ This command:
 
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
-| Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
-| Text-to-speech (including Custom and Neural) | `http://localhost:5000` | HTTP |
+| Standard Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
+| Text-to-speech (including Standard, Custom and Neural) | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+
+### Speech-to-text (Standard and Custom)
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
@@ -557,7 +559,7 @@ speech_config.set_service_property(
 )
 ```
 
-### Text-to-speech or Custom Text-to-speech
+### Text-to-speech (Standard, Neural and Custom)
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
