@@ -159,7 +159,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 ## Add users to the custom role
 
-You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [role-based access control](../role-based-access-control/overview.md).
+You grant access from within the resource, resource group, or subscription that is the scope of the role assignment. When providing access, bear in mind that the access granted at the parent node is inherited by the child. For more information, go to [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 1. Go to **Access control (IAM)**. Click **+ Add** on the Access control blade.
 

@@ -81,7 +81,7 @@ System-integrator partners can submit consulting-service offers for the followin
 Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](become-publisher.md).
 
 ## Prepare your publishing artifacts
-Before you register, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer.
+Before you register, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
 
 |Setup for new publishers  |
 | - |

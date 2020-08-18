@@ -2,7 +2,6 @@
 title: Similarity and scoring overview
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of similarity and scoring, and what a developer can do to customize the scoring result.
-
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -98,6 +97,7 @@ For a query that targets the "description" and "title" fields, a response that i
 ```
 
 You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial) or use the information to debug search relevance problems.
+
 
 ## See also
 

@@ -120,5 +120,5 @@ Custom text-to-speech, also known as Custom Voice is a set of online tools that 
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 * [See how to recognize speech in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

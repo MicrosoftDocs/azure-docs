@@ -7,7 +7,7 @@ ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, cc996988-fb4f-47"
 ---
 
 # Create a function that integrates with Azure Logic Apps

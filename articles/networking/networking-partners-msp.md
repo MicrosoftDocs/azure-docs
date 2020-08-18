@@ -1,6 +1,6 @@
 ---
 title: 'Networking Partners: Azure Networking | Microsoft Docs'
-description: This article provides a list of MSP Networking partners
+description: Learn about Azure Networking Managed Service Provider Partner Program and find a list of partners that offer cloud and hybrid networking services.
 services: networking
 author: skishen525
 ms.service: expressroute

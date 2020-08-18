@@ -7,7 +7,7 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 
