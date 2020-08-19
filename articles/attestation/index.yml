@@ -56,6 +56,6 @@ landingContent:
         links:
           - text: Authoring and signing an attestation policy
             url: author-sign-policy.md
-          - text: SGX attestation using Open Enclave SDK
+          - text: SGX attestation code samples
             url: sgx-enclave-sdk.md
       
