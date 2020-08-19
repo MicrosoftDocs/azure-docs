@@ -1,5 +1,5 @@
 ---
-title: Billing model for Azure Active Directory B2C
+title: Billing model for Azure AD External Identities
 description: Learn about Azure AD B2C's monthly active users (MAU) billing model and how to enable billing for a specific Azure subscription.
 services: active-directory-b2c
 author: msmimart
@@ -30,7 +30,7 @@ To take advantage of MAU billing, you'll need to make sure your tenant is linked
 | An Azure AD tenant not yet linked to a subscription     | [Link your Azure AD tenant to a subscription](#link-your-azure-ad-tenant-to-a-subscription) to activate MAU billing.        |
 | An Azure AD B2C tenant already billed on a per-MAU basis     | Do nothing. When users authenticate to your Azure AD B2C tenant, you'll be automatically billed using the MAU-based billing model.        |
 | An Azure AD B2C tenant not yet linked to a subscription     |  [Link your Azure AD B2C tenant to a subscription](#link-your-azure-ad-b2c-tenant-to-a-subscription) to activate MAU billing.     |
-| An Azure AD B2C tenant that was linked to a subscription prior to November 1, 2019    | [Upgrade to MAU billing (recommended)](#azure-ad-b2c-pre-november-2019-tenants-switch-to-mau-billing-recommended), or stay on the per-authentication billing model.     |
+| An Azure AD B2C tenant that was linked to a subscription prior to November 1, 2019    | [Upgrade to MAU billing (recommended)](#upgrade-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants), or stay on the per-authentication billing model.     |
 | An Azure AD B2C tenant and you want to use premium features  (like risk-based Conditional Access)    | [Change to an Azure pricing tier](#change-your-azure-pricing-tier) that supports the features you want to use.        |
 |  |  |
 
@@ -50,7 +50,7 @@ Azure AD External Identities features, which include both Azure AD guest user co
 
 An Azure AD tenant must be linked to an Azure subscription for proper billing and access to features included in the subscription.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an Azure account that's been assigned at least the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) role within the subscription or a resource group within the subscription.
 
 2. Select the directory that contains your subscription: In the Azure portal toolbar, select the **Directory + Subscription** icon, and then select the directory that contains your subscription.
 
@@ -79,7 +79,7 @@ You need to explicitly link an Azure AD B2C tenant to an Azure subscription by c
 ### Prerequisites
 
 * [Azure subscription](https://azure.microsoft.com/free/)
-* [Azure AD B2C tenant](tutorial-create-tenant.md) that you want to link to a subscription
+* [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant.md) that you want to link to a subscription
   * You must be a tenant administrator
   * The tenant must not already be linked to a subscription
 
@@ -195,7 +195,7 @@ The management of Azure AD B2C using role-based access control is not affected b
 
 Azure AD B2C tenants can be moved to another subscription if the source and destination subscriptions exist within the same Azure Active Directory tenant.
 
-To learn how to move Azure resources like your Azure AD B2C tenant to another subscription, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+To learn how to move Azure resources like your Azure AD B2C tenant to another subscription, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 
 Before you initiate the move, be sure to read the entire article to fully understand the limitations and requirements for such a move. In addition to instructions for moving resources, it includes critical information like a pre-move checklist and how to validate the move operation.
 
