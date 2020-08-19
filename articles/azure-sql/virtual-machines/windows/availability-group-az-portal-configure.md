@@ -97,7 +97,7 @@ Create the availability group using the Azure portal. To do so, follow these ste
 1. Enter a name for the availability group. 
 1. Select **Configure listener** to open the **Configure availability group listener** page. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/new-availability-group.png" alt-text="Provide a name for the availablity group and configure a listener":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Provide a name for the availability group and configure a listener":::
 
 1. Fill out the values, and either use an existing load balancer, or select **Create new** to create a new load balancer.  Select **Apply** to save your settings and create your listener and load balancer. 
 
