@@ -32,64 +32,64 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
 
 ## Create a static web app
 
-Inside Visual Studio Code, select the Azure logo in the Activity Bar to open the Azure extensions window.
+1. Inside Visual Studio Code, select the Azure logo in the Activity Bar to open the Azure extensions window.
 
-:::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure Logo":::
+    :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure Logo":::
 
-> [!NOTE]
-> If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
+    > [!NOTE]
+    > If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
 
-Place your mouse over the _Static Web Apps_ label and select the **plus sign**.
+1. Place your mouse over the _Static Web Apps_ label and select the **plus sign**.
 
-:::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
+    :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 
-The command palate opens at the top of the editor and prompts you to name your application. Type **my-first-static-web-app** and press **Enter**.
+1. The command palate opens at the top of the editor and prompts you to name your application. Type **my-first-static-web-app** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
+    :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
-Next, select the **master** branch and press **Enter**.
+1. Select the **master** branch and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-branch.png" alt-text="Branch name":::
+    :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Branch name":::
 
-Select **/** as the location for the application code and press **Enter**.
+1. Select **/** as the location for the application code and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application code location":::
+    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application code location":::
 
-Next, the extension is looking for the location of the API in your application. This quickstart doesn't implement an API, so select **Skip for now** and press **Enter**.
+1. The extension is looking for the location of the API in your application. This quickstart doesn't implement an API, so select **Skip for now** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
+    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
 
-Next, you select the location where files are built for production in your app.
+1. Select the location where files are built for production in your app.
 
-# [No Framework](#tab/vanilla-javascript)
+    # [No Framework](#tab/vanilla-javascript)
 
-Clear the box and press **Enter**.
+    Clear the box and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path ":::
 
-# [Angular](#tab/angular)
+    # [Angular](#tab/angular)
 
-Enter **dist/angular-basic** and press **Enter**.
+    Enter **dist/angular-basic** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="App files path ":::
 
-# [React](#tab/react)
+    # [React](#tab/react)
 
-Enter **build** and press **Enter**.
+    Enter **build** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="App files path ":::
 
-# [Vue](#tab/vue)
+    # [Vue](#tab/vue)
 
-Enter **dist** and press **Enter**.
+    Enter **dist** and press **Enter**.
 
-:::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
 
----
+    ---
 
-Next, select a location nearest to you.
+1. Select a location nearest to you.
 
-:::image type="content" source="media/getting-started/extension-location.png" alt-text="Resource location":::
+    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Resource location":::
 
 Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
