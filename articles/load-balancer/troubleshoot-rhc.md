@@ -20,10 +20,10 @@ This article is a guide to investigate issues impacting the availability of your
 ## About the metrics we'll use
 The two metrics to be used are *Data path availability* and *Health probe status* and it is important to understand their meaning to derive correct insights. 
 
-### Data path availability
+## Data path availability
 The data path availability metric is generated from an internal service. This internal service executes a TCP ping every 25 seconds on all frontend ports that have load-balancing and inbound NAT rules configured. This TCP ping will then be routed to any of the healthy (probed up) backend instances. If the service receives a response to the ping, it is considered a success and the sum of the metric will be iterated once, if it fails it won't. The count of this metric is 1/100 of the total TCP pings per sample period. Thus, we want to consider the average, which will show the average of sum/count for the time period. The data path availability metric aggregated by average thus gives us a percentage success rate for TCP pings on your frontend IP:port for each of your load-balancing and inbound NAT rules.
 
-### Health probe status
+## Health probe status
 The health probe status metric is generated from an internal service, which executes a ping with the protocol defined in the health probe. This ping is sent to each instance in the backend pool and on the port defined in the health probe. For HTTP and HTTPS probes, a successful ping requires an HTTP 200 OK response whereas with TCP probes any response is considered successful. The consecutive successes or failures of each probe then determines whether a backend instance is healthy and able to receive traffic for the load-balancing rules to which the backend pool is assigned. Similar to data path availability we use the average aggregation, which tells us the average successful/total pings during the sampling interval. This health probe status value indicates the backend health in isolation from your load balancer by probing your backend instances without sending traffic through the frontend.
 
 ## Using data path availability and health probe status to diagnose degraded and unavailable load balancers
@@ -33,7 +33,7 @@ First, we go to the detailed metrics view of our load balancer insights blade. Y
 
 The next place we need to look is our health probe status metric to determine whether our data path is unavailable is because we have no healthy backend instances to serve traffic. If we have at least one healthy backend instance for all of our load-balancing and inbound rules, we know it is not our configuration causing our data paths to be unavailable. This scenario indicates an Azure platform issue, while rare, do not fret if you find these as an automated alert is sent to our team to rapidly resolve all platform issues.
 
-### Diagnose health probe failures
+## Diagnose health probe failures
 Let's say we check our health probe status and find out that all instances are showing as unhealthy. This finding explains why our data path is unavailable as traffic has nowhere to go. We should then go through the following checklist to rule out common configuration errors:
 * Check the CPU utilization for your resources to check if your instances are in fact healthy
 * If using an HTTP or HTTPS probe check if the application is healthy and responsive
