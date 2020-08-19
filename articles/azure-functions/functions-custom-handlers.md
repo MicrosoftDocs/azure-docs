@@ -1,8 +1,8 @@
 ---
 title: Azure Functions custom handlers (preview)
 description: Learn to use Azure Functions with any language or runtime version.
-author: craigshoemaker
-ms.author: cshoe
+author: anthonychu
+ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
 ---
@@ -149,7 +149,7 @@ The following *function.json* configures a function that has a queue trigger and
 
 ### Request payload
 
-When a queue message is received, the Functions host sends an HTTP request to the custom handler with a payload in the body.
+When a queue message is received, the Functions host sends an HTTP post request to the custom handler with a payload in the body.
 
 The following code represents a sample request payload. The payload includes a JSON structure with two members: `Data` and `Metadata`.
 
@@ -402,7 +402,7 @@ For HTTP-triggered functions with no additional bindings or outputs, you may wan
 > [!IMPORTANT]
 > The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
 >
-> We recommend you run your web apps on [Azure App Service](../app-service/overview.md). We may be unable to provide support for custom handler apps that are more suitable for Azure App Service.
+> To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
 
 The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `hello` that accepts a `GET` or `POST` .
 
@@ -557,7 +557,7 @@ To change the function app's default log level, configure the `logLevel` setting
 }
 ```
 
-The Functions host will output extra log messages including information related to the custom handler process. Use the logs to investigate problems starting your custom handler process or invoking functions in your custom handler.
+The Functions host outputs extra log messages including information related to the custom handler process. Use the logs to investigate problems starting your custom handler process or invoking functions in your custom handler.
 
 Locally, logs are printed to the console.
 
@@ -565,7 +565,7 @@ In Azure, [query Application Insights traces](functions-monitoring.md#query-tele
 
 ### Test custom handler in isolation
 
-Because a custom handler is a web server process, it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload) using a tool like [cURL](https://curl.haxx.se/) or [Postman](https://www.postman.com/).
+Custom handler apps are a web server process, so it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload) using a tool like [cURL](https://curl.haxx.se/) or [Postman](https://www.postman.com/).
 
 You can also use this strategy in your CI/CD pipelines to run automated tests on your custom handler.
 
@@ -575,8 +575,6 @@ Custom handlers run in the same environment as a typical Azure Functions app. Te
 
 ### Get support
 
-If you need help on a function app with custom handlers, you can submit a request through regular support channels. However, due to the wide variety of languages you can use to build custom handlers, it is important to understand what you can receive support for.
+If you need help on a function app with custom handlers, you can submit a request through regular support channels. However, due to the wide variety of possible languages used to build custom handlers apps, support is not unlimited.
 
-We may be able to support you if the Functions host has problems starting your custom handler process or communicating with it.
-
-For problems specific to the inner workings of your custom handler process, such as issues with the chosen language or framework, our Support Team is unable to provide assistance.
+Support is available if the Functions host has problems starting or communicating with the custom handler process. For problems specific to the inner workings of your custom handler process, such as issues with the chosen language or framework, our Support Team is unable to provide assistance in this context.
