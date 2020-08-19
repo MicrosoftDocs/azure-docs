@@ -1,6 +1,6 @@
 ---
 title: gRPC extension data contract - Azure
-description: In this article, you will learn about gRPC protocol and how to implement it.
+description: In this article, you will learn about using gRPC protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
 ms.topic: overview
 ms.date: 09/14/2020
 
@@ -8,9 +8,7 @@ ms.date: 09/14/2020
 
 # gRPC extension data contract
 
-In this article, you will learn about gRPC protocol and how to implement it.
-
-## gRPC extension contract
+In this article, you will learn about using gRPC protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
 
 gRPC is a modern, open-source, high-performance RPC framework that runs in any environment. The gRPC transport service uses HTTP/2 bidirectional streaming between:
 
