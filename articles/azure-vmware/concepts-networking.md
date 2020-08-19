@@ -7,7 +7,9 @@ ms.date: 07/23/2020
 
 # Azure VMware Solution (AVS) Preview networking and interconnectivity concepts
 
-Network interconnectivity between your Azure VMware Solution (AVS) private clouds and on-premises environments or virtual networks in Azure lets you access and use your private cloud. In this article, we'll cover a few key concepts that establish the basis of networking and interconnectivity.
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+
+
 
 A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations:
 

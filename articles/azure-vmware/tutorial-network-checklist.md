@@ -15,7 +15,7 @@ In this tutorial, you learn how about:
 > * Network connectivity requirements
 > * DHCP in AVS
 
-## Network connectivity
+## Network connectivity requirements
 
 The AVS private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment.
 
