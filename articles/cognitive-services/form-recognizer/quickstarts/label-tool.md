@@ -49,6 +49,12 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    * [Linux](https://docs.docker.com/install/)
 
 1. Get the sample labeling tool container with the `docker pull` command.
+    # [v2.0](#tab/v2.0)    
+    ```
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+    ```
+
+    # [v2.1](#tab/v2.1)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```

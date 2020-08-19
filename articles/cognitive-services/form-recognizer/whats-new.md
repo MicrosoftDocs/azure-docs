@@ -17,9 +17,6 @@ ms.author: pafarley
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
 
-> [!NOTE]
-> The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
-
 ## August 2020
 
 ### New features
