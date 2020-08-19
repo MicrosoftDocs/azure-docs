@@ -12,7 +12,7 @@
     items:
     - name: Create Server - Portal
       href: quickstart-create-server-database-portal.md
-      displayName: create single server in portal
+      displayName: create single server,portal
     - name: Create Server - Azure CLI
       href: quickstart-create-server-database-azure-cli.md
       displayName: create single server in CLI
