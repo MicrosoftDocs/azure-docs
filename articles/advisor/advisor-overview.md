@@ -46,7 +46,7 @@ You can also view Advisor recommendations through the virtual machine resource i
 
 ### What permissions do I need to access Advisor?
  
-You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of a subscription.
+You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of a subscription, Resource Group or Resource.
 
 ### What resources does Advisor provide recommendations for?
 

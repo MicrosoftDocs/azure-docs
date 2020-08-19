@@ -4,7 +4,7 @@ description: Overview of Azure support for generation 2 VMs
 author: ju-shim
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: jushiman
 ---

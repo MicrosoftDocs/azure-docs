@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
 # Use bulk executor Java library to perform bulk operations on Azure Cosmos DB data

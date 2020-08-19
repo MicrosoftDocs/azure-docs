@@ -43,7 +43,7 @@ This release is the first public preview release of Live Video Analytics on IoT 
 
 ### Supported functionalities
 * Analyze live video streams using AI modules of your choice and optionally record video on the edge device or in the cloud
-* Use on Linux AMD64 operating systems [supported](https://docs.microsoft.com/azure/iot-edge/support) by IoT Edge
+* Use on Linux AMD64 operating systems [supported](../../iot-edge/support.md) by IoT Edge
 * Deploy and configure the module via the IoT Hub using Azure portal or Visual Studio Code
 * Manage [graph topologies and graph instances](media-graph-concept.md#media-graph-topologies-and-instances) remotely or locally through the following direct method calls
 

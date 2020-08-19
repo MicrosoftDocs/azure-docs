@@ -34,10 +34,10 @@ Using the above docker information, customer will register a weather partner in 
 The FarmBeats APIs contain Swagger technical documentation. For information on all the APIs and their
 corresponding requests or responses, see [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-If you have installed FarmBeats, you can access your FarmBeats swagger at [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger)
+If you have installed FarmBeats, you can access your FarmBeats swagger at `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Note that “-api” is appended to your FarmBeats website name.
-The API endpoint will be: [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+The API endpoint will be: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### Datahub lib
 

@@ -168,7 +168,7 @@ $sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id -ApiVersion 2014-04-01 -Verbose).Properties.ConnectionType
 
 # Update connection policy
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f

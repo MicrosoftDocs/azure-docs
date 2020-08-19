@@ -49,7 +49,7 @@ In this lesson, you will create a Windows Store application with a MediaElement 
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
 
-For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). 
+For more information on developing Windows Store application, see [Develop Great Apps for Windows 8](https://developer.microsoft.com/en-us/windows/). 
 This lesson contains the following procedures:
 
 1. Create a Windows Store project
@@ -1042,4 +1042,3 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

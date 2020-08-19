@@ -10,7 +10,7 @@ ms.service: automation
 ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 
@@ -37,6 +37,7 @@ This sample template performs the following:
 * Automates the creation of an Azure Monitor Log Analytics workspace.
 * Automates the creation of an Azure Automation account.
 * Links the Automation account to the Log Analytics workspace.
+* Adds sample Automation runbooks to the account.
 
 >[!NOTE]
 >Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
@@ -54,7 +55,8 @@ The following table lists the API version for the resources used in this example
 | Resource | Resource type | API version |
 |:---|:---|:---|
 | [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
-| [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2018-06-30 |
+| [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2020-01-13-preview |
+| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | worksapces | 2020-03-01-preview |
 
 ### Before you use the template
 
@@ -95,6 +97,20 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 3. The deployment can take a few minutes to finish. When completed, the output is similar to the following:
 
     ![Example result when deployment is complete](media/quickstart-create-automation-account-template/template-output.png)
+
+## Review deployed resources
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the Azure portal, open the Automation account you just created. 
+
+3. From the left-pane, select **Runbooks**. On the **Runbooks** page, listed are three tutorial runbooks created with the Automation account.
+
+    ![Tutorial runbooks created with Automation account](./media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
+
+4. From the left-pane, select **Linked workspace**. On the **Linked workspace** page, it shows the Log Analytics workspace you specified earlier linked to your Automation account.
+
+    ![Automation account linked to the Log Analytics workspace](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
 ## Clean up resources
 

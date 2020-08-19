@@ -69,5 +69,5 @@ For more information about Azure CLI commands for Event Hubs, see [Azure CLI for
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)

@@ -1,6 +1,6 @@
 ---
 title: Add tags to a lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to add a tag to a lab in Azure DevTest Labs
+description: Learn how to create custom tags in Azure DevTest Labs and use tags to categorize resources. You can see all the resources in your subscription that have a tag.
 ms.topic: article
 ms.date: 06/26/2020
 ---
@@ -47,7 +47,7 @@ The following limitations apply to tags:
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
 * Tags applied to the resource group are not inherited by the resources in that resource group.
 
-[Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) provides greater details about using tags in Azure, including how to manage tags using PowerShell or Azure CLI.
+[Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md) provides greater details about using tags in Azure, including how to manage tags using PowerShell or Azure CLI.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

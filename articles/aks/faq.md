@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 08/06/2020
 
 ---
 
@@ -133,7 +133,7 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 
 ## Can I move/migrate my cluster between Azure tenants?
 
-The `az aks update-credentials` command can be used to move an AKS cluster between Azure tenants. Follow the instructions in [Choose to update or create a service principal](./update-credentials.md) and then [update aks cluster with new credentials](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Moving your AKS cluster between tenants is currently unsupported.
 
 ## Can I move/migrate my cluster between subscriptions?
 
@@ -186,6 +186,10 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 ## Can I use custom VM extensions?
 
 No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+
+## Does AKS store any customer data outside of the cluster's region?
+
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
 <!-- LINKS - internal -->
 

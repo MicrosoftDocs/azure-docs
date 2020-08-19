@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Delegate administration
             url: roles-concept-delegation.md
-          - text: Compare Azure RBAC roles and Azure AD administrator roles
+          - text: Compare Azure roles and Azure AD administrator roles
             url: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
 
   # Card

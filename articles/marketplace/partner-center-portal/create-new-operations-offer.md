@@ -27,7 +27,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
     ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-operations.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -181,6 +181,8 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
@@ -191,6 +193,7 @@ Provide your offer's logo in two pixel sizes:
 - **Small** (48 x 48)
 - **Large** (216 x 216)
 
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### Screenshots
 
@@ -290,7 +293,7 @@ If it's your first time publishing this offer, you can:
     - **Not started** – The section has not been touched and should be completed.
     - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
-- In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+- In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app. For more information about testing instructions and completing a first publish, see [AppSource Dynamics 365 Finance and Operations functional validation](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 
 ## Next step

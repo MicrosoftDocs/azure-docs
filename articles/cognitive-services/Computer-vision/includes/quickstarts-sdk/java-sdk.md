@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/19/2019
+ms.custom: devx-track-java
 ms.author: pafarley
 ---
 

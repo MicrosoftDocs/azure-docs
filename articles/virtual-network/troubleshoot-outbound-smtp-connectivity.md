@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
-description: Learn how to troubleshoot issues of outbound SMTP connectivity in Azure.
+description: Learn the recommended method for sending email and how to troubleshoot issues of outbound SMTP connectivity in Azure.
 services: virtual-network
 author: genlin
 manager: dcscontentpm

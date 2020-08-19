@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Internal Load Balancer - Azure template
 titleSuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer using a template in Resource Manager
@@ -8,7 +8,7 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
@@ -35,7 +35,7 @@ The sample template available in the public repository uses a parameter file con
 
 To deploy the template you downloaded by using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Download the parameters file to your local disk.
 3. Edit the file and save it.
 4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.

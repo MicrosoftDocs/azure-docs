@@ -106,7 +106,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | See the [support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+Azure VM | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### How is the data source size determined?
 
@@ -122,7 +122,7 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 
-There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](./backup-support-matrix.md#vault-support).
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 
@@ -192,6 +192,10 @@ When a new policy is applied, schedule and retention of the new policy is follow
 - If retention is extended, existing recovery points are marked to keep them according to new policy.
 - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
+### How long is data retained when stopping backups, but selecting the option to retain backup data?
+
+When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
+
 ## Encryption
 
 ### Is the data sent to Azure encrypted?
@@ -209,7 +213,7 @@ Microsoft does not decrypt the backup data at any point.
 
 ### What is the minimum length of the encryption key used to encrypt backup data?
 
-The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault.
+The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is derived from a passphrase that should be at least 16 characters long. For Azure VMs, there is no limit to the length of keys used by Azure KeyVault.
 
 ### What happens if I misplace the encryption key? Can I recover the data? Can Microsoft recover the data?
 

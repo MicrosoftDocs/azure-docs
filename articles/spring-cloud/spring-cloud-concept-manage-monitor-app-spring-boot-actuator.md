@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
+ms.custom: devx-track-java
 ---
 
 # Manage and monitor app with Azure Spring Boot Actuator

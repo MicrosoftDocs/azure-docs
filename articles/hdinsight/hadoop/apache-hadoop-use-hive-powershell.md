@@ -23,7 +23,7 @@ This document provides an example of using Azure PowerShell to run Apache Hive q
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
 
 ## Run a Hive query
 

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ---
 
@@ -22,6 +22,9 @@ ms.author: anfeldma
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [REST Resource Provider](/rest/api
@@ -43,7 +46,14 @@ ms.author: anfeldma
 
 ### v2 builds
 
-### <a name="2.3.0"></a>2.3.0
+### <a name="2.3.2"/>2.3.2
+* Added lease store compatibility with [V3 SDK](sql-api-sdk-dotnet-standard.md) which enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
+
+### <a name="2.3.1"/>2.3.1
+* Corrected a case when `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` close reason was sent to `FeedProcessing.IChangeFeedObserver.CloseAsync` if the partition cannot be found or if the target replica is not up to date up with the read session. In these cases `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` and `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` close reasons are now used.
+* Added a new close reason `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` that is sent to close the change feed observer when the target replica is not up to date up with the read session.
+
+### <a name="2.3.0"/>2.3.0
 * Added a new method `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` and corresponding public interface `ICheckpointPartitionProcessorFactory`. This allows an implementation of the `IPartitionProcessor` interface to use built-in checkpointing mechanism. The new factory is similar to the existing `IPartitionProcessorFactory`, except that its `Create` method also takes the `ILeaseCheckpointer` parameter.
 * Only one of the two methods, either `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` or `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`, can be used for the same `ChangeFeedProcessorBuilder` instance.
 
@@ -173,16 +183,17 @@ ms.author: anfeldma
 
 ## Release & Retirement dates
 
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
-
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+> [!WARNING]
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x of the Azure Cosmos DB .NET or .NET Core SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 <br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |August 11, 2020 |--- |
+| [2.3.1](#2.3.1) |July 30, 2020 |--- |
 | [2.3.0](#2.3.0) |April 2, 2020 |--- |
 | [2.2.8](#2.2.8) |October 28, 2019 |--- |
 | [2.2.7](#2.2.7) |May 14, 2019 |--- |

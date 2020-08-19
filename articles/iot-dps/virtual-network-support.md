@@ -55,7 +55,7 @@ Note the following current limitations for DPS when using private endpoints:
 
 * Private endpoints will not work with DPS when the DPS resource and the linked Hub are in different clouds. For example, [Azure Government and global Azure](../azure-government/documentation-government-welcome.md).
 
-* Currently, [custom allocation policies with Azure Functions](how-to-use-custom-allocation-policies.md) for DPS will not work a VNET and private endpoints. 
+* Currently, [custom allocation policies with Azure Functions](how-to-use-custom-allocation-policies.md) for DPS will not work when the Azure function is locked down to a VNET and private endpoints. 
 
 * Current DPS VNET support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated VNET. Support for full VNET-based egress lockdown between DPS and IoT Hub is not currently available.
 

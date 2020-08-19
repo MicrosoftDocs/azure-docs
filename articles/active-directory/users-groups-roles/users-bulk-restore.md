@@ -63,7 +63,7 @@ If there are errors, you can download and view the results file on the **Bulk op
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
+[![Check status in the Bulk Operations Results page.](media/users-bulk-restore/bulk-center.png)](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Next, you can check to see that the users you restored exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 

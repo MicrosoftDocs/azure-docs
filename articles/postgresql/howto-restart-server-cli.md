@@ -5,7 +5,8 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 5/6/2019
+ms.date: 5/6/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Restart Azure Database for PostgreSQL - Single Server using the Azure CLI

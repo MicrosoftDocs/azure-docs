@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Extract text and layout information using the Form Recognizer REST API with Python
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to extract text layout information and table data from form documents.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

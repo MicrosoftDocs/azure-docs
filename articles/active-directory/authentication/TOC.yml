@@ -224,7 +224,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: Microsoft Graph REST API beta
     href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
   - name: Service limits and restrictions

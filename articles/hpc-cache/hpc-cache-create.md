@@ -54,9 +54,9 @@ Azure HPC Cache manages which files are cached and preloaded to maximize cache h
 
 ## Enable Azure Key Vault encryption (optional)
 
-If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. At publication time, this option is supported in East US, South Central US, and West US 2.
+If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support.
 
-If you want to manage the encryption keys used with your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
+If you want to manage the encryption keys used for your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
 
 You can skip this section if you do not need customer-managed keys. Azure encrypts data with Microsoft-managed keys by default. Read [Azure storage encryption](../storage/common/storage-service-encryption.md) to learn more.
 

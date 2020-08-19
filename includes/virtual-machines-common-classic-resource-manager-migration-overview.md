@@ -19,9 +19,9 @@ Resource Manager enables deploying complex applications through templates, confi
 
 Almost all the features from the classic deployment model are supported for compute, network, and storage under Azure Resource Manager. To benefit from the new capabilities in Azure Resource Manager, you can migrate existing deployments from the Classic deployment model.
 
-## Supported resources for migration
-These classic IaaS resources are supported during migration
+## Supported resources & configurations for migration
 
+### Supported resources for migration
 * Virtual Machines
 * Availability Sets
 * Storage Accounts
@@ -31,6 +31,13 @@ These classic IaaS resources are supported during migration
 * Network Security Groups
 * Route Tables
 * Reserved IPs
+
+## Supported configurations for migration
+These classic IaaS resources are supported during migration
+
+| Service | Configuration |
+| --- | --- |
+| Azure AD Domain Services | [Virtual networks that contain Azure AD Domain services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## Supported scopes of migration
 There are four different ways to complete migration of compute, network, and storage resources:
@@ -126,5 +133,4 @@ The following configurations are not currently supported.
 | Azure App Service |Virtual networks that contain App Service environments |This is currently not supported. |
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
-| Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
 | Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, change the VNET of the API Management deployment, which is a no downtime operation. |

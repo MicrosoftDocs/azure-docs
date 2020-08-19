@@ -10,9 +10,9 @@ ms.date: 06/26/2020
 This article illustrates how to use PowerShell to grant users permissions to a particular lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
 
 ## Policies as resources
-As discussed in the [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
+As discussed in the [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
-In DevTest Labs, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role.
+In DevTest Labs, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an Azure role.
 
 For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/** action, and then assign the appropriate users to this custom role in the scope of **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
@@ -83,4 +83,3 @@ Once you've granted user permissions to specific lab policies, here are some nex
 * [Create a lab template](devtest-lab-create-template.md)
 * [Create custom artifacts for your VMs](devtest-lab-artifact-author.md)
 * [Add a VM to a lab](devtest-lab-add-vm.md)
-

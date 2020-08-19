@@ -1,111 +1,62 @@
 ---
-title: "Cognitive Services: What's new in docs for June 1, 2020 - June 30, 2020"
-description: "What's new in the Cognitive Services docs for June 1, 2020 - June 30, 2020."
+title: "Cognitive Services docs: What's new for July 1, 2020 - July 31, 2020"
+description: "What's new in the Cognitive Services docs for July 1, 2020 - July 31, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ---
 
-# Cognitive Services docs: What's new for June 1, 2020 - June 30, 2020
+# Cognitive Services docs: What's new for July 1, 2020 - July 31, 2020
 
-Welcome to what's new in the Cognitive Services docs from June 1, 2020 through June 30, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from July 1, 2020 through July 31, 2020. This article lists some of the major changes to docs during this period.
 
-## Computer Vision
-
-### Updated articles
-
-- [Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Java](/azure/cognitive-services/computer-vision/quickstarts/java-hand-text)
-- [Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Python](/azure/cognitive-services/computer-vision/quickstarts/python-hand-text)
-
-## Face
-
-### Updated articles
-
-- [Example: How to Analyze Videos in Real-time](/azure/cognitive-services/face/face-api-how-to-topics/howtoanalyzevideo_face)
-
-## Immersive Reader
+## Form Recognizer
 
 ### New articles
 
-- [Quickstart: Use the Immersive Reader client library](/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
-
-## LUIS
-
-### New articles
-
-- [Artificial intelligence in Language Understanding (LUIS)](/azure/cognitive-services/luis/artificial-intelligence)
-- [Continuous Integration and Continuous Delivery workflows for LUIS DevOps](/azure/cognitive-services/luis/luis-concept-devops-automation)
-- [DevOps practices for LUIS](/azure/cognitive-services/luis/luis-concept-devops-sourcecontrol)
-- [Testing for LUIS DevOps](/azure/cognitive-services/luis/luis-concept-devops-testing)
-- [Quickstart: Use cURL and REST to get intent](/azure/cognitive-services/luis/luis-get-started-rest-get-intent)
-- [Quickstart: Use cURL and REST to change model](/azure/cognitive-services/luis/luis-get-started-rest-get-model)
-- [Apply DevOps to LUIS app development using GitHub Actions](/azure/cognitive-services/luis/luis-how-to-devops-with-github)
-
-### Updated articles
-
-- [Machine-learning features](/azure/cognitive-services/luis/luis-concept-feature)
-- [Create LUIS resources](/azure/cognitive-services/luis/luis-how-to-azure-subscription)
-- [Migrate to an Azure resource authoring key](/azure/cognitive-services/luis/luis-migration-authoring)
-
-
-- [Tutorial: Use a Web App Bot enabled with Language Understanding in Node.js](/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)
+- [Tutorial: Create a form-processing app with AI Builder](/azure/cognitive-services/form-recognizer/tutorial-ai-builder)
 
 ## Personalizer
 
 ### New articles
 
-- [Add Personalizer to a .NET web app](/azure/cognitive-services/personalizer/tutorial-use-personalizer-web-app)
+- [Tutorial: Use Personalizer in .NET chat bot](/azure/cognitive-services/personalizer/tutorial-use-personalizer-chat-bot)
+
+## QnA Maker
+
+### New articles
+
+- [Plan your QnA Maker app](/azure/cognitive-services/qnamaker/concepts/plan)
 
 ## Speech Service
 
 ### New articles
 
-- [Custom Commands concepts](/azure/cognitive-services/speech-service/custom-commands-references)
-- [Add confirmations to a Command](/azure/cognitive-services/speech-service/how-to-custom-commands-add-confirmations)
-- [Configure parameter as external catalog entity](/azure/cognitive-services/speech-service/how-to-custom-commands-add-external-catalog-string-entity)
-- [Use language generation templates for speech responses](/azure/cognitive-services/speech-service/how-to-custom-commands-add-language-generation-templates)
-- [Implementing corrections in a command](/azure/cognitive-services/speech-service/how-to-custom-commands-add-one-step-correction)
-- [Add parameters to commands](/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameters-to-commands)
-- [Add simple commands](/azure/cognitive-services/speech-service/how-to-custom-commands-add-simple-commands)
-- [Add validations to custom command parameters](/azure/cognitive-services/speech-service/how-to-custom-commands-add-validations)
-- [Create a Custom Commands application](/azure/cognitive-services/speech-service/how-to-custom-commands-create-empty-project)
-- [CI/CD for Custom Speech](/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-- [Create an end to end voice assistant using Custom Commands](/azure/cognitive-services/speech-service/quickstart-custom-commands-e2e-application)
-- [Quickstart: Test a model using an audio file in Speech Studio](/azure/cognitive-services/speech-service/quickstarts/speech-studio-test-model)
-- [Learn the basics of Speaker Recognition](/azure/cognitive-services/speech-service/speaker-recognition-basics)
-- [What is the Azure Speaker Recognition service?](/azure/cognitive-services/speech-service/speaker-recognition-overview)
-- [Speech service: what's new in docs](/azure/cognitive-services/speech-service/whats-new)
-
-### Updated articles
-
-- [What is batch transcription?](/azure/cognitive-services/speech-service/batch-transcription)
-- [Language and voice support for the Speech service](/azure/cognitive-services/speech-service/language-support)
+- [Custom Commands encryption of data at rest](/azure/cognitive-services/speech-service/custom-commands-encryption-of-data-at-rest)
+- [Custom keyword basics](/azure/cognitive-services/speech-service/custom-keyword-basics)
+- [Use Custom Commands with Custom Voice](/azure/cognitive-services/speech-service/how-to-custom-commands-use-custom-voice)
+- [Batch processing kit for Speech containers](/azure/cognitive-services/speech-service/speech-container-batch-processing)
 
 ## Text Analytics
 
-### Updated articles
+### New articles
 
-- [Quickstart: Using Go to call the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/quickstarts/go)
-- [Quickstart: Use Java to call the Azure Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/quickstarts/java)
-- [Quickstart: Use Node.js to call the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/quickstarts/nodejs)
-- [Quickstart: Using PHP to call the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/quickstarts/php)
-- [Quickstart: Using the Python REST API to call the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/quickstarts/python)
-- [Quickstart: Using Ruby to call the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/quickstarts/ruby)
-
-## Translator
-
-### Updated articles
-
-- [Language and region support for text and speech translation](/azure/cognitive-services/translator/language-support)
+- [How to: Use Text Analytics for Health (preview)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
 
 ## Community contributors
 
-The following people contributed to the Cognitive Services docs during this period. Thank you! 
+The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
-- [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
-- [huaigulin](https://github.com/huaigulin) - Huaigu Lin (1)
+- [milestonedev](https://github.com/milestonedev) - Justin Miles (2)
+- [felixvanleeuwen](https://github.com/felixvanleeuwen) (1)
+- [LoicB](https://github.com/LoicB) - Loic Beylot (1)
+- [nkgami](https://github.com/nkgami) - Hiroki Nakagami (1)
+- [RussellJQA](https://github.com/RussellJQA) - Russell Johnson (1)
+- [ryotokuro](https://github.com/ryotokuro) - Taiyue Tan (1)
+- [smorcuend](https://github.com/smorcuend) - Sergio Morcuende (1)
+- [swildermann](https://github.com/swildermann) - Sven Wildermann (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

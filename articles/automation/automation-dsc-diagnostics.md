@@ -28,7 +28,7 @@ Azure Monitor logs provides greater operational visibility to your Automation St
 
 To start sending your Automation State Configuration reports to Azure Monitor logs, you need:
 
-- The November 2016 or later release of [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
+- The November 2016 or later release of [Azure PowerShell](/powershell/azure/) (v2.3.0).
 - An Azure Automation account. For more information, see [An introduction to Azure Automation](automation-intro.md).
 - A Log Analytics workspace with an Automation & Control service offering. For more information, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 - At least one Azure Automation State Configuration node. For more information, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).

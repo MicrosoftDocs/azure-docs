@@ -26,6 +26,7 @@ To complete this tutorial, you need the following:
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../index.yml) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. Since you stop and start this machine, it shouldn't be a production VM.
+* If necessary, [import Azure modules](../shared-resources/modules.md) or [update modules](../automation-update-azure-modules.md) based on the cmdlets that you use.
 
 ## Step 1 - Create runbook
 

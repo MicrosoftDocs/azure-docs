@@ -176,7 +176,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html
+    href: /answers/topics/azure-notification-hubs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature
