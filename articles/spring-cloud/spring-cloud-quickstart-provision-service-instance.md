@@ -18,6 +18,7 @@ You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI. 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ## Provision an instance of Azure Spring Cloud
+The following sections explain how to provision an instance of Azure Spring Cloud using either the Azure portal or the Azure CLI.
 
 #### [Portal](#tab/Azure-portal)
 
