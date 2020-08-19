@@ -19,6 +19,8 @@
     href: cognitive-services-apis-create-account.md
   - name: Create a new resource using the Azure CLI
     href: cognitive-services-apis-create-account-cli.md
+  - name: Create a new resource using the client library
+    href: cognitive-services-apis-create-account-client-library.md
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
     href: resource-manager-template.md

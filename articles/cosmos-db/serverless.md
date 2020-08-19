@@ -43,7 +43,7 @@ See the [how to choose between provisioned throughput and serverless](throughput
 
 ## Using serverless resources
 
-Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md).
+Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md). Migrating existing accounts to/from serverless mode is not currently supported.
 
 > [!NOTE]
 > Serverless is currently supported on the Azure Cosmos DB Core (SQL) API only.
