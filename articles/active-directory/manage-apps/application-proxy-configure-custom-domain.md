@@ -1,21 +1,16 @@
 ---
-title: Custom domains in Azure AD Application Proxy | Microsoft Docs
+title: Custom domains in Azure AD Application Proxy
 description: Configure and manage custom domains in Azure AD Application Proxy. 
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
 ---
 
 # Configure custom domains with Azure AD Application Proxy
@@ -86,11 +81,11 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Select custom domain](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificate** field. 
+6. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificate** field.
    
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section.
+7. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section. If the certificate is not valid or there is a problem with the password you will see an error message. The [Application Proxy FAQ](application-proxy-faq.md#application-configuration) contains some troubleshooting steps you can try.
    
    ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
@@ -121,7 +116,7 @@ A certificate creates the secure TLS connection for your custom domain.
 
 You must use a PFX certificate, to ensure all required intermediate certificates are included. The certificate must include the private key.
 
-There's no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are supported. 
+Most common certificate signature methods are supported such as Subject Alternative Name (SAN). 
 
 You can use wildcard certificates as long as the wildcard matches the external URL. You must use wildcard certificates for [wildcard applications](application-proxy-wildcard.md). If you want to use the certificate to also access subdomains, you must add the subdomain wildcards as subject alternative names in the same certificate. For example, a certificate for *\*.adventure-works.com* won't work for *\*.apps.adventure-works.com* unless you add *\*.apps.adventure-works.com* as a subject alternative name. 
 
