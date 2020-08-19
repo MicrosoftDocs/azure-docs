@@ -34,10 +34,32 @@ Before you get started though, you'll need to collect or think about a few value
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
 
+## [REST](#tab/rest/)
+
+## Prerequisites
+
+To complete the steps described in this topic, you have to:
+
+- Review [Asset concept](assets-concept.md).
+- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
+
+Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token).
+
+## Create an asset
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
+
+## Get a SAS URL with read-write permissions
+
+[!INCLUDE[Create an asset with Postman](./includes/task-asset-sas-url-postman.md)]
+
+## Upload a file to blob storage using the upload URL
+
+Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+
 ---
 <!-- add these to the tabs when available -->
 For other methods see the [Azure Storage documentation](https://docs.microsoft.com/azure/storage/blobs/) for working with blobs in [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python), and [JavaScript (Node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs).
-
 
 ## Next steps
 

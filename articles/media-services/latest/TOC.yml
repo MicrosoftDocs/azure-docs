@@ -256,9 +256,6 @@
       href: job-input-from-http-how-to.md
     - name: From a local file
       items:
-      - name: With .NET
-        displayName: upload
-        href: job-input-from-local-file-how-to.md  
       - name: With REST
         displayName: upload
         href: upload-files-rest-how-to.md
@@ -270,6 +267,9 @@
       href: cli-create-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
+    - name: With .NET
+      displayName: upload
+      href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs.md
   - name: Encode content 
