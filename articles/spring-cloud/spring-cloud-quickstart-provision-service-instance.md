@@ -98,8 +98,8 @@ az extension add --name spring-cloud
     ```
 ---
 
-> [!div class="nextstepaction"]
 ## Next steps
-* [Set up configuration server](spring-cloud-quickstart-setup-config-server.md)
+> [!div class="nextstepaction"]
+> [Set up configuration server](spring-cloud-quickstart-setup-config-server.md)
 
 

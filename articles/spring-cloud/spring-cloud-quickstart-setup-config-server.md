@@ -49,4 +49,5 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## Next steps
-* [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
+> [!div class="nextstepaction"]
+> * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)

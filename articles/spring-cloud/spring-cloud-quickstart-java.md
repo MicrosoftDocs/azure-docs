@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Deploy your first Azure Spring Cloud application
 
-This quickstart explains how to deploy a Spring Cloud Hello-World application to Azure. Azure Spring Cloud enables Spring Cloud based microservice applications to run on Azure. 
+This quickstart explains how to deploy a Spring Cloud helloworld application to Azure. Azure Spring Cloud enables Spring Cloud based microservice applications to run on Azure. 
 
 The sample application code used in this tutorial is at the [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you've completed this example, the sample application will be accessible online and ready to be managed via the Azure portal.
 
@@ -276,7 +276,6 @@ To get the logs:
 
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 ---
-## Next steps
 
 In this quickstart, you learned how to:
 
@@ -285,7 +284,7 @@ In this quickstart, you learned how to:
 > * Provision a service instance
 > * Build and deploy the app with public endpoint
 > * Streaming logs in real time
-
+## Next steps
 > [!div class="nextstepaction"]
 > [Build and Run Microservices](spring-cloud-quickstart-piggymetrics-intro.md)
 

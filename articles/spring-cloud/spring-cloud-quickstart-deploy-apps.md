@@ -229,4 +229,5 @@ You will have to edit the previous configuration for both the `auth-service` and
 ---
 
 ## Next steps
-[Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+> [!div class="nextstepaction"]
+> [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)

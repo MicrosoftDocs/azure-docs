@@ -39,9 +39,9 @@ az spring-cloud app logs -s <service instance name> -g <resource group name> -n 
 
 ```
 
-You will see logs like:
+You will see logs like
 
-    ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png)
+   ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png)
 
 >[!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
@@ -84,6 +84,7 @@ You will see logs like:
     ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
 
 ## Next steps
-* [Diagnostic services](diagnostic-services.md)
-* [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
-* [Stream logs in real time](spring-cloud-howto-log-streaming.md)
+> [!div class="nextstepaction"]
+> [Diagnostic services](diagnostic-services.md)
+> [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
+> [Stream logs in real time](spring-cloud-howto-log-streaming.md)
