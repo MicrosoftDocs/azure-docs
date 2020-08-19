@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate the [Lenses.io](https://lenses.i
 * Enable your users to be automatically signed-in to Lenses with their Azure AD accounts.
 * Manage your accounts in one central location—the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 * Lenses.io supports service provider (SP) initiated SSO.
 
-* You can enforce session control after you configure Lenses.io. Session control protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* You can enforce session control after you configure Lenses.io. Session control protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Lenses.io from the gallery
 
@@ -45,14 +45,14 @@ To configure the integration of Lenses.io into Azure AD, add Lenses.io to your l
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account, or a personal Microsoft account.
 1. On the left pane, select the **Azure Active Directory** service.
-1. Go to **Enterprise Applications** and then select **All Applications**.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. Select **New application**.
 1. On the **Add from the gallery** section, enter **Lenses.io** in the search box.
 1. From results panel, select **Lenses.io**,  and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD SSO for Lenses.io
 
-Configure and test Azure AD SSO with your Lenses.io portal by using a test user called *B.Simon*. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Lenses.io.
+You'll create a test user called *B.Simon* to configure and test Azure AD SSO with your Lenses.io portal. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Lenses.io.
 
 Complete the following steps:
 
@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter these values in the following text-entry boxes:
+1. In the **Basic SAML Configuration** section, enter values in the following text-entry boxes:
 
 	a. **Sign on URL**: Enter a URL that has the following pattern:
     - `https://<CUSTOMER_LENSES_BASE_URL>`
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 	> [!NOTE]
 	> These values are not real. Update them with the actual Sign on URL, Reply URL, and Identifier of the base URL of your Lenses portal instance. See the [Lenses.io SSO documentation](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0) for more information.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, go to the **SAML Signing Certificate** section. Find **Federation Metadata XML**, and then select **Download** to download and save the certificate on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 ### Create an Azure AD test user and group
 
-Create the test user, B.Simon, in the Azure portal. Then create a test group that controls what access B.Simon has in Lenses.
+Create the test user, B.Simon, in the Azure portal. Then create a test group that controls the access B.Simon has in Lenses.
 
 You can find out how Lenses uses group membership mapping for authorization in the [Lenses SSO documentation](https://docs.lenses.io/install_setup/configuration/security.html#id3).
 
@@ -107,7 +107,7 @@ You can find out how Lenses uses group membership mapping for authorization in t
 1. On **User** properties:
    1. In the **Name** box, enter **B.Simon**.  
    1. In the **User name** box, enter the username@companydomain.extension. For example, **B.Simon@contoso.com**.
-   1. Select the **Show password** check box. Then write down the password that shows in the **Password** box.
+   1. Select the **Show password** check box. Write down the password that shows in the **Password** box.
    1. Select **Create**.
 
 Create the group:
@@ -154,7 +154,7 @@ To configure SSO on the **Lenses.io** portal, install the downloaded **Federatio
 
 ### Create Lenses.io test group permissions
 
-1. Create a group in Lenses by using the **Object ID** of the **LensesUsers** group that you copied in the user [creation section](#create-an-azure-ad-test-user-and-group).
+1. To create a group in Lenses, use the **Object ID** of the **LensesUsers** group. This is the ID that you copied in the user [creation section](#create-an-azure-ad-test-user-and-group).
 1. Assign the desired permissions for B.Simon.
 
 For more information, see [Azure - Lenses group mapping](https://docs.lenses.io/install_setup/configuration/security.html#azure-groups).
