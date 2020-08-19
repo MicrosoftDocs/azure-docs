@@ -2,7 +2,7 @@
 title: 'Quickstart: Run a workflow - Microsoft Genomics'
 description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. 
 services: genomics
-author: grhuynhAzure notebook
+author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
@@ -141,4 +141,4 @@ Once your workflow completes, you can view the output files in your Azure storag
 
 ## Next steps
 
-In this article, you uploaded sample input data into Azure storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure Notebook example](https://aka.ms/genomicsnotebook) by downloading the "Genomics Tutorial.ipynb" file and using a notebook reader like [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) to open the file and run through it.
+In this article, you uploaded sample input data into Azure storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure Notebooks example](https://aka.ms/genomicsnotebook) by downloading the "Genomics Tutorial.ipynb" file and using a notebook reader like [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) to open the file and run through it.
