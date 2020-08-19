@@ -42,7 +42,7 @@ When you need to activate the destination volume (for example, when you want to 
 
     ![Break replication peering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
 
-5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines).   
+5.	Mount the destination volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     This step enables a client to access the destination volume.
 
 ## Resync replication to reactivate the source volume   
@@ -87,7 +87,8 @@ b.	Type “Yes” when prompted and click the **Resync** button.
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-understandintroduction.md)
+* [Cross-region replication](cross-region-replication-introduction.md)
+* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 

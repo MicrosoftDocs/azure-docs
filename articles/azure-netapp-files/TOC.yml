@@ -36,7 +36,11 @@
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
   - name: Cross-region replication
-    href: cross-region-replication-introduction.md
+    items: 
+    - name: Understand cross-region replication
+      href: cross-region-replication-introduction.md
+    - name: Requirements and considerations for cross-region replication
+      href: cross-region-replication-requirements-considerations.md
   - name: Solutions
     items:
     - name: Solution architectures using Azure NetApp Files

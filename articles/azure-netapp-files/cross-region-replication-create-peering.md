@@ -24,7 +24,7 @@ Replication peering enables you to asynchronously replicate data from an Azure N
 
 Azure NetApp Files replication does not currently support multiple subscriptions; all replications must be performed under a single subscription.
 
-Before you begin, ensure that you have reviewed the [Requirements and considerations](cross-region-replication-introduction.md#requirements-and-considerations) about cross-region replication.  
+Before you begin, ensure that you have reviewed the [requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).  
 
 ## Locate the source volume resource ID  
 
@@ -63,7 +63,7 @@ You can also select an existing NetApp account in a different region.
     * Virtual network 
     * Subnet
 
-    For details about the fields, see [Create an NFS volume](azure-netapp-files-create-volumes#create-an-nfs-volume.md). 
+    For details about the fields, see [Create an NFS volume](azure-netapp-files-create-volumes.md#create-an-nfs-volume.md). 
 
 6. Under the **Protocol** tab, select the same protocol as the source volume.  
 For the NFS protocol, ensure that the export policy rules satisfy the requirements of any hosts in the remote network that will access the export.  
@@ -100,7 +100,8 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-understandintroduction.md)
+* [Cross-region replication](cross-region-replication-introduction.md)
+* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)

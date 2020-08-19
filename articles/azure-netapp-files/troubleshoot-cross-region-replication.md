@@ -24,20 +24,20 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Volume {0} cannot   be used as source because it is already in replication    |     You cannot   create a replication with a source volume that is already in a data   replication relationship.    |
-|     Peered region   '{0}' is not accepted    |     You are   attempting to create a replication between un-peered regions.    |
-|     RemoteVolumeResource   '{0}' of wrong type '{1}'    |     Validate that   the remote resource ID is a volume resource ID.    |
+|     `Volume {0} cannot   be used as source because it is already in replication`    |     You cannot   create a replication with a source volume that is already in a data   replication relationship.    |
+|     `Peered region   '{0}' is not accepted`    |     You are   attempting to create a replication between un-peered regions.    |
+|     `RemoteVolumeResource   '{0}' of wrong type '{1}'`    |     Validate that   the remote resource ID is a volume resource ID.    |
 
-# Errors authorizing volume  
+## Errors authorizing volume  
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Missing value   for 'AuthorizeSourceReplication'    |     The   RemoteResourceID is missing or invalid from the UI or API request (fix error   msg).    |
-|     Missing value   for 'RemoteVolumeResourceId'    |     The   RemoteResourceID is missing or invalid from the UI or API request.    |
-|     Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}    |     Validate if   RemoteResourceID is correct or exists for the user.    |
-|     Remote volume   '{0}' is not configured for replication    |     Destination   volume is not a data protection volume.    |
-|     Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
-|     The   destination volume replication creation failed (message: {0})    |     This error   indicates a server error. Contact Support.    |
+|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   RemoteResourceID is missing or invalid from the UI or API request (fix error   msg).    |
+|     `Missing value   for 'RemoteVolumeResourceId'`    |     The   RemoteResourceID is missing or invalid from the UI or API request.    |
+|     `Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}`    |     Validate if   RemoteResourceID is correct or exists for the user.    |
+|     `Remote volume   '{0}' is not configured for replication`    |     Destination   volume is not a data protection volume.    |
+|     `Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId`    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
+|     `The   destination volume replication creation failed (message: {0})`    |     This error   indicates a server error. Contact Support.    |
 
 ## Errors deleting replication
 
@@ -56,9 +56,9 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Missing value   for 'AuthorizeSourceReplication'    |     The   RemoteResourceID is missing or invalid from the UI or API request (fix error   msg).    |
-|     Missing value   for 'RemoteVolumeResourceId'    |     The   RemoteResourceID is missing or invalid from the UI or API request.    |
-|     Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}    |     Validate if   RemoteResourceID is correct or exists for the user.    |
+|     Missing value   for 'AuthorizeSourceReplication'    |     The   `RemoteResourceID` is missing or invalid from the UI or API request (fix error   msg).    |
+|     Missing value   for 'RemoteVolumeResourceId'    |     The   `RemoteResourceID` is missing or invalid from the UI or API request.    |
+|     Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}    |     Validate if   `RemoteResourceID` is correct or exists for the user.    |
 |     Remote volume   '{0}' is not configured for replication    |     Destination   volume is not a data protection volume.    |
 |     Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
 |     The   destination volume replication creation failed (message: {0})    |     This error   indicates a server error. Contact Support.    |
@@ -72,7 +72,8 @@ This article describes error messages and resolutions that can help you troubles
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-understandintroduction.md)
+* [Cross-region replication](cross-region-replication-introduction.md)
+* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Create replication peering](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)

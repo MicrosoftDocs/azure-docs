@@ -1,6 +1,6 @@
 ---
-title: Cross-region replication of Azure NetApp Files volumes | Microsoft Docs
-description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, cost model, requirements, and considerations.  
+title: Requirements and considerations for using Azure NetApp Files volume cross-region replication | Microsoft Docs
+description: Describes the requirements and considerations for using the volume cross-region replication functionality of Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,47 +16,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: b-juche
 ---
-# Cross-region replication of Azure NetApp Files volumes
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
+# Requirements and considerations for using cross-region replication 
 
-## Supported region pairs
+You need to be aware of some requirements and considerations before [using the volume cross-region replication](cross-region-replication-create-peering.md) functionality of Azure NetApp Files:  
 
-Azure NetApp Files volume replication is currently available in the following fixed region pairs:  
-
-* US West and US East
-* US West 2 and US East 
-* US South Central and US Central 
-* US South Central and US East
-* US South Central and US East 2 
-* US East 2 and US Central 
-* North Europe and West Europe
-* UK South and UK West
-* Australia East and Australia Southeast
-* Canada Central and Canada East
-
-## Service-level objectives
-
-Recovery Point Objectives (RPO), or the maximum tolerable data loss, is defined as twice the replication schedule.  The actual RPO observed might vary based on factors such as the total dataset size along with the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
-
-* For the replication schedule of 10 minutes, the maximum RPO is 20 minutes.  
-* For the hourly replication schedule, the maximum RPO is 2 hours.  
-* For the daily replication schedule, the maximum RPO is 2 days.  
-
-Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
-
-## Data durability 
-
-//// content not yet available ////
-
-## Cost model
-
-//// content not yet available ////
-
-
-## Requirements and considerations
-
-You need to be aware of some requirements and considerations before using Azure NetApp Files replication:   
+## Requirements and considerations 
 
 * You must have an active Azure subscription and your subscription must be whitelisted for Azure NetApp Files before using Azure NetApp Files replication. 
 * Azure NetApp Files replication is only available in certain fixed region pairs. See Supported region pairs. 
@@ -71,7 +36,6 @@ You need to be aware of some requirements and considerations before using Azure 
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 
 ## Next steps
-* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Create replication peering](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)

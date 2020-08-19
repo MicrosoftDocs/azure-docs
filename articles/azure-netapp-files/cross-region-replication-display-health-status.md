@@ -50,7 +50,7 @@ You can view replication status on the source volume or the destination volume.
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-understandintroduction.md)
+* [Cross-region replication](cross-region-replication-introduction.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 

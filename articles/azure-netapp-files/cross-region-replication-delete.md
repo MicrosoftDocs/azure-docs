@@ -32,7 +32,8 @@ You can terminate the replication connection between the source and the destinat
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-understandintroduction.md)
+* [Cross-region replication](cross-region-replication-introduction.md)
+* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Troubleshoot cross-region-replication](troubleshoot-cross-region-replication.md)
 
