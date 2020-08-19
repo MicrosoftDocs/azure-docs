@@ -34,28 +34,11 @@ Before you get started though, you'll need to collect or think about a few value
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
 
-## [Postman](#tab/postman/)
+## [CLI Shell](#tab/cli/)
 
-## Prerequisites
+## [REST](#tab/rest/)
 
-To complete the steps described in this topic, you have to:
-
-- Review [Asset concept](assets-concept.md).
-- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
-
-Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token).
-
-## Create an asset
-
-[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
-
-## Get a SAS URL with read-write permissions
-
-[!INCLUDE[Create an asset with Postman](./includes/task-asset-sas-url-postman.md)]
-
-## Upload a file to blob storage using the upload URL
-
-Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Once you have [created an asset using Postman or other REST method and gotten the SUS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ---
 <!-- add these to the tabs when available -->
