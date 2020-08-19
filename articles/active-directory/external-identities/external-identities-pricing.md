@@ -15,14 +15,14 @@ ms.subservice: B2C
 
 # Billing model for Azure AD External Identities
 
-Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD B2C tenants and Azure AD guest user collaboration (B2B). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. To take advantage of MAU billing, your Azure AD tenant must be linked to an Azure subscription. If you have Azure AD B2C tenants that aren't already linked to a subscription, you'll need to do so to activate MAU billing. In this article, learn about MAU billing, linking your tenants to a subscription, and changing your pricing tier.
+Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD B2C tenants and Azure AD guest user collaboration (B2B). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing, linking your tenants to a subscription, and changing your pricing tier.
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## What do I need to do?
 
-To take advantage of MAU billing, you'll need to make sure your tenant is linked to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD Premium P2 features, like risk-based Conditional Access.
+To take advantage of MAU billing, your Azure AD and Azure AD B2C tenants must be linked to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD Premium P2 features, like risk-based Conditional Access.
 
 |If your tenant is:  |You need to:  |
 |---------|---------|
@@ -101,7 +101,7 @@ After you complete these steps for an Azure AD B2C tenant, your Azure subscripti
 
 ## Change your Azure pricing tier
 
-A tenant must be linked to the appropriate Azure pricing tier based on the features you want to use with your Azure AD B2C tenant. <!--Premium features require an Azure AD Premium P1 or P2 features, as described in the [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).--> In some cases, you'll need to upgrade your pricing tier as you use new features. For example, if you want to use Identity Protection, risk-based Conditional Access, and any future Premium P2 capabilities with Azure AD B2C, you’ll need to select the Azure AD Premium P2 pricing tier for your tenant.
+A tenant must be linked to the appropriate Azure pricing tier based on the features you want to use with your Azure AD B2C tenant. Premium features require an Azure AD Premium P1 or P2 features, as described in the [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). In some cases, you'll need to upgrade your pricing tier as you use new features. For example, if you want to use Identity Protection, risk-based Conditional Access, and any future Premium P2 capabilities with Azure AD B2C, you’ll need to select the Azure AD Premium P2 pricing tier for your tenant.
 
 To change your pricing tier, follow these steps.
 
