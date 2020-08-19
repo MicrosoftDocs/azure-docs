@@ -55,7 +55,7 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application code location":::
 
-1. The extension is looking for the location of the API in your application. This quickstart doesn't implement an API, so select **Skip for now** and press **Enter**.
+1. The extension is looking for the location of the API in your application. This article doesn't implement an API, so select **Skip for now** and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
 
