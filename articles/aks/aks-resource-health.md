@@ -53,4 +53,4 @@ You can also view the past 30 days of historical Resource Health information.
 
 ## Next steps
 
-Run checks on your cluster to further troubleshoot your cluster issues by using [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Run checks on your cluster to further troubleshoot cluster issues by using [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
