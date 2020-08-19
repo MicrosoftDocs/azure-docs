@@ -26,7 +26,7 @@ This article shows two ways of using X.509 - group enrollments typically used in
 
 ## Generate root and device key
 
-In this section, you will use an X.509 certificate to connect a device with a key derived from the enrollment group's key which can connect to your IoT Central application.
+In this section, you will use an X.509 certificate to connect a device with a key derived from the enrollment group's key, which can connect to your IoT Central application.
 
 > [!WARNING]
 > This way of generating X.509 certs is just for testing. For a production environment you should use your official, secure mechanism for certificate generation.
@@ -157,7 +157,7 @@ You can now connect devices that have an X.509 certificate derived from this pri
 
 In this section, you will use a self-signed X.509 certificate to connect devices for individual enrollment, which are used to enroll a single device. Self-signed certificates are for testing only.
 
-Create a self-signed X.509 device certificates by running the script. Be sure to only use lower-case alphanumerics and hyphens for certificate name.
+Create a self-signed X.509 device certificate by running the script. Be sure to only use lower-case alphanumerics and hyphens for certificate name.
 
   ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
@@ -188,7 +188,7 @@ The device is now provisioned with X.509 certificate.
 
 ## Simulate the Device for individual enrollment
 
-1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ to the folder that contains the environmentalSensor.js application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
+1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_, to the folder that contains the environmentalSensor.js application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
 
 
 2. Edit the **environmentalSensor.js** file as follows and save it.
