@@ -70,7 +70,7 @@ landingContent:
             url: about-virtual-hub-routing.md
           - text: Scenario - Route through NVA
             url: scenario-route-through-nva.md
-          - text: Scenario - any-to-any
+          - text: Scenario - Any-to-any
             url: scenario-any-to-any.md
           - text: Scenario -  Isolate VNets
             url: scenario-isolate-vnets.md
