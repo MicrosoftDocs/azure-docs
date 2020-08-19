@@ -56,9 +56,8 @@ For other Security Center quickstart templates, see these [community contributed
     ```
 
   - **Portal**:
-      ```markdown
+
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
-    ```
 
 ## Review deployed resources
 
