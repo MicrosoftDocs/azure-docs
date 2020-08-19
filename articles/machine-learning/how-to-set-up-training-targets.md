@@ -175,8 +175,6 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
     run = experiment.submit(config=src)
     ```
 
-For more commands useful for the compute instance, see the notebook [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). This notebook is also available in the studio **Samples** folder in *training/train-on-computeinstance*.
-
 Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit)
 
 

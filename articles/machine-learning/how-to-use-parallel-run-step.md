@@ -197,7 +197,7 @@ model = Model.register(model_path="models/",
 ## Write your inference script
 
 >[!Warning]
->The following code is only a sample that the [sample notebook](https://aka.ms/batch-inference-notebooks) uses. You'll need to create your own script for your scenario.
+>The following code is only a sample that the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run) uses. You'll need to create your own script for your scenario.
 
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
@@ -209,7 +209,7 @@ The script *must contain* two functions:
 %%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://aka.ms/batch-inference-notebooks)
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
 # for the implementation script.
 
 import os
@@ -416,7 +416,7 @@ df.head(10)
 
 ## Next steps
 
-To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
+To see this process working end to end, try the [batch inference notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run). 
 
 For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-parallel-run-step.md).
 
