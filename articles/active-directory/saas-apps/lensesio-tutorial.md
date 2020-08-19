@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Lenses.io | Microsoft Docs'
-description: In this tutorial, you learn how to configure single sign-on between Azure Active Directory and Lenses.io.
+description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Lenses.io.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -47,7 +47,7 @@ To configure the integration of Lenses.io into Azure AD, add Lenses.io to your l
 1. On the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. Select **New application**.
-1. On the **Add from the gallery** section, enter **Lenses.io** in the search box.
+1. In the **Add from the gallery** section, enter **Lenses.io** in the search box.
 1. From results panel, select **Lenses.io**,  and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD SSO for Lenses.io
@@ -98,29 +98,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 ### Create an Azure AD test user and group
 
-Create the test user, B.Simon, in the Azure portal. Then create a test group that controls the access B.Simon has in Lenses.
+In the Azure portal, you'll create a test user called B.Simon. Then you'll create a test group that controls the access B.Simon has in Lenses.
 
 You can find out how Lenses uses group membership mapping for authorization in the [Lenses SSO documentation](https://docs.lenses.io/install_setup/configuration/security.html#id3).
 
+**To create the test user:**
+
 1. On the left pane of the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. At the top of the screen, select **New user**.
-1. On **User** properties:
+1. In the **User** properties, follow these steps:
    1. In the **Name** box, enter **B.Simon**.  
    1. In the **User name** box, enter the username@companydomain.extension. For example, **B.Simon@contoso.com**.
    1. Select the **Show password** check box. Write down the password that shows in the **Password** box.
    1. Select **Create**.
 
-Create the group:
+**To create the group:**
 
 1. Go to **Azure Active Directory**, and then select **Groups**.
 1. At the top of the screen, select **New group**.
-1. On **Group properties**:
+1. In the **Group properties**, follow these steps:
    1. In the **Group type** box, select **Security**.
    1. In the **Group Name** box, enter **LensesUsers**.
    1. Select **Create**.
 1. Select the group **LensesUsers** and copy the **Object ID** (For example: f8b5c1ec-45de-4abd-af5c-e874091fb5f7). You'll use this ID in Lenses to map users of the group to the [correct permissions](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
 
-Assign the group to the test user:
+**To assign the group to the test user:**
 
 1. Go to **Azure Active Directory**, and then select **Users**.
 1. Select the test user **B.Simon**.
@@ -131,7 +133,7 @@ Assign the group to the test user:
 
 ### Assign the Azure AD test user
 
-Grant access to Lenses.io to enable B.Simon to use Azure SSO.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Lenses.io.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. On the applications list, select **Lenses.io**.
@@ -161,7 +163,7 @@ For more information, see [Azure - Lenses group mapping](https://docs.lenses.io/
 
 ## Test SSO
 
-Test your Azure AD SSO configuration by using the Access Panel.
+In this section, test your Azure AD SSO configuration by using the Access Panel.
 
 When you select the Lenses.io tile on the Access Panel, you should be automatically signed in to your Lenses.io portal. For more information, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -169,11 +171,11 @@ When you select the Lenses.io tile on the Access Panel, you should be automatica
 
 - [Setup SSO in your Lenses.io instance](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
 
-- [List of Tutorials on how to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+- [List of Tutorials on how to integrate SaaS apps with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and SSO with Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Lenses.io with Azure AD](https://aad.portal.azure.com/).
 
