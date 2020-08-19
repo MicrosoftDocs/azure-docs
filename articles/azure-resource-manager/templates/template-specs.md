@@ -165,11 +165,14 @@ New-AzResourceGroupDeployment `
 
 # [CLI](#tab/azure-cli)
 
+```azurecli
 id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
 
 az deployment group create \
   --resource-group demoRG \
   --template-spec $id
+```
+
 ---
 
 ## Parameters
@@ -189,10 +192,13 @@ New-AzResourceGroupDeployment `
 
 # [CLI](#tab/azure-cli)
 
+```azurecli
 az deployment group create \
   --resource-group demoRG \
   --template-spec $id \
   --parameters storageAccountType='Standard_GRS'
+```
+
 ---
 
 To create a local parameter file, use:
@@ -222,10 +228,13 @@ New-AzResourceGroupDeployment `
 
 # [CLI](#tab/azure-cli)
 
+```azurecli
 az deployment group create \
   --resource-group demoRG \
   --template-spec $id \
   --parameters "./mainTemplate.parameters.json"
+```
+
 ---
 
 ## Create a template spec with linked templates
