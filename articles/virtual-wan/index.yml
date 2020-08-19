@@ -53,7 +53,7 @@ landingContent:
   # Card
   - title: Architecture
     linkLists:
-      - linkListType: concept
+      - linkListType: architecture
         links:
           - text: Migrate to Virtual WAN
             url: migrate-from-hub-spoke-topology.md
@@ -61,6 +61,36 @@ landingContent:
             url: virtual-wan-global-transit-network-architecture.md
           - text: SD-WAN connectivity architecture
             url: sd-wan-connectivity-architecture.md
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Monitor using Azure Monitor Insights
+            url: azure-monitor-insights.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure Monitor logs and metrics
+            url: azure-monitor-insights.md
+  # Card
+  - title: Routing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About virtual hub routing
+            url: about-virtual-hub-routing.md
+          - text: Scenario - Route through NVA
+            url: scenario-route-through-nva.md
+          - text: Scenario - any-to-any
+            url: scenario-any-to-any.md
+          - text: Scenario -  Isolate VNets
+            url: scenario-isolate-vnets.md
+          - text: Scenario - Shared Services VNets
+            url: scenario-shared-services-vnet.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure virtual hub routing
+            url: how-to-virtual-hub-routing.md
  # Card
   - title: Reference
     linkLists:
