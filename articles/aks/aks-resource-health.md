@@ -23,7 +23,7 @@ Azure Resource Health receives signals for your managed cluster to determine the
 To access Resource Health for your AKS cluster:
 
 - Navigate to your AKS cluster in the [Azure portal](https://portal.azure.com).
-- Click on **Resource Health** in the left navigation.
+- Select **Resource Health** in the left navigation.
 
 To access Resource Health for all clusters on your subscription:
 
