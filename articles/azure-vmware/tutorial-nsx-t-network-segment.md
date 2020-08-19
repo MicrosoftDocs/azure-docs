@@ -1,11 +1,11 @@
 ---
-title: "Tutorial: Create an NSX-T network segment in Azure VMware Solution (AVS)"
+title: "Tutorial: Create an NSX-T network segment in Azure VMware Solution"
 description: In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter
 ms.topic: tutorial
 ms.date: 07/16/2020
 ---
 
-# Tutorial: Create an NSX-T network segment in Azure VMware Solution (AVS)
+# Tutorial: Create an NSX-T network segment in Azure VMware Solution
 
 Network segments created in NSX-T Manager are used as networks for virtual machines (VMs) in vCenter. The VMs created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
 
@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An AVS private cloud with access to the vCenter and NSX-T Manager management interfaces are required to complete this tutorial. See the [Tutorial: Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md).
+An Azure VMware Solution private cloud with access to the vCenter and NSX-T Manager management interfaces are required to complete this tutorial. See the [Tutorial: Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md).
 
 ## Provision a network segment in NSX-T
 
@@ -66,7 +66,7 @@ An AVS private cloud with access to the vCenter and NSX-T Manager management int
 
 ## Next steps
 
-In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter. You can now use the [Tutorial: Create a content Library to deploy VMs in Azure VMware Solution (AVS)](tutorial-deploy-vm-content-library.md) to create a Content Library in vCenter and the provision a VM on the network you created in this tutorial.
+In this tutorial, you created the NSX-T network segments that are used for VMs in vCenter. You can now use the [Tutorial: Create a content Library to deploy VMs in Azure VMware Solution](tutorial-deploy-vm-content-library.md) to create a Content Library in vCenter and the provision a VM on the network you created in this tutorial.
 
 <!-- LINKS - external-->
 

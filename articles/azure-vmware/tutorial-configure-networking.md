@@ -7,7 +7,7 @@ ms.date: 07/22/2020
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution (AVS) private cloud requires an Azure Virtual Network. Because AVS doesn't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway are also required and is covered in this tutorial.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway are also required and is covered in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 > * Locate the URLs for vCenter and NSX Manager
 
 ## Prerequisites 
-Before you can create a virtual network, make sure you have created an [AVS private cloud](tutorial-create-private-cloud.md). 
+Before you can create a virtual network, make sure you have created an [Azure VMware Solution private cloud](tutorial-create-private-cloud.md). 
 
 ## Create a virtual network
 
@@ -74,11 +74,11 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="create a gateway" border="true":::
 
 1. Verify that the details are correct, and select **Create** to start the deployment of your virtual network gateway. 
-1. Once the deployment completes, move to the next section to connect your ExpressRoute connection to the virtual network gateway containing your AVS private cloud.
+1. Once the deployment completes, move to the next section to connect your ExpressRoute connection to the virtual network gateway containing your Azure VMware Solution private cloud.
 
 ## Connect ExpressRoute to the virtual network gateway
 
-Now that you've deployed a virtual network gateway, you'll add a connection between it and your AVS private cloud.
+Now that you've deployed a virtual network gateway, you'll add a connection between it and your Azure VMware Solution private cloud.
 
 1. Navigate to the private cloud you created in the previous tutorial and select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
 
@@ -110,7 +110,7 @@ The connection between your ExpressRoute circuit and your Virtual Network is cre
 
 To sign in to vCenter and NSX manager you'll need the URLs to the vCenter web client and the NSX-T manager site. 
 
-Navigate to your AVS private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
+Navigate to your Azure VMware Solution private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
 :::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="locate the vCenter urls" border="true":::
 

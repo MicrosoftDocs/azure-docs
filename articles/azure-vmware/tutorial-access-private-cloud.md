@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Learn how to access your private cloud
-description: Learn how to access an Azure VMware Solution (AVS) private cloud
+description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.date: 05/04/2020
 ---
 
-# Tutorial: Learn how to access an Azure VMware Solution (AVS) private cloud
+# Tutorial: Learn how to access an Azure VMware Solution private cloud
 
-During preview, AVS does not allow you to manage your private cloud with your on-premises vCenter. You'll need to perform additional setup and connection to a local vCenter instance through a jump box. 
+During preview, Azure VMware Solution does not allow you to manage your private cloud with your on-premises vCenter. You'll need to perform additional setup and connection to a local vCenter instance through a jump box. 
 
 In this tutorial, you create a Windows virtual machine for a jump box in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager. 
 
@@ -72,7 +72,7 @@ In this tutorial you learned how to:
 > * Create a Windows virtual machine to use to connect to vCenter
 > * Login to vCenter from your virtual machine
 
-Continue to the next tutorial to learn how to scale your AVS private cloud.
+Continue to the next tutorial to learn how to scale your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Scale an AVS private cloud](tutorial-scale-private-cloud.md)
+> [Scale an Azure VMware Solution private cloud](tutorial-scale-private-cloud.md)

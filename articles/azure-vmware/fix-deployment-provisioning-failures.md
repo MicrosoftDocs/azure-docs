@@ -1,13 +1,13 @@
 ---
 title: Get help with Azure VMware Solution deployment or provisioning failures
-description: How to get the information you need from your Azure VMware Solution (AVS) private cloud to file a service request for AVS deployment or provisioning failures.
+description: How to get the information you need from your Azure VMware Solution private cloud to file a service request for Azure VMware Solution deployment or provisioning failures.
 ms.topic: how-to
 ms.date: 06/09/2020
 ---
 
 # Get help with Azure VMware Solution deployment or provisioning failures
 
-In this article, you learn how to get help with Azure VMware Solution (AVS) deployment or provisioning failures on your private cloud by opening a service request (SR) in the Azure portal. First, though, you need to collect some key information in the Azure portal. In most cases, you need the:
+In this article, you learn how to get help with Azure VMware Solution deployment or provisioning failures on your private cloud by opening a service request (SR) in the Azure portal. First, though, you need to collect some key information in the Azure portal. In most cases, you need the:
 
 - Correlation ID (of the failed deployment)
 - ExpressRoute circuit ID (when trying to scale or peer an existing private cloud with the private cloud ExpressRoute circuit, and it fails)
@@ -22,7 +22,7 @@ Here is an example of the output from a failed private cloud deployment, with th
 
 Copy and save this correlation ID to include in the service request. For details, see [Create your support request](#create-your-support-request) at the end of this article.
 
-If the failure occurs in the pre-validation stages, before a private cloud is deployed, no correlation ID is generated. In this case, you can simply provide the information you used when creating the AVS private cloud, including:
+If the failure occurs in the pre-validation stages, before a private cloud is deployed, no correlation ID is generated. In this case, you can simply provide the information you used when creating the Azure VMware Solution private cloud, including:
 
 - Location
 - Resource group
@@ -48,7 +48,7 @@ In Notifications, select **More events in the activity log**.
 
 Then search on the name of the resource, or on another unique piece of information you used in creating the resource, to find the failed deployment and its correlation ID. The following example shows search results on a private cloud resource (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Find past failed AVS deployments.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Find past failed Azure VMware Solution deployments.":::
  
 Selecting the operation name of the failed deployment opens a window with details. Select the JSON tab and look for correlationId. Copy and include in the SR. 
  
@@ -69,7 +69,7 @@ Paste the ExpressRoute ID into the appropriate field in the new support request.
 
 For general guidance in creating your support request, see [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Here is additional guidance specific to creating an SR for AVS deployment or provisioning failures.
+Here is additional guidance specific to creating an SR for Azure VMware Solution deployment or provisioning failures.
 
 1. Select the **Help** icon and then **+ New support request**.
 

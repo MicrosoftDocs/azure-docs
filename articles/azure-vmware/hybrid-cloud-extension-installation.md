@@ -1,13 +1,13 @@
 ---
 title: Install Hybrid Cloud Extension (HCX)
-description: Set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud
+description: Set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution private cloud
 ms.topic: how-to
 ms.date: 07/15/2020
 ---
 
 # Install HCX for Azure VMware Solution
 
-In this article, we walk through procedures for setting up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
+In this article, we walk through procedures for setting up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
 
 HCX Advanced, the default installation, supports up to three site connections (on-premises or cloud to cloud). If more than three site connections are required, customers have the option to enable the HCX Enterprise add-on through Support, which is currently in preview. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
@@ -26,16 +26,16 @@ After completing the setup, you can follow the recommended next steps provided a
 
 ## Before you begin
 	
-* Review the basic AVS Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
+* Review the basic Azure VMware Solution Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
 * Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) including the HCX user guide.
 * Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
-* Request an AVS HCX Enterprise activation through AVS support channels.
+* Request an Azure VMware Solution HCX Enterprise activation through Azure VMware Solution support channels.
 
-Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the AVS Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
+Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the Azure VMware Solution Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
 
-You also can size workloads by completing an AVS Assessment in the Azure Migrate portal (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
+You also can size workloads by completing an Azure VMware Solution Assessment in the Azure Migrate portal (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
 
 ## Software version requirements
 
@@ -50,9 +50,9 @@ Infrastructure components must be running the required minimum version.
 
 ## Prerequisites
 
-* ExpressRoute Global Reach should be configured between on-premises and AVS SDDC ExpressRoute circuits.
+* ExpressRoute Global Reach should be configured between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
 
-* All required ports should be open between on-premises and AVS SDDC (see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
+* All required ports should be open between on-premises and Azure VMware Solution SDDC (see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 
 * One IP address for HCX Manager at on-premises and a minimum of two IP addresses for Interconnect (IX) and Network Extension (NE) appliance.
 
@@ -62,9 +62,9 @@ Infrastructure components must be running the required minimum version.
 
 ## Deploy the VMware HCX OVA on-premises
 
-1. Sign in to AVS SDDC vCenter and select **HCX**.
+1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
 
-    ![Select HCX in to AVS vCenter](./media/hybrid-cloud-extension-installation/avs-vsphere-client.png)
+    ![Select HCX in to Azure VMware Solution vCenter](./media/hybrid-cloud-extension-installation/avs-vsphere-client.png)
 
 1. Under **Administration**, select **System Updates** and then select **Request download link** to download the VMware HCX OVA file.
 
@@ -121,7 +121,7 @@ After installation, perform the following steps.
 
     ![Add site pairing](./media/hybrid-cloud-extension-installation/site-pairing.png)
 
-1. Enter the Remote HCX URL or IP address, AVS cloudadmin username and password, and then select **Connect**.
+1. Enter the Remote HCX URL or IP address, Azure VMware Solution cloudadmin username and password, and then select **Connect**.
 
    The system shows the connected site.
    
@@ -201,11 +201,11 @@ After installation, perform the following steps.
 
 ## Configure Network Uplink
 
-Now configure the network profile change in AVS SDDC for Network Uplink.
+Now configure the network profile change in Azure VMware Solution SDDC for Network Uplink.
 
-1. Sign in to SDDC NSX-T to create a new logical switch, or use an existing logical switch that can be used for Network Uplink between on-premises and AVS SDDC.
+1. Sign in to SDDC NSX-T to create a new logical switch, or use an existing logical switch that can be used for Network Uplink between on-premises and Azure VMware Solution SDDC.
 
-1. Create a network profile for HCX uplink in AVS SDDC that can be used for on-premises to AVS SDDC communication.  
+1. Create a network profile for HCX uplink in Azure VMware Solution SDDC that can be used for on-premises to Azure VMware Solution SDDC communication.  
     
    ![Create network profile for uplink](./media/hybrid-cloud-extension-installation/network-profile-uplink.png)
 
@@ -213,13 +213,13 @@ Now configure the network profile change in AVS SDDC for Network Uplink.
     
    ![Configure network profile for uplink](./media/hybrid-cloud-extension-installation/configure-uplink-profile.png)
 
-1. Select **Create** to complete the AVS SDDC configuration
+1. Select **Create** to complete the Azure VMware Solution SDDC configuration
 
 ## Configure Service Mesh
 
-Now configure Service Mesh between on-premises and AVS SDDC.
+Now configure Service Mesh between on-premises and Azure VMware Solution SDDC.
 
-1. Sign in to AVS SDDC vCenter and select **HCX**.
+1. Sign in to Azure VMware Solution SDDC vCenter and select **HCX**.
 
 2. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh** to configure the network and compute profiles created in previous steps.    
       
@@ -274,4 +274,4 @@ To check the status of the appliance, select **Interconnect** > **Appliances**.
 
 ## Next steps
 
-When the appliance interconnect **Tunnel Status** is **UP** and green, you are ready to migrate and protect AVS VMs using HCX. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMware technical documentation.
+When the appliance interconnect **Tunnel Status** is **UP** and green, you are ready to migrate and protect Azure VMware Solution VMs using HCX. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMware technical documentation.

@@ -5,21 +5,21 @@ ms.topic: tutorial
 ms.date: 05/04/2020
 ---
 
-# Networking checklist for Azure VMware Solution (AVS)
+# Networking checklist for Azure VMware Solution 
 
-Azure VMware Solution offers a VMware private cloud environment, which is accessible for users and applications from on-premises and Azure-based environments or resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections and will require some specific network address ranges and firewall ports for enabling the services. This article provides you with the information you need to know to properly configure your networking to work with AVS.
+Azure VMware Solution offers a VMware private cloud environment, which is accessible for users and applications from on-premises and Azure-based environments or resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections and will require some specific network address ranges and firewall ports for enabling the services. This article provides you with the information you need to know to properly configure your networking to work with Azure VMware Solution.
 
 In this tutorial, you learn how about:
 
 > [!div class="checklist"]
 > * Network connectivity requirements
-> * DHCP in AVS
+> * DHCP in Azure VMware Solution
 
 ## Network connectivity requirements
 
-The AVS private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment.
+The Azure VMware Solution private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment.
 
-AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. In order to connect to on-premises environments and virtual networks, this must be a non-overlapping network address block.
+Azure VMware Solution private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. In order to connect to on-premises environments and virtual networks, this must be a non-overlapping network address block.
 
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 
@@ -60,11 +60,11 @@ In this tutorial, you learned about:
 
 > [!div class="checklist"]
 > * Network connectivity requirements
-> * DHCP in AVS
+> * DHCP in Azure VMware Solution
 
 ## Next steps
 
-Once you have the proper networking in place, continue to the next tutorial to create your AVS private cloud.
+Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create an AVS private cloud](tutorial-create-private-cloud.md)
+> [Tutorial: Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md)
