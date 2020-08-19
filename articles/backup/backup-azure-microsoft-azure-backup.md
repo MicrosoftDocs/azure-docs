@@ -151,7 +151,7 @@ After you've downloaded all the files, select **MicrosoftAzureBackupInstaller.ex
 
 ![Setup extracting files for install](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select on the **Finish** button.
+Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and select the **Finish** button.
 
 ### Installing the software package
 
