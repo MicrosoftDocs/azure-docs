@@ -128,7 +128,7 @@ If you have scripts, queries, or automations referring to the previous recommend
 
 To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level policies and  hardening recommendations, including enforcement options with Kubernetes admission control.
 
-The early phase of this project includes a private preview and the addition of new (disabled) policies to the ASC_default initiative.
+The early phase of this project includes a private preview and the addition of new (disabled by default) policies to the ASC_default initiative.
 
 You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
 
