@@ -4,7 +4,7 @@ description: The Azure Load Balancer security baseline provides procedural guida
 author: msmbaldwin
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -439,9 +439,8 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32368.).
 
-**Guidance**: You must configure DNS resource records to point to the respective frontend IP address of the Load Balancer being used. For more information about using Azure DNS with Load Balancer, see Using Azure DNS with other Azure services.
-
-- [How Azure DNS works with other Azure services](../dns/dns-for-azure-services.md)
+**Guidance**: 
+Not applicable as Azure Load Balancer is a core networking service that does not make DNS queries
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -481,283 +480,9 @@ There are pre-defined built-in roles for certain resources, and these roles can 
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32371.).
-
-**Guidance**: Azure AD does not have the concept of default passwords. 
-
-Other Azure resources that do require a password force it to be created with complexity requirements and a minimum password length. The requirements differ depending on the service. 
-
-You are responsible for third-party applications and marketplace services that may use default passwords.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 3.3: Use dedicated administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32372.).
-
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts.
-
-You can also enable a Just-In-Time access by using Azure AD Privileged Identity Management and Azure Resource Manager. 
-
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32373.).
-
-**Guidance**: Wherever possible, use Azure Active Directory Single Sign-on (SSO) instead of configuring individual stand-alone credentials per-service. 
-
-Use Azure Security Center identity and access recommendations.
-
-- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32374.).
-
-**Guidance**: Enable Azure Activity Directory Multi-Factor Authentication and follow Azure Security Center identity and access recommendations for your Azure Load Balancer.
-
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32375.).
-
-**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks for your Azure Load Balancer that require elevated privileges.
-
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
-
-- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.7: Log and alert on suspicious activities from administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32376.).
-
-**Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity related to your Azure Load Balancer occurs in the environment. 
-
-Use Azure Security Center to monitor identity and access activity.
-
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
-
-- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.8: Manage Azure resources only from approved locations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32377.).
-
-**Guidance**: Use Azure Active Directory named locations to allow access to your Azure Load Balancer only from specific logical groupings of IP address ranges or countries/regions.
-
-- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 3.9: Use Azure Active Directory
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32378.).
-
-**Guidance**: Use Azure Active Directory (Azure AD) for your Azure Load Balancer as the central authentication and authorization system.
-
-Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
-
-- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 3.10: Regularly review and reconcile user access
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32379.).
-
-**Guidance**: Azure AD provides logs to help discover stale accounts used for your Azure Load Balancer. 
-
-In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. 
-
-User access can be reviewed on a regular basis to make sure only the right users have continued access. 
-
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
-
-- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.11: Monitor attempts to access deactivated credentials
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32380.).
-
-**Guidance**: You have access to Azure Active Directory (AAD) sign-in activity, audit, and risk event log sources, which allow you to integrate with any SIEM/monitoring tool.
-
-You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. 
-
-You can configure desired alerts within Log Analytics workspace.
-
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.12: Alert on account login behavior deviation
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32381.).
-
-**Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your Azure Load Balancer. 
-
-You can also ingest data into Azure Sentinel for further investigation.
-
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
-
-- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
-
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32382.).
-
-**Guidance**: In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review and approve or reject customer data access requests.
-
-- [Understand Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ## Data protection
 
 *For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
-
-### 4.1: Maintain an inventory of sensitive Information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32383.).
-
-**Guidance**: Use tags to assist in tracking Azure resources such as  Azure Load Balancer (ALB) that store or process sensitive information.
-
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 4.2: Isolate systems storing or processing sensitive information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32384.).
-
-**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. 
-
-You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory RBAC.
-
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
-
-- [How to create management groups](../governance/management-groups/create.md)
-
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 4.3: Monitor and block unauthorized transfer of sensitive information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32385.).
-
-**Guidance**: Use a third-party solution from Azure Marketplace in network perimeters to monitor for unauthorized transfer of sensitive information and block such transfers while alerting information security professionals.
-
-For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
-
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Shared
-
-### 4.4: Encrypt all sensitive information in transit
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32386.).
-
-**Guidance**: 
-Encrypt all sensitive information in transit. 
-
-Ensure that any clients connecting to the backend resources of your LB are able to negotiate TLS 1.2 or greater.
-
-Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
-
-- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Shared
-
-### 4.5: Use an active discovery tool to identify sensitive data
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32387.).
-
-**Guidance**: As a pass through service, no data is stored in the Azure Load Balancer. Follow the guidance for your backend resources to use the active discovery tool to identify sensitive data. When no discovery feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and then update the organization's sensitive information inventory.
-
-Use Azure AD Information Protection for identifying sensitive information within Office 365 documents.
-
-Use Azure SQL Data Discovery &amp; Classification to assist in the classification and labeling of information stored in Azure SQL Databases.
-
-- [How to implement Azure SQL Data Discovery &amp; Classification](/azure/sql-database/sql-database-data-discovery-and-classification)
-
-- [How to implement Azure Information Protection](/azure/information-protection/deployment-roadmap)
-
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Shared
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
@@ -787,21 +512,6 @@ To ensure customer data in Azure remains secure, Microsoft has implemented and m
 
 **Responsibility**: Shared
 
-### 4.8: Encrypt sensitive information at rest
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32390.).
-
-**Guidance**: Azure Load Balancer does not store sensitive information, it is a pass through service which routes all traffic to the backend resources. Use encryption at rest on your backend resources resources. Microsoft recommends allowing Azure to manage your encryption keys, however, there is an option for you to manage your own keys in some instances. 
-
-- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
-
-- [How to configure customer managed encryption keys](../storage/common/storage-encryption-keys-portal.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
@@ -812,74 +522,6 @@ To ensure customer data in Azure remains secure, Microsoft has implemented and m
 - [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-## Vulnerability management
-
-*For more information, see the [Azure Security Benchmark: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
-
-### 5.1: Run automated vulnerability scanning tools
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32392.).
-
-**Guidance**: Follow recommendations from Azure Security Center or a third-party solution for performing vulnerability assessments on your backend resources.
-
-When conducting remote scans, do not use a single, perpetual, administrative account. 
-Consider implementing JIT provisioning methodology for the scan account. 
-
-Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
-
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 5.2: Deploy automated operating system patch management solution
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32393.).
-
-**Guidance**: Not applicable to Azure Load Balancer as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 5.3: Deploy an automated patch management solution for third-party software titles
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32394.).
-
-**Guidance**: Not applicable to Azure Load Balancer as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 5.4: Compare back-to-back vulnerability scans
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32395.).
-
-**Guidance**: Not applicable to Azure Load Balancer as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32396.).
-
-**Guidance**: Use a common risk scoring program (for example, Common Vulnerability Scoring System) or the default risk ratings provided by your third-party scanning tool.
-
-- [NIST Publication--Common Vulnerability Scoring System](https://www.nist.gov/publications/common-vulnerability-scoring-system)
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -913,9 +555,8 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32398.).
 
-**Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy for your Azure Load Balancer instances.
-
-- [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+**Guidance**: 
+Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.How to create and use Tags
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -968,17 +609,6 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Responsibility**: Customer
 
-### 6.6: Monitor for unapproved software applications within compute resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32402.).
-
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
@@ -989,17 +619,6 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 - [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 6.12: Limit users' ability to execute scripts in compute resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32408.).
-
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1064,17 +683,6 @@ In addition, you can use Azure Resource Manager templates to maintain the securi
 
 **Responsibility**: Customer
 
-### 7.4: Maintain secure operating system configurations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32413.).
-
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Shared
-
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
@@ -1087,17 +695,6 @@ In addition, you can use Azure Resource Manager templates to maintain the securi
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 7.6: Securely store custom operating system images
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32415.).
-
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1122,17 +719,6 @@ Additionally, you can use Azure Automation to deploy configuration changes.
 
 **Responsibility**: Customer
 
-### 7.8: Deploy configuration management tools for operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32417.).
-
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
@@ -1152,25 +738,6 @@ Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
 *For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
-### 10.1: Create an incident response guide
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32430.).
-
-**Guidance**: Develop an incident response guide for your organization. 
-
-Ensure there are written incident response plans that define all the roles of personnel as well as the phases of incident handling and management from detection to post-incident review. 
-
-- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
-
-- [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
-
-- [Use NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
@@ -1189,34 +756,6 @@ It's your responsibility to prioritize the remediation of alerts based on the cr
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 10.3: Test security response procedures
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32436.).
-
-**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and then revise your response plan as needed.
-
-- [NIST's publication--Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 10.4: Provide security incident contact details and configure alert notifications for security incidents
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32432.).
-
-**Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. 
-
-Review incidents after the fact to ensure that issues are resolved.
-
-- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1251,25 +790,6 @@ You can use the Azure Security Center data connector to stream the alerts to Azu
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
-
-## Penetration tests and red team exercises
-
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
-
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32435.).
-
-**Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
-
-- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
-
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Shared
 
 ## Next steps
 
