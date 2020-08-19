@@ -3,9 +3,10 @@
 - name: Overview
   items:
   - name: What is Azure DB for MySQL?
-    href: overview.md
+    href: overview.md    
   - name: Which MySQL option should I choose?
     href: select-right-deployment-type.md
+    displayName: deployment choice, managed database
 - name: Single Server
   items:
   - name: Documentation
@@ -21,12 +22,16 @@
       items:
        - name: Azure portal
          href: quickstart-create-mysql-server-database-using-azure-portal.md
+         displayName: portal, create, server
        - name: Azure CLI
          href: quickstart-create-mysql-server-database-using-azure-cli.md
+         displayName: cli, create, server
        - name: Azure CLI up command
          href: quickstart-create-server-up-azure-cli.md
+         displayName: cli, up command, create, server
        - name: Azure PowerShell
          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+         displayName: powershell, create, server
        - name: ARM template
          href: quickstart-create-mysql-server-database-using-arm-template.md
          displayName: deploy azure resource manager template
@@ -132,190 +137,246 @@
          href: concepts-business-continuity.md
        - name: High availability
          href: concepts-high-availability.md
+         displayName: backup, restore,high availability
        - name: Backup and restore
          href: concepts-backup.md
+         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
      - name: Monitor and tune
        items:
        - name: Monitor and tune
          href: concepts-monitoring.md
+         displayName: monitor, alerts, audit log, slow query log
        - name: Slow query logs
          href: concepts-server-logs.md
+         displayName: monitor, slow query log, alert
        - name: Audit logs
          href: concepts-audit-logs.md
+         displayName: monitor, alerts, audit log
        - name: Query Store
          href: concepts-query-store.md
+         displayName: performance, query store, optimize
        - name: Query Performance Insight
          href: concepts-query-performance-insight.md
+         displayName: performance, query store, optimize, query performance insights
        - name: Performance Recommendations
          href: concepts-performance-recommendations.md
+         displayName: performance, query store, optimize, recommendation
        - name: Server parameters
          href: concepts-server-parameters.md
+          displayName: performance, server parameter, configure
        - name: Application Development
          items:
-         - name: Application Best practices
-           href: app-development-best-practices.md
          - name: Drivers and tools compatibility
            href: concepts-compatibility.md
+           displayName: application, development, drivers, tools 
          - name: Application development
            href: concepts-database-application-development.md
+           displayName: application, development, drivers, tools 
+         - name: Application Best practices
+           href: app-development-best-practices.md
+           displayName: application, development, schema, optimize, build, deploy
          - name: Connection resiliency
            href: concepts-connectivity.md
-         - name: Java
-           items:
-         - name: Configure Spring Data JDBC
-           href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-         - name: Configure Spring Data JPA
-           href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
+           displayName: application, development, connection, resiliency
      - name: Replication
        items:
        - name: Data-in replication
          href: concepts-data-in-replication.md
+         displayName: replication, read replica
        - name: Read replicas
          href: concepts-read-replicas.md
+         displayName: replication, read replica
   - name: How-to guides
     items:
-    - name: Manage a server
+    - name: Manage and scale a server
       items:
       - name: Azure portal
         href: howto-create-manage-server-portal.md
+        displayName: manage, portal, reset password, delete, scale
       - name: Firewall rules
         items:
         - name: Azure portal
           href: howto-manage-firewall-using-portal.md
+          displayName: manage, portal, firewall
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
+          displayName: manage, cli, firewall
     - name: Authentication
       items:
         - name: Create users
           href: howto-create-users.md
+          displayName: application , users, non admin user
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-azure-ad-authentication.md
+          displayName: application ,  active directory
         - name: Connect with Managed Identity
           href: howto-connect-with-managed-identity.md
+          displayName: application , managed identity, msi
     - name: Restore a server
       items:
       - name: Azure portal
         href: howto-restore-server-portal.md
+        displayName: restore server, backup, geo-restore, restore using portal
       - name: Azure CLI
         href: howto-restore-server-cli.md
+        displayName: restore server, backup, geo-restore, restore using cli
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
+        displayName: restore server, backup, geo-restore, restore using powershell
     - name: Migrate a database
       items:
         - name: Dump & restore
           href: concepts-migrate-dump-restore.md
+          displayName: migrate, mysqldump
         - name: Import & export
           href: concepts-migrate-import-export.md
+          displayName: import , migrate, export 
         - name: Minimal-downtime migration
           href: howto-migrate-online.md
+          displayName: migrate, dms, database migration service
     - name: Connect applications
       items:
           - name: Configure SSL
             href: howto-configure-ssl.md
+            displayName: ssl, security, application developement
           - name: Configure TLS
             href: howto-tls-configurations.md
+            displayName: TLS, security, application developement
           - name: Web apps
             href: howto-connect-webapp.md
+            displayName: azure web app, security, application developement, app service
           - name: Connect with redirection
             href: howto-redirection.md
+            displayName: application development, redirection , php
     - name: Configure server parameters
       items:
       - name: Azure portal
         href: howto-server-parameters.md
+        displayName: server parameters, configure , system, portal
       - name: Azure CLI
         href: howto-configure-server-parameters-using-cli.md
+        displayName: server parameters, configure , system, cli
       - name: Azure PowerShell
         href: howto-configure-server-parameters-using-powershell.md
+        displayName: server parameters, configure , system, powershell
     - name: Auto grow storage
       items:
       - name: Azure portal
         href: howto-auto-grow-storage-portal.md
+        displayName: storage, business continuity , downtime, portal
       - name: Azure CLI
         href: howto-auto-grow-storage-cli.md
+        displayName: storage, business continuity , downtime, cli
       - name: Azure PowerShell
         href: howto-auto-grow-storage-powershell.md
-      - name: Access server logs
-        items:
+        displayName: storage, business continuity , downtime, powershell
     - name: Slow query logs
       items:
       - name: Azure portal
         href: howto-configure-server-logs-in-portal.md
+        displayName: debug, slow query log , performance 
       - name: Azure CLI
         href: howto-configure-server-logs-in-cli.md
+        displayName: debug, slow query log , performance 
     - name: Audit logs
       items:
-      - name: Azure portal
-        href: howto-configure-audit-logs-portal.md
-      - name: Azure CLI
-        href: howto-configure-audit-logs-cli.md
+        - name: Azure portal
+          href: howto-configure-audit-logs-portal.md
+          displayName: debug, audit log 
+        - name: Azure CLI
+          href: howto-configure-audit-logs-cli.md
+          displayName: debug, audit log 
     - name: Monitor
       items:
       - name: Create alerts on metrics
         href: howto-alert-on-metric.md
+        displayName: debug, monitor, alerts, metrics
     - name: Replication
       items:
       - name: Configure data-in replication
         href: howto-data-in-replication.md
+        displayName: data-in replication, replica, failover
       - name: Create read replicas Azure portal
         href: howto-read-replicas-portal.md
+        displayName: data-in replication, replica, failover
       - name: Create read replicas Azure CLI, REST API
         href: howto-read-replicas-cli.md
+        displayName: data-in replication, replica, failover
       - name: Create read replicas Azure PowerShell
         href: howto-read-replicas-powershell.md
+        displayName: data-in replication, replica, failover
       - name: Troubleshoot
         items:
         - name: Troubleshoot connection errors
           href: howto-troubleshoot-common-connection-issues.md
+          displayName: debug, connection issues, connectivity, cannot connect
         - name: Troubleshoot query performance
           href: howto-troubleshoot-query-performance.md
+          displayName: debug, performance issues, query performance
         - name: How to use views in sys schema
           href: howto-troubleshoot-sys-schema.md
+          displayName: sys schema, views
         - name: Troubleshoot data encryption
           href: howto-data-encryption-troubleshoot.md
+          displayName: encryption, security
     - name: Advanced Threat Protection
       items:
       - name: Azure portal
         href: howto-database-threat-protection-portal.md
+        displayName: atp, advanced thread, security
       - name: Virtual Network
         items:
         - name: Azure portal
           href: howto-manage-vnet-using-portal.md
+          displayName: vnet, virtual network, service endpoint
         - name: Azure CLI
           href: howto-manage-vnet-using-cli.md
+          displayName: vnet, virtual network, service endpoint
     - name: Private Link
       items:
       - name: Azure portal
         href: howto-configure-privatelink-portal.md
+        displayName: private link, private endpoint
       - name: Azure CLI
         href: howto-configure-privatelink-cli.md
+        displayName: private link, private endpoint
     - name: Data Encryption
       items:
        - name: Azure portal
          href: howto-data-encryption-portal.md
+         displayName: encryption, security
        - name: Azure CLI
          href: howto-data-encryption-cli.md
+         displayName: encryption, security
        - name: Data encryption validation
          href: howto-data-encryption-validation.md
+         displayName: encryption, security
     - name: Infrastructure double encryption
       items:
       - name: Configure infrastructure double encryption
         href: howto-double-encryption.md
+        displayName: infrastructure encryption, security
     - name: Deny Public Network Access
       items:
       - name: Azure portal
         href: howto-deny-public-network-access.md
+        displayName: security, public access
     - name: Restart server
       items:
       - name: Azure portal
         href: howto-restart-server-portal.md
+        displayName: manage server ,restart
       - name: Azure CLI
         href: howto-restart-server-cli.md
+        displayName: manage server ,restart
       - name: Azure PowerShell
         href: howto-restart-server-powershell.md
+        displayName: manage server ,restart
     - name: Move between regions
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
+        displayName: move servers, across regions 
 - name: Flexible Server (Preview)
   items:
   - name: Documentation
