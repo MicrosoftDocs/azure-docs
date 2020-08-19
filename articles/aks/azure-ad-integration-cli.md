@@ -23,6 +23,7 @@ For the complete sample script used in this article, see [Azure CLI samples - AK
 ## The following limitations apply:
 
 - Azure AD can only be enabled on RBAC-enabled cluster.
+- Azure AD legacy integration can only be enabled during cluster creation.
 
 ## Before you begin
 

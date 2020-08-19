@@ -619,7 +619,7 @@ Coffee count 4
 
 ## Validate new learning policy
 
-Return to the Azure notebook, and continue by running the same loop but for only 2,000 iterations. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 4,000 calls, a rank and reward call for each iteration of the loop, the iterations are done.
+Return to the Azure Notebooks file and continue by running the same loop, but for only 2,000 iterations. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 4,000 calls, a rank and reward call for each iteration of the loop, the iterations are done.
 
 ```python
 # max iterations

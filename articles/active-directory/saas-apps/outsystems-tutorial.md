@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with OutSystems Azure AD | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OutSystems Azure AD.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: cf6f99b7-0604-4db2-a72e-0d1a1d643a08
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate OutSystems Azure AD with Azure Active Directory

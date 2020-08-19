@@ -31,7 +31,7 @@ This article describes how the connection works, provides prerequisites and give
 > [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-In order to make this connection, you need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
+In order to make this connection, you need to deploy an agent on a dedicated Linux machine (VM or on-premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
