@@ -101,8 +101,9 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 6. Click **Review and create**.
 
 #### [CLI](#tab/Azure-CLI)
-### Build and deploy the application
-Make sure to execute the following command at the root of the project.
+The following procedure builds and deploys the application using the Azure CLI.
+
+Execute the following command at the root of the project.
 
 1. Build the project using Maven, for example:
 
