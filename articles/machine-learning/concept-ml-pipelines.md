@@ -50,7 +50,7 @@ Independent steps allow multiple data scientists to work on the same pipeline at
 
 After the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script. Steps that do not need to be rerun are skipped. 
 
-With pipelines, you may choose to use different hardware for different tasks. Azure coordinates the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so your intermediate data seamlessy flows to downstream compute targets.
+With pipelines, you may choose to use different hardware for different tasks. Azure coordinates the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so your intermediate data seamlessly flows to downstream compute targets.
 
 You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) directly in  Azure portal or your [workspace landing page (preview)](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
 
