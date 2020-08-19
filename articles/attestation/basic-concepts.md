@@ -24,6 +24,8 @@ ms.author: mbaldwin
 
 Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM) which supports Role-Based Access Control (RBAC). Each attestation provider honors a specific, discoverable policy. 
 
+Attestation providers get created with a default policy for each TEE type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
+
 ### Regional default provider
 
 Azure Attestation provides a default provider in each region. Customers can choose to use the default provider for attestation, or create their own providers with custom policies. The default providers are accessible by any Azure AD user and the policy associated with a default provider cannot be altered.
@@ -49,9 +51,7 @@ Azure Attestation will validate the provided “Quote” from TEE, and will then
 
 Attestation policy is used to process the attestation evidence and is configurable by customers. At the core of Azure Attestation is a policy engine, which processes claims constituting the evidence. Policies are used to determine whether Azure Attestation shall issue an attestation token based on evidence (or not) , and thereby endorse the Attester (or not). Accordingly, failure to pass all the policies will result in no JWT token being issued.
 
-Attestation providers get created with a default policy for each TEE type (note that VBS enclave has no default policy). If the default TEE policy in the attestation provider doesn’t meet their needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation.
-
-Policy management is a key feature provided to customers by Azure Attestation. Policies will be TEE-specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
+If the default TEE policy in the attestation provider doesn’t meet the needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation. Policy management is a key feature provided to customers by Azure Attestation. Policies will be TEE-specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
 See [examples of an attestation policy](policy-examples.md) for default policy content and samples.
 
