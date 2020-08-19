@@ -36,6 +36,8 @@ Before you get started though, you'll need to collect or think about a few value
 
 ## [CLI Shell](#tab/cli/)
 
+[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli-shell.md)]
+
 ## [REST](#tab/rest/)
 
 Once you have [created an asset using Postman or other REST method and gotten the SUS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).

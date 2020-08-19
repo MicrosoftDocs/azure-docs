@@ -243,21 +243,12 @@
         href: configure-connect-python-howto.md
     - name: Reset account credentials
       href: cli-reset-account-credentials.md
-  - name: Create assets
+  - name: Create assets and upload media
     items:
     - name: Create an asset
       href: how-to-create-asset.md
-  - name: Upload content
-    items:
     - name: Upload media
       href: how-to-upload-media.md
-    - name: From a local file
-      items:
-      - name: With REST
-        displayName: upload
-        href: upload-files-rest-how-to.md
-      - name: With CLI
-        href: cli-upload-file-asset.md
   - name: Create transforms and jobs
     items:
     - name: Create transforms
