@@ -1,4 +1,4 @@
-- name: Microsoft Azure Attestation Documentation
+- name: Microsoft Azure Attestation (preview)
   href: index.yml
 - name: Overview
   items:
