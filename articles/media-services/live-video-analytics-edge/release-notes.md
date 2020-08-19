@@ -42,7 +42,7 @@ None
 This release tag for the July 2020 refresh of the module is:
 
 ```
-     mcr.microsoft.com/media/live-video-analytics:1.0.2
+mcr.microsoft.com/media/live-video-analytics:1.0.2
 ```
 
 > [!NOTE]
