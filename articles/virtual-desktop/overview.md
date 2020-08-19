@@ -65,11 +65,16 @@ We support the following OSes, so make sure you have the [appropriate licenses](
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
-  * Azure AD Connect (for hybrid organizations)
-  * Azure AD Domain Services (for hybrid or cloud organizations)
-* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
+* An [Azure Active Directory](/azure/active-directory/).
+* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this using Azure AD Connect (for hybrid organizations) or Azure AD Domain Services (for hybrid or cloud organizations).
+  * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Windows Virtual Desktop VM is joined to Windows Server AD domain.
+  * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Windows Virtual Desktop VM is joined to Azure AD Domain Services domain.
+  * A Azure AD Domain Services domain. User is sourced from Azure Active Directory, and the Windows Virtual Desktop VM is joined to Azure AD Domain Services domain.
+* An Azure subscription, parented to the same Azure AD tenant, that contains a virtual network that either contains or is connected to the Windows Server Active Directory or Azure AD DS instance.
+
+User requirements to connect to Windows Virtual Desktop:
+•	The user must be sourced from the same AD that is synced to AAD. Windows Virtual Desktop does not support B2P or MSA accounts.
+•	The UPN used to subscribe to Windows Virtual Desktop must exist in the AD domain the VM is joined to.
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
