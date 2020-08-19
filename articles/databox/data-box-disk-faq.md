@@ -55,10 +55,16 @@ A. Data Box Disk is supported for all regions within US, Canada, Australia, West
 ### Q. Will my Data Box Disk cross country/region borders during shipping?
 A. Data Box Disk are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country/region.
 
-### Q. How can I import my on-premises source data in one country/commerce boundary to an Azure region in a different country/commerce boundary?
-A. Data Box Disk supports data ingestion only within the same commerce boundary. In all other cases, you may need to take additional action. 
+### Q. How can I import my on-premises source data in one country/region to an Azure region in a different country/region?
+A. Data Box Disk supports data ingestion only within the same region (commerce boundary). In all other cases, you may need to take additional action. 
 
 For e.g., If you had on-premises data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
+
+## Option 1: 
+
+Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from Canada to Azure West US DC
+
+## Option 2:
 
 1. Order Data Box Disk in Canada by choosing a storage account say in Cananda Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Cental to the shipping address (in Canada) provided during order creation.
 
