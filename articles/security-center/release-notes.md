@@ -30,8 +30,10 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in August include:
 
-- [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 - [Asset inventory - powerful new view of the security posture of your assets](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
+- [Service principals recommendation added](#service-principals-recommendation-added)
+- [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 
 
 ### Asset inventory - powerful new view of the security posture of your assets
@@ -45,9 +47,26 @@ You can use the view and its filters to explore your security posture data and t
 Learn more about [asset inventory](asset-inventory.md).
 
 
-### Interval freshness and severity indicator added to recommendation pages
+### Added support for Azure Active Directory security defaults (for multi-factor authentication)
 
-The details pages for Security 
+Security Center has added full support for [security defaults](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), Microsoft’s free identity security protections.
+
+Security defaults provide preconfigured identity security settings to defend your organization from common identity-related attacks. Security defaults already protecting more than 5 million tenants overall; 50,000 tenants are also protected by Security Center.
+
+Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
+
+Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to their [secure score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+
+Learn more about [security defaults](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+
+
+### Service principals recommendation added
+
+A new recommendation has been added to recommend that Security Center customers using management certificates to manage their subscriptions switch to service principals.
+
+The recommendation, **Service principals should be used to protect your subscriptions instead of Management Certificates** advises you to use Service Principals or Azure Resource Manager to more securely manage your subscriptions. 
+
+Learn more about [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 
 
 ### Vulnerability assessment on VMs - recommendations and policies consolidated

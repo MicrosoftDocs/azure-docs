@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SharePoint on-premises.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: miguego
-
-
 ---
 # Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises
 
