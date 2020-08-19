@@ -243,7 +243,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
 
-## Managed Identity limits
+## Managed identity limits
 
 [!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
 
