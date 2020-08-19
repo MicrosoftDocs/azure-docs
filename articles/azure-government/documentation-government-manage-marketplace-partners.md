@@ -46,7 +46,7 @@ If there are other offer types you'd like to see supported in Azure Government, 
 1. Navigate to the **Commercial Marketplace** program.
 1. **Open the offer** you want to publish to the Azure Government Marketplace.
 1. Go to the **Plan overview** page using the left menu.  
-1. **Click on the plan you want to update**. 
+1. **Click on the plan you want to update** to be available in Azure Government. 
 1. In the **Plan setup** page, under **Azure regions**, check the **Azure Government** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
 1. ***Optionally***, click the **+ Add Certification** link to add links to any certifications that are relevant for your product and that you want to make available to customers.
 1. ***Optionally***, add your Azure Government subscription to preview your marketplace offering before it is broadly available. 
