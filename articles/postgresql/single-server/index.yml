@@ -59,10 +59,14 @@ landingContent:
         links:
           - text: Understand the firewall
             url: ../concepts-firewall-rules.md
-          - text: Create firewall rules
-            url: ../howto-manage-firewall-using-portal.md
           - text: Configure SSL
             url: ../concepts-ssl-connection-security.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create firewall rules
+            url: ../howto-manage-firewall-using-portal.md
+          - text: Configure SSL connectivity
+            url: ../howto-configure-ssl.md
       - linkListType: get-started
         links:
           - text: Connect using Python
@@ -85,19 +89,17 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Understand Virtual Networks
+            url: ../concepts-data-access-and-security-vnet.md
           - text: Monitor and tune the service
             url: ../tutorial-monitor-and-tune.md
       - linkListType: how-to-guide
         links:
-          - text: Restore a server using the Azure portal
-            url: ../howto-restore-server-portal.md
-          - text: Restore a server using Azure CLI
-            url: ../howto-restore-server-cli.md
-          - text: Migrate a database using dump and restore
+          - text: Migrate a database using pg_dump and pg_restore
             url: ../howto-migrate-using-dump-and-restore.md
-          - text: Migrate a database using export and import
+          - text: Migrate a database using pg_dump and psql
             url: ../howto-migrate-using-export-and-import.md
-          - text: Minimal downtime migrations
+          - text: Migrate using Data Migration Service
             url: ../howto-migrate-online.md
 # Card
   - title: Business Continuity
@@ -110,12 +112,11 @@ landingContent:
             url: ../concepts-backup.md
       - linkListType: how-to-guide
         links:
-          - text: Create a read replica using the Azure portal
+          - text: Create a read replica
             url: ../howto-read-replicas-portal.md
-          - text: Restore a server using the Azure portal
+          - text: Restore a server 
             url: ../howto-restore-server-portal.md
-          - text: Restore a server using Azure CLI
-            url: ../howto-restore-server-cli.md
+
 # Card
   - title: Reference
     linkLists:
