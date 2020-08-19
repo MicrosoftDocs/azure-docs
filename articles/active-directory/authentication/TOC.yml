@@ -116,6 +116,10 @@
             href: howto-authentication-passwordless-security-key-windows.md
           - name: SSO to on-premises resources
             href: howto-authentication-passwordless-security-key-on-premises.md
+          - name: Hybrid FAQs
+            href: howto-authentication-passwordless-faqs.md
+          - name: Troubleshoot hybrid
+            href: howto-authentication-passwordless-troubleshoot.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
@@ -217,8 +221,6 @@
       href: multi-factor-authentication-faq.md
     - name: NPS extension
       href: howto-mfa-nps-extension-errors.md
-    - name: Passwordless hybrid FIDO2 security keys
-      href: howto-authentication-passwordless-faq-troubleshoot.md
 - name: Reference
   items:
   - name: MFA user guide
