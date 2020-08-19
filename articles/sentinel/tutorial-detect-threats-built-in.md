@@ -37,7 +37,7 @@ This tutorial helps you detect threats with Azure Sentinel:
 
 To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
 
-   ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   :::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Use built-in detections to find threats with Azure Sentinel":::
 
 The following template types are available:
 
@@ -59,13 +59,13 @@ The following template types are available:
 
 ## Use out-of-the-box detections
 
-1. In order to use a built-in template, click the template name, and then click the **Create rule** button on the details pane to create a new active rule based on that template. Each template has a list of required data sources. When you open the template, the data sources are automatically checked for connectivity. If there is a connectivity problem, the **Create rule** button may be disabled.
+1. In order to use a built-in template, click the template name, and then click the **Create rule** button on the details pane to create a new active rule based on that template. Each template has a list of required data sources. When you open the template, the data sources are automatically checked for availability. If there is an availability issue, the **Create rule** button may be disabled, or you may see a warning to that effect.
   
-   ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/use-built-in-template.png)
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Detection rule preview panel":::
  
 1. Clicking the **Create rule** button opens the rule creation wizard based on the selected template. All the details are autofilled, and with the **Scheduled** or **Microsoft security** templates, you can customize the logic and other rule settings to better suit your specific needs. You can repeat this process to create additional rules based on the built-in template. After following the steps in the rule creation wizard to the end, you will have finished creating a rule based on the template. The new rules will appear in the **Active rules** tab.
 
-    For more details on how to customize your rules in the rule creation wizard, see [Tutorial: Create custom analytics rules to detect suspicious threats](tutorial-detect-threats-custom.md).
+    For more details on how to customize your rules in the rule creation wizard, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 
 ## Next steps
 

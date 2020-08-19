@@ -34,9 +34,9 @@ You can create custom analytics rules to help you search for the types of threat
 
 1. In the top menu bar, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-    ![Create scheduled query](media/tutorial-detect-threats-custom/create-scheduled-query.png)
+    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query.png" alt-text="Create scheduled query":::
 
-1. In the **General** tab, provide a unique **Name**, and a **Description**. In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. Set the alert **Severity** as necessary. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+1. In the **General** tab, provide a unique **Name** and a **Description**. In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. Set the alert **Severity** as necessary. When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
     ![Start creating a custom analytics rule](media/tutorial-detect-threats-custom/general-tab.png)
 
@@ -68,20 +68,20 @@ You can create custom analytics rules to help you search for the types of threat
        > [!NOTE]
        > These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
 
-    1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. As this is a required field, if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
+    1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
     
     1. Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**: 
 
        - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results. 
 
-       - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or others. You can define these parameters in the query.
+       - **Trigger an alert for each event**. The rule generates a unique alert for each event returned by the query. This is useful if you want events to be displayed individually, or if you want to group them by certain parameters - by user, hostname, or something else. You can define these parameters in the query.
     
        Currently the number of alerts a rule can generate is capped at 20. If in a particular rule, **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns more than 20 events, each of the first 19 events will generate a unique alert, and the twentieth alert will summarize the entire set of returned events. In other words, the twentieth alert is what would have been generated under the **Group all events into a single alert** option.
 
        > [!NOTE]
        > What's the difference between **Events** and **Alerts**?
        >
-       > - An **event** is a description of a single occurrence. For example, a single entry in a log file could count as an event.  In this context an event refers to a single result returned by a query in an analytics rule.
+       > - An **event** is a description of a single occurrence. For example, a single entry in a log file could count as an event. In this context an event refers to a single result returned by a query in an analytics rule.
        >
        > - An **alert** is a collection of events that, taken together, are significant from a security standpoint. An alert could contain a single event if the event had significant security implications - an administrative login from a foreign country outside of office hours, for example.
        >
