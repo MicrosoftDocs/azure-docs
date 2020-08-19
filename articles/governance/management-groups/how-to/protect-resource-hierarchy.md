@@ -1,15 +1,15 @@
 ---
 title: How to protect your resource hierarchy - Azure Governance
 description: Learn how to protect your resource hierarchy with hierarchy settings that include setting the default management group.
-ms.date: 05/21/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
 ---
 # How to protect your resource hierarchy
 
 Your resources, resource groups, subscriptions, management groups, and tenant collectively make up
 your resource hierarchy. Settings at the root management group, such as Azure custom roles or Azure
-Policy policy assignments, can impact each and every resource in your resource hierarchy. It's
-important to protect the resource hierarchy from changes that could negatively impact all resources.
+Policy policy assignments, can impact every resource in your resource hierarchy. It's important to
+protect the resource hierarchy from changes that could negatively impact all resources.
 
 Management groups now have hierarchy settings that enable the tenant administrator to control these
 behaviors. This article covers each of the available hierarchy settings and how to set them.
@@ -38,7 +38,7 @@ both use cases.
 
 By allowing the default management group for new subscriptions to be defined, organization-wide
 governance constructs can be applied at the root management group, and a separate management group
-with policy assignments or RBAC assignments more suited to a new subscription can be defined.
+with policy assignments or Azure role assignments more suited to a new subscription can be defined.
 
 To configure this setting, the [Hierarchy Settings](/rest/api/resources/hierarchysettings) REST API
 endpoint is called. To do so, use the following REST API URI and body format. Replace `{rootMgID}`

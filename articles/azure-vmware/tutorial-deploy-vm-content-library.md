@@ -17,7 +17,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  See the [How to manage DHCP in Azure VMWare Solution (AVS) Preview](manage-dhcp.md) for details.
+An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  See the [How to manage DHCP in Azure VMware Solution (AVS) Preview](manage-dhcp.md) for details.
 
 ## Create a content library
 

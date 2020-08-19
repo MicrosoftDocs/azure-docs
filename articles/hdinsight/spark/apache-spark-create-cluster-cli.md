@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 02/03/2020 
+ms.custom: devx-track-azurecli
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster.
 ---
 

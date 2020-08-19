@@ -7,6 +7,8 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
+ms.custom: devx-track-javascript
+
 ---
 
 # Tutorial: Publish a Gatsby site to Azure Static Web Apps Preview

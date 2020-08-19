@@ -199,7 +199,7 @@ FROM
 
 The structure `MapOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
 
-## Projecting values from repeated columns
+## Project values from repeated columns
 
 If you have an array of scalar values (for example `[1,2,3]`) in some columns, you can easily expand them and join them with the main row using the following script:
 

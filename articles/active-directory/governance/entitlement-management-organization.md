@@ -102,7 +102,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 If the connected organization changes to a different domain, the organization's name changes, or you want to change the sponsors, you can update the connected organization by following the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -119,7 +119,7 @@ If the connected organization changes to a different domain, the organization's 
 
 If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -130,6 +130,10 @@ If you no longer have a relationship with an external Azure AD directory or doma
     Currently, you can delete a connected organization only if there are no connected users.
 
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
+
+## Managing a connected organization programmatically
+
+You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
 
 ## Next steps
 

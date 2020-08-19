@@ -94,10 +94,6 @@ An IoT Plug and Play device is typically a small-scale, standalone computing dev
 
 IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a set of [conventions](concepts-convention.md) when they exchange data with a solution.
 
-## Model discovery
-
-When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). The solution can find a device model in a [model repository](#model-repository) or other location.
-
 ## Model ID
 
 When an IoT Plug and Play device connects to an IoT Hub it sends the **Model ID** of the [DTDL](#digital-twins-definition-language) model it implements. This enables the solution to find the device model.

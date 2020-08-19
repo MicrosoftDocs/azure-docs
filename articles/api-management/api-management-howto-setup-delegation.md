@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
 
 ---
@@ -45,8 +45,6 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 1. Receive a request in the following form:
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
-   > 
-   > 
    
     Query parameters for the sign in / sign up case:
    
@@ -80,6 +78,7 @@ In addition to the **SignIn** operation, you can also perform account management
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 You must pass the following query parameters for account management operations.
 
@@ -89,6 +88,7 @@ You must pass the following query parameters for account management operations.
 * **sig**: a computed security hash to be used for comparison to your own computed hash
 
 ## <a name="delegate-product-subscription"> </a>Delegating product subscription
+
 Delegating product subscription works similarly to delegating user sign in/-up. The final workflow would be as follows:
 
 1. Developer selects a product in the API Management developer portal and clicks on the Subscribe button.
@@ -110,9 +110,9 @@ Next, ensure the delegation endpoint does the following actions:
      * "Subscribe": a request to subscribe the user to a given product with provided ID (see below)
      * "Unsubscribe": a request to unsubscribe a user from a product
      * "Renew": a request to renew a subscription (for example, that may be expiring)
-   * **productId**: the ID of the product the user requested to subscribe to
+   * **productId**: on *Subscribe* - the ID of the product the user requested to subscribe to
    * **subscriptionId**: on *Unsubscribe* and *Renew* - the ID of the product subscription
-   * **userId**: the ID of the user the request is made for
+   * **userId**: on *Subscribe* - the ID of the user the request is made for
    * **salt**: a special salt string used for computing a security hash
    * **sig**: a computed security hash to be used for comparison to your own computed hash
 

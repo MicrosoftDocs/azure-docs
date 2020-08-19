@@ -59,7 +59,7 @@ Several resources are defined in the template:
     - **Admin password**: provide a password to use for the admin account. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Windows OS version**: select which version of Windows you want to run on the VM.
-    - **VM size**: select the [size](sizes.md) to use for the VM.
+    - **VM size**: select the [size](../sizes.md) to use for the VM.
     - **Location**: the default is the same location as the resource group, if it already exists.
 1. Select **Review + create**. After validation completes, select **Create** to create and deploy the VM.
 

@@ -11,7 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 10/23/2018
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI samples for Traffic Manager

@@ -87,7 +87,7 @@ If there's no heartbeat from the process server (error code 806), do the followi
 
  Initial and ongoing replication failures are often caused by connectivity issues between source machines and the process server, or between the process server and Azure. These steps are summarized in the following graphic, followed by procedures to help you perform the steps.
 
-![Troubleshoot connectivity and replication](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Flowchart showing steps to troubleshoot connectivity and replication.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## Step 4: Verify time sync on source machine
@@ -167,7 +167,7 @@ Check whether the process server is actively pushing data to Azure.
   2. Select the **Performance** tab > **Open Resource Monitor**.
   3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large volume of data.
 
-       ![Volumes under processes with network activity](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Screenshot showing a large number for volumes under processes with network activity.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
@@ -176,7 +176,7 @@ Check whether the process server is actively pushing data to Azure.
 1. In Resource Monitor, select **cbengine.exe**.
 2. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure storage.
 
-  ![Connectivity between cbengine.exe and the Azure Blob storage URL](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Screenshot showing connectivity between cbengine.exe and the Azure Blob storage URL.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### Check services
 

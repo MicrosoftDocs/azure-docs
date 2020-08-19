@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-
+ms.custom: devx-track-javascript
 ---
 # Geospatial and GeoJSON location data in Azure Cosmos DB
 

@@ -40,7 +40,7 @@ Azure Event Hubs provides multiple options to authorize access to your secure re
 - Shared access signature (SAS)
 
 #### OAuth
-Event Hubs integrates with Azure Active Directory (Azure AD), which provides a **OAuth** 2.0 compliant centralized authorization server. With Azure AD, you can use role-based access control (RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about RBAC roles and levels for scoping access, see [Authorize access with Azure AD](authorize-access-azure-active-directory.md).
+Event Hubs integrates with Azure Active Directory (Azure AD), which provides a **OAuth** 2.0 compliant centralized authorization server. With Azure AD, you can use role-based access control (RBAC) to grant fine grained permissions to your client identities. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and  **OAUTHBEARER** for the mechanism. For details about Azure roles and levels for scoping access, see [Authorize access with Azure AD](authorize-access-azure-active-directory.md).
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -59,6 +59,9 @@ security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!NOTE]
+> When using SAS authentication with Kafka clients, established connections aren't disconnected when the SAS key is regenerated. 
 
 #### Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).

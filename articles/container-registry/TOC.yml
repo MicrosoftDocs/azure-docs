@@ -45,6 +45,9 @@
     items:
     - name: Security
       items:
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
       - name: Security baseline
         href: security-baseline.md
     - name: Container registry tiers and limits
@@ -145,6 +148,12 @@
     - name: Troubleshoot
       expanded: false
       items:
+        - name: Troubleshoot login
+          href: container-registry-troubleshoot-login.md
+        - name: Troubleshoot network issues
+          href: container-registry-troubleshoot-access.md
+        - name: Troubleshoot registry performance
+          href: container-registry-troubleshoot-performance.md
         - name: Detect common issues
           href: container-registry-check-health.md
         - name: FAQ
