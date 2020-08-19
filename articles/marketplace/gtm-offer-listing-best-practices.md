@@ -11,16 +11,17 @@ ms.date: 07/06/2020
 
 # Offer listing best practices
 
-This article gives suggestions for creating and engaging commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
+This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
 
 ## Storefront offer details
 
 | Storefront setting | Best practice |
 |:--- |:--- |  
-| Offer Name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) <br> <br> Adhere to brand guidelines: follow [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services. |
+| Offer Name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
 | Offer Description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
 
-The tables in this section provide suggestions for creating and engaging marketplace offers. To write and configure your marketing materials, go to the [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
+> [!IMPORTANT]
+> Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.
 
 ## Storefront listing details
 
@@ -114,15 +115,15 @@ Keywords can help customers find your offer when they search. Identify the top s
 ## Storefront marketing details
 | Storefront setting | Best practice |
 |:--- |:--- |  
-| Offer logo (PNG format, between 216 × 216 and 350 x 350 pixels): app details page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the app details listing page of your offer. Partner Center will resize it to the required logo sizes. |
-| Offer logo (PNG format, 48 × 48 pixels): search page | Partner Center will generate this logo from the Large logo you uploaded. You can optionally replace this with a different image. |
-| "Learn more" documents | Include supporting sales and marketing assets under "Learn more," some examples are:<ul><li>white papers</li><li> brochures</li><li>checklists, or</li><li> PowerPoint presentations</li></ul><br>Save all files in PDF format. Your goal here should be to educate customers, not sell to them.<br><br>Add a link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
+| Offer logo (PNG format, 48&nbsp;&times;&nbsp;48): search page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the search page of your offer. |
+| Offer logo (PNG format, 216&nbsp;&times;&nbsp;216): app details page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the app details listing page of your offer. |
+| "Learn more" documents | Include supporting sales and marketing assets under "Learn more," some examples are: <ul> <li> white papers, </li> <li> brochures, </li> <li> checklists, or </li> <li> PowerPoint presentations.</li> </ul>Save all files in PDF format. Your goal here should be to educate customers, not sell to them. <br><br>Add a link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
 | Videos: AppSource, consulting services, and SaaS offers only | The strongest videos communicate the value of your offer in narrative form:<ul> <li> Make your customer, not your company, the hero of the story. </li> <li> Your video should address the principal challenges and goals of your target customer. </li> <li> Recommended length: 60-90 seconds.</li> <li> Incorporate key search words that use the name of the videos. </li> <li> Consider adding additional videos, such as a how-to, getting started, or customer testimonials. </li> </ul> |
 | Screenshots (1280&nbsp;&times;&nbsp;720) | Add up to five screenshots:<br>Incorporate key search words in the file names. |
 
 ## Link to your offer page from your website
 
-When you link from the AppSource or Azure Marketplace badge on your site to your listing in the marketplace, you can support strong analytics and reporting by including the following query parameters at the end of the URL:
+When you link from the AppSource or Azure Marketplace badge on your site to your listing in the commercial marketplace, you can support strong analytics and reporting by including the following query parameters at the end of the URL:
 * **src**: Include the source from which the traffic is routed to AppSource (for example, website, LinkedIn, or Facebook).
 * **mktcmpid**: Your marketing campaign ID, which can contain up to 16 characters in any combination of letters, numbers, underscores, and hyphens (for example, *blogpost_12*).
 

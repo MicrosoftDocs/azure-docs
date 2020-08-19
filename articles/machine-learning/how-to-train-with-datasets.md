@@ -11,7 +11,7 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 # Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 

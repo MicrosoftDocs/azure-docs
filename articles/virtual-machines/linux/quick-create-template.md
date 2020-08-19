@@ -61,7 +61,7 @@ Several resources are defined in the template:
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Ubuntu OS version**: select which version of Ubuntu you want to run on the VM.
     - **Location**: the default is the same location as the resource group, if it already exists.
-    - **VM size**: select the [size](sizes.md) to use for the VM.
+    - **VM size**: select the [size](../sizes.md) to use for the VM.
     - **Virtual Network Name**: name to be used for the vNet.
 	- **Subnet Name**: name for the subnet the VM should use.
 	- **Network Security Group Name**: name for the NSG.

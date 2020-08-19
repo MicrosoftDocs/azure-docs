@@ -97,7 +97,7 @@ landingContent:
           - text:  Boot configuration update error
             url: ./troubleshoot-vm-boot-configure-update.md
           - text:  VM lifecycle and states
-            url: ../windows/states-lifecycle.md
+            url: ../states-lifecycle.md
 
   # Card
   - title: Unexpected VM restart

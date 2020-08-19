@@ -1,10 +1,7 @@
 ---
 title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Windows Virtual Desktop host pool with your Active Directory domain.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
@@ -184,8 +181,6 @@ To configure your NTFS permissions:
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Select **Apply**.
 
 ## Configure FSLogix on session host VMs
 

@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Storage | Microsoft Docs
-description: Learn how to monitor the performance and availability of Azure Storage.
+description: Learn how to monitor the performance and availability of Azure Storage. Monitor Azure Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
 ms.service: storage

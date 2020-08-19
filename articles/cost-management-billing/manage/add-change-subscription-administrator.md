@@ -13,7 +13,7 @@ ms.author: banders
 # Add or change Azure subscription administrators
 
 
-To manage access to Azure resources, you must have the appropriate administrator role. Azure has an authorization system called [role-based access control](../../role-based-access-control/overview.md) (RBAC) with several built-in roles you can choose from. You can assign these roles at different scopes, such as management group, subscription, or resource group. By default, the person who creates a new Azure subscription can assign other users administrative access to a subscription.
+To manage access to Azure resources, you must have the appropriate administrator role. Azure has an authorization system called [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) with several built-in roles you can choose from. You can assign these roles at different scopes, such as management group, subscription, or resource group. By default, the person who creates a new Azure subscription can assign other users administrative access to a subscription.
 
 This article describes how add or change the administrator role for a user using RBAC at the subscription scope.
 

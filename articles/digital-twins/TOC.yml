@@ -55,7 +55,7 @@
     - name: Manage custom models
       href: how-to-manage-model.md
     - name: Parse and validate models
-      href: how-to-use-parser.md
+      href: how-to-parse-models.md
     - name: Add tags 
       href: how-to-use-tags.md
   - name: Use live execution environment
@@ -92,6 +92,8 @@
       href: troubleshoot-metrics.md
     - name: Enable diagnostics logs
       href: troubleshoot-diagnostics.md
+    - name: Enable alerts
+      href: troubleshoot-alerts.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
@@ -170,6 +172,8 @@
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL validator (sample)
         href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
+      - name: DPS and IoT Hub integration sample
+        href: https://github.com/Azure-Samples/digital-twins-iothub-integration    
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell

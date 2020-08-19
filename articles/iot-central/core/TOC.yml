@@ -105,8 +105,10 @@
           href: howto-run-a-job.md
     - name: Transform
       items:
-        - name: Export data to destinations in Azure
+        - name: Export data to destinations in Azure (legacy)
           href: howto-export-data.md
+        - name: Export data to cloud destinations (preview)
+          href: howto-use-data-export.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
         - name: Use workflows to integrate with other services
@@ -119,6 +121,8 @@
           href: howto-create-custom-analytics.md
         - name: Visualize your data in Power BI
           href: howto-connect-powerbi.md
+        - name: Configure and use file uploads
+          href: howto-configure-file-uploads.md
     - name: Administration
       items:
         - name: Manage your application
@@ -137,6 +141,8 @@
               href: howto-monitor-application-health.md
             - name: About your application
               href: howto-get-app-info.md
+            - name: Roll X.509 certificates
+              href: how-to-roll-x509-certificates.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal

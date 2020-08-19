@@ -9,7 +9,7 @@ ms.date: 07/15/2020
 
 In this article, we walk through procedures for setting up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
 
-HCX Advanced, the default installation, supports up to three vCenters. If more than three are required, customers have the option to enable the HCX Enterprise add-on through Support. HCX Enterprise installation carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, the default installation, supports up to three site connections (on-premises or cloud to cloud). If more than three site connections are required, customers have the option to enable the HCX Enterprise add-on through Support, which is currently in preview. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
@@ -17,7 +17,7 @@ Thoroughly review [Before you begin](#before-you-begin), [Software version requi
 Then, we'll walk through all necessary procedures to:
 
 > [!div class="checklist"]
-> * Deploy the on-premises HCX OVA
+> * Deploy the on-premises HCX OVA (Connector)
 > * Activate and configure HCX
 > * Configure the network uplink and service mesh
 > * Complete setup by checking the appliance status
@@ -31,11 +31,14 @@ After completing the setup, you can follow the recommended next steps provided a
 * Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
-* Order an AVS HCX Enterprise activation through AVS support channels.
+* Request an AVS HCX Enterprise activation through AVS support channels.
 
-Sizing workloads against compute and storage resources is an essential planning step when preparing to use the AVS Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning.   
+Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the AVS Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
+
+You also can size workloads by completing an AVS Assessment in the Azure Migrate portal (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
 
 ## Software version requirements
+
 Infrastructure components must be running the required minimum version. 
                                                          
 | Component Type    | Source Environment Requirements    | Destination Environment Requirements   |

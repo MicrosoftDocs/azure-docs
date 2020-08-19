@@ -72,7 +72,7 @@ Azure offers a full range of virtual machine sizes. Because Visual Studio is a p
    * Standard_D2S_v2
    * Standard_D3_v2
     
-For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](./sizes.md).
+For more information on the latest machine sizes, see [Sizes for Windows virtual machines in Azure](../sizes.md).
 
 With Azure, you can rebalance your initial choice by resizing the VM. You can either provision a new VM with a more appropriate size, or resize your existing VM to different underlying hardware. For more information, see [Resize a Windows VM](./resize-vm.md).
 

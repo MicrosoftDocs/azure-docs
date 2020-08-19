@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2020
+ms.date: 08/11/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
 
@@ -25,6 +25,7 @@ ms.custom: H1Hack27Feb2017
   | SLES 12 SP2      | Not offered anymore | S72, S72m, S96, S144, S144m, S192, S192m, S192xm              |
   | SLES 12 SP3      | Available           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm              |
   | SLES 12 SP4      | Available           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
+  | RHEL 7.6         | Available           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
 
   
 ### Persistent Memory SKUs

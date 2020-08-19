@@ -1,11 +1,11 @@
 ---
 title: Manage indexing in Azure Cosmos DB's API for MongoDB
-description: This article presents an overview of Azure Cosmos DB indexing capabilities using the MongoDB API.
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB's API for MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
@@ -34,7 +34,7 @@ One query uses multiple single field indexes where available. You can create up 
 
 ### Compound indexes (MongoDB server version 3.6)
 
-Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
+Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. **Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once.** For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
 
 The following command creates a compound index on the fields `name` and `age`:
 
@@ -51,6 +51,9 @@ You can also use the preceding compound index to efficiently sort on a query wit
 However, the sequence of the paths in the compound index must exactly match the query. Here's an example of a query that would require an additional compound index:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> You can't create compound indexes on nested properties or arrays.
 
 ### Multikey indexes
 
@@ -309,7 +312,7 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-### Background index updates
+## Background index updates
 
 Regardless of the value specified for the **Background** index property, index updates are always done in the background. Because index updates consume Request Units (RUs) at a lower priority than other database operations, index changes won't result in any downtime for writes, updates, or deletes.
 
