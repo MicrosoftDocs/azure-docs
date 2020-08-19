@@ -24,7 +24,8 @@ This release tag for the August 2020 refresh of the module is:
 mcr.microsoft.com/media/live-video-analytics:1.0.3
 ```
 
-> [!NOTE]> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (live-video-analytics:1). So simply redeploying such manifests should update the module on your edge > devices.
 
 ## New features 
 
