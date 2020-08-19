@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -56,6 +56,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_mode=query
 &scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
 ```
 
 > [!TIP]
@@ -75,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `login_hint`  | optional    | Can be used to pre-fill the username/email address field of the sign-in page for the user, if you know their username ahead of time. Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim.   |
 | `domain_hint`  | optional    | If included, it will skip the email-based discovery process that user goes through on the sign-in page, leading to a slightly more streamlined user experience - for example, sending them to their federated identity provider. Often apps will use this parameter during re-authentication, by extracting the `tid` from a previous sign-in. If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, you should use `domain_hint=consumers`. Otherwise, use `domain_hint=organizations`.  |
 | `code_challenge`  | recommended / required | Used to secure authorization code grants via Proof Key for Code Exchange (PKCE). Required if `code_challenge_method` is included. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is now recommended for all application types - native apps, SPAs, and confidential clients like web apps. |
-| `code_challenge_method` | recommended / required | The method used to encode the `code_verifier` for the `code_challenge` parameter. Can be one of the following values:<br/><br/>- `plain` <br/>- `S256`<br/><br/>If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included. Microsoft identity platform supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is required for [single page apps using the authorization code flow](reference-third-party-cookies-spas.md).|
+| `code_challenge_method` | recommended / required | The method used to encode the `code_verifier` for the `code_challenge` parameter. This *SHOULD* be `S256`, but the spec allows the use of `plain` if for some reason the client cannot support SHA256. <br/><br/>If excluded, `code_challenge` is assumed to be plaintext if `code_challenge` is included. Microsoft identity platform supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is required for [single page apps using the authorization code flow](reference-third-party-cookies-spas.md).|
 
 
 At this point, the user will be asked to enter their credentials and complete the authentication. The Microsoft identity platform endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter. If the user has not consented to any of those permissions, it will ask the user to consent to the required permissions. Details of [permissions, consent, and multi-tenant apps are provided here](v2-permissions-and-consent.md).
@@ -146,6 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
+&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
