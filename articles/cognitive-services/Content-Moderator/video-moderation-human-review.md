@@ -79,7 +79,7 @@ You can also add moderation tags to specific key frames. Select the frames from 
 
 The **Hold** button at the bottom of the video pane lets you put a review on hold so you can retrieve it and complete it later. You may do this for a review that requires a consult from another team member or manager who is currently unavailable. 
 
-You can view the videos on hold by clicking the **Hold** button at the top of the screen. The Hold pane appears on the right. From here, you can select multiple reviews on hold and either release them back into the queue, or save them with updates. After a preconfigured amount of time (which you can change in the menu at the bottom), reviews on hold are released back to the queue.
+You can view the videos on hold by clicking the **Hold** button at the top of the screen. The Hold pane appears on the right. From here, you can select multiple reviews on hold and either release them back into the queue, or set their expiration time. After the preconfigured amount of time, reviews on hold are released back to the queue. Select **Save** to start counting down from the currently selected expiration time.
 
 > [!div class="mx-imgBorder"]
 > ![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-hold.png)
