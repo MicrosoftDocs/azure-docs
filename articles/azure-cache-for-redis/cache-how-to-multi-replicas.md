@@ -25,7 +25,9 @@ In this article, you'll learn how to set up an Azure Cache instance with additio
 >
 
 ## Create a cache
-1. To create a cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
+To create a cache, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
   
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
