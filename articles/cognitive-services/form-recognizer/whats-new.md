@@ -27,18 +27,24 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 **Form Recognizer v2.1 public preview is now available.** V2.1-preview.1 has been released, including the following features: 
 
 
-- **REST API reference is available** - View the (v2.1-preview.1 reference)[https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync] 
+- **REST API reference is available** - View the [v2.1-preview.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
 - **New languages supported In addition to English**, the following languages are now supported : for `Layout` and `Train Custom Model`: English (EN), Chinese (Simplified) (ZH-ZH), Dutch (NL), French (FR), German (DE), Italian (IT), Portuguese (PT) and Spanish (ES).
 - **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key value pairs for selection marks. 
 - **Model Compose** allows multiple models to be composed and called with a single model Id. When a document is submitted to be analyzed with a composed model Id, a classification step is first performed to route it to the correct custom model. Model compose is available for `Train Custom Model` - _Train with labels_.
 - **Model name** add a friendly name to your custom models for easier management and tracking.
 - **New pre-built model for Business Cards** for extracting common fields in English,  language business cards.
 - **New locales for pre-built Receipts** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
-- **Quality improvements** for `Layout`, `Train Custom Model` _Train without Labels_ and _Train with Labels_.
+- **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
 
 **v2.0** includes the following update:
-•	The (client libraries)[quickstarts/client-library.md] for NET, Python, Java, and JavaScrip have entered General Availability. 
+-	The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScrip have entered General Availability. 
+
+
+**New samples** are available on Github. 
+- The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects. 
+- The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
+
 
 
 ## July 2020
