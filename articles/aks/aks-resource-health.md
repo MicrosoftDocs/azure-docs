@@ -35,7 +35,7 @@ To access Resource Health for all clusters on your subscription:
 
 ## Check the health status
 
-When there is no known issue affecting your cluster’s health, Resource Health will report your cluster as available.
+When there are no known issues affecting your cluster’s health, Resource Health reports your cluster as *Available*.
 
 ![Available](./media/aks-resource-health/available.png)
 
