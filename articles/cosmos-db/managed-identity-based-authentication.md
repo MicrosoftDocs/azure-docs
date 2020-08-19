@@ -71,9 +71,10 @@ In this scenario, the function app will read the temperature of the aquarium, th
 
 ### Assign the role using Azure CLI
 
-To assign the role by using Azure CLI, use the following commands:
+To assign the role by using Azure CLI, open the Azure Cloud Shell and run the following commands:
 
 ```azurecli-interactive
+
 scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
 
 principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)

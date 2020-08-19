@@ -8,7 +8,7 @@
     href: ./servers/overview.md
 - name: Quickstarts
   items:
-  - name: Enable Arc for servers agent
+  - name: Enable Arc enabled servers agent
     href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Tutorials
   items:

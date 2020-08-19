@@ -71,7 +71,7 @@ You typically must write code to collect, store, and refresh these tokens in you
 
 The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
 
-If you don't need to work with tokens in your app, you can disable the token store.
+If you don't need to work with tokens in your app, you can disable the token store in your app's **Authentication / Authorization** page.
 
 ### Logging and tracing
 

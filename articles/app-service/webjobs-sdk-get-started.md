@@ -4,6 +4,7 @@ description: Introduction to the WebJobs SDK for event-driven background process
 author: ggailey777
 
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
