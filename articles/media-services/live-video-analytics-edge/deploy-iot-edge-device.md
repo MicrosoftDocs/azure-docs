@@ -46,7 +46,7 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md#use-the-azure-portal).
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md) and select the Portal tab.
 
 ## Create and use local user account for deployment
 To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
@@ -164,7 +164,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * {resourceGroupName} - this the resource group to which your Media Service account belongs
     * {AMS-account-name} - this is the name of your Media Services account
     
-    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md) and select the Portal tab.  
     * aadTenantId - this is the ID of your tenant and is the same as the "AadTenantId" from the above link.
     * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
     * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
