@@ -201,7 +201,6 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *gateway*, then click **OK**.
 
-
     ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
 1. In the **Before launch** section of the dialog, double click *Run Maven Goal**.

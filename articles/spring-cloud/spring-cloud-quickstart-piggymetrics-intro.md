@@ -33,6 +33,7 @@ There are several common patterns in distributed systems that help make core ser
 For full implementation details, see [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics).  The samples reference the source code as needed.
 
 ## Next steps
-* [Spring Cloud quickstart](spring-cloud-quickstart-launch-app-portal.md)
+> [!div class="nextstepaction"]
+> [Spring Cloud quickstart](spring-cloud-quickstart-launch-app-portal.md)
 
 
