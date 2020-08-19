@@ -56,7 +56,7 @@ Security defaults provide preconfigured identity security settings to defend you
 
 Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
 
-Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to their [secure score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
 
 Learn more about [security defaults](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -130,7 +130,7 @@ To ensure that newly-created Kubernetes workloads are secure by default, Securit
 
 The early phase of this project includes a private preview and the addition of new (disabled) policies to the ASC_default initiative.
 
-You can safely ignore these policies and there will be no impact on your environment.If you'd like to enable them, please sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
+You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
 
 1. **Single Preview** – To join only this private preview. Explicitly mention “ASC Continuous Scan” as the preview you would like to join.
 1. **Ongoing Program** – To be added to this and future private previews. You will need to complete a profile and privacy agreement.
