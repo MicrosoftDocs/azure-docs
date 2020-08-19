@@ -25,7 +25,7 @@ To find the requests which are rate limited, the recommended way is to get this 
 
 If there is continuous peak of 100% normalized RU/s consumption or close to 100% across multiple partition key ranges it's recommended to increase the throughput. You can find out which operations are heavy and their peak usage by utilizing the Azure monitor metrics and Azure monitor diagnostic logs.
 
-In summary - The **Normalized RU Consumption** metric is  used to see which partition key range is more warm in terms of usage; thus giving you the skew of throughput towards a partition key range. You can later follow up to see the **PartitionKeyRUConsumption** log in Azure Monitor logs to get information about which logical partition keys are hot in terms of usage. This will point to change in either the partition key choice, or the change in application logic (distribute the load of data say across multiple partitions) or just increase in the throughput as it is really required. 
+In summary, the **Normalized RU Consumption** metric is  used to see which partition key range is more warm in terms of usage. So it gives you the skew of throughput towards a partition key range. You can later follow up to see the **PartitionKeyRUConsumption** log in Azure Monitor logs to get information about which logical partition keys are hot in terms of usage. This will point to change in either the partition key choice, or the change in application logic. To resolve the rate limiting, distribute the load of data say across multiple partitions or just increase in the throughput as it is really required. 
 
 
 
