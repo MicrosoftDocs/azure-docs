@@ -72,8 +72,8 @@ Virtual machines that are in an availability set with disks that share either st
 
 ## Repair invalid log alert rules
 
-Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of a query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor detects log alert rules that have invalid queries specified in their condition section. 
+Azure Monitor log alert rules run queries at specified frequency, and based on the results of a query determine if an alert needs to be triggered. Queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
