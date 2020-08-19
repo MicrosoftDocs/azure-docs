@@ -244,11 +244,11 @@ Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /p
 
 ### Configure cost-based orchestration for budget alerts
 
-You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/cost-management-budget-scenario).
+You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](cost-management-budget-scenario.md).
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently won't provide any additional data. Instead, it will create increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently won't provide any additional data. Instead, it will create increased load. To learn more about how often data changes and how data latency is handled, see [Understand cost management data](understand-cost-mgt-data.md).
 
 ### Error code 429 - Call count has exceeded rate limits
 
