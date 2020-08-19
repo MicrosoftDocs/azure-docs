@@ -8,7 +8,7 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 12/04/2019
+ms.date: 08/19/2020
 ---
 **Compute targets can be reused from one training job to the next**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.  For machine learning pipelines, use the appropriate [pipeline step](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) for each compute target.
 
@@ -16,7 +16,7 @@ ms.date: 12/04/2019
 |----|:----:|:----:|:----:|
 |[Local computer](../articles/machine-learning/how-to-create-attach-compute-sdk.md#local)| yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-sdk.md#amlcompute)| yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
-|[Azure Machine Learning compute instance](.../articles/machine-learning/how-to-create-attach-compute-sdk.md#instance) | yes & <br/>hyperparameter tuning | yes |  |
+|[Azure Machine Learning compute instance](../articles/machine-learning/how-to-create-attach-compute-sdk.md#instance) | yes & <br/>hyperparameter tuning | yes |  |
 |[Remote VM](../articles/machine-learning/how-to-create-attach-compute-sdk.md#vm) | yes & <br/>hyperparameter tuning | yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| yes (SDK local mode only) | yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | yes | &nbsp; |

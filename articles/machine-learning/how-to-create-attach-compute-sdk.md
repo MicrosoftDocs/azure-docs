@@ -200,7 +200,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](#attached-compute).
+   Or you can attach the HDInsight cluster to your workspace [using Azure Machine Learning studio](how-to-create-attach-compute-studio#attached-compute).
 
 1. **Configure**: Create a run configuration for the HDI compute target. 
 

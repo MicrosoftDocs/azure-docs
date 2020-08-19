@@ -113,7 +113,7 @@ A run configuration is a set of instructions that defines how a script should be
 
 A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
 
-For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
+For example run configurations, see [Use a compute target to train your model](how-to-submit-training.md).
 
 ### Snapshots
 
@@ -215,7 +215,7 @@ Azure IoT Edge ensures that your module is running, and it monitors the device t
 
 ### <a name="compute-instance"></a>Compute instance
 
-An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-create-attach-compute-sdk.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 Learn more about [compute instances](concept-compute-instance.md).
 
