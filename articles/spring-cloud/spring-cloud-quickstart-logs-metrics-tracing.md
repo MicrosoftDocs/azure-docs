@@ -11,10 +11,10 @@ ms.custom: devx-track-java
 
 # Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
 
-With the built in monitoring capability in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics and distributed tracing capability from the Azure portal. We will walk you though how to use Log Streaming, Log Analytics, Metrics and Distritbuted tracing with deployed PiggyMetrics apps.
+With the built-in monitoring capability in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics and distributed tracing capability from the Azure portal. We will walk you though how to use Log Streaming, Log Analytics, Metrics and Distributed tracing with deployed PiggyMetrics apps.
 Please make sure you have complete previous steps: [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md), [set up the config server](spring-cloud-quickstart-setup-config-server.md) and [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
 ## Logs
-There are two ways to see logs on Azure Spring Cloud: Log Streaming for real time logs per app instance and Log Analytics for aggregated logs with advanced query capability.
+There are two ways to see logs on Azure Spring Cloud: Log Streaming for real-time logs per app instance and Log Analytics for aggregated logs with advanced query capability.
 
 ### Log Streaming
 
@@ -30,17 +30,19 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 #### [CLI](#tab/Azure-CLI)
 
-```azurecli
+```
    az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
+
 ```
 
     ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png)
     
-    >[!TIP]
-    > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+>[!TIP]
+> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+
 ---
 ### Log Analytics
-1. Go to the **service Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidence on writing queries.
+1. Go to the **service Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
 
     ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)
     
@@ -62,7 +64,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
     ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png)
 
-1. You can now see the stauts of calls between Piggymetrics apps. 
+1. You can now see the status of calls between Piggymetrics apps. 
 
     ![Distributed Tracing overview](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png)
     
@@ -72,7 +74,7 @@ To get the logs using Azure Toolkit for IntelliJ:
     
 1. Finally, click **Investigate Performance** to explore more powerful built-in performance analysis.
 
-    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
+    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
 
 ## Next steps
 * [Diagnostic services](diagnostic-services.md)
