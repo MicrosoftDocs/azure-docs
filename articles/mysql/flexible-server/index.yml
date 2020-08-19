@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title:  Single Server documentation
-summary: "Azure Database for MySQL - Single Server is a relational database service powered by the MySQL community edition.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples."
+title:  Flexible Server documentation
+summary: "Azure Database for MySQL - Flexible Server is a relational database service powered by the MySQL community edition.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MySQL leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MySQL with our quickstarts, tutorials, and samples."
 metadata: 
-  description: "Azure Database for MySQL - Single Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
+  description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
   ms.date: 09/20/2020
