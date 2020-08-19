@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 - [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Accout](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) page. 
+    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Accout](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account) page. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -60,7 +60,7 @@ az extension add --name synapse
     |StorageAccountResourceGroup| Name of your existing ADLS Gen2 storage account resource group. |
     |FileShareName| Name of your existing storage file system.|
     |SynapseResourceGroup| Choose a new name for your Azure Synapse resource group. |
-    |Region| Choose one of the [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/geographies/#overview). |
+    |Region| Choose one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
     |SynapseWorkspaceName| Choose a unique name for your new Azure Synapse Workspace. |
     |SqlUser| Choose a value for a new username.|
     |SqlPassword| Choose a secure password.|
