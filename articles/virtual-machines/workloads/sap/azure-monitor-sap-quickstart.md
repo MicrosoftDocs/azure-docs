@@ -10,7 +10,7 @@ ms.date: 08/17/2020
 
 # Deploy Azure Monitor for SAP Solutions with Azure portal
 
-Azure Monitor for SAP Solutions (AMS) resources can be created through the [Azure portal](https://azure.microsoft.com/features/azure-portal). This method provides a browser-based user interface to deploy Azure Monitor for SAP Solutions and configure providers.
+Azure Monitor for SAP Solutions resources can be created through the [Azure portal](https://azure.microsoft.com/features/azure-portal). This method provides a browser-based user interface to deploy Azure Monitor for SAP Solutions and configure providers.
 
 ## Sign in to Azure portal
 
