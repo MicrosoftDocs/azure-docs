@@ -6,7 +6,7 @@ ms.author: sudbalas
 ms.date: 06/08/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 
 ---
 # Authenticate to Azure Key Vault
