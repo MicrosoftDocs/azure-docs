@@ -62,7 +62,7 @@ For example, if you had on-premises data in Canada that you wanted to move to an
 
 ### Option 1: 
 
-Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using the [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from the source location in Canada to the Azure West US datacenter.
+Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using the [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from the source location in Canada to the Azure WestUS datacenter.
 
 ### Option 2:
 
@@ -70,7 +70,7 @@ Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-
 
 2. Once the on-prem data copy to the disk(s) is done, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
-3. You can then use a tool like AzCopy to copy the data to a storage account in West US . This step would incur additional bandwidth charges that is not included in the Data Box Disk billing.
+3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS . This step incurs additional bandwidth charges that aren't included in the Data Box Disk billing.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
