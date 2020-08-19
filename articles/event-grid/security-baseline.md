@@ -16,17 +16,11 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for Microsoft Azure Event Grid contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
-
 ## Network security
 
 *For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32701.).
 
 **Guidance**: You can use private endpoints to allow ingress of events directly from your virtual network to your Event Grid topics and domains securely over a private link without going through the public internet. When you create a private endpoint for your Event Grid topic or domain, it provides secure connectivity between clients on your VNet and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Event Grid service uses a secure private link.
 
@@ -52,9 +46,6 @@ authentication mechanisms supported by Event Grid.
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32702.).
-
 **Guidance**: Use Azure Security Center and follow network protection recommendations to help secure your Event Grid resources in Azure. If using
 Azure virtual machines to access your Event Grid resources, enable network security group (NSG) flow logs and send logs into a storage account for traffic
 
@@ -70,9 +61,6 @@ audit.
 
 ### 1.3: Protect critical web applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32703.).
-
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -80,9 +68,6 @@ audit.
 **Responsibility**: Not Applicable
 
 ### 1.4: Deny communications with known malicious IP addresses
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32704.).
 
 **Guidance**: 
 You can configure IP firewall for your Event Grid resource to
@@ -110,9 +95,6 @@ addresses. For more information, see the following articles:
 
 ### 1.5: Record network packets
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32705.).
-
 **Guidance**: If you are using Azure virtual machines to access your Event Grid resources, enable
  network security group (NSG) flow logs and send logs into a storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -132,9 +114,6 @@ If necessary for investigating anomalous activity, enable Network Watcher packet
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32706.).
-
 **Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic.
@@ -151,9 +130,6 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 ### 1.7: Manage traffic to web applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32707.).
-
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -161,9 +137,6 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 **Responsibility**: Not Applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32708.).
 
 **Guidance**: For resources in virtual networks that need
 access to your Azure Event Grid resources, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
@@ -177,9 +150,6 @@ access to your Azure Event Grid resources, use Virtual Network service tags to d
 **Responsibility**: Customer
 
 ### 1.9: Maintain standard security configurations for network devices
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32709.).
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure Event Grid namespaces with Azure Policy. Use Azure Policy aliases in the "Microsoft.EventGrid" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Event Grid resources. 
 
@@ -195,9 +165,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 ### 1.10: Document traffic configuration rules
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32710.).
-
 **Guidance**: Use tags for network resources associated with your Azure Event Grid resources in order to logically organize them into a taxonomy.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
@@ -207,9 +174,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 **Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32711.).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Grid. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
@@ -227,9 +191,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 ### 2.2: Configure central security log management
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32713.).
-
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure Event Grid. Within the Azure Monitor, use Log Analytics workspace(s) to query and perform analytics, and use storage accounts for long-term/archival storage. Alternatively, you may enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
 - [How to enable diagnostic logs for Azure Event Grid](diagnostic-logs.md)
@@ -242,9 +203,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 ### 2.3: Enable audit logging for Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32714.).
-
 **Guidance**: Diagnostic settings allow Event Grid users to capture and view publish and delivery failure Logs in either a Storage account, an event hub, or a Log Analytics Workspace.
 
 - [Enable Diagnostic logs for Azure event grid topics or domains](enable-diagnostic-logs-topic.md)
@@ -255,9 +213,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 ### 2.4: Collect security logs from operating systems
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32715.).
-
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -265,9 +220,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 **Responsibility**: Not Applicable
 
 ### 2.5: Configure security log storage retention
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32716.).
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Event Grid resources according to your organization's compliance regulations.
 
@@ -278,9 +230,6 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 **Responsibility**: Customer
 
 ### 2.6: Monitor and review Logs
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32717.).
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results from Azure Event Grid. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
@@ -301,9 +250,6 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 **Responsibility**: Customer
 
 ### 2.7: Enable alerts for anomalous activities
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32718.).
 
 **Guidance**: Enable diagnostic settings on your event grid for access to publish and delivery failure logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. You may send the logs to a Log Analytics workspace. Use Azure Security Center with Log Analytics for monitoring and alerting on anomalous activity found in security logs and events. 
 
@@ -329,9 +275,6 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 
 ### 2.8: Centralize anti-malware logging
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32719.).
-
 **Guidance**: Not applicable; Azure Event Grid does not process or produce anti-malware related logs.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -340,9 +283,6 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 
 ### 2.9: Enable DNS query logging
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32720.).
-
 **Guidance**: Not applicable; Azure Event Grid does not process or produce DNS-related logs.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -350,9 +290,6 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 **Responsibility**: Not Applicable
 
 ### 2.10: Enable command-line audit logging
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32721.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -365,9 +302,6 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 *For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32722.).
 
 **Guidance**: Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC). Event Grid supports built-in roles as well as custom roles.
 
@@ -385,9 +319,6 @@ Azure role-based access control (RBAC) allows you to manage access to Azure reso
 
 ### 3.2: Change default passwords where applicable
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32723.).
-
 **Guidance**: Access management to Event Grid resources is controlled through Azure Active Directory (AD). Azure AD does not have the concept of default passwords.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -395,9 +326,6 @@ Azure role-based access control (RBAC) allows you to manage access to Azure reso
 **Responsibility**: Customer
 
 ### 3.3: Use dedicated administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32724.).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts.
 
@@ -417,9 +345,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32725.).
-
 **Guidance**: Not applicable; Event Grid service doesn't support SSO.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -427,9 +352,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 **Responsibility**: Not Applicable
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32726.).
 
 **Guidance**: Not applicable; Event Grid service doesn't use multi-factor authentication
 
@@ -439,9 +361,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32727.).
-
 **Guidance**: Not applicable; no Event Grid scenarios require Privileged Access Workstations. 
 
 **Azure Security Center monitoring**: Not Applicable
@@ -449,9 +368,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 **Responsibility**: Not Applicable
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32728.).
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
@@ -465,9 +381,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 ### 3.8: Manage Azure resources only from approved locations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32729.).
-
 **Guidance**: Not applicable. Event Grid doesn’t use Azure AD for authenticating event publishing clients; it supports authentication via SAS keys.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -475,9 +388,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 **Responsibility**: Customer
 
 ### 3.9: Use Azure Active Directory
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32730.).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -495,9 +405,6 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 ### 3.10: Regularly review and reconcile user access
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32731.).
-
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. 
  
 Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
@@ -514,9 +421,6 @@ Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generat
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32732.).
-
 **Guidance**: You have access to Azure AD sign-in activity, audit, and risk event log sources, which allow you to integrate with any SIEM/monitoring tool.
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
@@ -528,9 +432,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Responsibility**: Customer
 
 ### 3.12: Alert on account login behavior deviation
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32733.).
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
  
@@ -548,9 +449,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32734.).
-
 **Guidance**: Not applicable; Event Grid service doesn't support Customer Lockbox currently.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -563,9 +461,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.1: Maintain an inventory of sensitive Information
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32735.).
-
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
  
  
@@ -577,9 +472,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Responsibility**: Customer
 
 ### 4.2: Isolate systems storing or processing sensitive information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32736.).
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory RBAC.
 
@@ -595,9 +487,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32737.).
-
 **Guidance**: For the underlying platform, which is managed by Microsoft,
 Microsoft treats all customer content as sensitive and goes to great lengths to
 guard against customer data loss and exposure. To ensure customer data within
@@ -609,9 +498,6 @@ Azure remains secure, Microsoft has implemented and maintains a suite of robust
 **Responsibility**: Shared
 
 ### 4.4: Encrypt all sensitive information in transit
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32738.).
 
 **Guidance**: Azure Event Grid requires HTTPS for publishing
 and supports HTTPS for delivering events to a webhook endpoint. In Azure
@@ -626,9 +512,6 @@ Government and Azure operated by 21Vianet in China, Event Grid supports only
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32739.).
-
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure Event Grid. Implement third-party solution if necessary for compliance purposes.
 
 For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
@@ -641,9 +524,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32740.).
-
 **Guidance**: Azure Event Grid supports using Azure Active Directory (AD) to authorize requests to Event Grid resources. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
 - [Authorizing access to Event Grid resources](security-authorization.md)
@@ -653,9 +533,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility**: Customer
 
 ### 4.9: Log and alert on changes to critical Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32743.).
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Grid resources and other critical or related resources.
 
@@ -671,9 +548,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32746.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -682,9 +556,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### 5.4: Compare back-to-back vulnerability scans
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32747.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -692,9 +563,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility**: Not Applicable
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32748.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -708,9 +576,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### 6.1: Use automated asset discovery solution
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32749.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -718,9 +583,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility**: Not Applicable
 
 ### 6.2: Maintain asset metadata
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32750.).
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
@@ -731,9 +593,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility**: Customer
 
 ### 6.3: Delete unauthorized Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32751.).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
  
@@ -751,9 +610,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32752.).
-
 **Guidance**: Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -761,9 +617,6 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility**: Customer
 
 ### 6.5: Monitor for unapproved Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32753.).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
@@ -781,9 +634,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32754.).
-
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -791,9 +641,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not Applicable
 
 ### 6.7: Remove unapproved Azure resources and software applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32755.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -803,9 +650,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.8: Use only approved applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32756.).
-
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -813,9 +657,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not Applicable
 
 ### 6.9: Use only approved Azure services
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32757.).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
@@ -834,9 +675,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.10: Maintain an inventory of approved software titles
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32758.).
-
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -844,9 +682,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not Applicable
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32759.).
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
  
@@ -860,9 +695,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32760.).
-
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -870,9 +702,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 **Responsibility**: Not Applicable
 
 ### 6.13: Physically or logically segregate high risk applications
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32761.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -885,9 +714,6 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 *For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32762.).
 
 **Guidance**: Define and implement standard security configurations for your Azure Event Grid service with Azure Policy. Use Azure Policy aliases in the "Microsoft.EventGrid" namespace to create custom policies to audit or enforce the configuration of your Azure Event Grid services.
 
@@ -903,9 +729,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 ### 7.2: Establish secure operating system configurations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32763.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -913,9 +736,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 **Responsibility**: Not Applicable
 
 ### 7.3: Maintain secure Azure resource configurations
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32764.).
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
@@ -931,9 +751,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 ### 7.4: Maintain secure operating system configurations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32765.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -941,9 +758,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 **Responsibility**: Not Applicable
 
 ### 7.5: Securely store configuration of Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32766.).
 
 **Guidance**: If using custom Azure Policy definitions for your Event Grid or related resources, use Azure Repos to securely store and manage your code.
 
@@ -957,9 +771,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 ### 7.6: Securely store custom operating system images
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32767.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -967,9 +778,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 **Responsibility**: Not Applicable
 
 ### 7.7: Deploy configuration management tools for Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32768.).
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.EventGrid" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
@@ -983,9 +791,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 ### 7.8: Deploy configuration management tools for operating systems
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32769.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -993,9 +798,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 **Responsibility**: Not Applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32770.).
 
 **Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources. Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
@@ -1007,9 +809,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32771.).
-
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Not Applicable
@@ -1017,9 +816,6 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 **Responsibility**: Not Applicable
 
 ### 7.11: Manage Azure secrets securely
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32772.).
 
 **Guidance**: Event Grid uses Shared Access Signature (SAS) token for publishing events to Event Grid topics or domains. Generating SAS tokens with only access to the resources that are needed in a limited time window.
 
@@ -1039,9 +835,6 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 ### 7.12: Manage identities securely and automatically
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32773.).
-
 **Guidance**: Event Grid can enable a managed service identity for Azure event grid topics or domains. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
 - [Event delivery with a managed identity](managed-service-identity.md)
@@ -1051,9 +844,6 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 **Responsibility**: Customer
 
 ### 7.13: Eliminate unintended credential exposure
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32774.).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
@@ -1069,9 +859,6 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32776.).
-
 **Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Event Grid), however it does not run on customer content.
 
 It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
@@ -1086,9 +873,6 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ### 9.1: Ensure regular automated back ups
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32778.).
-
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
 - [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md)
@@ -1098,9 +882,6 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Responsibility**: Customer
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32779.).
 
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
@@ -1115,9 +896,6 @@ keys.
 
 ### 9.3: Validate all backups including customer-managed keys
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32780.).
-
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
 Currently, Event Grid doesn’t support customer-managed
@@ -1130,9 +908,6 @@ keys.
 **Responsibility**: Customer
 
 ### 9.4: Ensure protection of backups and customer-managed keys
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32781.).
 
 **Guidance**: Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
  
@@ -1152,9 +927,6 @@ keys.
 
 ### 10.1: Create an incident response guide
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32782.).
-
 **Guidance**: Develop an incident response guide for your organization. Ensure there are written incident response plans that define all the roles of personnel as well as the phases of incident handling and management from detection to post-incident review. 
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
@@ -1168,9 +940,6 @@ keys.
 **Responsibility**: Customer
 
 ### 10.2: Create an incident scoring and prioritization procedure
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32783.).
 
 **Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -1189,9 +958,6 @@ keys.
 
 ### 10.3: Test security response procedures
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32788.).
-
 **Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and then revise your response plan as needed.
  
  
@@ -1203,9 +969,6 @@ keys.
 **Responsibility**: Customer
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32784.).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
  
@@ -1219,9 +982,6 @@ keys.
 
 ### 10.5: Incorporate security alerts into your incident response system
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32785.).
-
 **Guidance**: Export your Azure Security Center alerts and recommendations using the continuous export feature to help identify risks to Azure resources. Continuous export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
@@ -1233,9 +993,6 @@ keys.
 **Responsibility**: Customer
 
 ### 10.6: Automate the response to security alerts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32786.).
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
 
@@ -1250,9 +1007,6 @@ keys.
 *For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32787.).
 
 **Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
