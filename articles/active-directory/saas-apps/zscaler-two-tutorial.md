@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zscaler Two | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Two.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1fd8a940-7320-47e0-a176-2dd4eeca6db2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Two
 

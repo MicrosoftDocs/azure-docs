@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure RFPIO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to RFPIO.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 54419db4-47d5-4fb4-ab74-7b0b28afb11b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia 
+ms.author: zhchia
 ---
 
 # Tutorial: Configure RFPIO for automatic user provisioning
