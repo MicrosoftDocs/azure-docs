@@ -16,7 +16,7 @@ This topic explains how to create a new Dynamics 365 for Operations offer. [Micr
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 >[!NOTE]
-> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Ensure that you submit the offer for publication after you make changes.
+> Once an offer is published, edits to the offer will only be updated in Partner Center and the online store after you re-submit the offer for publication.
 
 ## Create a new offer
 
