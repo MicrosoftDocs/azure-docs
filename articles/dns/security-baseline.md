@@ -4,7 +4,7 @@ description: The Azure DNS security baseline provides procedural guidance and re
 author: msmbaldwin
 ms.service: dns
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Azure DNS
 
-The Azure Security Baseline for Azure DNS contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+The Azure Security Baseline for Microsoft Azure DNS contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -117,7 +117,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31567.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
+**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
 
 In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control. Note, the private DNS zone resources use a different role name, Private DNS Zone Contributor. 
 
