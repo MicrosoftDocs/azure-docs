@@ -87,19 +87,17 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
 
     ---
 
-1. Select a location nearest to you.
+1. Select a location nearest to you and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-location.png" alt-text="Resource location":::
 
-Once the app is created, a confirmation notification is shown in Visual Studio Code.
+1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
-:::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
+    :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and open up the new application.
+1. In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **Production** and select **Open in Portal** to view app in the Azure portal.
 
-Right-click on **Production** and select **Open in Portal** to view app in the Azure portal.
-
-:::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Open portal":::
+    :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Open portal":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
 

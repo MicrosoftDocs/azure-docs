@@ -45,7 +45,7 @@ Now that the repository is created, you can create a static web app from the Azu
     az login
     ```
 
-2. Create a new static web app from your repository.
+1. Create a new static web app from your repository.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -108,11 +108,10 @@ Now that the repository is created, you can create a static web app from the Azu
 
     - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated.
 
-You can now view the created app in Azure.
-
-1. Open the [Azure portal](https://portal.azure.com)
-1. Search for **my-first-web-static-app** from the top search bar
-1. Select on the app name
+1. You can now view the created app in Azure.
+    1. Open the [Azure portal](https://portal.azure.com)
+    1. Search for **my-first-web-static-app** from the top search bar
+    1. Select on the app name
 
 [!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
 
