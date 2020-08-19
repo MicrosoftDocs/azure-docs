@@ -9,20 +9,19 @@
   - name: Documentation
     href: single-server/index.yml
   - name: Quickstarts
-    expanded: true
     items:
-    - name: Create DB - Portal
+    - name: Create Server - Portal
       href: quickstart-create-server-database-portal.md
       displayName: create single server in portal
-    - name: Create DB - Azure CLI
+    - name: Create Server - Azure CLI
       href: quickstart-create-server-database-azure-cli.md
       displayName: create single server in CLI
-    - name: Create DB - Azure CLI up command
+    - name: Create Server - Azure CLI up command
       href: quickstart-create-server-up-azure-cli.md
       displayName: create single server up command
-    - name: Create DB - Azure PowerShell
+    - name: Create Server - Azure PowerShell
       href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-    - name: Create DB - ARM template
+    - name: Create Server - ARM template
       href: quickstart-create-postgresql-server-database-using-arm-template.md
       displayName: deploy azure resource manager template
     - name: Connect & query
@@ -44,7 +43,7 @@
         displayName: java jpa, spring data
       - name: Java with Spring Data R2DBC
         href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-        displayName: java, r2dbc, spring data 
+        displayName: java, r2dbc, spring data
       - name: Ruby
         href: connect-ruby.md
         displayName: connect with ruby
@@ -53,7 +52,7 @@
         displayName: connect with php
       - name: .NET
         href: connect-csharp.md
-        displayName: connect with .net 
+        displayName: connect with .net
       - name: Go
         href: connect-go.md
         displayName: connect with go
@@ -63,7 +62,7 @@
       items:
       - name: Azure portal
         href: tutorial-design-database-using-azure-portal.md
-        displayName: design database 
+        displayName: design database
       - name: Azure CLI
         href: tutorial-design-database-using-azure-cli.md
       - name: Azure PowerShell
@@ -74,24 +73,23 @@
       maintainContext: true
     - name: 3 - Monitor and tune
       href: tutorial-monitor-and-tune.md
-      displayName: monitor, alerts, configure      
+      displayName: monitor, alerts, configure
   - name: Samples
     items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
     - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
+      href: policy-samples.md
   - name: Concepts
     items:
-      - name: Servers
-        href: concepts-servers.md
-      - name: Supported versions
-        href: concepts-supported-versions.md
-      - name: PostgreSQL extensions
-        href: concepts-extensions.md
-      - name: High availability
-        href: concepts-high-availability.md
+    - name: Servers
+      href: concepts-servers.md
+    - name: Supported versions
+      href: concepts-supported-versions.md
+    - name: PostgreSQL extensions
+      href: concepts-extensions.md
+    - name: High availability
+      href: concepts-high-availability.md
     - name: Understand Pricing tiers
       items:
       - name: Pricing tiers
@@ -100,9 +98,9 @@
         href: concept-reserved-pricing.md
       - name: Limits
         href: concepts-limits.md
-    - name: Data access and security
+    - name: Security
       items:
-      - name: Security overview
+      - name: Overview
         href: concepts-security.md
         displayName: security, overview
       - name: Configure SSL
@@ -162,7 +160,7 @@
           href: concepts-query-store-scenarios.md
           displayName: query store, performance, optimize
         - name: Query Store best practices
-          href: concepts-query-store-best-practices.md          
+          href: concepts-query-store-best-practices.md
       - name: Query Performance Insight
         href: concepts-query-performance-insight.md
         displayName: query store, performance, optimize, insights
@@ -176,7 +174,7 @@
         displayName: libraries, drivers
       - name: Connection resiliency
         href: concepts-connectivity.md
-        displayName: transient errors, connection issues, connectivity issues, pooling 
+        displayName: transient errors, connection issues, connectivity issues, pooling
     - name: Replication
       items:
       - name: Read replicas
@@ -253,11 +251,11 @@
           displayName: query optimize, performance
         - name: Toast table strategy
           href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-          displayName: query optimize, performance    
+          displayName: query optimize, performance
     - name: Configure TLS
       href: howto-tls-configurations.md
       displayName: application development, TLS
-    - name: Connection strings 
+    - name: Connection strings
       href: howto-connection-string-powershell.md
       displayName: application development, TLS
     - name: Configure server parameters
@@ -455,20 +453,20 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: debug, connection issues, transient, errors, hyperscale
- - name: Reference
-    items:
-      - name: SQL API functions
-        href: reference-hyperscale-functions.md
-      - name: Server parameters
-        href: reference-hyperscale-parameters.md
-      - name: System tables
-        href: reference-hyperscale-metadata.md
-      - name: Azure CLI
-        href: /cli/azure/postgres
-      - name: REST API
-        href: /rest/api/postgresql
-      - name: Resource Manager template
-        href: /azure/templates/microsoft.dbforpostgresql/allversions
+- name: Reference
+   items:
+   - name: SQL API functions
+     href: reference-hyperscale-functions.md
+   - name: Server parameters
+     href: reference-hyperscale-parameters.md
+   - name: System tables
+     href: reference-hyperscale-metadata.md
+   - name: Azure CLI
+     href: /cli/azure/postgres
+   - name: REST API
+     href: /rest/api/postgresql
+   - name: Resource Manager template
+     href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
