@@ -181,10 +181,11 @@ session on the port specified, the probe is marked as Unhealthy with this messag
     a.  Open a command prompt (Win+R -\> cmd), enter `netstat`, and select Enter.
 
     b.  Check whether the server is listening on the port that's configured. For example:
-    ```
+    
+        ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
-    ```
+        ```
     c.  If it's not listening on the configured port, check your web server settings. For example:
         site bindings in IIS, server block in NGINX and virtual host in Apache.
 
@@ -442,7 +443,7 @@ This behavior can occur for one or more of the following reasons:
 
 1.	To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
 
-    a. For more information on resource health status, see [Azure Application Gateway Resource Health overview](https://docs.microsoft.com/en-us/azure/application-gateway/resource-health-overview)
+    a. For more information on resource health status, see [Azure Application Gateway Resource Health overview](https://docs.microsoft.com/azure/application-gateway/resource-health-overview)
 
 Next steps
 ----------
