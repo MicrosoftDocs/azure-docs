@@ -77,8 +77,3 @@ This article describes error messages and resolutions that can help you troubles
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-
-
-
-
-
