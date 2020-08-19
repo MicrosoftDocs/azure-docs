@@ -32,13 +32,14 @@ For a list of the roles and permissions required to work with Azure Security Cen
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-securitycenter-create-automation-for-alertnamecontains/).
 
-:::code language="json" source="~/azure-quickstart-templates/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json":::
 
-- [**Logic App**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftlogic-resource-provider) - An empty triggerable Logic App
-- [**Automation**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider) - The Automation which will trigger the empty Logic App, upon receiving an Azure Security Center alert which contains a specific string(in our example the alert triggering rule is “Virtual Machine” and has a severity of either "Medium", "High", "Low").
+### Relevant resources
 
-[Azure Quickstart Templates for Azure Security Center](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Security).
+- [**Microsoft.Security/automations**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider): The Automation which will trigger the empty Logic App, upon receiving an Azure Security Center alert which contains a specific string(in our example the alert triggering rule is “Virtual Machine” and has a severity of either "Medium", "High", "Low").
+- [**Microsoft.Logic/workflows**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftlogic-resource-provider): An empty triggerable Logic App
 
+For other Security Center quickstart templates, see these [community contributed templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security).
 
 ## Deploy the template
 
