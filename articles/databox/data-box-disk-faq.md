@@ -58,7 +58,7 @@ A. Data Box Disk are shipped from within the same country/region as their destin
 ### Q. How can I import my on-premises source data in one country/region to an Azure region in a different country/region?
 A. Data Box Disk supports data ingestion only within the same region (commerce boundary). In all other cases, you may need to take additional action. 
 
-For e.g., If you had on-premises data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
+For example, if you had on-premises data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
 
 ### Option 1: 
 
@@ -66,7 +66,7 @@ Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-
 
 ### Option 2:
 
-1. Order Data Box Disk in Canada by choosing a storage account say in Cananda Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Cental to the shipping address (in Canada) provided during order creation.
+1. Order Data Box Disk in Canada by choosing a storage account say in Cananda Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Central to the shipping address (in Canada) provided during order creation.
 
 2. Once the on-prem data copy to the disk(s) is done, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
