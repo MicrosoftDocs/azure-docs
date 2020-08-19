@@ -55974,6 +55974,11 @@
       "source_path": "articles/aks/windows-node-limitations.md",
       "redirect_url": "/azure/aks/windows-faq",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/quickstart-azure-function-csharp.md",
+      "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
     }
   ]
 }

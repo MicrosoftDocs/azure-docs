@@ -24,7 +24,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
    ![Illustrates the left-navigation menu.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 > [!IMPORTANT]
 > If **Power BI Service App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](create-power-bi-app-overview.md) for this offer type, including registering for a developer account.
