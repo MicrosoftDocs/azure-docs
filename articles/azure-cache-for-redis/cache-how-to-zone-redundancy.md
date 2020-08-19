@@ -66,4 +66,5 @@ To create a cache, follow these steps:
 ## Next Steps
 Learn more about Azure Cache for Redis features.
 
-* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
+> [!div class="nextstepaction"]
+> [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
