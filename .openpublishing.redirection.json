@@ -17289,6 +17289,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/what-is-ml-studio.md",
+      "redirect_url": "/azure/machine-learning/what-is-ml-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false

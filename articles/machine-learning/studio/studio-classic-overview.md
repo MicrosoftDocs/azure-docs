@@ -1,6 +1,6 @@
 ---
-title: What is ML Studio (classic) - Azure 
-description: Azure Machine Learning Studio (classic)  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+title: What can I do with Studio (classic) - Azure 
+description: Azure Machine Learning Studio (classic) is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
 author: likebupt
@@ -10,19 +10,19 @@ ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
-ms.date: 03/24/2020
+ms.date: 08/19/2020
 ---
-# What is Machine Learning Studio (classic)?
+# What can I do with Studio (classic)?
 
 **APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure Machine Learning Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy machine learning models. Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
-Machine Learning Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
+Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
 
-## The Machine Learning Studio (classic)  interactive workspace
+## The Studio (classic)  interactive workspace
 
 
 
