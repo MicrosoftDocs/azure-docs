@@ -18,7 +18,7 @@ ms.author: jawilley
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
 
-Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md). 
+Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput levels. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md). 
 
 Because Azure Cosmos DB is accessed via network calls, you can make client-side optimizations to achieve peak performance when you use the [SQL .NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3).
 
@@ -52,7 +52,7 @@ Reducing the frequency of garbage collection can help in some cases. In .NET, se
 
 **Scale out your client workload**
 
-If you're testing at high throughput levels, such as more than 50,000 Request Units per second (RU/s), the client application could become the workload bottleneck. This is because the machine might cap out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
+If you're testing at high throughput levels, or at rates that are greater than 50,000 Request Units per second (RU/s), the client application could become a workload bottleneck. This is because the machine might cap out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
 > [!NOTE] 
 > High CPU usage can cause increased latency and request timeout exceptions.
@@ -62,7 +62,7 @@ If you're testing at high throughput levels, such as more than 50,000 Request Un
 
 **Connection policy: Use direct connection mode**
 
-How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. Two key configuration settings are available for configuring client connection policy: the connection *mode* and the connection *protocol*.  The two available modes are:
+How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. Two key configuration settings are available for configuring client connection policy: the connection *mode* and the connection *protocol*. The two available connection modes are:
 
    * Direct mode (default)
 
@@ -76,18 +76,18 @@ How a client connects to Azure Cosmos DB has important performance implications,
 
      When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md). In that case, Gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
      
-When you use the TCP protocol in Direct mode, in addition to the gateway ports, you need to ensure that the port range from 10000 through 20000 is open, because Azure Cosmos DB uses dynamic TCP ports. When you use Direct mode on [private endpoints](./how-to-configure-private-endpoints.md), the full range of TCP ports from 0 through 65535 should be open. The ports are open by default for the standard Azure VM configuration. If these ports aren't open and you try to use TCP, you receive a 503 Service Unavailable error. 
+When you use the TCP protocol in Direct mode, in addition to the gateway ports, you need to ensure that the port range from 10000 through 20000 is open, because Azure Cosmos DB uses dynamic TCP ports. When you use Direct mode on [private endpoints](./how-to-configure-private-endpoints.md), the full range of TCP ports from 0 through 65535 should be open. The ports are open by default for the standard Azure VM configuration. If these ports aren't open and you try to use TCP, you'll receive a "503 Service Unavailable" error. 
 
-The following table shows the connectivity modes available for various APIs and the service ports used for each API:
+The following table shows the connectivity modes that are available for various APIs and the service ports that are used for each API:
 
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
-|Direct    |     TCP    |  .NET SDK    | When you use public/service endpoints: ports in the 10000 through 20000 range<br>When you use private endpoints: ports in the 0 through 65535 range |
+|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br><br> Port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication, and ports 10255 and 10256 map to the instance with geo-replication.   |
+|Direct    |     TCP    |  .NET SDK    | When you use public/service endpoints: ports in the 10000 through 20000 range<br><br>When you use private endpoints: ports in the 0 through 65535 range |
 
-Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. The TCP protocol uses Transport Layer Security (TLS)for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
+Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. The TCP protocol uses Transport Layer Security (TLS) for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-For SDK V3, you configure the connection mode when you create the `CosmosClient` instance, in `CosmosClientOptions`. Remember that Direct mode is the default.
+For SDK V3, you configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`. Remember that Direct mode is the default.
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -110,7 +110,7 @@ When it's running on the TCP protocol, the client optimizes for latency by using
 
 In scenarios where you have sparse access, and if you notice a higher connection count when compared to Gateway mode access, you can:
 
-* Configure the [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) property to `PrivatePortPool` (effective with framework version 4.6.1 and later and .NET Core version 2.0 and later). This property allows the SDK to use a small pool of ephemeral ports for various Azure Cosmos DB destination endpoints.
+* Configure the [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) property to `PrivatePortPool` (effective with framework versions 4.6.1 and later and .NET Core versions 2.0 and later). This property allows the SDK to use a small pool of ephemeral ports for various Azure Cosmos DB destination endpoints.
 * Configure the [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) property as greater than or equal to 10 minutes. The recommended values are from 20 minutes to 24 hours.
 
 <a id="same-region"></a>
@@ -131,9 +131,10 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
 
 **Enable accelerated networking**
  
- To reduce latency and CPU jitter, we recommend that you enable accelerated networking on client virtual machines. For more information, see [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
+To reduce latency and CPU jitter, we recommend that you enable accelerated networking on your client virtual machines. For more information, see [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## SDK usage
+
 **Install the most recent SDK**
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. To determine the most recent SDK and review improvements, see the [Azure Cosmos DB SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) pages.
@@ -154,7 +155,7 @@ When you're working on Azure Functions, instances should also follow the existin
 
 **Disable content response on write operations**
 
-For workloads that have heavy create payloads, set the EnableContentResponseOnWrite request option to *false*. The service will no longer return the created or updated resource to the SDK. Normally, because the application has the object being created, it doesn't need the service to return it. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
+For workloads that have heavy create payloads, set the `EnableContentResponseOnWrite` request option to `false`. The service will no longer return the created or updated resource to the SDK. Normally, because the application has the object that's being created, it doesn't need the service to return it. The header values are still accessible, like a request charge. Disabling the content response can help improve performance, because the SDK no longer needs to allocate memory or serialize the body of the response. It also reduces the network bandwidth usage to further help performance.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
@@ -163,38 +164,42 @@ ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(boo
 itemResponse.Resource
 ```
 
-**Enable Bulk to optimize for throughput instead of latency**
-Enable Bulk for scenarios where the workload requires a large amount of throughput, and latency is not as important. See the [Introduction to Bulk](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk) for more information on how to enable the feature and which scenarios it should be used for.
+**Enable bulk to optimize for throughput instead of latency**
 
-**Increase System.Net MaxConnections per host when using Gateway mode**
+Enable *Bulk* for scenarios where the workload requires a large amount of throughput, and latency is not as important. For more information about how to enable the Bulk feature, and to learn which scenarios it should be used for, see [Introduction to Bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
-Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subjected to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (100 to 1,000) so the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50. To change the value, you can set [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) to a higher value.
+**Increase System.Net MaxConnections per host when you use Gateway mode**
+
+Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. They're subject to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (from 100 through 1,000) so that the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50. To change the value, you can set [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) to a higher value.
 
 **Tune parallel queries for partitioned collections**
 
-SQL .NET SDK supports parallel queries, which enable you to query a partitioned container in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. Parallel queries provide two parameters that you can tune to fit your requirements: 
-- `MaxConcurrency` controls the maximum number of partitions that can be queried in parallel. 
+SQL .NET SDK supports parallel queries, which enable you to query a partitioned container in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. 
+
+Parallel queries provide two parameters that you can tune to fit your requirements: 
+- `MaxConcurrency` controls the maximum number of partitions that can be queried in parallel.
+
+   ***Tuning the degree of concurrency***
+
+   Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxConcurrency` in [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
+
+    Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
+   
 - `MaxBufferedItemCount` controls the number of pre-fetched results.
 
-***Tuning degree of concurrency***
-
-Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxConcurrency` in [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
-
-Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
-
-***Tuning MaxBufferedItemCount***
+   ***Tuning MaxBufferedItemCount***
     
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The `MaxBufferedItemCount` parameter limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching.
+   Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The `MaxBufferedItemCount` parameter limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching.
 
-Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
+   Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
 
 **Implement backoff at RetryAfter intervals**
 
-During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
+During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off throttling for the server-specified retry interval. Respecting the backoff helps ensure that you'll spend a minimal amount of time waiting between retries. 
 
 For more information, see [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
-There's a mechanism for logging additional diagnostic information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostic string for requests that have a higher read latency. The captured diagnostic string will help you understand how many times you received 429 errors for a given request.
+There's a mechanism for logging additional diagnostics information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostics string for requests that have a higher read latency. The captured diagnostics string will help you understand how many times you received a *429* error for a given request.
 
 ```csharp
 ItemResponse<Book> readItemResponse = await this.cosmosContainer.ReadItemAsync<Book>("ItemId", new PartitionKey("PartitionKeyValue"));
@@ -209,7 +214,9 @@ See [Increase the number of threads/tasks](#increase-threads) in the Networking 
  
 **Exclude unused paths from indexing for faster writes**
 
-The Azure Cosmos DB indexing policy also allows you to specify which document paths to include or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). Indexing only the paths you need can improve write performance, reduce RU charge on write operations, and reduce index storage for scenarios in which the query patterns are known beforehand. This is because indexing costs correlate directly to the number of unique paths indexed. For example, this code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
+The Azure Cosmos DB indexing policy also allows you to specify which document paths to include or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths). 
+
+Indexing only the paths you need can improve write performance, reduce RU charges on write operations, and reduce index storage for scenarios in which the query patterns are known beforehand. This is because indexing costs correlate directly to the number of unique paths indexed. For example, the following code shows how to exclude an entire section of the documents (a subtree) from indexing by using the "*" wildcard:
 
 ```csharp
 var containerProperties = new ContainerProperties(id: "excludedPathCollection", partitionKeyPath: "/pk" );
@@ -227,11 +234,11 @@ For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 Azure Cosmos DB offers a rich set of database operations. These operations include relational and hierarchical queries with Universal Disk Format (UDF) files, stored procedures, and triggers, all operating on the documents within a database collection. 
 
-The cost associated with each of these operations varies depending on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a Request Unit as a single measure for the resources that are required to perform various database operations and service an application request.
+The costs associated with each of these operations vary depending on the CPU, IO, and memory that are required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a Request Unit as a single measure for the resources that are required to perform various database operations and service an application request.
 
-Throughput is provisioned based on the number of [Request Units](request-units.md) set for each container. Request Unit consumption is evaluated as a rate per second. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
+Throughput is provisioned based on the number of [Request Units](request-units.md) set for each container. Request Unit consumption is evaluated as a units-per-second rate. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
 
-The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDFs, and the size of the source dataset all influence the cost of query operations.
+The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDF files, and the size of the source dataset all influence the cost of query operations.
 
 To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent `RequestCharge` property in `ResourceResponse\<T>` or `FeedResponse\<T>` in the .NET SDK) to measure the number of Request Units consumed by the operations:
 
@@ -248,12 +255,12 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**
 
-When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
+When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server preemptively ends the request with RequestRateTooLarge (HTTP status code 429). It returns an [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
 
 ```xml
     HTTP Status 429,
@@ -267,13 +274,13 @@ If you have more than one client cumulatively operating consistently above the r
 
 You can change the default retry count by setting the `RetryOptions` on the `CosmosClientOptions` instance. By default, the CosmosException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This error is returned even when the current retry count is less than the maximum retry count, whether the current value is the default of 9 or a user-defined value.
 
-The automated retry behavior helps improve resiliency and usability for most applications. But it might not be the best behavior when you're doing performance benchmarks, especially when you're measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation, and ensure that requests are operating below the reserved request rate. 
+The automated retry behavior helps improve resiliency and usability for most applications. But it might not be the best behavior when you're doing performance benchmarks, especially when you're measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge that's returned by each operation, and ensure that requests are operating below the reserved request rate. 
 
 For more information, see [Request Units](request-units.md).
 
 **For higher throughput, design for smaller documents**
 
-The request charge (that is, the request-processing cost) of a given operation correlates directly to the size of the document. Operations on large documents cost more than operations on small documents.
+The request charge (that is, the request-processing cost) of a specified operation correlates directly to the size of the document. Operations on large documents cost more than operations on small documents.
 
 ## Next steps
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
