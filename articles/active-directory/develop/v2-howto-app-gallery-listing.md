@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 08/19/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -235,7 +235,7 @@ If you want to add your application to list in the gallery by using **SAML 2.0**
 
 ![Listing a SAML 2.0 or WS-Fed application in the gallery](./media/howto-app-gallery-listing/saml.png)
 
-If you want to add your application to list in the gallery by using password SSO, select **Password SSO** as shown.
+If you want to add your application to list in the gallery by using password SSO, select **Password SSO(UserName & Password)** as shown.
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
