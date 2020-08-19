@@ -21,17 +21,11 @@
     - name: Using direct method calls
       displayName: detect motion, emit events
       href: detect-motion-emit-events-quickstart.md
-    - name: Using SDK
-      displayName: detect motion, emit events
-      href: detect-motion-emit-events-sdk-quickstart.md
   - name: Detect motion, record video on edge devices
     items:
     - name: Using direct method calls
       displayName: detect motion, record video on edge devices
       href: detect-motion-record-video-clips-edge-devices-quickstart.md
-    - name: Using SDK
-      displayName: detect motion, record video on edge devices
-      href: detect-motion-record-video-clips-sdk-quickstart.md
   - name: Analyze live video with your own model
     items:
     - name: with HTTP extension
@@ -39,9 +33,6 @@
       - name: Using direct method calls
         displayName: analyze, your own model, http
         href: use-your-model-quickstart.md
-      - name: Using SDK
-        displayName: analyze, your own model, http
-        href: run-live-video-analytics-sdk-quickstart.md
     - name: with gRPC extension
       items:
       - name: Using direct method calls
