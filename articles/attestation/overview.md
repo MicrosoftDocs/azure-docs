@@ -10,7 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# Microsoft Azure Attestation
+# Microsoft Azure Attestation (preview)
 
 Microsoft Azure Attestation is a solution for attesting Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves and [Virtualization-based Security](/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. Enclave attestation is a process for verifying that an enclave is secure and trustworthy.
 
@@ -71,9 +71,9 @@ The below table describes Azure Attestation rollout plan in different regions.
 | UK South | TEE | SGX enclave attestation | Live |
 | US East 2 | Non TEE | SGX & VBS enclave attestation | Live 
 | Central US | Non TEE | SGX & VBS enclave attestation | Live
-| Canada Central | TEE | | Expected soon |
+| East US| TEE | SGX enclave attestation | Live |
+| Canada Central | TEE | SGX enclave attestation | Live |
 | Canada East | TEE | SGX enclave attestation | Expected soon |
-| East US| TEE | SGX enclave attestation | Expected soon |
 | West US | TEE | SGX enclave attestation | Expected soon |
 | West Europe | TEE | SGX enclave attestation | Expected soon |
 | North Europe | TEE | SGX enclave attestation | Expected soon |

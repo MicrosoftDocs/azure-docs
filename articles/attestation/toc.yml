@@ -1,4 +1,4 @@
-- name: Microsoft Azure Attestation Documentation
+- name: Microsoft Azure Attestation (preview)
   href: index.yml
 - name: Overview
   items:
@@ -14,13 +14,13 @@
   items:
   - name: Authoring and signing an attestation policy
     href: author-sign-policy.md
-  - name: SGX attestation using Open Enclave SDK
-    href: sgx-enclave-sdk.md
+  - name: SGX attestation code samples
+    href: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation
 - name: Samples
   items:
-    - name: Examples of an attestation policy
+    - name: Attestation policy
       href: policy-examples.md
-    - name: Examples of policy signer certificate
+    - name: Policy signer certificate
       href: policy-signer-examples.md
 - name: Concepts
   items:
@@ -38,5 +38,7 @@
   items:
   - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation
+  - name: Azure DCAP library 
+    href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
 
   

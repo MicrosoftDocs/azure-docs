@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Microsoft Azure Attestation
+title: Microsoft Azure Attestation (preview)
 summary: Learn how to use Azure Attestation 
 metadata:
   title: Azure Attestation documentation
@@ -56,6 +56,6 @@ landingContent:
         links:
           - text: Authoring and signing an attestation policy
             url: author-sign-policy.md
-          - text: SGX attestation using Open Enclave SDK
-            url: sgx-enclave-sdk.md
+          - text: SGX attestation code samples
+            url: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation
       

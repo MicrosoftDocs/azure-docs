@@ -75,6 +75,11 @@ Register the Microsoft.Attestation resource provider in subscription. For more i
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation 
 ```
+## Regional availability of Azure Attestation
+
+```powershell
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Attestation)[0].Locations
+```
 
 ## Create an Azure resource group
 
@@ -85,10 +90,6 @@ $location = "uksouth"
 $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
-
-Azure Attestation is currently supported in the following locations:
-- **uksouth** – TEE implementation supporting SGX attestation
-- **eastus2**, **centralus** – non TEE implementation supporting SGX and VBS attestation
 
 ## Create and manage an attestation provider
 
@@ -197,4 +198,4 @@ For more information on the cmdlets and its parameters, see [Azure Attestation P
 
 ## Next steps
 
-- [SGX attestation using Open Enclave SDK](sgx-enclave-sdk.md)
+- [Attest an SGX enclave using code samples](sgx-enclave-sdk.md)
