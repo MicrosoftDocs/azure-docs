@@ -84,7 +84,7 @@ Here is a comprehensive list of the operations and corresponding [Azure Digital 
 | ADTEventRoutesOperation | Microsoft.DigitalTwins/eventroutes/write | Event Routes Add API |
 |  | Microsoft.DigitalTwins/eventroutes/read | Event Routes Get By Id and List APIs |
 |  | Microsoft.DigitalTwins/eventroutes/delete | Event Routes Delete API |
-|  | Microsoft.DigitalTwins/eventroutes/action | Egress of an event to an End Point service (not an API call) |
+|  | Microsoft.DigitalTwins/eventroutes/action | Failure while attempting to publish events to an endpoint service (not an API call) |
 | ADTDigitalTwinsOperation | Microsoft.DigitalTwins/digitaltwins/write | Digital Twins Add, Add Relationship, Update, Update Component |
 |  | Microsoft.DigitalTwins/digitaltwins/read | Digital Twins Get By Id, Get Component, Get Relationship by Id, List Incoming Relationships, List Relationships |
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Digital Twins Delete, Delete Relationship |
