@@ -33,19 +33,25 @@ When you use the NPS extension for Azure Multi-Factor Authentication, the authen
 
 The following diagram illustrates this high-level authentication request flow:
 
-![Authentication flow diagram](./media/howto-mfa-nps-extension/auth-flow.png)
+![Diagram of the authentication flow for user authenticating through a VPN server to NPS server and the Azure Multi-Factor Authentication NPS extension](./media/howto-mfa-nps-extension/auth-flow.png)
 
 ### RADIUS protocol behavior and the NPS extension
 
-As RADIUS is a UDP protocol, the sender assumes packet loss and awaits a response. After a period of time, the connection times-out and re-sends the packet, as the sender assumes the packet didn't reach the destination. In the authentication scenario in this article, VPN servers send the request and wait for response. When the connection times out, then VPN server sends the request again.
+As RADIUS is a UDP protocol, the sender assumes packet loss and awaits a response. After a period of time, the connection may time out. If so, the packet is resent as the sender assumes the packet didn't reach the destination. In the authentication scenario in this article, VPN servers send the request and wait for a response. If the connection times out, the VPN server sends the request again.
 
-If the NPS extension hasn't responded since the original request was received as it's still being processed, NPS identifies additional VPN server requests as a duplicate, based on user name and ID and nasID. The NPS server discards these additional VPN server requests.
+![Diagram of RADIUS UDP packet flow and requests after timeout on response from NPS server](./media/howto-mfa-nps-extension/radius-flow.png)
 
-If you look at the NPS server logs, you may see these requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication. Discarded requests in the event log doesn't indicate there's a problem with the NPS server or Azure Multi-Factor Authentication NPS extension.
+The NPS extension may not respond to the VPN server's original request before the connection times out. The MFA request may still be being processed, as the user may not have successfully responded to the MFA prompt. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
+
+![Diagram of NPS server discarding duplicate requests from RADIUS server](./media/howto-mfa-nps-extension/discard-duplicate-requests.png)
+
+If you look at the NPS server logs, you may see these additional requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication attempt. Discarded requests in the NPS server event log don't indicate there's a problem with the NPS server or the Azure Multi-Factor Authentication NPS extension.
 
 To minimize discarded requests, we recommend that the VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
-Due to this UDP protocol behavior, NPS could get a duplicate request and send out a response simultaneously, which could trigger more authentication requests to the user. To avoid this timing condition, the NPS extension continues to filter requests up to 10 seconds after we have responded.
+Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send an MFA response, even after the user has already responded to the initial request. To avoid this timing condition, the NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response to the VPN server.
+
+![Diagram of NPS server continuing to discard duplicate requests from VPN server for ten seconds after a successful response is returned](./media/howto-mfa-nps-extension/delay-after-successful-authentication.png)
 
 Again, you may see discarded requests in the NPS server event logs, even when the Azure Multi-Factor Authentication prompt was successful. This is expected behavior, and doesn't indicate a problem with the NPS server or Azure Multi-Factor Authentication NPS extension.
 
@@ -67,7 +73,7 @@ The NPS Extension for Azure Multi-Factor Authentication is available to customer
 
 ### Software
 
-Windows Server 2008 R2 SP1 or above.
+Windows Server 2012 or above.
 
 ### Libraries
 
@@ -205,7 +211,7 @@ The installer creates a PowerShell script at `C:\Program Files\Microsoft\AzureMf
 
 Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell script to complete the NPS extension installation. If you install the extension on multiple servers, each server should have its own certificate.
 
-To provide load balancing capabilities or for redundancy, repeat these steps on additional NPS servers as desired:
+To provide load-balancing capabilities or for redundancy, repeat these steps on additional NPS servers as desired:
 
 1. Open a Windows PowerShell prompt as an administrator.
 1. Change directories to where the installer created the PowerShell script:
@@ -266,7 +272,7 @@ For customers that use the Azure Government or Azure China 21Vianet clouds, the 
 
 With release *1.0.1.32* of the NPS extension, reading multiple certificates is now supported. This capability helps facilitate rolling certificate updates prior to their expiration. If your organization is running a previous version of the NPS extension, upgrade to version *1.0.1.32* or higher.
 
-Certificates created by the `AzureMfaNpsExtnConfigSetup.ps1` script are valid for 2 years. You should monitor certificates for expiration. Certificates for the NPS extension are placed in the *Local Computer* certificate store under *Personal* and are *Issued To* the tenant ID provided to the installation script.
+Certificates created by the `AzureMfaNpsExtnConfigSetup.ps1` script are valid for 2 years. Monitor certificates for expiration. Certificates for the NPS extension are placed in the *Local Computer* certificate store under *Personal* and are *Issued To* the tenant ID provided to the installation script.
 
 When a certificate is approaching the expiration date, a new certificate should be created to replace it.  This process is accomplished by running the `AzureMfaNpsExtnConfigSetup.ps1` again and keeping the same tenant ID when prompted. This process should be repeated on each NPS server in your environment.
 
@@ -330,7 +336,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 These commands print all the certificates associating your tenant with your instance of the NPS extension in your PowerShell session. Look for your certificate by exporting your client cert as a *Base-64 encoded X.509(.cer)* file without the private key, and compare it with the list from PowerShell.
 
-The following command will create a file named *npscertificate* at the root if your *C:* drive in format *.cer*.
+The following command will create a file named *npscertificate* at the root of your *C:* drive in format *.cer*.
 
 ```powershell
 import-module MSOnline
@@ -338,7 +344,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer
 ```
 
-Afer you run this command, go to the root of your *C:* drive, locate the file, and double-click on it. Go to details, and scroll down to "thumbprint". Compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
+After you run this command, go to the root of your *C:* drive, locate the file, and double-click on it. Go to details, and scroll down to "thumbprint". Compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
 
 *Valid-From* and *Valid-Until* timestamps, which are in human-readable form, can be used to filter out obvious misfits if the command returns more than one cert.
 
