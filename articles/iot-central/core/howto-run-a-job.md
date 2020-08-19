@@ -107,7 +107,7 @@ To download a CSV file that includes the job details and the list of devices and
 
 ## Filter the device list
 
-You can filter the device list on the **Job details** page by selecting the filter icon. You can filter on the **Device ID** or **Status** fields.
+You can filter the device list on the **Job details** page by selecting the filter icon. You can filter on the **Device ID** or **Status** field.
 
 :::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Screenshot that shows selections for filtering a device list.":::
 
@@ -117,7 +117,7 @@ You can choose additional columns to display in the device list by selecting the
 
 :::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Screenshot that shows the icon for column options.":::
 
-A dialog box lets you choose the columns to display in the device list. Select the columns that you want to display, select the arrow icon, and then select **OK**. To select all the available columns, check **Select all**.
+A dialog box lets you choose the columns to display in the device list. Select the columns that you want to display, select the right arrow, and then select **OK**. To select all the available columns, check **Select all**.
 
 :::image type="content" source="media/howto-run-a-job/column-picker-popup.png" alt-text="Screenshot that shows the dialog box for choosing columns to display.":::
 
@@ -138,7 +138,7 @@ Enter a job name and description, and then select **Rerun job**. A new job is su
 :::image type="content" source="media/howto-run-a-job/rerun-failed.png" alt-text="Screenshot that shows the dialog box for rerunning failed devices.":::
 
 > [!NOTE]
-> You can't run more than five jobs at the same time from an IoT Central application.
+> You can't run more than five jobs at the same time from an Azure IoT Central application.
 >
 > When a job is complete and you delete a device that's in the job's device list, the device entry appears as deleted in the device name. The details link isn't available for the deleted device.
 
