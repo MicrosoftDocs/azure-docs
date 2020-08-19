@@ -9,7 +9,7 @@ ms.date: 03/17/2020
 
 ---
 
-# Tutorial: Get started with Log Analytics queries
+# Log Analytics tutorial
 
 This tutorial shows you how to use Log Analytics to write, execute, and manage Azure Monitor log queries in the Azure portal. You can use Log Analytics queries to search for terms, identify trends, analyze patterns, and provide many other insights from your data. 
 
@@ -22,8 +22,6 @@ In this tutorial, you learn how to use Log Analytics to:
 > * View, modify, and share visuals of query results
 > * Save, load, export, and copy queries and results
 
-For more information about log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).<br/>
-For a detailed tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
 
 ## Open Log Analytics
 To use Log Analytics, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -31,6 +29,69 @@ To use Log Analytics, you need to be signed in to an Azure account. If you don't
 To complete most of the steps in this tutorial, you can use [this demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
 
 You can also use your own environment, if you're using Azure Monitor to collect log data on at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
+
+[![Log Analytics](media/log-analytics-overview/log-analytics.png)](media/log-analytics-overview/log-analytics.png#lightbox)
+
+### 1. Top action bar
+The top action bar provides controls for working with the query in the query window and 
+
+**Scope:** Specifies the scope of data used for the query. This could be all data in a Log Analytics workspace or data for a particular resource across multiple workspaces. See [Query scope](#query-scope).
+
+**Run button:** Click to run the selected query in the query window. You can also press shift+enter to run a query.
+
+**Time picker:** Select the time range for the data available to the query. This is overriden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
+
+**Save button:** Save the query to the Query Explorer for the workspace.
+
+**Copy button:** Copy a link to the query, the query text, or the query results to the clipboard.
+
+**New alert rule button:** Create a new tab with an empty query.
+
+**Export button:** Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power Bi.
+
+**Pin to dashboard button:** Add the results of the query to an Azure dashboard.
+
+**Format query button:** Arrange the selected text for readability.
+
+**Example queries button:** Open the example queries dialog box that is displayed when you first open Log Analytics.
+
+**Query Explorer button:** Open **Query Explorer** which provides access to saved queries in the workspace.
+
+### 2. Sidebar
+
+**Tables:** Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog box with a description of the table and options to view its documentation and to preview its data. Expand a table to view its columns. Double-click on a table or column name to add it to the query.
+
+**Queries:** List of example queries that you can open in the query window. This is the same list that's displayed when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click on a query to add it to the query window or hover over it for other options.
+
+**Filter:** Creates filter options based on the results of a query. After you a run a query, columns will be displayed with different values from the results. Select one or more values and then click **Apply & Run** to add a **where** command to the query and run it again.
+
+### 3. Query window
+The query window is where you edit your query. This includes intellisense for KQL commands and color coding to enhance readability. Click the **+** at the top of the window to open another tab.
+
+As single window can include multiple queries. A query cannot include any blank lines, so you can separate multiple queries in a window with one or more blank lines. The current query is the one with the cursor positioned anywhere in it.
+
+To run the current query, click the **Run** button or press Shift+Enter.
+
+### 4. Results window
+The results of the query are displayed in the results window. By default, the results are displayed as a table. To display as a chart, either select **Chart** in the results window, or add a **render** command to your query.
+
+#### Results view
+The Results view displays query results in a table organized by columns and rows. Click to the left of a row to expand its values. Click on the **Columns** dropdown to change the list of columns. 
+
+Sort the results by clicking on a column name. Filter the results by clicking the funnel next to a column name. Clear the filters and reset the sorting by running the query again.
+
+Select **Group columns** to display the grouping bar above the query results. Group the results by any column by dragging it to the bar. Create nested groups in the results by adding additional columns. 
+
+#### Chart view
+The Chart view displays the results as one of multiple available chart types. You can specify the chart type in a **render** command in your query or select it from the **Visualization Type** dropdown.
+
+| Option | Description |
+|:---|:---|
+| **Visualization Type** | Type of chart to display. |
+| **X-Axis** | Column in the results to use for the X-Axis 
+| **Y-Axis** | Column in the results to use for the Y-Axis. This will typically be a numeric column. |
+| **Split by** | Column in the results that defines the series in the chart. A series is created for each value in the column. |
+| **Aggregation** | Type of aggregation to perform on the numeric values in the Y-Axis. |
 
 ## Understand the schema
  
