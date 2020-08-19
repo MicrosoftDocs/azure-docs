@@ -277,20 +277,19 @@ This field is required.
 #### Files and images
 
 - **Documents** (required) – Add related marketing documents for your offer, in PDF format, of at least one and up to three documents per offer.
-- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later. A **Wide** logo is optional.
+- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
   - **Large** (from 216 x 216 to 350 x 350 px, required)
-  - **Medium** (90 x 90 px, required)
-  - **Small** (48 x 48 px, required)
-  - **Wide** (255 x 115 px) (optional)
+  - **Medium** (90 x 90 px, optional)
+  - **Small** (48 x 48 px, optional)
+  
+  These logos are used in different places in the listing:
 
-   The first three logos are required in different places in the listing:
+   - The large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+   - The medium logo appears when you create a new resource in Microsoft Azure.
+   - The small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
 
-   -   The large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
-   -   The medium logo appears when you create a new resource in Microsoft Azure.
-   -   The small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
-
-    [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.

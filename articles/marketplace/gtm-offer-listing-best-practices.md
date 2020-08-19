@@ -17,8 +17,8 @@ This article gives suggestions for creating and engaging Microsoft commercial ma
 
 | Storefront setting | Best practice |
 |:--- |:--- |  
-| Offer Name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
-| Offer Description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
+| Offer name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
+| Offer description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
 
 > [!IMPORTANT]
 > Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.
@@ -49,12 +49,12 @@ Categories and subcategories are mapped to each storefront based on the target a
 
 Select categories and subcategories that best align with your offer and your intended audience. You can select:
 
-* Up to two (2) categories, including a primary and a secondary category (optional).
-* Up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only.
+* Up to two categories, including a primary and a secondary category (optional).
+* Up to two subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**IMPORTANT: SaaS Offers and Microsoft 365 Add-ins**
+#### IMPORTANT: SaaS Offers and Microsoft 365 Add-ins
 
 Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the storefront where your offer will be published:
 

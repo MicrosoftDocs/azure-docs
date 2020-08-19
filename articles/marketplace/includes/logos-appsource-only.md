@@ -11,4 +11,4 @@ ms.date: 08/18/2020
 ---
 
 - The large logo appears on your offer listing page in Microsoft AppSource.
-- The small logo appears on the Microsoft AppSource main page and search results page.
+- The small logo (optional) appears on the Microsoft AppSource main page and search results page.

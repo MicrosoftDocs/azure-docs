@@ -11,5 +11,5 @@ ms.date: 08/18/2020
 ---
 
 - The large logo appears on your offer listing page in Azure Marketplace.
-- The medium logo appears when you create a new resource in Microsoft Azure.
-- The small logo appears in Azure Marketplace search results.
+- The medium logo (optional) appears when you create a new resource in Microsoft Azure.
+- The small logo (optional) appears in Azure Marketplace search results.
