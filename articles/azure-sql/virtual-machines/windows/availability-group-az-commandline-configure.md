@@ -485,6 +485,7 @@ Next, remove the cluster metadata:
 Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
 ```
 
+---
 
 ## Next steps
 

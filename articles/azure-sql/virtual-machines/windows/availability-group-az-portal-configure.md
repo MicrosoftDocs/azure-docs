@@ -142,19 +142,13 @@ After databases are added, you can check the status of your availability group i
 
 To add another SQL Server VM to the cluster after the cluster is created, follow the same steps as the [onboard](#onboard-existing-cluster) experience. 
 
-## Add replicas 
+## Modify availability group 
 
-You can add more replicas to the availability group from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
 
-Only virtual machines that have been added to the cluster metadata will be visible on the add replica page. 
+You can add more replicas to the availability group, configure the listener, or delete the listener from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
 
 :::image type="content" source="media/availability-group-az-portal-configure/add-another-replica.png" alt-text="Select the ellipses next to the availability group and then select add replica to add more replicas to the availability group.":::
 
-## Configure or remove listener
-
-You can configure or remove the listener using the ellipses (...) next to the availability group in the Azure portal:
-
-:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Select the ellipses next to the availability group to configure or remove listener":::
 
 
 ## Remove cluster
