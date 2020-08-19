@@ -433,8 +433,6 @@ The following Azure Security Center **features are not currently available** in 
     - *UEBA for Azure resources*: Integration with Microsoft Cloud App Security for user and entity behavior analytics on Azure resources.
     - *Advanced threat detection*: Azure Security Center standard tier in Azure Government does not support threat detection for App Service.
 
-    Threat detection for storage accounts is available in US government clouds, but no other sovereign or Azure government cloud regions.
-
 - **Server protection**
     - *OS Security Configuration*: Vulnerability specific metadata, such as the potential impact and countermeasures for OS security configuration vulnerabilities.
 
@@ -445,12 +443,6 @@ Additional FAQ for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**
 The standard tier of Azure Security Center is free for the first 30 days. Should you choose to continue to use public preview or generally available standard features beyond 30 days, we automatically start to charge for the service.
-
-**What features are available for Azure Security Center government customers?**
-A detailed list of feature variations in the Azure Security Center government offering can found in the variations section of this article. All other Azure Security Center capabilities can be referenced in the Azure Security Center public documentation.
-
-**What is the compliance commitment for Azure Security Center in Azure Government?**
-Azure Security Center in Azure Government has achieved FedRAMP High authorization.
 
 **Is Azure Security Center available for DoD customers?**
 Azure Security Center is deployed on Azure Government regions but not DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features which collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are recommended to consider data residency before doing so.
