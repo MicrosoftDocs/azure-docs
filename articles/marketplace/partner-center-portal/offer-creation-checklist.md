@@ -26,7 +26,7 @@ Items you're required to provide or specify are noted below.  Some areas are opt
 | [Offer listing page](#offer-listing-page) | Define the offer details to be displayed in the marketplace, including descriptions of your offer and marketing assets.|
 | [Preview page](#preview-page) | Define a limited Preview Audience for releasing your offer prior to publishing your offer live to the broader marketplace audience(s).|
 | [Technical configuration page](#technical-configuration-page)  |  Only available if you select to sell the offer through Microsoft.  Define the technical details (Landing page URL, Connection webhook URL, Azure AD tenant ID, and Azure AD app ID) used by marketplace to connect to your offer.  These parameters are required to integrate correctly with SaaS fulfillment and the Marketplace metered billing APIs.|
-| [**New plan ,odal**](#plan-identity-modal) | Collects plan identity information.  |
+| [**New plan modal**](#plan-identity-modal) | Collects plan identity information.  |
 | [Plan listing page](#plan-listing-page)  | Only available if you select to sell the offer through Microsoft. Define the details used to list the Plan in the marketplace.  |
 | [Plan pricing and availability page](#plan-pricing-and-availability-page)  | Only available if you select to sell the offer through Microsoft.  Collects the business characteristics (pricing model), audience and market availability for each plan (version) of your offer.  |
 | [Test drive listing page](#test-drive-listing-page)  | Only available if you select to offer a test drive for your offer. Define the details used to list the test drive in the marketplace.  |
