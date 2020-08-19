@@ -157,11 +157,11 @@ To download a CSV report for alerts or recommendations, open the **Security aler
 
 ### What are the costs involved in exporting data?
 
-There is no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there. For more information about Log Analytics workspace pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+There is no cost for enabling a continuous export. Costs might be incurred for ingestion and retention of data in your Log Analytics workspace, depending on your configuration there. 
 
+Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-
-
+Learn more about [Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
 ## Next steps
