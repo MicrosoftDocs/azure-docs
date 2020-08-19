@@ -54,33 +54,3 @@ Checkout some of our [Jupyter notebook](https://jupyter.org/) samples for Live V
 * How to create a Docker container image of an extension service
 * How to deploy the extension service as a container along with the Live Video Analytics container
 * How to use a Live Video Analytics media graph with an extension client and point it to the extension gRPC endpoint
-
-### Live Video Analytics sample using [YOLOv4](https://github.com/onnx/models/tree/master/vision/object_detection_segmentation/yolov4), a real-time convolutional neural network for real-time object detection.
-
-|#|Framework|Extension|Accelerator|
-|---|---|---|---|
-|1|ONNX|gRPC|Intel® CPU|[Launch]()|
-|2|Darknet|HTTP|Intel® CPU|[Launch]()|
-
-### Live Video Analytics sample using [YOLOv3](https://pjreddie.com/darknet/yolo/), a real-time convolutional neural network for real-time object detection.
-
-|#|Framework|Extension|Accelerator|
-|---|---|---|---|
-|1|ONNX|HTTP|Intel® CPU|[Launch]()|
-|2|ONNX|HTTP|NVidia GPU|[Launch]()|
-|3|ONNX|gRPC|Intel® CPU|[Launch]()|
-
-### Live Video Analytics sample using Tiny YOLOv3, a lightweight variant of the YOLOv3 neural network.
-
-|#|Framework|Extension|Accelerator|
-|---|---|---|---|
-|1|ONNX|HTTP|Intel® CPU|[Launch]()|
-|2|ONNX|gRPC|Intel® CPU|[Launch]()|
-
-### Live Video Analytics sample using [ResNet](https://github.com/onnx/models/tree/master/vision/classification/resnet), a residual neural network for image classification.
-
-|#|Framework|Extension|Accelerator|
-|---|---|---|---|
-|1|ONNX|HTTP|Intel® CPU|[Launch]()|
-
-
