@@ -198,4 +198,4 @@ For more information on the cmdlets and its parameters, see [Azure Attestation P
 
 ## Next steps
 
-- [SGX attestation using Open Enclave SDK](sgx-enclave-sdk.md)
+- [Attest an SGX enclave using code samples](sgx-enclave-sdk.md)
