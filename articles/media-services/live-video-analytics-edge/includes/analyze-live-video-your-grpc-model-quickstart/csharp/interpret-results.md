@@ -35,46 +35,40 @@ In these events, the type is set to entity to indicate it's an entity, such as a
 In the following example, two cars were detected in the same video frame, with varying levels of confidence.
 
 ```
-[IoTHubMonitor] [11:37:17 PM] Message received from [lva-sample-device/lvaEdge]:
-{  "body": {
+[IoTHubMonitor] [7:53:02 PM] Message received from [lva-sample-device/lvaEdge]:
+{
+  "body": {
+    "timestamp": 143802501945706,
     "inferences": [
       {
+        "type": "entity",
+        "subtype": "",
+        "inferenceId": "",
+        "relatedInferences": [],
         "entity": {
-          "box": {
-            "h": 0.0344108157687717,
-            "l": 0.5756940841674805,
-            "t": 0.5929375966389974,
-            "w": 0.04484643936157227
-          },
           "tag": {
-            "confidence": 0.8714089393615723,
-            "value": "car"
+            "value": "car",
+            "confidence": 0.84763974
+          },
+          "attributes": [],
+          "box": {
+            "l": 0.661379,
+            "t": 0.57443756,
+            "w": 0.048596457,
+            "h": 0.03616307
           }
         },
-        "type": "entity"
-      },
-      {
-        "entity": {
-          "box": {
-            "h": 0.03960910373263889,
-            "l": 0.2750667095184326,
-            "t": 0.6102327558729383,
-            "w": 0.031027007102966308
-          },
-          "tag": {
-            "confidence": 0.7042660713195801,
-            "value": "car"
-          }
-        },
-        "type": "entity"
+        "extensions": {},
+        "valueCase": "entity"
       }
     ]
   },
   "applicationProperties": {
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
-    "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
+    "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/grpcExtension",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-04-23T06:37:16.097Z"
+    "eventTime": "2020-08-19T02:52:57.174Z",
+    "dataVersion": "1.0"
   }
 }
 ```
