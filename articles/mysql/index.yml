@@ -44,10 +44,6 @@ landingContent:
             url: quickstart-create-mysql-server-database-using-azure-portal.md
           - text: Create a server using Azure CLI
             url: quickstart-create-mysql-server-database-using-azure-cli.md
-      - linkListType: how-to-guide
-        links:            
-          - text: Configure Firewall to connect to your Server
-            url: howto-manage-firewall-using-portal.md
 
 # Card 3 - ADD Card for Flexible Server
 
@@ -72,10 +68,10 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Best practices
-            url: app-development-best-practices.md
           - text: Connection resiliency
             url: concepts-connectivity.md
+          - text: Best practices
+            url: app-development-best-practices.md
       - linkListType: tutorial
         links:
           - text: Design a Database on Single Server
