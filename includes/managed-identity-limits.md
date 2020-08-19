@@ -11,7 +11,13 @@
  ms.custom: include file
 ---
 
-| Category | Limit |
-| --- | --- |
-| User-assigned managed identities | <ul><li>When you create user-assigned managed identities, only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported. For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters.</li><li>If you use the managed identity virtual machine extension, the supported limit is 32 user-assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512 user-assigned identities.</li>|
+- Each Managed Identity counts towards the object quota limit in an Azure AD tenant as described [here](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md)
+-	The rate at which Managed Identities can be created have the following limits:
 
+| Scope | 	Limit | 
+| --- | --- | 
+| Per Azure AD Tenant | 200 creations per 20 seconds | 
+| Per Azure Subscription | 40 creations per 20 seconds |
+
+For User-assigned managed identities
+- When you create user-assigned managed identities, only alphanumeric characters (0-9, a-z, and A-Z) and the hyphen (-) are supported. For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters.
