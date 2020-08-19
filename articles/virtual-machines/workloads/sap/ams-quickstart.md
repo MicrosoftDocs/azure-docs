@@ -24,7 +24,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 2. In the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Display of the Azure portal configuration options.":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Display of the Azure portal configuration options." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
 3. When selecting a virtual network, ensure that the systems you want to monitor are reachable from within that VNET. 
 
@@ -37,7 +37,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select the **Provider** tab to add the providers you want to configure. You can add multiple providers one after another or add them after deploying the monitoring resource. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Shows the provider tab to add additional providers to your Azure Monitor for SAP Solutions.":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Shows the provider tab to add additional providers to your Azure Monitor for SAP Solutions." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
 2. Select **Add provider** and choose **SAP HANA** from the drop down. 
 
@@ -51,7 +51,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 7. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image of configuration options when adding provider information.":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image of configuration options when adding provider information." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### High-availability cluster (Pacemaker) provider
 
@@ -66,7 +66,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image shows options related to the HA cluster Pacemaker provider.":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image shows options related to the HA cluster Pacemaker provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
 ### Microsoft SQL Server provider
@@ -104,7 +104,7 @@ GO
 
 4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
 ## What's next
 
