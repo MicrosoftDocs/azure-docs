@@ -363,8 +363,9 @@ There are two ways that you can accomplish this:
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
-    
-    When you add the UDRs, define the route for each related Batch IP address prefix and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
+  For Sovereign Clouds (USGOV and China-East-2), The CLI command does not return IP ranges: please use the [list](https://www.microsoft.com/en-us/download/details.aspx?id=57063) which contains the IPs for USGOV cloud. For China-Government users, this [list](https://www.microsoft.com/en-in/download/details.aspx?id=57062) contains the IP Ranges. 
+  
+    When you add the UDRs, define the route for each related Batch IP address prefix and) set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
 
     ![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
