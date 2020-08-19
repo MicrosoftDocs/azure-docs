@@ -147,9 +147,8 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
-
 #### [IntelliJ](#tab/IntelliJ)
-### IntelliJ deployment
+
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
 ### Prerequisites

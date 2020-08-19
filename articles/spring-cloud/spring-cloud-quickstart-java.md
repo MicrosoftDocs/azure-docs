@@ -209,7 +209,8 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 With the distributed tracing tools in Azure Spring Cloud, you can debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
 
 #### [CLI](#tab/Azure-CLI)
-The following procedures use the Azure CLI to start logging.
+
+The following procedure uses the Azure CLI to start logging.
 
 To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-deploy-apps.md) to provision and run an Azure Spring Cloud service.
     
@@ -258,8 +259,8 @@ spring.sleuth.sampler.probability=0.5
 If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in the Azure CLI or the Azure portal.
 
 #### [IntelliJ](#tab/IntelliJ)
-### Set up logs following IntelliJ deployment
-The following procedure assumes you have completed deployment of an Azure Spring Cloud app using IntelliJ.
+
+The following procedure uses IntelliJ to set up logs.  It assumes that you have completed deployment of an Azure Spring Cloud app using IntelliJ.
 
 ### Show streaming logs
 To get the logs:
