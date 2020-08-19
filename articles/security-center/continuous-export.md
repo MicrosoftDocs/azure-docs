@@ -61,7 +61,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 The continuous export feature can be configured and managed via the Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Use this API to create or update automations for exporting to any of the following possible destinations:
 
 - Azure Event Hub
-- Log Analytics worskpace
+- Log Analytics workspace
 - Azure Logic Apps 
 
 The API provides additional functionality not available from the Azure portal, for example:
