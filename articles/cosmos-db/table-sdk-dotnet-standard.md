@@ -42,8 +42,8 @@ ms.date: 03/18/2019
 * Honor retry policy upon timeout and task cancelled exception
 * Fix intermittent task cancelled exception seen in asp .net applications
 * Fix azure table storage retrieve from secondary endpoint only location mode
-* Update documentdb core dependency version to 2.11.2 which fixes intermittent null reference exception
-* Update Odata.Core dependency version to 7.6.4 which fixes compatibility conflict with azure shell
+* Update `Microsoft.Azure.DocumentDB.Core` dependency version to 2.11.2 which fixes intermittent null reference exception
+* Update `Odata.Core` dependency version to 7.6.4 which fixes compatibility conflict with azure shell
 
 ### <a name="1.0.7"></a>1.0.7
 * Performance improvement by setting Table SDK default trace level to SourceLevels.Off, which can be opted in via app.config
