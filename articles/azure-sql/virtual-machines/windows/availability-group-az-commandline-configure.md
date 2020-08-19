@@ -432,6 +432,60 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ---
 
+## Remove cluster
+
+If you want to destroy the cluster, first remove the cluster group from the SQL VM resource provider metadata by using the Azure CLI or PowerShell.  You will then need to manually destroy the cluster local to the VMs. 
+
+
+# [Azure CLI](#tab/azure-cli)
+
+First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, as well as remove them from the cluster metadata: 
+
+```azurecli-interactive
+# Remove the VM from the cluster metadata
+# example: az sql vm remove-from-group --name SQLVM2 --resource-group SQLVM-RG
+
+az sql vm remove-from-group --name <VM1 name>  --resource-group <resource group name>
+az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group name>
+```
+
+Next, remove the cluster metadata: 
+
+```azurecli-interactive
+# Remove the cluster from the SQL VM RP metadata
+# example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
+
+az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+```
+
+
+
+# [PowerShell](#tab/azure-powershell)
+
+First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, as well as remove them from the cluster metadata: 
+
+```powershell-interactive
+# Remove the SQL VM from the cluster
+# example: $sqlvm = Get-AzSqlVM -Name SQLVM3 -ResourceGroupName SQLVM-RG
+#  $sqlvm. SqlVirtualMachineGroup = ""
+#  Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+
+$sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
+   $sqlvm. SqlVirtualMachineGroup = ""
+   
+   Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+```
+
+Next, remove the cluster metadata: 
+
+```powershell-interactive
+# Remove the cluster metadata
+# example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
+
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+```
+
+
 ## Next steps
 
 For more information, see the following articles: 

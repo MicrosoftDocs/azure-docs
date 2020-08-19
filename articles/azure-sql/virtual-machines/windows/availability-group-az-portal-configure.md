@@ -70,7 +70,10 @@ You can check the status of your deployment in the **Activity log** which is acc
 
 ### Onboard existing cluster
 
-If you already have a cluster configured in your SQL Server VM environment, you can onboard it from the Azure portal. To do so, follow these steps:
+If you already have a cluster configured in your SQL Server VM environment, you can onboard it from the Azure portal. You can also use these same steps to add additional VMs to the cluster. 
+
+
+To do so, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
@@ -135,6 +138,28 @@ After databases are added, you can check the status of your availability group i
 
 :::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Right-click the availability group in object explorer and choose to Add database":::
 
+## Add more VMs
+
+To add another SQL Server VM to the cluster after the cluster is created, follow the same steps as the [onboard](#onboard-existing-cluster) experience. 
+
+## Add replicas 
+
+You can add more replicas to the availability group from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
+
+Only virtual machines that have been added to the cluster metadata will be visible on the add replica page. 
+
+:::image type="content" source="media/availability-group-az-portal-configure/add-another-replica.png" alt-text="Select the ellipses next to the availability group and then select add replica to add more replicas to the availability group.":::
+
+## Configure or remove listener
+
+You can configure or remove the listener using the ellipses (...) next to the availability group in the Azure portal:
+
+:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Select the ellipses next to the availability group to configure or remove listener":::
+
+
+## Remove cluster
+
+If you want to remove the cluster, destroy it locally to the virtual machine, and this will remove it from the portal. 
 
 
 ## Troubleshooting
@@ -149,7 +174,7 @@ To view the logs for the deployment, and check the deployment history, follow th
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Navigate to your resource group.
-1. Select **Deployments** under **Settings**
+1. Select **Deployments** under **Settings**.
 1. Select the deployment of interest to learn more about the deployment. 
 
 
