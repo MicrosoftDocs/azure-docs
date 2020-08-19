@@ -13,9 +13,9 @@ ms.date: 07/06/2020
 
 This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
 
-## Storefront offer details
+## Online store offer details
 
-| Storefront setting | Best practice |
+| Setting | Best practice |
 |:--- |:--- |  
 | Offer name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
 | Offer description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
@@ -23,11 +23,11 @@ This article gives suggestions for creating and engaging Microsoft commercial ma
 > [!IMPORTANT]
 > Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.
 
-## Storefront listing details
+## Online store listing details
 
-Categories and industries for a different storefront will be applicable to different offer types.
+Categories and industries for a different online store will be applicable to different offer types.
 
-| Storefront | Categories <br>by Storefront | Categories <br>by Storefront | Industries <br> for  AppSource |
+| Online store | Categories <br>by online store | Categories <br>by online store | Industries <br> for AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Offer Type**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
@@ -43,9 +43,9 @@ Categories and industries for a different storefront will be applicable to diffe
 
 ### Categories
 
-Microsoft AppSource and Azure Marketplace are two different storefronts that serve unique customer requirements. Azure Marketplace targets IT professionals and developers building solutions on Azure.  Microsoft AppSource targets business users looking for business and/or industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins and Power Platform apps.
+Microsoft AppSource and Azure Marketplace are two different online stores that serve unique customer requirements. Azure Marketplace targets IT professionals and developers building solutions on Azure.  Microsoft AppSource targets business users looking for business and/or industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins and Power Platform apps.
 
-Categories and subcategories are mapped to each storefront based on the target audience. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the offer type, transaction capabilities of the offer and category/subcategory selection. 
+Categories and subcategories are mapped to each online store based on the target audience. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the offer type, transaction capabilities of the offer and category/subcategory selection. 
 
 Select categories and subcategories that best align with your offer and your intended audience. You can select:
 
@@ -56,9 +56,9 @@ Select categories and subcategories that best align with your offer and your int
 
 #### IMPORTANT: SaaS Offers and Microsoft 365 Add-ins
 
-Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the storefront where your offer will be published:
+Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published:
 
-| SaaS Offer    | SaaS Offer   | SaaS Offer  | SaaS Offer   | SaaS Offer   | SaaS Offer   | SaaS Offer    | Applicable Storefront | Applicable Storefront |
+| SaaS offer    | SaaS offer   | SaaS offer  | SaaS offer   | SaaS offer   | SaaS offer   | SaaS offer    | Applicable online store| Applicable online store |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Metered billing | Microsoft 365 add-ins | Contact me | Transact (at least 1 plan) | Private-only plan | Public-only plan | Public & private plans | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -112,8 +112,8 @@ Select the applicable products your app works with for the offer to show up unde
 
 Keywords can help customers find your offer when they search. Identify the top search keywords for your offer, incorporate them in your offer summary and description as well as in the keyword section of the offer listing details section.
 
-## Storefront marketing details
-| Storefront setting | Best practice |
+## Online store marketing details
+| Setting | Best practice |
 |:--- |:--- |  
 | Offer logo (PNG format, from 216 × 216 to 350 x 350 px): app details page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the app details listing page of your offer. Partner Center will resize it to the required logo sizes. |
 | Offer logo (PNG format, 48 × 48 pixels): search page | Partner Center will generate this logo from the Large logo you uploaded. You can optionally replace this with a different image later. |

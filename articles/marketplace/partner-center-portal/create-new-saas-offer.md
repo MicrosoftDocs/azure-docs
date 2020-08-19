@@ -25,7 +25,7 @@ To begin creating Software as a Service (SaaS) offers in the commercial marketpl
    ![Illustrates the left-navigation menu.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -180,7 +180,7 @@ Your offer will be published to AppSource or Azure Marketplace depending on the 
 - At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
-See the full list of categories and subcategories applicable to each Storefront in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
+See the full list of categories and subcategories applicable to each online store in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industries
 
