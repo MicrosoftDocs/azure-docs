@@ -9,7 +9,7 @@ manager: lizross
 ---
 # Use Azure Advisor with Windows Virtual Desktop
 
-Azure Advisor can help users resolve commonly encountered issues on their own without having to file support cases. This reduces the need to submit help requests, saving you time and costs.
+Azure Advisor can help users resolve common issues on their own without having to file support cases. The recommendations reduce the need to submit help requests, saving you time and costs.
 
 This article will tell you how to set up Azure Advisor in your Windows Virtual Desktop deployment to help your users.
 
@@ -19,7 +19,7 @@ Azure Advisor analyzes your configurations and telemetry to offer personalized r
 
 ## How to start using Azure Advisor
 
-If you already have an Azure account on the Azure portal, you can use Azure Advisor. To start using Azure Advisor, visit the Azure portal at <https://portal.azure.com/#home>, then select **Advisor** under **Azure Services**, as shown in the following image. You can also enter "Azure Advisor" into the search bar in the Azure portal.
+All you need to get started is an Azure account on the Azure portal. First, open the Azure portal at <https://portal.azure.com/#home>, then select **Advisor** under **Azure Services**, as shown in the following image. You can also enter "Azure Advisor" into the search bar in the Azure portal.
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Azure portal. The user is hovering their mouse cursor over the Azure Advisor link, causing a drop-down menu to appear.](media/azure-advisor.png)
@@ -46,7 +46,7 @@ When you select a category, you'll go to its active recommendations page. On thi
 
 - Always try to solve the issues with the highest priority level in Azure Advisor. High priority issues are marked with red. Leaving high-priority recommendations unresolved can lead to problems down the line.
 
-- If a recommendation seems less important, you can dismiss it or postpone it. To dismiss or postpone a recommendation, go to the **Action** column on the right side of the page and change its state.
+- If a recommendation seems less important, you can dismiss it or postpone it. To dismiss or postpone a recommendation, go to the **Action** column and change the item's state.
 
 - Don't dismiss recommendations until you know why they're appearing and are sure it won't have a negative impact on you or your users. Always select **Learn more** to see what the issue is. If you resolve an issue by following the instructions in Azure Advisor, it will automatically disappear from the list. You're better off resolving issues than postponing them repeatedly.
 
