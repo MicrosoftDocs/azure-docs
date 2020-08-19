@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: punagpal
 ---
 
@@ -560,7 +560,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
 *In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 

@@ -546,6 +546,7 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 
 1. Sign in to the Windows VM.
 1. Run a PowerShell session as an administrator.
+1. Delete the panther directory (C:\Windows\Panther).
 1. Change the directory to `%windir%\system32\sysprep`. Then run `sysprep.exe`.
 1. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience
    (OOBE)**, and make sure that the **Generalize** checkbox is selected.

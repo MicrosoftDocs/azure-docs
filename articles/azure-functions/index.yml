@@ -118,7 +118,7 @@ landingContent:
           - text: Build and deploy using Azure Pipelines
             url: functions-how-to-azure-devops.md
           - text: Deploy using the Jenkins plugin
-            url: /azure/jenkins/jenkins-azure-functions-deploy
+            url: /azure/developer/jenkins/deploy-to-azure-functions
   - title: Performance and monitoring
     linkLists:
       - linkListType: concept

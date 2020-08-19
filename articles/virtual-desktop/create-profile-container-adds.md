@@ -1,10 +1,7 @@
 ---
 title: Create FSLogix profile container Azure Files Active Directory Domain Services - Azure
 description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr

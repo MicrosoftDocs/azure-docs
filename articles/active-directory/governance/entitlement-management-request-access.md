@@ -3,7 +3,7 @@ title: Request an access package - Azure AD entitlement management
 description: Learn how to use the My Access portal to request access to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: mamtakumar
 ms.service: active-directory

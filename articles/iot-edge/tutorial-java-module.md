@@ -55,7 +55,7 @@ To develop an IoT Edge module in Java, install the following additional prerequi
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
-   >Environment variables for Java and Maven will be added during their installation processes. You will want to restart any Visual Studio Code terminal, PowerShell, or command prompt instances you had open while you added these environment variables. This will ensure the Java and Maven commands are recognized by these utilities going forward.
+   >The Java and Maven installation processes add environment variables to your system. Restart any open Visual Studio Code terminal, Powershell, or command prompt instances after completing installation. This step ensures that these utilities can recognize the Java and Maven commands going forward.
 
 ## Create a module project
 

@@ -120,7 +120,7 @@ A managed environment can be deployed either through [Password Hash Sync (PHS)](
 These scenarios don't require you to configure a federation server for authentication.
 
 > [!NOTE]
-> [Cloud authentication using Staged rollout](/hybrid/how-to-connect-staged-rollout) is only supported starting Windows 10 1903 update
+> [Cloud authentication using Staged rollout](/azure/active-directory/hybrid/how-to-connect-staged-rollout) is only supported starting Windows 10 1903 update
 
 ### Federated environment
 

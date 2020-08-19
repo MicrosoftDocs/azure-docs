@@ -5,8 +5,8 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.topic: tutorial
+ms.date: 08/12/2020
 ms.author: banders
 ---
 # Tutorial: Review your Microsoft Partner Agreement invoice

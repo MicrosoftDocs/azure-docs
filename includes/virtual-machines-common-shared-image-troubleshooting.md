@@ -84,7 +84,7 @@ Verify that the **OSType** of the image version that you are trying to create th
 
 ## Unable to share resources
 
-The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## Replication is slow
 

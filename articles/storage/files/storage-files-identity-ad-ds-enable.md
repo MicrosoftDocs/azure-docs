@@ -25,7 +25,7 @@ The cmdlets in the AzFilesHybrid PowerShell module make the necessary modificati
 
 - [Download and unzip the AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases) (GA module: v0.2.0+)
 - Install and execute the module in a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
--  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either the storage account owner or the contributor RBAC role permissions.
+-  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either the storage account owner or the contributor Azure role permissions.
 
 ### Run Join-AzStorageAccountForAuth
 

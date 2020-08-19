@@ -1,5 +1,5 @@
 ---
-title: RBAC roles and permissions
+title: Azure roles and permissions
 description: Use Azure role-based access control (Azure RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 ms.topic: article
 ms.date: 12/02/2019
@@ -7,7 +7,7 @@ ms.date: 12/02/2019
 
 # Azure Container Registry roles and permissions
 
-The Azure Container Registry service supports a set of [built-in Azure roles](../role-based-access-control/built-in-roles.md) that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users, service principals, or other identities that need to interact with a registry. 
+The Azure Container Registry service supports a set of [built-in Azure roles](../role-based-access-control/built-in-roles.md) that provide different levels of permissions to an Azure container registry. Use [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to assign specific permissions to users, service principals, or other identities that need to interact with a registry. 
 
 | Role/Permission       | [Access Resource Manager](#access-resource-manager) | [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Delete image data](#delete-image-data) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -80,7 +80,7 @@ To define a custom role, see [Steps to create a custom role](../role-based-acces
 
 ## Next steps
 
-* Learn more about assigning RBAC roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), or other Azure tools.
+* Learn more about assigning Azure roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), or other Azure tools.
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
 

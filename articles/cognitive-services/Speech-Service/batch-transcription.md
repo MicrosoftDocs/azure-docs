@@ -58,7 +58,7 @@ If you plan to customize models, follow the steps in [Acoustic customization](ho
 
 The Batch Transcription API supports the following formats:
 
-| Format | Codec | Bitrate | Sample Rate                     |
+| Format | Codec | Bits Per Sample | Sample Rate             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 | MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
@@ -341,4 +341,4 @@ You can find the sample in the `samples/batch` directory in the [GitHub sample r
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Speech to text v3 API reference](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

@@ -9,7 +9,7 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu 
 ms.reviewer: 
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create, develop, and maintain Synapse Studio (preview) notebooks in Azure Synapse Analytics

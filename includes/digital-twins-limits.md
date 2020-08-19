@@ -26,7 +26,7 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
 | Query | Number of characters in a query | 8,000 | Yes |
-| Query | Number of `JOINS` in a query | 1 | Yes |
+| Query | Number of `JOINS` in a query | 5 | Yes |
 
 ### Rate limits
 

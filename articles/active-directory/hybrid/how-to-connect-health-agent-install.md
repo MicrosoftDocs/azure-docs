@@ -149,6 +149,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 7. In the **Actions** pane, click **Edit Federation Service Properties**.
 8. In the **Federation Service Properties** dialog box, click the **Events** tab.
 9. Select the **Success audits and Failure audits** check boxes and then click **OK**.
+10. Verbose logging can be enabled through powershell using the command: ```Set-AdfsProperties -LOGLevel Verbose```.
 
 #### To enable auditing for AD FS on Windows Server 2016
 

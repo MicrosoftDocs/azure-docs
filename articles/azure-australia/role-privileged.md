@@ -6,7 +6,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Role-Based Access Control (RBAC) and Privileged Identity Management (PIM)

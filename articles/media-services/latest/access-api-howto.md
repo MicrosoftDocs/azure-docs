@@ -40,7 +40,7 @@ This article describes steps for getting credentials to access Media Services AP
 The **API access** page lets you select the authentication method you want to use to connect to the API. The page also provides the values you need to connect to the API.
 
 1. In the [Azure portal](https://portal.azure.com/), select your Media Services account.
-2. Select how to connect to the Media Services API.
+2. Select the **API access (new)** blade on the left navigation bar.
 3. Under **Connect to Media Services API**, select the Media Services API version you want to connect to (V3 is the latest version of the service).
 
 ### Service principal authentication  (recommended)
