@@ -253,15 +253,15 @@ Follow the steps below to create an event subscription for the geofence enter ev
 
 5. Repeat steps 1-4 for the Logic App Exit endpoint you created in the previous section. On step 3, make sure to choose `Geofence Exited` as the event type.
 
-## Use Search Geofence Get API
+## Use Spatial Geofence Get API
 
-Now, we'll use the [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to send email notifications to the Operations Manager, when a piece of equipment enters or exits the geofences.
+Now, we'll use the [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to send email notifications to the Operations Manager, when a piece of equipment enters or exits the geofences.
 
 Each equipment has a `deviceId`. In this tutorial,  we'll be tracking a single piece of equipment, whose unique ID is `device_1`.
 
 For clarity, the following diagram shows the five locations of the equipment over time, beginning at the *Start* location, which is somewhere outside the geofences. For the purposes of this tutorial, the *Start* location is undefined, since we won't query the device at that location.
 
-When we query the [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) with an equipment location that indicates initial geofence entry or exit, the Event Grid will call the appropriate Logic App endpoint to send an email notification to the Operations Manager.
+When we query the [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) with an equipment location that indicates initial geofence entry or exit, the Event Grid will call the appropriate Logic App endpoint to send an email notification to the Operations Manager.
 
 Each of the following sections makes HTTP GET Geofencing API requests using the five different location coordinates of the equipment.
 
