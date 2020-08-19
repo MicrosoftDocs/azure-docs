@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: quickstart
-ms.date: 07/27/2020
+ms.date: 08/19/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-metrics-monitor
 ---
