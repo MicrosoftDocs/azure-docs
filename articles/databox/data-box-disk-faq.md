@@ -60,11 +60,11 @@ A. Data Box Disk supports data ingestion only within the same region (commerce b
 
 For e.g., If you had on-premises data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
 
-## Option 1: 
+### Option 1: 
 
-Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from Canada to Azure West US DC
+Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using the [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from the source location in Canada to the Azure West US datacenter.
 
-## Option 2:
+### Option 2:
 
 1. Order Data Box Disk in Canada by choosing a storage account say in Cananda Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Cental to the shipping address (in Canada) provided during order creation.
 
