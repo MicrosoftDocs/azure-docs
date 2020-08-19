@@ -4,6 +4,7 @@ description: Learn how to use dependency injection for registering and using ser
 author: craigshoemaker
 
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan

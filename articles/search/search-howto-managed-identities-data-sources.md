@@ -15,8 +15,7 @@ ms.date: 05/18/2020
 # Set up an indexer connection to a data source using a managed identity (preview)
 
 > [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
-> You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> Support for setting up a connection to a data source using a managed identity is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 
 An [indexer](search-indexer-overview.md) in Azure Cognitive Search is a crawler that provides a way to pull data from your data source into Azure Cognitive Search. An indexer obtains a data source connection from the data source object that you create. The data source object usually includes credentials for the target data source. For example, the data source object could include an Azure Storage account key if you want to index data from a blob storage container.
 

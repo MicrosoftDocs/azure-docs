@@ -99,7 +99,7 @@ Navigate to the relay created using the above template, select "Networking" in s
 > [!NOTE]
 > This step must be completed for each administrator will use Cloud Shell.
 
-After deploying completing the above steps, navigate to Cloud Shell in the Azure portal or on https://shell.azure.com.
+After deploying completing the above steps, navigate to Cloud Shell in the Azure portal or on https://shell.azure.com. One of these experiences must be used each time you want to connect to an isolated Cloud Shell experience.
 
 > [!NOTE]
 > If Cloud Shell has been used in the past, the existing clouddrive must be unmounted. To do this run `clouddrive unmount` from an active Cloud Shell session, refresh your page.

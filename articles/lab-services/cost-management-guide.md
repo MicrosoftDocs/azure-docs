@@ -3,7 +3,7 @@ title: Cost management guide for Azure Lab Services
 description: Understand the different ways to view costs for Lab Services.
 author: rbest
 ms.author: rbest
-ms.date: 06/26/2020
+ms.date: 08/16/2020
 ms.topic: article
 ---
 
@@ -11,7 +11,7 @@ ms.topic: article
 
 Cost management can be broken down into two distinct areas: cost estimation and cost analysis.  Cost estimation occurs when setting up the lab to make sure that initial structure of the lab will fit within the expected budget.  Cost analysis usually occurs at the end of the month to analyze the costs and determine the necessary actions for the next month.
 
-## Estimating the lab costs
+## Estimate the lab costs
 
 Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the month.  The cost estimate summarizes the hour usage with the maximum number of users by the estimated cost per hours.  To get the most accurate estimate set up the lab, including the [schedule](how-to-create-schedules.md), and the dashboard will reflect the estimated cost.  
 
@@ -20,7 +20,7 @@ This estimate may not be all the possible costs, there are a few resources that 
 > [!div class="mx-imgBorder"]
 > ![Dashboard cost estimation](./media/cost-management-guide/dashboard-cost-estimation.png)
 
-## Analyzing previous months usage
+## Analyze previous months usage
 
 The cost analysis is for reviewing previous months usage to help determine any adjustments for the lab.  The breakdown of costs in the past can be found in the [Subscription Cost Analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).  In the Azure portal, you can type "Subscriptions" in the upper search field then select the Subscriptions option.  
 
@@ -34,14 +34,14 @@ Select the specific subscription that is to be reviewed.
 
  Select "Cost Analysis" in the left-hand pane under **Cost Management**.
 
- > [!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Subscription cost analysis](./media/cost-management-guide/subscription-cost-analysis.png)
 
 This dashboard will allow in-depth cost analysis, including the ability to export to different file types on a schedule.  The Cost Management has numerous capabilities for more information, see [Cost Management Billing Overview](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
 
 Filtering by the resource type: `microsoft.labservices/labaccounts` will show only the cost associated with Lab Services.
 
-## Understanding the usage
+## Understand the usage
 
 Below is a sample of the cost analysis.
 
@@ -63,9 +63,69 @@ Some universities have used the lab account and the resource group as ways to se
 
 Depending on the type of class, there are ways to manage costs to reduce that the VMs are running without a student using the machine.
 
-### Auto-shutdown on disconnect
+### Maximize cost control with auto-shutdown settings
 
-At the lab creation, the lab owner can set the VMs in the lab to [shut down when the RDP connection to the VM is disconnected](how-to-enable-shutdown-disconnect.md).  This setting reduces the scenario where the student disconnects but forgets to stop the VM.
+Auto-shutdown cost control features  proactively enables you to prevent waste of virtual machine usage hours inside the labs. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
+
+> [!div class="mx-imgBorder"]
+> ![Subscription cost analysis](./media/cost-management-guide/auto-shutdown-disconnect.png)
+
+These settings can be configured at both the lab account level and the lab level. If the settings are enabled at the lab account level, they are applied to all labs within the lab account. For all new lab accounts, these settings are turned on by default. 
+
+#### Details about auto-shutdown settings
+
+* Automatically disconnect users from virtual machines that the OS deems idle (Windows-only).
+
+    > [!NOTE]
+    > This setting is only available for Windows virtual machines.
+
+    When the setting is turned on, the user is disconnected from any machines in the lab when the Windows OS deems the session to be idle (including the template virtual machines). [Windows OS definition of idle](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) uses two criteria: 
+
+    * User absence – no keyboard or mouse input.
+    * Lack of resource consumption – all the processors and all the disks were idle for a certain % of time
+
+    Users will see a message like this inside the virtual machine before they are disconnected: 
+
+    > [!div class="mx-imgBorder"]
+    > ![Subscription cost analysis](./media/cost-management-guide/idle-timer-expired.png)
+    
+    The virtual machine is still running when the user is disconnected. If the user reconnects to the virtual machine by signing in, windows or files that were open or unsaved work previous to the disconnect will still be there. In this state, because the virtual machine is running, it still counts as active and accrues cost. 
+    
+    To automatically shut down the idle Windows virtual machines that are disconnected, use the combination of **Disconnect users when virtual machines are idle** and **Shut down virtual machines when users disconnect** settings.
+
+    For example, if you configure the settings as follows:
+    
+    * Disconnect users when virtual machines are idle – 15 minutes after idle state is detected.
+    * Shut down virtual machines when users disconnect – 5 minutes after user disconnects.
+    
+    The Windows virtual machines will automatically shutdown 20 minutes after the user stops using them. 
+    
+    > [!div class="mx-imgBorder"]
+    > ![Subscription cost analysis](./media/cost-management-guide/vm-idle-diagram.png)
+* Automatically shut down virtual machines when users disconnect (Windows & Linux).
+    
+    This setting supports both Windows and Linux virtual machines. When this setting is on, automatic shutdown will occur when:
+    
+    * For Windows, Remote Desktop (RDP) connection is disconnected.
+    * For Linux, SSH connection is disconnected .
+    
+    > [!NOTE]
+    > Only [specific distributions and versions of Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) are supported.
+    
+    You can specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 
+* Automatically shut down virtual machines that are started but users don't connect.
+     
+    Inside a lab, a user might start a virtual machine but never connect to it. For example:
+    
+    * A schedule in the lab starts all virtual machines for a class session, but some students do not show up and don’t connect to their machines.  
+    * A user starts a virtual machine, but forgets to connect. 
+    
+    The "Shut down virtual machines when users do not connect" setting will catch these cases and automatically shut down the virtual machines.  
+    
+For information on how to configure and enable automatic shutdown of VMs on disconnect, see these articles:
+
+* [Configure automatic shutdown of VMs on disconnect setting for a lab account](how-to-configure-lab-accounts.md)
+* [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md)
 
 ### Quota vs scheduled time
 

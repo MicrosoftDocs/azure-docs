@@ -67,6 +67,7 @@ This command opens a browser to gather your credentials. When the command finish
 
 Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## Clone or download the sample app
 
@@ -102,6 +103,8 @@ The sample is also modified to run in a production environment like App Service:
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
 
 These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## Create Postgres database in Azure
 
@@ -144,6 +147,8 @@ When the command completes, it outputs a JSON object that contains different con
 > [!TIP]
 > `-l <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 ## Deploy the code to Azure App Service
 
 In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host.
@@ -176,6 +181,8 @@ Upon successful deployment, the command generates JSON output like the following
 
 ![Example az webapp up command output](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 > [!TIP]
 > Many Azure CLI commands cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up`, however, do not at present use the cache, which is why you needed to specify the resource group and location here with `az webapp up`.
 
@@ -197,6 +204,8 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - The resource group and app name are drawn from the cached values in the *.azure/config* file.
 - The command creates settings named `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` as expected by the app code.
 - In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ### Run Django database migrations
 
@@ -220,6 +229,8 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     ```
     
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
     
 ### Create a poll question in the app
 
@@ -231,9 +242,10 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 > [!NOTE]
 > App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](configure-language-python.md).
-
 
 ## Make code changes and redeploy
 
@@ -312,6 +324,8 @@ Test the app locally with the following steps:
 
 When running locally, the app is using a local Sqlite3 database and doesn't interfere with your production database. You can also use a local PostgreSQL database, if desired, to better simulate your production environment.
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 ### Update the app
 
 In `polls/models.py`, locate the line that begins with `choice_text` and change the `max_length` parameter to 100:
@@ -332,6 +346,8 @@ Run the development server again with `python manage.py runserver` and test the 
 
 Stop the Django web server again with **Ctrl**+**C**.
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 ### Redeploy the code to Azure
 
 Run the following command in the repository root:
@@ -341,6 +357,8 @@ az webapp up
 ```
 
 This command uses the parameters cached in the *.azure/config* file. Because App Service detects that the app already exists, it just redeploys the code.
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ### Rerun migrations in Azure
 
@@ -357,9 +375,13 @@ source /antenv/bin/activate
 python manage.py migrate
 ```
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 ### Review app in production
 
 Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creation a question.)
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## Stream diagnostic logs
 
@@ -374,6 +396,8 @@ az webapp log tail
 If you don't see console logs immediately, check again in 30 seconds.
 
 To stop log streaming at any time, type **Ctrl**+**C**.
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 > [!NOTE]
 > You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
@@ -394,6 +418,8 @@ By default, the portal shows your app's **Overview** page, which provides a gene
 
 ![Manage your Python Django app in the Overview page in the Azure portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
+
 ## Clean up resources
 
 If you'd like to keep the app or continue to the next tutorial, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group create for this tutorial:
@@ -403,6 +429,8 @@ az group delete
 ```
 
 The command uses the resource group name cached in the *.azure/config* file. By deleting the resource group, you also deallocate and delete all the resources contained within it.
+
+[Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ## Next steps
 

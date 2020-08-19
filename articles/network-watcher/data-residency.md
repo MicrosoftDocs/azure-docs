@@ -17,7 +17,7 @@ ms.author: damendo
 
 ---
 
-# Data residency for the Azure Network Watcher
+# Data residency for Azure Network Watcher
 Azure Network Watcher  does not store customer data except for the Connection Monitor (Preview) service.
 
 

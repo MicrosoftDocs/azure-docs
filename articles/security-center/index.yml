@@ -36,13 +36,13 @@ landingContent:
         links:
           - text: Release notes for Security Center
             url: release-notes.md
-          - text: Advanced data security for SQL machines
-            url: security-center-iaas-advanced-data.md
-          - text: Alert suppression rules
-            url: alerts-suppression-rules.md
+          - text: Manage your resources with asset inventory
+            url: asset-inventory.md
+          - text: Adaptive application control page rewritten
+            url: security-center-adaptive-application.md
           - text: Full descriptions of the new security controls
             url: secure-score-security-controls.md#security-controls-and-their-recommendations
-          - text: New secure score API
+          - text: Secure score API
             url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
  
   # Card

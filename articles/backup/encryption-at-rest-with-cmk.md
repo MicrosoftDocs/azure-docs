@@ -34,7 +34,7 @@ This article discusses the following:
 
 - This feature is currently configurable from the Azure portal only.
 
-[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+If you have not created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
 
 ## Configuring a vault to encrypt using customer-managed keys
 
