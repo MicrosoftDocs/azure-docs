@@ -93,5 +93,5 @@ Currently 1.0.
 - **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
 
 ## Next steps
-- [Authoring and signing an attestation policy](author-sign-policy.md)
+- [How to author and sign attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
