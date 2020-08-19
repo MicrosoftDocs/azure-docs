@@ -8,7 +8,9 @@ ms.date: 09/14/2020
 
 # Inference metadata schema 
 
-Each Inference object regardless of using HTTP based contract or gRPC based contract follows this object model:
+Each Inference object regardless of using HTTP based contract or gRPC based contract follows the object model described in this topic.
+
+## Object model
 
 ![Object model](./media/inference-metadata-schema/object-model.png)
  

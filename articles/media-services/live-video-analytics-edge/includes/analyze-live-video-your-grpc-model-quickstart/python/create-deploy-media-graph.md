@@ -43,6 +43,16 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
     * The Live Video Analytics module, named **lvaEdge**.
     * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed.
+
+        > [!NOTE]
+        > If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+
+        ```
+        mkdir /home/lvaadmin/samples
+        mkdir /home/lvaadmin/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+        chown -R lvaadmin /home/lvaadmin/samples/  
+        ```
     * The **lvaExtension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
     
     ![lva extension](../../../media/quickstarts/lvaextension-grpc.png)

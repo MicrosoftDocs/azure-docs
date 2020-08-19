@@ -114,7 +114,7 @@ The receiver then reads the data from this location in the file.
 For the Live Video Analytics container to communicate over shared memory, the IPC mode of the container must be configured correctly. This can be done in many ways, but here are some recommended configurations.
 
 * When communicating with a gRPC inferencing engine running on the host device, the IPC mode should be set to host.
-* When communicating with a gRPC server running in another IoT edge module, the IPC mode should be set to shareable for the Live Video Analytics module and `container:liveVideoAnalytics` for the custom extension, where `liveVideoAnalytics` is the name of the Live Video Analytics module.
+* When communicating with a gRPC server running in another IoT Edge module, the IPC mode should be set to shareable for the Live Video Analytics module and `container:liveVideoAnalytics` for the custom extension, where `liveVideoAnalytics` is the name of the Live Video Analytics module.
 
 Here's what this might look like in the device twin using the first option from above.
 
