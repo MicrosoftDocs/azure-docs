@@ -1,6 +1,6 @@
 ---
 title: Create a security automation for specific security alerts by using an Azure Resource Manager (ARM) template
-description: Learn how to create an Azure Security Center automation to trigger an empty logic app, which will be triggered by specific Security Center alerts by using an Azure Resource Manager (ARM) template
+description: Learn how to create an Azure Security Center automation to trigger a logic app, which will be triggered by specific Security Center alerts by using an Azure Resource Manager (ARM) template
 services: azure-resource-manager
 author: your-github-account-name
 ms.service: azure-resource-manager
@@ -12,7 +12,7 @@ ms.date: 08/19/2020
 
 # Quickstart: Create an automatic response to a specific security alert using an Azure Resource Manager template (ARM template)
 
-This quickstart page describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation to triggers an empty logic app when specific security alerts are received by Azure Security Center.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a workflow automation that triggers a logic app when specific security alerts are received by Azure Security Center.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -36,8 +36,8 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 ### Relevant resources
 
-- [**Microsoft.Security/automations**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider): The Automation which will trigger the empty Logic App, upon receiving an Azure Security Center alert which contains a specific string(in our example the alert triggering rule is “Virtual Machine” and has a severity of either "Medium", "High", "Low").
-- [**Microsoft.Logic/workflows**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftlogic-resource-provider): An empty triggerable Logic App
+- [**Microsoft.Security/automations**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider): The Automation that will trigger the empty Logic App, upon receiving an Azure Security Center alert that contains a specific string(in our example the alert triggering rule is “Virtual Machine” and has a severity of either "Medium", "High", "Low").
+- [**Microsoft.Logic/workflows**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftlogic-resource-provider): An empty triggerable Logic App.
 
 For other Security Center quickstart templates, see these [community contributed templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security).
 
@@ -58,6 +58,8 @@ For other Security Center quickstart templates, see these [community contributed
   - **Portal**:
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+
+    To find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
 
 ## Review deployed resources
 
