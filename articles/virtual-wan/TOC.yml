@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Virtual WAN
+  - name: What is Virtual WAN?
     href: virtual-wan-about.md
   - name: Architecture
     items: 
@@ -136,6 +136,10 @@
     items:
     - name: Logs and metrics
       href: logs-metrics.md
+  - name: Private Link
+    items: 
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
 - name: Reference
   items:
   - name: Azure PowerShell
