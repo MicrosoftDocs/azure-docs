@@ -301,6 +301,8 @@ The `New-AzDataMigrationTask` cmdlet also expects parameters that are unique to 
 
   * *SelectedLogins*. List of selected logins to migrate.
   * *SelectedAgentJobs*. List of selected agent jobs to migrate.
+  
+  Note:  Make sure to include at least one database in the parameter "-SelectedDatabase" , even if you are migrating logins and Agents only.
 
 * **Online migrations**. For online migrations, the `New-AzDataMigrationTask` cmdlet also expects the following parameters.
 
