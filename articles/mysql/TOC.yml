@@ -11,6 +11,7 @@
   items:
   - name: Documentation
     href: single-server/index.yml
+    displayName: single server
   - name: Overview
     items:
     - name: What is Single Server?
