@@ -18,7 +18,7 @@ ms.custom: devx-track-python
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to extract and identify relevant information in USA sales receipts.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
