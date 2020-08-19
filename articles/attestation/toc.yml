@@ -8,8 +8,6 @@
   items:
   - name: PowerShell
     href: quickstart-powershell.md
-  - name: ARM template
-    href: quickstart-template.md
 - name: Tutorials
   items:
   - name: Authoring and signing an attestation policy

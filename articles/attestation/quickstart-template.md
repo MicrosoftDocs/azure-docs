@@ -10,7 +10,7 @@ ms.author: mbaldwin
 ms.date: 07/20/2020
 ---
 
-# Quickstart: Create an Azure Attestation policy with an ARM template
+# Quickstart: Create an Azure Attestation provider with an ARM template
 
 [Microsoft Azure Attestation](overview.md) is a solution for attesting Trusted Execution Environments (TEEs). This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a Microsoft Azure Attestation policy.
 
