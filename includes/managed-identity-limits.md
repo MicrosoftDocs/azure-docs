@@ -11,7 +11,7 @@
  ms.custom: include file
 ---
 
-- Each Managed Identity counts towards the object quota limit in an Azure AD tenant as described [here](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md)
+- Each Managed Identity counts towards the object quota limit in an Azure AD tenant as described [here](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
 -	The rate at which Managed Identities can be created have the following limits:
 
 | Scope | 	Limit | 
