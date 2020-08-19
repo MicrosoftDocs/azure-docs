@@ -212,6 +212,7 @@
       displayname: Log Analytics workspace, log query, log queries, query, queries
       href: log-query/log-analytics-overview.md
     - name: Log queries
+      items:
       - name: Tutorial
         displayname: Log Analytics workspace, log query, log queries, query, queries
         href: log-query/get-started-portal.md
