@@ -132,8 +132,8 @@ The "Shut down virtual machines when users do not connect" setting will catch th
  
 For information on how to configure and enable automatic shutdown of VMs on disconnect, see these articles:
 
-* [Configure automatic shutdown of VMs on disconnect setting for a lab account](how-to-configure-lab-accounts.md)
-* [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md)
+* [Configure automatic shutdown of VMs for a lab account](how-to-configure-lab-accounts.md)
+* [Configure automatic shutdown of VMs for a lab](how-to-enable-shutdown-disconnect.md)
 
 ### Scheduled time vs. quota time
 

@@ -86,7 +86,7 @@ To obtain the credentials, download the vault credential file through a secure c
   - If control of the credentials is lost, the vault credentials can be used to register other machines to vault.
   - However, backup data is encrypted using a passphrase that belongs to the customer, so existing backup data can't be compromised.
 - Ensure that file is saved in a location that can be accessed from the DPM server. If it's stored in a file share/SMB, check for the access permissions.
-- Vault credentials expire after 48 hrs. You can download new vault credentials as many times as needed. However, only the latest vault credential file can be used during the registration workflow.
+- Vault credentials expire after 48 hours. You can download new vault credentials as many times as needed. However, only the latest vault credential file can be used during the registration workflow.
 - The Azure Backup service isn't aware of the certificate's private key, and the private key isn't available in the portal or the service.
 
 Download the vault credentials file to a local machine as follows:
@@ -176,4 +176,4 @@ Ensure that the vault credentials file is available in a location that can be ac
 If you encounter an invalid vault credential error (for example, “Invalid vault credentials provided") the file is either corrupted or doesn't have the latest credentials associated with the recovery service.
 
 - Retry the operation after downloading a new vault credential file from the portal.
-- This error is typically seen when you select on the **Download vault credential** option in the Azure portal, twice in quick succession. In this case, only the second vault credential file is valid.
+- This error is typically seen when you select the **Download vault credential** option in the Azure portal, twice in quick succession. In this case, only the second vault credential file is valid.
