@@ -46,9 +46,9 @@ These options are shown below.
 
     ```azurepowershell
     New-AzTemplateSpec `
-      -ResourceGroupName templateSpecRG `
       -Name storageSpec `
       -Version "1.0" `
+      -ResourceGroupName templateSpecRG `
       -Location westus2 `
       -TemplateJsonFile "c:\Templates\azuredeploy.json"
     ```
@@ -72,8 +72,8 @@ These options are shown below.
     ```azurecli
     az template-specs create \
       --name storageSpec \
-      --resource-group templateSpecRG \
       --version "1.0" \
+      --resource-group templateSpecRG \
       --location "westus2" \
       --template-file "c:\Templates\azuredeploy.json"
     ```
@@ -251,7 +251,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
     $id = az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id"
     ```
 
-    From Bash
+    From Bash: 
 
     ```azurecli
     id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
