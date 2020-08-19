@@ -74,7 +74,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 
 User requirements to connect to Windows Virtual Desktop:
 
-* The user must be sourced from the same AD that is synced to AAD. Windows Virtual Desktop does not support B2P or MSA accounts.
+* The user must be sourced from the same AD that is synced to AAD. Windows Virtual Desktop does not support B2B or MSA accounts.
 * The UPN used to subscribe to Windows Virtual Desktop must exist in the AD domain the VM is joined to.
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
