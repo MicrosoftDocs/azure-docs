@@ -251,9 +251,6 @@
     items:
     - name: Upload media
       href: how-to-upload-media.md
-    - name: From HTTPS
-      displayName: upload
-      href: job-input-from-http-how-to.md
     - name: From a local file
       items:
       - name: With REST
@@ -267,7 +264,7 @@
       href: cli-create-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
-    - name: With .NET
+    - name: Creat job input with a local file and .NET
       displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs

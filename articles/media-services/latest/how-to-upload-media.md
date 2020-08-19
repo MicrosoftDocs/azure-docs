@@ -34,7 +34,7 @@ Before you get started though, you'll need to collect or think about a few value
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
 
-## [REST](#tab/rest/)
+## [Postman](#tab/postman/)
 
 ## Prerequisites
 
