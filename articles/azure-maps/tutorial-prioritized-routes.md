@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Find multiple routes by mode of travel | Microsoft Azure Maps'
-description: Learn how to use Azure Maps to find routes for specific travel modes to points of interest. See how to display multiple routes on maps.
+description: Tutorial on how to use Azure Maps to find routes for specific travel modes to points of interest. See how to display multiple routes on maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -271,8 +271,6 @@ All of the following code blocks should be added **within the map load eventList
 
     The truck route is thick blue, and the car route is thin purple. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a USHazmatClass2 cargo type, is directed to use a different highway.
 
-## Next steps
-
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -281,16 +279,15 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
-> [!div class="nextstepaction"]
-> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
+[View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [!div class="nextstepaction"]
-> [View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+[View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+
+You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
+## Next steps
 
 The next tutorial demonstrates the process of creating a simple store locator by using Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)
-
-> [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

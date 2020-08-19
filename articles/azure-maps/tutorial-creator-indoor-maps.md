@@ -1,16 +1,16 @@
 ---
-title: Use Creator to create indoor maps
-description: Use Azure Maps Creator to create indoor maps.
+title: 'Tutorial: Use Creator to create indoor maps'
+description: Tutorial on how to use Azure Maps Creator to create indoor maps
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/17/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Use Creator to create indoor maps
+# Tutorial: Use Creator to create indoor maps
 
 This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 
@@ -390,8 +390,6 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
-## Next steps
-
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -403,30 +401,25 @@ In this tutorial, you learned how to:
 > * Create a feature stateset by using your map features and the data in your dataset
 > * Update your feature stateset
 
+Learn more about the different Azure Maps services discussed in this article:
+
+[Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
+
+[Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
+
+[Dataset](creator-indoor-maps.md#datasets)
+
+[Tileset](creator-indoor-maps.md#tilesets)
+
+[Feature State set](creator-indoor-maps.md#feature-statesets)
+
+[WFS service](creator-indoor-maps.md#web-feature-service-api)
+
+You can also [Implement dynamic styling for indoor maps](indoor-map-dynamic-styling.md)
+
+## Next steps
+
 You're now equipped with the skills you need to move on to the next guides:
 
 > [!div class="nextstepaction"]
 > [Use the Indoor Maps module](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implement dynamic styling for indoor maps](indoor-map-dynamic-styling.md)
-
-Learn more about the different Azure Maps services discussed in this article:
-
-> [!div class="nextstepaction"]
-> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Dataset](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Tileset](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Feature State set](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [WFS service](creator-indoor-maps.md#web-feature-service-api)

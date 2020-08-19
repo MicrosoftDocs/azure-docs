@@ -11,9 +11,17 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Migrate from Google Maps to Azure Maps
+# Tutorial: Migrate from Google Maps to Azure Maps
 
 This tutorial provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
+
+> [!div class="checklist"]
+> * Azure Maps platform overview
+> * High-level platform comparison
+> * Licensing considerations
+> * Suggested migration plan
+> * Azure Maps technical resources
+> * Migration support
 
 ## Azure Maps platform overview
 
@@ -94,15 +102,15 @@ Here is a list of useful technical resources for Azure Maps.
 
 Developers can seek migration support through the [forums](https://aka.ms/AzureMapsForums) or through one of the many Azure support options: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
+You can learn to migrate your Google Maps application using: 
+
+[Migrate an Android app](migrate-from-google-maps-android-app.md) 
+
+[Migrate a web service](migrate-from-google-maps-web-services.md) 
+
 ## Next steps
 
-Learn the details of how to migrate your Google Maps application with these articles:
+You can learn to migrate your Google Maps application using:
 
 > [!div class="nextstepaction"]
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Migrate an Android app](migrate-from-google-maps-android-app.md)
-
-> [!div class="nextstepaction"]
-> [Migrate a web service](migrate-from-google-maps-web-services.md)

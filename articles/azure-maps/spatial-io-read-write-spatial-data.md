@@ -154,34 +154,24 @@ The `atlas.io.read` function will default to the `atlas.io.core.GmlReader.read` 
 
 Learn more about the classes and methods used in this article:
 
-> [!div class="nextstepaction"]
-> [atlas.io static functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io static functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-> [!div class="nextstepaction"]
-> [SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-> [!div class="nextstepaction"]
-> [GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader?view=azure-maps-typescript-latest)
+[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader?view=azure-maps-typescript-latest)
 
-> [!div class="nextstepaction"]
-> [GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter?view=azure-maps-typescript-latest)
+[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter?view=azure-maps-typescript-latest)
 
-> [!div class="nextstepaction"]
-> [atlas.io.ogc.WKT functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[atlas.io.ogc.WKT functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
 
 See the following articles for more code samples to add to your maps:
 
-> [!div class="nextstepaction"]
-> [Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
+[Add an OGC map layer](spatial-io-add-ogc-map-layer.md)
 
-> [!div class="nextstepaction"]
-> [Connect to a WFS service](spatial-io-connect-wfs-service.md)
+[Connect to a WFS service](spatial-io-connect-wfs-service.md)
 
-> [!div class="nextstepaction"]
-> [Leverage core operations](spatial-io-core-operations.md)
+[Leverage core operations](spatial-io-core-operations.md)
 
-> [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+[Supported data format details](spatial-io-supported-data-format-details.md)

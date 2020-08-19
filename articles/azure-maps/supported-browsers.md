@@ -72,8 +72,6 @@ You might want to target older browsers that don't support WebGL or that have on
 
 Learn more about the Azure Maps Web SDK:
 
-> [!div class="nextstepaction"]
-> [Map control](how-to-use-map-control.md)
+[Map control](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [Services module](how-to-use-services-module.md)
+[Services module](how-to-use-services-module.md)

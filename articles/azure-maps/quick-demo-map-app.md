@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Interactive map search with Azure Maps"
-description: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications.
+title: 'Quickstart: Interactive map search with Azure Maps'
+description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -87,17 +87,15 @@ If you don't plan to continue to the tutorials, take these steps to clean up the
 2. Navigate to the Azure portal page. Select **All resources** from the main portal page. Or, click on the menu icon in the upper left-hand corner. Select **All resources**.
 3. Click on your Azure Maps account. At the top of the page, click **Delete**.
 
+For more code examples and an interactive coding experience, see these guides:
+
+[Find an address with Azure Maps search service](how-to-search-for-address.md)
+
+[Use the Azure Maps Map Control](how-to-use-map-control.md)
+
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Search nearby points of interest with Azure Maps](tutorial-search-location.md)
-
-For more code examples and an interactive coding experience, see these guides:
-
-> [!div class="nextstepaction"]
-> [Find an address with Azure Maps search service](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Use the Azure Maps Map Control](how-to-use-map-control.md)

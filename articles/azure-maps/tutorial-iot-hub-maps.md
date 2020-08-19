@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
-description: Integrate IoT Hub with Microsoft Azure Maps service APIs.
+description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -295,18 +295,9 @@ The map below shows four points where the vehicle was outside the geofence, logg
 
 ![violation map](./media/tutorial-iot-hub-maps/violation-map.png)
 
-## Next steps
-
-To explore Azure Maps APIs used in this tutorial, see:
-
-* [Get Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
-* [Get Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
-
 For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
-
-To learn more about IoT Plug and Play, see:
 
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
@@ -314,6 +305,14 @@ To get a list of devices that are Azure certified for IoT, visit:
 
 * [Azure certified devices](https://catalog.azureiotsolutions.com/)
 
+To explore Azure Maps APIs used in this tutorial, see:
+
+* [Get Search Address Reverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
+* [Get Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+
+## Next steps
+
 To learn more about how to send device to cloud telemetry and the other way around, see:
 
-* [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+> [!div class="nextstepaction"]
+> [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

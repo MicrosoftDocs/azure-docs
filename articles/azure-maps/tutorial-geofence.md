@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
-description: Learn how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service.
+description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 8/11/2020
@@ -464,13 +464,9 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 4. In the GeoJSON response above, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true` and the Operations Manager will receive an email notification indicating that the equipment has exited a geofence.
 
+You can also [Send email notifications using Event Grid and Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) and check [Supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) using Azure Maps.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Send email notifications using Event Grid and Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
+> Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
