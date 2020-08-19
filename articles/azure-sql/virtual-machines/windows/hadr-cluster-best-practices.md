@@ -132,7 +132,7 @@ Consider the following limitations when you're working with FCI or availability 
 
 ### MSDTC 
 
-Azure Virtual Machine supports Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) or on SQL Server VMs that are using Azure shared disks. 
 
 On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
 
