@@ -35,18 +35,19 @@ To get the logs using Azure Toolkit for IntelliJ:
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-   az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
+az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
 
 ```
 
-Log Streaming from Azure CLI
+You will see logs like:
+
     ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png)
 
 >[!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
 
 ---
-## Log Analytics
+### Log Analytics
 
 1. Go to the **service Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
 
@@ -86,4 +87,3 @@ Log Streaming from Azure CLI
 * [Diagnostic services](diagnostic-services.md)
 * [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
 * [Stream logs in real time](spring-cloud-howto-log-streaming.md)
-With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
