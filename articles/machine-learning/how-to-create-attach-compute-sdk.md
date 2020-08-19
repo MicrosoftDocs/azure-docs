@@ -54,7 +54,7 @@ Use the sections below to configure these compute targets:
 
 When you use your local computer for training, there is no need to create a compute target.  Just [submit the training run](how-to-submit-training.md) from your local machine.
 
-### <a id="amlcompute"></a>Azure Machine Learning compute cluster
+## <a id="amlcompute"></a>Azure Machine Learning compute cluster
 
 Azure Machine Learning compute cluster is a managed-compute infrastructure that allows you to easily create a single or multi-node compute. The compute is created within your workspace region as a resource that can be shared with other users in your workspace. The compute scales up automatically when a job is submitted, and can be put in an Azure Virtual Network. The compute executes in a containerized environment and packages your model dependencies in a [Docker container](https://www.docker.com/why-docker).
 
@@ -83,7 +83,7 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
 
 Now that you've attached the compute, the next step is to [submit the training run](how-to-submit-training.md).
 
- ## <a id="low-pri-vm"></a> Lower your compute cluster cost
+ ### <a id="low-pri-vm"></a> Lower your compute cluster cost
 
 You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
 

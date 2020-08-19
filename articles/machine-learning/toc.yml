@@ -287,7 +287,7 @@
               href: how-to-differential-privacy.md
     - name: Train models
       items: 
-        - name: Set up training environments
+        - name: Use compute targets for model training
           displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
           href: how-to-submit-training.md
         - name: Use estimators for ML

@@ -14,11 +14,11 @@ ms.date: 12/04/2019
 
 |Training &nbsp;targets|[Automated ML](../articles/machine-learning/concept-automated-ml.md) | [ML pipelines](../articles/machine-learning/concept-ml-pipelines.md) | [Azure Machine Learning designer](../articles/machine-learning/concept-designer.md)
 |----|:----:|:----:|:----:|
-|[Local computer](../articles/machine-learning/how-to-set-up-training-targets.md#local)| yes | &nbsp; | &nbsp; |
-|[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
-|[Azure Machine Learning compute instance](../articles/machine-learning/concept-compute-instance.md) | yes & <br/>hyperparameter tuning | yes |  |
-|[Remote VM](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | yes & <br/>hyperparameter tuning | yes | &nbsp; |
+|[Local computer](../articles/machine-learning/how-to-create-attach-compute-sdk.md#local)| yes | &nbsp; | &nbsp; |
+|[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-sdk.md#amlcompute)| yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
+|[Azure Machine Learning compute instance](.../articles/machine-learning/how-to-create-attach-compute-sdk.md#instance) | yes & <br/>hyperparameter tuning | yes |  |
+|[Remote VM](../articles/machine-learning/how-to-create-attach-compute-sdk.md#vm) | yes & <br/>hyperparameter tuning | yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| yes (SDK local mode only) | yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | yes | &nbsp; |
-|[Azure HDInsight](../articles/machine-learning/how-to-set-up-training-targets.md#hdinsight) | &nbsp; | yes | &nbsp; |
-|[Azure Batch](../articles/machine-learning/how-to-set-up-training-targets.md#azbatch) | &nbsp; | yes | &nbsp; |
+|[Azure HDInsight](../articles/machine-learning/how-to-create-attach-compute-sdk.md#hdinsight) | &nbsp; | yes | &nbsp; |
+|[Azure Batch](../articles/machine-learning/how-to-create-attach-compute-sdk.md#azbatch) | &nbsp; | yes | &nbsp; |
