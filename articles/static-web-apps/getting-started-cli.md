@@ -39,74 +39,74 @@ Now that the repository is created, you can create a static web app from the Azu
 > [!IMPORTANT]
 > Make sure you are in the _my-first-static-web-app_ folder in your terminal.
 
-Begin by signing in to the Azure CLI by using the following command.
+1. Sign in to the Azure CLI by using the following command.
 
-```bash
-az login
-```
+    ```bash
+    az login
+    ```
 
-Once signed in, you can create a new static web app from your repository.
+2. Create a new static web app from your repository.
 
-# [No Framework](#tab/vanilla-javascript)
+    # [No Framework](#tab/vanilla-javascript)
 
-```bash
-az staticwebapp create \
-    -n my-first-static-web-app \
-    -g <RESOURCE_GROUP_NAME> \
-    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-    -l <LOCATION> \
-    -b master \
-    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
-```
+    ```bash
+    az staticwebapp create \
+        -n my-first-static-web-app \
+        -g <RESOURCE_GROUP_NAME> \
+        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+        -l <LOCATION> \
+        -b master \
+        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+    ```
 
-# [Angular](#tab/angular)
+    # [Angular](#tab/angular)
 
-```bash
-az staticwebapp create \
-    -n my-first-static-web-app \
-    -g <RESOURCE_GROUP_NAME> \
-    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-    -l <LOCATION> \
-    -b master \
-    --app-artifact-location "dist/angular-basic" \
-    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
-```
+    ```bash
+    az staticwebapp create \
+        -n my-first-static-web-app \
+        -g <RESOURCE_GROUP_NAME> \
+        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+        -l <LOCATION> \
+        -b master \
+        --app-artifact-location "dist/angular-basic" \
+        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+    ```
 
-# [React](#tab/react)
+    # [React](#tab/react)
 
-```bash
-az staticwebapp create \
-    -n my-first-static-web-app \
-    -g <RESOURCE_GROUP_NAME> \
-    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-    -l <LOCATION> \
-    -b master \
-    --app-artifact-location "build" \
-    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
-```
+    ```bash
+    az staticwebapp create \
+        -n my-first-static-web-app \
+        -g <RESOURCE_GROUP_NAME> \
+        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+        -l <LOCATION> \
+        -b master \
+        --app-artifact-location "build" \
+        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+    ```
 
-# [Vue](#tab/vue)
+    # [Vue](#tab/vue)
 
-```bash
-az staticwebapp create \
-    -n my-first-static-web-app \
-    -g <RESOURCE_GROUP_NAME> \
-    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
-    -l <LOCATION> \
-    -b master \
-    --app-artifact-location "dist" \
-    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
-```
+    ```bash
+    az staticwebapp create \
+        -n my-first-static-web-app \
+        -g <RESOURCE_GROUP_NAME> \
+        -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+        -l <LOCATION> \
+        -b master \
+        --app-artifact-location "dist" \
+        --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+    ```
 
----
+    ---
 
-- `<RESOURCE_GROUP_NAME>`: Replace this value with an Azure resource group name.
+    - `<RESOURCE_GROUP_NAME>`: Replace this value with an Azure resource group name.
 
-- `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
+    - `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
 
-- `<LOCATION>`: Replace this value with the location nearest you. Options include: _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_, and _WestUS2_.
+    - `<LOCATION>`: Replace this value with the location nearest you. Options include: _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_, and _WestUS2_.
 
-- `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated.
+    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated.
 
 You can now view the created app in Azure.
 
@@ -118,13 +118,13 @@ You can now view the created app in Azure.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
+If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance by running the following command:
 
-1. Open the [Azure portal](https://portal.azure.com)
-1. Search for **my-first-web-static-app** from the top search bar
-1. Select the app name
-1. Select the **Delete** button
-1. Select **Yes** to confirm the delete action
+```bash
+az staticwebapp delete \
+    --name my-first-static-web-app
+    --resource-group my-first-static-web-app
+```
 
 ## Next steps
 
