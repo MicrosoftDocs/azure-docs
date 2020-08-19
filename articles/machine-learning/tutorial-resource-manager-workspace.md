@@ -33,7 +33,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
 
-:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json" range="1-258" highlight="224-254":::
+:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json":::
 
 The following resources are defined in the template:
 
