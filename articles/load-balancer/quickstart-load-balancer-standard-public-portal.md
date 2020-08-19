@@ -38,8 +38,6 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 In this section, you create a load balancer that load balances virtual machines. 
 
-You can create a public load balancer or an internal load balancer. 
-
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
@@ -318,8 +316,6 @@ For more information on outbound connections, see [Outbound connections in Azure
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
-
-You can create a public load balancer or an internal load balancer. 
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
