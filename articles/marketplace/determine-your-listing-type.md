@@ -17,9 +17,9 @@ To configure your offer, you'll need to understand the following key commercial 
 
 In this article, you will learn:
 
-- How to determine the appropriate online store for your solution
-- Which publishing options and calls-to-action are available in each online storeonline store
-- Which offer types are available for each publishing option
+- How to determine the appropriate online store for your solution.
+- Which publishing options and calls-to-action are available in each online store.
+- Which offer types are available for each publishing option.
 
 ## Commercial marketplace publishing options
 
