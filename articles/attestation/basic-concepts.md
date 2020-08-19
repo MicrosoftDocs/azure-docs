@@ -98,5 +98,5 @@ See [claims issued by Azure Attestation](claim-sets.md) for more information.
 
 ## Next steps
 
-- [Authoring and signing an attestation policy](author-sign-policy.md)
+- [How to author and sign attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
