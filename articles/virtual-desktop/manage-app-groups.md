@@ -30,7 +30,7 @@ the following process:
 
 2.  Search for and select **Windows Virtual Desktop**.
 
-3. You can add an application group directly or from an existing host pool. Either
+3. You can add an application group directly or you can add it from an existing host pool. Choose an option below:
 
     - Select **Application groups** in the menu on the left side of the page, then select **+ Add**.
 
