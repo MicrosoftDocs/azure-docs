@@ -164,7 +164,7 @@ ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(boo
 itemResponse.Resource
 ```
 
-**Enable bulk to optimize for throughput instead of latency**
+**Enable Bulk to optimize for throughput instead of latency**
 
 Enable *Bulk* for scenarios where the workload requires a large amount of throughput, and latency is not as important. For more information about how to enable the Bulk feature, and to learn which scenarios it should be used for, see [Introduction to Bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
@@ -177,18 +177,15 @@ Azure Cosmos DB requests are made over HTTPS/REST when you use Gateway mode. The
 SQL .NET SDK supports parallel queries, which enable you to query a partitioned container in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. 
 
 Parallel queries provide two parameters that you can tune to fit your requirements: 
-- `MaxConcurrency` controls the maximum number of partitions that can be queried in parallel.
 
-   ***Tuning the degree of concurrency***
+- **MaxConcurrency**: Controls the maximum number of partitions that can be queried in parallel.
 
    Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxConcurrency` in [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
 
     Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
    
-- `MaxBufferedItemCount` controls the number of pre-fetched results.
+- **MaxBufferedItemCount**: Controls the number of pre-fetched results.
 
-   ***Tuning MaxBufferedItemCount***
-    
    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The `MaxBufferedItemCount` parameter limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching.
 
    Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
