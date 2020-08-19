@@ -40,9 +40,9 @@ To get the primary subscription key for your account, follow the instructions in
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
-## Create an Azure notebook
+## Create an Azure Notebook
 
-To follow along with this tutorial, you need to create an Azure notebook project and download and run the Jupyter notebook file. The notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure notebook project and upload the Jupyter notebook document to it, do the following steps:
+To follow along with this tutorial, you need to create an Azure Notebook project and download and run the Jupyter notebook file. The notebook file contains Python code, which implements the scenario in this tutorial. To create an Azure Notebook project and upload the Jupyter notebook document to it, do the following steps:
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. At the top of your public profile page, select **My Projects**.
