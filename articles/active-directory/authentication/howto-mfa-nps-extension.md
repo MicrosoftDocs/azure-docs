@@ -41,15 +41,15 @@ As RADIUS is a UDP protocol, the sender assumes packet loss and awaits a respons
 
 ![Diagram of RADIUS UDP packet flow and requests after timeout on response from NPS server](./media/howto-mfa-nps-extension/radius-flow.png)
 
-The NPS extension may not respond to the VPN server's original request before the connection times out. The MFA request may still be being processed, as the user may not have successfully responded to the MFA prompt. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
+The NPS server may not respond to the VPN server's original request before the connection times out as the MFA request may still be being processed. The user may not have successfully responded to the MFA prompt, so the Azure Multi-Factor Authentication NPS extension is waiting for that event to complete. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
 
 ![Diagram of NPS server discarding duplicate requests from RADIUS server](./media/howto-mfa-nps-extension/discard-duplicate-requests.png)
 
 If you look at the NPS server logs, you may see these additional requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication attempt. Discarded requests in the NPS server event log don't indicate there's a problem with the NPS server or the Azure Multi-Factor Authentication NPS extension.
 
-To minimize discarded requests, we recommend that the VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
+To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
-Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send an MFA response, even after the user has already responded to the initial request. To avoid this timing condition, the NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response to the VPN server.
+Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send another MFA prompt, even after the user has already responded to the initial request. To avoid this timing condition, the Azure Multi-Factor Authentication NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response has been sent to the VPN server.
 
 ![Diagram of NPS server continuing to discard duplicate requests from VPN server for ten seconds after a successful response is returned](./media/howto-mfa-nps-extension/delay-after-successful-authentication.png)
 
@@ -374,6 +374,12 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 If your previous computer certificate has expired, and a new certificate has been generated, delete any expired certificates. Expired certificates can cause issues with the NPS extension starting.
 
 To check if you have a valid certificate, check the local *Computer Account's Certificate Store* using MMC, and ensure the certificate hasn't passed its expiry date. To generate a newly valid certificate, rerun the steps from [Run the PowerShell installer script](#run-the-powershell-script).
+
+### Why do I see discarded requests in the NPS server logs?
+
+A VPN server may send repeated requests to the NPS server if the timeout value is too low. The NPS server detects these duplicate requests and discards them. This behavior is by design, and doesn't indicate a problem with the NPS server or the Azure Multi-Factor Authentication NPS extension.
+
+For more information on why you see discarded packets in the NPS server logs, see [RADIUS protocol behavior and the NPS extension](#radius-protocol-behavior-and-the-nps-extension) at the start of this article.
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 
