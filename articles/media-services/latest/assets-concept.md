@@ -5,15 +5,15 @@ titleSuffix: Azure Media Services
 description: Learn about what assets are and how they're used by Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
@@ -40,7 +40,7 @@ The names of files/blobs within an asset must follow both the [blob name require
 
 ## Next steps
 
-[Manage assets in Media Services](manage-asset-concept.md)
+[Media Services Overview](media-services-overview.md)
 
 ## See also
 
