@@ -126,7 +126,7 @@ If you have scripts, queries, or automations referring to the previous recommend
 
 ### New AKS security policies added to ASC_default initiative – for use by private preview customers only
 
-To ensure that newly-created Kubernetes workloads are secure by default, Security Center is adding Kubernetes level policy management, hardening, and enforcement with admission control.
+To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level policies and  hardening recommendations, including enforcement options with Kubernetes admission control.
 
 The early phase of this project includes a private preview and the addition of new (disabled) policies to the ASC_default initiative.
 
