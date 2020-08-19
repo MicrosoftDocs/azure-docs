@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -268,64 +268,6 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ## Data protection
 
 *For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
-
-### 4.1: Maintain an inventory of sensitive Information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32295.).
-
-**Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
-
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 4.2: Isolate systems storing or processing sensitive information
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32296.).
-
-**Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory RBAC. 
-
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
-
-- [How to create management groups](../governance/management-groups/create.md) 
-
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 4.4: Encrypt all sensitive information in transit
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32298.).
-
-**Guidance**: If you are using Azure VPN Gateway to create a secure connection between your on-premises network and your Azure virtual networks, ensure that your on-premises local network gateway has been configured with compatible IPsec communication and encryption parameters. Any misconfiguration will lead to loss of connectivity between the on-premises network and Azure.
-
-- [Supported IPSec parameters for Azure VPN Gateway](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md)
-
-- [How to configure a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-
-**Azure Security Center monitoring**: Currently Not Available
-
-**Responsibility**: Customer
-
-### 4.6: Use Azure RBAC to manage access to resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32300.).
-
-**Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
-
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
