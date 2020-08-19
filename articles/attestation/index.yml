@@ -57,5 +57,5 @@ landingContent:
           - text: Authoring and signing an attestation policy
             url: author-sign-policy.md
           - text: SGX attestation code samples
-            url: sgx-enclave-sdk.md
+            url: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation
       
