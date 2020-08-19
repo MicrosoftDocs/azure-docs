@@ -39,7 +39,7 @@ When there are no known issues affecting your cluster’s health, Resource Healt
 
 ![Available](./media/aks-resource-health/available.png)
 
-When Resource Health receives a signal from your managed cluster on a health issue requiring your action. It will display its health status as degraded.
+Resource Health displays its status as *Degraded* when it receives a signal from your managed cluster on a health issue requiring your action.
 
 ![Degraded](./media/aks-resource-health/degraded.png)
 
