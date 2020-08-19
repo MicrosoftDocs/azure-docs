@@ -317,6 +317,9 @@
       - name: Azure portal
         href: howto-move-regions-portal.md
 - name: Flexible Server (Preview)
+  items:
+  - name: Documentation
+    href: flexible-server/index.yml
 - name: Reference
   items:
   - name: Azure CLI
