@@ -22,20 +22,14 @@ In this tutorial you will:
 > [!div class="checklist"]
 > * Create an Azure Storage account to log car tracking data.
 > * Upload a geofence to the Azure Maps Data service using the Data Upload API.
-
-
-
-> * Create an IoT Hub.
-> * Upload a geofence area to the Azure Maps Data service using the Data Upload API.
+> * Create an IoT Hub and register a device.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Event Grid.
 > * Filter the telemetry events using IoT Hub message routing.
-> * Create a storage account to store relevant event data.
-> * Simulate an in-vehicle IoT device.
 
-## Use case
+## Use case: rental car tracking
 
-This solution demonstrates a scenario where a car rental company logs location information, distance traveled, and running state for its rental cars. In addition, the company wishes to store this information whenever a car leaves the correct geographic region.
+This tutorial demonstrates the following scenario: A car rental company wants to log location information, distance traveled, and running state for its rental cars. In addition, the company wishes to store this information whenever a car leaves the correct authorized geographic region.
 
 In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). The rental car's device telemetry schema looks like the following JSON code:
 
@@ -64,13 +58,17 @@ In our use case, the rental cars are equipped with IoT devices that regularly se
 }
 ```
 
-We'll use in-vehicle device telemetry to track the movement and location of rental cars. We want to execute geofencing rules. And, we want to respond whenever we receive an event indicating the car has moved. To do so, we'll subscribe to the device telemetry events from IoT Hub via Event Grid.
+In this tutorial, we will only track one vehicle. After we set up the Azure services, you'll need to download the [rentalCarSimulation C# project ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) to run the vehicle simulator. The entire process, from event to function execution, is summarized in the following steps:
 
-There are several ways to subscribe to Event Grid, in this tutorial we use Azure Functions. Azure Functions reacts to events published in the Event Grid. It also implements car rental business logic, which is based on Azure Maps spatial analytics. 
+1. The in-vehicle device sends telemetry data to IoT hub.
 
-Code inside Azure function checks whether the vehicle has left the geofence. If the vehicle left the geofence, the Azure function gathers additional information such as the address associated to the current location. The function also implements logic to store meaningful event data in a data blob storage that helps provide description of the event circumstances. 
+2. If the car engine is running, the IoT hub publishes the telemetry data to the Event Grid.
 
-The event circumstances can be helpful to the car rental company and the rental customer. The following diagram gives you a high-level overview of the system.
+3. An Azure function is triggered by the event due to its event subscription to device telemetry events.
+
+4. The function will log the vehicle device location coordinates, event time, and the device ID. It will then use the [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to determine whether the car has driven outside the designated geofence. If it has travelled outside the geofence boundaries, the function stores the location data received from the event into our blob container. In addition, our function queries the [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate the coordinate location to a street address, and store it with the rest of the device location data.
+
+The following diagram gives you a high-level overview of the system.
 
   ![System overview](./media/tutorial-iot-hub-maps/system-diagram.png)
 
@@ -82,17 +80,19 @@ The following figure highlights the geofence area in blue. The rental car's rout
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
 
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
 
+5. Download the [rentalCarSimulation C# project ](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
+
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Create an Azure storage account
 
-To store car violationtracking data, we'll create a[general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts) in your resource group. If you have not created a resource group, make sure you do that first by following the directions in [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*.
+To store car violation tracking data, we'll create a [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts) in your resource group. If you have not created a resource group, follow the directions in [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*.
 
 To create a the storage account, follow the instructions in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). In this tutorial, we are naming the storage account *contosorentalstorage*,but you can name it anything you like.
 
@@ -112,7 +112,7 @@ Once your storage account has been successfully created, we'll need to create a 
 
 ## Upload a geofence
 
-We'll now use the [Postman application](https://www.getpostman.com) to [upload the geofence](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) to the Azure Maps service using the Azure Maps Data Upload API. We'll be using the geofence in our Azure function to determine whether a car has moved outside the geofence area.
+We'll now use the [Postman application](https://www.getpostman.com) to [upload the geofence](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) to the Azure Maps service using the Azure Maps Data Upload API. The geofence defines the authorized geographical area for our rental vehicle.  We'll be using the geofence in our Azure function to determine whether a car has moved outside the authorized area.
 
 Open the Postman app and follow the steps below to upload the geofence using the Azure Maps Data Upload API.  
 
@@ -170,16 +170,6 @@ Azure Functions is a serverless compute service which allows you to run small pi
 A function is "triggered" by a certain event. In our scenario, we'll create a function that is triggered by an Event Grid Trigger. We create the relationship between trigger and function by creating an Event Subscription for IoT hub device telemetry events. When a device telemetry event occurs, our function will be called as an endpoint, and will receive the relevant data for the [device we previously registered in IoT hub](#register-a-device-in-iot-hub).
 
 The C# script code that our function will contain can be seen [here](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx).
-
-The entire process, from event to function execution, is summarized in the following steps:
-
-1. The in-vehicle device sends telemetry data to the IoT hub.
-
-2. IoT hub publishes a device telemetry event ot the Event Grid.
-
-3. An Azure function is triggered by the event due to its event subscription to device telemetry events.
-
-4. The function will get the vehicle device location coordinates, event time, and the device ID. It will then use the [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to determine whether the car has driven outside the designated geofence. If it has travelled outside the geofence boundaries, the function will store the location data received from the event into our blob container. In addition, our function queries the [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate the coordinate location to a street address, and store it with the rest of the device location data.
 
 Now, we'll setup our Azure function.
 
@@ -242,7 +232,7 @@ In our example scenario, we only want to receive messages when the rental car is
 
 Once our Azure Function is up and running, we can now send telemetry data to the IoT hub, which will route it to the Event Grid. Let's use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need the .NET Core SDK 2.1.0 or greater on your development machine. Follow the steps below to send simulated telemetry data to IoT Hub.
 
-1. Download the [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# project.
+1. If you haven't done so already, download the [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# project.
 
 2. Open the simulatedCar.cs file in a text editor of your choice and replace the value of the `connectionString` with the one you saved when you registered the device and save changes to the file.
 
