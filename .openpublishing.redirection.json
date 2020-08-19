@@ -55980,5 +55980,10 @@
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
       "redirect_document_id": false
     }
+    {
+      "source_path": "articles/media-services/latest/upload-files-rest-how-to.md",
+      "redirect_url": "articles/media-services/latest/how-to-upload-media?tabs=rest",
+      "redirect_document_id": false
+    }
   ]
 }
