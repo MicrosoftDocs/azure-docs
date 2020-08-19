@@ -85,7 +85,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 - If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 - Create and use a prefix for the display name (e.g. NPVDI-) of the computer that indicates the desktop as non-persistent VDI-based.
 - For Windows down-level:
-   - Implement **autoworkplacejoin /leave** command as part of logoff script. This command should be triggered in the context of the user and should be execute before the user has logged off completely and whilte there is still network connectivity.
+   - Implement **autoworkplacejoin /leave** command as part of logoff script. This command should be triggered in the context of the user and should be execute before the user has logged off completely and while there is still network connectivity.
 - For Windows current in a Federated environment (e.g. AD FS):
    - Implement **dsregcmd /join** as part of VM boot sequence.
    - **DO NOT** execute dsregcmd /leave as part of VM shutdown/restart process.
