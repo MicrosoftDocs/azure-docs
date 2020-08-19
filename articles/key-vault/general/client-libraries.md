@@ -19,18 +19,6 @@ ms.author: mbaldwin
 
 The client libraries for Azure Key Vault allow programmatic access to Key Vault functionality from a variety of languages, including .NET, Python, Java, and Javascript.
 
-<<<<<<< HEAD
-Each SDK has separate client libraries for secrets, keys, and certificates, per the table below.
-
-| .NET | - [API Reference](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet)<br>- [NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)<br>[Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Secrets)<br>- [Quickstart](../secrets/quick-create-net.md) | - [API Reference](/dotnet/api/azure.security.keyvault.keys?view=azure-dotnet)<br>- [NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Keys/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Keys)<br>- [Quickstart](../keys/quick-create-net.md) | - [API Reference](/dotnet/api/azure.security.keyvault.certificates?view=azure-dotnet)<br>- [NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Certificates/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Certificates)<br>- [Quickstart](../certificates/quick-create-net.md) |
-| Python| - [API Reference](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python)<br>- [PyPi package](https://pypi.org/project/azure-keyvault-secrets/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-python.md) |- [API Reference](/python/api/overview/azure/keyvault-keys-readme?view=azure-python)<br>- [PyPi package](https://pypi.org/project/azure-keyvault-keys/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys)<br>- [Quickstart](../keys/quick-create-python.md) | - [API Reference](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python)<br>- [PyPi package](https://pypi.org/project/azure-keyvault-certificates/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)<br>- [Quickstart](../certificates/quick-create-python.md) |
-| Java | - [API Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-java.md) |- [API Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys)<br>- [Quickstart](../keys/quick-create-java.md) | - [API Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.2.0/index.html)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificate)<br>- [Quickstart](../certificates/quick-create-java.md) |
-| Node.js | - [API Reference](/javascript/api/@azure/keyvault-secrets/?view=azure-node-latest)<br>- [npm package](https://www.npmjs.com/package/@azure/keyvault-secrest)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault/keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-javascript.md) |- [API Reference](/javascript/api/@azure/keyvault-keys/?view=azure-node-latest)<br>- [npm package](https://www.npmjs.com/package/@azure/keyvault-keys)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault/keyvault-keys)<br>- [Quickstart](../keys/quick-create-javascript.md) | - [API Reference](/javascript/api/@azure/keyvault-certificates/?view=azure-node-latest)<br>- [npm package](https://www.npmjs.com/package/@azure/keyvault-certificates)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault/keyvault-certificates)<br>- [Quickstart](../certificates/quick-create-javascript.md) |
-
-## Next steps
-
-- See the [Azure Key Vault developers-guide.md](developers-guide.md)
-=======
 ## Client libraries per language and object
 
 Each SDK has separate client libraries for secrets, keys, and certificates, per the table below.
@@ -45,5 +33,4 @@ Each SDK has separate client libraries for secrets, keys, and certificates, per 
 ## Next steps
 
 - See the [Azure Key Vault developers guide](developers-guide.md)
->>>>>>> f26b7b4a20b40cacc5464c0f780451fb5ca1b794
 - Read more about [managed identity for Azure Key Vault](managed-identity.md)
