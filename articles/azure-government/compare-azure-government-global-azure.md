@@ -490,7 +490,7 @@ When you're deploying the StorSimple Manager service, use the [https://portal.az
 ### [Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
 
-For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.
+For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5#azure-importexport).
 
 For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage).
 
