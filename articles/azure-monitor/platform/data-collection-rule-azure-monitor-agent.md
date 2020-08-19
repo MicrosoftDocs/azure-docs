@@ -57,8 +57,7 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 > [!NOTE]
 > Once the data collection rule and associations have been created, it may take up to 5 minutes for data to be sent to the destinations.
 
-
-## Create using REST API
+## Create using REST API
 Follow the steps below to create a DCR and associations using the REST API. 
 1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
 2. Create the rule using the [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
