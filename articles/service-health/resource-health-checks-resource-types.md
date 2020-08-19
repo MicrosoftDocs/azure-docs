@@ -41,7 +41,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/domainnames
 |Executed Checks|
 |---|
-|<ul><li>Is the Cloud Service hosted name up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+|<ul><li>Is production slot deployment healthy across all role instances?</li><li>Is the role healthy across all its VM instances?</li><li>What is the health status of each VM within a role of a cloud service?</li><li>Was the VM status change due to platform or customer initiated operation?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
 
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|

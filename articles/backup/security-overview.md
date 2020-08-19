@@ -43,9 +43,9 @@ Encryption protects your data and helps you to meet your organizational security
 
 * Within Azure, data in transit between Azure storage and the vault is [protected by HTTPS](backup-support-matrix.md#network-traffic-to-azure). This data remains on the Azure backbone network.
 
-* Backup data is automatically encrypted using [Microsoft-managed keys](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), and you don't need to take any explicit action to enable it. You can also encrypt your backed up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
+* Backup data is automatically encrypted using [platform-managed keys](backup-encryption.md), and you don't need to take any explicit action to enable it. You can also encrypt your backed up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
 
-* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) and [VMs with CMK encrypted disks](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
+* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-azure-vms-encryption.md#encryption-support-using-ade) and [VMs with CMK encrypted disks](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
 
 * When data is backed up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to Azure Backup and decrypted only after it's downloaded from Azure Backup. Read more about [security features to help protect hybrid backups](#security-features-to-help-protect-hybrid-backups).
 
