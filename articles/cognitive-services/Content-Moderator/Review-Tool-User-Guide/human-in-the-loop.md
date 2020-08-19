@@ -27,7 +27,6 @@ The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used i
 - Assign or escalate content reviews to multiple review teams, organized by content category or experience level.
 - Use default or custom logic filters ([workflows](../review-api.md#workflows)) to sort and track content, without writing any code.
 - Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Text Analytics, and Face services in addition to the Content Moderator APIs.
-- Build your own connector to create workflows for any API or business process.
 - Get key performance metrics on your content moderation processes.
 
 ## Review tool dashboard
