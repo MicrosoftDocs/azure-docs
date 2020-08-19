@@ -454,7 +454,7 @@
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: debug, connection issues, transient, errors, hyperscale
 - name: Reference
-   items:
+  items:
    - name: SQL API functions
      href: reference-hyperscale-functions.md
    - name: Server parameters
