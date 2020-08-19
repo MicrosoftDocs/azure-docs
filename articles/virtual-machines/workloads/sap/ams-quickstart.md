@@ -24,10 +24,9 @@ Sign in to the Azure portal at https://portal.azure.com
 
 2. In the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
 
-> [!NOTE]
->  Ensure that the systems you want to monitor are reachable from within the selected virtual network.
-
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Display of the Azure portal configuration options.":::
+
+3. When selecting a virtual network, ensure that the systems you want to monitor are reachable from within that VNET. 
 
 > [!IMPORTANT]
 > Selecting **Share** for Data sharing with Microsoft enables our support teams to provide additional support.
@@ -75,28 +74,28 @@ Sign in to the Azure portal at https://portal.azure.com
 1. Prior to adding the Microsoft SQL Server provider, you should run the following script in SQL Server Management Studio to create a user with the appropriate permissions needed to configure the provider.
 
 ```sql
-   USE [<Database to monitor>]
-   DROP USER [AMS]
-   GO
-   USE [master]
-   DROP USER [AMS]
-   DROP LOGIN [AMS]
-   GO
-   CREATE LOGIN [AMS] WITH PASSWORD=N'<password>', DEFAULT_DATABASE=[<Database to monitor>], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-   CREATE USER AMS FOR LOGIN AMS
-   ALTER ROLE [db_datareader] ADD MEMBER [AMS]
-   ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
-   GRANT CONNECT TO AMS
-   GRANT VIEW SERVER STATE TO AMS
-   GRANT VIEW SERVER STATE TO AMS
-   GRANT VIEW ANY DEFINITION TO AMS
-   GRANT EXEC ON xp_readerrorlog TO AMS
-   GO
-   USE [<Database to monitor>]
-   CREATE USER [AMS] FOR LOGIN [AMS]
-   ALTER ROLE [db_datareader] ADD MEMBER [AMS]
-   ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
-   GO
+USE [<Database to monitor>]
+DROP USER [AMS]
+GO
+USE [master]
+DROP USER [AMS]
+DROP LOGIN [AMS]
+GO
+CREATE LOGIN [AMS] WITH PASSWORD=N'<password>', DEFAULT_DATABASE=[<Database to monitor>], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+CREATE USER AMS FOR LOGIN AMS
+ALTER ROLE [db_datareader] ADD MEMBER [AMS]
+ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
+GRANT CONNECT TO AMS
+GRANT VIEW SERVER STATE TO AMS
+GRANT VIEW SERVER STATE TO AMS
+GRANT VIEW ANY DEFINITION TO AMS
+GRANT EXEC ON xp_readerrorlog TO AMS
+GO
+USE [<Database to monitor>]
+CREATE USER [AMS] FOR LOGIN [AMS]
+ALTER ROLE [db_datareader] ADD MEMBER [AMS]
+ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
+GO
 ``` 
 
 2. Select **Add provider** and choose **Microsoft SQL Server** from the drop down. 
