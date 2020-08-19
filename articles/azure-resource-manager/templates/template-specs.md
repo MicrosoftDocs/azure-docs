@@ -110,7 +110,10 @@ Get-AzTemplateSpec -ResourceGroupName templateSpecsRG -Name storageSpec
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0"
+az template-specs show \
+    --name storageSpec \
+    --resource-group templateSpecRG \
+    --version "1.0"
 ```
 
 ---
