@@ -49,7 +49,7 @@ Two Azure resources are defined in the template:
    - **Batch Account Name**: Leave the default value.
    - **Storage Accountsku**: select a storage account type. For example, **Standard_LRS**.
    - **Location**: Leave the default so that the resources will be in the same location as your resource group.
-   - I agree to the terms and conditions state above: **Select**.
+   - I agree to the terms and conditions stated above: **Select**.
 
 1. Select **Purchase**.
 
