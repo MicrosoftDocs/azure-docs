@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
 # Add sign-in to Microsoft to an ASP.NET web app

@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 
