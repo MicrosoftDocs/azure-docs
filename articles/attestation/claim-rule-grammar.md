@@ -92,6 +92,6 @@ The set of actions that are allowed in a policy are described below.
 | issueproperty(claim) | Adds the claim to the incoming and property claims set | Issuancerules
 
 ## Next steps
-- [Authoring and signing an attestation policy](author-sign-policy.md)
+- [How to author and sign attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
 
