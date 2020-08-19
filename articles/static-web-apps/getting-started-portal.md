@@ -26,87 +26,87 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 Now that the repository is created, you can create a static web app from the Azure portal.
 
-- Navigate to the [Azure portal](https://portal.azure.com)
-- Select **Create a Resource**
-- Search for **Static Web Apps**
-- Select **Static Web Apps (Preview)**
-- Select **Create**
+1. Navigate to the [Azure portal](https://portal.azure.com)
+1. Select **Create a Resource**
+1. Search for **Static Web Apps**
+1. Select **Static Web Apps (Preview)**
+1. Select **Create**
 
 ### Basics
 
-1. Begin by configuring your new app and linking it to a GitHub repository.
+Begin by configuring your new app and linking it to a GitHub repository.
 
-    :::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics tab":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics tab":::
 
-    - Select your _Azure subscription_
-    - Select or create a new _Resource Group_
-    - Name the app **my-first-static-web-app**.
-      - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
-    - Select a _Region_ closest to you
-    - Select the **Free** _SKU_
-    - Select the **Sign-in with GitHub** button and authenticate with GitHub
+1. Select your _Azure subscription_
+1. Select or create a new _Resource Group_
+1. Name the app **my-first-static-web-app**.
+      1. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
+1. Select a _Region_ closest to you
+1. Select the **Free** _SKU_
+1. Select the **Sign-in with GitHub** button and authenticate with GitHub
 
-1. After you sign in with GitHub, enter the repository information.
+After you sign in with GitHub, enter the repository information.
 
-    :::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Repository details":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Repository details":::
 
-    - Select your preferred _Organization_
-    - Select **my-first-web-static-app** from the _Repository_ drop-down
-    - Select **master** from the _Branch_ drop-down
-    - Select the **Next: Build >** button to edit the build configuration
+1. Select your preferred _Organization_
+1. Select **my-first-web-static-app** from the _Repository_ drop-down
+1. Select **master** from the _Branch_ drop-down
+1. Select the **Next: Build >** button to edit the build configuration
 
-    :::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Next Build button":::
+:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Next Build button":::
 
-    > [!NOTE]
-    >  If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+> [!NOTE]
+>  If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
 ### Build
 
-1. Next, add configuration details specific to your preferred front-end framework.
+Next, add configuration details specific to your preferred front-end framework.
 
-    # [No Framework](#tab/vanilla-javascript)
+# [No Framework](#tab/vanilla-javascript)
 
-    - Enter **/** in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Clear the default value from _App artifact location_ box
+1. Enter **/** in the _App location_ box
+1. Clear the default value from the _Api location_ box
+1. Clear the default value from _App artifact location_ box
 
-    # [Angular](#tab/angular)
+# [Angular](#tab/angular)
 
-    - Enter **/** in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Enter **dist/angular-basic** in the _App artifact location_ box
+1. Enter **/** in the _App location_ box
+1. Clear the default value from the _Api location_ box
+1. Enter **dist/angular-basic** in the _App artifact location_ box
 
-    # [React](#tab/react)
+# [React](#tab/react)
 
-    - Enter **/** in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Enter **build** in the _App artifact location_ box
+1. Enter **/** in the _App location_ box
+1. Clear the default value from the _Api location_ box
+1. Enter **build** in the _App artifact location_ box
 
-    # [Vue](#tab/vue)
+# [Vue](#tab/vue)
 
-    - Enter **/** in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Enter **dist** in the _App artifact location_ box
+1. Enter **/** in the _App location_ box
+1. Clear the default value from the _Api location_ box
+1. Enter **dist** in the _App artifact location_ box
 
-    ---
+---
 
-    Select **Review + create**.
+Select **Review + create**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
-    To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
+To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
 
 ### Review + create
 
-1. After the request validates, you can continue to create the application.
+After the request validates, you can continue to create the application.
 
-1. Select the **Create** button
+Select the **Create** button
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
+:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
 
-1. Select the **Go to resource** button
+Select the **Go to resource** button
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
+:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
 
