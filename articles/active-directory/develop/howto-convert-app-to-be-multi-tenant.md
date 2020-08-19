@@ -200,8 +200,8 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: /graph/
+[MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

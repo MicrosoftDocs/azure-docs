@@ -144,6 +144,8 @@
 
 - name: Reference
   items:
+  - name: Client libraries
+    href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
   - name: Common parameters and headers 

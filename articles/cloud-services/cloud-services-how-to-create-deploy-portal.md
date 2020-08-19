@@ -1,6 +1,6 @@
 ---
 title: How to create and deploy a cloud service | Microsoft Docs
-description: Learn how to create and deploy a cloud service using the Azure portal.
+description: Learn how to use the Quick Create method to create a cloud service and use Upload to upload and deploy a cloud service package in Azure.
 services: cloud-services
 documentationcenter: ''
 author: tgore03

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 # Customer intent: As an application developer, I want to learn about specific considerations when using
 #                  Azure AD B2C and MSAL.NET so I can decide if this platform meets my application development
 #                  needs and requirements.

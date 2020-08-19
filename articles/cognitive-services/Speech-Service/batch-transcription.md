@@ -58,7 +58,7 @@ If you plan to customize models, follow the steps in [Acoustic customization](ho
 
 The Batch Transcription API supports the following formats:
 
-| Format | Codec | Bitrate | Sample Rate                     |
+| Format | Codec | Bits Per Sample | Sample Rate             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 | MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |

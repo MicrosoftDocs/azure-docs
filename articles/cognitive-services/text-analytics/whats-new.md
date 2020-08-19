@@ -29,7 +29,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 The following updates are specific to the August release of the Text Analytics for health container only.
 
 * New model-version for Text Analytics for health: `2020-07-24`
-* New URL for sending Text Analytics for health requests: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* New URL for sending Text Analytics for health requests: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Please note that a browser cache clearing will be needed in order to use the demo web app included in this new container image)
 
 The following properties in the JSON response have changed:
 

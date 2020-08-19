@@ -6,7 +6,7 @@ ms.author: sebansal
 ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 
 ---
 # Troubleshooting Azure key vault access policy issues
@@ -31,6 +31,9 @@ If you are creating an on-prem application, doing local development, or otherwis
 Give the AD group permissions to your key vault using the Azure CLI az keyvault set-policy command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. For examples, review [give the application, Azure AD group, or user access to your key vault](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps#give-the-principal-access-to-your-key-vault).
 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to 8hr to refresh token and become effective.
+
+### How can I redeploy Key Vault with ARM template without deleting existing access policies?
+Currently Key Vault ARM redopleyment will delete any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
 ### Recommended troubleshooting Steps for following error types
 * HTTP 401: Unauthenticated Request - [Troubleshooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)

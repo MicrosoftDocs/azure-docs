@@ -402,7 +402,7 @@ If more IOPS are required, we recommend using Windows Storage Pools (only availa
 
 
 #### Write Accelerator
-For Azure M-Series VMs, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+For Azure M-Series VMs, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 
 ### Backup/restore
@@ -496,7 +496,7 @@ If more IOPS are required, we recommend using LVM (Logical Volume Manager) or MD
 
 
 #### Write Accelerator
-For Azure M-Series VMs, when you use Azure Write Accelerator, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage performance. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](../../linux/how-to-enable-write-accelerator.md).
+For Azure M-Series VMs, when you use Azure Write Accelerator, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage performance. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 
 ### Backup/restore

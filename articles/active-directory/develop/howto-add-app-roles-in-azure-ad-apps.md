@@ -26,7 +26,7 @@ Another approach is to use Azure AD Groups and Group Claims, as shown in [WebApp
 
 ## Declare roles for an application
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest.  When a user signs into the application, Azure AD emits a `roles` claim for each role that the user has been granted individually to the user and from their group membership.  Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest.  When a user signs into the application, Azure AD emits a `roles` claim for each role that the user has been granted individually to the user and from their group membership.  Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### Declare app roles using Azure portal
 

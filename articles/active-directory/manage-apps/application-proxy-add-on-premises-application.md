@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial - Add an on-premises app - Application Proxy in Azure AD'
+title: Tutorial - Add an on-premises app - Application Proxy in Azure AD
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
 author: kenwith
@@ -11,7 +11,6 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory
@@ -27,7 +26,7 @@ This tutorial:
 > * Adds an on-premises application to your Azure AD tenant
 > * Verifies a test user can sign on to the application by using an Azure AD account
 
-## Before you begin
+## Prerequisites
 
 To add an on-premises application to Azure AD, you need:
 
@@ -230,6 +229,10 @@ To test the sign-on to the application:
 
 For troubleshooting, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).
 
+## Clean up resources
+
+When no longer needed, delete the resources you created in this tutorial.
+
 ## Next steps
 
 In this tutorial, you prepared your on-premises environment to work with Application Proxy, and then installed and registered the Application Proxy connector. Next, you added an application to your Azure AD tenant. You verified that a user can sign on to the application by using an Azure AD account.
@@ -245,4 +248,4 @@ You did these things:
 You're ready to configure the application for single sign-on. Use the following link to choose a single sign-on method and to find single sign-on tutorials.
 
 > [!div class="nextstepaction"]
-> [Configure single sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configure single sign-on](sso-options.md#choosing-a-single-sign-on-method)
