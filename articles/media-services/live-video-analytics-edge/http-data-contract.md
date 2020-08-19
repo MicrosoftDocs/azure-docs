@@ -10,8 +10,6 @@ ms.date: 09/14/2020
 
 In this article, you will learn about using HTTP protocol to send messages between Live Video Analytics module and your AI or CV module.
 
-## HTTP extension contract
-
 The HTTP contract is defined between the following two components:
 
 * HTTP server
