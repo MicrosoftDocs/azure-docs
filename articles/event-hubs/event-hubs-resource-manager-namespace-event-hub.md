@@ -24,7 +24,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
-:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
 The resources defined in the template include:
 
