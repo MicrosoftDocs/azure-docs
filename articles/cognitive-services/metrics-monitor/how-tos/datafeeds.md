@@ -70,19 +70,19 @@ After the connection string and query string are set, select **Verify and get sc
 
 ### Schema configuration
 
-Once the data schema is loaded and shown like below, select the appropriate fields.
+Once the data schema is loaded, select the appropriate fields.
 
-If the timestamp of a data point is omitted, Metrics Monitor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Monitor can only consume only one slice (one day, one hour, ... according to the granularity) of time-series data from the given source each time.
+If the timestamp of a data point is omitted, Metrics Monitor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Monitor can only consume only one chunk (one day, one hour, etc., according to the granularity) of time-series data from the given source each time.
 
 |Selection  |Description  |Notes  |
 |---------|---------|---------|
-| **Display Name** | Name to be displayed on the portal instead of original column name. | |
+| **Display Name** | Name to be displayed on the portal instead of the original column name. | |
 |**Timestamp**     | The timestamp of a data point. If omitted, Metrics Monitor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures but at least one column should be selected as measure.        | Should be specified with at least one column.        |
-|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as dimension. | Optional.        |
+|**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. See the below text.       |
 
-If you want to ignore columns, we recommend updating your query or data source to exclude those columns. If you want to ignore columns, select **Ignore columns** and then then **Ignore** on those columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Monitor may end up ingesting partial data, for example, assume the data from your query is as below:
+If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Monitor may end up ingesting partial data. For example, assume the data from your query is as below:
 
 Row ID | Timestamp | Country | Language | Income
 --- | --- | --- | --- | ---
@@ -92,7 +92,7 @@ Row ID | Timestamp | Country | Language | Income
 4 | 2019/11/11 | US | EN-US | 23000
 ... | ...
 
-If *Country* is a dimension and *Language* is set as *Ignored*, then row one and row two have the same dimensions. Metrics Monitor will arbitrarily use one value from the two rows. Metrics Monitor will not aggregate the rows in this case.
+If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions. Metrics Monitor will arbitrarily use one value from the two rows. Metrics Monitor will not aggregate the rows in this case.
 
 ### Specify a name for onboarded data feed
  
@@ -124,7 +124,11 @@ You can also reload the progress of an ingestion by clicking **Refresh Progress*
 
 Metrics Monitor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. There are three possibilities, depending on your scenario:
 
-1. *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
+1. *I do not need to include the roll-up analysis for my data.*
+
+    You do not need to use the Metrics Monitor roll-up.
+
+2. *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
 
     This option means Metrics monitor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
     
@@ -188,10 +192,6 @@ Metrics Monitor can automatically generate the data cube (sum) during ingestion,
       * Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
       * Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
-
-3. *I do not need to include the roll-up analysis for my data.*
-
-    You do not need to use the Metrics Monitor roll-up.
 
 ## "Data feed is not available" alert settings
 

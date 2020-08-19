@@ -19,7 +19,12 @@ Get started with the the Metrics Monitor REST API and client library. Follow the
 
 Use Metrics Monitor to perform:
 
-* TBD
+* Add a data feed from a data source
+* Check ingestion status
+* Configure detection and alerts 
+* Query the anomaly detection results
+* Diagnose anomalies
+
 
 ::: zone pivot="programming-language-csharp"
 
