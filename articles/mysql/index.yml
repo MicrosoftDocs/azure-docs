@@ -49,8 +49,8 @@ landingContent:
           - text: Configure Firewall to connect to your Server
             url: howto-manage-firewall-using-portal.md
 
-# Card 3
-  - title: Flexible Server
+# Card 3 - ADD Card for Flexible Server
+
 
 # Card 4
   - title: Connect and query
