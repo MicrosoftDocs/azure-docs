@@ -8,7 +8,8 @@ ms.date: 08/18/2020
 ms.author: yunjchoi
 ---
 
-# Check for Resource Health events impacting your AKS cluster
+# Check for Resource Health events impacting your AKS cluster (Preview)
+
 
 When running your container workloads on AKS, you want to ensure you are able to troubleshoot and fix problems as soon as they arise to minimize the impact on the availability of your workloads. Now available in public preview for AKS, [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) gives you visibility into various health events that may cause your AKS cluster to be unavailable.
 
