@@ -38,10 +38,6 @@
   items:
   - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation
-  - name: Azure Attestation resource manager SDK 
-    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Attestation/0.12.0-preview
-  - name: Azure Attestation data-plane SDK 
-    href: https://www.nuget.org/packages/Microsoft.Azure.Attestation/0.10.0-preview
   - name: Azure DCAP library 
     href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
 
