@@ -161,7 +161,7 @@ There is no cost for enabling a continuous export. Costs might be incurred for i
 
 Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-Learn more about [Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
+Learn more about [Azure Event Hub pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
 ## Next steps
