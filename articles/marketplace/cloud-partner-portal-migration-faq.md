@@ -15,7 +15,7 @@ The Cloud Partner Portal has transitioned to Partner Center. Partner Center offe
 
 ## What does the transition to Partner Center mean for me?
 
-You can continue doing businessin Partner Center:
+You can continue doing business in Partner Center:
 
 | Area<img src="" width=200px> | Changes |
 | --- | --- |
