@@ -15,7 +15,7 @@ ms.custom: has-adal-ref
 
 # Acquire a token from Azure AD for authorizing requests from a client application
 
-A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform (formerly Azure AD). Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
+A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
 This article shows how to configure your native application or web application for authentication with Microsoft identity platform 2.0. The code example features .NET, but other languages use a similar approach. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
@@ -134,7 +134,7 @@ Install-Package Microsoft.Identity.Web -Version 0.2.3-preview
 Next, add the following using statements to the HomeController.cs file:
 
 ```csharp
-using Microsoft.Identity.Client; //MSAL library for getting the access token
+using Microsoft.Identity.Web; //MSAL library for getting the access token
 using Azure.Storage.Blobs;
 using Azure.Storage.Common;
 ```
@@ -235,7 +235,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs at any given time by in the `scope` parameter. For more information about incremental consent, see the section titled **Incremental and dynamic consent** in [Why update to Microsoft identity platform (v2.0)?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs at any given time by in the `scope` parameter. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## View and run the completed sample
 
@@ -269,12 +269,10 @@ Next, update the *appsettings.json* file with your own values, as follows:
 
 ### Update the storage account and container name
 
-In the *HomeController.cs* file, update the URI that references the block blob to use the name of your storage account and container:
+In the *HomeController.cs* file, update the URI that references the block blob to use the name of your storage account and container, replacing the values in angle brackets with your own values:
 
-```csharp
-CloudBlockBlob blob = new CloudBlockBlob(
-                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
-                      storageCredentials);
+```html
+https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
 
 ### Enable implicit grant flow
