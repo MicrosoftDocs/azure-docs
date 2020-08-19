@@ -219,7 +219,7 @@ For premium storage, the following caching options exist:
 
 For premium storage, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
 
-For M-Series deployments, we recommend that you use Azure Write Accelerator for your DBMS deployment. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../windows/how-to-enable-write-accelerator.md).
+For M-Series deployments, we recommend that you use Azure Write Accelerator for your DBMS deployment. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 
 ### Azure nonpersistent disks
