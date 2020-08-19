@@ -18,7 +18,7 @@ There are two ways to see logs on Azure Spring Cloud: Log Streaming for real-tim
 
 ### Log Streaming
 
-#### [Portal](#tab/portal/)
+#### [IntelliJ](#tab/IntelliJ)
 To get the logs using Azure Toolkit for IntelliJ:
 1. Select **Azure Explorer**, then **Spring Cloud**.
 1. Right-click the running app.
