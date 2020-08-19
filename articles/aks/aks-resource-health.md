@@ -28,7 +28,7 @@ To access Resource Health for your AKS cluster:
 To access Resource Health for all clusters on your subscription:
 
 - Search for **Service Health** in the [Azure portal](https://portal.azure.com) and navigate to it.
-- Click on **Resource health** in the left navigation.
+- Select **Resource health** in the left navigation.
 - Select your subscription and set the resource type to Azure Kubernetes Service (AKS).
 
 ![Subscription View](./media/aks-resource-health/subscription-view.png)
