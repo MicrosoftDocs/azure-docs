@@ -228,10 +228,6 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
 
-## Managed Identity limits
-
-[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
-
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
 
@@ -246,6 +242,11 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Key Vault limits
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+
+## Managed Identity limits
+
+[!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
+
 
 ## Media Services limits
 
