@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Billing model for Azure AD External Identities
 
-Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD B2C tenants and Azure AD guest user collaboration (B2B). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing and linking your Azure AD tenants to a subscription.
+Azure Active Directory (Azure AD) External Identities pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD guest user collaboration (B2B) and [Azure AD B2C tenants](https://docs.microsoft.com/azure/active-directory-b2c/billing). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. In this article, learn about MAU billing and linking your Azure AD tenants to a subscription.
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
