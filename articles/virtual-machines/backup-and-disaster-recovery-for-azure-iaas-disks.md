@@ -254,6 +254,10 @@ If it turns out to be a significant outage, the Azure team might trigger a geo-f
 
 For more information, see [What to do if an Azure Storage outage occurs](~/articles/storage/common/storage-disaster-recovery-guidance.md).
 
+## Next steps
+
+See [Back up Azure unmanaged Virtual Machine disks with incremental snapshots](./linux/incremental-snapshots.md).
+
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
 

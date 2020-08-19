@@ -45,4 +45,6 @@ CSV below has the instance size flexibility groups, ArmSkuName and the ratios.
 
 We will keep the file URL and the schema fixed so you can consume this file programmatically. The data will also be available through API soon.
 
+## Next steps
 
+For more information, see [What are Azure Reservations](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md).

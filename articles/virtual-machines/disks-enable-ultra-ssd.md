@@ -340,3 +340,6 @@ Ultra disks have a unique capability that allows you to adjust their performance
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
+## Next steps
+
+See [Use Azure ultra disks on Azure Kubernetes Service (preview)](/azure/aks/use-ultra-disks).

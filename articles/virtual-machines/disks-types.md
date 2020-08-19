@@ -141,3 +141,7 @@ Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/deta
 ### Azure disk reservation
 
 Disk reservation is the option to purchase one year of disk storage in advance at a discount, reducing your total cost. When purchasing a disk reservation, you select a specific Disk SKU in a target region, for example, 10 P30 (1TiB) premium SSDs in East US 2 region for a one year term. The reservation experience is similar to reserved virtual machine (VM) instances. You can bundle VM and Disk reservations to maximize your savings. For now, Azure Disks Reservation offers one year commitment plan for premium SSD SKUs from P30 (1TiB) to P80 (32 TiB) in all production regions. For more details on the Reserved Disks pricing, see [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+## Next steps
+
+See [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) to get started.
