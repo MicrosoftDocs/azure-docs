@@ -142,8 +142,9 @@ The feedback files, materialized subplans, and query logs are persisted across S
 sudo /opt/peregrine/analyze/peregrine.sh clean
 ```
 
-## Next Steps
-* [Use the Workload Insights Notebook to Determine the Benefits of SparkCruise] (https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
+## Next steps
+
+* [Use the Workload Insights Notebook to Determine the Benefits of SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache](apache-spark-improve-performance-iocache.md)
 * [Optimize Apache Spark jobs in HDInsight](./apache-spark-perf.md)
 * [SparkCruise: Handsfree Computation Reuse in Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)
