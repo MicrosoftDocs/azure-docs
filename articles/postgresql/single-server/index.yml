@@ -59,14 +59,12 @@ landingContent:
         links:
           - text: Understand the firewall
             url: ../concepts-firewall-rules.md
-          - text: Configure SSL
-            url: ../concepts-ssl-connection-security.md
       - linkListType: how-to-guide
         links:
           - text: Create firewall rules
             url: ../howto-manage-firewall-using-portal.md
-          - text: Configure SSL connectivity
-            url: ../howto-configure-ssl.md
+          - text: Configure TLS
+            url: ../howto-tls-configurations.md
       - linkListType: get-started
         links:
           - text: Connect using Python
