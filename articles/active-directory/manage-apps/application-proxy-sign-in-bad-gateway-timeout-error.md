@@ -45,7 +45,7 @@ A gateway timeout occurs when the service tries to reach the connector and is un
 A bad gateway error indicates that the connector is unable to reach the backend application. make sure that you have published the correct application. Common mistakes that cause this error are:
 
 - A typo or mistake in the internal URL
-- Not publishing the root of the application. For example, publishing `http://expenses/reimbursement` but trying to access <http://expenses>
+- Not publishing the root of the application. For example, publishing `http://expenses/reimbursement` but trying to access `http://expenses`
 - Problems with the Kerberos Constrained Delegation (KCD) configuration
 - Problems with the backend application
 
