@@ -15,7 +15,7 @@ ms.reviewer: arvindh, japere
 
 # Single sign-on options in Azure AD
 
-Single sign-on provides many of benefits over traditional sign-on methods.
+Single sign-on provides many benefits over traditional sign-on methods.
 
 - **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
 
