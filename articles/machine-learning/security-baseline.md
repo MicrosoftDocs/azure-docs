@@ -4,7 +4,7 @@ description: The Azure Machine Learning security baseline provides procedural gu
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
