@@ -50,7 +50,7 @@ Use Metrics Monitor to perform:
 
 ::: zone-end
 
-::: zone pivot="programming-language-other"
+::: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
 
