@@ -74,7 +74,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Clone the Git repository by running the following command:
 
     ```console
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. Change directory and build the project by running the following command:
