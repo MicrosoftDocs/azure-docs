@@ -40,7 +40,7 @@ The following table outlines the username policies that apply to both on-premise
 
 A password policy is applied to all user accounts that are created and managed directly in Azure AD. This password policy can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md).
 
-The password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect.
+The password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 The following password policy options are defined:
 
