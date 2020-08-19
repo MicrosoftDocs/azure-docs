@@ -359,7 +359,7 @@ Configure and prepare your OS by doing the following steps:
     <pre><code>
     vi /etc/sysctl.d/ms-az.conf
     # Add the following entries in the configuration file
-    ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.all.disable_ipv6 = 1
     net.ipv4.tcp_max_syn_backlog = 16348
     net.ipv4.ip_local_port_range = 40000 65300
     net.ipv4.conf.all.rp_filter = 0

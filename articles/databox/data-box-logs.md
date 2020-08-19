@@ -31,7 +31,7 @@ This article describes in detail the various mechanisms or tools available to tr
 
 ## Set up access control on the order
 
-You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
+You can control who can access your order when the order is first created. Set up Azure roles at various scopes to control the access to the Data Box order. An Azure role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
 The two roles that can be defined for the Azure Data Box service are:
 

@@ -11,7 +11,7 @@ ms.reviewer: sdash
 
 # Availability alerts
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
+[Azure Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
 
 ## Enable alerts
 
@@ -61,7 +61,7 @@ Using the [new unified alerts](../platform/alerts-overview.md), you can alert on
 
 ## Automate alerts
 
-To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
 
 ## Troubleshooting
 
@@ -71,3 +71,4 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Multi-step web tests](availability-multistep.md)
 * [Url ping web tests](monitor-web-app-availability.md)
+

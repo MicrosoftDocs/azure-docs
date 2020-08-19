@@ -213,5 +213,5 @@ You can use the custom image to create VMs whenever you need them.
 ## Next steps
 - Learn how to [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 - Explore more quickstart Resource Manager templates for DevTest Labs automation from the [public DevTest Labs GitHub repo](https://github.com/Azure/azure-quickstart-templates).
-- If necessary, see the [Azure DevOps troubleshooting](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) page.
+- If necessary, see the [Azure DevOps troubleshooting](/azure/devops/pipelines/troubleshooting) page.
  

@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 08/05/2020
 ms.author: thweiss
 ---
 
@@ -59,6 +59,8 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Select the Azure Cosmos DB principal":::
 
 1. Select **Add** to add the new access policy.
+
+1. Select **Save** on the Key Vault instance to save all changes.
 
 ## Generate a key in Azure Key Vault
 

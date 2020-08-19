@@ -4,7 +4,7 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
@@ -269,7 +269,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - M-series VMs with Write Accelerator disks.
-- Applying ADE to a VM that has a data disk encrypted with [server-side encryption with customer-managed keys](disk-encryption.md) (SSE + CMK), or applying SSE + CMK to a data disk on a VM encrypted with ADE.
+- Applying ADE to a VM that has, or *ever* had, disks encrypted with [server-side encryption with customer-managed keys](disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM encrypted with ADE to [server-side encryption with customer-managed keys](disk-encryption.md).
 
 

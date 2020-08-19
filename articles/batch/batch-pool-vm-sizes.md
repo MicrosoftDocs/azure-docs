@@ -2,7 +2,7 @@
 title: Choose VM sizes for pools
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
 
 ---
@@ -31,12 +31,12 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | DC | None |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4<sup>1</sup> | None - not yet available |
-| Dasv4<sup>1</sup> | All sizes, except for Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Dav4<sup>1</sup> | All sizes |
+| Dasv4<sup>1</sup> | All sizes |
 | Ddv4, Ddsv4 |  None - not yet available |
 | Ev3, Esv3 | All sizes, except for E64is_v3 and E64i_v3 |
-| Eav4<sup>1</sup> | All sizes, except for Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
-| Easv4<sup>1</sup> | All sizes, except for Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
+| Eav4<sup>1</sup> | All sizes |
+| Easv4<sup>1</sup> | All sizes |
 | Edv4, Edsv4 |  None - not yet available |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |

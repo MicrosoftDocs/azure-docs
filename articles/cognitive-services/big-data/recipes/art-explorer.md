@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data

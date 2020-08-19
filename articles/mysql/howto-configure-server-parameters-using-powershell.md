@@ -6,7 +6,8 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: how-to
-ms.date: 4/29/2020
+ms.date: 4/29/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure server parameters in Azure Database for MySQL using PowerShell

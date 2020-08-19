@@ -2,7 +2,7 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 08/20/2020
 ---
 
 # What's new in Site Recovery
@@ -17,17 +17,25 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV Machines - 2.0.9183.0 <br> VMware Machines - 2.0.9177.0
 [Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
-[Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
-[Rollup 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
-> [!NOTE]
-> Update rollup 44 isn't shown in the table because it didn't include updates for the Site Recovery providers and agents.
+
+## Updates (August 2020)
+
+### Update rollup 49
+
+[Update rollup 49](https://support.microsoft.com/help/4578241/update-rollup-49-for-azure-site-recovery) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 ## Updates (July 2020)
 
@@ -41,7 +49,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 > [!NOTE]
-> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
+> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### Update rollup 47
 

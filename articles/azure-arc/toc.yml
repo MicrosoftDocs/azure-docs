@@ -6,6 +6,16 @@
     href: ./kubernetes/overview.md
   - name: About Azure Arc enabled servers
     href: ./servers/overview.md
+- name: Quickstarts
+  items:
+  - name: Enable Arc enabled servers agent
+    href: ./servers/learn/quick-enable-hybrid-vm.md
+- name: Tutorials
+  items:
+    - name: Assign policy to assess compliance
+      href: ./servers/learn/tutorial-assign-policy-portal.md
+    - name: Monitor machine
+      href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 
@@ -14,6 +24,13 @@
       href: ./kubernetes/policy-samples.md
     - name: Arc enabled servers
       href: ./servers/policy-samples.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./servers/security-controls-policy.md
 - name: How-to guides
   items:
   - name: Arc enabled Kubernetes

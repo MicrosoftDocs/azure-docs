@@ -45,6 +45,8 @@ When using the default streaming endpoint, `servicename` is omitted so the URL i
 
 There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint.
 
+The maximum streaming unit limit is usually 10. Contact us [here](https://azure.microsoft.com/support/create-ticket/) to raise the limit for your account.
+
 The table describes the types:
 
 |Type|Scale units|Description|

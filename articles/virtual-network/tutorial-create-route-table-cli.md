@@ -17,7 +17,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom:
+ms.custom: devx-track-azurecli
 ---
 
 # Route network traffic with a route table using the Azure CLI

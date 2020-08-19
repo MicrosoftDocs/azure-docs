@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: aahi
 ---
 
@@ -90,6 +90,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     ***
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## Get the keys for your resource
 
@@ -115,5 +116,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
 * [What is Azure Cognitive Services?](Welcome.md)
+* [Create a new resource using the Azure Management client library](.\cognitive-services-apis-create-account-client-library.md)
 * [Natural language support](language-support.md)
 * [Docker container support](cognitive-services-container-support.md)

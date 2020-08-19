@@ -120,7 +120,7 @@ Consult the [assembly registration instructions](https://blogs.msdn.microsoft.co
 
 
 ### Use assembly versioning
-Currently, U-SQL uses the .NET Framework version 4.5. So ensure that your own assemblies are compatible with that version of the runtime.
+Currently, U-SQL uses the .NET Framework version 4.7.2. So ensure that your own assemblies are compatible with that version of the runtime.
 
 As mentioned earlier, U-SQL runs code in a 64-bit (x64) format. So make sure that your code is compiled to run on x64. Otherwise you get the incorrect format error shown earlier.
 

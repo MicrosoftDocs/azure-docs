@@ -82,7 +82,7 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../windows/how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
 <sup>2</sup> Using ANF requires /hana/data as well as /hana/log to be on ANF 
 
 Characteristics you can expect from the different storage types list like:
@@ -100,7 +100,7 @@ Characteristics you can expect from the different storage types list like:
 | Geo redundancy | not for managed disks | not for managed disks | no | no | no |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](../../windows/how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
+<sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
 
@@ -137,7 +137,7 @@ The capability matrix for SAP workload looks like:
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
 | OS base VHD | suitable | all systems |
-| Data disk | suitable | all systems - [specially for SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| Data disk | suitable | all systems - [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
 | SAP global transport directory | YES | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | suitable | all systems |
 | Backup storage | suitable | for short term storage of backups |
@@ -146,15 +146,15 @@ The capability matrix for SAP workload looks like:
 | Latency | low-to medium | - |
 | IOPS SLA | YES | - |
 | IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../linux/sizes.md) |
+| Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../sizes.md) |
 | Throughput SLA | YES | - |
 | Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certified | YES | [specially for SAP HANA](../../windows/how-to-enable-write-accelerator.md) |
+| HANA certified | YES | [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
 | Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | YES | except for [Write Accelerator](../../windows/how-to-enable-write-accelerator.md) cached disks  |
+| Azure Backup VM snapshots possible | YES | except for [Write Accelerator](../../how-to-enable-write-accelerator.md) cached disks  |
 | Costs | MEDIUM | - |
 
-Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](../../windows/how-to-enable-write-accelerator.md). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
+Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
 
 
 
@@ -335,11 +335,11 @@ In opposite to on-premise scenarios, the individual VM type you are selecting, p
 
 | Storage type| Linux | Windows | Comments |
 | --- | --- | --- | --- |
-| Standard HDD | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
-| Standard SSD | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
-| Premium Storage | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
-| Ultra disk storage | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
-| Azure NetApp Files | [Sizes for Linux VMs in Azure](../../linux/sizes.md) | [Sizes for Windows VMs in Azure](../../windows/sizes.md) | Storage traffic is using network throughput bandwidth and not storage bandwidth! |
+| Standard HDD | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
+| Standard SSD | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Likely hard to touch the storage limits of medium or large VMs |
+| Premium Storage | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
+| Ultra disk storage | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
+| Azure NetApp Files | [Sizes for Linux VMs in Azure](../../sizes.md) | [Sizes for Windows VMs in Azure](../../sizes.md) | Storage traffic is using network throughput bandwidth and not storage bandwidth! |
 
 As limitations, you can note that:
 

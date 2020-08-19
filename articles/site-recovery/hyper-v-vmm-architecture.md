@@ -27,7 +27,7 @@ The following table and graphic provide a high-level view of the components used
 
 **On-premises to on-premises architecture**
 
-![On-premises to on-premises](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagram showing on-premises to on-premises protection.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## Replication process
 

@@ -25,7 +25,7 @@ You can enable Azure Monitor for containers for a new deployment or for one or m
 - The Azure portal
 - Azure PowerShell
 - The Azure CLI
-- [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- [Terraform and AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -128,3 +128,4 @@ To enable Azure Monitor for containers, use one of the methods that's described 
 ## Next steps
 
 Now that you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment. To learn how to use Azure Monitor for containers, see [View Kubernetes cluster performance](container-insights-analyze.md).
+

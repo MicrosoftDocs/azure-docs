@@ -28,8 +28,8 @@ To complete this tutorial:
 - Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md).
-- [Enable the Application Insights profiler](../../azure-monitor/app/profiler.md#installation) for your application.
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md).
+- [Enable the Application Insights profiler](../app/profiler.md#installation) for your application.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -52,12 +52,12 @@ Application Insights collects performance details for the different operations i
 
 4.  The performance panel on the right shows distribution of durations for different requests for the selected operation.  Reduce the window to start around the 95th percentile. The "Top 3 dependencies" insights card, can tell you at a glance that the external dependencies are likely contributing to the slow transactions.  Click on the button with number of samples to see a list of the samples. You can then select any sample to see transaction details.
 
-5.  You can see at a glance that the call to Fabrikamaccount Azure Table is contributing most to the total duration of the transaction. You can also see that an exception caused it to fail. You can click on any item in the list to see its details on the right side. [Learn more about the transaction diagnostics experience](../../azure-monitor/app/transaction-diagnostics.md)
+5.  You can see at a glance that the call to Fabrikamaccount Azure Table is contributing most to the total duration of the transaction. You can also see that an exception caused it to fail. You can click on any item in the list to see its details on the right side. [Learn more about the transaction diagnostics experience](../app/transaction-diagnostics.md)
 
 	![Operation end-to-end details](media/tutorial-performance/4-end-to-end.png)
 	
 
-6.  The [**Profiler**](../../azure-monitor/app/profiler-overview.md) helps get further with code level diagnostics by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
+6.  The [**Profiler**](../app/profiler-overview.md) helps get further with code level diagnostics by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
 5.  The trace shows the individual events for each operation so you can diagnose the root cause for the duration of the overall operation.  Click one of the top examples, which have the longest duration.
 6.  Click **Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only executes once.
 
@@ -108,4 +108,5 @@ Like the data collected for server performance, Application Insights makes all c
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to create alerts in response to failures.
 
 > [!div class="nextstepaction"]
-> [Alert on application health](../../azure-monitor/learn/tutorial-alert.md)
+> [Alert on application health](./tutorial-alert.md)
+

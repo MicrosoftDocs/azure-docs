@@ -53,7 +53,7 @@ In the Azure enrollment portal, you can ensure admin contact information include
 ## Organize Azure subscriptions into management groups
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](/azure/governance/management-groups/create) provide a level of scope that’s above subscriptions. You organize subscriptions into containers called management groups and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group.
 
-You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and RBAC assignments to be applied at the directory level.
+You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and Azure role assignments to be applied at the directory level.
 
 Here are some best practices for using management groups:
 

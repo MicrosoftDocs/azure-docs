@@ -70,10 +70,7 @@
   - name: Assets
     items: 
     - name: Assets
-      href: assets-concept.md   
-    - name: Manage assets
-      href: manage-asset-concept.md  
-      displayName: name, naming, file name, upload, output, download  
+      href: assets-concept.md  
   - name: Processing files
     items:
     - name: Transforms and jobs
@@ -174,7 +171,7 @@
   - name: Azure Media Player
     items:
     - name: Azure Media Player overview
-      href: https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview
+      href: ../azure-media-player/azure-media-player-overview.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -222,24 +219,18 @@
   items:
   - name: Get started
     items:
-    - name: Create an account
+    - name: Find your Azure subscription
+      href: how-to-set-azure-subscription.md
+    - name: Create a Media Services account
       href: create-account-howto.md
       displayName: portal, cli, storage
-    - name: Reset the account credentials
-      href: cli-reset-account-credentials.md   
     - name: Access API
       displayName: portal, cli
-      href: access-api-howto.md   
-    - name: Scale media reserved units
-      href: media-reserved-units-cli-how-to.md   
-    - name: Create an asset
-      href: cli-create-asset.md 
-  - name: Developer guides
-    items:
+      href: access-api-howto.md
     - name: Develop with REST
       items:
       - name: Connect with Postman
-        href: media-rest-apis-with-postman.md       
+        href: media-rest-apis-with-postman.md
     - name: Develop with SDKs
       items:
       - name: Connect with Java
@@ -250,6 +241,12 @@
         href: configure-connect-nodejs-howto.md
       - name: Connect with Python
         href: configure-connect-python-howto.md
+    - name: Reset account credentials
+      href: cli-reset-account-credentials.md
+  - name: Create and manage assets
+    items:
+    - name: Create an asset
+      href: how-to-create-asset.md
   - name: Upload content
     items:
     - name: From HTTPS
@@ -264,7 +261,7 @@
         displayName: upload
         href: upload-files-rest-how-to.md
       - name: With CLI
-        href: cli-upload-file-asset.md     
+        href: cli-upload-file-asset.md
   - name: Create transforms and jobs
     items:
     - name: Create transforms
@@ -282,16 +279,26 @@
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
     - name: Encode with a custom transform
+    - name: Scale media reserved units
+      href: media-reserved-units-cli-how-to.md
       items:
       - name: With .NET
-        displayName: encode, encoding, custom, transform  
-        href: customize-encoder-presets-how-to.md
+        displayName: encode, encoding, custom, transform
+        items:
+        - name: Customize encoder presets
+          href: customize-encoder-presets-how-to.md
+        - name: Create an overlay transform
+          href: how-to-create-overlay.md
+        - name: Generate thumbnails with .NET
+          href: media-services-generate-thumbnails-dotnet.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md    
+        href: custom-preset-rest-howto.md
+      - name: Generate thumbnails with REST
+        href: media-services-generate-thumbnails-rest.md
     - name: Subclip a video
       items:
       - name: With .NET
@@ -358,7 +365,7 @@
   - name: Use media players
     items:
     - name: Azure Media Player full set up
-      href: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup
+      href: ../azure-media-player/azure-media-player-full-setup.md
     - name: Use the Video.js player
       href: how-to-video-js-player.md
     - name: Use the Shaka video player
@@ -369,7 +376,7 @@
     href: https://aka.ms/ams-v3-rest-sdk
     displayName: schema
   - name: REST
-    href: https://docs.microsoft.com/rest/api/media/ 
+    href: /rest/api/media/
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref    
   - name: SDKs

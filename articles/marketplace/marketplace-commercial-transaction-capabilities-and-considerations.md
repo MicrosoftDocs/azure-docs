@@ -5,13 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-
+ms.author: mingshen
+author: mingshen-ms
 ---
 # Commercial marketplace transact capabilities
 
 ## Transactions by publishing option
 
-Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The publishing option you choose for your offer will determine who manages the transaction. See [Determine your publishing option](./determine-your-listing-type.md#choose-a-publishing-option) for availability and explanations of each publishing option.
+Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The publishing option you choose for your offer will determine who manages the transaction. See [Determine your publishing option](./determine-your-listing-type.md#choose-a-call-to-action) for availability and explanations of each publishing option.
 
 ### List, trial, and BYOL publishing options
 
@@ -129,7 +130,7 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 |Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
 |Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
 
-For certain offers that you publish on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incetivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed Apps and any other qualified transactable IaaS offers made available through the commercial marketplace.
+For certain offers that you publish on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed Apps, and any other qualified transactable IaaS offers made available through the commercial marketplace.
 
 ### Customer invoicing, payment, billing, and collections
 
@@ -141,7 +142,7 @@ For certain offers that you publish on the commercial marketplace, Microsoft wil
 
 **Free credits and monetary commitment** – Some customers elect to prepay Azure with a monetary commitment in the Enterprise Agreement or have been provided free credits for use with Azure. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
 
-**Billing and collections** – Publisher software license billing is presented using the customer selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
+**Billing and collections** – Publisher software license billing is presented using the customer-selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
 
 When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts as the agent of the publisher and is responsible for all aspects of billing, payment, and collection.
 
@@ -156,7 +157,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (available in Partner Center).
+For more information and legal policies, see the [Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (available in Partner Center).
 
 For help on billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
 
@@ -184,4 +185,4 @@ The transact publishing option is only available for use with the following mark
 ## Next steps
 
 - Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
-- Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+- Review the publishing patterns by online store for examples on how your solution maps to an offer type and configuration.

@@ -5,7 +5,8 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: thweiss
+ms.author: thweiss 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure Private Link for an Azure Cosmos account

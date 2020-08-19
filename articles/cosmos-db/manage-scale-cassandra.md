@@ -4,7 +4,7 @@ description: Learn about the options available to scale an Azure Cosmos DB Cassa
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
 ---
 
@@ -41,7 +41,7 @@ The advantage of this method is that it is a straightforward turnkey way to mana
 
 ## <a id="use-control-plane"></a>Use the control plane
 
-The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md), and [Azure CLI](cli-samples-cassandra.md) articles for guidance and samples.
+The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and PowerShell.
 

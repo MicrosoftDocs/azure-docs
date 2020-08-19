@@ -21,7 +21,7 @@ Synapse SQL supports the [WHILE](https://docs.microsoft.com/sql/t-sql/language-e
 
 Loops in SQL pool are useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read-only variety. So, [WHILE] loops are a great alternative for replacing cursors.
 
-## Replacing cursors in SQL pool
+## Replace cursors in SQL pool
 
 Before diving in, the following question should be considered: "Could this cursor be rewritten to use set-based operations?" In many cases, the answer is yes and is frequently the best approach. A set-based operation often executes faster than an iterative, row by row approach.
 

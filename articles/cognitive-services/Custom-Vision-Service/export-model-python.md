@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Run TensorFlow model in Python
@@ -167,7 +167,7 @@ def update_orientation(image):
     return image
 ```
 
-## Predict an image
+## Classify an image
 
 Once the image is prepared as a tensor, we can send it through the model for a prediction:
 

@@ -142,7 +142,7 @@ Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/c
 
 6. Go through sign-in flow  
 
-7. CrossCore puzzle will pop up after you enter **continue**.
+7. ThreatMetrix puzzle will pop up after you enter **continue**.
 
 ## Next steps
 

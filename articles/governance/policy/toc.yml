@@ -10,16 +10,22 @@
   items:
   - name: Assign a policy - Portal
     displayName: assign, compliance
-    href: assign-policy-portal.md
-  - name: Assign a policy - Azure PowerShell
-    displayName: assign, compliance
-    href: assign-policy-powershell.md
+    href: ./assign-policy-portal.md
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
-    href: assign-policy-azurecli.md
+    href: ./assign-policy-azurecli.md
+  - name: Assign a policy - Azure PowerShell
+    displayName: assign, compliance
+    href: ./assign-policy-powershell.md
+  - name: Assign a policy - Python
+    displayName: assign, compliance
+    href: ./assign-policy-python.md
+  - name: Assign a policy - REST
+    displayName: armclient, postman
+    href: ./assign-policy-rest-api.md
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
-    href: assign-policy-template.md
+    href: ./assign-policy-template.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
@@ -156,10 +162,10 @@
     items:
     - name: Deploy Azure Monitor at scale
       displayName: monitor, diagnostic settings, dependency agent
-      href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Troubleshoot
   href: ./troubleshoot/general.md
 - name: Reference
@@ -228,6 +234,8 @@
       href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resources
   items:
+  - name: Known issues
+    href: https://github.com/azure/azure-policy#known-issues
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
   - name: GitHub - Community Policy repo
@@ -246,8 +254,8 @@
       href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
     - name: Remediation Task
       href: https://www.youtube.com/watch?v=URE4DUYMgmg
-  - name: Video - Build 2018
-    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Video - Ignite 2019
+    href: https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

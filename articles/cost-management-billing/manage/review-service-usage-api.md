@@ -1,6 +1,6 @@
 ---
 title: Review Azure service resource usage with REST API
-description: Learn how to use Azure REST APIs to review Azure service resource usage.
+description: Learn how to use Azure REST APIs to review Azure service resource usage. Create a cost management report and filter for specific resource types.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: reference

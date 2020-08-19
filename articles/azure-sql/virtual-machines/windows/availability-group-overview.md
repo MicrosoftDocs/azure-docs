@@ -3,7 +3,7 @@ title: Overview of SQL Server Always On availability groups
 description: This article introduces SQL Server Always On availability groups on Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "01/13/2017"
-ms.author: mikeray
-ms.custom: "seo-lt-2019"
+ms.author: mathoma
+ms.custom: "seo-lt-2019, devx-track-azurecli"
 
 ---
 
