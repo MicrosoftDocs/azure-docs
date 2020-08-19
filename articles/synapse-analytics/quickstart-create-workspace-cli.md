@@ -11,11 +11,11 @@ ms.author: alehall
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Create a Synapse workspace with Azure CLI
+# Quickstart: Create an Azure synapse workspace with Azure CLI
 
 The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it from the command line.
 
-In this quickstart, you learn to create an Azure Synapse workspace by using the Azure CLI.
+In this quickstart, you learn to create a Synapse workspace by using the Azure CLI.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -50,7 +50,7 @@ az extension add --name synapse
 > [!WARNING]
 > The Azure Synapse extension for Azure CLI is in preview.
 
-## Create an Azure Synapse workspace using the Azure CLI
+## Create an Azure ynapse workspace using the Azure CLI
 
 1. Define necessary environment variables to create resources for Azure Synapse workspace.
 
@@ -90,7 +90,7 @@ az extension add --name synapse
     echo "Storage Endpoint URL: $StorageEndpointUrl"
     ```
 
-6. Create a Azure Synapse Workspace:
+6. Create an Azure Synapse Workspace:
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
