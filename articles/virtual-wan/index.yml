@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/08/2020
+  ms.date: 08/19/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,14 +42,20 @@ landingContent:
             url: virtual-wan-expressroute-portal.md
           - text: Create a User VPN (point-to-site) connection
             url: virtual-wan-point-to-site-portal.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure automation for Virtual WAN partners
-            url: virtual-wan-configure-automation-providers.md
       - linkListType: concept
         links:
           - text: Default policies for IPsec connectivity
             url: virtual-wan-ipsec.md
+          - text: Automation guidelines for Virtual WAN partners
+            url: virtual-wan-configure-automation-providers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an NVA in a hub
+            url: how-to-nva-hub.md
+          - text: Configure IPsec over ExpressRoute for Virtual WAN
+            url: vpn-over-expressroute.md
+          - text: Connect a VPN Gateway to Virtual WAN
+            url: connect-virtual-network-gateway-vwan.md
   # Card
   - title: Architecture
     linkLists:
