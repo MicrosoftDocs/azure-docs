@@ -61,7 +61,7 @@ Azure Backup uses the VM Snapshot Extension to take an application consistent ba
 
 - **Ensure the VSS writer service is up and running**: Follow these steps To [Troubleshoot VSS writer issues](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Follow backup best practice guidelines**: Review the [best practices to enable Azure VM backup](backup-azure-vms-introduction.md#best-practices).
-- **Review guidelines for encrypted disks**: If you're enabling backup for VMs with encrypted disk, ensure you have provided all the required permissions. To learn more, see [Back up and restore encrypted Azure VM](backup-azure-vms-encryption.md#encryption-support).
+- **Review guidelines for encrypted disks**: If you're enabling backup for VMs with encrypted disk, ensure you have provided all the required permissions. To learn more, see [Back up and restore encrypted Azure VM](backup-azure-vms-encryption.md).
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM agent unable to communicate with Azure Backup
 
