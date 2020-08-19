@@ -62,9 +62,9 @@
       href: use-intel-openvino-tutorial.md    
 - name: Samples
   items:
-  - name: Live Video Analytics on IoT Edge C# samples
+  - name: C# Direct Method samples
     href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
-  - name: Live Video Analytics on IoT Edge Python samples
+  - name: Python Direct Method samples
     href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python
 - name: Concepts
   items:
