@@ -11,11 +11,11 @@
   - name: Recent updates
     items:
     - name: July 2020 new and updated features
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-july-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
     - name: June 2020 new and updated features
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/
     - name: June 2020 UI and documentation updates
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/
     - name: May 2020 jobs and metrics updates
       href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
     - name: May 2020 dashboard updates
