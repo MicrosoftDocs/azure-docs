@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Query units in Azure Digital Twins
+title: Query Units in Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Understand the billing concept of query units in Azure Digital Twins
+description: Understand the billing concept of Query Units in Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/14/2020
@@ -67,6 +67,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 To learn more about querying Azure Digital Twins, visit:
 * [*Concepts: Query language*](concepts-query-language.md)
 * [*How-to: Query the twin graph*](how-to-query-graph.md)
-* [Query API reference documentation](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins).
+* [Query API reference documentation](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
 
 You can find Azure Digital Twins query-related limits in [*Reference: Service limits in public preview*](reference-service-limits.md).
