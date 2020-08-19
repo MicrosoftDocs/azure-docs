@@ -17,11 +17,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
  
     * Change the link to the graph topology:
-    * "topologyUrl" : "https://raw.githubusercontent.com/mustafakasap/live-video-analytics/grpc/MediaGraph/topologies/grpcExtension/topology.json"
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
     * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:
-    * "topologyName" : "InferencingWithGrpcExtension"
+    * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
-    * "name": "InferencingWithGrpcExtension"
+    * `"name"` : `"InferencingWithGrpcExtension"`
     
 ### Generate and deploy the IoT Edge deployment manifest
 
@@ -84,7 +84,7 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
       "@apiVersion": "1.0",
       "name": "Sample-Graph-1",
       "properties": {
-        "topologyName": "InferencingWithHttpExtension",
+        "topologyName": "InferencingWithGrpcExtension",
         "description": "Sample graph description",
         "parameters": [
           {
