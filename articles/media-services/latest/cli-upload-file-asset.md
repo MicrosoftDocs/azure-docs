@@ -3,7 +3,7 @@ title: Azure CLI Script Example - Upload a file to a container | Microsoft Docs
 description: This article show how to use the Azure CLI script to upload a local file to a storage container.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: 
 
@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako 
+ms.date: 08/18/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 
@@ -25,7 +25,6 @@ The Azure CLI script in this article shows how to upload a local file to a stora
 ## Prerequisites
 
 * [Create a Media Services account](./create-account-howto.md).
-* Review [manage assets](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
