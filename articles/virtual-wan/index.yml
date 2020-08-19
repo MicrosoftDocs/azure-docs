@@ -62,17 +62,6 @@ landingContent:
           - text: SD-WAN connectivity architecture
             url: sd-wan-connectivity-architecture.md
   # Card
-  - title: Monitoring
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Monitor using Azure Monitor Insights
-            url: azure-monitor-insights.md
-      - linkListType: how-to-guide
-        links:
-          - text: Configure Azure Monitor logs and metrics
-            url: azure-monitor-insights.md
-  # Card
   - title: Routing
     linkLists:
       - linkListType: concept
@@ -91,6 +80,17 @@ landingContent:
         links:
           - text: Configure virtual hub routing
             url: how-to-virtual-hub-routing.md
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Monitor using Azure Monitor Insights
+            url: azure-monitor-insights.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure Azure Monitor logs and metrics
+            url: azure-monitor-insights.md
  # Card
   - title: Reference
     linkLists:
