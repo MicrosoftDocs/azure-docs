@@ -91,19 +91,19 @@ Complete each step to complete your IoT Edge deployment for Azure Security Cente
 
    Module Twin Property:
    
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
 
    Module Twin Property Content: 
 
-    ```json
-      {
+   ```json
+     {
 
-      }
-    ```
+     }
+   ```
     
-      For more information about configuring the agent, see [Configure security agents](https://docs.microsoft.com/en-us/azure/asc-for-iot/how-to-agent-configuration)
+   For more information about configuring the agent, see [Configure security agents](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
 
 1. Select **Update**.
 
