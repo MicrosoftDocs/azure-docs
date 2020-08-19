@@ -57,7 +57,7 @@ A further consideration for your node type properties is durability level, which
 
 ## Durability characteristics of the cluster
 
-The *durability level* designates the privileges your Service Fabric VMs have with the underlying Azure infrastructure. This privilege allows Service Fabric to pause any VM-level infrastructure request (such as reboot, reimage, or migration) that impacts the quorum requirements for Service Fabric system services and your stateful services.
+The *durability level* designates the privileges your Service Fabric VMs have with the underlying Azure infrastructure. This privilege allows Service Fabric to pause any VM-level infrastructure request (such as reboot, reimage, or migration) that impacts the safety requirements for Service Fabric services, such as staying above the minimum instance count for stateless services, and ensuring quorum for stateful services.
 
 > [!IMPORTANT]
 > Durability level is set per node type. If there's none specified, *Bronze* tier will be used, however it doesn't provide automatic OS upgrades. *Silver* or *Gold* durability is recommended for production workloads.
@@ -71,18 +71,18 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 | Bronze          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
 > [!WARNING]
-> With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
+> With Bronze durability, automatic OS image upgrade isn't available. Consider the [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) if you need safe UD or per-node OS upgrades for Bronze Durability VM Scale Sets in Azure. The POA is generally intended only for non-Azure hosted clusters, and is *not recommended* for use on Silver or greater durability levels. Please also consider whether Silver Durability is viable, in order to be able to use the Azure-provided image based OS updates. 
 
 > [!IMPORTANT]
-> Regardless of durability level, running a [Deallocation](/rest/api/compute/virtualmachinescalesets/deallocate) operation on a virtual machine scale set will destroy the cluster.
+> Regardless of durability level, running a [Deallocation](/rest/api/compute/virtualmachinescalesets/deallocate) operation on a virtual machine scale set will destroy the scale set. Deallocating the VMSS corresponding to the Primary Node Type(s) will destroy your cluster.
 
 ### Bronze
 
-Node types running with Bronze durability obtain no privileges. This means that infrastructure jobs that impact your stateful workloads won't be stopped or delayed. Use Bronze durability for node types that only run stateless workloads. For production workloads, running Silver or above is recommended.
+Node types running with Bronze durability obtain no privileges. This means that infrastructure jobs that impact your services won't be stopped or delayed. Use Bronze durability ONLY for node types that run stateless workloads, and ONLY if you are comfortable with unpredictable downtime, outages, or capacity reductions caused by Azure maintenance or your own infrastructure changes. For production workloads, running Silver or above is recommended.
 
 ### Silver and Gold
 
-Use Silver or Gold durability for all node types that host stateful services you expect to scale-in frequently, and where you wish deployment operations be delayed and capacity to be reduced in favor of simplifying the process. Scale-out scenarios should not affect your choice of the durability tier.
+Use Silver or Gold durability for all node types that host stateful services, all node types where infrastructure scale-in operations are expected, and anywhere where you wish infrastructure operations be delayed in favor of automating infrastucture changes. Scale-out scenarios should not affect your choice of the durability tier.
 
 #### Advantages
 
