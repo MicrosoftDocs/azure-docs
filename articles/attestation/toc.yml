@@ -14,7 +14,7 @@
   items:
   - name: Authoring and signing an attestation policy
     href: author-sign-policy.md
-  - name: SGX attestation using Open Enclave SDK
+  - name: SGX attestation code samples
     href: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation
 - name: Samples
   items:
