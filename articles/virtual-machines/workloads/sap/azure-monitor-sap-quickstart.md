@@ -28,8 +28,8 @@ Sign in to the Azure portal at https://portal.azure.com
 
 3. When selecting a virtual network, ensure that the systems you want to monitor are reachable from within that VNET. 
 
-> [!IMPORTANT]
-> Selecting **Share** for Data sharing with Microsoft enables our support teams to provide additional support.
+   > [!IMPORTANT]
+   > Selecting **Share** for Data sharing with Microsoft enables our support teams to provide additional support.
 
 ## Configure providers
 
@@ -57,8 +57,8 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select **High-availability cluster (Pacemaker)** from the drop down. 
 
-> [!IMPORTANT]
-> To configure the High-availability cluster (Pacemaker) provider, ensure that ha_cluster_provider is installed in each node. For more information see [HA cluster exporter](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
+   > [!IMPORTANT]
+   > To configure the High-availability cluster (Pacemaker) provider, ensure that ha_cluster_provider is installed in each node. For more information see [HA cluster exporter](https://github.com/ClusterLabs/ha_cluster_exporter#installation)
 
 2. Input the Prometheus endpoint in the form of http://IP:9664/metrics. 
  
@@ -73,30 +73,30 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Prior to adding the Microsoft SQL Server provider, you should run the following script in SQL Server Management Studio to create a user with the appropriate permissions needed to configure the provider.
 
-```sql
-USE [<Database to monitor>]
-DROP USER [AMS]
-GO
-USE [master]
-DROP USER [AMS]
-DROP LOGIN [AMS]
-GO
-CREATE LOGIN [AMS] WITH PASSWORD=N'<password>', DEFAULT_DATABASE=[<Database to monitor>], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-CREATE USER AMS FOR LOGIN AMS
-ALTER ROLE [db_datareader] ADD MEMBER [AMS]
-ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
-GRANT CONNECT TO AMS
-GRANT VIEW SERVER STATE TO AMS
-GRANT VIEW SERVER STATE TO AMS
-GRANT VIEW ANY DEFINITION TO AMS
-GRANT EXEC ON xp_readerrorlog TO AMS
-GO
-USE [<Database to monitor>]
-CREATE USER [AMS] FOR LOGIN [AMS]
-ALTER ROLE [db_datareader] ADD MEMBER [AMS]
-ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
-GO
-``` 
+   ```sql
+   USE [<Database to monitor>]
+   DROP USER [AMS]
+   GO
+   USE [master]
+   DROP USER [AMS]
+   DROP LOGIN [AMS]
+   GO
+   CREATE LOGIN [AMS] WITH PASSWORD=N'<password>', DEFAULT_DATABASE=[<Database to monitor>], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+   CREATE USER AMS FOR LOGIN AMS
+   ALTER ROLE [db_datareader] ADD MEMBER [AMS]
+   ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
+   GRANT CONNECT TO AMS
+   GRANT VIEW SERVER STATE TO AMS
+   GRANT VIEW SERVER STATE TO AMS
+   GRANT VIEW ANY DEFINITION TO AMS
+   GRANT EXEC ON xp_readerrorlog TO AMS
+   GO
+   USE [<Database to monitor>]
+   CREATE USER [AMS] FOR LOGIN [AMS]
+   ALTER ROLE [db_datareader] ADD MEMBER [AMS]
+   ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
+   GO
+   ``` 
 
 2. Select **Add provider** and choose **Microsoft SQL Server** from the drop down. 
 
@@ -106,6 +106,6 @@ GO
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
-## What's next
+## Next steps
 
 Learn more about [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
