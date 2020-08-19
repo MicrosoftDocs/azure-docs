@@ -32,6 +32,8 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 |Bgp Availability|Availability|<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|ExpressRoute|
 |BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
 |BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|CPU Utilization|Performance| <ui><li>VM instance</ui></li>| <ui><li>ExpressRoute Virtual Network Gateway<ui>|
+|Packets per Second|Performance| <ui><li>VM instance</ui></li>| <ui><li>ExpressRoute Virtual Network Gateway<ui>|
 |GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
@@ -99,6 +101,12 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 to 0 dBm
 
 ![er direct line Rx Light Level](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
+## ExpressRoute Virtual Network Gateway Metrics
+
+### CPU Utilization - Split VM Instance
+
+### Packets Per Second - Split by VM Instance
 
 ## ExpressRoute gateway connections in bits/seconds
 
