@@ -228,7 +228,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
 
-## Identity Manager limits
+## Managed Identity limits
 
 [!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
 
