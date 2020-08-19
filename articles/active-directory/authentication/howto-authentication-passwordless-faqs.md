@@ -37,7 +37,7 @@ To get started with FIDO2 security keys and hybrid access to on-premises resourc
 
 * [How is the data protected on the FIDO2 security key?](#how-is-the-data-protected-on-the-fido2-security-key)
 * [How is Azure AD Kerberos linked to my on-premises Active Directory Domain Services environment?](#how-is-azure-ad-kerberos-linked-to-my-on-premises-active-directory-domain-services-environment)
-* [As an admin, where can I view these Kerberos server objects that are created in AD and published in Azure AD?](#as-an-admin-where-can-i-view-these-kerberos-server-objects-that-are-created-in-ad-and-published-in-azure-ad)
+* [Where can I view these Kerberos server objects that are created in AD and published in Azure AD?](#where-can-i-view-these-kerberos-server-objects-that-are-created-in-ad-ds-and-published-in-azure-ad)
 * [Does this feature work if there's no internet connectivity?](#does-this-feature-work-if-theres-no-internet-connectivity)
 * [What are the specific end points that are required to be open to Azure AD?](#what-are-the-specific-end-points-that-are-required-to-be-open-to-azure-ad)
 * [How does the registering of FIDO2 security keys work?](#how-does-the-registering-of-fido2-security-keys-work)
@@ -83,7 +83,7 @@ For example, you may have an AD DS forest with two domains such as *contoso.com*
 
 If you have multiple AD DS forests, you have one *KerberosDomain* object for each domain in each forest.
 
-### As an admin, where can I view these Kerberos server objects that are created in AD DS and published in Azure AD?
+### Where can I view these Kerberos server objects that are created in AD DS and published in Azure AD?
 
 To view all objects, use the Azure AD Kerberos Server PowerShell cmdlets included with the latest version of Azure AD Connect.
 
@@ -143,7 +143,7 @@ Dsregcmd/status
 
 The following sample output shows that the device is Azure AD joined as *AzureADJoined* is set to *YES*:
 
-```console
+```output
 +---------------------+
 | Device State        |
 +---------------------+
@@ -153,9 +153,9 @@ EnterpriseJoined: NO
 DomainedJoined: NO
 ```
 
-The following sample output shows that the device is hybrid Azure AD joined as *DomainedJoined* is also now set to *YES*. The *DomainName* is also shown:
+The following sample output shows that the device is hybrid Azure AD joined as *DomainedJoined* is also set to *YES*. The *DomainName* is also shown:
 
-```console
+```output
 +---------------------+
 | Device State        |
 +---------------------+
@@ -166,11 +166,14 @@ DomainedJoined: YES
 DomainName: CONTOSO
 ```
 
-On a Windows Server 2016 or 2019 domain controller, check that the Nov patch is applied. If needed, run Windows Update to install it.
+On a Windows Server 2016 or 2019 domain controller, check that the following patches are applied. If needed, run Windows Update to install them:
 
-From a client device, run the following command to verify connectivity to an appropriate domain controller:
+* Windows Server 2016 - [KB4534307](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+* Windows Server 2019 - [KB4534321](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
-```
+From a client device, run the following command to verify connectivity to an appropriate domain controller with the patches installed:
+
+```console
 nltest /dsgetdc:<domain> /keylist /kdc
 ```
 
@@ -181,6 +184,11 @@ No, not at this time.
 ### What's the recommendation on the number of DCs that should be patched?
 
 We recommend patching a majority of your Windows Server 2016 or 2019 domain controllers with the patch to ensure they can handle the authentication request load of your organization.
+
+On a Windows Server 2016 or 2019 domain controller, check that the following patches are applied. If needed, run Windows Update to install them:
+
+* Windows Server 2016 - [KB4534307](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+* Windows Server 2019 - [KB4534321](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
 ### What does the HTTP request/response look like when requesting PRT+ partial TGT?
 
@@ -206,7 +214,7 @@ No, this feature isn't supported for on-premise only device. The FIDO2 credentia
 
 The default security policy doesn't grant Azure AD permission to sign high privilege accounts on to on-premises resources.
 
-To unblock the accounts, use **Active Directory Users and Computers** to modify the *msDS-NeverRevealGroup* property of the *Azure AD Kerberos Computer object (CN=AzureADKerberos,OU=Domain Controllers,<domain-DN>)*.
+To unblock the accounts, use **Active Directory Users and Computers** to modify the *msDS-NeverRevealGroup* property of the *Azure AD Kerberos Computer object (CN=AzureADKerberos,OU=Domain Controllers,\<domain-DN>)*.
 
 ## Next steps
 

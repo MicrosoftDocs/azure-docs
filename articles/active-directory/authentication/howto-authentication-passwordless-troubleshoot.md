@@ -59,7 +59,7 @@ Make sure that enough DCs are patched to respond in time to service your resourc
 
 If you're able to see a DC with this feature, the user's password may have changed since they signed in, or there's another issue. Collect logs as detailed in the following section for the Microsoft support team to debug.
 
-## Troubleshooting tools
+## Troubleshoot
 
 There are two areas to troubleshoot - [Window client issues](#windows-client-issues), or [deployment issues](#deployment-issues).
 
@@ -83,9 +83,9 @@ The following events logs and registry key info is collected:
 
 **Registry keys**
 
-* HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FIDO [*]
-* HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PasswordForWork\* [*]
-* HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Policies\PasswordForWork\* [*]
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FIDO [\*]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PasswordForWork\* [\*]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Policies\PasswordForWork\* [\*]*
 
 **Diagnostic information**
 
@@ -95,13 +95,13 @@ The following events logs and registry key info is collected:
 
 **Event logs**
 
-* %SystemRoot%\System32\winevt\Logs\Microsoft-Windows-AAD%40Operational.evtx
-* %SystemRoot%\System32\winevt\Logs\Microsoft-Windows-WebAuthN%40Operational.evtx
-* %SystemRoot%\System32\winevt\Logs\Microsoft-Windows-HelloForBusiness%40Operational.evtx
+* *%SystemRoot%\System32\winevt\Logs\Microsoft-Windows-AAD%40Operational.evtx*
+* *%SystemRoot%\System32\winevt\Logs\Microsoft-Windows-WebAuthN%40Operational.evtx*
+* *%SystemRoot%\System32\winevt\Logs\Microsoft-Windows-HelloForBusiness%40Operational.evtx*
 
 ### Deployment Issues
 
-To troubleshoot issues with deploying the Azure AD Kerberos Server using the new PowerShell module included with Azure AD Connect, review the following steps.
+To troubleshoot issues with deploying the Azure AD Kerberos Server, use the new PowerShell module included with Azure AD Connect.
 
 #### Viewing the logs
 
