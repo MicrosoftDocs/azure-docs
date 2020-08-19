@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
-ms.date: 08/17/2020
+ms.date: 08/19/2020
 ---
 
 # Quickstart: Create an automatic response to a specific security alert using an Azure Resource Manager template (ARM template)
@@ -61,42 +61,30 @@ For other Security Center quickstart templates, see these [community contributed
 
 ## Review deployed resources
 
-<!-- This heading must be titled "Review deployed resources" or "Validate the deployment". -->
+Use the Azure portal to check the workflow automation has been deployed. 
 
-<!--
-Include at least one method that displays the deployed resources. Use a portal screenshot of the resources, or interactive code fences for Azure CLI (`azurecli-interactive`) or Azure PowerShell (`azurepowershell-interactive`).
--->
+1. From [the Azure portal](https://portal.azure.com), open **Security Center**.
+1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
+1. From Security Center's sidebar, open **workflow automation** and check for your new automation.
 
-You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
+    :::image type="content" source="./media/quickstart-arm-automationalert/validating-template-run.png" alt-text="Image alt text." lightbox="./media/quickstart-arm-automationalert/validating-template-run.png":::
+
+    >[!TIP]
+    > If you have many workflow automations on your subscription, use the **filter by name** option. 
 
 ## Clean up resources
 
-<!-- 
-The Clean up resources section includes a paragraph that explains how to delete unneeded resources. Include at least one method that shows how to clean up resources. Use a portal screenshot, or interactive code fences for Azure CLI (`azurecli-interactive`) or Azure PowerShell (`azurepowershell-interactive`).
--->
+When no longer needed, delete the workflow automation using the Azure portal.
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
+1. From [the Azure portal](https://portal.azure.com), open **Security Center**.
+1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
+1. From Security Center's sidebar, open **workflow automation** and find the automation to be deleted.
 
-<!--
+    :::image type="content" source="./media/quickstart-arm-automationalert/deleting-workflow-automation.png" alt-text="Image alt text." lightbox="./media/quickstart-arm-automationalert/deleting-workflow-automation.png":::
 
-Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group.
+1. Select the checkbox for the item to be deleted.
+1. From the toolbar, select delete.
 
-Here are the samples for Azure CLI and Azure PowerShell:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
--->
 
 ## Next steps
 
