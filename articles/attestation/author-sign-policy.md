@@ -365,4 +365,4 @@ print(encoded.decode('utf-8'))
 
 ## Next steps
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
-- [Attest an SGX enclave using code samples](sgx-enclave-sdk.md)
+- [Attest an SGX enclave using code samples](https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation)
