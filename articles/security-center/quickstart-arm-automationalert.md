@@ -32,79 +32,32 @@ For a list of the roles and permissions required to work with Azure Security Cen
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-securitycenter-create-automation-for-alertnamecontains/).
 
-<!-- 
-After the first sentence, add a JSON code fence that links to the quickstart template. Customers have provided feedback that they prefer to see the whole template. We recommend you include the entire template in your article. If your template is too long to show in the quickstart (more than 250 lines), you can instead add a sentence that says - The template for this article is too long to show here. To view the template, see [azuredeploy.json](link to template's raw output).
-
-The syntax for the code fence is:
--->
-
 :::code language="json" source="~/azure-quickstart-templates/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json":::
 
-<!--
-After the JSON code fence, a list of each resourceType from the JSON must exist with a link to the template reference starting with /azure/templates. List the resourceType links in the same order as in the template.
+- [**Logic App**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftlogic-resource-provider) - An empty triggerable Logic App
+- [**Automation**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider) - The Automation which will trigger the empty Logic App, upon receiving an Azure Security Center alert which contains a specific string(in our example the alert triggering rule is “Virtual Machine” and has a severity of either "Medium", "High", "Low").
 
-For example:
+[Azure Quickstart Templates for Azure Security Center](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Security).
 
-* [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
-* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): create an key vault secret.
-
-The URL usually appears as, for example, https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/loadBalancers for loadbalancer of Microsoft.Network. Remove the API version from the URL so that the URL redirects to the latest version.
--->
-
-- [Azure resource type](link to the template reference)
-- [Azure resource type](link to the template reference)
-
-<!--
-List additional quickstart templates. For example: [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
-Notice the resourceType and sort elements in the URL.
--->
 
 ## Deploy the template
 
-<!--
- One of the following options must be included:
-
-  - **CLI**: In an Azure CLI interactive code fence must contain **az deployment group create**.
-  - Use Azure CLI version 2.6 or later. To display the version: az --version
-  
-   For example:
-
-    ```azurecli-interactive
-    read -p "Enter a project name that is used for generating resource names:" projectName &&
-    read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
-    echo "Press [ENTER] to continue ..." &&
-    read
-    ```
-
-  - **PowerShell**: In an Azure PowerShell interactive code fence must contain **New-AzResourceGroupDeployment**. For example:
-
+  - **PowerShell**:
     ```azurepowershell-interactive
-    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
-
-    $resourceGroupName = "${projectName}rg"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
-
-    Read-Host -Prompt "Press [ENTER] to continue ..."
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new resource group for your deployment
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json
     ```
 
-  - **Portal**: Use a button with description **Deploy to Azure**, and the shared image ../media/template-deployments/deploy-to-azure.svg. The template link starts with https://portal.azure.com/#create/Microsoft.Template/uri/.
-  
-    ```markdown
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
+  - **CLI**:
+    ```azurecli-interactive
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new resource group for your deployment
+    az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-securitycenter-create-automation-for-alertnamecontains/azuredeploy.json
     ```
 
-    To find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
-
-    The shared button image is in [GitHub](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/media/template-deployments/deploy-to-azure.svg).
- -->
+  - **Portal**:
+      ```markdown
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
+    ```
 
 ## Review deployed resources
 
@@ -146,12 +99,6 @@ Write-Host "Press [ENTER] to continue..."
 -->
 
 ## Next steps
-
-<!-- 
-Make the next steps similar to other quickstarts and use a blue button to link to the next article for your service. Or direct readers to the article: "Tutorial: Create and deploy your first ARM template" to follow the process of creating a template.
-
-To include additional links for more information about the service, it's acceptable to use a paragraph and bullet points.
--->
 
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
