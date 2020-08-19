@@ -232,7 +232,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
     New-AzResourceGroupDeployment `
       -TemplateSpecId $id `
       -ResourceGroupName storageRG `
-      -StorageAccountType Standard_GRS
+      -storageAccountType Standard_GRS
     ```
 
 # [CLI](#tab/azure-cli)
@@ -251,7 +251,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
     $id = az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id"
     ```
 
-    From Bash: 
+    From Bash:
 
     ```azurecli
     id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
@@ -271,8 +271,9 @@ You can now deploy the template spec. Deploying the template spec is just like d
     az deployment group create \
       --resource-group storageRG \
       --template-spec $id \
-      --parameters StorageAccountType='Standard_GRS'
+      --parameters storageAccountType='Standard_GRS'
     ```
+
 # [ARM Template](#tab/azure-resource-manager)
 
 1. Copy the following template and save it locally to a file named **storage.json**.
