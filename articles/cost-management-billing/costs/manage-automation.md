@@ -244,7 +244,7 @@ Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /p
 
 ### Configure cost-based orchestration for budget alerts
 
-You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](cost-management-budget-scenario.md).
+You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](../manage/cost-management-budget-scenario.md).
 
 ## Data latency and rate limits
 
