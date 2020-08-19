@@ -120,7 +120,7 @@ landingContent:
           - text: Restore a server 
             url: ../howto-restore-server-portal.md
           - text: Enable storage auto-grow
-            url: howto-auto-grow-storage-portal.md
+            url: ../howto-auto-grow-storage-portal.md
 # Card 6
   - title: Reference
     linkLists:
