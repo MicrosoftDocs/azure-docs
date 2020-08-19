@@ -98,7 +98,7 @@ To learn about publishing requirements for each application plan, see [Solution 
 ## Create a new offer
 
 >[!NOTE]
->After an offer is published, edits you make to it in Partner Center will not appear in storefronts until you republish the offer. Make sure to always republish you offer after making changes.
+>After an offer is published, edits you make to it in Partner Center will not appear in online stores until you republish the offer. Make sure to always republish you offer after making changes.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 

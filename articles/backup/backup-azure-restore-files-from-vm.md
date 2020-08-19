@@ -26,7 +26,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 3. In the Backup dashboard menu, select **File Recovery**.
 
-    ![File recovery button](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     The **File Recovery** menu opens.
 
@@ -36,7 +36,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 5. To download the software used to copy files from the recovery point, select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a python script is generated).
 
-    ![Generated password](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Download Executable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure downloads the executable or script to the local computer.
 
@@ -50,7 +50,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 7. Make sure [you have the right machine](#selecting-the-right-machine-to-run-the-script) to execute the script. If the right machine is the same machine where you downloaded the script, then you can continue to the download section. From the download location (usually the *Downloads* folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
 
-    ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Executable output](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
 
@@ -79,6 +79,9 @@ After identifying the files and copying them to a local storage location, remove
 Once the disks have been unmounted, you receive a message. It may take a few minutes for the connection to refresh so that you can remove the disks.
 
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
+
+> [!NOTE]
+> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. In case the connection is still open, the subsequent backup might fail with an error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage i.e., the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and so they will not be available during backup.
 
 ## Selecting the right machine to run the script
 
@@ -225,7 +228,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and hence might result in data loss.
+> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and so might result in data loss.
 
 #### For RAID arrays
 

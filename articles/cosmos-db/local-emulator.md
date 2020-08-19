@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
+ms.date: 08/19/2020
 ---
 
 # Use the Azure Cosmos Emulator for local development and testing
@@ -30,12 +30,13 @@ Because the Azure Cosmos Emulator provides an emulated environment running on th
 
 * Currently Data Explorer in the emulator supports clients for SQL API. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 * The Azure Cosmos Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos Emulator, however the default key can be changed using the command-line option.
+* The Azure Cosmos Emulator supports an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode; it currently doesn't support an Azure Cosmos account in [serverless](serverless.md) mode.
 * The Azure Cosmos Emulator is not a scalable service and will not support a large number of containers.
 * The Azure Cosmos Emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).
 * As your copy of the Azure Cosmos Emulator might not always be up-to-date with the most recent changes in the Azure Cosmos DB service, you should refer to the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
 * When using the Azure Cosmos Emulator, by default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
-* Emulator supports max id property size of 254 characters.
+* Emulator supports max ID property size of 254 characters.
 
 ## System requirements
 
@@ -109,12 +110,13 @@ To enable network access for the first time the user should shut down the emulat
 
 ### SQL API
 
-Once you have the Azure Cosmos Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos Emulator also includes a built-in Data Explorer that lets you create containers for SQL API or Cosmos DB for Mongo DB API, and view and edit items without writing any code.
+Once you have the Azure Cosmos Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos Emulator also includes a built-in Data Explorer that lets you create containers for SQL API or Cosmos DB for Mongo DB API, and view and edit items without writing any code.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -423,7 +425,7 @@ If you have a .NET client application running on a Linux docker container and if
 
 ## Running on Mac or Linux<a id="mac"></a>
 
-Currently the Cosmos emulator can only be run on Windows. Users running Mac or Linux can run the emulator in a Windows virtual machine hosted a hypervisor such as Parallels or VirtualBox. Below are the steps to enable this.
+Currently the Cosmos emulator can only be run on Windows. Users running Mac or Linux can run the emulator in a Windows virtual machine hosted in a hypervisor such as Parallels or VirtualBox. Below are the steps to enable this.
 
 Within the Windows VM run the command below and make note of the IPv4 address.
 
@@ -439,7 +441,36 @@ The next step, from the within the Windows VM, launch the Cosmos emulator from t
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Finally, we need to import the Emulator CA certificate into the Linux or Mac environment.
+Finally, we need to resolve the certificate trust process between the application running on the Linux or Mac environment and the Emulator. We have two options:
+
+1. Disable the SSL validation in the application:
+
+# [.NET Standard 2.1+](#tab/ssl-netstd21)
+
+   For any application running in a framework compatible with .NET Standard 2.1 or later, we can leverage the `CosmosClientOptions.HttpClientFactory`:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# [.NET Standard 2.0](#tab/ssl-netstd20)
+
+   For any application running in a framework compatible with .NET Standard 2.0, we can leverage the `CosmosClientOptions.HttpClientFactory`:
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# [Node.js](#tab/ssl-nodejs)
+
+   For Node.js applications, you can modify your `package.json` file to set the `NODE_TLS_REJECT_UNAUTHORIZED` while starting the application:
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> Disabling SSL validation is only recommended for development purposes and should not be done when running in a production environment.
+
+2. Import the Emulator CA certificate into the Linux or Mac environment:
 
 ### Linux
 
