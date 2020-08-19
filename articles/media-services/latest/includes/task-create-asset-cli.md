@@ -7,7 +7,7 @@ ms.author: inhenkel
 ms.custom: CLI
 ---
 
-<!--Create a media services asset cLI-->
+<!--Create a media services asset CLI-->
 
 The following Azure CLI command creates a new Media Services asset. Replace the values `assetName`  `amsAccountName` and `resourceGroup` with values you are currently working with.
 
