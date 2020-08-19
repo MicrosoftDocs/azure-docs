@@ -164,15 +164,15 @@
          displayName: performance, query store, optimize, recommendation
        - name: Server parameters
          href: concepts-server-parameters.md
-         displayName: performance, server parameter, configure
+         displayName: server parameters
        - name: Application Development
          items:
          - name: Drivers and tools compatibility
            href: concepts-compatibility.md
-           displayName: application, development, drivers, tools 
+           displayName: application, development, drivers, tools
          - name: Application development
            href: concepts-database-application-development.md
-           displayName: application, development, drivers, tools 
+           displayName: application, development, drivers, tools
          - name: Application Best practices
            href: app-development-best-practices.md
            displayName: application, development, schema, optimize, build, deploy
@@ -429,4 +429,4 @@
   - name: Partners
     href: partners-migration-mysql.md
   - name: Database Migration Guide
-    href: https://datamigration.microsoft.com/	
+    href: https://datamigration.microsoft.com/
