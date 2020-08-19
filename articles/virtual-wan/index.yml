@@ -59,10 +59,12 @@ landingContent:
   # Card
   - title: Architecture
     linkLists:
-      - linkListType: architecture
+      - linkListType: concept
         links:
           - text: Migrate to Virtual WAN
             url: migrate-from-hub-spoke-topology.md
+      - linkListType: architecture
+        links:
           - text: Global transit network architecture
             url: virtual-wan-global-transit-network-architecture.md
           - text: SD-WAN connectivity architecture
@@ -74,7 +76,7 @@ landingContent:
         links:
           - text: About virtual hub routing
             url: about-virtual-hub-routing.md
-          - text: Scenario - Route through NVA
+          - text: Scenario - Route traffic through an NVA
             url: scenario-route-through-nva.md
           - text: Scenario - Any-to-any
             url: scenario-any-to-any.md
