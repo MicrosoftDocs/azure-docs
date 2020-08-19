@@ -11,7 +11,7 @@ ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
-# About Azure Virtual WAN
+# What is Azure Virtual WAN?
 
 Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. These functionalities include branch connectivity (via connectivity automation from Virtual WAN Partner devices such as SD-WAN or VPN CPE), Site-to-site VPN connectivity, remote user VPN (Point-to-site) connectivity, private (ExpressRoute) connectivity, intra-cloud connectivity (transitive connectivity for virtual networks), VPN ExpressRoute inter-connectivity, routing, Azure Firewall, and encryption for private connectivity. You do not have to have all of these use cases to start using Virtual WAN. You can simply get started with just one use case, and then adjust your network as it evolves.
 
@@ -98,7 +98,7 @@ Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connect
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 
-Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled. This flag can be located in the Azure Virtual WAN settings in the Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
+Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled and BGP is supported in VPN and ExpressRoute connections. This flag can be located in the Azure Virtual WAN settings in Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
 
 ### <a name="routing"></a>Custom Routing
 
