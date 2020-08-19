@@ -1,26 +1,32 @@
 ---
-title: GetCurrentDateTime in Azure Cosmos DB query language
-description: Learn about SQL system function GetCurrentDateTime in Azure Cosmos DB.
-author: ginamr
+title: TicksToDateTime in Azure Cosmos DB query language
+description: Learn about SQL system function TicksToDateTime in Azure Cosmos DB.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.author: girobins
+ms.author: tisande
 ms.custom: query-reference
 ---
-# GetCurrentDateTime (Azure Cosmos DB)
+# TicksToDateTime (Azure Cosmos DB)
 
-Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
+Converts the specified ticks value to a DateTime.
   
 ## Syntax
   
 ```sql
-GetCurrentDateTime ()
+TicksToDateTime (<Ticks>)
 ```
 
+## Arguments
+
+*Ticks*  
+
+A signed numeric value, the current number of 100 nanosecond ticks that have elapsed since the Unix epoch. In other words, it is the number of 100 nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
+
 ## Return types
-  
-  Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
+
+Returns the UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
   
   |Format|Description|
   |-|-|
@@ -38,24 +44,22 @@ GetCurrentDateTime ()
 
 ## Remarks
 
-GetCurrentDateTime() is a nondeterministic function. The result returned is UTC. Precision is 7 digits, with an accuracy of 100 nanoseconds.
-
-This system function will not utilize the index.
+TicksToDateTime will return `undefined` if the ticks value specified is invalid.
 
 ## Examples
   
-The following example shows how to get the current UTC Date Time using the GetCurrentDateTime() built-in function.
-  
+The following example converts the ticks to a DateTime:
+
 ```sql
-SELECT GetCurrentDateTime() AS currentUtcDateTime
-```  
-  
- Here is an example result set.
-  
+SELECT TicksToDateTime(15943368134575530) AS DateTime
+```
+
 ```json
-[{
-  "currentUtcDateTime": "2019-05-03T20:36:17.1234567Z"
-}]  
+[
+    {
+        "DateTime": "2020-07-09T23:20:13.4575530Z"
+    }
+]
 ```  
 
 ## Next steps
