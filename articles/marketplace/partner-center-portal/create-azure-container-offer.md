@@ -24,7 +24,7 @@ This article describes how to create and publish a container offer for Azure Mar
    ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
 
 > [!TIP]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ### Offer ID and alias
 
