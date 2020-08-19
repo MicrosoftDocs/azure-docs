@@ -49,7 +49,7 @@ For additional details on what each health status indicates, visit [Resource Hea
 
 You can also view the past 30 days of historical Resource Health information.
 
-[Health History](./media/aks-resource-health/health-history.png)
+![Health History](./media/aks-resource-health/health-history.png)
 
 ## Next steps
 
