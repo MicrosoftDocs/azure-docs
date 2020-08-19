@@ -198,4 +198,4 @@ For more information on the cmdlets and its parameters, see [Azure Attestation P
 
 ## Next steps
 
-- [Attest an SGX enclave using code samples](sgx-enclave-sdk.md)
+- [How to author and sign attestation policy](author-sign-policy.md)
