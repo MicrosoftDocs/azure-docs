@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 08/19/2020
 ---
 
 # Lookup activity in Azure Data Factory
@@ -61,23 +61,24 @@ firstRowOnly | Indicates whether to return only the first row or all rows. | Boo
 > * **Structure** isn't supported in dataset definitions. For text-format files, use the header row to provide the column name.
 > * If your lookup source is a JSON file, the `jsonPathDefinition` setting for reshaping the JSON object isn't supported. The entire objects will be retrieved.
 
-## Use the Lookup activity result in a subsequent activity
+## Use the Lookup activity result
 
 The lookup result is returned in the `output` section of the activity run result.
 
-* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `[@{activity('LookupActivity').output.firstRow.schema}].[@{activity('LookupActivity').output.firstRow.table}]`.
 
     ```json
     {
         "firstRow":
         {
             "Id": "1",
-            "TableName" : "Table1"
+            "schema":"dbo",
+            "table":"Table1"
         }
     }
     ```
 
-* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is followed by a [Foreach activity](control-flow-for-each-activity.md). You pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. An example is `@{activity('lookupActivity').output.value[0].tablename}`.
+* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is followed by a [Foreach activity](control-flow-for-each-activity.md). You pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. An example is `@{activity('lookupActivity').output.value[0].schema}`.
 
     ```json
     {
@@ -85,141 +86,147 @@ The lookup result is returned in the `output` section of the activity run result
         "value": [
             {
                 "Id": "1",
-                "TableName" : "Table1"
+                "schema":"dbo",
+                "table":"Table1"
             },
             {
                 "Id": "2",
-                "TableName" : "Table2"
+                "schema":"dbo",
+                "table":"Table2"
             }
         ]
     } 
     ```
 
-### Copy Activity example
-In this example, Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
+## Example
+
+In this example, the pipeline contains two activities: **Lookup** and **Copy**. The Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
 
 This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk by using Azure Data Factory](tutorial-bulk-copy.md).
 
+
 ### Pipeline
-This pipeline contains two activities: Lookup and Copy. 
 
 - The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob storage. The Lookup activity reads the name of the SQL table from a JSON file in this location. 
-- Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob storage. The location is specified by the **SinkDataset** property. 
+- The Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob storage. The location is specified by the **SinkDataset** property. 
 
 ```json
 {
-    "name":"LookupPipelineDemo",
-    "properties":{
-        "activities":[
+    "name": "LookupPipelineDemo",
+    "properties": {
+        "activities": [
             {
-                "name":"LookupActivity",
-                "type":"Lookup",
-                "dependsOn":[
-
-                ],
-                "policy":{
-                    "timeout":"7.00:00:00",
-                    "retry":0,
-                    "retryIntervalInSeconds":30,
-                    "secureOutput":false,
-                    "secureInput":false
+                "name": "LookupActivity",
+                "type": "Lookup",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
                 },
-                "userProperties":[
-
-                ],
-                "typeProperties":{
-                    "source":{
-                        "type":"JsonSource",
-                        "storeSettings":{
-                            "type":"AzureBlobStorageReadSettings",
-                            "recursive":true
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "JsonSource",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageReadSettings",
+                            "recursive": true
                         },
-                        "formatSettings":{
-                            "type":"JsonReadSettings"
+                        "formatSettings": {
+                            "type": "JsonReadSettings"
                         }
                     },
-                    "dataset":{
-                        "referenceName":"LookupDataset",
-                        "type":"DatasetReference"
+                    "dataset": {
+                        "referenceName": "LookupDataset",
+                        "type": "DatasetReference"
                     },
-                    "firstRowOnly":false
+                    "firstRowOnly": true
                 }
             },
             {
-                "name":"CopyActivity",
-                "type":"Copy",
-                "dependsOn":[
+                "name": "CopyActivity",
+                "type": "Copy",
+                "dependsOn": [
                     {
-                        "activity":"LookupActivity",
-                        "dependencyConditions":[
+                        "activity": "LookupActivity",
+                        "dependencyConditions": [
                             "Succeeded"
                         ]
                     }
                 ],
-                "policy":{
-                    "timeout":"7.00:00:00",
-                    "retry":0,
-                    "retryIntervalInSeconds":30,
-                    "secureOutput":false,
-                    "secureInput":false
+                "policy": {
+                    "timeout": "7.00:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
                 },
-                "userProperties":[
-
-                ],
-                "typeProperties":{
-                    "source":{
-                        "type":"AzureSqlSource",
-                        "sqlReaderQuery":{
-                            "value":"select * from @{activity('LookupActivity').output.firstRow.tableName}",
-                            "type":"Expression"
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "AzureSqlSource",
+                        "sqlReaderQuery": {
+                            "value": "select * from [@{activity('LookupActivity').output.firstRow.schema}].[@{activity('LookupActivity').output.firstRow.table}]",
+                            "type": "Expression"
                         },
-                        "queryTimeout":"02:00:00",
-                        "partitionOption":"None"
+                        "queryTimeout": "02:00:00",
+                        "partitionOption": "None"
                     },
-                    "sink":{
-                        "type":"DelimitedTextSink",
-                        "storeSettings":{
-                            "type":"AzureBlobStorageWriteSettings"
+                    "sink": {
+                        "type": "DelimitedTextSink",
+                        "storeSettings": {
+                            "type": "AzureBlobStorageWriteSettings"
                         },
-                        "formatSettings":{
-                            "type":"DelimitedTextWriteSettings",
-                            "quoteAllText":true,
-                            "fileExtension":".txt"
+                        "formatSettings": {
+                            "type": "DelimitedTextWriteSettings",
+                            "quoteAllText": true,
+                            "fileExtension": ".txt"
                         }
                     },
-                    "enableStaging":false,
-                    "translator":{
-                        "type":"TabularTranslator",
-                        "typeConversion":true,
-                        "typeConversionSettings":{
-                            "allowDataTruncation":true,
-                            "treatBooleanAsNumber":false
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
                         }
                     }
                 },
-                "inputs":[
+                "inputs": [
                     {
-                        "referenceName":"SourceDataset",
-                        "type":"DatasetReference"
+                        "referenceName": "SourceDataset",
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "schemaName": {
+                                "value": "@activity('LookupActivity').output.firstRow.schema",
+                                "type": "Expression"
+                            },
+                            "tableName": {
+                                "value": "@activity('LookupActivity').output.firstRow.table",
+                                "type": "Expression"
+                            }
+                        }
                     }
                 ],
-                "outputs":[
+                "outputs": [
                     {
-                        "referenceName":"SinkDataset",
-                        "type":"DatasetReference"
+                        "referenceName": "SinkDataset",
+                        "type": "DatasetReference"
                     }
                 ]
             }
         ],
-        "annotations":[
-
-        ],
-        "lastPublishTime":"2020-08-17T02:33:35Z"
+        "annotations": [],
+        "lastPublishTime": "2020-08-17T10:48:25Z"
     }
 }
 ```
 
 ### Lookup dataset
+
 The **lookup** dataset is the **sourcetable.json** file in the Azure Storage lookup folder specified by the **AzureBlobStorageLinkedService** type. 
 
 ```json
@@ -244,6 +251,7 @@ The **lookup** dataset is the **sourcetable.json** file in the Azure Storage loo
 ```
 
 ### **Source** dataset for Copy Activity
+
 The **source** dataset uses the output of the Lookup activity, which is the name of the SQL table. Copy Activity copies data from this SQL table to a location in Azure Blob storage. The location is specified by the **sink** dataset. 
 
 ```json
@@ -254,19 +262,33 @@ The **source** dataset uses the output of the Lookup activity, which is the name
             "referenceName": "AzureSqlDatabase",
             "type": "LinkedServiceReference"
         },
+        "parameters": {
+            "schemaName": {
+                "type": "string"
+            },
+            "tableName": {
+                "type": "string"
+            }
+        },
         "annotations": [],
         "type": "AzureSqlTable",
         "schema": [],
         "typeProperties": {
+            "schema": {
+                "value": "@dataset().schemaName",
+                "type": "Expression"
+            },
             "table": {
-                "value": "@('LookupActivity').output.firstRow.tableName",
+                "value": "@dataset().tableName",
                 "type": "Expression"
             }
         }
     }
+}
 ```
 
 ### **Sink** dataset for Copy Activity
+
 Copy Activity copies data from the SQL table to the **filebylookup.csv** file in the **csv** folder in Azure Storage. The file is specified by the **AzureBlobStorageLinkedService** property. 
 
 ```json
@@ -294,21 +316,22 @@ Copy Activity copies data from the SQL table to the **filebylookup.csv** file in
 }
 ```
 
-
 ### sourcetable.json
 
-You can use following format for **sourcetable.json**.
+You can use following two kinds of formats for **sourcetable.json** file.
 
 #### Set of objects
 
 ```json
 {
-  "Id": "1",
-  "tableName": "Table1"
+   "Id":"1",
+   "schema":"dbo",
+   "table":"Table1"
 }
 {
-   "Id": "2",
-  "tableName": "Table2"
+   "Id":"2",
+   "schema":"dbo",
+   "table":"Table2"
 }
 ```
 
@@ -318,11 +341,13 @@ You can use following format for **sourcetable.json**.
 [ 
     {
         "Id": "1",
-        "tableName": "Table1"
+        "schema":"dbo",
+        "table":"Table1"
     },
     {
         "Id": "2",
-        "tableName": "Table2"
+        "schema":"dbo",
+        "table":"Table2"
     }
 ]
 ```
