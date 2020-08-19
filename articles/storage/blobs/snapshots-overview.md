@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/19/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -29,7 +29,7 @@ A snapshot of a blob is identical to its base blob, except that the blob URI has
 > All snapshots share the base blob's URI. The only distinction between the base blob and the snapshot is the appended **DateTime** value.
 >
 
-A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted, either independently or as part of the Delete Blob operation for the base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
+A blob can have any number of snapshots. Snapshots persist until they are explicitly deleted, either independently or as part of a [Delete Blob](/rest/api/storageservices/delete-blob) operation for the base blob. You can enumerate the snapshots associated with the base blob to track your current snapshots.
 
 When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values. The base blob's metadata is also copied to the snapshot, unless you specify separate metadata for the snapshot when you create it. After you create a snapshot, you can read, copy, or delete it, but you cannot modify it.
 
