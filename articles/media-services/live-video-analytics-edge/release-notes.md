@@ -29,7 +29,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ## New features 
 
-* You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-your-grpc-model-quickstart.md) to get started.
+* You can now get high data content transfer performance between Live Video Analytics on IoT Edge and your custom extension using gRPC framework. See [this](analyze-live-video-use-your-grpc-model-quickstart.md) to get started.
 * Broader regional deployment of Live Video Analytics and only the cloud service has been updated.  
 * Live Video Analytics is now available in 25 additional regions across the globe. Here is the [list](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) of all available regions.  
 * The [set up](https://aka.ms/lva-edge/setup-resources-for-samples) for quick starts has been updated as well. 

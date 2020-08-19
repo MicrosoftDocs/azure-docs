@@ -37,7 +37,7 @@
       items:
       - name: Using direct method calls
         displayName: analyze, your own model, grpc
-        href: analyze-live-video-your-grpc-model-quickstart.md
+        href: analyze-live-video-use-your-grpc-model-quickstart.md
 - name: Tutorials
   items:
   - name: Continuous video recording  
