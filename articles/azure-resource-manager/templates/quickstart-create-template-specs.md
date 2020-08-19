@@ -18,13 +18,13 @@ An Azure account with an active subscription. [Create an account for free](https
 > [!NOTE]
 > Template Specs is currently in preview. To use it, you must [sign up for the wait list](https://aka.ms/templateSpecOnboarding).
 >
-> After getting approved from the wait list, you'll get instructions for installing the preview PowerShell module.
+> After getting approved from the wait list, you'll get instructions for installing the preview PowerShell module and the preview CLI module.
 
 ## Create template spec
 
-The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
+The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
-With PowerShell, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
+With PowerShell and CLI , the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 
 These options are shown below.
 
@@ -36,7 +36,7 @@ These options are shown below.
 
 1. Create a new resource group to contain the template spec.
 
-    ```azurecli
+    ```azurepowershell
     New-AzResourceGroup `
       -Name templateSpecRG `
       -Location westus2
@@ -44,7 +44,7 @@ These options are shown below.
 
 1. Then, create the template spec in that resource group. You give the new template spec the name **storageSpec**.
 
-    ```powershell
+    ```azurepowershell
     New-AzTemplateSpec `
       -ResourceGroupName templateSpecRG `
       -Name storageSpec `
