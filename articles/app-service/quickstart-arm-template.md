@@ -39,8 +39,8 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
 | location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region           |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier)           |
-| language   | string  | ".net"                       | Programming language stack (.net, php, node, html)            |
-| sample     | boolean | false                        | True = Deploy "Hello World" app             |
+| language   | string  | ".NET"                       | Programming language stack (.NET, PHP, Node, HTML)            |
+| sample     | boolean | False                        | True = Deploy "Hello World" app             |
 | repoUrl    | string  | " "                          | External Git repo (optional)            |
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -55,8 +55,8 @@ This template contains several parameters that are predefined for your convenien
 | webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | Web app name |
 | location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region           |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier)           |
-| language   | string  | ".net"                       | Programming language stack (.net, php, node, html)            |
-| sample     | boolean | false                        | True = Deploy "Hello World" app             |
+| language   | string  | ".NET"                       | Programming language stack (.NET, PHP, Node, HTML)            |
+| sample     | boolean | False                        | True = Deploy "Hello World" app             |
 | repoUrl    | string  | " "                          | External Git repo (optional)            |
 
 ---
@@ -69,15 +69,15 @@ Two Azure resources are defined in the template:
 
 ### Deploy the template
 
-The following code creates a resource group, an App Service Plan and a web app. A default resource group, App Service Plan and location has been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+The following code creates a resource group, an App Service Plan, and a web app. A default resource group, App Service Plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
-The template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps on Azure App Service. To deploy a Java app, see [Create Java app](app-service-web-get-started-java.md). Run the code below to deploy a .Net framework app on Windows.
+The template is compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. To deploy a Java app, see [Create Java app](app-service-web-get-started-java.md). Run the code below to deploy a .NET framework app on Windows.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
---parameters language=".net" sample="true" webAppName="<app-name>" \
+--parameters language=".NET" sample="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-webapp-basic-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -103,7 +103,7 @@ To deploy a different language, update `linuxFxVersion` with appropriate values.
 ---
 ::: zone-end
 
-Azure CLI is used here to deploy the template. You can also use the Azure Portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
 > You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
