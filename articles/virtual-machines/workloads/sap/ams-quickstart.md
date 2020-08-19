@@ -20,14 +20,14 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select **Azure Monitor for SAP Solutions** from the **Azure Marketplace**.
 
-:::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Image shows selecting the Azure Monitor for SAP solutions offer from Azure marketplace.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Image shows selecting the Azure Monitor for SAP solutions offer from Azure marketplace.":::
 
 2. In the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
 
 > [!NOTE]
 >  Ensure that the systems you want to monitor are reachable from within the selected virtual network.
 
-:::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Display of the Azure portal configuration options.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Display of the Azure portal configuration options.":::
 
 > [!IMPORTANT]
 > Selecting **Share** for Data sharing with Microsoft enables our support teams to provide additional support.
@@ -38,7 +38,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select the **Provider** tab to add the providers you want to configure. You can add multiple providers one after another or add them after deploying the monitoring resource. 
 
-:::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Shows the provider tab to add additional providers to your Azure Monitor for SAP Solutions.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Shows the provider tab to add additional providers to your Azure Monitor for SAP Solutions.":::
 
 2. Select **Add provider** and choose **SAP HANA** from the drop down. 
 
@@ -52,7 +52,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 7. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-:::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image of configuration options when adding provider information.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image of configuration options when adding provider information.":::
 
 ### High-availability cluster (Pacemaker) provider
 
@@ -67,37 +67,37 @@ Sign in to the Azure portal at https://portal.azure.com
 
 4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-:::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Alt text here.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image shows options related to the HA cluster Pacemaker provider.":::
 
 
 ### Microsoft SQL Server provider
 
 1. Prior to adding the Microsoft SQL Server provider, you should run the following script in SQL Server Management Studio to create a user with the appropriate permissions needed to configure the provider.
 
-```sql
-USE [<Database to monitor>]
-DROP USER [AMS]
-GO
-USE [master]
-DROP USER [AMS]
-DROP LOGIN [AMS]
-GO
-CREATE LOGIN [AMS] WITH PASSWORD=N'<password>', DEFAULT_DATABASE=[<Database to monitor>], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
-CREATE USER AMS FOR LOGIN AMS
-ALTER ROLE [db_datareader] ADD MEMBER [AMS]
-ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
-GRANT CONNECT TO AMS
-GRANT VIEW SERVER STATE TO AMS
-GRANT VIEW SERVER STATE TO AMS
-GRANT VIEW ANY DEFINITION TO AMS
-GRANT EXEC ON xp_readerrorlog TO AMS
-GO
-USE [<Database to monitor>]
-CREATE USER [AMS] FOR LOGIN [AMS]
-ALTER ROLE [db_datareader] ADD MEMBER [AMS]
-ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
-GO
-``` 
+   ```sql
+   USE [<Database to monitor>]
+   DROP USER [AMS]
+   GO
+   USE [master]
+   DROP USER [AMS]
+   DROP LOGIN [AMS]
+   GO
+   CREATE LOGIN [AMS] WITH PASSWORD=N'<password>', DEFAULT_DATABASE=[<Database to monitor>], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+   CREATE USER AMS FOR LOGIN AMS
+   ALTER ROLE [db_datareader] ADD MEMBER [AMS]
+   ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
+   GRANT CONNECT TO AMS
+   GRANT VIEW SERVER STATE TO AMS
+   GRANT VIEW SERVER STATE TO AMS
+   GRANT VIEW ANY DEFINITION TO AMS
+   GRANT EXEC ON xp_readerrorlog TO AMS
+   GO
+   USE [<Database to monitor>]
+   CREATE USER [AMS] FOR LOGIN [AMS]
+   ALTER ROLE [db_datareader] ADD MEMBER [AMS]
+   ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
+   GO
+   ``` 
 
 2. Select **Add provider** and choose **Microsoft SQL Server** from the drop down. 
 
@@ -105,7 +105,7 @@ GO
 
 4. When finished, select **Add provider**. Continue to add additional providers as needed or select **Review + create** to complete the deployment.
 
-:::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider.":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image shows information related to adding the Microsoft SQL Server Provider.":::
 
 ## What's next
 
