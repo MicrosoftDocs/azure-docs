@@ -20,11 +20,32 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 > [!NOTE]
 > The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
 
+## August 2020
+
+### New features
+
+**Form Recognizer v2.1 public preview is now available.** V2.1-preview.1 has been released, including the following features: 
+
+
+- **REST API reference is available** - View the (v2.1-preview.1 reference)[https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync] 
+- **New languages supported In addition to English**, the following languages are now supported : for `Layout` and `Train Custom Model`: English (EN), Chinese (Simplified) (ZH-ZH), Dutch (NL), French (FR), German (DE), Italian (IT), Portuguese (PT) and Spanish (ES).
+- **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key value pairs for selection marks. 
+- **Model Compose** allows multiple models to be composed and called with a single model Id. When a document is submitted to be analyzed with a composed model Id, a classification step is first performed to route it to the correct custom model. Model compose is available for `Train Custom Model` - _Train with labels_.
+- **Model name** add a friendly name to your custom models for easier management and tracking.
+- **New pre-built model for Business Cards** for extracting common fields in English,  language business cards.
+- **New locales for pre-built Receipts** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
+- **Quality improvements** for `Layout`, `Train Custom Model` _Train without Labels_ and _Train with Labels_.
+
+
+**v2.0** includes the following update:
+•	The (client libraries)[quickstarts/client-library.md] for NET, Python, Java, and JavaScrip have entered General Availability. 
+
+
 ## July 2020
 
 ### New features
 * **v2.0 reference available** View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview), and [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* **Table enhancements and Extraction enhancements** includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in custom train without labels. 
+* **Table enhancements and Extraction enhancements** includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_. 
 * **Currency support** Detection and extraction of global currency symbols.
 * **Azure Gov** Form Recognizer is now also available in Azure Gov.
 * **Enhanced security features**: 
