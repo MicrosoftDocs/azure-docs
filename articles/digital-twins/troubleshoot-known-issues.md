@@ -26,7 +26,7 @@ After this, you should be able to re-run the command.
 
 This is the result of a known issue in Cloud Shell: [*Getting token from Cloud Shell intermittently fails with 400 Client Error: Bad Request*](https://github.com/Azure/azure-cli/issues/11749).
 
-## Scripted instance setup does not work for user role assignment
+## Missing role assignment after scripted setup
 
 Some users may experience issues with the role assignment portion of [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md). The script does not indicate failure, but the *Azure Digital Twins Owner (Preview)* role is not successfully assigned to the user, and this will impact ability to create other resources down the road.
 
@@ -44,7 +44,7 @@ Follow these instructions:
 
 For users logged in with a personal [Microsoft account (MSA)](https://account.microsoft.com/account), your user's Principal ID that identifies you in commands like this may be different from your user's login email, making it difficult for the script to discover and use to assign the role properly.
 
-## "Azure.Identity.AuthenticationFailedException" after browser authentication
+## Issue with interactive browser authentication
 
 When writing authentication code in your Azure Digital Twins applications using the latest version (version **1.2.0**) of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
 
