@@ -32,13 +32,13 @@ In this message, notice these details:
 
 The gRPC extension processor node receives inference results from the lvaExtension module. It then emits the results through the IoT Hub sink node as inference events.
 In these events, the type is set to entity to indicate it's an entity, such as a car or truck. The `eventTime` value is the UTC time when the object was detected.
-In the following example, two cars were detected in the same video frame, with varying levels of confidence.
+In the following example, three cars were detected in the same video frame, with varying levels of confidence.
 
 ```
-[IoTHubMonitor] [7:53:02 PM] Message received from [lva-sample-device/lvaEdge]:
+[IoTHubMonitor] [7:52:57 PM] Message received from [lva-sample-device/lvaEdge]:
 {
   "body": {
-    "timestamp": 143802501945706,
+    "timestamp": 143802500954716,
     "inferences": [
       {
         "type": "entity",
@@ -48,14 +48,56 @@ In the following example, two cars were detected in the same video frame, with v
         "entity": {
           "tag": {
             "value": "car",
-            "confidence": 0.84763974
+            "confidence": 0.86707145
           },
           "attributes": [],
           "box": {
-            "l": 0.661379,
-            "t": 0.57443756,
-            "w": 0.048596457,
-            "h": 0.03616307
+            "l": 0.7294476,
+            "t": 0.567829,
+            "w": 0.031738576,
+            "h": 0.027762715
+          }
+        },
+        "extensions": {},
+        "valueCase": "entity"
+      },
+      {
+        "type": "entity",
+        "subtype": "",
+        "inferenceId": "",
+        "relatedInferences": [],
+        "entity": {
+          "tag": {
+            "value": "car",
+            "confidence": 0.8634398
+          },
+          "attributes": [],
+          "box": {
+            "l": 0.4765757,
+            "t": 0.59559196,
+            "w": 0.05597749,
+            "h": 0.048316106
+          }
+        },
+        "extensions": {},
+        "valueCase": "entity"
+      },
+      {
+        "type": "entity",
+        "subtype": "",
+        "inferenceId": "",
+        "relatedInferences": [],
+        "entity": {
+          "tag": {
+            "value": "car",
+            "confidence": 0.67120105
+          },
+          "attributes": [],
+          "box": {
+            "l": 0.7247387,
+            "t": 0.49816906,
+            "w": 0.032748587,
+            "h": 0.030686663
           }
         },
         "extensions": {},
