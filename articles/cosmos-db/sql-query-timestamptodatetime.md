@@ -22,7 +22,7 @@ TimestampToDateTime (<Timestamp>)
 
 *Timestamp*  
 
-A signed integer whose value is the number of milliseconds which have elapsed since the Unix epoch.
+A signed numeric value, the current number of milliseconds that have elapsed since the Unix epoch. In other words, the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
 ## Return types
 

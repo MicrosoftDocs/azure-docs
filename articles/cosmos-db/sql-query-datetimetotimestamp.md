@@ -39,7 +39,7 @@ DateTimeToTimestamp (<DateTime>)
 
 ## Return types
 
-Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+Returns a signed numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
 ## Remarks
 
