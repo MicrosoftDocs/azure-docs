@@ -20,7 +20,7 @@ Sign in to the Azure portal at https://portal.azure.com
 
 1. Select **Azure Monitor for SAP Solutions** from **Azure Marketplace**.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Image shows selecting the Azure Monitor for SAP solutions offer from Azure Marketplace.":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-1.png" alt-text="Image shows selecting the Azure Monitor for SAP solutions offer from Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-1.png":::
 
 2. In the **Basics** tab, provide the required values. If applicable, you can use an existing Log Analytics workspace.
 
