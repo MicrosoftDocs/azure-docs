@@ -73,21 +73,21 @@ Now that you have your run configuration, the next step is to [submit the traini
 
 Create a run configuration for a compute instance.
 
-    ```python
-    
-    from azureml.core import ScriptRunConfig
-    from azureml.core.runconfig import DEFAULT_CPU_IMAGE
-    
-    src = ScriptRunConfig(source_directory='', script='train.py')
-    
-    # Set compute target to the one created in previous step
-    src.run_config.target = instance
-    
-    # Set environment
-    src.run_config.environment = myenv
-     
-    run = experiment.submit(config=src)
-    ```
+```python
+
+from azureml.core import ScriptRunConfig
+from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+
+src = ScriptRunConfig(source_directory='', script='train.py')
+
+# Set compute target to the one created in previous step
+src.run_config.target = instance
+
+# Set environment
+src.run_config.environment = myenv
+  
+run = experiment.submit(config=src)
+```
 
 Now that you have your run configuration, the next step is to [submit the training run](#submit).
 
