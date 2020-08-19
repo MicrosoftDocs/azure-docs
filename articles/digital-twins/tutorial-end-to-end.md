@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Connect an end-to-end solution
+title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
 description: Tutorial to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
@@ -15,15 +15,16 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Build out an end-to-end solution
+# Tutorial: Build out an end-to-end solution
 
 To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
-* Set up an Azure Digital Twins instance
-* Learn about the sample building scenario and instantiate the pre-written components
-* Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
-* Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
+> [!div class="checklist"]
+> * Set up an Azure Digital Twins instance
+> * Learn about the sample building scenario and instantiate the pre-written components
+> * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
+> * Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -458,7 +459,6 @@ Finally, delete the project sample folder you downloaded from your local machine
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)
 
-Or, go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Concepts: Custom models*](concepts-models.md)

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Code a client app
+title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
 description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
 author: cschormann
@@ -15,9 +15,16 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Coding with the Azure Digital Twins APIs
+# Tutorial: Coding with the Azure Digital Twins APIs
 
 It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
+
+> [!div class="checklist"]
+> * Set up project
+> * Get started with project code   
+> * Complete code sample
+> * Clean up resources
+> * Next steps
 
 ## Prerequisites
 
