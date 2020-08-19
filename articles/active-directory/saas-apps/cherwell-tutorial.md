@@ -44,6 +44,11 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Cherwell supports **SP** initiated SSO
 
+* Once you configure Cherwell you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Cherwell from the gallery
 
 To configure the integration of Cherwell into Azure AD, you need to add Cherwell from the gallery to your list of managed SaaS apps.
@@ -73,12 +78,12 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 
 To configure and test Azure AD single sign-on with Cherwell, you need to complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Cherwell SSO](#configure-cherwell-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Cherwell SSO](#configure-cherwell-sso)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Cherwell test user](#create-cherwell-test-user)** - to have a counterpart of Britta Simon in Cherwell that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 

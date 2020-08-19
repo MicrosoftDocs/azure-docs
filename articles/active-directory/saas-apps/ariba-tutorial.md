@@ -44,6 +44,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Ariba supports **SP** initiated SSO
 
+* Once you configure Ariba you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
 ## Adding Ariba from the gallery
 
 To configure the integration of Ariba into Azure AD, you need to add Ariba from the gallery to your list of managed SaaS apps.
@@ -73,12 +75,12 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 
 To configure and test Azure AD single sign-on with Ariba, you need to complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Ariba SSO](#configure-ariba-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Ariba SSO](#configure-ariba-sso)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Ariba test user](#create-ariba-test-user)** - to have a counterpart of Britta Simon in Ariba that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
