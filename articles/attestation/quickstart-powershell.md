@@ -199,3 +199,4 @@ For more information on the cmdlets and its parameters, see [Azure Attestation P
 ## Next steps
 
 - [How to author and sign attestation policy](author-sign-policy.md)
+- [Attest an SGX enclave using code samples](https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation)
