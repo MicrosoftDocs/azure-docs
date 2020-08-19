@@ -31,7 +31,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 #### [CLI](#tab/Azure-CLI)
 
-You can use Log Streaming in Azure CLI with the following command.
+You can use Log Streaming in the Azure CLI with the following command.
 
 ```azurecli
    az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
@@ -45,7 +45,7 @@ Log Streaming from Azure CLI
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
 
 ---
-### Log Analytics
+## Log Analytics
 1. Go to the **service Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
 
     ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)

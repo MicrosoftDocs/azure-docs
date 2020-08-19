@@ -48,7 +48,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 #### [CLI](#tab/Azure-CLI)
-## Provision a service instance using the Azure CLI extension
+### Provision a service instance using the Azure CLI extension
 The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 ### Install the Azure CLI extension

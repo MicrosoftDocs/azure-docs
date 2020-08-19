@@ -96,7 +96,7 @@ You can also navigate the Azure portal to find the URL.
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 #### [Maven](#tab/Maven)
-## Maven deployment
+
 To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
 ### Clone and build the sample application repository
@@ -149,7 +149,7 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 
 
 #### [IntelliJ](#tab/IntelliJ)
-## IntelliJ deployment
+### IntelliJ deployment
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
 ### Prerequisites

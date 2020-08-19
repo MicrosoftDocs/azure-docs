@@ -101,7 +101,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 6. Click **Review and create**.
 
 #### [CLI](#tab/Azure-CLI)
-## Build and deploy the application
+### Build and deploy the application
 Make sure to execute the following command at the root of the project.
 
 1. Build the project using Maven, for example:
@@ -128,7 +128,7 @@ Make sure to execute the following command at the root of the project.
     ```
 1. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Apps** blade in the Azure portal. You should see status of the application.
 
-## Streaming logs in real time
+### Streaming logs in real time
 
 1. Use the following command to get real time logs from the App.
 
@@ -192,7 +192,6 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *helloworld*, then click **OK**.
-
 
     ![Deploy to Azure OK](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)
 
@@ -259,7 +258,7 @@ spring.sleuth.sampler.probability=0.5
 If you have already built and deployed an application, you can modify the sample rate. Do so by adding the previous line as an environment variable in the Azure CLI or the Azure portal.
 
 #### [IntelliJ](#tab/IntelliJ)
-## Set up logs following IntelliJ deployment
+### Set up logs following IntelliJ deployment
 The following procedure assumes you have completed deployment of an Azure Spring Cloud app using IntelliJ.
 
 ### Show streaming logs
