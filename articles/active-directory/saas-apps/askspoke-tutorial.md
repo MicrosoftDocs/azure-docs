@@ -30,9 +30,6 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * askSpoke single sign-on (SSO) enabled subscription.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
