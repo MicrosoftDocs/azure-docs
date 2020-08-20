@@ -134,7 +134,7 @@
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/azure-arc/servers/**/*.md": "mgoedtel",
-        "articles/azure-arc/**/**.md": "mgoedtel,"
+        "articles/azure-arc/**/**.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
         "articles/batch/**/*.md": "JnHs",
         "articles/event-grid/**/*.md": "spelluru",
