@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Cloud Academy - SSO, you'll complete the
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
     1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
 1. **[Configure single sign-on for Cloud Academy - SSO](#configure-single-sign-on-for-cloud-academy)** on the application side.
-    1. **[Create a Cloud Academy - SSO test user](#create-a-cloud-academy-sso-test-user)** as a counterpart to the Azure AD representation of the user.
+    1. **[Create a Cloud Academy - SSO test user](#create-a-cloud-academy-test-user)** as a counterpart to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ## Configure Azure AD SSO
