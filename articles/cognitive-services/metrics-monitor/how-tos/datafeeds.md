@@ -205,7 +205,7 @@ There are several optional advanced settings when creating a new data feed. Most
 
 ### Ingestion options
 
-* **Ingestion time offset**: By default, data with timestamp T is ingested at the time of T + Granularity. For example, the regular ingestion time for a daily metric with timestamp T shall be ingested by T+1d 0am UTC. By setting a positive number X (>0), ingestion of data is delayed X hours accordingly. A negative number (< 0) is also allowed which will advance the ingestion.
+* **Ingestion time offset**: By default, data is ingested according to the specified granularity. For example, a metric with a *daily* timestamp will be ingested one day after its timestamp. You can use the offset to delay the time of ingestion with a *positive* number, or advance it with a *negative* number.
 
 * **Max concurrency**: Set this parameter if your data source supports limited concurrency. Otherwise leave at the default setting.
 
@@ -230,11 +230,9 @@ A data feed is considered as not available if no data is ingested from the sourc
 
 To configure an alert, you need a hook first. Alerts will be sent to this hook.
 
-* **Grace period**: The Grace Period setting is used to determine when to send an alert if there isn't one single data ingested. The reference point is the time that the first ingestion starts.
+* **Grace period**: The Grace Period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Monitor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
-For example, if the timestamp = 2018-12-01, Metrics Monitor starts to pull the data which is at daily granularity from 2018-12-02, this means timestamp 2018-12-01 has already passed [TBD]. If the pull fails, Metrics Monitor keeps retrying in an interval decided by granularity. If it keeps failing for the Grace period, Metrics Monitor fires a "Data feed is not available" alert to the hooks set.
-
-* **Auro snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are NOT triggered according to the the setting specified.
+* **Auro snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
 
 
 #### Action link template: 
@@ -243,19 +241,19 @@ Action link templates are used to predefine actionable HTTP urls, which consist 
 
 ![Action link template](../media/action-link-template.png "Action link template")
 
-If you have filled in the action link you can click the **Go to action link** on the incident list's action option, and incident tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
+Once you've filled in the action link, click **Go to action link** on the incident list's action option, and incident tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
 
 | Placeholder | Examples | Comment |
 | ---------- | -------- | ------- |
-| `%datafeed` | - | Data feed id |
-| `%metric` | - | Metric id |
-| `%detect_config` | - | Detect config id |
+| `%datafeed` | - | Data feed ID |
+| `%metric` | - | Metric ID |
+| `%detect_config` | - | Detect config ID |
 | `%timestamp` | - | Timestamp of an anomaly or end time of a persistent incident |
 | `%tagset` | `%tagset`, <br> `[%tagset.get("Dim1")]`, <br> `[ %tagset.get("Dim1", "filterVal")]` | Dimension values of an anomaly or top anomaly of an incident.   <br> The `filterVal` is used to filter out matching values within the square brackets.   |
 
 Examples :
 
-- If the action link template is ```https://action-link/metric/%metric?detectConfigId=%detect_config```, we would go to action link ```https://action-link/metric/11111111-***-111111111111?detectConfigId=22222222-***-222222222222``` from anomalies or incidents under metric ```11111111-***-111111111111``` and detect config ```22222222-***-222222222222```.
+If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`, we would go to action link `https://action-link/metric/1234?detectConfigId=2345` for anomalies or incidents under metric `1234` and detect config `2345`.
 
 - If the action link template is ```https://action-link?[Dim1=%tagset.get('Dim1','')&][Dim2=%tagset.get('Dim2','')]```, 
     - The action link would be ```https://action-link?Dim1=Val1&Dim2=Val2``` when the anomaly is { "Dim1": "Val1", "Dim2": "Val2" }; 
