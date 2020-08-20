@@ -52,7 +52,7 @@ By default, all users, including guests, can invite guest users.
 
    - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
   
-    ![External collaboration settings](./media/delegate-invitations/guest-user-access.png)
+    ![Guest user access restrictions settings](./media/delegate-invitations/guest-user-access.png)
 
 5. Under **Guest invite settings**, choose the appropriate settings:
 
@@ -69,7 +69,7 @@ By default, all users, including guests, can invite guest users.
    > [!NOTE]
    > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
-    ![External collaboration settings](./media/delegate-invitations/guest-invite-settings.png)
+    ![Guest invite settings](./media/delegate-invitations/guest-invite-settings.png)
 
 6. Under **Collaboration restrictions**, choose whether to allow or deny invitations to the domains you specify. For more information, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
 
