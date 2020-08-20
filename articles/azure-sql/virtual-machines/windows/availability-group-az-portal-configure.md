@@ -95,7 +95,7 @@ After your cluster was either created or onboarded, create the availability grou
 1. Select **High Availability** under **Settings**. 
 1. Select **+ New Always On availability group** to open the **Create availability group** page.
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png alt-text="Select new always on availability group to open the create availability group page. ":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Select new always on availability group to open the create availability group page.":::
 
 1. Enter a name for the availability group. 
 1. Select **Configure listener** to open the **Configure availability group listener** page. 
