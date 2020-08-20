@@ -72,7 +72,6 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 + **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB with the following format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`.
     + For version 3.2 and version 3.6 **MongoDB collections** use the following format for the connection string:`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
     + For **Gremlin graphs and Cassandra tables**, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.
-    + Avoid port numbers in the account field. If you include the port number, Azure Cognitive Search will be unable to index your Azure Cosmos DB database.
 
 + **Database** is an existing database from the account. 
 
