@@ -30,10 +30,10 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 | --- | --- | --- | --- |
 |ARP Availability|Availability|<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|ExpressRoute|
 |Bgp Availability|Availability|<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|CPU Utilization|Performance| <ui><li>Instance</ui></li>| <ui><li>ExpressRoute Virtual Network Gateway<ui>|
-|Packets per Second|Performance| <ui><li>Instance</ui></li>| <ui><li>ExpressRoute Virtual Network Gateway<ui>|
+|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|CPU Utilization|Performance| <ui><li>Instance</ui></li>|<ui><li>ExpressRoute Virtual Network Gateway<ui>|
+|Packets per Second|Performance| <ui><li>Instance</ui></li>|<ui><li>ExpressRoute Virtual Network Gateway<ui>|
 |GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
@@ -105,8 +105,10 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 ## ExpressRoute Virtual Network Gateway Metrics
 
 ### CPU Utilization - Split Instance
+You can view CPU utilization of the gateway instances.
 
 ### Packets Per Second - Split by Instance
+You can view packets per second traversing the gateway.
 
 ## ExpressRoute gateway connections in bits/seconds
 
