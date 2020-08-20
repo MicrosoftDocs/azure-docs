@@ -58,7 +58,7 @@ Creation of more than one plan is not required for most organizations. A plan ca
     | Subscription    | Select your subscription.                                    |
     | Resource group  | Select **Use existing**, and then select **myResourceGroup** |
     | Location        | East US                                                      |
-    | DDos protection | Select **Standard** and then under **DDoS protection**, select **myDdosProtectionPlan**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.|
+    | DDos Protection Standard | Select **Enable**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.|
 
 You cannot move a virtual network to another resource group or subscription when DDoS Standard is enabled for the virtual network. If you need to move a virtual network with DDoS Standard enabled, disable DDoS Standard first, move the virtual network, and then enable DDoS standard. After the move, the auto-tuned policy thresholds for all the protected public IP addresses in the virtual network are reset.
 
