@@ -205,7 +205,7 @@ Currently 1.0.
 - **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
 - **rp_data (relying party data)**:  Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report.
 
-##### property claim types supported by Azure Attestation
+##### Property claim types supported by Azure Attestation
 
 - **report_validity_in_minutes**: An integer claim signifying how long the token is valid for
   - **Default value(time)**: one day in minutes
@@ -214,11 +214,11 @@ Currently 1.0.
 
 ## Drafting the policy file
 1. Create a new file.
-1. Add version to the file.
+2. Add version to the file.
    ```
    version=1.0;
    ```
-1. Add sections for authorizationrules and issuancerules
+3. Add sections for authorizationrules and issuancerules
 
   ```
   version=1.0;
@@ -231,7 +231,7 @@ Currently 1.0.
   ```
  
   The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
-1. Add claim rules to the authorization rules
+4. Add claim rules to the authorization rules
 
   ```
   version=1.0;
@@ -244,7 +244,7 @@ Currently 1.0.
   ```
 
   If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
-1. Add claim rules to issuancerules
+5. Add claim rules to issuancerules
 
   ```
   version=1.0;
@@ -264,7 +264,7 @@ Currently 1.0.
   ```
 
   Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
-1. Save file.
+6. Save file.
 
 ## Creating the policy file in JSON Web Signature format
 
@@ -281,13 +281,13 @@ After creating a policy file, to upload a policy in JWS format, follow the below
   JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
 ```
 
-1. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
-  1. None – When you don’t want to sign the policy payload
-  1. RS256 – Supported algorithm to sign the policy payload
+2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
+  - None – When you don’t want to sign the policy payload
+  - RS256 – Supported algorithm to sign the policy payload
 
-1. Upload the JWS and validate the policy (See “Policy management” section of this document)
-  1. If the policy file is free of syntax errors the policy file gets accepted by the service.
-  1. If the policy file contains syntax errors the policy file will be rejected by the service.
+3. Upload the JWS and validate the policy (See “Policy management” section of this document)
+  - If the policy file is free of syntax errors the policy file gets accepted by the service.
+  - If the policy file contains syntax errors the policy file will be rejected by the service.
 
 ## Signing the policy
 
