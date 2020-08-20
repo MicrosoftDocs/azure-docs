@@ -87,6 +87,7 @@ Task agent pools require access to the following Azure services. The following f
 
 | Direction | Protocol | Source         | Source Port | Destination          | Dest Port | Used    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
+| Outbound  | TCP      | VirtualNetwork | Any         | AzureKeyVault              | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | Storage              | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | EventHub             | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | AzureActiveDirectory | 443       | Default |
