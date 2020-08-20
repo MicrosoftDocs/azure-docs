@@ -156,7 +156,7 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **Q: What speech experiences are improved by the Tenant Model?**
 
-**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using the Speech service; that also pass a user AAD token indicating membership to the enterprise.
+**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using the Speech service; that also pass a user Azure AD token indicating membership to the enterprise.
 
 The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech service applications.
 
