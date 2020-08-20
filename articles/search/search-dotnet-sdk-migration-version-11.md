@@ -26,7 +26,7 @@ Some key differences you'll notice in the new version include:
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
 > [!NOTE]
-> Review the [**change log**]((https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)) for an itemized list of changes in .NET SDK version 11.
+> Review the [**change log**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for an itemized list of changes in .NET SDK version 11.
 
 ## Package and library consolidation
 
@@ -113,12 +113,15 @@ Each version of an Azure Cognitive Search client library targets a corresponding
 
 Version 11 targets the [2020-06-30 search service](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Because version 11 is also a new client library built from the ground up, most of the development effort has focused on equivalency with version 10, with some REST API feature support still pending.
 
-Version 11 fully supports the following objects and operations:
+Version 11.0 fully supports the following objects and operations:
 
 + Index creation and management
 + Synonym map creation and management
 + All query types and syntax (except geo-spatial filters)
 + Indexer objects and operations for indexing Azure data sources, including data sources and skillsets
+
+Version 11.1 adds the following:
+
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (added in 11.1)
 + [Serializer property](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (added in 11.1) to support custom serialization
 
