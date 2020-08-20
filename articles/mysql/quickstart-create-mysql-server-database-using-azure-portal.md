@@ -79,7 +79,7 @@ You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.
 
    >[!div class="mx-imgBorder"]
    > ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
-2. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@\<servername> as shown below for Azure Database for MySQL  
+2. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@\<servername>' as shown below for Azure Database for MySQL  
 
   ```azurecli-interactive
   mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
