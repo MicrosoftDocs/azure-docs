@@ -231,6 +231,7 @@ Currently 1.0.
   ```
  
   The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
+  
 4. Add claim rules to the authorization rules
 
   ```
@@ -244,6 +245,7 @@ Currently 1.0.
   ```
 
   If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
+  
 5. Add claim rules to issuancerules
 
   ```
@@ -264,6 +266,7 @@ Currently 1.0.
   ```
 
   Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
+  
 6. Save file.
 
 ## Creating the policy file in JSON Web Signature format
