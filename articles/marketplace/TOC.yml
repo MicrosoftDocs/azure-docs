@@ -109,11 +109,11 @@
           href: ./partner-center-portal/create-azure-container-technical-assets.md
         - name: Create an Azure Container offer
           href: ./partner-center-portal/create-azure-container-offer.md
-    - name: Virtual machine offer
+    - name: Virtual Machine offer
       items:
-        - name: Create an Azure virtual machine offer
+        - name: Create an Azure Virtual Machine offer
           href: ./partner-center-portal/azure-vm-create-offer.md
-        - name: Create an Azure VM technical asset
+        - name: Create Azure VM technical asset
           items:
             - name: Virtual machine certification - issues and solutions
               href: ./partner-center-portal/vm-certification-issues-solutions.md
@@ -182,6 +182,7 @@
           href: create-new-saas-offer-marketing.md      
       - name: SaaS metered billing
         href: ./partner-center-portal/saas-metered-billing.md
+        href: ./partner-center-portal/create-new-saas-offer.md
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
@@ -218,8 +219,6 @@
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md 
     - name: Marketplace metering service
       items:
-        - name: Anomaly detection service
-          href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Authentication strategies
           href: ./partner-center-portal/marketplace-metering-service-authentication.md
         - name: Marketplace metering service APIs
@@ -319,4 +318,3 @@
       href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Support options
     href: ./partner-center-portal/support.md
-    
