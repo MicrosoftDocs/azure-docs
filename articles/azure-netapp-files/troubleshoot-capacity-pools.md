@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot capacity pool issues for Azure NetApp Files | Microsoft Docs
-description: Describes potential issues you might encounter for managing capacity pools and provides solutions for the issues. 
+description: Describes potential issues you might have when managing capacity pools and provides solutions for the issues. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -18,17 +18,17 @@ ms.author: b-juche
 ---
 # Troubleshoot capacity pool issues
 
-This article describes resolutions for issues you might encounter for managing capacity pools. 
+This article describes resolutions to issues you might have when managing capacity pools. 
 
 ## Issues creating a capacity pool
 
-Make sure that the capacity pool count does not exceed the limit. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md).  If the count is less than the limit and you still encounter issues, file a support ticket and specify the capacity pool name.
+Make sure that the capacity pool count does not exceed the limit. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md).  If the count is less than the limit and you still experience issues, file a support ticket and specify the capacity pool name.
 
 ## Issues deleting a capacity pool
 
-Make sure that all Azure NetApp Files volumes and snapshots in the subscription where you are trying to delete the capacity pool have been removed first.   
+Make sure that all Azure NetApp Files volumes and snapshots in the subscription where you try to delete the capacity pool have been removed first.   
 
-If you have removed all volumes and snapshots and you still cannot delete the capacity pool, references to resources might still exist without showing up in the portal. In this case, file a support ticket, and specify that you have performed the above recommended steps. 
+If you already removed all volumes and snapshots and you still cannot delete the capacity pool, references to resources might still exist without showing up in the portal. In this case, file a support ticket, and specify that you have performed the above recommended steps. 
 
 ## Volume creation or modification fails with “Requested throughput not available” error
 
