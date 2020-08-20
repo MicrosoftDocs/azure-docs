@@ -77,21 +77,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
     a. **Sign on URL**: Enter a URL that has the following pattern:
     
-       `https://<CUSTOMER_LENSES_BASE_URL>`
+      - `https://<CUSTOMER_LENSES_BASE_URL>`
        
-       Example: `https://lenses.my.company.com`
+        Example: `https://lenses.my.company.com`
 
     b. **Identifier (Entity ID)**: Enter a URL that has the following pattern:
        
-       `https://<CUSTOMER_LENSES_BASE_URL>`
+      - `https://<CUSTOMER_LENSES_BASE_URL>`
       
-       Example: `https://lenses.my.company.com`
+        Example: `https://lenses.my.company.com`
 
     c. **Reply URL**: Enter a URL that has the following pattern:
     
-       `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
+      - `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
        
-       Example: `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
+        Example: `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
 
     > [!NOTE]
     > These values are not real. Update them with the actual sign-on URL, reply URL, and identifier of the base URL of your Lenses portal instance. See the [Lenses.io SSO documentation](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0) for more information.
