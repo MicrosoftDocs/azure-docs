@@ -115,6 +115,11 @@
           href: ./partner-center-portal/azure-vm-create-offer.md
         - name: Create Azure VM technical asset
           items:
+            - name: Create Azure VM technical asset
+              href: ./partner-center-portal/create-azure-vm-technical-asset.md
+            - name: Azure VM technical asset FAQ
+              href: ./partner-center-portal/common-issues-during-vhd-creation.md
+            - name: Certify Azure VM image
             - name: Virtual machine certification - issues and solutions
               href: ./partner-center-portal/vm-certification-issues-solutions.md
             - name: Create an Azure VM technical asset
@@ -170,7 +175,19 @@
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
       - name: Create a SaaS offer
-        href: ./partner-center-portal/create-new-saas-offer.md
+        items:
+        - name: Create the SaaS offer
+          href: create-new-saas-offer.md
+        - name: Configure offer listing
+          href: create-new-saas-offer-listing.md
+        - name: Preview audience and technical details
+          href: create-new-saas-offer-preview.md
+        - name: Create plans
+          href: create-new-saas-offer-plans.md
+        - name: Marketing options
+          href: create-new-saas-offer-marketing.md      
+      - name: SaaS metered billing
+        href: ./partner-center-portal/saas-metered-billing.md
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
@@ -230,6 +247,8 @@
         href: ./partner-center-portal/commercial-marketplace-co-sell-states.md       
   - name: Review and publish
     href: review-publish-offer.md
+  - name: Publishing status
+    href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
   - name: Activate benefits
@@ -270,6 +289,10 @@
       href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md
+  - name: Reference
+    items:
+    - name: Supported HTML tags
+      href: supported-html-tags.md
   - name: CPP API reference
     items:
     - name: Overview
