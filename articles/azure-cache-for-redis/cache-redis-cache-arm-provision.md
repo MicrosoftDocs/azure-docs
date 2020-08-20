@@ -54,7 +54,7 @@ To check for the latest templates, see [Azure Quickstart Templates](https://azur
     * **Resource group**: select **Create new** to create a new resource group or select an existing resource group.
     * **Location**: select a location for the resource group. The storage account and the Redis cache must be in the same region. By default the Redis cache uses the same location as the resource group. So, specify the same location as the storage account.
     * **Redis Cache Name**: enter a name for the Redis cache.
-    * **Existing Diagnostics Storage Account**: enter the resource ID of a storage account. The syntax is **/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>**.
+    * **Existing Diagnostics Storage Account**: enter the resource ID of a storage account. The syntax is **/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>**.
 
     Use the default value for the rest of the settings.
 1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.
