@@ -232,7 +232,7 @@ The adaptive application controls feature has received two significant updates:
 
     * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
 
-    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc).
+    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc.).
 
 
 [Learn more about adaptive application controls](security-center-adaptive-application.md).
