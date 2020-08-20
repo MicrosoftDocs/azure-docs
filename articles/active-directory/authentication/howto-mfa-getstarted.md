@@ -106,6 +106,9 @@ We recommend that organizations use Conditional Access to define their network u
 
 Administrators can choose the [authentication methods](../authentication/concept-authentication-methods.md) that they want to make available for users. It is important to allow more than a single authentication method so that users have a backup method available in case their primary method is unavailable. The following methods are available for administrators to enable:
 
+> [!TIP]
+> Microsoft recommends using the mobile app as the primary method for Azure Multi-Factor Authentication for the best security and user experience.
+
 ### Notification through mobile app
 
 A push notification is sent to the Microsoft Authenticator app on your mobile device. The user views the notification and selects **Approve** to complete verification. Push notifications through a mobile app provide the least intrusive option for users. They are also the most reliable and secure option because they use a data connection rather than telephony.

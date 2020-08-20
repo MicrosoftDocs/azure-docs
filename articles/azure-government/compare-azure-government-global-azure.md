@@ -302,7 +302,7 @@ The following Azure Advisor recommendation **features are not currently availabl
 - Performance
     - Improve App Service performance and reliability
     - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve SQL Data Warehouse performance
+    - Improve Azure Synapse Analytics (formerly SQL Data Warehouse) performance
     - Use Premium Storage
     - Migrate your Storage Account to Azure Resource Manager
 - Cost
@@ -514,6 +514,8 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](https://docs.microsoft.com/azure/app-service/overview)
 The following App Service **features are not currently available** in Azure Government:
+- Resource
+    - App Service Certificate
 - Deployment
     - Deployment Options: only Local Git Repository and External Repository are available
 - Development Tools

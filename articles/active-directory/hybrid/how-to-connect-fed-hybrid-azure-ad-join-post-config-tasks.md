@@ -86,8 +86,5 @@ This installer creates a scheduled task on the device system that runs in the us
 
 For information about how to allow hybrid Azure AD join for individual devices, see [Controlled validation of hybrid Azure AD join](../devices/hybrid-azuread-join-control.md).
 
-> [!NOTE]
-> Policy settings for 2012 R2 are at **Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers**.
-
 ## Next steps
 [Configure device writeback](how-to-connect-device-writeback.md)

@@ -46,7 +46,7 @@ You can use this command to start the streaming endpoint
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md#use-the-azure-portal).
+Follow the steps in this article to get credentials to access the Media Service APIs: [access the Media Service APIs](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.
 
 ## Create and use local user account for deployment
 To run the Live Video Analytics on IoT Edge module create a local user account with as few privileges as possible. As an example, run the following commands on your Linux machine:
@@ -81,8 +81,8 @@ The Live Video Analytics on IoT Edge exposes module twin properties that are doc
 
 ### Deploy using the Azure portal
 
-The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.
-Select your device
+The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.  
+#### Select your device and set modules
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) and navigate to your IoT hub.
 1. Select **IoT Edge** from the menu.
@@ -107,23 +107,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!TIP]
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.`
 
 1. Open the **Environment Variables** tab.
    
-   Copy and paste the following JSON into the box, to provide the user ID and the group ID to be used to save the application data and the video outputs.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Add the following values in the input boxes that you see
+   ![Environment Variables](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Open the **Container Create Options** tab.
 
@@ -174,7 +164,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * {resourceGroupName} - this the resource group to which your Media Service account belongs
     * {AMS-account-name} - this is the name of your Media Services account
     
-    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    To get the other values, see [Access Azure Media Services API](../latest/access-api-howto.md?tabs=portal) and select the Portal tab.  
     * aadTenantId - this is the ID of your tenant and is the same as the "AadTenantId" from the above link.
     * aadServicePrincipalAppId - this is the app ID of the service principal for your Media Service Account and is the same as the "AadClientId" from the above link.
     * aadServicePrincipalSecret - this is the password of the service principal and is the same as the "AadSecret" from the above link.
@@ -196,8 +186,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
+   > [!Note]
+   > The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
    You should set this property to **false** when running in production environment. This will ensure that the application will block all unsecured endpoints and in order to run the graph topologies, valid connection credentials will be needed.  
    
     Select Add to add the module twin properties.
@@ -253,5 +243,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## Next steps
+Try [Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> In the command, you will run next, use your `device-id` instead of the default `lva-sample-device`.

@@ -67,7 +67,7 @@ Advisor analyzes your Azure Blob storage and Azure Data Lake storage usage over 
 ### MariaDB, MySQL, and PostgreSQL reserved capacity
 Advisor analyzes your usage patterns for Azure Database for MariaDB, Azure Database for MySQL, and Azure Database for PostgreSQL over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase MariaDB, MySQL, and PostgreSQL hourly usage and save over your current costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
-### Synapse Analytics (formerly SQL Data Warehouse) reserved capacity
+### Azure Synapse Analytics (formerly SQL Data Warehouse) reserved capacity
 Advisor analyzes your Azure Synapse Analytics usage patterns over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ## Delete unassociated public IP addresses to save money
@@ -92,6 +92,8 @@ By using intelligence about your Azure Blob storage object count, total size, an
 
 It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads. Advisor provides recommendations for resources that can benefit from Ephemeral OS Disk.
 
+## Reduce Azure Data Explorer table cache-period (policy) for cluster cost optimization (Preview)
+Advisor identifies resources where reducing the table cache policy will free up Azure Data Explorer cluster nodes having low CPU utilization, memory, and a high cache size configuration.
 
 ## How to access cost recommendations in Azure Advisor
 

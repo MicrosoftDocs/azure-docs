@@ -89,7 +89,7 @@ To determine whether to reuse a cached image or build a new one, the service com
  * List of Python packages in Conda definition
  * List of packages in Spark definition 
 
-The hash doesn't depend on environment name or version -  if you rename your environment or create a new environment with the exact properties and packages of an existing one, then the hash value remains the same. However, environment definition changes, such as adding or removing a Python package or changing the package version, cause the hash value to change. It is important to note that any change to a curated environment will invalidate the hash and result in a new "non-curated" environment.
+The hash doesn't depend on environment name or version -  if you rename your environment or create a new environment with the exact properties and packages of an existing one, then the hash value remains the same. However, environment definition changes, such as adding or removing a Python package or changing the package version, cause the hash value to change. Changing the order of dependencies or channels in an environment will result in a new environment and thus require a new image build. It is important to note that any change to a curated environment will invalidate the hash and result in a new "non-curated" environment.
 
 The computed hash value is compared to those in the Workspace and Global ACR (or on the compute target for local runs). If there is a match then the cached image is pulled, otherwise an image build is triggered. The duration to pull a cached image includes the download time whereas the duration to pull a newly built image includes both the build time and the download time. 
 
@@ -100,7 +100,7 @@ The following diagram shows three environment definitions. Two of them have diff
 >[!IMPORTANT]
 > If you create an environment with an unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed _at the time of environment creation_. Also, any future environment with matching definition will keep using the old version. 
 
-To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. New dependencies, including nested ones, will be installed that might break a previously working scenario.
+To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. New dependencies, including nested ones, will be installed that might break a previously working scenario. 
 
 > [!WARNING]
 >  The [Environment.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.

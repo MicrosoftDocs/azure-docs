@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault Overview - Azure Key Vault | Microsoft Docs
-description: Azure Key Vault is a cloud service that works as a secure secrets store.
+description: Azure Key Vault is a secure secrets store, providing management for secrets, keys, and certificates, all backed by Hardware Security Modules.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin

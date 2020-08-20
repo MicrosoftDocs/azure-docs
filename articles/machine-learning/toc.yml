@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
       items: 
+        - name: Security baseline
+          href: security-baseline.md
         - name: Enterprise security and governance
           items: 
             - name: Enterprise security overview
@@ -163,8 +165,8 @@
             - name: Use virtual networks
               displayName: vnet, blob
               href: how-to-enable-virtual-network.md
-            - name: Use Private Link
-              displayName: private endpoint
+            - name: Use Private Link	
+              displayName: private endpoint	
               href: how-to-configure-private-link.md
             - name: Secure web services with TLS
               displayName: ssl
@@ -457,8 +459,8 @@
         - name: Debug & troubleshoot pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Debug pipelines in Application Insights
-          href: how-to-debug-pipelines-application-insights.md
+        - name: Log pipeline data to Application Insights
+          href: how-to-log-pipelines-application-insights.md
         - name: Use parallel run step
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md

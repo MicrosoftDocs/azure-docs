@@ -170,7 +170,7 @@ To ensure the security of data in transit to Azure Monitor logs, we strongly enc
 
 
 ## SHA-2 Code Signing Support Requirement for Windows
-The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+The Windows agent will begin to exclusively use SHA-2 signing on November 2, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before November 2, 2020 or their agents will stop sending data to their Log Analytics workspaces:
 
 1. Install the latest Service Pack for your OS. The required service pack versions are:
     - Windows 7 SP1

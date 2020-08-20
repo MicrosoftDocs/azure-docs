@@ -1,7 +1,7 @@
 ---
 title: Authorize access to blobs and queues using Active Directory
 titleSuffix: Azure Storage
-description: Authorize access to Azure blobs and queues using Azure Active Directory.
+description: Authorize access to Azure blobs and queues using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
 author: tamram
 

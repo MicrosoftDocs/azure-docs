@@ -30,7 +30,7 @@ Private offers are now available for Virtual Machine, Azure Application (impleme
 
 ## Creating private offers using plans
 
-For *new or existing offers with plans*, publishers can easily create new, private variations by creating new plans (formerly known as SKUs) and marking them as private.  
+For *new or existing offers with plans*, publishers can easily create new, private variations by creating new plans (formerly known as SKUs) and marking them as private. Each offer can have up to 45 private plans.
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
 
@@ -49,7 +49,7 @@ Once an offer has been certified and published, customers can be updated or remo
 
 ## Deploying private offers
 
-Private offers are only discoverable via the [Azure portal](https://azure.microsoft.com/features/azure-portal/) and are not shown in [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace storefronts, see [Determine your publishing option](./determine-your-listing-type.md).
+Private offers are only discoverable via the [Azure portal](https://azure.microsoft.com/features/azure-portal/) and are not shown in [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com). To learn more about publishing to the different commercial marketplace online stores, see [Determine your publishing option](./determine-your-listing-type.md).
 
 Once signed into the Azure portal, customers can select the Marketplace navigation element to access their private offers. Private offers will also appear in search results and can be deployed via command line and Azure Resource Manager templates like any other offers.
 

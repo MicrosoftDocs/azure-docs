@@ -123,7 +123,7 @@ Microsoft has produced guidance on implementing Azure-based capabilities that pr
 
 Microsoft operates our services globally with screened and trained security personnel. Personnel that have unescorted physical access to facilities in Sydney and Melbourne have Australian Government Baseline security clearances. Personnel within the Australia Central and Australia Central 2 regions have minimum Negative Vetting 1 (NV1) clearances (as appropriate for SECRET data). These clearance requirements provide additional assurance to customers that personnel within data centres operating Azure are highly trustworthy.
 
-Microsoft has a zero standing access policy with access granted through a system of just in time and just enough administration based on role-based access controls. In the vast majority of cases, our administrators don't require access or privileges to customer data in order to troubleshoot and maintain the service. High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
+Microsoft has a zero standing access policy with access granted through a system of just in time and just enough administration based on Azure role-based access control (Azure RBAC). In the vast majority of cases, our administrators don't require access or privileges to customer data in order to troubleshoot and maintain the service. High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
 
 The Attorney General's Department has confirmed that Microsoft's personnel security policies and procedures within Azure are consistent with the intent of the PSPF Access to Information provisions in INFOSEC-9.
 

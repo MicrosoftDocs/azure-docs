@@ -5,7 +5,7 @@ description: Get started learning how to configure and manage the backend pool o
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
 
