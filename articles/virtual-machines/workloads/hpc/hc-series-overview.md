@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
-ms.reviewer:cynthn
+ms.reviewer: cynthn
 ---
 
 # HC-series virtual machine overview
@@ -50,7 +50,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 
 | Software Specifications     |HC-series VM           |
 |-----------------------------|-----------------------|
-| Max MPI Job Size            | 13200 cores (300 VMs in a single VMSS with singlePlacementGroup=true)  |
+| Max MPI Job Size            | 13200 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | Unified Communication X, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
