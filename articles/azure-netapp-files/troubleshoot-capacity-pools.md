@@ -26,7 +26,7 @@ Make sure that the capacity pool count does not exceed the limit. See [Resource 
 
 ## Issues deleting a capacity pool
 
-Make sure that you have removed all Azure NetApp Files volumes and snapshots in the subscription where you try to delete the capacity pool.   
+Make sure that you have removed all Azure NetApp Files volumes and snapshots in the subscription where you are trying to delete the capacity pool.   
 
 If you already removed all volumes and snapshots and you still cannot delete the capacity pool, references to resources might still exist without showing up in the portal. In this case, file a support ticket, and specify that you have performed the above recommended steps. 
 
