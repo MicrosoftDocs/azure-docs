@@ -16,7 +16,7 @@ The Attestation policy is a file which will be uploaded to Microsoft Azure Attes
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. A sample policy file looks as below:
 
-```JSON
+```
 version=1.0;
 authizationrules
 {
@@ -37,7 +37,7 @@ A policy file has 3 segments as seen above:
 
 Version: The version is the version number of the grammar that is followed.
 
-```json
+```
 Version=MajorVersion.MinorVersion	
 ```
 
@@ -73,7 +73,7 @@ A claim contains the following properties:
 
 The incoming claim set is used by the policy engine to compute the attestation result. A claim rule is nothing but a set of conditions that is used to validate the incoming claims and take the defined action.
 
-```JSON
+```
 Conditions list => Action (Claim);	
 ```
 
@@ -86,19 +86,19 @@ Azure Attestation evaluation of a claim rule involves the following steps:
 The conditions in a claim rule are used to determine whether the action needs to be executed. Conditions list is a sequence of conditions that are separated by “&&” operator.
 The conditions list is structured as:
 
-```JSON
+```
 Condition && Condition &&…
 ```
 
 The condition is structured as:
 
-```JSON
+```
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
 The condition itself is composed of individual conditions on various properties of a claim. A condition can have an optional identifier which can be used to refer the claim/s that satisfy the condition. This reference can be used in the other conditions or the action of the same rule.
 For ex.
-```JSON
+```
 F1:[type==”OSName” , issuer==”CustomClaim”] && 
 [type==”OSName” , issuer==”AttestationService”, value== F1.value ] 
 => issueproperty(type=”report_validity_in_minutes”, value=1440);
@@ -215,95 +215,56 @@ Currently 1.0.
 ## Drafting the policy file
 1. Create a new file.
 1. Add version to the file.
+   ```
+   version=1.0;
+   ```
 1. Add sections for authorizationrules and issuancerules
 
-  ```json
-  TODO
+  ```
+  version=1.0;
+  authorizationrules={
+  =>deny();
+  };
+  
+  issuancerules={
+  };
   ```
  
   The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
 1. Add claim rules to the authorization rules
 
-  ```json
-  TODO
+  ```
+  version=1.0;
+  authorizationrules={
+  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+  };
+  
+  issuancerules={
+  };
   ```
 
   If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
 1. Add claim rules to issuancerules
 
-  ```json
-  TODO
+  ```
+  version=1.0;
+  authorizationrules={
+  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+  };
+  
+  issuancerules={
+  => issue(type="SecurityLevelValue", value=100);
+  };
   ```
   
   The outgoing claim set will contain a claim with:
 
-  ```json
-  TODO
+  ```
+  [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
   ```
 
   Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
 1. Save file.
-
-## Policy templates/samples
-
-No Security Policy for VBS enclaves:
-
-```JSON
-version=1.0;
-
-authorizationrules
-{
-    => permit();
-};
-
-issuancerules
-{
-    c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
-    => issueproperty(type = "omit_x5c", value = true);
-};
-```
-
-The policy doesn’t validate any information in the attestation evidence. This is the least secure policy to be used by SQL.
-
-
-Optimum Security Policy for VBS enclaves:
-
-```JSON
-version=1.0;
-
-authorizationrules
-{
-    [type == "aikValidated",              value == true, issuer=="AttestationService"] &&
-    [type == "tpmVersion",                value >= 2,    issuer=="AttestationService"] &&
-    [type == "secureBootEnabled",         value == true, issuer=="AttestationService"] &&
-    [type == "iommuEnabled",              value == true, issuer=="AttestationService"] &&
-
-    [type == "bootDebuggingDisabled",     value == true, issuer=="AttestationService"] &&
-    [type == "notSafeMode",               value == true, issuer=="AttestationService"] &&
-    [type == "notWinPE",                  value == true, issuer=="AttestationService"] &&
-
-    [type == "vbsEnabled",                value == true, issuer=="AttestationService"] &&
-[type == "vbsReportPresent",          value == true, issuer=="AttestationService"] &&
-    [type == "enclaveAuthorId",           value == "BDfK4lN9i5sHdrYbEebO09Iy6TCPYOIa2rL9kePalZg", issuer == "AttestationService"] &&
-    [type == "enclaveImageId",            value == "GRcSAAEFIBMABRQDEgEiBQ",                      issuer == "AttestationService"] &&
-    [type == "enclaveOwnerId",            value == "ECAwQEExIREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", issuer == "AttestationService"] &&
-    [type == "enclaveFamilyId",           value == "_v4AAAAAAAAAAAAAAAAAAA",                      issuer == "AttestationService"] &&
-    [type == "enclaveSvn",                value >= 0,    issuer == "AttestationService"] &&
-    [type == "enclavePlatformSvn",        value >= 1,    issuer == "AttestationService"] &&
-    [type == "enclaveFlags",              value == 0,    issuer == "AttestationService"]
-    => permit();
-};
-
-issuancerules
-{
-    c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
-    => issueproperty(type = "omit_x5c", value = true);
-};
-```
-
-The policy validates VBS enclave information in the attestation evidence to allow the issuance rules. This is the optimum security policy used by SQL.
-
-Please refer to “Attestation policy” section of this document for SGX default policy template.
 
 ## Creating the policy file in JSON Web Signature format
 
@@ -312,13 +273,13 @@ After creating a policy file, to upload a policy in JWS format, follow the below
   - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
   Sample JWT:
-  ``JSON
+ ```
   Header: {"alg":"none"}
   Payload: {“AttestationPolicy”:” Base64Url (policy)”}
   Signature: {}
 
   JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-``
+```
 
 1. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
   1. None – When you don’t want to sign the policy payload
