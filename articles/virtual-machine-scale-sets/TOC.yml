@@ -173,10 +173,10 @@
   - name: Disk storage
     items:
     - name: Managed Disks
-      href: ../virtual-machines/windows/managed-disks-overview.md
+      href: ../virtual-machines/managed-disks-overview.md
       maintainContext: true
     - name: Select a disk type
-      href: ../virtual-machines/windows/disks-types.md
+      href: ../virtual-machines/disks-types.md
       maintainContext: true
     - name: Encryption
       href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
@@ -190,7 +190,7 @@
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
-      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+      href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
       maintainContext: true
   - name: Networking
     href: ../virtual-machines/network-overview.md
@@ -201,7 +201,7 @@
   - name: Security
     items:
     - name: Security and policy
-      href: ../virtual-machines/windows/security-policy.md
+      href: ../virtual-machines/security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Azure security baseline

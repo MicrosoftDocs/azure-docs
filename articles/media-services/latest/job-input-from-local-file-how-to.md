@@ -3,15 +3,15 @@ title: Create an Azure Media Services job input from a local file | Microsoft Do
 description: This article demonstrates how to create an Azure Media Services job input from a local file.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/26/2020
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ---
 
 # Create a job input from a local file
@@ -21,7 +21,6 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 ## Prerequisites 
 
 * [Create a Media Services account](./create-account-howto.md).
-* Review [manage assets](manage-asset-concept.md).
 
 ## .NET sample
 
