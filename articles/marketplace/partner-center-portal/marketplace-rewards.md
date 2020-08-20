@@ -22,7 +22,7 @@ You will be contacted by a member of the Rewards team when your offer goes live,
 
 For Transact partners, as you grow your billed sales through the marketplace platform, you unlock greater benefits per tier.
 
-The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform.
+The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform.
 
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

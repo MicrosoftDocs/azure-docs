@@ -22,6 +22,8 @@
     href: concepts-twins-graph.md
   - name: Query language
     href: concepts-query-language.md
+  - name: Query Units
+    href: concepts-query-units.md
   - name: Integration with other services
     href: concepts-integration.md
   - name: Event routes
