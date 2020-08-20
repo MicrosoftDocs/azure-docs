@@ -44,7 +44,7 @@ By default, all users, including guests, can invite guest users.
 4. Under **Guest user access restrictions (Preview)**, choose the level of access you want guest users to have:
 
    > [!IMPORTANT]
-   > For a short time, these new portal controls for guest user permissions will be visible only using the URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). For more information, see [Restrict guest access permissions (preview)](..users-groups-roles/users-restrict-guest-permissions.md).
+   > For a short time, these new portal controls for guest user permissions will be visible only using the URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). For more information, see [Restrict guest access permissions (preview)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
 
