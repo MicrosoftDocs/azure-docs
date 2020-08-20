@@ -60,15 +60,23 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     ```
     # [v2.1 preview](#tab/v2-1)    
     ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
     ```
 
     ---
 
 1. Now you're ready to run the container with `docker run`.
+
+    # [v2.0](#tab/v2-0)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
+    # [v2.1 preview](#tab/v2-1)    
+    ```
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview    
+    ```
+
+    --- 
 
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
@@ -106,7 +114,8 @@ Fill in the fields with the following values:
 * **Description** - Your project description.
 * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Set the expiry time to some time after you'll have used the service. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Connection settings of sample labeling tool](../media/label-tool/connections.png)
+:::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
+
 
 ## Create a new project
 
@@ -120,7 +129,7 @@ In the sample labeling tool, projects store your configurations and settings. Cr
 * **API Key** - Your Form Recognizer subscription key.
 * **Description** - Optional - Project description
 
-![New project page on sample labeling tool](../media/label-tool/new-project.png)
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="New project page on sample labeling tool.":::
 
 ## Label your forms
 
