@@ -1,7 +1,7 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with Onfido
+title: Tutorial to configure Azure Active Directory B2C with Jumio
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with Jumio for document ID verification 
+description: Tutorial to configure Azure Active Directory B2C with Jumio for automated ID verification, safeguarding customer data
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -36,7 +36,7 @@ The Jumio integration includes the following components:
 
 - Intermediate Rest API – This API implements the integration between Azure AD B2C and the Jumio service.
 
-- Blob storage - Used to supply custom UI files to the Azure AD B2C policies.
+- Blob storage – Used to supply custom UI files to the Azure AD B2C policies.
 
 The following architecture diagram shows the implementation.
 
@@ -45,7 +45,7 @@ The following architecture diagram shows the implementation.
 |Step | Description |
 |:-----| :-----------|
 | 1. | User arrives at a login page. Users select sign-up to create a new account and enter information into the page. Azure AD B2C collects the user attributes.
-| 2. | Azure AD B2C calls the middle layer APII and passes on the user attributes.
+| 2. | Azure AD B2C calls the middle layer API and passes on the user attributes.
 | 3. | Middle layer API collects user attributes and transforms it into a format that Jumio API could consume. Then after sends it to Jumio.
 | 4. | After Jumio consumes the information and processes it, it returns result to the middle layer API.
 | 5. | Middle layer API processes the information and sends back relevant information to Azure AD B2C.
@@ -78,9 +78,10 @@ Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrati
 
 2. The certificate will then be exported to the location specified for {``your-local-path``}.
 
-3. Following the  instructions mentioned in this [document](https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-certificate#upload-a-private-certificate), import the certificate to the Azure App service.
+3. Following the  instructions mentioned in this [document](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#upload-a-private-certificate), import the certificate to the Azure App service.
 
-### Part 3 - Create signing/encryption key
+### Part 3 - Create a signing/encryption key
+
 Create a random string with a length greater than 64 characters that contains only alphabets or numbers.
 
 For example: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
@@ -102,7 +103,7 @@ Application settings can be [configured in the App service in Azure](https://doc
 | AppSettings:IdTokenEncryptionKey |Encryption Key created using Powershell
 | AppSettings:IdTokenIssuer | Issuer to be used for the JWT token (a guid value is preferred) |
 | AppSettings:IdTokenAudience  | Audience to be used for the JWT token (a guid value is preferred) |
-|AppSettings:BaseRedirectUrl | The base url of the B2C policy | https://{your-tenant-name}.b2clogin.com/{your-application-id}| 
+|AppSettings:BaseRedirectUrl | The base url of the B2C policy | https://{your-tenant-name}.b2clogin.com/{your-application-id}|
 | WEBSITE_LOAD_CERTIFICATES| Thumbprint of self-signed certificate created |
 
 ### Part 4 - Deploy the UI
@@ -128,7 +129,7 @@ Application settings can be [configured in the App service in Azure](https://doc
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) in the Policies folder.
 
-2. Follow this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 
+2. Follow this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configure the policy for the Azure AD B2C tenant.
 
