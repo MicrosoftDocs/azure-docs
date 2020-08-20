@@ -51,7 +51,7 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Add your Computer Vision subscription key and endpoint as  variables.
+        // Add your Computer Vision subscription key and endpoint as class variables.
         static string subscriptionKey = "COMPUTER_VISION_SUBSCRIPTION_KEY";
 
         static string endpoint = "COMPUTER_VISION_ENDPOINT";
