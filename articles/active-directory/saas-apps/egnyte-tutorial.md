@@ -36,6 +36,9 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Egnyte supports **SP** initiated SSO
 * Once you configure Egnyte you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Egnyte from the gallery
 
 To configure the integration of Egnyte into Azure AD, you need to add Egnyte from the gallery to your list of managed SaaS apps.
@@ -47,7 +50,7 @@ To configure the integration of Egnyte into Azure AD, you need to add Egnyte fro
 1. In the **Add from the gallery** section, type **Egnyte** in the search box.
 1. Select **Egnyte** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with Egnyte based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Egnyte needs to be established.
@@ -85,11 +88,14 @@ To configure Azure AD single sign-on with Egnyte, perform the following steps:
 
     ![Egnyte Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.egnyte.com`
 
+    b. In the **Reply URL** text box, type a URL:
+    `https://<companyname>.egnyte.com/samlconsumer/AzureAD`
+	
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Egnyte Client support team](https://www.egnyte.com/corp/contact_egnyte.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update the value with the actual Sign-On URL and Reply URL. Contact [Egnyte Client support team](https://www.egnyte.com/corp/contact_egnyte.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

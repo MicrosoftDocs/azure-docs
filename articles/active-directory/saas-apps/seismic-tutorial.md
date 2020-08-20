@@ -39,6 +39,7 @@ To configure Azure AD integration with Seismic, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Seismic supports **SP** initiated SSO
+* Once you configure Seismic you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Seismic from the gallery
 
@@ -62,21 +63,21 @@ To configure the integration of Seismic into Azure AD, you need to add Seismic f
 
 	 ![Seismic in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with Seismic based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Seismic needs to be established.
 
 To configure and test Azure AD single sign-on with Seismic, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Seismic Single Sign-On](#configure-seismic-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+2. **[Configure Seismic SSO](#configure-seismic-sso)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Seismic test user](#create-seismic-test-user)** - to have a counterpart of Britta Simon in Seismic that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -103,9 +104,12 @@ To configure Azure AD single sign-on with Seismic, perform the following steps:
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.seismic.com`
+	
+	c. In the **Reply URL** text box, type a URL:
+    `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Seismic Client support team](mailto:support@seismic.com) to get these values. You can also upload the **Service Provider Metadata** to auto populate the Identifier value, for more information about **Service Provider Metadata**, contact to [Seismic Client support team](mailto:support@seismic.com).
+	> These values aren't real. Update the value with the actual Sign-On URL, Identifier and Reply URL. Contact [Seismic Client support team](mailto:support@seismic.com) to get these values. You can also upload the **Service Provider Metadata** to auto populate the Identifier value, for more information about **Service Provider Metadata**, contact to [Seismic Client support team](mailto:support@seismic.com).
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -121,7 +125,7 @@ To configure Azure AD single sign-on with Seismic, perform the following steps:
 
 	c. Logout URL
 
-### Configure Seismic Single Sign-On
+### Configure Seismic SSO
 
 To configure single sign-on on **Seismic** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Seismic support team](mailto:support@seismic.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -180,7 +184,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you create a user called Britta Simon in Seismic. Work with [Seismic support team](mailto:support@seismic.com) to add the users in the Seismic platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
