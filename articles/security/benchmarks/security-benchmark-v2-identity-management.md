@@ -48,7 +48,7 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 **Responsibility**: Customer
 
-Identity and keys: /azure/cloud-adoption-framework/organize/cloud-security-identity-keys 
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
