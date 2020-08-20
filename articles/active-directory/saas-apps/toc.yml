@@ -638,6 +638,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -1024,6 +1026,8 @@
         href: mapbox-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maverics Identity Orchestrator SAML Connector
+        href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
@@ -1460,6 +1464,8 @@
         href: sensoscientific-tutorial.md
       - name: Sequr
         href: sequr-tutorial.md
+      - name: Serraview Space Utilization Software Solutions
+        href: serraview-space-utilization-software-solutions-tutorial.md
       - name: ServiceChannel
         href: servicechannel-tutorial.md
       - name: ServiceNow
@@ -1736,6 +1742,8 @@
         href: vidyard-tutorial.md
       - name: Visit.org
         href: visitorg-tutorial.md
+      - name: Visibly
+        href: visibly-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
       - name: Visma

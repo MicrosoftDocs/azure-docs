@@ -250,7 +250,7 @@ Azure VM types, which are supported for DT 2.0 the maximum disk IO throughput li
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
-- Details about available Azure disk types can be found [here](../../windows/disks-types.md)
+- Details about available Azure disk types can be found [here](../../disks-types.md)
 - Details about creating software raid via mdadm can be found [here](../../linux/configure-raid.md)
 - Details about configuring LVM to create a striped volume for max throughput can be found [here](../../linux/configure-lvm.md)
 
@@ -273,9 +273,9 @@ data volumes of database software. Whereas for the transaction log Azure host di
 
 Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
 Azure disk types depending on cost and throughput requirements. For the log volume, high I/O throughput is required.  In case of using the VM type M64-32ms it is 
-mandatory to enable [Write Accelerator](../../linux/how-to-enable-write-accelerator.md). Azure Write Accelerator provides optimal disk write latency for the transaction
+mandatory to enable [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator provides optimal disk write latency for the transaction
 log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about Write Accelerator can be
-found [here](../../windows/how-to-enable-write-accelerator.md)
+found [here](../../how-to-enable-write-accelerator.md)
 
 
 Here are a few examples about sizing the log volume:
