@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.reviewer: dannyevers
 ---
 
 # Commercial marketplace transact capabilities
