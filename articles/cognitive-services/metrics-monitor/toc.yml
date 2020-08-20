@@ -7,19 +7,17 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Create a Metrics Monitor instance
-    href: quickstarts/create-instance.md
-  - name: Build your first monitor
+  - name: Use the web portal
     href: quickstarts/build-first-monitor.md
   - name: Use the Client library or REST API
     href: quickstarts/rest-api-and-client-library.md
 - name: How-tos
   items:
-  - name: Data feeds
+  - name: Manage data feeds
     href: how-tos/datafeeds.md
-  - name: Configure the instance using the web portal
+  - name: Configure anomaly detection
     href: how-tos/web-portal.md
-  - name: Send alerts
+  - name: Create and send alerts
     href: How-tos/alerts.md
 - name: Reference
   items:
