@@ -5,6 +5,54 @@
   items:
   - name: What are Azure Reservations?
     href: save-compute-costs-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+- name: Concepts
+  items:
+  - name: VM instance size flexibility
+    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Reservation recommendations
+    href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: How an Azure reservation discount is applied
+    href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: How discount is applied
+    items:
+    - name: App Service
+      href: reservation-discount-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Cache for Redis
+      href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Cosmos DB
+      href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Database for MariaDB
+      href: understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Database for MySQL
+      href: understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Database for PostgreSQL
+      href: understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Databricks
+      href: reservation-discount-databricks.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Data Explorer
+      href: understand-azure-data-explorer-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Dedicated Hosts
+      href: billing-understand-dedicated-hosts-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Disk Storage
+      href: understand-disk-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Red Hat Linux Enterprise
+      href: understand-rhel-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Software plans
+      href: understand-suse-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Storage
+      href: understand-storage-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: SQL Database
+      href: understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Synapse Analytics
+      href: reservation-discount-azure-sql-dw.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Virtual machines
+      href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Windows and SQL costs not included
+    href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Usage data for individual subscriptions
+    href: understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Usage data for Enterprise customers
+    href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: How-to guides
   items:
   - name: Determine what to purchase
@@ -69,52 +117,6 @@
     items:
     - name: Renew a reservation
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
-- name: Concepts
-  items:
-  - name: Reservation recommendations
-    href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: How discount is applied
-    items:
-    - name: How an Azure reservation discount is applied
-      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: App Service
-      href: reservation-discount-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Cache for Redis
-      href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Cosmos DB
-      href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Database for MariaDB
-      href: understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Database for MySQL
-      href: understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Database for PostgreSQL
-      href: understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Databricks
-      href: reservation-discount-databricks.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Data Explorer
-      href: understand-azure-data-explorer-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Dedicated Hosts
-      href: billing-understand-dedicated-hosts-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Disk Storage
-      href: understand-disk-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Red Hat Linux Enterprise
-      href: understand-rhel-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Software plans
-      href: understand-suse-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Storage
-      href: understand-storage-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: SQL Database
-      href: understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Synapse Analytics
-      href: reservation-discount-azure-sql-dw.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Virtual machines
-      href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Windows and SQL costs not included
-    href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Usage data for individual subscriptions
-    href: understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Usage data for Enterprise customers
-    href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Reference
   items:
   - name: Reservations REST API
