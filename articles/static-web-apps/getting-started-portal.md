@@ -32,9 +32,7 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Select **Static Web Apps (Preview)**
 1. Select **Create**
 
-### Basics
-
-Begin by configuring your new app and linking it to a GitHub repository.
+In the _Basics_ tab, begin by configuring your new app and linking it to a GitHub repository.
 
 :::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics tab":::
 
@@ -60,53 +58,51 @@ After you sign in with GitHub, enter the repository information.
 > [!NOTE]
 > If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
-### Build
+1. In the _Build_ tab, add configuration details specific to your preferred front-end framework.
 
-Next, add configuration details specific to your preferred front-end framework.
+    # [No Framework](#tab/vanilla-javascript)
 
-# [No Framework](#tab/vanilla-javascript)
+    1. Clear the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Clear the default value from _App artifact location_ box
 
-1. Enter **/** in the _App location_ box
-1. Clear the default value from the _Api location_ box
-1. Clear the default value from _App artifact location_ box
+    # [Angular](#tab/angular)
 
-# [Angular](#tab/angular)
+    1. Clear the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Enter **dist/angular-basic** in the _App artifact location_ box
 
-1. Enter **/** in the _App location_ box
-1. Clear the default value from the _Api location_ box
-1. Enter **dist/angular-basic** in the _App artifact location_ box
+    # [React](#tab/react)
 
-# [React](#tab/react)
+    1. Clear the default value the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Enter **build** in the _App artifact location_ box
 
-1. Enter **/** in the _App location_ box
-1. Clear the default value from the _Api location_ box
-1. Enter **build** in the _App artifact location_ box
+    # [Vue](#tab/vue)
 
-# [Vue](#tab/vue)
+    1. Clear the default value the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Enter **dist** in the _App artifact location_ box
 
-1. Enter **/** in the _App location_ box
-1. Clear the default value from the _Api location_ box
-1. Enter **dist** in the _App artifact location_ box
+    ---
 
----
+1. Select **Review + create**.
 
-Select **Review + create**.
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
-:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
-
-To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
+    To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
 
 ### Review + create
 
-After the request validates, you can continue to create the application.
+After the request validates your input, you can continue to create the application.
 
-Select the **Create** button
+1. Select **Create**.
 
-:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
 
-Select the **Go to resource** button
+1. Select **Go to resource**.
 
-:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
 
