@@ -71,7 +71,7 @@
       href: ../app-service/tutorial-python-postgresql-app.md
       displayName: python, django , connect
       maintainContext: true
-    - name: 3 - Monitor and tune
+    - name: Monitor and tune 
       href: tutorial-monitor-and-tune.md
       displayName: monitor, alerts, configure
   - name: Samples
@@ -423,6 +423,14 @@
       href: concepts-hyperscale-extensions.md
     - name: High availability
       href: concepts-hyperscale-high-availability.md
+    - name: Reference
+      items:
+      - name: SQL API functions
+        href: reference-hyperscale-functions.md
+      - name: Server parameters
+        href: reference-hyperscale-parameters.md
+      - name: System tables
+        href: reference-hyperscale-metadata.md
   - name: How-to guides
     items:
     - name: Create users
@@ -455,12 +463,6 @@
         displayName: debug, connection issues, transient, errors, hyperscale
 - name: Reference
   items:
-   - name: SQL API functions
-     href: reference-hyperscale-functions.md
-   - name: Server parameters
-     href: reference-hyperscale-parameters.md
-   - name: System tables
-     href: reference-hyperscale-metadata.md
    - name: Azure CLI
      href: /cli/azure/postgres
    - name: REST API
