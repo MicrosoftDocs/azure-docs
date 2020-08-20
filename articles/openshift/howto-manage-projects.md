@@ -19,7 +19,7 @@ ms.service: container-service
 > As of October 2020 you will no longer be able to create new 3.11 clusters.
 > Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
 >
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster).
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster).
 > If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
 
 In an OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator, you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
