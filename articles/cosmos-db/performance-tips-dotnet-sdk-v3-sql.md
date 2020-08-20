@@ -100,7 +100,7 @@ new CosmosClientOptions
 
 Because TCP is supported only in Direct mode, if you use Gateway mode, the HTTPS protocol is always used to communicate with the gateway.
 
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Diagram of the Azure Cosmos DB connection policy." border="false":::
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Establish connection to Azure Cosmos DB with different connection modes and protocols." border="false":::
 
 **Ephemeral port exhaustion**
 
@@ -121,7 +121,7 @@ When possible, place any applications that call Azure Cosmos DB in the same regi
 
 You can get the lowest possible latency by ensuring that the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram of the Azure Cosmos DB connection policy." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Collocate clients in the same region." border="false":::
 
    <a id="increase-threads"></a>
 
