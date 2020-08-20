@@ -121,8 +121,6 @@ After deployment, your logic app works end-to-end with valid parameters. However
   > [!NOTE]
   > If you're considering sharing API connections, make sure that your solution can [handle potential throttling problems](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). Throttling happens at the connection level, so reusing the same connection across multiple logic apps might increase the potential for throttling problems.
 
-* Run your continuous integration process on a virtual machine in a user space that has a browser session where the required connections are set up and consent is already provided. You can then use a script that provides consent for each OAuth connection without manual intervention, although this approach might still not work if you have to use multi-factor authentication. As a starting point, you can update and repurpose this example script in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) GitHub project.
-
 * To manually authorize OAuth connections, open your logic app in Logic App Designer, either in the Azure portal or in Visual Studio. In the designer, authorize any required connections.
 
 If you use an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
