@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 08/19/2020
+ms.date: 08/20/2020
 ms.topic: how-to
 ---
 
@@ -197,7 +197,7 @@ The last authorization in the example above adds a **principalId** with the User
 Once you have updated your parameter file, a user in the customer's tenant must deploy the Azure Resource Manager template within their tenant. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
-> This subscription-level deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
+> This deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
 
@@ -206,11 +206,8 @@ The deployment may be done in the Azure portal, by using PowerShell, or by using
 ### Azure portal
 
 1. In our [GitHub repo](https://github.com/Azure/Azure-Lighthouse-samples/), select the **Deploy to Azure** button shown next to the template you want to use. The template will open in the Azure portal.
-1. In the **Basics** section, select the subscription, resource group, and location in which you want to perform the deployment.
-1. In the **Settings** section, enter your values for **Msp Offer Name**, **Msp Offer Description**, and **Managed by Tenant Id**. If you prefer, you can select **Edit template** to enter the `mspOfferName`, `mspOfferDescription`, and `managedbyTenantId` values directly in the template.
-1. In the **Settings** section, enter your authorizations info. You can also select **Edit parameters** to edit this directly in the parameter file. You can add as many authorizations as you need here, including **User Access Administrator** role authorizations with the corresponding **delegatedRoleDefinitionIds** property and one or more built-in roles.
-1. Check the box next to **I agree to the terms and conditions stated above**.
-1. Select **Purchase.**
+1. Enter your values for **Msp Offer Name**, **Msp Offer Description**, **Managed by Tenant Id**, and **Authorizations**. If you prefer, you can select **Edit parameters** to enter values for `mspOfferName`, `mspOfferDescription`, `managedbyTenantId`, and `authorizations` directly in the parameter file. Be sure to update these values rather than using the default values from the template.
+1. Select **Review and create**, then select **Create**.
 
 After a few minutes, you should see a notification that the deployment has completed.
 
