@@ -53,5 +53,5 @@ If using custom workspace, ensure Network Watcher is enabled in subscription and
 
 ## Next steps
 
-* Learn [how to migrate from Network Performance Monitor to Connection Montior (Preview)](migrate_to_connectionmonitorpreview_from_npm.md)
+* Learn [how to migrate from Network Performance Monitor to Connection Monitor (Preview)](migrate_to_connectionmonitorpreview_from_npm.md)
 * Learn [how to create Connection Monitor (Preview) using Azure portal](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
