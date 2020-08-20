@@ -29,16 +29,16 @@ ms.author: pafarley
 
 [!INCLUDE [environment-variables](../environment-variables.md)]
 
-
 ### Create a new python application
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 
 ```python
 import os
-import azure.ai.formrecognizer
-from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import ResourceNotFoundError
+from azure.ai.formrecognizer import FormRecognizerClient
+from azure.ai.formrecognizer import FormTrainingClient
+from azure.core.credentials import AzureKeyCredential
 ```
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable.
@@ -50,7 +50,7 @@ key = os.environ["FORM_RECOGNIZER_KEY"]
 
 ### Install the client library
 
-After installing Python, you can install the client library with:
+After installing Python, you can install the latest version of the Form Recognizer client library with:
 
 ```console
 pip install azure-ai-formrecognizer
@@ -77,8 +77,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
 
 ```python
-form_recognizer_client = FormRecognizerClient(endpoint=endpoint, credential=AzureKeyCredential(key))
-
+form_recognizer_client = FormRecognizerClient(endpoint, AzureKeyCredential(key))
 form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 ```
 
@@ -89,12 +88,12 @@ form_training_client = FormTrainingClient(endpoint, AzureKeyCredential(key))
 
 You'll also need to add references to the URLs for your training and testing data.
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* To get a URL of a form to test, you can use the above steps to get the SAS URL of an individual document in blob storage. Or, take the URL of a document located elsewhere.
-* Use the above method to get the URL of a receipt image as well, or use the sample image URL provided.
+* Use the sample form included in the samples repository or you can use the above steps to get the SAS URL of an individual document in blob storage. 
+* Use the sample receipt included in the samples repository or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
 ```python
 trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>"
-formUrl = "<SAS-URL-of-a-form-in-blob-storage>"
+formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf"
 receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/receipt/contoso-receipt.png"
 ```
 
@@ -102,115 +101,85 @@ receiptUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/maste
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the content of a file at a given URL, use the **begin_recognize_content** method.
+To recognize the content of a file at a given URL, use the **begin_recognize_content** method. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 ```Python
 poller = form_recognizer_client.begin_recognize_content_from_url(formUrl)
-contents = poller.result()
+page = poller.result()
+
+table = page[0].tables[0] # page 1, table 1
+print("Table found on page {}:".format(table.page_number))
+for cell in table.cells:
+    print("Cell text: {}".format(cell.text))
+    print("Location: {}".format(cell.bounding_box))
+    print("Confidence score: {}\n".format(cell.confidence))
 ```
 
-The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
+### Output
 
-```python
-for idx, content in enumerate(contents):
-    print("----Recognizing content from page #{}----".format(idx))
-    print("Has width: {} and height: {}, measured with unit: {}".format(
-        content.width,
-        content.height,
-        content.unit
-    ))
-    for table_idx, table in enumerate(content.tables):
-        print("Table # {} has {} rows and {} columns".format(table_idx, table.row_count, table.column_count))
-        for cell in table.cells:
-            print("...Cell[{}][{}] has text '{}' within bounding box '{}'".format(
-                cell.row_index,
-                cell.column_index,
-                cell.text,
-                format_bounding_box(cell.bounding_box)
-            ))
-    for line_idx, line in enumerate(content.lines):
-        print("Line # {} has word count '{}' and text '{}' within bounding box '{}'".format(
-            line_idx,
-            len(line.words),
-            line.text,
-            format_bounding_box(line.bounding_box)
-        ))
-    print("----------------------------------------")
-```
+```console
+Table found on page 1:
+Cell text: Invoice Number
+Location: [Point(x=0.5075, y=2.8088), Point(x=1.9061, y=2.8088), Point(x=1.9061, y=3.3219), Point(x=0.5075, y=3.3219)]
+Confidence score: 1.0
 
-The above code uses a helper function `format_bounding_box` to simplify the coordinates of a bounding box. Define it separately:
+Cell text: Invoice Date
+Location: [Point(x=1.9061, y=2.8088), Point(x=3.3074, y=2.8088), Point(x=3.3074, y=3.3219), Point(x=1.9061, y=3.3219)]
+Confidence score: 1.0
 
-```python
-def format_bounding_box(bounding_box):
-    if not bounding_box:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+Cell text: Invoice Due Date
+Location: [Point(x=3.3074, y=2.8088), Point(x=4.7074, y=2.8088), Point(x=4.7074, y=3.3219), Point(x=3.3074, y=3.3219)]
+Confidence score: 1.0
+
+Cell text: Charges
+Location: [Point(x=4.7074, y=2.8088), Point(x=5.386, y=2.8088), Point(x=5.386, y=3.3219), Point(x=4.7074, y=3.3219)]
+Confidence score: 1.0
+
+...
+
 ```
 
 ## Recognize receipts
 
-This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the **begin_recognize_receipts_from_url** method. 
+This section demonstrates how to recognize and extract common fields from US receipts, using a pre-trained receipt model. To recognize receipts from a URL, use the `begin_recognize_receipts_from_url` method. 
 
 ```python
 poller = form_recognizer_client.begin_recognize_receipts_from_url(receiptUrl)
-receipts = poller.result()
+result = poller.result()
+
+for receipt in result:
+    for name, field in receipt.fields.items():
+        if name == "Items":
+            print("Receipt Items:")
+            for idx, items in enumerate(field.value):
+                print("...Item #{}".format(idx + 1))
+                for item_name, item in items.value.items():
+                    print("......{}: {} has confidence {}".format(item_name, item.value, item.confidence))
+        else:
+            print("{}: {} has confidence {}".format(name, field.value, field.confidence))
 ```
 
-The returned value is a collection of **RecognizedReceipt** objects: one for each page in the submitted document. The following block of code prints basic receipt information to the console.
+### Output
 
-```python
-for idx, receipt in enumerate(receipts):
-    print("--------Recognizing receipt #{}--------".format(idx))
-    receipt_type = receipt.fields.get("ReceiptType")
-    if receipt_type:
-        print("Receipt Type: {} has confidence: {}".format(receipt_type.value, receipt_type.confidence))
-    merchant_name = receipt.fields.get("MerchantName")
-    if merchant_name:
-        print("Merchant Name: {} has confidence: {}".format(merchant_name.value, merchant_name.confidence))
-    transaction_date = receipt.fields.get("TransactionDate")
-    if transaction_date:
-        print("Transaction Date: {} has confidence: {}".format(transaction_date.value, transaction_date.confidence))
+```console
+ReceiptType: Itemized has confidence 0.659
+MerchantName: Contoso Contoso has confidence 0.516
+MerchantAddress: 123 Main Street Redmond, WA 98052 has confidence 0.986
+MerchantPhoneNumber: None has confidence 0.99
+TransactionDate: 2019-06-10 has confidence 0.985
+TransactionTime: 13:59:00 has confidence 0.968
+Receipt Items:
+...Item #1
+......Name: 8GB RAM (Black) has confidence 0.916
+......TotalPrice: 999.0 has confidence 0.559
+...Item #2
+......Quantity: None has confidence 0.858
+......Name: SurfacePen has confidence 0.858
+......TotalPrice: 99.99 has confidence 0.386
+Subtotal: 1098.99 has confidence 0.964
+Tax: 104.4 has confidence 0.713
+Total: 1203.39 has confidence 0.774
 ```
-
-The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
-
-
-```python
-    print("Receipt items:")
-    for idx, item in enumerate(receipt.fields.get("Items").value):
-        print("...Item #{}".format(idx))
-        item_name = item.value.get("Name")
-        if item_name:
-            print("......Item Name: {} has confidence: {}".format(item_name.value, item_name.confidence))
-        item_quantity = item.value.get("Quantity")
-        if item_quantity:
-            print("......Item Quantity: {} has confidence: {}".format(item_quantity.value, item_quantity.confidence))
-        item_price = item.value.get("Price")
-        if item_price:
-            print("......Individual Item Price: {} has confidence: {}".format(item_price.value, item_price.confidence))
-        item_total_price = item.value.get("TotalPrice")
-        if item_total_price:
-            print("......Total Item Price: {} has confidence: {}".format(item_total_price.value, item_total_price.confidence))
-```
-
-Finally, the last block of code prints the rest of the major receipt details.
-
-```python
-    subtotal = receipt.fields.get("Subtotal")
-    if subtotal:
-        print("Subtotal: {} has confidence: {}".format(subtotal.value, subtotal.confidence))
-    tax = receipt.fields.get("Tax")
-    if tax:
-        print("Tax: {} has confidence: {}".format(tax.value, tax.confidence))
-    tip = receipt.fields.get("Tip")
-    if tip:
-        print("Tip: {} has confidence: {}".format(tip.value, tip.confidence))
-    total = receipt.fields.get("Total")
-    if total:
-        print("Total: {} has confidence: {}".format(total.value, total.confidence))
-    print("--------------------------------------")
-```
-
 
 ## Train a custom model
 
@@ -223,35 +192,42 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
 
-The following code uses the training client with the **begin_training** function to train a model on a given set of documents.
+The following code uses the training client with the **begin_training** function to train a model on a given set of documents. The returned **CustomFormSubmodel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
 ```python
 poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=False)
 model = poller.result()
-```
 
-The returned **CustomFormSubmodel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
-
-```python
-# Custom model information
 print("Model ID: {}".format(model.model_id))
 print("Status: {}".format(model.status))
-print("Created on: {}".format(model.requested_on))
-print("Last modified: {}".format(model.completed_on))
+print("Training started on: {}".format(model.training_started_on))
+print("Training completed on: {}".format(model.training_completed_on))
 
-print("Recognized fields:")
-# Looping through the submodels, which contains the fields they were trained on
+print("\nRecognized fields:")
 for submodel in model.submodels:
-    print("...The submodel has form type '{}'".format(submodel.form_type))
-    for name, field in submodel.fields.items():
-        print("...The model found field '{}' to have label '{}'".format(
-            name, field.label
-        ))
+    print(
+        "The submodel with form type '{}' has recognized the following fields: {}".format(
+            submodel.form_type,
+            ", ".join(
+                [
+                    field.label if field.label else name
+                    for name, field in submodel.fields.items()
+                ]
+            ),
+        )
+    )
+
+# Training result information
+for doc in model.training_documents:
+    print("Document name: {}".format(doc.name))
+    print("Document status: {}".format(doc.status))
+    print("Document page count: {}".format(doc.page_count))
+    print("Document errors: {}".format(doc.errors))
 ```
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. 
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned **CustomFormSubmodel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 > [!IMPORTANT]
 > To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **begin_training** function with the *use_training_labels* parameter set to `true`.
@@ -259,26 +235,32 @@ You can also train custom models by manually labeling the training documents. Tr
 ```python
 poller = form_training_client.begin_training(trainingDataUrl, use_training_labels=True)
 model = poller.result()
-```
 
-The returned **CustomFormSubmodel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
-
-```python
-# Custom model information
 print("Model ID: {}".format(model.model_id))
 print("Status: {}".format(model.status))
-print("Created on: {}".format(model.created_on))
-print("Last modified: {}".format(model.last_modified))
+print("Training started on: {}".format(model.training_started_on))
+print("Training completed on: {}".format(model.training_completed_on))
 
-print("Recognized fields:")
-# looping through the submodels, which contains the fields they were trained on
-# The labels are based on the ones you gave the training document.
+print("\nRecognized fields:")
 for submodel in model.submodels:
-    print("...The submodel with form type {} has accuracy '{}'".format(submodel.form_type, submodel.accuracy))
-    for name, field in submodel.fields.items():
-        print("...The model found field '{}' to have name '{}' with an accuracy of {}".format(
-            name, field.name, field.accuracy
-        ))
+    print(
+        "The submodel with form type '{}' has recognized the following fields: {}".format(
+            submodel.form_type,
+            ", ".join(
+                [
+                    field.label if field.label else name
+                    for name, field in submodel.fields.items()
+                ]
+            ),
+        )
+    )
+
+# Training result information
+for doc in model.training_documents:
+    print("Document name: {}".format(doc.name))
+    print("Document status: {}".format(doc.status))
+    print("Document page count: {}".format(doc.page_count))
+    print("Document errors: {}".format(doc.errors))
 ```
 
 ## Analyze forms with a custom model
@@ -288,37 +270,24 @@ This section demonstrates how to extract key/value information and other content
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
 
-You'll use the **begin_recognize_custom_forms_from_url** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.
+You'll use the **begin_recognize_custom_forms_from_url** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 ```python
-# Make sure your form's type is included in the list of form types the custom model can recognize
+model_id = "<your custom model id>"
+
 poller = form_recognizer_client.begin_recognize_custom_forms_from_url(
-    model_id=model.model_id, form_url=formUrl)
-forms = poller.result()
-```
+    model_id=model_id, form_url=formUrl)
+result = poller.result()
 
-The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
-
-```python
-for idx, form in enumerate(forms):
-    print("--------Recognizing Form #{}--------".format(idx))
-    print("Form {} has type {}".format(idx, form.form_type))
-    for name, field in form.fields.items():
-        # each field is of type FormField
-        # The value of the field can also be a FormField, or a list of FormFields
-        # In our sample, it is just a FormField.
-        print("...Field '{}' has value '{}' with a confidence score of {}".format(
-            name, field.value, field.confidence
+for recognized_form in result:
+    print("Form type: {}".format(recognized_form.form_type))
+    for name, field in recognized_form.fields.items():
+        print("Field '{}' has label '{}' with value '{}' and a confidence score of {}".format(
+            name,
+            field.label_data.text if field.label_data else name,
+            field.value,
+            field.confidence
         ))
-        # label data is populated if you are using a model trained with unlabeled data, since the service needs to make predictions for
-        # labels if not explicitly given to it.
-        if field.label_data:
-            print("...Field '{}' has label '{}' with a confidence score of {}".format(
-                name,
-                field.label_data.text,
-                field.confidence
-            ))
-    print("-----------------------------------")
 ```
 
 ## Manage your custom models
@@ -330,7 +299,6 @@ This section demonstrates how to manage the custom models stored in your account
 The following code block checks how many models you have saved in your Form Recognizer account and compares it to the account limit.
 
 ```python
-# First, we see how many custom models we have, and what our limit is
 account_properties = form_training_client.get_account_properties()
 print("Our account has {} custom models, and we can have at most {} custom models".format(
     account_properties.custom_model_count, account_properties.custom_model_limit
@@ -359,12 +327,13 @@ for model in custom_models:
 The following code block uses the model ID saved from the previous section and uses it to retrieve details about the model.
 
 ```python
-# Now we'll get the first custom model in the paged list
-custom_model = form_training_client.get_custom_model(model_id=first_model.model_id)
+model_id = "<model_id from the Train a Model sample>"
+
+custom_model = form_training_client.get_custom_model(model_id=model_id)
 print("Model ID: {}".format(custom_model.model_id))
 print("Status: {}".format(custom_model.status))
-print("Created on: {}".format(custom_model.requested_on))
-print("Last modified: {}".format(custom_model.completed_on))
+print("Training started on: {}".format(custom_model.training_started_on))
+print("Training completed on: {}".format(custom_model.training_completed_on))
 ```
 
 ### Delete a model from the resource account
@@ -374,12 +343,10 @@ You can also delete a model from your account by referencing its ID. This code d
 ```python
 form_training_client.delete_model(model_id=custom_model.model_id)
 
-# Confirm deletion:
 try:
     form_training_client.get_custom_model(model_id=custom_model.model_id)
 except ResourceNotFoundError:
     print("Successfully deleted model with id {}".format(custom_model.model_id))
-}
 ```
 
 ## Run the application
