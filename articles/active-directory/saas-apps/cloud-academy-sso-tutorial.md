@@ -54,7 +54,7 @@ To configure the integration of Cloud Academy - SSO into Azure AD, you need to a
 
 You'll configure and test Azure AD SSO with Cloud Academy - SSO by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Cloud Academy - SSO.
 
-To configure and test Azure AD SSO with Cloud Academy - SSO, you'll take these high-level steps:
+To configure and test Azure AD SSO with Cloud Academy - SSO, you'll complete these high-level steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows the Settings & Integrations option.](./media/cloud-academy-sso-tutorial/config-1.PNG)
 
-1. On the **Settings & Integrations** page, go to the **Integrations** tab and select the **SSO** card:
+1. On the **Settings & Integrations** page, on the **Integrations** tab, select the **SSO** card:
 
     ![Screenshot that shows the SSO card on the Integrations tab.](./media/cloud-academy-sso-tutorial/config-2.PNG)
 
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
     > [!NOTE]
 	> For more information on how to configure the Cloud Academy - SSO, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
-### Create a Cloud Academy-SSO test user
+### Create a Cloud Academy test user
 
 1. Sign in to Cloud Academy - SSO.
 
@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 ## Test SSO 
 
-In this section, you'll test your Azure AD SSO configuration by using Access Panel.
+You'll now test your Azure AD SSO configuration by using Access Panel.
 
 When you select the Cloud Academy - SSO tile in Access Panel, you should be automatically signed in to the Cloud Academy - SSO instance for which you set up SSO. For more information, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -172,4 +172,4 @@ When you select the Cloud Academy - SSO tile in Access Panel, you should be auto
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Cloud Academy - SSO with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Cloud Academy - SSO by using advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
