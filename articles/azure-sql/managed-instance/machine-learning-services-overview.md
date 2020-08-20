@@ -47,7 +47,7 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 
 This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/). 
+If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
 
 1. Select the following options:
    - Issue type - **Technical**
@@ -59,7 +59,7 @@ If you're interested in joining the preview program and accept these terms, then
 
 1. Click **Next: Solutions**.
 
-1. Read the preview information, then click **Details**.
+1. Read the information about the preview, then click **Details**.
 
 1. In **Description**, enter the specifics of your request including the logical server name, region, and subscription ID that you would like to enroll in the preview. Enter other details as appropriate.
 
