@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial for configuring whoIAM with Azure Active Directory B2C
+# Tutorial for configuring WhoIAM with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to install  [WhoIAM](https://www.whoiam.ai/brims/) Branded Identity Management System (BRIMS) in your environment and integrate it with Azure AD B2C.
 
@@ -73,7 +73,7 @@ The following architecture diagram shows the implementation.
 
 4. Azure AD B2C custom policy samples are available in your BRIMS onboarding documentation. Follow the document to configure your app and use the BRIMS platform for user identity verification.  
 
-For more information about whoIAM's BRIMS, see [product documentation](https://www.whoiam.ai/brims/)
+For more information about WhoIAM's BRIMS, see [product documentation](https://www.whoiam.ai/brims/)
 
 >[!NOTE]
 > As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
