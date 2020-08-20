@@ -18,7 +18,7 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Verify your permissions
 
@@ -45,9 +45,9 @@ A Red Hat pull secret enables your cluster to access Red Hat container registrie
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
-2. **Click Download pull secret.**
+2. Go to the [**OpenShift product page**](https://developers.redhat.com/products/codeready-containers) if this is your first time creating a cluster. After registration, head to [**Red Hat OpenShift Cluster Manager page**](https://cloud.redhat.com/openshift/), where you can click **Download pull secret** and download a pull secret to be used with your ARO cluster.
 
-Keep the saved `pull-secret.txt` file somewhere safe - it will be used in each cluster creation.
+Keep the saved `pull-secret.txt` file somewhere safe. The file will be used in each cluster creation if you need to create a cluster that includes samples or operators for Red Hat or certified partners.
 
 When running the `az aro create` command, you can reference your pull secret using the `--pull-secret @pull-secret.txt` parameter. Execute `az aro create` from the directory where you stored your `pull-secret.txt` file. Otherwise, replace `@pull-secret.txt` with `@<path-to-my-pull-secret-file>`.
 

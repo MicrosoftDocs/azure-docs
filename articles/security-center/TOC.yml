@@ -66,6 +66,8 @@
       href: security-center-policy-definitions.md 
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Threat protection and security alerts
     items:
     - name: Overview of threat protection in security center
@@ -151,6 +153,8 @@
       href: workflow-automation.md
     - name: Export recommendations
       href: continuous-export.md
+  - name: Manage your resources with asset inventory
+    href: asset-inventory.md
   - name: Integrate with other tools and services
     items:
     - name: Integrate with Windows Admin Center

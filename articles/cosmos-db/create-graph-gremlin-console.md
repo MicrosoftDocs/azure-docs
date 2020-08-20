@@ -75,7 +75,7 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
    connectionPool: {
      enableSsl: true
    }
-   serializer: { className: org.apache.tinkerpop.gremlin.driver.   ser.GraphSONMessageSerializerV2d0, config: {    serializeResultToString: true }}
+   serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
    ```
 
    make sure to wrap the value of hosts parameter within brackets []. 

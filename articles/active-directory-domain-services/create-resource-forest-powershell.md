@@ -87,7 +87,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
 
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -122,7 +122,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
 
 1. Now create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -147,8 +147,8 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
-    * [Azure Site-to-Site VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Azure ExpressRoute Overview](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure ExpressRoute Overview](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > If you create the connection directly to your managed domain's virtual network, use a separate gateway subnet. Don't create the gateway in the managed domain's subnet.
@@ -203,7 +203,7 @@ Now provide the script the following information:
 
 The following example creates a trust relationship named *myAzureADDSTrust* to *onprem.contoso.com*. Use your own parameter names and passwords:.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `

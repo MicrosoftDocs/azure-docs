@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with .NET
 description: How to diagnose and fix .NET SDK request timeout exception
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -40,9 +40,15 @@ The client application that uses the SDK should be scaled up/out.
 When running in Azure, clients using the .NET SDK can hit Azure SNAT (PAT) port exhaustion.
 
 #### Solution 1:
-Follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
+If you are running on Azure VMs, follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
 
 #### Solution 2:
+If you are running on Azure App Service, follow the [connection errors troubleshooting guide](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) and [use App Service diagnostics](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+
+#### Solution 3:
+If you are running on Azure Functions, verify you are following the [Azure Functions recommendation](../azure-functions/manage-connections.md#static-clients) of maintaining singleton / static clients for all of the involved services (including Cosmos DB) and check the [service limits](../azure-functions/functions-scale.md#service-limits) based on the type and size of your Function App hosting.
+
+#### Solution 4:
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
 Otherwise, you face connection issues.
 

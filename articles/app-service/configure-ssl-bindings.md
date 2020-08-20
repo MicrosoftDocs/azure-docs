@@ -148,7 +148,7 @@ When the operation is complete, your app rejects all connections with lower TLS 
 
 In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
-Language specific configuration guides, such as the [Linux Node.js configuration](containers/configure-language-nodejs.md#detect-https-session) guide, shows you how to detect an HTTPS session in your application code.
+Language specific configuration guides, such as the [Linux Node.js configuration](configure-language-nodejs.md#detect-https-session) guide, shows you how to detect an HTTPS session in your application code.
 
 ## Automate with scripts
 

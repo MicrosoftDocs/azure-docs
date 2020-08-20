@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -69,10 +69,9 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 To delete a management group, the following requirements must be met:
 
-1. There are no child management groups or subscriptions under the management group.
-
-   - To move a subscription or management group to another management group see
-     [Moving management groups and subscriptions in the hierarchy](#moving-management-groups-and-subscriptions).
+1. There are no child management groups or subscriptions under the management group. To move a
+   subscription or management group to another management group, see
+   [Moving management groups and subscriptions in the hierarchy](#moving-management-groups-and-subscriptions).
 
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group
    Contributor"). To see what permissions you have, select the management group and then select
@@ -217,8 +216,8 @@ One reason to create a management group is to bundle subscriptions together. Onl
 and subscriptions can be made children of another management group. A subscription that moves to a
 management group inherits all user access and policies from the parent management group
 
-When moving a management group or subscription to be a child of another management group three rules
-need to be evaluated as true.
+When moving a management group or subscription to be a child of another management group, three
+rules need to be evaluated as true.
 
 If you're doing the move action, you need: 
 

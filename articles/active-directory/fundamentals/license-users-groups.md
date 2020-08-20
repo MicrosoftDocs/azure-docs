@@ -2,7 +2,7 @@
 title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78

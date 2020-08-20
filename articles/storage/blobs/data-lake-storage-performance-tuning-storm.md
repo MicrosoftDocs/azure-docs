@@ -1,6 +1,6 @@
 ---
 title: 'Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2 Storm performance tuning guidelines
+description: Understand guidelines for tuning the performance of an Azure Storm topology on an Azure HDInsight cluster and Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
