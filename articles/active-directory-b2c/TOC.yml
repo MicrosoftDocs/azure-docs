@@ -367,25 +367,26 @@
     items:
     - name: Azure AD B2C partner gallery
       href: partner-gallery.md
-    - name: Arkose Labs
+      items: 
+      - name: Arkose Labs
       href: partner-arkose-labs.md
-    - name: Experian
+      - name: Experian
       href: partner-experian.md
-    - name: IDology
+      - name: IDology
       href: partner-idology.md
-    - name: itsme
+      - name: itsme
       href: partner-itsme.md
-    - name: LexisNexis
+      - name: LexisNexis
       href: partner-lexisnexis.md
-    - name: Onfido
+      - name: Onfido
       href: partner-onfido.md
-    - name: Trusona
+      - name: Trusona
       href: partner-trusona.md
-    - name: Twilio
+     - name: Twilio
       href: partner-twilio.md
-    - name: TypingDNA
+      - name: TypingDNA
       href: partner-typingdna.md
-  - name: Use b2clogin.com
+    - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
