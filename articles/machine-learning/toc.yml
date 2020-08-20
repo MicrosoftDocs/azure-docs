@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
       items: 
+        - name: Security baseline
+          href: security-baseline.md
         - name: Enterprise security and governance
           items: 
             - name: Enterprise security overview

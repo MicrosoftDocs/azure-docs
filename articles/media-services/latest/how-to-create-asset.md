@@ -50,6 +50,10 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
 
+## Using Postman
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
+
 ## [.NET](#tab/net/)
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-dotnet.md)]
