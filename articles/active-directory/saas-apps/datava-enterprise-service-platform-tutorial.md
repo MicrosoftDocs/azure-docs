@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/15/2020
+ms.date: 08/20/2020
 ms.author: jeedes
 ---
 
@@ -39,7 +39,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Datava Enterprise Service Platform supports **SP** initiated SSO
 * Datava Enterprise Service Platform supports **Just In Time** user provisioning
-* Once you configure Datava Enterprise Service Platform you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Datava Enterprise Service Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Datava Enterprise Service Platform from the gallery
 
@@ -52,7 +55,7 @@ To configure the integration of Datava Enterprise Service Platform into Azure AD
 1. In the **Add from the gallery** section, type **Datava Enterprise Service Platform** in the search box.
 1. Select **Datava Enterprise Service Platform** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Datava Enterprise Service Platform
+## Configure and test Azure AD SSO for Datava Enterprise Service Platform
 
 Configure and test Azure AD SSO with Datava Enterprise Service Platform using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Datava Enterprise Service Platform.
 
@@ -145,5 +148,3 @@ When you click the Datava Enterprise Service Platform tile in the Access Panel, 
 - [Try Datava Enterprise Service Platform with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Datava Enterprise Service Platform with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
