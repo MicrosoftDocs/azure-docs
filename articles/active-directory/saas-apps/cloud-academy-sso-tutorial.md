@@ -113,7 +113,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. In a different browser window, sign in to your Cloud Academy - SSO company site as administrator.
 
-1. Select the company's name and then select **Settings & Integrations** in the menu:
+1. Select your company's name and then select **Settings & Integrations** in the menu that appears:
 
     ![Screenshot that shows the Settings & Integrations option.](./media/cloud-academy-sso-tutorial/config-1.PNG)
 
@@ -121,52 +121,52 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     ![Screenshot that shows the SSO card on the Integrations tab.](./media/cloud-academy-sso-tutorial/config-2.PNG)
 
-1. Perform the following steps in the following page:
+1. Complete the following steps in this page:
 
-    ![Configuration ](./media/cloud-academy-sso-tutorial/config-3.PNG)
+    ![Screenshot that shows the Inegrations > SSO page.](./media/cloud-academy-sso-tutorial/config-3.PNG)
 
-    a. In the **Entity ID URL** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
+    a. In the **Entity ID URL** box, enter the entity ID value that you copied from the Azure portal.
 
-    b. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. In the **SSO URL** box, paste the login URL value that you copied from the Azure portal.
 
-    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
+    c. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
-    d. In the **Name ID Format** textbox, The default value, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+    d. In the **Name ID Format** box, keep the default value: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-1. Click on **Save** button.
+1. Select **Save**.
 
     > [!NOTE]
-	> For more information on how to configure the Cloud Academy - SSO, please refer [Support article](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
+	> For more information on how to configure the Cloud Academy - SSO, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
-### Create Cloud Academy-SSO test user
+### Create a Cloud Academy-SSO test user
 
-1. Login to the **Cloud Academy - SSO** .
+1. Sign in to Cloud Academy - SSO.
 
-1. Click on the company's name and select **Members** from the menu.
+1. Select your company's name and then select **Members** in the menu that appears:
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/create-user.PNG)
+    ![Screenshot that shows the Members option.](./media/cloud-academy-sso-tutorial/create-user.PNG)
 
-1. Click on **Invite Members** and select **Invite a Single Member**.
+1. Select **Invite Members** and then select **Invite a single Member**:
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
+    ![Screenshot that shows the Invite a single Member option.](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
 
-1. Enter the required fields and click on **Invite**.
+1. Enter values in the required fields and then select **Invite**:
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
+    ![Screenshot that shows he Invite a Member dialog box.](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you'll test your Azure AD SSO configuration by using Access Panel.
 
-When you click the Cloud Academy - SSO tile in the Access Panel, you should be automatically signed in to the Cloud Academy - SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Cloud Academy - SSO tile in Access Panel, you should be automatically signed in to the Cloud Academy - SSO instance for which you set up SSO. For more information, see [Introduction to Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Cloud Academy - SSO with Azure AD](https://aad.portal.azure.com/)
 
