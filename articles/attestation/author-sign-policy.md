@@ -271,15 +271,14 @@ Currently 1.0.
 After creating a policy file, to upload a policy in JWS format, follow the below steps.
 1. Generate the JWS, RFC 7515 with policy (utf-8 encoded) as the payload
      - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
+     Sample JWT:
+     ```
+     Header: {"alg":"none"}
+     Payload: {“AttestationPolicy”:” Base64Url (policy)”}
+     Signature: {}
 
-       Sample JWT:
-       ```
-        Header: {"alg":"none"}
-        Payload: {“AttestationPolicy”:” Base64Url (policy)”}
-        Signature: {}
-
-        JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-      ```
+     JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
+     ```
 
 2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
      - None – When you don’t want to sign the policy payload
