@@ -18,7 +18,7 @@ ms.reviewer: azmetadatadev
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
 Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested endpoint supports Classic (non-ARM) VMs and only to a limited extent.
+the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
 
 Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
 It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
