@@ -26,7 +26,7 @@ These capabilities require almost no administration and all are provided at no a
 
 ## Deployment Models
 
-Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes :
+Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 - Single Server 
 - Flexible Server (Public Preview)
   
