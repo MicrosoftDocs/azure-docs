@@ -3,7 +3,7 @@ title: Install language packs on Windows 10 VMs in Windows Virtual Desktop - Azu
 description: How to install language packs for Windows 10 multi-session VMs in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/03/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -55,7 +55,7 @@ To create the content repository for language packages and FODs:
 > If you're working with limited storage, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
 >[!IMPORTANT]
-> Some languages require additional fonts included in satellite packages that follow different naming conventions. Fore example, Japanese font file names include “Jpan."
+> Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
 >
 > [!div class="mx-imgBorder"]
 > ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
@@ -149,7 +149,7 @@ Set-WinUserLanguageList $LanguageList -force
 ```
 
 >[!IMPORTANT]
->Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_\<language-code\>.cab` package file.
+>Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_<language-code>.cab` package file.
 
 The script might take a while depending on the number of languages you need to install.
 
@@ -168,7 +168,7 @@ To run sysprep:
 1. Open an elevated command prompt and run the following command to generalize the image:  
    
      ```cmd
-     C:\\Windows\\System32\\Sysprep\\sysprep.exe /oobe /generalize /shutdown
+     C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
 2. Shut down the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
@@ -191,5 +191,8 @@ Set-WinUserLanguageList $LanguageList -force
 
 After a user changes their language settings, they'll need to sign out of their Windows Virtual Desktop session and sign in again for the changes to take effect. 
 
->[!NOTE]
->To see known issues for language packs, see [Adding language packs in Windows 10, version 1803 and later versions: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue).
+## Next steps
+
+If you're curious about known issues for language packs, see [Adding language packs in Windows 10, version 1803 and later versions: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue).
+
+If you have any other questions about Windows 10 Enterprise multi-session, check out our [FAQ](windows-10-multisession-faq.md).
