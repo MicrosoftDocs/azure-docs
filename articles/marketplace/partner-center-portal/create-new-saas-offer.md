@@ -9,7 +9,7 @@ author: mingshen-ms
 ms.author: mingshen
 ---
 
-# Create a SaaS offer in the commercial marketplace
+# Create a new SaaS offer in the commercial marketplace
 
 To begin creating Software as a Service (SaaS) offers in the commercial marketplace, ensure that you first [create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
