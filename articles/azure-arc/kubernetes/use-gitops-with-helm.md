@@ -75,7 +75,7 @@ spec:
     ref: master
     path: charts/azure-arc-sample
   values:
-    frontendServiceName: azure-arc-sample
+    serviceName: arc-k8s-demo
 ```
 
 The Helm release config contains the following fields:
