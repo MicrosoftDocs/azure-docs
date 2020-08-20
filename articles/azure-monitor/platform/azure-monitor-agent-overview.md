@@ -103,7 +103,7 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 0.9 |
+| TypeHandlerVersion  | 1.0 | 1.5 |
 
 Install the Azure Monitor agent using any of the methods to install virtual machine agents including the following using PowerShell or CLI. Alternatively, you can install the agent and configure data collection on virtual machines in your Azure subscription using the portal with the procedure described in [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 
