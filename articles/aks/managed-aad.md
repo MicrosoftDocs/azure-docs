@@ -134,6 +134,31 @@ To do these steps, you'll need to have access to the [Azure Kubernetes Service C
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
 
+## Enable AKS-managed Azure AD Integration on your existing cluster
+
+You can enable AKS-managed Azure AD Integration on your existing RBAC enabled cluster. Ensure to set a your admin group to keep access on your cluster.
+
+```azurecli-interactive
+az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
+```
+
+A successful activation of an AKS-managed Azure AD cluster has the following section in the response body
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+You need to download user credentials again to access your cluster by following the steps [here][access-cluster].
+
 ## Upgrading to AKS-managed Azure AD Integration
 
 If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD Integration.
