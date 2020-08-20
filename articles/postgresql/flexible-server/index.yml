@@ -1,0 +1,23 @@
+### YamlMime:Landing
+title:  Flexible Server documentation
+summary: "Azure Database for PostgreSQL - Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples."
+metadata: 
+  description: "Azure Database for PostgreSQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
+  author: FIXME
+  ms.author: FIXME
+  ms.date: FIXME
+  ms.service: postgresql
+  ms.topic: landing-page
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+# Add Cards for Flexible Server Contentn
+
+landingContent: 
+  # Card 1
+  - title: About Flexible Server (Preview)
+    linkLists:     
+      - linkListType: whats-new
+        links:
+          - text: Check out our blog
+            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
