@@ -12369,6 +12369,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/backup-and-disaster-recovery-for-azure-iaas-disks.md",
+      "redirect_url": "/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md",
+      "redirect_url": "/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/security-policy.md",
+      "redirect_url": "/azure/virtual-machines/security-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/security-policy.md",
+      "redirect_url": "/azure/virtual-machines/security-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/reserved-vm-instance-size-flexibility.md",
+      "redirect_url": "/azure/virtual-machines/reserved-vm-instance-size-flexibility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md",
+      "redirect_url": "/azure/virtual-machines/reserved-vm-instance-size-flexibility",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/virtual-machines/linux/managed-disks-overview.md",
+      "redirect_url": "/azure/virtual-machines/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/managed-disks-overview.md",
+      "redirect_url": "/azure/virtual-machines/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-types.md",
+      "redirect_url": "/azure/virtual-machines/disks-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-types.md",
+      "redirect_url": "/azure/virtual-machines/disks-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-ultra-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-ultra-ssd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
       "redirect_document_id": true
@@ -55978,6 +56038,11 @@
     {
       "source_path": "articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/upload-files-rest-how-to.md",
+      "redirect_url": "how-to-upload-media?tabs=rest",
       "redirect_document_id": false
     }
   ]
