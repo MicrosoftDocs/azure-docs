@@ -16,7 +16,7 @@ ms.author: vinigam
 ---
 # Migrate to Connection Monitor (Preview) from Network Performance Monitor
 
-You can migrate tests from Network Performance Monitor to the new and improved Connection Monitor(Preview) in one click and with zero downtime. To know more about the benefits of Connection Monitor (Preview) [click here](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
+You can migrate tests from Network Performance Monitor to the new and improved Connection Monitor(Preview) in one click and with zero downtime. To know more about the benefits, you may read [Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
 
 >[!NOTE]
 > Only tests from Service Connectivity Monitor can be migrated to Connection Monitor(preview).
