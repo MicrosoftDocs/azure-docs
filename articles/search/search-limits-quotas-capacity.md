@@ -104,8 +104,8 @@ Maximum running times exist to provide balance and stability to the service as a
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Private endpoint indexer support | N/A | Yes | Yes | Yes | Yes | No | No | No |
-| Private endpoint indexer support with cognitive search skillsets or blob indexing with image analysis<sup>1</sup> | N/A | No | No | Yes | Yes | No | No | No |
+| Private endpoint indexer support | No | Yes | Yes | Yes | Yes | No | No | No |
+| Private endpoint indexer support with cognitive search skillsets or blob indexing with image analysis<sup>1</sup> | No | No | No | Yes | Yes | No | No | No |
 | Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | N/A | N/A |
 | Maximum distinct resource types<sup>2</sup> | N/A | 4 | 7 | 15 | 15 | N/A | N/A | N/A |
 
