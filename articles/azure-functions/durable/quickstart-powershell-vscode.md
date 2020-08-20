@@ -68,6 +68,8 @@ Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_
 }
 ```
 
+> Note: To test the function locally, set the value if AzureWebJobsStorage to "UseDevelopmentStorage=true"
+
 ## Create your functions
 
 The most basic Durable Functions app contains three functions:
