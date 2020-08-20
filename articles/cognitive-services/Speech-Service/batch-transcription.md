@@ -251,7 +251,7 @@ Each transcription result file has this format:
 }
 ```
 
-The result contains these fields:
+The result contains the following forms:
 
 :::row:::
    :::column span="1":::
@@ -291,7 +291,7 @@ The result contains these fields:
 
 ## Speaker separation (Diarization)
 
-Diarization is the process of separating speakers in a piece of audio. Our batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
+Diarization is the process of separating speakers in a piece of audio. The batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
 
 The output of transcription with diarization enabled contains a `Speaker` entry for each transcribed phrase. If diarization is not used, the `Speaker` property is not present in the JSON output. For diarization we support two voices, so the speakers are identified as `1` or `2`.
 
@@ -317,7 +317,7 @@ Word-level timestamps must be enabled as the parameters in the above request ind
 
 ## Best practices
 
-The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual deletion of the results.
+The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual deletion of the results.
 
 ## Sample code
 
