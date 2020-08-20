@@ -124,6 +124,7 @@ mvn clean package -DskipTests
 
 ```
 mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+
 ```
 
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
@@ -224,9 +225,13 @@ You will have to edit the previous configuration for both the `auth-service` and
 1. Verify that the **Public Endpoint** option is set to *Disabled*.
 1. Click **Apply** and then **OK**.
 
-    ![Edit configuration for auth-servide](media/spring-cloud-intellij-howto/revision-reconfigure-auth.png)
+    ![Edit configuration for auth-service](media/spring-cloud-intellij-howto/revision-reconfigure-auth.png)
 
-1. Repeat these procedurs to configure and deploy the `account-service`.
+1. Click the green run button to deploy the configuration.
+
+    ![Run configuration for auth-service](media/spring-cloud-intellij-howto/revision-run-config.png)
+
+1. Repeat these procedures to configure and deploy the `account-service`.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
