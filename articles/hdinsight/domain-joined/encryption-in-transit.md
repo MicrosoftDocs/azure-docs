@@ -13,13 +13,16 @@ ms.date: 07/10/2020
 
 This article discusses the implementation of encryption in transit for all communication between Azure HDInsight cluster nodes.
 
+> [!Note]
+> Encryption in transit is currently enabled for the following regions: East US, South Central US, West US2. 
+
 ## Background
 
 Azure HDInsight offers a variety of security features for securing your enterprise data. These solutions are grouped under the pillars of perimeter security, authentication, authorization, auditing, encryption and compliance. Encryption can be applied to data both at rest and in transit.
 
 Encryption at rest is covered by server side encryption on Azure storage accounts, as well as disk encryption on the Azure VMs that are a part of your HDInsight cluster.
 
-Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) and [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
+Encryption of data in transit on HDInsight is achieved with [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) and [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec). IPSec is enabled between all head nodes, worker nodes and edge nodes. It is not enabled for traffic between gateway nodes (windows VMs) and other linux nodes in the cluster.
 
 ## Enable encryption in transit
 
