@@ -16,7 +16,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Sign into the [Azure portal](https://aka.ms/diskencryptionupdates).
 1. Search for and select **Key Vaults**.
 
-    [ ![server-side-encryption-key-vault-portal-search.png](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png) ](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
+    [![Screenshot of the Azure portal with the search dialog box expanded.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
