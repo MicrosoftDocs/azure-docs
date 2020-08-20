@@ -41,13 +41,13 @@ By default, all users, including guests, can invite guest users.
 2. Select **Azure Active Directory**.
 3. Select **External Identities** > **External collaboration settings**.
 
-4. Under **Guest user access**, choose the level of access you want guest users to have:
+4. Under **Guest user access restrictions (Preview)**, choose the level of access you want guest users to have:
 
-   - **Guest users have the same access as members**: This option gives guests the same access to Azure AD resources and directory data as member users.
+   - **Guest users have the same access as members (most inclusive)**: This option gives guests the same access to Azure AD resources and directory data as member users.
 
    - **Guest users have limited access to properties and memberships of directory objects**: (Default) This setting blocks guests from certain directory tasks, like enumerating users, groups, or other directory resources. Guests can see membership of all non-hidden groups.
 
-   - **Guest user access is restricted to properties and memberships of their own directory objects**: **(Preview)** With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
+   - **Guest user access is restricted to properties and memberships of their own directory objects (most restrictive)**: With this setting, guests can access only their own profiles. Guests are not allowed to see other users' profiles, groups, or group memberships.
   
     ![External collaboration settings](./media/delegate-invitations/guest-user-access.png)
 
@@ -59,7 +59,9 @@ By default, all users, including guests, can invite guest users.
 
    - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
 
-   - **Enable Email One-Time Passcode for guests (Preview)**: For more information about the one-time passcode feature, see [Email one-time passcode authentication (preview)](one-time-passcode.md).
+   - **Enable Email One-Time Passcode for guests (Preview)**: For more information about the one-time passcode feature, see [Email one-time passcode authentication (Preview)](one-time-passcode.md).
+
+   - **Enable guest self-service sign up via user flows (Preview)**: For more information about this setting, see [Add a self-service sign-up user flow to an app (Preview)](self-service-sign-up-user-flow.md).
 
    > [!NOTE]
    > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
