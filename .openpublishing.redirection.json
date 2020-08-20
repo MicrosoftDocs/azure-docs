@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/active-directory/users-groups-roles/users-restrict-guest-permissions.md",
-      "redirect_url": "/azure/active-directory/fundamentals/users-default-permissions",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-api-management-certs.md",
       "redirect_url": "/previous-versions/azure/azure-api-management-certs",
       "redirect_document_id": false
@@ -908,6 +903,11 @@
     {
       "source_path": "articles/active-directory/user-help/my-applications-portal-access.md",
       "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/tutorial-resource-manager-workspace.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template.md?tabs=azcli",
       "redirect_document_id": false
     },
     {
