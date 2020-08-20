@@ -99,7 +99,7 @@ az role assignment create \
 
 ## Deploy Azure Spring Cloud service instance in the virtual network
 
-1. Open the Azure portal using at https://ms.portal.azure.com/?AppPlatformExtension=vnet.
+1. Open the Azure portal using at https://ms.portal.azure.com .
 
 1. From the top search box, search for **Azure Spring Cloud**, and select **Azure Spring Cloud** from the result.
 
@@ -142,10 +142,6 @@ Those network resources are connected to your virtual network created above.
 
    > [!Important]
    > The resource groups are fully managed by Azure Spring Cloud service. Please do NOT manually delete or modify any resource inside.
-
-## Limitations
-
-- **Test Endpoint** functionality described in [Verify the staging deployment](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-staging-environment#verify-the-staging-deployment) is not supported for Azure Spring Cloud service instance in your own virtual network.
 
 ## Next steps
 
