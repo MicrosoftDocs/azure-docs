@@ -1,26 +1,36 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 08/17/2020
- ms.author: rogarana
- ms.custom: include file
+title: Enable shared disks for Azure managed disks
+description: Configure an Azure managed disk with shared disks so that you can share it across multiple VMs
+author: roygara
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 07/30/2020
+ms.author: rogarana
+ms.subservice: disks
+ms.custom: references_regions
 ---
+
+# Enable shared disk
+
+This article covers how to enable the shared disks feature for Azure managed disks. Azure shared disks is a new feature for Azure managed disks that enables you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. 
+
+If you are looking for conceptual information on managed disks that have shared disks enabled, refer to:
+
+* For Linux: [Azure shared disks](./linux/disks-shared.md)
+
+* For Windows: [Azure shared disks](./windows/disks-shared.md)
 
 ## Limitations
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
 
 ## Supported operating systems
 
-Shared disks support several operating systems. See the [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
 
 ## Deploy shared disks
 
@@ -132,7 +142,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!NOTE]
-> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
+> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](~/articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](~/articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
 
 ```azurepowershell-interactive
 
