@@ -96,8 +96,8 @@ Depending on your tools of choice, you can do so with the Visual Studio package 
 Add the following using statements to your Azure function.
 
 ```csharp
-using Azure.Identity;
 using Azure.DigitalTwins.Core;
+using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
