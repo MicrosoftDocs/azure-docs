@@ -2,7 +2,7 @@
 title: Create a security automation for specific security alerts by using an Azure Resource Manager (ARM) template
 description: Learn how to create an Azure Security Center automation to trigger a logic app, which will be triggered by specific Security Center alerts by using an Azure Resource Manager (ARM) template
 services: azure-resource-manager
-author: your-github-account-name
+author: memildin
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
@@ -69,7 +69,7 @@ Use the Azure portal to check the workflow automation has been deployed.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
 1. From Security Center's sidebar, open **workflow automation** and check for your new automation.
 
-    :::image type="content" source="./media/quickstart-arm-automationalert/validating-template-run.png" alt-text="Image alt text." lightbox="./media/quickstart-arm-automationalert/validating-template-run.png":::
+    :::image type="content" source="./media/quickstart-automationalert/validating-template-run.png" alt-text="Image alt text." lightbox="./media/quickstart-automationalert/validating-template-run.png":::
 
     >[!TIP]
     > If you have many workflow automations on your subscription, use the **filter by name** option. 
@@ -82,7 +82,7 @@ When no longer needed, delete the workflow automation using the Azure portal.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
 1. From Security Center's sidebar, open **workflow automation** and find the automation to be deleted.
 
-    :::image type="content" source="./media/quickstart-arm-automationalert/deleting-workflow-automation.png" alt-text="Image alt text." lightbox="./media/quickstart-arm-automationalert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automationalert/deleting-workflow-automation.png" alt-text="Image alt text." lightbox="./media/quickstart-automationalert/deleting-workflow-automation.png":::
 
 1. Select the checkbox for the item to be deleted.
 1. From the toolbar, select delete.
