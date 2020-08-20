@@ -1,5 +1,5 @@
 ---
-title: How to author and sign Azure Attestation policy
+title: How to author and sign an Azure Attestation policy
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -10,13 +10,13 @@ ms.author: mbaldwin
 
 
 ---
-# How to author and sign attestation policy
+# How to author and sign an attestation policy
 
-The Attestation policy is a file which will be uploaded to MAA. MAA offers the flexibility to upload the policy in a MAA specific policy format (details below). Alternatively, a encoded version of the policy, in JSON Web Signature, RFC 7515 format, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the RP (relying party) acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what’s defined in the policy, and returns the computed result.
+The Attestation policy is a file which will be uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. A sample policy file looks as below:
 
-```JSON
+```
 version=1.0;
 authizationrules
 {
@@ -37,18 +37,18 @@ A policy file has 3 segments as seen above:
 
 Version: The version is the version number of the grammar that is followed.
 
-```json
+```
 Version=MajorVersion.MinorVersion	
 ```
 
 Currently the only version supported is version 1.0.
 
-**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if MAA should proceed to issuancerules. The claim rules apply in the order they are defined.
+**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to issuancerules. The claim rules apply in the order they are defined.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
 ## Claim Rule grammar
-To understand the rule grammar, in context of MAA it is important to understand what a claim is.
+To understand the rule grammar, in context of Azure Attestation it is important to understand what a claim is.
 
 ### Claim
 
@@ -63,7 +63,7 @@ A claim contains the following properties:
   Note: if not defined the default value will be “String”.
 
   - **issuer**: Information(string) regarding the issuer of the claim. The issuer will be one of the below.
-  - **AttestationService**: Certain claims are made available to the policy author by MAA which can be used by the attestation policy author to craft the appropriate policy.
+  - **AttestationService**: Certain claims are made available to the policy author by Azure Attestation which can be used by the attestation policy author to craft the appropriate policy.
   - **AttestationPolicy**: The policy(as defined by the administrator) itself can add claims to the incoming evidence during processing. The issuer in this case is set as “AttestationPolicy”.
   - **CustomClaim**: The attestor(client) can also add additional claims to the attestation evidence. The issuer in this case is set as “CustomClaim”.
 
@@ -73,11 +73,11 @@ A claim contains the following properties:
 
 The incoming claim set is used by the policy engine to compute the attestation result. A claim rule is nothing but a set of conditions that is used to validate the incoming claims and take the defined action.
 
-```JSON
+```
 Conditions list => Action (Claim);	
 ```
 
-MAA evaluation of a claim rule involves following steps:
+Azure Attestation evaluation of a claim rule involves the following steps:
 - If conditions list is not present, execute the action with specified claim 
 - Else, evaluate the conditions from the conditions list.
 - If the conditions list evaluates to false, stop. Else proceed.
@@ -86,19 +86,19 @@ MAA evaluation of a claim rule involves following steps:
 The conditions in a claim rule are used to determine whether the action needs to be executed. Conditions list is a sequence of conditions that are separated by “&&” operator.
 The conditions list is structured as:
 
-```JSON
+```
 Condition && Condition &&…
 ```
 
 The condition is structured as:
 
-```JSON
+```
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
 The condition itself is composed of individual conditions on various properties of a claim. A condition can have an optional identifier which can be used to refer the claim/s that satisfy the condition. This reference can be used in the other conditions or the action of the same rule.
 For ex.
-```JSON
+```
 F1:[type==”OSName” , issuer==”CustomClaim”] && 
 [type==”OSName” , issuer==”AttestationService”, value== F1.value ] 
 => issueproperty(type=”report_validity_in_minutes”, value=1440);
@@ -132,12 +132,12 @@ The set of actions that are allowed in a policy are described below.
 
 ### Claim sets
 
-Incoming claims set is generated by MAA after parsing the attestation evidence.
+Incoming claims set is generated by Azure Attestation after parsing the attestation evidence.
 
-Outgoing claims set is created as an output by MAA. It contains all the claims that should end up in the attestation token.
+Outgoing claims set is created as an output by Azure Attestation. It contains all the claims that should end up in the attestation token.
 
-Property claims set is created as an output by MAA. It contains all the claims that represent properties of the attestation token, such as encoding of the report, validity duration of the report, and so on. 
-Below claims that are defined by the JWT RFC and used by MAA in the response object:
+Property claims set is created as an output by Azure Attestation. It contains all the claims that represent properties of the attestation token, such as encoding of the report, validity duration of the report, and so on. 
+Below claims that are defined by the JWT RFC and used by Azure Attestation in the response object:
 
 - **"iss" (Issuer) Claim**: The "iss" (issuer) claim identifies the principal that issued the JWT. The processing of this claim is generally application specific. The "iss" value is a case-sensitive string containing a StringOrURI value.
 - **"iat" (Issued At) Claim**: The "iat" (issued at) claim identifies the time at which the JWT was issued. This claim can be used to determine the age of the JWT. Its value MUST be a number containing a NumericDate value.
@@ -150,9 +150,9 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 
   Note: Attestation clients provide(use) a unique identifier. 
 
-#### Claims issued by MAA in SGX enclaves
+#### Claims issued by Azure Attestation in SGX enclaves
 
-##### Incoming claim types issued by MAA (can also be used as outgoing claims)
+##### Incoming claim types issued by Azure Attestation (can also be used as outgoing claims)
 
 - **$is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
 - **sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
@@ -161,7 +161,7 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 - **svn**: security version number encoded in the quote 
 - **tee: type of enclave 
 
-##### Outgoing claim types issued by MAA 
+##### Outgoing claim types issued by Azure Attestation 
 
 - **maa-ehd**:  Base64Url encoded version of the “Enclave Held Data” specified in the attestation request 
 - **maa-policyhash**: SHA256 hash of the policy document
@@ -174,9 +174,9 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 - **maa-tcbinfocertshash**: SHA256 hash of the tcbinfo certs
 - **maa-tcbinfocrlhash**: SHA256 hash of the tcbinfo crl
 
-#### Claims issued by MAA in VBS enclaves
+#### Claims issued by Azure Attestation in VBS enclaves
 
-##### Incoming claim types issued by MAA (can also be used as outgoing claims)
+##### Incoming claim types issued by Azure Attestation (can also be used as outgoing claims)
 
 - **aikValidated**:  Boolean value containing information if the Attestation Identity Key (AIK) cert has been validated or not
 - **aikPubHash**:  String containing the base64(SHA256(AIK public key in DER format))
@@ -196,7 +196,7 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave.
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave.
 
-##### Outgoing claim types issued by MAA
+##### Outgoing claim types issued by Azure Attestation
 
 - **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text)))).
 - **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header. If the policy is not signed, a Microsoft generated certificate is used to sign the policy to maintain authenticity.
@@ -205,128 +205,89 @@ Currently 1.0.
 - **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
 - **rp_data (relying party data)**:  Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report.
 
-##### property claim types supported by MAA
+##### Property claim types supported by Azure Attestation
 
 - **report_validity_in_minutes**: An integer claim signifying how long the token is valid for
   - **Default value(time)**: one day in minutes
   - **Maximum value(time)**: one year in minutes 
-- **omit_x5c**: A Boolean claim indicating if MAA should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
+- **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
 
 ## Drafting the policy file
 1. Create a new file.
-1. Add version to the file.
-1. Add sections for authorizationrules and issuancerules
+2. Add version to the file.
+3. Add sections for authorizationrules and issuancerules
 
-  ```json
-  TODO
+  ```
+  version=1.0;
+  authorizationrules={
+  =>deny();
+  };
+  
+  issuancerules={
+  };
   ```
  
   The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
-1. Add claim rules to the authorization rules
+  
+4. Add claim rules to the authorization rules
 
-  ```json
-  TODO
+  ```
+  version=1.0;
+  authorizationrules={
+  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+  };
+  
+  issuancerules={
+  };
   ```
 
   If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
-1. Add claim rules to issuancerules
+  
+5. Add claim rules to issuancerules
 
-  ```json
-  TODO
+  ```
+  version=1.0;
+  authorizationrules={
+  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+  };
+  
+  issuancerules={
+  => issue(type="SecurityLevelValue", value=100);
+  };
   ```
   
   The outgoing claim set will contain a claim with:
 
-  ```json
-  TODO
+  ```
+  [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
   ```
 
   Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
-1. Save file.
-
-## Policy templates/samples
-
-No Security Policy for VBS enclaves:
-
-```JSON
-version=1.0;
-
-authorizationrules
-{
-    => permit();
-};
-
-issuancerules
-{
-    c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
-    => issueproperty(type = "omit_x5c", value = true);
-};
-```
-
-The policy doesn’t validate any information in the attestation evidence. This is the least secure policy to be used by SQL.
-
-
-Optimum Security Policy for VBS enclaves:
-
-```JSON
-version=1.0;
-
-authorizationrules
-{
-    [type == "aikValidated",              value == true, issuer=="AttestationService"] &&
-    [type == "tpmVersion",                value >= 2,    issuer=="AttestationService"] &&
-    [type == "secureBootEnabled",         value == true, issuer=="AttestationService"] &&
-    [type == "iommuEnabled",              value == true, issuer=="AttestationService"] &&
-
-    [type == "bootDebuggingDisabled",     value == true, issuer=="AttestationService"] &&
-    [type == "notSafeMode",               value == true, issuer=="AttestationService"] &&
-    [type == "notWinPE",                  value == true, issuer=="AttestationService"] &&
-
-    [type == "vbsEnabled",                value == true, issuer=="AttestationService"] &&
-[type == "vbsReportPresent",          value == true, issuer=="AttestationService"] &&
-    [type == "enclaveAuthorId",           value == "BDfK4lN9i5sHdrYbEebO09Iy6TCPYOIa2rL9kePalZg", issuer == "AttestationService"] &&
-    [type == "enclaveImageId",            value == "GRcSAAEFIBMABRQDEgEiBQ",                      issuer == "AttestationService"] &&
-    [type == "enclaveOwnerId",            value == "ECAwQEExIREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", issuer == "AttestationService"] &&
-    [type == "enclaveFamilyId",           value == "_v4AAAAAAAAAAAAAAAAAAA",                      issuer == "AttestationService"] &&
-    [type == "enclaveSvn",                value >= 0,    issuer == "AttestationService"] &&
-    [type == "enclavePlatformSvn",        value >= 1,    issuer == "AttestationService"] &&
-    [type == "enclaveFlags",              value == 0,    issuer == "AttestationService"]
-    => permit();
-};
-
-issuancerules
-{
-    c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
-    => issueproperty(type = "omit_x5c", value = true);
-};
-```
-
-The policy validates VBS enclave information in the attestation evidence to allow the issuance rules. This is the optimum security policy used by SQL.
-
-Please refer to “Attestation policy” section of this document for SGX default policy template.
+  
+6. Save file.
 
 ## Creating the policy file in JSON Web Signature format
 
 After creating a policy file, to upload a policy in JWS format, follow the below steps.
 1. Generate the JWS, RFC 7515 with policy (utf-8 encoded) as the payload
-  - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
-  
-  Sample JWT:
-  ``JSON
-  Header: {"alg":"none"}
-  Payload: {“AttestationPolicy”:” Base64Url (policy)”}
-  Signature: {}
+     - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
+     
+     Sample JWT:
+     ```
+     Header: {"alg":"none"}
+     Payload: {“AttestationPolicy”:” Base64Url (policy)”}
+     Signature: {}
 
-  JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-``
+     JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
+     ```
 
-1. Optionally to sign the policy, currently MAA supports the following algorithms: 
-  1. None – When you don’t want to sign the policy payload
-  1. RS256 – Supported algorithm to sign the policy payload
+2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
+     - None – When you don’t want to sign the policy payload
+     - RS256 – Supported algorithm to sign the policy payload
 
-1. Upload the JWS and validate the policy (See “Policy management” section of this document)
-  1. If the policy file is free of syntax errors the policy file gets accepted by the service.
-  1. If the policy file contains syntax errors the policy file will be rejected by the service.
+3. Upload the JWS and validate the policy (See “Policy management” section of this document)
+     - If the policy file is free of syntax errors the policy file gets accepted by the service.
+     - If the policy file contains syntax errors the policy file will be rejected by the service.
 
 ## Signing the policy
 

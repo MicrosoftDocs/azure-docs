@@ -1,5 +1,5 @@
 ---
-title: Examples of an aAzure Attestation policies
+title: Examples of an Azure Attestation policy
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -99,5 +99,5 @@ c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 
 ## Next steps
 
-- [How to author and sign attestation policy](author-sign-policy.md)
+- [How to author and sign an attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)

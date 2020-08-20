@@ -22,7 +22,7 @@ ms.author: mbaldwin
 
 ## Attestation provider
 
-Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM) which supports Role-Based Access Control (RBAC). Each attestation provider honors a specific, discoverable policy. 
+Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM). Each attestation provider honors a specific, discoverable policy. 
 
 Attestation providers get created with a default policy for each TEE type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
 
@@ -98,5 +98,5 @@ See [claims issued by Azure Attestation](claim-sets.md) for more information.
 
 ## Next steps
 
-- [How to author and sign attestation policy](author-sign-policy.md)
+- [How to author and sign an attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
