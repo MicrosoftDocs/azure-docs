@@ -281,6 +281,21 @@ msg.SetClickTracking(true);
 ## How to: Use Additional SendGrid Services
 SendGrid offers several APIs and webhooks that you can use to leverage additional functionality within your Azure application. For more details, see the [SendGrid API Reference][SendGrid API documentation].
 
+## SendGrid IP Access Management
+
+When you enable IP Access Management on your SendGrid account, you need to add ALL of the Outbound IPs of your Azure App Service to prevent errors with the "Access attempt from non-whitelisted IP" message. You can find a list of your App Service's Outbound IPs in the **Properties** blade.
+
+* Azure App Service Outbound IPs: https://docs.microsoft.com/en-us/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips
+* ASE Outbound IPs: https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#ase-ip-addresses
+* Function App Outbound IPs: https://docs.microsoft.com/en-us/azure/azure-functions/ip-addresses#find-outbound-ip-addresses
+* SendGrid IP Access Management Documentation: https://sendgrid.com/docs/ui/account-and-settings/ip-access-management/
+
+⚠ _A warning from SendGrid's official documentation:_
+
+> If you do not access your SendGrid account via a static IP address (for example, via VPN or from a business internet service), setting up IP Access Management may result in being locked out. If you do discover that you have locked yourself out of your account, please contact [SendGrid Support](https://support.sendgrid.com/hc/en-us/requests/new#ipam-lockout).
+
+If you need more information regarding when your Azure App Service Outbound IPs change, see [When Outbound IPs Change](https://docs.microsoft.com/en-us/azure/app-service/overview-inbound-outbound-ips#when-outbound-ips-change)
+
 ## Next steps
 Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
