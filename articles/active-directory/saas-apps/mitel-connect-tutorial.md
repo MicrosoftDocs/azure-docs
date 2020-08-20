@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mitel Connect | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mitel Connect.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Mitel MiCloud Connect or CloudLink Platform
 

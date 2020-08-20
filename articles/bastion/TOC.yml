@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: About Azure Bastion
+  - name: What is Azure Bastion?
     href: bastion-overview.md
 - name: Quickstarts
   items:

@@ -137,7 +137,7 @@
     - name: Troubleshoot common outbound connection issues
       href: troubleshoot-outbound-connection.md
     - name: Troubleshoot resource health and inbound availability issues
-    href: troubleshoot-rhc.md
+      href: troubleshoot-rhc.md
 - name: Reference
   items:
   - name: Code samples

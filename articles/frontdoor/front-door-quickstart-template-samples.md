@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager template samples - Azure Front Door
-description: Azure Resource Manager template samples for Azure Front Door
+description: Learn about Resource Manager template samples for Azure Front Door, including templates for creating a basic Front Door and configuring Front Door rate limiting.
 services: frontdoor
 documentationcenter: ""
 author: sharad4u

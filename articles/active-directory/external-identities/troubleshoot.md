@@ -104,4 +104,4 @@ Within the Azure US Government cloud, B2B collaboration is currently only suppor
 
 ## Next steps
 
-[Get support for B2B collaboration](/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md)
+[Get support for B2B collaboration](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)
