@@ -23,7 +23,7 @@ Traffic between the on-premises datacenter, Azure VMware Solution private cloud,
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.svg" alt-text="Azure VMware Solution Hub and Spoke integration deployment":::
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment":::
 
 
 
@@ -59,12 +59,12 @@ On-premises connectivity may use ExpressRoute Global Reach as well, but it is no
 
 * **On-premises to Azure VMware Solution traffic flow**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.svg" alt-text="On-premises to Azure VMware Solution traffic flow":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="On-premises to Azure VMware Solution traffic flow":::
 
 
 * **Azure VMware Solution to Hub VNET traffic flow**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.svg" alt-text="Azure VMware Solution to Hub virtual network traffic flow":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow":::
 
 
 You can find more details about Azure VMware Solution networking and interconnectivity concepts in the [Azure VMware Solution product documentation](./concepts-networking.md).
@@ -105,7 +105,7 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 > Do not give a public IP address to the Jumpbox VM or expose 3389/TCP port to the public internet. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.svg" alt-text="Azure Bastion Hub virtual network":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub virtual network":::
 
 
 ## Azure DNS resolution considerations
