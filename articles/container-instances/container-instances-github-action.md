@@ -10,7 +10,7 @@ ms.custom:
 
 [GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
-[Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub action to automate deployment of a single container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
+Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub action to automate deployment of a single container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
 
 This article shows how to set up a workflow in a GitHub repo that performs the following actions:
 
@@ -86,7 +86,7 @@ Save the JSON output because it is used in a later step. Also, take note of the 
 
 ### Update service principal for registry authentication
 
-Update the Azure service principal credentials to allow push and pull access to your container registry. This step allows the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md). 
+Update the Azure service principal credentials to allow push and pull access to your container registry. This step enables the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md) and to push and pull a Docker image. 
 
 Get the resource ID of your container registry. Substitute the name of your registry in the following [az acr show][az-acr-show] command:
 
