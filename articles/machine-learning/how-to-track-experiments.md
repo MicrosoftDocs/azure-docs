@@ -46,27 +46,76 @@ This example performs a parameter sweep over alpha values and captures the resul
 
 1. Create a training script that includes the logging logic, `train.py`.
 
-   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+    ```python
+    from sklearn.datasets import load_diabetes
+    from sklearn.linear_model import Ridge
+    from sklearn.metrics import mean_squared_error
+    from sklearn.model_selection import train_test_split
+    from azureml.core.run import Run
+    import os
+    import numpy as np
+    import mylib
+    # sklearn.externals.joblib is removed in 0.23
+    try:
+        from sklearn.externals import joblib
+    except ImportError:
+        import joblib
+    
+    os.makedirs('./outputs', exist_ok=True)
+    
+    X, y = load_diabetes(return_X_y=True)
+    
+    run = Run.get_context()
+    
+    X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                        test_size=0.2,
+                                                        random_state=0)
+    data = {"train": {"X": X_train, "y": y_train},
+            "test": {"X": X_test, "y": y_test}}
+    
+    # list of numbers from 0.0 to 1.0 with a 0.05 interval
+    alphas = mylib.get_alphas()
+    
+    for alpha in alphas:
+        # Use Ridge algorithm to create a regression model
+        reg = Ridge(alpha=alpha)
+        reg.fit(data["train"]["X"], data["train"]["y"])
+    
+        preds = reg.predict(data["test"]["X"])
+        mse = mean_squared_error(preds, data["test"]["y"])
+        run.log('alpha', alpha)
+        run.log('mse', mse)
+    
+        model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
+        # save model in the outputs folder so it automatically get uploaded
+        with open(model_file_name, "wb") as file:
+            joblib.dump(value=reg, filename=os.path.join('./outputs/',
+                                                         model_file_name))
+    
+        print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
+      
+    ```
 
 
 1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.
 
-   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
-   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
+    ```python
+     from azureml.core import ScriptRunConfig
+    
+    src = ScriptRunConfig(source_directory='./', script='train.py')
+    src.run_config.environment = user_managed_env
+    
+    run = exp.submit(src)
+     ```
 
     The `show_output` parameter turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.
 
-```python
-run = exp.submit(src, show_output=True)
-```
+1. You can also use the same parameter in the `wait_for_completion` function on the resulting run.
 
-You can also use the same parameter in the `wait_for_completion` function on the resulting run.
+    ```python
+    run.wait_for_completion(show_output=True)
+    ```
 
-```python
-run.wait_for_completion(show_output=True)
-```
-
-For a complete sample notebook that uses ScriptRunConfigs logs, see [Train a model locally](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
 
 ## Native Python logging
 
@@ -85,8 +134,7 @@ For information on logging metrics in Azure Machine Learning designer (preview),
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
