@@ -66,7 +66,7 @@ Azure AD also includes a full suite of [identity management capabilities](/azure
 - [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Self-service group management](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Privileged account management](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Role-based access control](/azure/role-based-access-control/overview)
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)
 - [Application usage monitoring](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Rich auditing](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Security monitoring and alerting](/azure/operations-management-suite/oms-security-responding-alerts)

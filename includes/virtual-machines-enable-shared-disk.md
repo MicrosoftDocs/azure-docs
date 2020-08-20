@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/30/2020
+ ms.date: 08/17/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -34,13 +34,13 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku Premium_LRS --max-shares 2
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType Premium_LRS -CreateOption Empty -MaxSharesCount 2
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 ```
@@ -132,7 +132,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 
 > [!NOTE]
-> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
+> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
 
 ```azurepowershell-interactive
 

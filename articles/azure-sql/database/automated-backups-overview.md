@@ -105,7 +105,7 @@ Backup storage consumption up to the maximum data size for a database is not cha
 
 - Reduce the [backup retention period](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) to the minimum possible for your needs.
 - Avoid doing large write operations, like index rebuilds, more frequently than you need to.
-- For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) and following related [best practices](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance), and/or reduce the number of non-clustered indexes.
+- For large data load operations, consider using [clustered columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) and following related [best practices](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance), and/or reduce the number of non-clustered indexes.
 - In the General Purpose service tier, the provisioned data storage is less expensive than the price of the backup storage. If you have continually high excess backup storage costs, you might consider increasing data storage to save on the backup storage.
 - Use TempDB instead of permanent tables in your application logic for storing temporary results and/or transient data.
 - Use locally-redundant backup storage whenever possible (for example dev/test environments)

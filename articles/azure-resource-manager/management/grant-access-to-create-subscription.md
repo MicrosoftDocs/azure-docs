@@ -175,7 +175,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
 To track the subscriptions created via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track subscription creation.
 
-1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
+1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`. This access is available in the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, the [Monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or a [custom role](../../role-based-access-control/custom-roles.md).
 1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see subscription creation activities. Example:
 
     ```

@@ -1,7 +1,7 @@
 ---
 title: Search over Azure Blob storage content
 titleSuffix: Azure Cognitive Search
-description: Learn how to index Azure Blob Storage and extract text from documents with Azure Cognitive Search.
+description: Learn how to index documents in Azure Blob Storage and extract text from documents with Azure Cognitive Search.
 
 manager: nitinme
 author: mgottein 

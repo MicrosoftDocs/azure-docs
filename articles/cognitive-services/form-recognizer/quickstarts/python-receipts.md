@@ -10,7 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
 
@@ -18,7 +18,7 @@ ms.custom: tracking-python
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to extract and identify relevant information in USA sales receipts.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

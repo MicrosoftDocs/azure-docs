@@ -1,12 +1,13 @@
 ---
 title: Planning for an Azure Files deployment | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
+description: Understand planning for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file share on-premises with Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Planning for an Azure Files deployment
@@ -98,7 +99,7 @@ For more information, see [Advanced Threat protection for Azure Storage](https:/
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-In general, Azure Files features and interoperability with other services are the same between premium file shares and standard file shares, however there are a few important differences:
+In general, Azure Files features and interoperability with other services are the same between premium file shares and standard file shares (including transaction optimized, hot, and cool file shares), however there are a few important differences:
 - **Billing model**
     - Premium file shares are billed using a provisioned billing model, which means you pay for how much storage you provision rather than how much storage you actually ask for. 
     - Standard file shares are billed using a pay-as-you-go model, which includes a base cost of storage for how much storage you're actually consuming and then an additional transaction cost based on how you use the share. With standard file shares, your bill will increase if you use (read/write/mount) the Azure file share more.

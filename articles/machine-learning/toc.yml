@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
       items: 
+        - name: Security baseline
+          href: security-baseline.md
         - name: Enterprise security and governance
           items: 
             - name: Enterprise security overview
@@ -163,8 +165,8 @@
             - name: Use virtual networks
               displayName: vnet, blob
               href: how-to-enable-virtual-network.md
-            - name: Use Private Link
-              displayName: private endpoint
+            - name: Use Private Link	
+              displayName: private endpoint	
               href: how-to-configure-private-link.md
             - name: Secure web services with TLS
               displayName: ssl
@@ -229,7 +231,7 @@
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
-        - name: Interactive debugging
+        - name: Visual Studio Code
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-set-up-vs-code-remote.md
         - name: Git integration
@@ -437,26 +439,28 @@
           href: how-to-schedule-pipelines.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
+        - name: Designer (drag-n-drop)
+          items: 
+            - name: Log metrics
+              displayName: designer, logging
+              href: how-to-track-designer-experiments.md
+            - name: Transform data
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Retrain using published pipelines
+              displayName: retrain, designer, published pipeline
+              href: how-to-retrain-designer.md
+            - name: Batch predictions
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Execute Python code
+              displayName: feature extraction, feature engineering
+              href: how-to-designer-python.md
         - name: Debug & troubleshoot pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Debug pipelines in Application Insights
-          href: how-to-debug-pipelines-application-insights.md
-        - name: Designer log metrics
-          displayName: designer, logging
-          href: how-to-track-designer-experiments.md
-        - name: Designer transform data
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Designer retrain using published pipelines
-          displayName: retrain, designer, published pipeline
-          href: how-to-retrain-designer.md
-        - name: Designer batch predictions
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Designer execute Python code
-          displayName: feature extraction, feature engineering
-          href: how-to-designer-python.md
+        - name: Log pipeline data to Application Insights
+          href: how-to-log-pipelines-application-insights.md
         - name: Use parallel run step
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
@@ -475,6 +479,9 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: how-to-manage-resources-vscode.md
+    - name: VS Code interactive debugging
+      displayName: vscode,remote,debug,pipelines,deployments,ssh
+      href: how-to-debug-visual-studio-code.md      
     - name: Export and delete data
       displayName: GDPR
       href: how-to-export-delete-data.md

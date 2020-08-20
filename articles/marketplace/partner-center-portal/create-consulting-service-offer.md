@@ -33,7 +33,7 @@ Benefits of publishing to the commercial marketplace:
     ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -197,19 +197,22 @@ Add up to three (but at least one) supporting PDF documents for your offer.
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image.
+Provide PNG files of your offer's logo in each of the following pixel sizes:
 
-Both logo sizes are required for use in different places in the listing:
+- **Small (48 x 48)**
+- **Large (216 x 216)**
 
-- **Small** (48 x 48)
-- **Large** (between 216 x 216 and 350 x 350)
+All logos are required and are used in different places in the marketplace listing.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+-   The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page. 
+-   The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
 
 #### Screenshots (optional)
 

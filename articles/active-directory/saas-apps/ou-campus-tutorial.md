@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with OU Campus | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OU Campus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with OU Campus
 

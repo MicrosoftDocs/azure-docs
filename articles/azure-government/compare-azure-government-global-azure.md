@@ -258,14 +258,10 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
-### [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs)
+### [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs)
 
->[!NOTE]
->This article was recently updated to use the term Azure Monitor logs instead of Log Analytics. Log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service. We are updating the terminology to better reflect the role of [**logs in Azure Monitor**](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs). See [**Azure Monitor terminology**](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) changes for details.
-
-The following Azure Monitor logs **features are not currently available** in Azure Government:
+The following Azure Monitor **features are not currently available** in Azure Government:
 - Solutions that are in preview in Microsoft Azure, including:
-    - Service Map
     - Windows 10 Upgrade Analytics solution
     - Application Insights solution
     - Azure Networking Security Group Analytics solution
@@ -277,7 +273,7 @@ The following Azure Monitor logs **features are not currently available** in Azu
     - Export of data to Power BI
 - Azure metrics and Azure diagnostics
 
-The following Azure Monitor logs **features behave differently** in Azure Government:
+The following Azure Monitor **features behave differently** in Azure Government:
 - To connect your System Center Operations Manager management group to Azure Monitor logs, you need to download and import updated management packs.
     - System Center Operations Manager 2016
         1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
@@ -306,7 +302,7 @@ The following Azure Advisor recommendation **features are not currently availabl
 - Performance
     - Improve App Service performance and reliability
     - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve SQL Data Warehouse performance
+    - Improve Azure Synapse Analytics (formerly SQL Data Warehouse) performance
     - Use Premium Storage
     - Migrate your Storage Account to Azure Resource Manager
 - Cost
@@ -518,6 +514,8 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](https://docs.microsoft.com/azure/app-service/overview)
 The following App Service **features are not currently available** in Azure Government:
+- Resource
+    - App Service Certificate
 - Deployment
     - Deployment Options: only Local Git Repository and External Repository are available
 - Development Tools

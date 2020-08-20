@@ -254,7 +254,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Data Lake Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access controls (RBAC).
+**Guidance**: Data Lake Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by Azure role-based access control (Azure RBAC).
 
 * [Azure Data Lake Analytics Overview](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 

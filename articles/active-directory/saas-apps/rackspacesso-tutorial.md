@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Rackspace SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Rackspace SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 36b398be-2f7e-4ce8-9031-53587299bc4a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Rackspace SSO
 

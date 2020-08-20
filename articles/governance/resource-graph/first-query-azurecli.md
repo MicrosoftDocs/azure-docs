@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Azure CLI query"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: quickstart 
 ms.custom: devx-track-azurecli
 ---
@@ -65,8 +65,8 @@ Resource Graph query. The query will return the first five Azure resources with 
    ```
 
    > [!NOTE]
-   > As this query example does not provide a sort modifier such as `order by`, running this query multiple
-   > times is likely to yield a different set of resources per request.
+   > As this query example does not provide a sort modifier such as `order by`, running this query
+   > multiple times is likely to yield a different set of resources per request.
 
 1. Update the query to `order by` the **Name** property:
 
@@ -81,7 +81,8 @@ Resource Graph query. The query will return the first five Azure resources with 
    > the `order by` comes after the `limit`. This command order first limits the query results and
    > then orders them.
 
-1. Update the query to first `order by` the **Name** property and then `limit` to the top five results:
+1. Update the query to first `order by` the **Name** property and then `limit` to the top five
+   results:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
