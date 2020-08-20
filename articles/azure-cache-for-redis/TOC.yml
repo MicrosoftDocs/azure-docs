@@ -94,10 +94,10 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Deploy and Manage using Azure CLI
       href: cli-samples.md
-    - name: Create Azure Cache for Redis - ARM template
+    - name: Create Redis cache- ARM template
       displayName: Resource Manager
       href: cache-redis-cache-arm-provision.md
-    - name: create Web App with Azure Cache for Redis - ARM template
+    - name: Create Web App with Redis cache - ARM template
       displayName: Resource Manager
       href: cache-web-app-arm-with-redis-cache-provision.md
   - name: Manage
