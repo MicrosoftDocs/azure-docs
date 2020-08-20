@@ -84,6 +84,10 @@ Follow the below steps to  generate the above information:
 
     ```
 
+> [!NOTE]
+> 1. The Datahub API Endpoint name must be in lower case.
+> 2. If you are copying the farmbeats website name url for Datahub API Endpoint, make sure there is no trailing slash (/).
+
 9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 ### Integrate device data by using the generated credentials
