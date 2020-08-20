@@ -30,4 +30,4 @@ Review more details about the auto-shutdown features in the [Maximize cost contr
 
 ## Next steps
 
-To learn about how a lab owner can configure or override this setting at the lab level, see [Enable automatic shutdown of VMs on disconnect](how-to-enable-shutdown-disconnect.md)
+To learn about how a lab owner can configure or override this setting at the lab level, see [Configure automatic shutdown of VMs for a lab](how-to-enable-shutdown-disconnect.md)

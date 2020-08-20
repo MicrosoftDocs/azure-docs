@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
-  - name: What's new?
-    href: whats-new.md
 - name: Quickstarts
   items:
   - name: Create public load balancer - Portal
@@ -45,6 +43,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Components
     href: components.md
   - name: Concepts
