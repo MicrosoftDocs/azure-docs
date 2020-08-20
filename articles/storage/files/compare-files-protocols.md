@@ -4,7 +4,7 @@ description: Select a protocol before creating an Azure file share
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/20/2020
 ms.author: rogarana
 ms.subservice: files
 ---
