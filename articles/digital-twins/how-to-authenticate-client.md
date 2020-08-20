@@ -83,7 +83,7 @@ try
 
 ### ManagedIdentityCredential method
  The [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)—for example, when working with Azure Functions.
-In an Azure function, you can then use the managed identity credentials like this:
+In an Azure function, you can use the managed identity credentials like this:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);

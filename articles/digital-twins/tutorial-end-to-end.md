@@ -458,4 +458,5 @@ Finally, delete the project sample folder you downloaded from your local machine
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)   
+> [!div class="nextstepaction"]
+> [*Concepts: Custom models*](concepts-models.md)

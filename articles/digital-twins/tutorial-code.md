@@ -19,6 +19,13 @@ ms.service: digital-twins
 
 It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
 
+> [!div class="checklist"]
+> * Set up project
+> * Get started with project code   
+> * Complete code sample
+> * Clean up resources
+> * Next steps
+
 ## Prerequisites
 
 This tutorial uses the command line for setup and project work. Therefore, you can use any code editor to walk through the exercises.
@@ -556,14 +563,11 @@ az ad app delete --id <your-application-ID>
 
 Finally, delete the project folder you created on your local machine.
 
-You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
-* [*How-to: Manage custom models*](how-to-manage-model.md)
-* [*Concepts: Custom models*](concepts-models.md)
-
 ## Next steps
 
 In this tutorial, you created a .NET console client application from scratch. You wrote code for this client app to perform the basic actions on an Azure Digital Twins instance.
 
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
-[*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
+> [!div class="nextstepaction"]
+> [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
