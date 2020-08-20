@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
 
-These examples explain how to set up logs, metrics, tracing for Azure Spring Cloud apps.
+This article shows you how to set up logs, metrics, tracing for Azure Spring Cloud apps.
 
 With the built-in monitoring capability in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics and distributed tracing capability from the Azure portal. We will walk you though how to use Log Streaming, Log Analytics, Metrics and Distributed tracing with deployed PiggyMetrics apps.
 Please make sure you have complete previous steps: [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md), [set up the config server](spring-cloud-quickstart-setup-config-server.md) and [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
@@ -51,12 +51,12 @@ You will see logs like
 ---
 ### Log Analytics
 
-1. Go to the **service Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
+1. Go to the **service | Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
 
     ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)
     
 ## Metrics
-1. Go to the **service Overview** page and select **Metrics** in **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
+1. Go to the **service | Overview** page and select **Metrics** in **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
 
     ![Metrics entry](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png)
     
@@ -69,7 +69,7 @@ You will see logs like
     ![Apply splitting in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png)
 
 ## Distributed Tracing
-1. Go to the **service Overview** page and select **Distributed tracing** in **Monitoring** section. Then click the **View application map** tab on the right.
+1. Go to the **service | Overview** page and select **Distributed tracing** in **Monitoring** section. Then click the **View application map** tab on the right.
 
     ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png)
 

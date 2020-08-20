@@ -91,7 +91,7 @@ You can also navigate the Azure portal to find the URL.
 
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
-4. Find the URL on the **gateway Overview** page
+4. Find the URL on the **gateway | Overview** page
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
@@ -223,7 +223,9 @@ You will have to edit the previous configuration for both the `auth-service` and
 1. This will show the configuration dialog with the options configured for the `gateway` app.
 1. Modify the settings to identify the `auth-service` app.
 1. Verify that the **Public Endpoint** option is set to *Disabled*.
-1. Click **Apply** and then **OK**.
+1. Double click the **Before launch** description and navigate **Select Maven goal** to *auth-service*.
+1. Click **OK**>
+1. Click **Apply** at the bottom of the configuration dialog, and then **OK**.
 
     ![Edit configuration for auth-service](media/spring-cloud-intellij-howto/revision-reconfigure-auth.png)
 
