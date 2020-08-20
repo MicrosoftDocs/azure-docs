@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure CLI"
-description: Learn to build an Azure Static Web Apps instance with the Azure portal.
+description: Learn to build an Azure Static Web Apps instance with the Azure Static Web Apps CLI.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Quickstart: Building your first static web app using the Azure CLI
 
-Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework.
+Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
