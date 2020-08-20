@@ -12,6 +12,7 @@
   - name: Data protection
     href: security-benchmark-v2-data-protection.md
 - name: Security Controls (previous)
+  items:
   - name: Network security
     href: security-control-network-security.md
   - name: Logging and monitoring
