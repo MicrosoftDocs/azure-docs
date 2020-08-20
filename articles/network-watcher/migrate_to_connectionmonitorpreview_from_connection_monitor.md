@@ -1,7 +1,7 @@
 ---
 title: Migrate to Connection Monitor (Preview) from Connection Monitor
 titleSuffix: Azure Network Watcher
-description: Learn how to migrate to Connection Monitor (Preview) from Connection Montior.
+description: Learn how to migrate to Connection Monitor (Preview) from Connection Monitor.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-#Customer intent: I need to migrate from connection monitor to connection montior preview 
+#Customer intent: I need to migrate from connection monitor to connection Monitor preview 
 ---
 # Migrate to Connection Monitor (Preview) from Connection Monitor
 
-You can migrate existing connection monitors to the new and improved Connection Monitor(Preview) in one click and with zero downtime. To know more about the benefits of Connection Monitor (Preview) [click here](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview). 
+You can migrate existing connection monitors to the new and improved Connection Monitor(Preview) in one click and with zero downtime. To know more about the benefits of Connection Monitor (Preview) [click here](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
 
 ## Key points to note
 
@@ -38,11 +38,11 @@ If using custom workspace, ensure Network Watcher is enabled in subscription and
 	![Screenshot showing migrate connection monitors to Connection Monitor (Preview)](./media/connection-monitor-2-preview/migrate cm to cm preview.png)
 	
 1. Select subscription and connection monitors and click “Migrate selected”. In one click migrate existing connection monitors  to Connection Monitor(Preview) 
-1. You can customize connection monitor properties, change default workspace,download template and check status of migration. 
+1. You can customize connection monitor properties, change default workspace, download template and check status of migration. 
 1. Once migration begins, following changes happen: 
 	a. ARM resource changes to the newer connection monitor
-		i. Name, region and subscription of the connection monitor remains un-changed. Hence, there is no impact on the ARM resource ID.
-		ii. Unless customized, a default Log Analytics workspace is created in the region and subscription of the connection monitor. This is where monitoring data will be stored. Test result data will also stored in metrics.
+		i. Name, region, and subscription of the connection monitor remains unchanged. Hence, there is no impact on the ARM resource ID.
+		ii. Unless customized, a default Log Analytics workspace is created in the region and subscription of the connection monitor. This workspace is where monitoring data will be stored. Test result data will also be stored in metrics.
 		iii. Each test is migrated to a test group called * defaultTestGroup*
 		iv.	Source and destination endpoints are created and used in the created test group. Default names are *defaultSourceEndpoint* and *defaultDestinationEndpoint*
 		v. Destination port and probing interval are moved to the test configuration called *defaultTestConfiguration*. Based on the port values, the protocol is set. Success thresholds and other optional properties are left blank.
