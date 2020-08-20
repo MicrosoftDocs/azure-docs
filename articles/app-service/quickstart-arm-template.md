@@ -25,9 +25,9 @@ None
 
 ### Review the template
 
-::: zone pivot="platform-windows"
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows).
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/).
 
+::: zone pivot="platform-windows"
 This template deploys an App Service Plan and an App Service App on Windows.
 
 [!code-json[<Azure Resource Manager template basic web app>](~/quickstart-templates/101-webapp-basic-windows/azuredeploy.json)]
@@ -120,9 +120,20 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 ## Next steps
 
-* [Deploy from local Git](deploy-local-git.md)
-* [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
-* [Python with Postgres](tutorial-python-postgresql-app.md)
-* [PHP with MySQL](tutorial-php-mysql-app.md)
-* [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
-* [Map custom domain](app-service-web-tutorial-custom-domain.md)
+> [!div class="nextstepaction"]
+> [Deploy from local Git](deploy-local-git.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Python with Postgres](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [PHP with MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+
+> [!div class="nextstepaction"]
+> [Map custom domain](app-service-web-tutorial-custom-domain.md)
