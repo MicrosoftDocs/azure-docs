@@ -48,6 +48,8 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 - [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys) 
 
 - [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
@@ -74,6 +76,8 @@ In addition, Azure AD also supports a managed identity feature that can be enabl
 - [Use Azure Key Vault for security principal registration](../../key-vault/general/authentication.md#security-principal-registration)
 
 **Responsibility**: Customer
+
+**Customer Security Functions**:
 
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys
@@ -102,6 +106,8 @@ Azure AD B2C is a customer identity access management service. It supports local
 - [Overview of Azure Active Directory B2C](../../active-directory-b2c/technical-overview.md)
 
 **Responsibility**: Customer
+
+**Customer Security Functions**:
 
 •	Security architecture
 /azure/cloud-adoption-framework/organize/cloud-security-architecture
@@ -181,6 +187,8 @@ How to setup a passwordless authentication deployment in Azure Active Directory
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Security architecture
 /azure/cloud-adoption-framework/organize/cloud-security-architecture
 
@@ -232,6 +240,8 @@ for more details about details in this area.
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Application security and DevSecOps
 /azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
 
@@ -271,6 +281,8 @@ Use risk detections for user sign-ins to trigger Azure Multi-Factor Authenticati
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys
 
@@ -297,6 +309,8 @@ Reducing the Access Token Lifetime property mitigates the risk of an access toke
 - [Configurable token lifetimes in Azure AD](../../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 
 **Responsibility**: Customer
+
+**Customer Security Functions**:
 
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys

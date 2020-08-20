@@ -43,6 +43,8 @@ Note: Some Azure services such as Azure SQL support local user authentication in
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys
 
@@ -86,6 +88,8 @@ Azure Security Center - Monitor identity and access
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys
 
@@ -110,6 +114,8 @@ You should ensure that the credentials (such as password, certificate, or smart 
 - [Manage emergency access accounts in Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md)
 
 **Responsibility**: Customer
+
+**Customer Security Functions**:
 
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys
@@ -139,6 +145,8 @@ Use Azure AD entitlement management features to automate Azure access request wo
 - [How to setup access request and approval process](../../active-directory/governance/entitlement-management-access-package-request-policy.md)
 
 **Responsibility**: Customer
+
+**Customer Security Functions**:
 
 •	Identity and keys
 /azure/cloud-adoption-framework/organize/cloud-security-identity-keys
@@ -174,6 +182,8 @@ Use Azure Bastion host
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Application security and DevSecOps
 /azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
 
@@ -201,6 +211,8 @@ What is Azure role-based access control (Azure RBAC)
 
 **Responsibility**: Customer
 
+**Customer Security Functions**:
+
 •	Application security and DevSecOps
 /azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
 
@@ -227,6 +239,8 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 - [Understand Customer Lockbox](../fundamentals/customer-lockbox-overview.md)
 
 **Responsibility**: Customer
+
+**Customer Security Functions**:
 
 •	Application security and DevSecOps
 /azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
