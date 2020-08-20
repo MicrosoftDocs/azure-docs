@@ -143,10 +143,15 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 Click **Run OCR on all files** on the left pane to get the text layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
+It will also show which tables have been automatically extracted. Click on the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
+
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+
 ### Apply labels to text
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
 
+# [v2.0](#tab/v2-0)  
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Click **+** to create a new tag.
    1. Enter the tag name.
@@ -164,7 +169,30 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
-![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
+
+# [v2.1 preview](#tab/v2-1) 
+1. First, use the tags editor pane to create the tags you'd like to identify.
+   1. Click **+** to create a new tag.
+   1. Enter the tag name.
+   1. Press Enter to save the tag.
+1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview_ you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
+1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+    > [!Tip]
+    > Keep the following tips in mind when you're labeling your forms.
+    > * You can only apply one tag to each selected text element.
+    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
+    > * Tags cannot span across pages.
+    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
+    > * Don't include keys in your tagged fields&mdash;only the values.
+    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
+    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
+    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
+
+
+---
+
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
+
 
 Follow the steps above to label at least five of your forms.
 
@@ -184,6 +212,7 @@ The following value types and variations are currently supported:
     * default, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+* `selectionMark` – _New in v2.1-preview.1!_
 
 > [!NOTE]
 > See these rules for date formatting:
@@ -214,14 +243,23 @@ Click the Train icon on the left pane to open the Training page. Then click the 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
-![training view](../media/label-tool/train-screen.png)
+
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Training view.":::
 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
 > [!TIP]
 > You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
 
-## Analyze a form
+## Compose trained models - v2.1 Preview Feature
+With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
+
+To compose models in the sample labeling tool, click on the Model Compose (two arrows) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models. 
+Click on the “Compose” button. In the pop up, name your new composed model and click “Compose”. When the operation completes, your new composed model should appear in the list. 
+
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
+
+## Analyze a form 
 
 Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
