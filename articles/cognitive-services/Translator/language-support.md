@@ -69,6 +69,8 @@ Translator supports the following languages for text to text translation.
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku`	|
+|Kurdish (Northern)	|`kmr`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malagasy|	`mg`	|
