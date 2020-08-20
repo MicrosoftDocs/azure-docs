@@ -64,9 +64,9 @@ To resolve, have your applications explicitly use Azure.Identity version **1.1.1
 
 ### Possible causes
 
-This is an incompatibility between Azure Digital Twins and the latest version of the Azure.Identity library, version **1.2.0**. 
+This is related to an open issue with the latest version of the Azure.Identity library (version **1.2.0**): [*Fail to authenticate when using InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
-You will see this issue if you use version **1.2.0** in your application, or if you add the library to your project without specifying a version (as that also defaults to this latest version).
+You will see this issue if you use version **1.2.0** in your Azure Digital Twins application, or if you add the library to your project without specifying a version (as that also defaults to this latest version).
 
 ## Next steps
 
