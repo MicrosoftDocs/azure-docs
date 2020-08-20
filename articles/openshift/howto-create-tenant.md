@@ -16,7 +16,7 @@ ms.date: 05/13/2019
 > As of October 2020 you will no longer be able to create new 3.11 clusters.
 > Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
 >
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster).
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
 > If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
 
 Microsoft Azure Red Hat OpenShift requires an [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) tenant in which to create your cluster. A *tenant* is a dedicated instance of Azure AD that an organization or app developer receives when they create a relationship with Microsoft by signing up for Azure, Microsoft Intune, or Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own work and school identities and app registrations.

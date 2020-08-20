@@ -18,7 +18,7 @@ keywords: aro, openshift, private cluster, red hat
 > As of October 2020 you will no longer be able to create new 3.11 clusters.
 > Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
 >
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster).
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
 > If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
 
 Private clusters provide the following benefits:

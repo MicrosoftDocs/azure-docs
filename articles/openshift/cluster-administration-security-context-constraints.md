@@ -17,7 +17,7 @@ ms.date: 09/25/2019
 > As of October 2020 you will no longer be able to create new 3.11 clusters.
 > Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
 >
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster).
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
 > If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
 
 Security context constraints (SCCs) allow cluster administrators to control permissions for pods. To learn more about this API type, see the [architecture documentation for SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). You can manage SCCs in your instance as normal API objects by using the CLI.
