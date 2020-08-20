@@ -36,7 +36,9 @@ The next place we need to look is our health probe status metric to determine wh
 ## Diagnose health probe failures
 Let's say we check our health probe status and find out that all instances are showing as unhealthy. This finding explains why our data path is unavailable as traffic has nowhere to go. We should then go through the following checklist to rule out common configuration errors:
 * Check the CPU utilization for your resources to check if your instances are in fact healthy
+  * You can check this 
 * If using an HTTP or HTTPS probe check if the application is healthy and responsive
+  * Validate this is functional by directly accessing the applications through the private IP address or instance-level public IP address associated with your backend instance
 * Review the Network Security Groups applied to our backend resources. Ensure that there are no rules of a higher priority than AllowAzureLoadBalancerInBound that will block the health probe
   * You can do this by visiting the Networking blade of your backend VMs or VMSSes
   * If you find this NSG issue is the case, move the existing Allow rule or create a new high priority rule to allow AzureLoadBalancer traffic
