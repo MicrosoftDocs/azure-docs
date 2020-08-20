@@ -302,3 +302,7 @@
       href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Support options
     href: ./partner-center-portal/support.md
+  - name: Reference
+    items:
+    - name: Supported HTML tags
+      href: supported-html-tags.md
