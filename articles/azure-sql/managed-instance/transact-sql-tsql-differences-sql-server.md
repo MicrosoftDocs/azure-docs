@@ -21,7 +21,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
-![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Easy migration from SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
 There are some PaaS limitations that are introduced in SQL Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
