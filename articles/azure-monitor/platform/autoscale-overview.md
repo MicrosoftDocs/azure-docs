@@ -103,6 +103,7 @@ You can set up autoscale via
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Azure App Service |[Scale up an app in Azure App service](../../app-service/manage-scale-up.md)|
 | Logic Apps |[Adding integration service environment (ISE) capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Setup autoscale for microservices applications](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-setup-autoscale)|
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:
 
