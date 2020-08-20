@@ -40,7 +40,7 @@ With Windows Virtual Desktop, you can set up a scalable and flexible environment
 
 You can deploy and manage virtual desktops:
 
-* Use the Azure Portal, Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
+* Use the Azure portal, Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
 * Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
 * As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
 * Use the new Diagnostics service to troubleshoot errors.
@@ -55,7 +55,7 @@ You can also assign and connect users to your virtual desktops:
 
 There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
 
-We support the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
+We support the following operating systems, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
 
 |OS|Required license|
 |---|---|
@@ -74,8 +74,8 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 
 User requirements to connect to Windows Virtual Desktop:
 
-* The user must be sourced from the same AD that is synced to AAD. Windows Virtual Desktop does not support B2B or MSA accounts.
-* The UPN used to subscribe to Windows Virtual Desktop must exist in the AD domain the VM is joined to.
+* The user must be sourced from the same Active Directory that's connected to Azure AD. Windows Virtual Desktop does not support B2B or MSA accounts.
+* The UPN you use to subscribe to Windows Virtual Desktop must exist in the Active Directory domain the VM is joined to.
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 

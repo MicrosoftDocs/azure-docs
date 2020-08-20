@@ -34,7 +34,7 @@ the following process:
 
     - Select **Application groups** in the menu on the left side of the page, then select **+ Add**.
 
-    - Select **Host pools** in the menu on the left side of the screen, select the name of the host pool, select **Application groups** from the menu on the left side, then select **+Add**. In this case, the host pool will already be selected on the Basics tab.
+    - Select **Host pools** in the menu on the left side of the screen, select the name of the host pool, select **Application groups** from the menu on the left side, then select **+ Add**. In this case, the host pool will already be selected on the Basics tab.
 
 4. On the **Basics** tab, select the **Subscription** and **Resource group** you want to create the app group for. You can also choose to create a new resource group instead of selecting an existing one.
 
@@ -75,7 +75,7 @@ the following process:
 
       - Leave the other options as-is and select **Save**.
 
-13.  To add an application from specific file path:
+13.  To add an application from a specific file path:
 
       - Under **Application source**, select **File path** from the drop-down menu.
 
