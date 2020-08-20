@@ -40,7 +40,7 @@ For detailed overview of single server deployment mode, refer [single server ove
 
 ### Azure Database for MySQL - Flexible Server
 
-Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and zone redundant high availability. The service supports 99.99% availability for zone redundant high availability and 99.9% availability for single availability zone. Flexible servers provides better cost optimization controls with burstable skus for servers and ability to stop/start server, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. The service supports 99.99% availability for zone redundant high availability and 99.9% availability for single availability zone. Flexible servers provides better cost optimization controls with burstable skus for servers and ability to stop/start server, ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of MySQL 5.7 with plans to add newer versions soon. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Flexible servers are best suited for 
 - New application development requiring better control and customizations on database environments to optimize based on your needs. 
@@ -50,6 +50,7 @@ For detailed overview of single server deployment mode, refer [flexible server o
 
 ## Next Steps
 
-Learn more about the two deployment modes for Azure Database for MySQL and choose the right options based on your needs
+Learn more about the two deployment modes for Azure Database for MySQL and choose the right options based on your needs.
+
 - [Single Server](single-server/index.yml)
 - [Flexible Server](flexible-server/index.yml)
