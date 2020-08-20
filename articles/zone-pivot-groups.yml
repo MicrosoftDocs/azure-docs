@@ -554,3 +554,12 @@ groups:
     title: Java
   - id: programming-language-more
     title: More languages...
+- id: ams-lva-edge-programming-languages
+  title: Live Video Analytics on IoT Edge programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  
