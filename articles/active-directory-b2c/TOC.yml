@@ -369,24 +369,24 @@
       href: partner-gallery.md
       items: 
       - name: Arkose Labs
-      href: partner-arkose-labs.md
+        href: partner-arkose-labs.md
       - name: Experian
-      href: partner-experian.md
+        href: partner-experian.md
       - name: IDology
-      href: partner-idology.md
+        href: partner-idology.md
       - name: itsme
-      href: partner-itsme.md
+        href: partner-itsme.md
       - name: LexisNexis
-      href: partner-lexisnexis.md
+        href: partner-lexisnexis.md
       - name: Onfido
-      href: partner-onfido.md
+        href: partner-onfido.md
       - name: Trusona
-      href: partner-trusona.md
-     - name: Twilio
-      href: partner-twilio.md
+        href: partner-trusona.md
+      - name: Twilio
+        href: partner-twilio.md
       - name: TypingDNA
-      href: partner-typingdna.md
-    - name: Use b2clogin.com
+        href: partner-typingdna.md
+  - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
