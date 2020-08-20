@@ -39,7 +39,7 @@ The LUIS app provides intelligence so the client application can make smart choi
 
 ## Natural language understanding (NLU)
 
-[LUIS provides artificial intelligence (AI)](artificial-intelligence.md) in the form of natural language understanding (NLU), a subset of natural language processing (NLP).
+[LUIS provides artificial intelligence (AI)](artificial-intelligence.md) in the form of NLU, a subset of natural language processing (NLP).
 
 Your LUIS app contains a domain-specific natural language model. You can start the LUIS app with a prebuilt domain model, build your own model, or blend pieces of a prebuilt domain with your own custom information.
 
@@ -47,7 +47,7 @@ Your LUIS app contains a domain-specific natural language model. You can start t
 
 * **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learning entities, specific or literal entities, and a combination of machine-learning and literal.
 
-Learn more about [natural language processing](artificial-intelligence.md), and the LUIS-specific area of natural language understanding.
+Learn more about [NLP](artificial-intelligence.md), and the LUIS-specific area of NLU.
 
 ## Step 1: Design and build your model
 
