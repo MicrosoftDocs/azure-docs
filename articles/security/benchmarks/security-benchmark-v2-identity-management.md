@@ -34,13 +34,13 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 - [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Define Azure AD tenants](//azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants#define-azure-ad-tenants)
+- [Define Azure AD tenants](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants#define-azure-ad-tenants)
 
 - [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)
 
-- [Sign into Windows virtual machines in Azure using Azure Active Directory authentication](//azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows)
+- [Sign into Windows virtual machines in Azure using Azure Active Directory authentication](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
-- [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](//azure/virtual-machines/linux/login-using-aad)
+- [Log in to a Linux virtual machine in Azure using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md)
 
 - [What is the identity secure score in Azure Active Directory](../../active-directory/fundamentals/identity-secure-score.md)
 
