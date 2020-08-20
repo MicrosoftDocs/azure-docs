@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
-ms.reviewer:cynthn
+ms.reviewer: cynthn
 ---
 
 # HB-series virtual machines overview
