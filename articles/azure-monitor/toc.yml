@@ -482,16 +482,12 @@
       href: platform/autoscale-resource-log-schema.md 
   - name: Alerts
     items:
-    - name: Application alert rules
-      items:
-      - name: Availability
-        href: app/monitor-web-app-availability.md
-      - name: Metric alerts
-        href: ./platform/alerts-log.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
         href: platform/alerts-metric.md
+      - name: Availability
+        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: platform/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -654,13 +650,19 @@
           href: app/opencensus-python-dependency.md
         - name: Requests 
           href: app/opencensus-python-request.md
-      - name: Web pages
+      - name: JavaScript
         items:
         - name: Client-side JavaScript
           displayname: SPA, Single Page Applications, React, JS, Angular
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
+        - name: Plugins
+          items:
+          - name: React plugin
+            href: app/javascript-react-plugin.md
+          - name: React Native plugin
+            href: app/javascript-react-native-plugin.md 
         - name: Troubleshoot
           items: 
           - name: SDK load failure 

@@ -25,7 +25,7 @@ Live Migration: Not Supported
 
 Memory Preserving Updates: Not Supported
 
-Write Accelerator:  [Supported](./windows/how-to-enable-write-accelerator.md)
+Write Accelerator:  [Supported](./how-to-enable-write-accelerator.md)
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -61,7 +61,7 @@ Write Accelerator:  [Supported](./windows/how-to-enable-write-accelerator.md)
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./linux/disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
 
 
 ## Next steps
