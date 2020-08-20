@@ -245,7 +245,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -351,9 +351,9 @@ If there isn't enough free space available, the disk can be [resized](../../wind
 To determine the right amount of space for the tempfiles, you can check the sizes of the tempfiles on existing systems.
 
 ### Storage configuration
-Only single-instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or on VHDs. These disks are mounted to the Azure VM and are based on [Azure page blob storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) or [Azure Managed Disks](../../windows/managed-disks-overview.md). 
+Only single-instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or on VHDs. These disks are mounted to the Azure VM and are based on [Azure page blob storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) or [Azure Managed Disks](../../managed-disks-overview.md). 
 
-We strongly recommend using [Azure Managed Disks](../../windows/managed-disks-overview.md). We also strongly recommend using [premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments.
+We strongly recommend using [Azure Managed Disks](../../managed-disks-overview.md). We also strongly recommend using [premium SSDs](../../disks-types.md) for your Oracle Database deployments.
 
 Network drives or remote shares like Azure file services aren't supported for Oracle Database files. For more information, see:
 
@@ -440,11 +440,11 @@ In this case, we recommend installing/locating Oracle home, stage, saptrace, sap
 
 ### Storage configuration
 
-The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](../../windows/managed-disks-overview.md).
+The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](../../managed-disks-overview.md).
 
-For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](../../windows/premium-storage-performance.md#disk-caching).
+For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](../../premium-storage-performance.md#disk-caching).
 
-It is highly recommended to use [Azure managed disks](../../windows/managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments.
+It is highly recommended to use [Azure managed disks](../../managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../disks-types.md) for your Oracle Database deployments.
 
 Network drives or remote shares like Azure file services aren't supported for Oracle Database files. For more information, see the following: 
 

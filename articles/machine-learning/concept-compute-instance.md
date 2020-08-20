@@ -152,26 +152,22 @@ You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* With [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* With Azure Machine Learning SDK
 * From the [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation. is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
 
 ## Compute target
 
-Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. 
+Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute clusters. 
 
 A compute instance:
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 * Can run multiple small jobs in parallel (preview).  Two jobs per core can run in parallel while the rest of the jobs are queued.
+* Supports single-node multi-GPU distributed training jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
-
-> [!NOTE]
-> Distributed training jobs are not supported on compute instance.  Use (compute clusters](how-to-set-up-training-targets.md#amlcompute) for distributed training.
-
-For more details, see the notebook [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). This notebook is also available in the studio **Samples** folder in *training/train-on-computeinstance*.
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?
 
