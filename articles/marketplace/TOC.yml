@@ -170,8 +170,9 @@
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
       - name: Create a SaaS offer
-        href: create-new-saas-offer.md
         items:
+        - name: Create the SaaS offer
+          href: create-new-saas-offer.md
         - name: Configure offer listing
           href: create-new-saas-offer-listing.md
         - name: Preview audience and technical details
