@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with PerformanceCentre | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PerformanceCentre.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with PerformanceCentre
 

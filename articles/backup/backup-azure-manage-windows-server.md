@@ -64,8 +64,8 @@ Backup Pre-Checks check your VMs' configuration for issues that can adversely af
 Backup Pre-Checks run as part of the scheduled backup operations for your Azure VMs. They conclude with one of the following states:
 
 * **Passed**: This state indicates that your VM's configuration should lead to successful backups and no corrective action needs to be taken.
-* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation would provide a warning state.
-* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. This situation would provide a critical state.
+* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation will provide a warning state.
+* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. This situation will provide a critical state.
 
 Follow the steps below to start resolving any issues reported by Backup Pre-Checks for VM backups on your Recovery Services Vault.
 
@@ -90,7 +90,7 @@ The Backup Alerts list displays the selected information for the filtered alerts
 | Alert Level | Events that generate alerts |
 | ----------- | ----------- |
 | Critical | You receive critical alerts when: Backup jobs fail, recovery jobs fail, and when you stop protection on a server, but retain the data.|
-| Warning | You receive warning alerts when: Backup jobs complete with warnings, for example when fewer than 100 files aren't backed up due to corruption issues, or when greater than 1,000,000 files are successfully backed up). |
+| Warning | You receive warning alerts when: Backup jobs complete with warnings. For example, when fewer than 100 files aren't backed up because of corruption issues, or when greater than 1,000,000 files are successfully backed up). |
 | Informational | currently, no informational alerts are in use. |
 
 ### Viewing alert details
