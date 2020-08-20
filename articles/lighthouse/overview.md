@@ -1,12 +1,13 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 08/12/2020
+ms.date: 08/19/2020
 ms.topic: overview
 ---
+
 # What is Azure Lighthouse?
 
-Azure Lighthouse offers a single control plane to view and manage Azure resources across multiple tenants with higher automation, scale, and enhanced governance. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
+Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
