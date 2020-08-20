@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 8/20/2020
 ---
 
-[Azure Database for MySQL](overview.md) powered by the MySQL community edition is available in two deployment modes :
+[Azure Database for MySQL](overview.md) powered by the MySQL community edition is available in two deployment modes:
 - Single Server 
 - Flexible Server (Public Preview)
 
@@ -17,7 +17,7 @@ In this article, we will provide an overview and introduction to core concepts o
 
 ## Overview
 
-Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6, 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). 
+Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of MySQL 5.6, 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/). 
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom MySQL configuration settings. 
 
@@ -40,7 +40,7 @@ Azure's industry leading 99.99% availability service level agreement (SLA), powe
 
 ## Automated Patching 
 
-The service performs automated patching of the underlying hardware, OS and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patching frequency is service managed based on the criticality of the payload. In general, the service follows monthly release schedule as part of the continuous integration and release. Users can subscribe to the [planned maintenance notification](concepts-monitoring.md) to receive notification of the upcoming maintenance 72 hours before the event.
+The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patching frequency is service managed based on the criticality of the payload. In general, the service follows monthly release schedule as part of the continuous integration and release. Users can subscribe to the [planned maintenance notification](concepts-monitoring.md) to receive notification of the upcoming maintenance 72 hours before the event.
 
 ## Automatic Backups
 
@@ -48,9 +48,9 @@ The single server service automatically creates server backups and stores them i
 
 ## Adjust performance and scale within seconds
 
-The single server service is available in three SKU tiers: Basic, General Purpose, and Memory Optimized. The Basic tier is best suited for low cost development and low concurrency workloads. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale and predictable performance. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage auto-growth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. See [Pricing tiers](concepts-service-tiers.md) for details.
+The single server service is available in three SKU tiers: Basic, General Purpose, and Memory Optimized. The Basic tier is best suited for low-cost development and low concurrency workloads. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. See [Pricing tiers](concepts-service-tiers.md) for details.
 
-## Enterprise grade Security, Compliance and Governance
+## Enterprise grade Security, Compliance, and Governance
 
 The single server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default) or [customer managed](concepts-data-encryption-mysql.md). The service encrypts data in-motion with transport layer security (SSL/TLS) enforced by default. The service supports TLS versions 1.2, 1.1 and 1.0 with an ability to enforce [minimum TLS version](concepts-ssl-security.md). 
 
@@ -60,7 +60,7 @@ In addition to native authentication, the single server service supports  [Azure
 
 [Audit logging](concepts-audit-logs.md) is available to track all database level activity. 
 
-The single server service is complaint with all the industry leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center](https://www.microsoft.com/trustcenter/security) for information about Azure's platform security. 
+The single server service is complaint with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center](https://www.microsoft.com/trustcenter/security) for information about Azure's platform security. 
 
 For more information about Azure Database for MySQL security features, see the [security overview](concepts-security.md).
 
@@ -74,7 +74,7 @@ The service runs community version of MySQL. This allows full application compat
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See [Migrate using dump and restore](concepts-migrate-dump-restore.md) for details. 
 - **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](https://docs.microsoft.com/en-us/azure/dms/tutorial-mysql-azure-mysql-online) can be leveraged. 
-- **Data-in replication** – For minimal downtime migrations, data-in replication which relies on binlog based replication can also be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for more control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
+- **Data-in replication** – For minimal downtime migrations, data-in replication, which relies on binlog based replication can also be leveraged. Data-in replication is preferred for minimal downtime migrations by hands-on experts looking for more control over migration. See [data-in replication](concepts-data-in-replication.md) for details.
 
 ## Contacts
 For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
