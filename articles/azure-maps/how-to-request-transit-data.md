@@ -4,7 +4,7 @@ description: Learn how to use the Azure Maps Mobility service to request public 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea

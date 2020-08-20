@@ -4,7 +4,7 @@ description: Learn how to add pushpins, labels, and geometric shapes to a raster
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/23/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt

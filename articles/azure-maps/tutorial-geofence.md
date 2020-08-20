@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
-description: Learn how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service.
+description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -227,7 +227,7 @@ In this section, we'll create two [Logic App](https://docs.microsoft.com/azure/e
 
 ## Create Azure Maps Events subscriptions
 
-Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).  We'll need to create two different event subscriptions: one for geofence enter events and one for the geofence exit events.
+Azure Maps supports three event types. You can have a look at the Azure Maps supported event types [here](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).  We'll need to create two different event subscriptions: one for geofence enter events and one for the geofence exit events. 
 
 Follow the steps below to create an event subscription for the geofence enter events. You can subscribe to geofence exit events by repeating the steps in a similar manner.
 
@@ -464,13 +464,7 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 4. In the GeoJSON response above, the equipment has exited the main site geofence. As a result, the `isEventPublished` parameter is set to `true` and the Operations Manager will receive an email notification indicating that the equipment has exited a geofence.
 
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Send email notifications using Event Grid and Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
+To learn how implement IoT spatial analytics using a geofence, see [Tutorial: Implement IoT spatial analytics](tutorial-iot-hub-maps.md)

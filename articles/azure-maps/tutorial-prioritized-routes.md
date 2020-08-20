@@ -153,7 +153,7 @@ In this tutorial, two routes will be calculated and rendered on the map. One rou
     });
     ```
     
-    In the maps `ready` event handler, a data source is created to store the route lines and the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This ensures that the route line doesn't cover the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered. In this case, expressions have been added to retrieve the icon image and text label information from properties on each point object. 
+    In the maps `ready` event handler, a data source is created to store the route lines and the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This ensures that the route line doesn't cover the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered. In this case, expressions have been added to retrieve the icon image and text label information from properties on each point object. For more information on expressions, see [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
     
 2. For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the destination point as a Microsoft office. In the maps `ready` event handler, add the following code.
 
@@ -271,26 +271,11 @@ All of the following code blocks should be added **within the map load eventList
 
     The truck route is thick blue, and the car route is thin purple. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas. Because the tunnels are close to residential areas, hazardous waste cargo is restricted. The truck route, which specifies a USHazmatClass2 cargo type, is directed to use a different highway.
 
+To view the full code for this tutorial, click [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html). To view the live sample, click [here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a new web page using the map control API
-> * Visualize traffic flow on your map
-> * Create route queries that declare mode of travel
-> * Display multiple routes on your map
-
-> [!div class="nextstepaction"]
-> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-> [!div class="nextstepaction"]
-> [View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 The next tutorial demonstrates the process of creating a simple store locator by using Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)
-
-> [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

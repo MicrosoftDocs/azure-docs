@@ -4,7 +4,7 @@ description: Learn how to route vehicles by using Route Service from Microsoft A
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea

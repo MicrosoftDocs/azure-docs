@@ -919,34 +919,20 @@ If you resize the browser window to less than 700 pixels wide or open the applic
 
 ![Screenshot of the small-screen version of the store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)
 
+
+In this tutorial, you learned how to create a basic store locator by using Azure Maps. You can [view the full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [view the live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator), or learn more about the coverage and capabilities of Azure Maps by using [zoom levels and tile grid](zoom-levels-and-tile-grid.md). You can also [use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.  In addition, you may want to add the following features to your store locator:
+
+* Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
+* Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+* Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+* Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+* Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
+* Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html). 
+* Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+
 ## Next steps
-
-In this tutorial, you learn how to create a basic store locator by using Azure Maps. The store locator you create in this tutorial might have all the functionality you need. You can add features to your store locator or use more advance features for a more custom user experience: 
-
-> [!div class="checklist"]
-> * Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
-> * Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
-> * Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
-
-> [!div class="nextstepaction"]
-> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-> [!div class="nextstepaction"]
-> [View live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
-
-To learn more about the coverage and capabilities of Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Zoom levels and tile grid](zoom-levels-and-tile-grid.md)
 
 To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
 > [How to use the map control](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

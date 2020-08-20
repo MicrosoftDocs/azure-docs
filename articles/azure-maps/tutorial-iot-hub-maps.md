@@ -283,19 +283,18 @@ Once our Azure Function is up and running, we can now send telemetry data to the
     dotnet run
     ```
 
-  Your local terminal should look like the one below.
+    Your local terminal should look like the one below.
+    
+    ![Terminal output](./media/tutorial-iot-hub-maps/terminal.png)
+    
+    If you open the blob storage container now, you should be able to see four blobs for locations where the vehicle was outside the geofence.
+    
+    ![Enter blob](./media/tutorial-iot-hub-maps/blob.png)
+    
+    The map below shows four points where the vehicle was outside the geofence, logged at regular time intervals.
+    
+    ![violation map](./media/tutorial-iot-hub-maps/violation-map.png)
 
-  ![Terminal output](./media/tutorial-iot-hub-maps/terminal.png)
-
-If you open the blob storage container now, you should be able to see four blobs for locations where the vehicle was outside the geofence.
-
-![Enter blob](./media/tutorial-iot-hub-maps/blob.png)
-
-The map below shows four points where the vehicle was outside the geofence, logged at regular time intervals.
-
-![violation map](./media/tutorial-iot-hub-maps/violation-map.png)
-
-## Next steps
 
 To explore Azure Maps APIs used in this tutorial, see:
 
@@ -314,6 +313,9 @@ To get a list of devices that are Azure certified for IoT, visit:
 
 * [Azure certified devices](https://catalog.azureiotsolutions.com/)
 
+## Next steps
+
 To learn more about how to send device to cloud telemetry and the other way around, see:
 
-* [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+> [!div class="nextstepaction"]
+> [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

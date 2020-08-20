@@ -204,20 +204,9 @@ This section shows how to use Azure Maps route service API. The route service AP
 
     ![Azure Map Control and Route Service](./media/tutorial-route-location/map-route.png)
 
+To view the full code for this tutorial, click [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). To view the live sample, click [here](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a new web page using the map control API
-> * Set address coordinates
-> * Query the route service for directions to point of interest
-
-> [!div class="nextstepaction"]
-> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-> [!div class="nextstepaction"]
-> [View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 The next tutorial demonstrates how to create a route query with restrictions like mode of travel or type of cargo, then display multiple routes on the same map.
 
