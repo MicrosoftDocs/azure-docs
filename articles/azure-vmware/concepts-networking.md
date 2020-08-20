@@ -46,7 +46,10 @@ The private cloud logical networking comes with pre-provisioned NSX-T. A Tier-0 
 
 ## Routing and subnet requirements
 
-The routing is Border Gateway Protocol (BGP) based, which is automatically provisioned and enabled by default for each private cloud deployment. For Azure VMware Solution private clouds, you're required to plan private cloud network address spaces with a minimum of /22 prefix length CIDR network address blocks for subnets, shown in the table below. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks are provisioned automatically.
+## Routing and subnet considerations
+The AVS private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing is Border Gateway Protocol (BGP) based, automatically provisioned and enabled by default for each private cloud deployment. 
+
+AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks get provisioned automatically.
 
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 
