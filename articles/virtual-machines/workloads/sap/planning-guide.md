@@ -236,7 +236,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -527,7 +527,7 @@ When deploying services or VMs in Azure, deployment of VHDs and VM Images are or
 
 played an important role in planning an SAP deployment in Azure. It was on you to manage the number of persisted disks within a storage account. You needed to manage the storage accounts and eventually create new storage accounts to create more persisted disks.
 
-In recent years, the introduction of [Azure managed disks](../../windows/managed-disks-overview.md) relieved you from those tasks. The recommendation for SAP deployments is to leverage Azure managed disks instead of managing Azure storage accounts yourself. Azure managed disks will distribute disks across different storage accounts, so, that the limits of the individual storage accounts are not exceeded.
+In recent years, the introduction of [Azure managed disks](../../managed-disks-overview.md) relieved you from those tasks. The recommendation for SAP deployments is to leverage Azure managed disks instead of managing Azure storage accounts yourself. Azure managed disks will distribute disks across different storage accounts, so, that the limits of the individual storage accounts are not exceeded.
 
 Within a storage account, you have a type of a folder concept called 'containers' that can be used to group certain disks into specific containers.
 
@@ -804,7 +804,7 @@ Requirements when preparing your own Azure VM Disk are:
 
 * Originally the VHD containing the operating system could have a maximum size of 127 GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1 TB in size as any other Azure Storage hosted VHD as well.
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article (Linux)](../../linux/managed-disks-overview.md) and [this article (Windows)](../../windows/managed-disks-overview.md)) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article](../../managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Add another local account with administrator privileges, which can be used by Microsoft support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * Add other local accounts as those might be needed for the specific deployment scenario.
 
@@ -831,7 +831,7 @@ Requirements when preparing your own Azure VM Image are:
 
 * Originally the VHD containing the operating system could have a maximum size of 127 GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1 TB in size as any other Azure Storage hosted VHD as well.
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article (Linux)](../../windows/managed-disks-overview.md) and [this article (Windows)](../../linux/managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article](../../managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Add other local accounts as those might be needed for the specific deployment scenario.
 * If the image contains an installation of SAP NetWeaver and renaming of the host name from the original name at the point of the Azure deployment is likely, it is recommended to copy the latest versions of the SAP Software Provisioning Manager DVD into the template. This will enable you to easily use the SAP provided rename functionality to adapt the changed hostname and/or change the SID of the SAP system within the deployed VM image as soon as a new copy is started.
 

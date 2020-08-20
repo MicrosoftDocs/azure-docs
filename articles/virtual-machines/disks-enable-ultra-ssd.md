@@ -1,21 +1,24 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 05/11/2020
- ms.author: rogarana
- ms.custom: include file
+title: Ultra disks for VMs - Azure managed disks 
+description: Learn about ultra disks for Azure VMs
+author: roygara
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 05/11/2020
+ms.author: rogarana
+ms.subservice: disks
+ms.custom: references_regions
 ---
 
+# Using Azure ultra disks
+
+This article explains how to deploy and use an ultra disk, for conceptual information about ultra disks, refer to [What disk types are available in Azure?](disks-types.md#ultra-disk).
 
 Azure ultra disks offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
 ## GA scope and limitations
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](~/includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 ## Determine VM size and region availability
 
@@ -120,7 +123,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ## Deploy an ultra disk using the Azure portal
 
-This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](../articles/virtual-machines/windows/quick-create-portal.md).
+This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](~/articles/virtual-machines/windows/quick-create-portal.md).
 
 - Sign in to the [Azure portal](https://portal.azure.com/) and navigate to deploy a virtual machine (VM).
 - Make sure to choose a [supported VM size and region](#ga-scope-and-limitations).
@@ -337,3 +340,6 @@ Ultra disks have a unique capability that allows you to adjust their performance
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
+## Next steps
+
+See [Use Azure ultra disks on Azure Kubernetes Service (preview)](/azure/aks/use-ultra-disks).
