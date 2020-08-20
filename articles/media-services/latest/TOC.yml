@@ -230,7 +230,9 @@
       - name: Live event error codes
         href: live-event-error-codes.md
       - name: Job error codes
-        href: job-error-codes.md        
+        href: job-error-codes.md
+    - name: Reset account credentials
+      href: cli-reset-account-credentials.md       
   - name: Migration from v2 to v3
     items:
     - name: v2 vs v3
@@ -241,8 +243,6 @@
       displayName: naming      
 - name: How-to guides
   items:
-    - name: Reset account credentials
-      href: cli-reset-account-credentials.md
   - name: Create assets and upload media
     items:
     - name: Create an asset
@@ -255,7 +255,7 @@
       href: cli-create-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
-    - name: Creat job input with a local file and .NET
+    - name: Create job input with a local file and .NET
       displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
@@ -263,14 +263,10 @@
   - name: Encode content 
     items:
     - name: HTTPS as job input
-      displayName: encode, encoding
       href: job-input-from-http-how-to.md
     - name: Local file as job input
-      displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
     - name: Encode with a custom transform
-    - name: Scale media reserved units
-      href: media-reserved-units-cli-how-to.md
       items:
       - name: With .NET
         displayName: encode, encoding, custom, transform
@@ -289,6 +285,8 @@
         href: custom-preset-rest-howto.md
       - name: Generate thumbnails with REST
         href: media-services-generate-thumbnails-rest.md
+      - name: Scale media reserved units
+        href: media-reserved-units-cli-how-to.md
     - name: Subclip a video
       items:
       - name: With .NET
