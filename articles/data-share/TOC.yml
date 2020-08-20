@@ -52,6 +52,9 @@
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Share Azure Data Explorer data
+    href: /azure/data-explorer/data-share
+    maintainContext: true
 - name: Reference
   items:
   - name: .NET
