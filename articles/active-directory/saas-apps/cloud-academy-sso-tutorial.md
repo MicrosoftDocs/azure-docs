@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Cloud Academy - SSO, you'll take these h
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
     1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
 1. **[Configure single sign-on for Cloud Academy - SSO](#configure-single-sign-on-for-cloud-academy)** on the application side.
-    1. **[Create a Cloud Academy - SSO test user](#create-cloud-academy-sso-test-user)** as a counterpart to the Azure AD representation of the user.
+    1. **[Create a Cloud Academy - SSO test user](#create-a-cloud-academy-sso-test-user)** as a counterpart to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ## Configure Azure AD SSO
@@ -106,7 +106,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 	![Screenshot that shows the Add user button.](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure single sign-on for Cloud Academy
