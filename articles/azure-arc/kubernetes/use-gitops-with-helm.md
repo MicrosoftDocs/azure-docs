@@ -66,7 +66,7 @@ In the git repo we have two directories, one containing a Helm chart and one con
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: azure_arc_sample
+  name: azure-arc-sample
   namespace: arc-k8s-demo
 spec:
   releaseName: arc-k8s-demo
@@ -155,7 +155,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 Run the following command and navigate to `localhost:8080` on your browser to verify that application is running.
 
 ```bash
-kubectl port-forward -n arc-k8s-demo svc/azure-arc-sample 8080:8080
+kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 ```
 
 ## Next steps
