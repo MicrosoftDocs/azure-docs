@@ -32,9 +32,9 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   RemoteResourceID is missing or invalid from the UI or API request (fix error   msg).    |
-|     `Missing value   for 'RemoteVolumeResourceId'`    |     The   RemoteResourceID is missing or invalid from the UI or API request.    |
-|     `Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}`    |     Validate if   RemoteResourceID is correct or exists for the user.    |
+|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   RemoteResourceID is missing or invalid from the UI or API request (fix error   message).    |
+|     `Missing value   for 'RemoteVolumeResourceId'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request.    |
+|     `Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}`    |     Validate if   `RemoteResourceID` is correct or exists for the user.    |
 |     `Remote volume   '{0}' is not configured for replication`    |     Destination   volume is not a data protection volume.    |
 |     `Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId`    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
 |     `The   destination volume replication creation failed (message: {0})`    |     This error   indicates a server error. Contact Support.    |
@@ -43,32 +43,32 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting    |     Validate that   either replication has been broken or it is uninitialized and idle (failed   initialization).    |
-|     Cannot delete   source replication    |     Deleting the   replication from the source side is not allowed. Make sure that you are   deleting the replication from the destination side.    |
+|     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Validate that   either replication has been broken or it is uninitialized and idle (failed   initialization).    |
+|     `Cannot delete   source replication`    |     Deleting the   replication from the source side is not allowed. Make sure that you are   deleting the replication from the destination side.    |
 
 ## Errors re-syncing volume
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Volume   Replication is in invalid status: (Mirrored\|Uninitialized) for operation:   'ResyncReplication'    |     Validate that   volume replication is in state "broken”.    |
+|     `Volume   Replication is in invalid status: (Mirrored\|Uninitialized) for operation:   'ResyncReplication'`    |     Validate that   volume replication is in state "broken”.    |
 
 ## Errors authorizing volume  
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Missing value   for 'AuthorizeSourceReplication'    |     The   `RemoteResourceID` is missing or invalid from the UI or API request (fix error   msg).    |
-|     Missing value   for 'RemoteVolumeResourceId'    |     The   `RemoteResourceID` is missing or invalid from the UI or API request.    |
-|     Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}    |     Validate if   `RemoteResourceID` is correct or exists for the user.    |
-|     Remote volume   '{0}' is not configured for replication    |     Destination   volume is not a data protection volume.    |
-|     Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
-|     The   destination volume replication creation failed (message: {0})    |     This error   indicates a server error. Contact Support.    |
+|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request (fix error   message).    |
+|     `Missing value   for 'RemoteVolumeResourceId'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request.    |
+|     `Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}`    |     Validate if   `RemoteResourceID` is correct or exists for the user.    |
+|     `Remote volume   '{0}' is not configured for replication`    |     Destination   volume is not a data protection volume.    |
+|     `Remote volume   '{0}' does not have source volume '{1}' as RemoteVolumeResourceId`    |     Data   protection volume does not have this source volume in its remote resource ID   (wrong source ID was entered).    |
+|     `The   destination volume replication creation failed (message: {0})`    |     This error   indicates a server error. Contact Support.    |
 
 ## Errors deleting snapshot 
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object    |     Validate that   you have broken the volume's replication if you want to delete this   snapshot.    |
-|     Cannot delete   volume replication generated snapshot    |     Deletion of   replication baseline snapshots is not allowed.    |
+|     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Validate that   you have broken the volume's replication if you want to delete this   snapshot.    |
+|     `Cannot delete   volume replication generated snapshot`    |     Deletion of   replication baseline snapshots is not allowed.    |
 
 ## Next steps  
 

@@ -63,7 +63,7 @@ You can also select an existing NetApp account in a different region.
     * Virtual network 
     * Subnet
 
-    For details about the fields, see [Create an NFS volume](azure-netapp-files-create-volumes.md#create-an-nfs-volume.md). 
+    For details about the fields, see [Create an NFS volume](azure-netapp-files-create-volumes.md#create-an-nfs-volume). 
 
 6. Under the **Protocol** tab, select the same protocol as the source volume.  
 For the NFS protocol, ensure that the export policy rules satisfy the requirements of any hosts in the remote network that will access the export.  

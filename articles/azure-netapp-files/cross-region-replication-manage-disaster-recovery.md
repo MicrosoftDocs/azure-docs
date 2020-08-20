@@ -20,9 +20,9 @@ ms.author: b-juche
 
 An ongoing replication between the source and the destination volumes (see [Create replication peering](cross-region-replication-create-peering.md)) prepares you for a disaster recovery event. 
 
-When such an event occurs, you can failover to the destination volume, enabling the client to read and write to the destination volume. 
+When such an event occurs, you can [failover to the destination volume](#break-replication-peering-to-activate-the-destination-volume), enabling the client to read and write to the destination volume. 
 
-After disaster recovery, you can fail back to the source volume with a resync operation that overwrites the source volume data with the destination volume data.  You then reestablish the source-to-destination replication and remount the source volume for the client to access. 
+After disaster recovery, you can fail back to the source volume with a [resync operation](#resync-replication-to-reactivate-the-source-volume) that overwrites the source volume data with the destination volume data.  You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
 ## Break replication peering to activate the destination volume
 
@@ -34,7 +34,9 @@ When you need to activate the destination volume (for example, when you want to 
     * Ensures that Mirror State shows ***Mirrored***.   
         Do not attempt to break replication peering if Mirror State shows *Uninitialized*.
     * Ensure that Relationship Status shows ***Idle***.   
-        Do not attempt to break replication peering if Relationship Status shows *Transferring*.
+        Do not attempt to break replication peering if Relationship Status shows *Transferring*.   
+
+    See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
 
 3.	Click **Break Peering**.  
 
@@ -64,23 +66,28 @@ After disaster recovery, you can reactivate the source volume by performing a re
     * Mirrored State: *Mirrored*  
     * Transfer State: *Idle*  
 
+    See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
+
 ## Reestablish source-to-destination replication
 
 After the resync operation from destination to source is complete, you need to break replication peering again to reestablish source-to-destination replication. You should also remount the source volume so that the client can access it.  
 
-1. Break the replication peering:
-    a. Select the destination volume. Click **Replication** under Storage Service.
-    b. Check the following fields before continuing:
-        * Ensures that Mirror State shows *Mirrored*.
-            Do not attempt to break replication peering if Mirror State shows uninitialized.
-        * Ensure that Relationship Status shows *Idle*.
-            Do not attempt to break replication peering if Relationship Status shows transferring.
-    c. Click **Break Peering**.  
-    d. Type “Yes” when prompted and click the **Break** button.
+1. Break the replication peering:  
+    a. Select the destination volume. Click **Replication** under Storage Service.  
+    b. Check the following fields before continuing:   
+    * Ensures that Mirror State shows ***Mirrored***.   
+    Do not attempt to break replication peering if Mirror State shows *uninitialized*.  
+    * Ensure that Relationship Status shows ***Idle***.   
+    Do not attempt to break replication peering if Relationship Status shows *transferring*.    
 
-2. Resync the source volume with the destination volume: 
-a.	Select the destination volume. Click **Replication** under Storage Service. Then click **Resync**. 
-b.	Type “Yes” when prompted and click the **Resync** button.
+        See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
+
+    c. Click **Break Peering**.   
+    d. Type **Yes** when prompted and click the **Break** button.  
+
+2. Resync the source volume with the destination volume:  
+    a. Select the destination volume. Click **Replication** under Storage Service. Then click **Resync**.   
+    b. Type **Yes** when prompted and click the **Resync** button.
 
 3. Remount the source volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
     This step enables a client to access the source volume.
