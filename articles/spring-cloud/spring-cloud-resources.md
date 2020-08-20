@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Azure Spring Cloud developer resources
 
 As a developer, you might find the following Azure Spring Cloud resources useful:

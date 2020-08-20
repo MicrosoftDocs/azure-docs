@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Float | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Float.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e00cbbcd-2f2a-43f0-bac5-75f5fc34b6fc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Float
@@ -97,9 +91,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Float application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.userprincipalname |
+	| Name | Source Attribute|
+	| ---------------| --------- |
+	| email | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

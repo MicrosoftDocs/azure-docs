@@ -6,10 +6,11 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/20/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK v4 for Core (SQL) API: release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -20,9 +21,12 @@ ms.author: anfeldma
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
@@ -40,15 +44,17 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 > The [Azure Cosmos DB workshops and labs](https://aka.ms/cosmosworkshop) are another great resource for learning how to use Azure Cosmos DB Java SDK v4!
 >
 
-| |  |
+## Helpful content
+
+| Content | Link |
 |---|---|
-| **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**API documentation** | [Java API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html) |
-|**Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
-|**Get started** | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) · [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
-|**Basic code samples** | [Azure Cosmos DB: Java examples for the SQL API](sql-api-java-sdk-samples.md) · [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
-|**Console app with Change Feed**| [Change feed - Java SDK v4 sample](create-sql-api-java-changefeed.md) · [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
-|**Web app sample**| [Build a web app with Java SDK v4](sql-api-java-application.md) · [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|
+|**SDK download**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
+|**API documentation** | [Java API reference documentation](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
+|**Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
+|**Get started** | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
+|**Basic code samples** | [Azure Cosmos DB: Java examples for the SQL API](sql-api-java-sdk-samples.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
+|**Console app with Change Feed**| [Change feed - Java SDK v4 sample](create-sql-api-java-changefeed.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
+|**Web app sample**| [Build a web app with Java SDK v4](sql-api-java-application.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app)|
 | **Performance tips**| [Performance tips for Java SDK v4](performance-tips-java-sdk-v4-sql.md)| 
 | **Troubleshooting** | [Troubleshoot Java SDK v4](troubleshoot-java-sdk-v4-sql.md) |
 | **Migrate to v4 from an older SDK** | [Migrate to Java V4 SDK](migrate-java-v4-sdk.md) |
@@ -57,8 +63,52 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 
 ## Release history
 
+### 4.4.0-beta.1 (Unreleased)
+
+### 4.3.0 (2020-07-29)
+#### New features
+* Updated reactor-core library version to `3.3.8.RELEASE`. 
+* Updated reactor-netty library version to `0.9.10.RELEASE`. 
+* Updated netty library version to `4.1.51.Final`. 
+* Added new overload APIs for `upsertItem` with `partitionKey`. 
+* Added open telemetry tracing support. 
+#### Key bug fixes
+* Fixed issue where SSLException gets thrown in case of cancelation of requests in GATEWAY mode.
+* Fixed resource throttle retry policy on stored procedures execution.
+* Fixed issue where SDK hangs in log level DEBUG mode. 
+* Fixed periodic spikes in latency in Direct mode. 
+* Fixed high client initialization time issue. 
+* Fixed http proxy bug when customizing client with direct mode and gateway mode. 
+* Fixed potential NPE in users passes null options. 
+* Added timeUnit to `requestLatency` in diagnostics string.
+* Removed duplicate uri string from diagnostics string. 
+* Fixed diagnostics string in proper JSON format for point operations.
+* Fixed issue with `.single()` operator causing the reactor chain to blow up in case of Not Found exception. 
+
+### 4.2.0 (2020-07-14)
+#### New features
+* Added script logging enabled API to `CosmosStoredProcedureRequestOptions`.
+* Updated `DirectConnectionConfig` default `idleEndpointTimeout` to 1h and default `connectTimeout` to 5s.
+#### Key bug fixes
+* Fixed issue where `GatewayConnectionConfig` `idleConnectionTimeout` was overriding `DirectConnectionConfig` `idleConnectionTimeout`.
+* Fixed `responseContinuationTokenLimitInKb` get and set APIs in `CosmosQueryRequestOptions`.
+* Fixed issue in query and change feed when recreating the collection with same name.
+* Fixed issue with top query throwing ClassCastException.
+* Fixed issue with order by query throwing NullPointerException.
+* Fixed issue in handling of canceled requests in direct mode causing reactor `onErrorDropped` being called. 
+
+### 4.1.0 (2020-06-25)
+#### New features
+* Added support for `GROUP BY` query.
+* Increased the default value of maxConnectionsPerEndpoint to 130 in DirectConnectionConfig.
+* Increased the default value of maxRequestsPerConnection to 30 in DirectConnectionConfig.
+#### Key bug fixes
+* Fixed issues with order by query returning duplicate results when resuming by using continuation token. 
+* Fixed issues with value query returning null values for nested object.
+* Fixed null pointer exception on request manager in RntbdClientChannelPool.
+
 ### 4.0.1 (2020-06-10)
-#### New Features
+#### New features
 * Renamed `QueryRequestOptions` to `CosmosQueryRequestOptions`.
 * Updated `ChangeFeedProcessorBuilder` to builder pattern.
 * Updated `CosmosPermissionProperties` with new container name and child resources APIs.
@@ -111,7 +161,8 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * Query Optimizations by removing double serialization / deserialization. 
 * Response Headers optimizations by removing unnecessary copying back and forth. 
 * Optimized `ByteBuffer` serialization / deserialization by removing intermediate String instantiations.
-#### Key Bug Fixes
+
+#### Key bug fixes
 * Fixed ConnectionPolicy `toString()` Null Pointer Exception.
 * Fixed issue with parsing of query results in case of Value order by queries. 
 * Fixed socket leak issues with Direct TCP client.
@@ -123,5 +174,5 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## See also
+## Next steps
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

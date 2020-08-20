@@ -21,9 +21,9 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 ## Prerequisites
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Your subscription must be registered with [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 - Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
@@ -288,5 +288,3 @@ You can then also choose to use the dimensions on this metric to chart it for a 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
-
-

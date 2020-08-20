@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
-## JTW token lifetimes and claims configuration
+## JWT token lifetimes and claims configuration
 
 To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
 
@@ -26,7 +26,7 @@ Insert the ClaimsProviders element between the BasePolicy element and the Relyin
 
 Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <DisplayName>Token Issuer</DisplayName>
@@ -57,7 +57,7 @@ The following values are set in the previous example:
 
     In the **ClaimsSchema** element, add this element:
 
-    ```XML
+    ```xml
     <ClaimType Id="trustFrameworkPolicy">
       <DisplayName>Trust framework policy name</DisplayName>
       <DataType>string</DataType>
@@ -66,7 +66,7 @@ The following values are set in the previous example:
 
     In your **OutputClaims** element, add this element:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
@@ -74,13 +74,13 @@ The following values are set in the previous example:
 
 - **Subject (sub) claim** - This option defaults to ObjectID, if you would like to switch this setting to `Not Supported`, replace this line:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
     with this line:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 

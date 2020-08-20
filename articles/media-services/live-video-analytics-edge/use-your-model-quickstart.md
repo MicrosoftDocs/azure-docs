@@ -26,7 +26,7 @@ This quickstart uses an Azure VM as an IoT Edge device, and it uses a simulated 
 ## Review the sample video
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select `Ctrl+N` and then paste a link to [the highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
 
 In this quickstart, you'll use Live Video Analytics on IoT Edge to detect objects such as vehicles and persons. You'll publish associated inference events to IoT Edge Hub.
 
@@ -102,9 +102,18 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. When you're prompted to select an IoT Hub device, select **lva-sample-device**.
 1. After about 30 seconds, in the lower-left corner of the window, refresh Azure IoT Hub. The edge device now shows the following deployed modules:
 
-    * The Live Video Analytics module, named **lvaEdge**
-    * The **rtspsim** module, which simulates an RTSP server and acts as the source of a live video feed
-    * The **yolov3** module, which is the YOLOv3 object detection model that applies computer vision to the images and returns multiple classes of object types
+    * The Live Video Analytics module, named `lvaEdge`
+    * The `rtspsim` module, which simulates an RTSP server and acts as the source of a live video feed
+    > [!NOTE]
+    > If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
+    * The `yolov3` module, which is the YoloV3 object detection model that applies computer vision to the images and returns multiple classes of object types
  
       ![Modules that are deployed in the edge device](./media/quickstarts/yolov3.png)
 
@@ -179,13 +188,13 @@ Right-click the Live Video Analytics device and select **Start Monitoring Built-
 
 ## Interpret results
 
-When you run the media graph, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Live Video Analytics module defines the application properties and the content of the body. 
 
 ### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live55 container. If the connection succeeds, then the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
@@ -279,8 +288,9 @@ If you intend to try other quickstarts, keep the resources you created. Otherwis
 
 ## Next steps
 
+* Try a [secured version of the YoloV3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the IoT Edge device. 
+
 Review additional challenges for advanced users:
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-* Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+* Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).

@@ -46,11 +46,11 @@ This section describes the most common deployment architectures for a multi-tier
 
      ![Single-instance VM deployment across tiers](media/move-vm-overview/regular-deployment.png)
 
-* **VMs in each tier deployed across availability sets**: Each VM in a tier is configured in an availability set. [Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected, and your overall solution remains available and operational.
+* **VMs in each tier deployed across availability sets**: Each VM in a tier is configured in an availability set. [Availability sets](../virtual-machines/windows/tutorial-availability-sets.md) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected, and your overall solution remains available and operational.
 
      ![VM deployment across availability sets](media/move-vm-overview/avset.png)
 
-* **VMs in each tier deployed across Availability Zones**: Each VM in a tier is configured across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
+* **VMs in each tier deployed across Availability Zones**: Each VM in a tier is configured across [Availability Zones](../availability-zones/az-overview.md). An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
 
      ![Availability Zone deployment](media/move-vm-overview/zone.png)
 

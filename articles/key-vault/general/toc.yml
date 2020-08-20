@@ -1,30 +1,47 @@
 - name: General
   href: index.yml
 - name: Overview 
-  expanded: true
   items:
   - name: About Azure Key Vault
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
+  - name: What's new
+    href: whats-new.md    
+
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: PowerShell
+    href: quick-create-powershell.md
+  - name: Portal
+    href: quick-create-portal.md
 
 - name: Tutorials 
   items:
   - name: Azure Virtual Machine
     items:
-    - name: Use Azure Key Vault with a Windows virtual machine in .NET
-      href: tutorial-net-windows-virtual-machine.md
-    - name: Use Azure Key Vault with a Windows virtual machine in Python
-      href: tutorial-python-windows-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in .NET
+      href: tutorial-net-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in Python
+      href: tutorial-python-virtual-machine.md
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
       href: key-vault-integrate-kubernetes.md
+  - name: Azure Databricks
+    items: 
+    - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
+      href: integrate-databricks-blob-storage.md
   - name:  Connect Key Vault to an Web App with a managed identity and .NET
     href: tutorial-net-create-vault-azure-web-app.md
 
 - name: Samples
   items:
+  - name: Key Vault Code Samples
+    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
@@ -56,7 +73,9 @@
   - name: Soft-delete
     items:
     - name: Azure Key Vault soft-delete
-      href: overview-soft-delete.md
+      href: soft-delete-overview.md
+    - name: Soft-delete on by default
+      href: soft-delete-change.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
@@ -76,6 +95,8 @@
       href: managed-identity.md
     - name: Use an access control policy
       href: group-permissions-for-apps.md
+    - name: Troubleshooting access issues
+      href: troubleshooting-access-issues.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide
@@ -98,6 +119,8 @@
       href: event-grid-logicapps.md
     - name: Receive notifications via Azure Event Grid and Azure Automation
       href: event-grid-tutorial.md
+    - name: Back up Individual Key Vault Objects
+      href: backup.md
   - name: Secure
     items:
     - name: Integrate with Azure Private Link Service
@@ -113,34 +136,34 @@
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
-      href: keyvault-moveresourcegroup.md
+      href: move-resourcegroup.md
     - name: Move Key Vault to Another Subscription
-      href: keyvault-move-subscription.md
+      href: move-subscription.md
     - name: Move Key Vault to Another Region
-      href: keyvault-moveregion.md
-  - name: Troubleshoot
-    items:
-    - name: Change the key vault tenant ID after a subscription move
-      href: subscription-move-fix.md
+      href: move-region.md
 
 - name: Reference
   items:
+  - name: Client libraries
+    href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
+  - name: Key vault versions 
+    href: versions.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    href: https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest
   - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
+    href: /python/api/overview/azure/keyvault/management?view=azure-python
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

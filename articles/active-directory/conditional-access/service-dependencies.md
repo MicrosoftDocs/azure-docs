@@ -5,7 +5,7 @@ description: Learn how conditions are used in Azure Active Directory Conditional
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2020
 
 ms.author: joflore
@@ -49,6 +49,7 @@ The below table lists additional service dependencies, where the client apps mus
 |                     | SharePoint                                  | Early-bound |
 | Microsoft Teams     | Exchange                                    | Early-bound |
 |                     | MS Planner                                  | Late-bound  |
+|                     | Microsoft Stream                            | Late-bound  |
 |                     | SharePoint                                  | Early-bound |
 |                     | Skype for Business Online                   | Early-bound |
 | Office Portal       | Exchange                                    | Late-bound  |

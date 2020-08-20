@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 08/10/2020
 ---
 
 # Build expressions in mapping data flow
@@ -124,6 +124,13 @@ To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<num
 ```toTimestamp(1574127407*1000l)```
 
 The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
+
+## Find time from epoch or Unix Time
+
+toLong( 
+    currentTimestamp() -
+    toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS')
+) * 1000l
 
 ## Next steps
 

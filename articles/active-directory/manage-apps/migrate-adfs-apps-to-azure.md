@@ -393,7 +393,7 @@ To implement built-in policies in Azure AD, you can use a [new conditional acces
 In this table, we've listed some useful Permit and Except options and how they map to Azure AD. 
 
 
-| | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
+| Option | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
 | - | - | - |
 | From specific network| Maps to [Named Location](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) in Azure AD| Use the **Exclude** option for [trusted locations](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | From specific groups| [Set a User/Groups Assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Use the **Exclude** option in Users and Groups |
@@ -458,7 +458,7 @@ Depending on how you configure your app, verify that SSO works properly.
 ‎ |
 | Password-Based SSO| Download and install the [MyApps Secure Sign](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). This extension helps you start any of your organization's cloud apps that require you to use an SSO process.  
 ‎ |
-| Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)for further assistance.  
+| Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) for further assistance.  
 ‎ |
 
 > [!NOTE]
@@ -478,7 +478,7 @@ While the planned outage window itself can be minimal, you should still plan on 
 
 Once deployment is complete, you can send communication informing the users of the successful deployment and remind them of any new steps that they need to take.
 
-* Instruct users to use the [Access Panel](https://myapps.microsoft.com) to access all the migrated applications. 
+* Instruct users to use [My Apps](https://myapps.microsoft.com) to access all the migrated applications. 
 
 * Remind users they might need to update their MFA settings. 
 

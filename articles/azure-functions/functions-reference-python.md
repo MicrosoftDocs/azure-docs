@@ -3,7 +3,7 @@ title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Azure Functions Python developer guide
@@ -82,7 +82,6 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
-* *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
 * *Dockerfile*: (Optional) used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 
 Each function has its own code file and binding configuration file (function.json).
@@ -426,17 +425,15 @@ When you're ready to publish, make sure that all your publicly available depende
 
 Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
 
-There are three build actions supported for publishing your Python project to Azure:
+There are three build actions supported for publishing your Python project to Azure: remote build, local build, and builds using custom dependencies.
 
-+ Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling.
-+ Local build: Dependencies are obtained locally based on the contents of the requirements.txt file.
-+ Custom dependencies: Your project uses packages not publicly available to our tools. (Requires Docker.)
-
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
+You can also use Azure Pipelines to build your dependencies and publish using continuous delivery (CD). To learn more, see [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md).
 
 ### Remote build
 
-By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
+When using remote build, dependencies restored on the server and native dependencies match the production environment. This results in a smaller deployment package to upload. Use remote build when developing Python apps on Windows. If your project has custom dependencies, you can [use remote build with extra index URL](#remote-build-with-extra-index-url).
+
+Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -448,7 +445,7 @@ The [Azure Functions Extension for Visual Studio Code](functions-create-first-fu
 
 ### Local build
 
-You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
+Dependencies are obtained locally based on the contents of the requirements.txt file. You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -458,7 +455,19 @@ Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing.
 
+We don't recommend using local builds when developing locally on Windows.
+
 ### Custom dependencies
+
+When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project. The build method depends on how you build the project.
+
+#### Remote build with extra index URL
+
+When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` using the `--extra-index-url` option. To learn more, see the [Python pip install documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
+
+You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in Python documentation.
+
+#### Install local packages
 
 If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
 
@@ -466,7 +475,7 @@ If your project uses packages not publicly available to our tools, you can make 
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies.
+When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies into the project folder.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -646,11 +655,14 @@ To view the full details of the list of these libraries, please visit the links 
 
 The Functions Python worker requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they may not be available to your code when running outside of Azure Functions. You can find a detailed list of dependencies in the **install\_requires** section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
 
+> [!NOTE]
+> If your function app's requirements.txt contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
+
 ### Azure Functions Python library
 
 Every Python worker update includes a new version of [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backwards-compatible. A list of releases of this library can be found in [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness. 
+The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness.
 
 Use the following code to track the actual version of the Python Functions library in your runtime:
 
@@ -677,7 +689,8 @@ CORS is fully supported for Python function apps.
 
 Following is a list of troubleshooting guides for common issues:
 
-* [ModuleNotFoundError and ImportError](recover-module-not-found.md)
+* [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [Cannot import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 

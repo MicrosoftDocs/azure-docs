@@ -7,9 +7,9 @@ ms.date: 12/04/2018
 
 # Work with data files in Azure Notebooks Preview projects
 
-Data is the lifeblood of many Jupyter notebooks, especially notebooks used for data science. With Azure Notebooks, you can easily  import from a variety of sources into a project, and then use that data from notebooks. You can also have notebooks generate data that's stored in the project, which you can then download for use elsewhere.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Data is the lifeblood of many Jupyter notebooks, especially notebooks used for data science. With Azure Notebooks, you can easily  import from a variety of sources into a project, and then use that data from notebooks. You can also have notebooks generate data that's stored in the project, which you can then download for use elsewhere.
 
 The **Data** menu within a running notebook also provides **Upload** and **Download** commands, which work with files in the project as well as temporary files for the current notebook session.
 

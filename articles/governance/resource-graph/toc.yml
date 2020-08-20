@@ -4,11 +4,11 @@
   items:
   - name: What is Azure Resource Graph?
     displayName: Resource Manager, query language, rbac, permissions
-    href: overview.md
+    href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run your first query - Azure portal
+  - name: Run your first query - Portal
     displayName: portal, resource, graph, explorer
     href: ./first-query-portal.md
   - name: Run your first query - Azure CLI
@@ -17,12 +17,27 @@
   - name: Run your first query - Azure PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: ./first-query-powershell.md
+  - name: Run your first query - .NET
+    displayName: core, auth, dotnet
+    href: ./first-query-dotnet.md
   - name: Run your first query - Go
     displayName: package, sdk, golang
     href: ./first-query-go.md
+  - name: Run your first query - JavaScript
+    displayName: library, node, arm-resourcegraph
+    href: ./first-query-javascript.md
   - name: Run your first query - Python
     displayName: library, azure-mgmt, cli
     href: ./first-query-python.md
+  - name: Run your first query - Ruby
+    displayName: gem, azure-mgmt
+    href: ./first-query-ruby.md
+  - name: Run your first query - REST
+    displayName: armclient, postman
+    href: ./first-query-rest-api.md
+  - name: Create a shared query - Azure CLI
+    displayName: extension, docker, queries
+    href: ./shared-query-azure-cli.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: ./shared-query-template.md
@@ -53,6 +68,10 @@
   - name: Guidance for throttled requests
     displayName: pagination, batching, throttling, parallel
     href: ./concepts/guidance-for-throttled-requests.md
+  - name: Security
+    items:
+    - name: Security baseline for Azure Security Benchmark
+      href: ./concepts/azure-security-benchmark-baseline.md
 - name: How-to guides
   items:
   - name: Get resource changes
@@ -77,7 +96,7 @@
     href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
   - name: Azure SDK for Java (Maven)
     href: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
-  - name: Azure SDK for Node
+  - name: Azure SDK for JavaScript
     href: /javascript/api/@azure/arm-resourcegraph
   - name: Azure SDK for Python
     href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph

@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ---
-# Frequently asked questions for SQL Server running on Windows virtual machines in Azure
+# Frequently asked questions for SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](frequently-asked-questions-faq.md)
 > * [Linux](../linux/frequently-asked-questions-faq.md)
 
-This article provides answers to some of the most common questions about running [SQL Server on Windows Virtual Machines (VMs) in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+This article provides answers to some of the most common questions about running [SQL Server on Windows Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -157,7 +157,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instance?**
 
-   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). 
+   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). Customers using [Software Assurance through the Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) or the **pay-as-you-go** licensing model can install multiple instances of SQL Server on the virtual machine without incurring extra licensing costs. Additional SQL Server instances may strain system resources unless configured correctly. 
 
 1. **Can I uninstall the default instance of SQL Server?**
 

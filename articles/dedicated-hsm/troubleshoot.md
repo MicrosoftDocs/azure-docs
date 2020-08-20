@@ -1,5 +1,5 @@
 ﻿---
-title: What is Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
+title: Troubleshoot Dedicated HSM - Azure Dedicated HSM | Microsoft Docs
 description: Overview of Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
 services: dedicated-hsm
 author: msmbaldwin
@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.custom: "mvc, seodec18"
 ms.date: 12/07/2018
 ms.author: mbaldwin
@@ -18,12 +18,12 @@ ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
-# Troubleshooting
+# Troubleshooting the Azure Dedicated HSM service
 
 The Azure Dedicated HSM service has two distinct facets. Firstly, the registration and deployment in Azure of the HSM devices with their underlying network components. Secondly, the configuration of the HSM devices in preparation for use/integration with a given workload or application. Although the Thales Luna Network HSM devices are the same in Azure as you would purchase directly from Thales, the fact they are a resource in Azure creates some unique considerations. These considerations and any resulting troubleshooting insights or best practices, are documented here to ensure high visibility and access to critical information. Once the service is in use, definitive information is available via support requests to either Microsoft or Thales directly. 
 
 > [!NOTE]
-> It should be noted that prior to performing any configuration on a newly deployed HSM device, it should be updated with any relevant patches. A specific required patch is [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) in Thales support portal which addresses a reboot hang issue.
+> It should be noted that prior to performing any configuration on a newly deployed HSM device, it should be updated with any relevant patches. A specific required patch is [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) in Thales support portal which addresses a issue where the system becomes unresponsive during reboot.
 
 ## HSM Registration
 
@@ -118,7 +118,7 @@ Be careful when configuring the networking within the HSM.  The HSM has a connec
 
 ### HSM Device Reboot
 
-Some configuration changes require the HSM to be power cycled or rebooted. Microsoft testing of the HSM in Azure determined that on some occasions the reboot could stop responding. The implication is that a support request must be created in the Azure portal requesting hard-reboot and that could take up to 48 hours to complete considering it's a manual process in an Azure datacenter.  To avoid this situation, ensure you have deployed the reboot patch available from Thales directly. Refer to [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) in the Thales Luna Network HSM 7.2 Downloads for a recommended patch for a reboot hang issue (Note: you will need to have registered in the Thales support portal to download).
+Some configuration changes require the HSM to be power cycled or rebooted. Microsoft testing of the HSM in Azure determined that on some occasions the reboot could stop responding. The implication is that a support request must be created in the Azure portal requesting hard-reboot and that could take up to 48 hours to complete considering it's a manual process in an Azure datacenter.  To avoid this situation, ensure you have deployed the reboot patch available from Thales directly. Refer to [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) in the Thales Luna Network HSM 7.2 Downloads for a recommended patch for an issue where the system becomes unresponsive during reboot (Note: you will need to have registered in the Thales support portal to download).
 
 ### NTLS Certificates out of sync
 A client may lose connectivity to an HSM when a certificate expires or has been overwritten through configuration updates. The certificate exchange client configuration should be reapplied with each HSM.

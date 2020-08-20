@@ -1,6 +1,6 @@
 ---
 title: Create, change, or delete an Azure public IP address | Microsoft Docs
-description: Learn how to create, change, or delete a public IP address.
+description: Create, change, or delete a public IP address. Also learn how a public IP address is a resource with its own configurable settings.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -94,7 +94,7 @@ Though the portal provides the option to create two public IP address resources 
 
 Learn how to assign a public IP address to the following resources:
 
-- A [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (when creating), or to an [existing VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- A [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM (when creating), or to an [existing VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [Internet-facing Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using an Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

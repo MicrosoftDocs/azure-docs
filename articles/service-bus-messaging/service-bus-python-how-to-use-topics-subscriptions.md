@@ -1,22 +1,15 @@
 ---
 title: 'Quickstart: Use Azure Service Bus topics and subscriptions with Python'
 description: This article shows you how to create an Azure Service Bus topic, subscription, send messages to a topic and receive messages from subscription.
-services: service-bus-messaging
 documentationcenter: python
-author: axisc
-editor: spelluru
-
-ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.custom: tracking-python
-
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.custom: devx-track-python
 ---
+
 # Quickstart: Use Service Bus topics and subscriptions with Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
@@ -178,7 +171,7 @@ Deleting a topic deletes all subscriptions to the topic. You can also delete sub
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-By default, topics and subscriptions are persistent, and exist until you delete them. To automatically delete subscriptions after a certain time period elapses, you can set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) parameter on the subscription. 
+By default, topics and subscriptions are persistent, and exist until you delete them. To automatically delete subscriptions after a certain time period elapses, you can set the [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) parameter on the subscription. 
 
 > [!TIP]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs. 
@@ -194,4 +187,4 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md 
+[Service Bus quotas]: service-bus-quotas.md

@@ -1,21 +1,10 @@
 ---
 title: Add an artifact repository to your lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to add an artifact repository to your lab in Azure DevTest labs.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager:
-editor: ''
-
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Learn how to specify your own artifact repository for your lab in Azure DevTest Labs to store tools unavailable in the public artifact repository.
 ms.topic: article
-ms.date: 04/21/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add an artifact repository to your lab in DevTest Labs
 DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. Artifacts are defined in a JSON file loaded from a GitHub or Azure DevOps Git repository.
 
@@ -189,7 +178,7 @@ New-AzResourceGroupDeployment `
 After New-AzResourceGroupDeployment run successfully, the command outputs important information like the provisioning state (should be succeeded) and any outputs for the template.
 
 ## Use Azure PowerShell
-This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) for detailed instructions to install it.
+This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/?view=azps-1.2.0) for detailed instructions to install it.
 
 ### Full script
 Here is the full script, including some verbose messages and comments:

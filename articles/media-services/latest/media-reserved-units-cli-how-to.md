@@ -45,7 +45,7 @@ The rest of the article shows how to use [Media Services v3 CLI](https://aka.ms/
 
 ## Prerequisites 
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -53,7 +53,7 @@ The rest of the article shows how to use [Media Services v3 CLI](https://aka.ms/
 
 Run the `mru` command.
 
-The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
+The following [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -70,4 +70,4 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 ## See also
 
 * [Quotas and limits](limits-quotas-constraints.md)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Disable the guest OS Firewall in Azure VM | Microsoft Docs
 description: Learn a workaround method for troubleshooting situations where a guest operating system firewall is filtering partial or complete traffic to a VM.
 services: virtual-machines-windows
@@ -71,7 +71,7 @@ If you have a working Azure agent, you can use [Custom Script Extension](../exte
 
 #### Mitigation 3: PSTools commands
 
-1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.	On the troubleshooting VM, download [PSTools](/sysinternals/downloads/pstools).
 
 2.	Open a CMD instance, and then access the VM through its DIP.
 

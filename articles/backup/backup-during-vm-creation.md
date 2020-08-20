@@ -23,9 +23,9 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 1. In Azure portal, click **Create a resource**.
 
-2. In the Azure Marketplace, click **Compute**, and then select a VM image.
+2. In Azure Marketplace, click **Compute**, and then select a VM image.
 
-3. Set up the VM in accordance with the [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) or [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) instructions.
+3. Set up the VM in accordance with the [Windows](../virtual-machines/windows/quick-create-portal.md) or [Linux](../virtual-machines/linux/quick-create-portal.md) instructions.
 
 4. On the **Management** tab, in **Enable backup**, click **On**.
 5. Azure Backup backups to a Recovery Services vault. Click **Create New** if you don't have an existing vault.
@@ -42,6 +42,9 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
     - [Learn more](backup-instant-restore-capability.md) about the instant restore functionality.
 
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
 
 ## Azure Backup resource group for Virtual Machines
 

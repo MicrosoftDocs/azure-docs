@@ -2,7 +2,7 @@
 title: Create and manage Azure Migrate projects
 description: Find, create, manage, and delete projects in Azure Migrate.
 ms.topic: how-to
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ---
 
 # Create and manage Azure Migrate projects
@@ -60,7 +60,6 @@ Delete as follows:
     - The resource type is **Microsoft.Migrate/migrateprojects**.
     - If the resource group is exclusively used by the Azure Migrate project, you can delete the entire resource group.
 
-
 Note that:
 
 - When you delete, both the project and the metadata about discovered machines are deleted.
@@ -68,6 +67,7 @@ Note that:
 - If you're using dependency analysis with an Azure Log Analytics workspace:
     - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
     - If you want to delete the Log Analytics workspace, do that manually.
+- Project deletion is irreversible. Deleted objects can't be recovered.
 
 ### Delete a workspace manually
 
@@ -78,7 +78,7 @@ Note that:
        
     - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
+2. [Follow the instructions](../azure-monitor/platform/delete-workspace.md) to delete the workspace.
 
 ## Next steps
 

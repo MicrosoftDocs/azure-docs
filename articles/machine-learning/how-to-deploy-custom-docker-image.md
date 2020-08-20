@@ -5,12 +5,12 @@ description: 'Learn how to use a custom Docker base image when deploying your Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/15/2020
-ms.custom: tracking-python
+ms.date: 06/17/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ---
 
 # Deploy a model using a custom Docker base image
@@ -44,7 +44,7 @@ This document is broken into two sections:
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
-* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
+* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see [Where to deploy and how](how-to-deploy-and-where.md).
 
 ## Create a custom base image
 
@@ -71,7 +71,7 @@ The information in this section assumes that you are using an Azure Container Re
 
     * Ubuntu 16.04 or greater.
     * Conda 4.5.# or greater.
-    * Python 3.5.# or 3.6.#.
+    * Python 3.5.#, 3.6.# or 3.7.#.
 
 <a id="getname"></a>
 
@@ -200,15 +200,7 @@ For more information about the ONNX Runtime base images see the [ONNX Runtime do
 > [!TIP]
 > Since these images are publicly available, you do not need to provide an address, username or password when using them.
 
-For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__If your model is trained on Azure Machine Learning Compute__, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. To discover the name of this image, use `run.properties["AzureML.DerivedImageName"]`. The following example demonstrates how to use this image:
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers) repository on GitHub.
 
 ### Use an image with the Azure Machine Learning SDK
 

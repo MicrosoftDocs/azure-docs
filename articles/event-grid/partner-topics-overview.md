@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid partner topics
 description: Send events from third-party Event Grid SaaS and PaaS partners directly to Azure services with Azure Event Grid.
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Partner topics in Azure Event Grid (preview)
@@ -22,7 +17,7 @@ The first partner available through Event Grid partner topics is Auth0. You can 
 Partner topics are charged at the same operation rate as system topics.
 
 ## Limits
-Partner topics are in public preview. During public preview, partner topics are subject to the [same limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) as system topics and custom topics.
+Partner topics are in public preview. During public preview, partner topics are subject to the [same limits](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) as system topics and custom topics.
 
 ## How do I become an Event Grid partner?
 The infrastructure created to support this launch makes it easy and quick for new partners to integrate their eventing capabilities with Event Grid. For more information, see the [partner onboarding documentation](partner-onboarding-overview.md).

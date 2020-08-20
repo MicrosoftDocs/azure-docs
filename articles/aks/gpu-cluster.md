@@ -49,7 +49,7 @@ Get the credentials for your AKS cluster using the [az aks get-credentials][az-a
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Install NVIDIA drivers
+## Install NVIDIA device plugin
 
 Before the GPUs in the nodes can be used, you must deploy a DaemonSet for the NVIDIA device plugin. This DaemonSet runs a pod on each node to provide the required drivers for the GPUs.
 
@@ -347,5 +347,5 @@ For more information about running machine learning (ML) workloads on Kubernetes
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-spark]: spark-job.md
-[gpu-skus]: ../virtual-machines/linux/sizes-gpu.md
+[gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli

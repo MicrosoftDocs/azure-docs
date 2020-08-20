@@ -1,4 +1,4 @@
-﻿---
+---
 title: Reset Remote Desktop Services or its administrator password in a Windows VM | Microsoft Docs
 description: Learn how to reset an account password or Remote Desktop Services on a Windows VM by using the Azure portal or Azure PowerShell.
 services: virtual-machines-windows
@@ -18,7 +18,7 @@ ms.author: genli
 ---
 # Reset Remote Desktop Services or its administrator password in a Windows VM
 If you can't connect to a Windows virtual machine (VM), you can reset your local administrator password or reset the Remote Desktop Services configuration (not supported on Windows domain controllers). To reset the password, use either the Azure portal or the VM Access extension in Azure PowerShell. After you've signed in to the VM, reset the password for that local administrator.  
-If you're using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the classic deployment model](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+If you're using PowerShell, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/) and are signed in to your Azure subscription. You can also [perform these steps for VMs created with the classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp).
 
 You can reset Remote Desktop Services and credentials in the following ways:
 
@@ -50,11 +50,11 @@ This process will enable Remote Desktop service in the VM, and create a firewall
 
 ## Reset by using the VMAccess extension and PowerShell
 
-First, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/overview) and are signed in to your Azure subscription by using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+First, make sure that you have the [latest PowerShell module installed and configured](/powershell/azure/) and are signed in to your Azure subscription by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ### **Reset the local administrator account password**
 
-- Reset the administrator password or user name with the [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet. The `typeHandlerVersion` setting must be 2.0 or greater, because version 1 is deprecated. 
+- Reset the administrator password or user name with the [Set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet. The `typeHandlerVersion` setting must be 2.0 or greater, because version 1 is deprecated. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -72,7 +72,7 @@ First, make sure that you have the [latest PowerShell module installed and confi
 
 ### **Reset the Remote Desktop Services configuration**
 
-1. Reset remote access to your VM with the [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet. The following example resets the access extension named `myVMAccess` on the VM named `myVM` in the `myResourceGroup` resource group:
+1. Reset remote access to your VM with the [Set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet. The following example resets the access extension named `myVMAccess` on the VM named `myVM` in the `myResourceGroup` resource group:
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
@@ -89,7 +89,6 @@ First, make sure that you have the [latest PowerShell module installed and confi
 
 - [Learn about Azure VM extensions and features](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-- [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+- [Connect to an Azure virtual machine with RDP or SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
 - [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

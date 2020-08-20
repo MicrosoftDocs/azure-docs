@@ -19,24 +19,9 @@ In this article, you'll prepare your environment to create Azure Red Hat OpenShi
 > * Setup the prerequisites and create the required virtual network and subnets
 > * Deploy a cluster with a private API server endpoint and a private ingress controller
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
-
-### Install the 'az aro' extension
-The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
-
-Run the following command to install the `az aro` extension.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-If you already have the extension installed, you can update by running the following command.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
 
 ### Register the resource provider
 
@@ -44,21 +29,6 @@ Next, you need to register the `Microsoft.RedHatOpenShift` resource provider in 
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Verify the extension is registered.
-
-```azurecli-interactive
-az -v
-```
-
-  You should get an output similar to the below.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### Get a Red Hat pull secret (optional)

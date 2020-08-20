@@ -1,19 +1,16 @@
 ---
-title: Deploy Windows 7 virtual machine Windows Virtual Desktop - Azure
-description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop.
-services: virtual-desktop
+title: Deploy Windows 7 virtual machine Windows Virtual Desktop (classic) - Azure
+description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop Windows Virtual Desktop (classic).
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Deploy a Windows 7 virtual machine on Windows Virtual Desktop
+# Deploy a Windows 7 virtual machine on Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the current version of Windows Virtual Desktop, see [this article](../deploy-windows-7-virtual-machine.md).
 
 The process to deploy a Windows 7 virtual machine (VM) on Windows Virtual Desktop is slightly different than for VMs running later versions of Windows. This guide will tell you how to deploy Windows 7.
 
@@ -27,9 +24,9 @@ Once you've done the prerequisites, you're ready to configure your Windows 7 VM 
 
 To set up a Windows 7 VM on Windows Virtual Desktop:
 
-1. Sign in to the Azure portal and either search for the Windows 7 Enterprise image or upload your own customized Windows 7 Enterprise (x64) image.  
+1. Sign in to the Azure portal and either search for the Windows 7 Enterprise image or upload your own customized Windows 7 Enterprise (x64) image.
 2. Deploy one or multiple virtual machines with Windows 7 Enterprise as its host operating system. Make sure the virtual machines allow Remote Desktop Protocol (RDP) (the TCP/3389 port).
-3. Connect to the Windows 7 Enterprise host using the RDP and authenticate with the credentials you defined while configuring your deployment. 
+3. Connect to the Windows 7 Enterprise host using the RDP and authenticate with the credentials you defined while configuring your deployment.
 4. Add the account you used while connecting to the host with RDP to the "Remote Desktop User" group. If you don't do this, you might not be able to connect to the VM after you join it to your Active Directory domain.
 5. Go to Windows Update on your VM.
 6. Install all Windows Updates in the Important category.
@@ -38,11 +35,11 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
 9. Enable the Remote Desktop Protocol 8.0 policy.
 10. Join this VM to your Active Directory domain.
 11. Restart the virtual machine by running the following command:
-    
+
      ```cmd
      shutdown /r /t 0
      ```
-    
+
 12. Follow the instructions [here](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) to get a registration token.
 13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).

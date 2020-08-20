@@ -3,10 +3,11 @@ title: Create a Windows VM with Azure Image Builder using PowerShell
 description: Create a Windows VM with the Azure Image Builder PowerShell module.
 author: cynthn
 ms.author: cynthn
-ms.date: 06/12/2020
+ms.date: 06/17/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.subservice: imaging 
+ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create a Windows VM with Azure Image Builder using PowerShell
 
@@ -26,9 +27,9 @@ before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > While the **Az.ImageBuilder** and **Az.ManagedServiceIdentity** PowerShell modules are in preview,
@@ -44,7 +45,7 @@ cmdlet. For more information about installing the Az PowerShell module, see
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription using the
-[Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -112,8 +113,8 @@ Write-Output $subscriptionID
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md)
+using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
 a group.
 
@@ -133,7 +134,7 @@ following example. Without this permission, the image build process won't comple
 Create variables for the role definition and identity names. These values must be unique.
 
 ```azurepowershell-interactive
-$timeInt = $(Get-Date -UFormat '%s')
+[int]$timeInt = $(Get-Date -UFormat '%s')
 $imageRoleDefName = "Azure Image Builder Image Def $timeInt"
 $identityName = "myIdentity$timeInt"
 ```
@@ -188,7 +189,7 @@ New-AzRoleAssignment @RoleAssignParams
 > [!NOTE]
 > If you receive the error: "_New-AzRoleDefinition: Role definition limit exceeded. No more role
 > definitions can be created._", see
-> [Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting).
+> [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 ## Create a Shared Image Gallery
 
@@ -221,7 +222,7 @@ New-AzGalleryImageDefinition @GalleryParams
 ## Create an image
 
 Create an Azure image builder source object. See
-[Find Windows VM images in the Azure Marketplace with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+[Find Windows VM images in the Azure Marketplace with Azure PowerShell](./cli-ps-findimage.md)
 for valid parameter values.
 
 ```azurepowershell-interactive
@@ -249,6 +250,18 @@ $disObjParams = @{
 $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 ```
 
+Create an Azure image builder customization object.
+
+```azurepowershell-interactive
+$ImgCustomParams = @{
+  PowerShellCustomizer = $true
+  CustomizerName = 'settingUpMgmtAgtPath'
+  RunElevated = $false
+  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+}
+$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+```
+
 Create an Azure image builder template.
 
 ```azurepowershell-interactive
@@ -257,6 +270,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
+  Customize = $Customizer
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -316,6 +330,22 @@ Create the VM using the image you created.
 $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
 
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
+```
+
+## Verify the customization
+
+Create a Remote Desktop connection to the VM using the username and password you set when you
+created the VM. Inside the VM, open PowerShell and run `Get-Content` as shown in the following example:
+
+```azurepowershell-interactive
+Get-Content -Path C:\buildActions\buildActionsOutput.txt
+```
+
+You should see output based on the contents of the file created during the image customization
+process.
+
+```Output
+Azure-Image-Builder-Was-Here
 ```
 
 ## Clean up resources
