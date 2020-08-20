@@ -417,7 +417,10 @@ When you create a new PowerShell functions project, dependency management is ena
 When you update the requirements.psd1 file, updated modules are installed after a restart.
 
 > [!NOTE]
-> Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules. 
+> Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
+
+> [!NOTE]
+> Managed dependencies currently does not support modules that require the user to accept a license, either by accepting the license interactively, or by providing ```-AcceptLicense``` switch when invoking ```Install-Module```.
 
 The following application settings can be used to change how the managed dependencies are downloaded and installed. Your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
 
@@ -435,6 +438,7 @@ In Functions, `PSModulePath` contains two paths:
 
 * A `Modules` folder that exists at the root of your function app.
 * A path to a `Modules` folder that is controlled by the PowerShell language worker.
+
 
 ### Function app-level `Modules` folder
 
