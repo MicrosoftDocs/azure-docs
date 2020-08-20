@@ -16,7 +16,7 @@ ms.author: vinigam
 ---
 # Migrate to Connection Monitor (Preview) from Connection Monitor
 
-You can migrate existing connection monitors to the new and improved Connection Monitor(Preview) in one click and with zero downtime. To know more about the benefits of Connection Monitor (Preview) [click here](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
+You can migrate existing connection monitors to the new and improved Connection Monitor(Preview) in one click and with zero downtime. To know more about the benefits, you may read [Connection Monitor (Preview)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
 
 ## Key points to note
 
