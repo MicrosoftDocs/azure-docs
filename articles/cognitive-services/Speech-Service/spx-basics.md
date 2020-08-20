@@ -20,7 +20,19 @@ In this article, you learn the basic usage patterns of the Speech CLI, a command
 
 ## Basic usage
 
-This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by performing some speech recognition using your default microphone by running the following command.
+This section shows a few basic SPX commands that are often useful for first-time testing and experimentation. Start by viewing the help built in to the tool by running the following command.
+
+```shell
+spx
+```
+
+Notice **see also** help topics listed right of command parameters. You can also search topics by keyword. For example, enter the following command to see a list of help topics about Speech CLI examples:
+
+```shell
+spx help find --topics "examples"
+```
+
+Now use the Speech service to perform some speech recognition using your default microphone by running the following command.
 
 ```shell
 spx recognize --microphone
