@@ -25,6 +25,9 @@ Some key differences you'll notice in the new version include:
 + Three clients instead of two: `SearchClient`, `SearchIndexClient`, `SearchIndexerClient`
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
+> [!NOTE]
+> Review the [**change log**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for an itemized list of changes in .NET SDK version 11.
+
 ## Package and library consolidation
 
 Version 11 consolidates multiple packages and libraries into one. Post-migration, you will have fewer libraries to manage.
@@ -110,19 +113,23 @@ Each version of an Azure Cognitive Search client library targets a corresponding
 
 Version 11 targets the [2020-06-30 search service](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Because version 11 is also a new client library built from the ground up, most of the development effort has focused on equivalency with version 10, with some REST API feature support still pending.
 
-Version 11 fully supports the following objects and operations:
+Version 11.0 fully supports the following objects and operations:
 
 + Index creation and management
 + Synonym map creation and management
 + All query types and syntax (except geo-spatial filters)
 + Indexer objects and operations for indexing Azure data sources, including data sources and skillsets
 
+Version 11.1 adds the following:
+
++ [FieldBuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (added in 11.1)
++ [Serializer property](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (added in 11.1) to support custom serialization
+
 ### Pending features
 
-The following version 10 features are not yet available in version 11. If you use these features, hold off on migration until they are supported.
+The following version 10 features are not yet available in version 11. If you require these features, hold off on migration until they are supported.
 
 + geospatial types
-+ [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (although you can use [this workaround](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge store](knowledge-store-concept-intro.md)
 
 <a name="UpgradeSteps"></a>
@@ -172,7 +179,7 @@ The following steps get you started on a code migration by walking through the f
 
 Given the sweeping changes to libraries and APIs, an upgrade to version 11 is non-trivial and constitutes a breaking change in the sense that your code will no longer be backward compatible with version 10 and earlier. For a thorough review of the differences, see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for `Azure.Search.Documents`.
 
-In terms of service versions, moving from 10 to 11 introduces the following behavior changes: 
+In terms of service version updates, where code changes in version 11 relate to existing functionality (and not just a refactoring of the APIs), you will find the following behavior changes:
 
 + [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 

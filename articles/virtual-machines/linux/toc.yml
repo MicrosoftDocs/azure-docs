@@ -239,7 +239,7 @@
       - name: Mv2-series
         href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Constrained vCPUs
-        href: constrained-vcpu.md
+        href: ../constrained-vcpu.md
     - name: Storage optimized
       items:
       - name: Overview
@@ -337,7 +337,7 @@
     - name: Disk Storage reservations
       href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Designing for high performance
-      href: premium-storage-performance.md
+      href: ../premium-storage-performance.md
     - name: Disk bursting
       href: disk-bursting.md
     - name: Scalability targets for disks
@@ -958,7 +958,7 @@
       displayName: Azure Resource Manager, ARM
       href: ../using-managed-disks-template-deployments.md
     - name: Enable shared disks
-      href: disks-shared-enable.md
+      href: ../disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
     - name: Securely import/export a disk - CLI
@@ -968,11 +968,11 @@
     - name: Resize a disk
       href: expand-disks.md
     - name: Use Storage Explorer to manage disks
-      href: disks-use-storage-explorer-managed-disks.md
+      href: ../disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Reserve Disk Storage
-      href: disks-reserved-capacity.md
+      href: ../disks-reserved-capacity.md
     - name: Create an incremental snapshot - CLI
       href: disks-incremental-snapshots.md
     - name: Create an incremental snapshot - Portal
