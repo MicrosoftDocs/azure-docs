@@ -70,11 +70,14 @@ Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrati
 
 1. The Jumio API call is protected by a client certificate. Create a self-signed certificate using the PowerShell sample code mentioned below:
 
-        $cert = New-SelfSignedCertificate -Type Custom -Subject "CN=Demo-SigningCertificate" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3") -KeyUsage DigitalSignature -KeyAlgorithm RSA -KeyLength 2048 -NotAfter (Get-Date).AddYears(2) -CertStoreLocation "Cert:\CurrentUser\My"
-        $cert.Thumbprint
-        $pwdText = "Your password"
-        $pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
-        Export-PfxCertificate -Cert $Cert -FilePath "{your-local-path}\Demo-SigningCertificate.pfx" -Password $pwd.  
+``` PowerShell
+$cert = New-SelfSignedCertificate -Type Custom -Subject "CN=Demo-SigningCertificate" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3") -KeyUsage DigitalSignature -KeyAlgorithm RSA -KeyLength 2048 -NotAfter (Get-Date).AddYears(2) -CertStoreLocation "Cert:\CurrentUser\My"
+$cert.Thumbprint
+$pwdText = "Your password"
+$pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
+Export-PfxCertificate -Cert $Cert -FilePath "{your-local-path}\Demo-SigningCertificate.pfx" -Password $pwd.
+
+```
 
 2. The certificate will then be exported to the location specified for {``your-local-path``}.
 
@@ -88,7 +91,10 @@ For example: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65`
 
 Use the PowerShell script below to create a 64-character length alphanumeric value.
 
-    -join ((0x30..0x39) + ( 0x41..0x5A) + ( 0x61..0x7A) + ( 65..90 ) | Get-Random -Count 64  | % {[char]$_})
+```PowerShell
+-join ((0x30..0x39) + ( 0x41..0x5A) + ( 0x61..0x7A) + ( 65..90 ) | Get-Random -Count 64  | % {[char]$_})
+
+```
 
 ### Part 3 - Configure the API
 
@@ -99,8 +105,8 @@ Application settings can be [configured in the App service in Azure](https://doc
 |JumioSettings:AuthUsername | Jumio account configuration |     |
 |JumioSettings:AuthPassword | Jumio account configuration |     |
 |AppSettings:SigningCertThumbprint|Thumbprint of self-signed certificate created|  |
-|AppSettings:IdTokenSigningKey| Signing Key created using Powershell | |
-| AppSettings:IdTokenEncryptionKey |Encryption Key created using Powershell
+|AppSettings:IdTokenSigningKey| Signing Key created using PowerShell | |
+| AppSettings:IdTokenEncryptionKey |Encryption Key created using PowerShell
 | AppSettings:IdTokenIssuer | Issuer to be used for the JWT token (a guid value is preferred) |
 | AppSettings:IdTokenAudience  | Audience to be used for the JWT token (a guid value is preferred) |
 |AppSettings:BaseRedirectUrl | The base url of the B2C policy | https://{your-tenant-name}.b2clogin.com/{your-application-id}|
