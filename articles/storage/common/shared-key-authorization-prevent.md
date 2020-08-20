@@ -19,13 +19,15 @@ Every secure request to an Azure Storage account must be authorized. By default,
 When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
-> Azure Storage supports Azure AD authorization for requests to Blob and Queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files or Table storage that use Shared Key authorization, or that use shared access signature (SAS) tokens that were generated using the account access keys, will fail.
+> Azure Storage supports Azure AD authorization for requests to Blob and Queue storage only. If you disallow authorization with Shared Key for a storage account, requests to Azure Files or Table storage that use Shared Key authorization will fail.
+>
+> During the preview, requests to Azure Files or Table storage that use shared access signature (SAS) tokens that were generated using the account access keys will succeed when Shared Key authorization is disallowed. For more information, see [About the preview](#about-the-preview).
 >
 > Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
 >
 > Microsoft recommends that you either migrate any Azure Files or Table storage data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files or Table storage workloads.
 
-This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
+This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account. To learn how to register for the preview, see [About the preview](#about-the-preview).
 
 ## Detect the type of authorization used by client applications
 
@@ -217,7 +219,9 @@ Some Azure tools offer the option to use Azure AD authorization to access Azure 
 
 ## About the preview
 
-The preview for disallowing Shared Key authorization is available in the Azure public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
+The preview for disallowing Shared Key authorization is available in the Azure public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
+
+To register for the preview, see [Azure Storage Allow Shared Key Access Limited Public Preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUN1o4TUtUUzZBV0JYVlhKQ1FITDlVUUU0Ui4u).
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only.
