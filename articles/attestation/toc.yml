@@ -34,8 +34,8 @@
     href: workflow.md
 - name: References
   items:
-  - name: Attestation APIs
-    href: apis.md
+  - name: REST
+    href: https://docs.microsoft.com/en-us/rest/api/attestation/ 
   - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation
   - name: Azure DCAP library 
