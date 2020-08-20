@@ -36,7 +36,7 @@ You must be in the Global Administrator role to configure the external collabora
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 
 > [!IMPORTANT]
-> For a short time, the portal controls for guest user permissions will be visible only using the URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). PowerShell and Microsoft Graph can still be used to set the controls.
+> For a short time, the new portal controls for guest user permissions will be visible only using the URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess). PowerShell and Microsoft Graph can still be used to set the controls and changes will be honored by the portal.
 
 1. Sign in to the [Azure AD admin center](https://aka.ms/AADRestrictedGuestAccess) with Global administrator permissions.
 1. On the **Azure Active Directory** overview page for your organization, select **User settings**.
