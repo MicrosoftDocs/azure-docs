@@ -15,28 +15,56 @@ The three-node Basic SKU cluster deployed in this tutorial is only intended to b
 
 Before you begin this quickstart:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
-module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
-about installing the Az PowerShell module, see
-[Install Azure PowerShell][install-azure-powershell].
-* [Download the Managed Service Fabric cluster template](https://github.com/Azure-Samples/service-fabric-managed-cluster-templates/PLACEHOLDER)
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+<!-- Section to be completed when templates are merged into the quickstart repo. -->
+## Review the template 
 
-Replace `<your-subscription>` with the subscription string that you would like to use. Select a specific subscription ID using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+The template used in this quickstart is from [Azure Quickstart Templates](PLACEHOLDER).
 
-```azurepowershell-interactive
-Set-AzContext -SubscriptionId <your-subscription>
-```
+:::code language="json" source="~peterpogorski/quickstart-templates/101-managed-service-fabric-cluster-basic/azuredeploy.json" range="1-112" :::
 
-## Create a resource group 
+## Create a client certificate (optional)
 
-Create a resource group to deploy the Managed Service Fabric cluster to. 
+If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step.
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
+
+## Deploy the template
+<!-- Link to be updated when template is merged into the quickstart repo -->
+1. Select the following image to sign in to Azure and open a template. 
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fpeterpogorski%2Fazure-quickstart-templates%2Fmanaged-sfrp-sample-templates%2F101-managed-service-fabric-cluster-basic%2Fazuredeploy.json)
+
+2. Select or enter the following values
+
+For this quickstart, provide your own values for the following template parameters: 
+* **Subscription**: Select an Azure subscription.
+* **Resource Group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, the choose **OK**.
+* **Location**: Select a location, such as **East US**.
+* **Cluster Name**: Enter a unique name for your cluster, such as *mySFCluster*.
+* **Admin Username**: Enter a name for the admin to be used for RDP on the underlying VMs in the cluster.
+* **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+* **Client Certificate Thumbprint**: Provide the thumprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
+* **Node Type Name**: Enter a unique name for your node type, such as *myNodeType*.
+* **I agree to the terms and conditions stated above**: Check this box to agree. 
+
+3. Select **Purchase**.
+
+4. It takes a few minutes for your managed Service Fabric cluster to deploy. Wait for the deployment to complete successfully before moving onto the next steps. 
+
+## Validate the deployment 
+
+### Review deployed resources 
+
+Once the deployment completes, find the Service Fabric Explorer value in the output and open the address in a web browser to view your cluster in Service Fabric Explorer. When prompted for a certificate, use the certificate for which the client thumbprint was provided. 
+
+## Clean up resources
+
+When no longer needed, delete the resource group, which deletes the resources in the resource group.
+
+```powershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
 
