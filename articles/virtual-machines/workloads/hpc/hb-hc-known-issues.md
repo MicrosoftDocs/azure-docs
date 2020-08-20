@@ -16,9 +16,9 @@ ms.author: amverma
 ms.reviewer: cynthn
 ---
 
-# Known issues with HB-series and HC-series VMs
+# Known issues with H-series and N-series VMs
 
-This article provides the most common issues and solutions when using the [H-series](../../sizes-hpc.md) VMs.
+This article provides the most common issues and solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
 
 ## DRAM on HB-series
 
@@ -85,11 +85,7 @@ You may see the following kernel warning messages when booting a HB-series VM un
 You can ignore this warning. This is due to a known limitation of the Azure hypervisor that will be addressed over time.
 
 
-# Known issues with N-series VMs
-
-This article provides the most common issues and solutions when using [N-series](../../sizes-gpu.md) VMs.
-
-## InfiniBand driver installation
+## InfiniBand driver installation on InfiniBand enabled N-series VM sizes
 
 NC24r_v3 and ND40r_v2 are SR-IOV enabled while NC24r and NC24r_v2 are not SR-IOV enabled. Some details on the bifurcation [here](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand (IB) can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately on [CentOS-HPC VMIs](configure.md). For Ubuntu, see the [instruction here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) for installing both the OFED and ND drivers as described in the [docs](enable-infiniband.md#vm-images-with-infiniband-drivers).
