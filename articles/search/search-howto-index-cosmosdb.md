@@ -69,8 +69,8 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 + **Name** is the name of the data source object. Once created, you can choose it for other workloads.
 
-+ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB with the following format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`.
-    + For version 3.2 and version 3.6 **MongoDB collections** use the following format for the connection string: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
++ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB with the following format: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;`.
+    + For version 3.2 and version 3.6 **MongoDB collections** use the following format for the Cosmos DB account in the Azure portal: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
     + For **Gremlin graphs and Cassandra tables**, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.
 
 + **Database** is an existing database from the account. 
