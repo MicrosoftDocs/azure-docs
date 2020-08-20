@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
+ms.reviewer: dannyevers
 ---
 # Commercial marketplace transact capabilities
 
@@ -60,7 +61,7 @@ Depending on the transaction option used, subscription charges are as follows:
 
 Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For more information, about removing an offer, see [Stop selling an offer or plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
-### Free and bring-your-own-license (BYOL) pricing
+### Free, Contact me, and bring-your-own-license (BYOL) pricing
 
 When publishing a free or bring-your-own-license transaction offer, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and trial publishing options, the publisher keeps 100% of software license fees.
 
