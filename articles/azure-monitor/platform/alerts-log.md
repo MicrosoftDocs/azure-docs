@@ -186,7 +186,7 @@ Log alerts in Azure Monitor are associated with resource type `Microsoft.Insight
 > Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 
-### Sample Log alert Template for workspaces and Application Insights
+### Sample log alert Template for workspaces and Application Insights
 
 The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using standard log search query of [number of results type log alert](alerts-unified-log.md#number-of-results-alert-rules), with sample data set as variables.
 
@@ -355,7 +355,7 @@ The following is the structure for [Scheduled Query Rules creation](/rest/api/mo
 
 The sample json above can be saved as sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### Sample Log alert Template for all other resource types
+### Sample log alert Template for all other resource types
 
 The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template with sample data set as variables.
 

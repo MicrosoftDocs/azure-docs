@@ -12,9 +12,8 @@ ms.date: 01/28/2018
 This article describes what alerts are, their benefits, and how to get started using them.  
 
 ## What are alerts in Microsoft Azure?
-Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-This article discusses the unified alert experience in Azure Monitor, which includes alerts that were previously managed by Log Analytics and Application Insights. The [previous alert experience](alerts-classic.overview.md) and alert types are called *classic alerts*. You can view this older experience and older alert type by selecting **View classic alerts** at the top of the alert page. 
+Alerts proactively notify you when issues are found with you infrastructure or application using your monitoring data in Azure Monitor. They allow you to identify and address issues before the users of your system notice them. 
 
 ## Overview
 
@@ -60,14 +59,8 @@ You can alert on metrics and logs, as described in [monitoring data sources](./d
 - Health of the underlying Azure platform
 - Tests for website availability
 
-Previously, Azure Monitor metrics, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Over time, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
-
-| **Monitor source** | **Signal type**  | **Description** |
-|-------------|----------------|-------------|
-| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Web availability tests | Not supported. See [Web test alerts](../app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
-
 ## Manage alerts
+
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
 
 The following alert states are supported.
@@ -79,11 +72,6 @@ The following alert states are supported.
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
 *Alert state* is different and independent of the *monitor condition*. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
-
-## Smart groups 
-
-Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in troubleshooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
-
 
 ## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time range. It displays the total alerts for each severity, with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
@@ -200,6 +188,10 @@ You can also see the result of this Resource Graph query in the portal with Azur
 You can query the alerts for their [essential](alerts-common-schema-definitions.md#essentials) fields.
 
 Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get more information about specific alerts, including their [alert context](alerts-common-schema-definitions.md#alert-context) fields.
+
+## Smart groups
+
+Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in troubleshooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
 
 ## Next steps
 
