@@ -5,7 +5,7 @@ ms.topic: sample
 ms.date: 1/28/2020
 ---
 
-# Powershell Script to find the Recovery Services Vault where a Storage Account is registered
+# PowerShell Script to find the Recovery Services Vault where a Storage Account is registered
 
 This script helps you to find the recovery services vault where your storage account is registered.
 
