@@ -187,8 +187,8 @@
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
         - name: Secure coding
-              href: concept-secure-code-best-practice.md
-              displayName: security threat
+          href: concept-secure-code-best-practice.md
+          displayName: security threat
         
         
     - name: Responsible ML
