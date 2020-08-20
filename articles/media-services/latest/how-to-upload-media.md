@@ -40,7 +40,7 @@ Before you get started though, you'll need to collect or think about a few value
 
 ## [REST](#tab/rest/)
 
-Once you have [created an asset using Postman or other REST method and gotten the SUS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+Once you have [created an asset using Postman or other REST method and gotten the SAS URL for the asset](how-to-create-asset.md?tabs=rest), use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ---
 <!-- add these to the tabs when available -->

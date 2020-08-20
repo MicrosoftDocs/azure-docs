@@ -911,6 +911,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/tutorial-resource-manager-workspace.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template.md?tabs=azcli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -1057,8 +1062,8 @@
     },
     {
       "source_path": "articles/machine-learning/how-to-debug-pipelines-application-insights.md",
-      "redirect_url" : "/azure/machine-learning/how-to-log-pipelines-application-insights",
-      "redirect_document_id" : false
+      "redirect_url": "/azure/machine-learning/how-to-log-pipelines-application-insights",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/batch-ai/cli-samples.md",
@@ -3508,24 +3513,24 @@
       "redirect_document_id": false
     },
     {
-        "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples",
-        "redirect_document_id": false
+      "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples",
-        "redirect_document_id": false
+      "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/cosmos-db/powershell-samples-sql.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples",
-        "redirect_document_id": false
+      "source_path": "articles/cosmos-db/powershell-samples-sql.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/cosmos-db/powershell-samples-table.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples",
-        "redirect_document_id": false
+      "source_path": "articles/cosmos-db/powershell-samples-table.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
@@ -12809,6 +12814,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/constrained-vcpu.md",
+      "redirect_url": "/azure/virtual-machines/constrained-vcpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/constrained-vcpu.md",
+      "redirect_url": "/azure/virtual-machines/constrained-vcpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-shared-enable.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared-enable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-shared-enable.md",
+      "redirect_url": "/azure/virtual-machines/disks-shared-enable",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-reserved-capacity.md",
+      "redirect_url": "/azure/virtual-machines/disks-reserved-capacity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-reserved-capacity.md",
+      "redirect_url": "/azure/virtual-machines/disks-reserved-capacity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/premium-storage-performance.md",
+      "redirect_url": "/azure/virtual-machines/premium-storage-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/premium-storage-performance.md",
+      "redirect_url": "/azure/virtual-machines/premium-storage-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-use-storage-explorer-managed-disks.md",
+      "redirect_url": "/azure/virtual-machines/disks-use-storage-explorer-managed-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-use-storage-explorer-managed-disks.md",
+      "redirect_url": "/azure/virtual-machines/disks-use-storage-explorer-managed-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-optimizely-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/optimizely-tutorial",
       "redirect_document_id": true
@@ -18162,7 +18217,7 @@
       "source_path": "articles/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
       "redirect_url": "/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
@@ -28227,7 +28282,7 @@
       "source_path": "articles/app-service/app-service-web-get-started-dotnet.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/app-service/containers/quickstart-dotnetcore.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore?pivots=platform-linux",
@@ -28247,7 +28302,7 @@
       "source_path": "articles/app-service/containers/quickstart-nodejs.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
       "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
@@ -28272,7 +28327,7 @@
       "source_path": "articles/app-service/app-service-web-get-started-java.md",
       "redirect_url": "/azure/app-service/quickstart-java",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "articles/app-service/containers/quickstart-java.md",
       "redirect_url": "/azure/app-service/quickstart-java?pivots=platform-linux",
@@ -28282,7 +28337,7 @@
       "source_path": "articles/app-service/app-service-web-get-started-html.md",
       "redirect_url": "/azure/app-service/quickstart-html",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
       "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
@@ -28292,7 +28347,7 @@
       "source_path": "articles/app-service/containers/quickstart-go.md",
       "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/app-service/containers/quickstart-docker-go.md",
       "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
@@ -28302,7 +28357,7 @@
       "source_path": "articles/app-service/containers/quickstart-docker.md",
       "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/app-service/app-service-web-get-started-windows-container.md",
       "redirect_url": "/azure/app-service/quickstart-custom-container",
@@ -28312,17 +28367,17 @@
       "source_path": "articles/app-service/containers/quickstart-multi-container.md",
       "redirect_url": "/azure/app-service/quickstart-multi-container",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/app-service/containers/quickstart-ruby.md",
       "redirect_url": "/azure/app-service/quickstart-ruby",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/app-service/containers/quickstart-python.md",
       "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
@@ -42312,12 +42367,12 @@
       "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-policy.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-policy",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-powershell.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-powershell",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-monitor/insights/vminsights-enable-single-vm.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-portal",
@@ -42327,7 +42382,7 @@
       "source_path": "articles/azure-monitor/insights/vminsights-enable-hybrid-cloud.md",
       "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
       "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
@@ -56036,6 +56091,12 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/media-services/live-video-analytics-edge/analyze-with-ai-your-choice-how-to.md",
+      "redirect_url": "/azure/media-services/live-video-analytics-edge/http-data-contract",
+      "redirect_document_id": false
+    },
+    {
+      
       "source_path": "articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
       "redirect_document_id": false

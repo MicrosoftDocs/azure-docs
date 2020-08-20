@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 08/20/2020
 ms.author: banders
 
 ---
