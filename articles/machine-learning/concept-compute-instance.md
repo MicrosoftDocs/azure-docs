@@ -159,17 +159,15 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 
 ## Compute target
 
-Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. 
+Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute clusters. 
 
 A compute instance:
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 * Can run multiple small jobs in parallel (preview).  Two jobs per core can run in parallel while the rest of the jobs are queued.
+* Supports single-node multi-GPU distributed training jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
-
-> [!NOTE]
-> Distributed training jobs are not supported on compute instance.  Use (compute clusters](how-to-set-up-training-targets.md#amlcompute) for distributed training.
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?
 
