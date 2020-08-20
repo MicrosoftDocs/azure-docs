@@ -35,7 +35,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 
 **v2.0** includes the following update:
--	The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScrip have entered General Availability. 
+-	The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
 
 
 **New samples** are available on GitHub. 
@@ -60,7 +60,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### New features
 * **CopyModel API added to client SDKs** You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
-* **Azure Active Directory integration** You can now use your AAD credentials to authenticate your Form Recognizer client objects in the SDKs.
+* **Azure Active Directory integration** You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
 * **SDK-specific changes** This includes both minor feature additions and breaking changes. See the SDK changelogs for more information.
   * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
