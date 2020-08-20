@@ -54,7 +54,7 @@ We provide additional services to help you prepare scripts for recording. Contac
 
 **Q: Are my requests throttled?**
 
-**A**: The REST API limits requests to 25 per 5 seconds for standard subscriptions. Free-tier (F0) is limited at 20 requests per minute.
+**A**: See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 ## Next steps
 

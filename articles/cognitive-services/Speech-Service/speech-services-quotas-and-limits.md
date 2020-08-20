@@ -31,6 +31,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Max input blob size for Batch Transcription** | N/A | 2.5 GB |
 | **Max blob container size for Batch Transcription** | N/A | 5 GB |
 | **Max number of blobs per container for Batch Transcription** | N/A | 10000 |
+| **Max number of simultaneously running jobs for Batch Transcription** | N/A | 2000  |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -50,6 +51,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Websocket specific quotas** |  |  |
 |Max Audio length produced per turn | 10 min | 10 min |
 |Max SSML Message size per turn |64 KB |64 KB |
+| **REST API Request limit** | 20 requests per minute | 25 requests per 5 seconds |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -57,12 +59,12 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 <sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice).<br/> 
 
 ## Detailed description, Quota adjustment, and best practices
-Before requesting a quota increase (where applicable) ensure that it is necessary. Speech service is using technologies like [Azure Autoscale](../../azure-monitor/platform/autoscale-overview.md) and [AKS Autoscaler](../../aks/cluster-autoscaler.md) to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your payload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state is usually transient and should not last long.
+Before requesting a quota increase (where applicable) ensure that it is necessary. Speech service is using autoscaling technologies to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your workload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state is usually transient and should not last long.
 
 ### General best practices to mitigate throttling during autoscaling
 To minimize issues related to throttling (Response Code 429), we recommend using the following techniques:
 - Implement retry logic in your application
-- Avoid sharp changes in the payload. Increase the payload gradually <br/>
+- Avoid sharp changes in the workload. Increase the workload gradually <br/>
 *Example.* Your application is using Text-to-Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.   
 - Test different load increase patterns
   - See [Speech-to-Text example](#speech-to-text-example-of-a-workload-pattern-best-practice)
