@@ -56,7 +56,7 @@ To secure an IIS web application that uses Integrated Windows HTTP authenticatio
 1. In the Azure Multi-Factor Authentication Server, click the IIS Authentication icon in the left menu.
 2. Click the **HTTP** tab.
 3. Click **Add**.
-4. In the Add Base URL dialogue box, enter the URL for the website where HTTP authentication is performed (like <http://localhost/owa>) and provide an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
+4. In the Add Base URL dialogue box, enter the URL for the website where HTTP authentication is performed (like `http://localhost/owa`) and provide an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 5. Adjust the Idle timeout and Maximum session times if the default is not sufficient.
 6. Check the **Require Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.
 7. Check the **Cookie cache** box if desired.

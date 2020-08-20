@@ -158,7 +158,7 @@ Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/pytho
    print(feature_tensor.shape)
    ```
 
-1. Add a classifier. This classifier has been trained on the ImageNet data set.  Examples for transfer learning and training your customized weights are available in the set of [sample notebooks](https://aka.ms/aml-notebooks).
+1. Add a classifier. This classifier has been trained on the ImageNet data set.  Examples for transfer learning and training your customized weights are available in the set of [sample notebooks](https://github.com/Azure/MachineLearningNotebooks).
 
    ```python
    classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -400,7 +400,7 @@ converted_model.delete()
 
 Check out these notebooks, videos, and blogs:
 
-+ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks)
++ Several [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/accelerated-models)
 + To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
 + [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)

@@ -53,7 +53,7 @@ You can stop backing up a SQL Server database in a couple of ways:
 If you choose to leave recovery points, keep these details in mind:
 
 - All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
-- You will be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+- You'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
 - If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
 
 To stop protection for a database:
@@ -112,24 +112,6 @@ While you need to specify the retention duration for Copy-only full backup, the 
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
-## Unregister a SQL Server instance
-
-Unregister a SQL Server instance after you disable protection but before you delete the vault:
-
-1. On the vault dashboard, under **Manage**, select **Backup Infrastructure**.  
-
-   ![Select Backup Infrastructure](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. Under **Management Servers**, select **Protected Servers**.
-
-   ![Select Protected Servers](./media/backup-azure-sql-database/protected-servers.png)
-
-3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
-
-4. Right-click the protected server, and select **Unregister**.
-
-   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## Modify policy
 
 Modify policy to change backup frequency or retention range.
@@ -155,11 +137,31 @@ You can fix the policy version for all the impacted items in one click:
 
   ![Fix inconsistent policy](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## Unregister a SQL Server instance
+
+Unregister a SQL Server instance after you disable protection but before you delete the vault:
+
+1. On the vault dashboard, under **Manage**, select **Backup Infrastructure**.  
+
+   ![Select Backup Infrastructure](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. Under **Management Servers**, select **Protected Servers**.
+
+   ![Select Protected Servers](./media/backup-azure-sql-database/protected-servers.png)
+
+3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
+
+4. Right-click the protected server, and select **Unregister**.
+
+   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## Re-register extension on the SQL Server VM
 
-Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. **Re-register** operation reinstalls the workload backup extension on the VM for operations to continue.
+Sometimes, the workload extension on the VM may get impacted for one reason or another. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. The **Re-register** operation reinstalls the workload backup extension on the VM for operations to continue. You can find this option under **Backup Infrastructure** in the Recovery Service Vault.
 
-Use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
+![Protected servers under Backup Infrastructure](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
+
+Use this option with caution. When triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may cause all the in-progress jobs to fail. Check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
 
 ## Next steps
 
