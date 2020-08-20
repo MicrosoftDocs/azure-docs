@@ -136,7 +136,7 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 ## Post migration
 
 1. Set/verify the access controls for the resource groups.  
-2. The Backup reporting and monitoring feature needs to be configured again for the vault post the move completes. The previous configuration will be lost during the move operation.
+2. The Backup reporting and monitoring feature needs to be configured again for the vault after the move completes. The previous configuration will be lost during the move operation.
 
 ## Next steps
 

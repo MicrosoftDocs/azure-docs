@@ -5,11 +5,12 @@ author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Sign up for a Microsoft 365 subscription with your Azure account
 
 If you're Azure subscriber, you can use your Azure account to sign up for a Microsoft 365 subscription. If you're part of an organization that has an Azure subscription, you can create Microsoft 365 subscriptions for users in your existing Azure Active Directory (Azure AD). Sign up for Microsoft 365 using an account that has Global Admin or Billing Admin permissions in your Azure Active Directory tenant. For more information, see [Check my account permissions in Azure AD](#RoleInAzureAD) and [Assigning administrator roles in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
