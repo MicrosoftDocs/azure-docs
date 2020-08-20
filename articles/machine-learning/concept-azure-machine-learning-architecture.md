@@ -34,7 +34,7 @@ A [machine learning workspace](concept-workspace.md) is the top-level resource f
   * [Models](#models)
   * [Endpoints](#endpoints)
 
-When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
+A workspace includes other Azure resources that are used by the workspace:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
 + [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well.
