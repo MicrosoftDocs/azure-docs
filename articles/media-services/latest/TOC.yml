@@ -17,6 +17,8 @@
       href: create-account-howto.md
     - name: Access the API
       href: access-api-howto.md
+    - name: Set up CLI Shell
+      href: how-to-set-up-cli-shell.md
     - name: Develop with REST
       items:
       - name: Connect with Postman
