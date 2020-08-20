@@ -72,9 +72,6 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Create workspaces with ARM template
-          displayName: Resource Manager
-          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
