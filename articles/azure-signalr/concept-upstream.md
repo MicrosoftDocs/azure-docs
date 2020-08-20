@@ -55,6 +55,10 @@ You can set rules for *hub rules*, *category rules*, and *event rules* separatel
 - Use a comma (,) to join multiple events. For example, `connected, disconnected` matches the connected and disconnected events.
 - Use the full event name to match the event. For example, `connected` matches the connected event.
 
+> [!NOTE]
+> If you're using Azure Functions and [SignalR trigger](../azure-functions/functions-bindings-signalr-service-trigger.md), SignalR trigger will expose a single endpoint in the following format: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>`.
+> You can just configure url template to this url.
+
 ### Authentication settings
 
 You can configure authentication for each upstream setting item separately. When you configure authentication, a token is set in the `Authentication` header of the upstream message. Currently, Azure SignalR Service supports the following authentication types:

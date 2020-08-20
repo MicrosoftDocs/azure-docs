@@ -40,6 +40,8 @@
   items:
   - name: Azure SignalR Service internals
     href: signalr-concept-internals.md
+  - name: Service mode
+    href: signalr-concept-service-mode.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
