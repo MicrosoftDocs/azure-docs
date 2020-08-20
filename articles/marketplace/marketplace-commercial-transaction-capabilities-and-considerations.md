@@ -31,7 +31,7 @@ You choose the transact option when you create a new offer in Partner Center. Th
 
 ## Transact overview
 
-When using the transact option, Microsoft enables the sale of third-party software and deployment of some offer types to the customer's Azure subscription. You the publisher must consider the billing of infrastructure fees and your own software licensing fees when selecting a pricing model for an offer type.
+When using the transact option, Microsoft enables the sale of third-party software and deployment of some offer types to the customer's Azure subscription. You the publisher must consider the billing of infrastructure fees and your own software licensing fees when selecting a pricing model for an offer.
 
 The transact publishing option is currently supported for the following offer types:
 
@@ -43,7 +43,7 @@ The transact publishing option is currently supported for the following offer ty
 
 For **virtual machines** and **Azure applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
 
-For **SaaS Apps**, you the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item.  It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
+For **SaaS Apps**, you the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item.  It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the publisher directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or based on user consumption.
 
 ## Pricing models
 
@@ -52,18 +52,18 @@ Depending on the transaction option used, subscription charges are as follows:
 - **Get it now (Free)** – No charge for software licenses. Customers are not charged Azure Marketplace fees for using a free offer. Free offers can’t be converted to a paid offer. Customers must order a paid offer.
 - **Bring your own license** (BYOL) – Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. If an offer is listed in the commercial marketplace, customers who obtain access or use of the offer outside of the commercial marketplace are not charged commercial marketplace fees.
 - **Subscription pricing** – Software license fees are presented as a monthly or annual, recurring subscription fee billed as a flat rate or per-seat. Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
-- **Usage-based pricing** – For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine Images, customers are charged an hourly Azure Marketplace fee, as set by publishers, for use of virtual machines deployed from the images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
+- **Usage-based pricing** – For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine Images, customers are charged an hourly Azure Marketplace fee, as set by publishers, for use of virtual machines deployed from the VM images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
 - **Metered pricing** – For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](./partner-center-portal/marketplace-metering-service-apis.md) to bill for consumption based on the meter dimensions they choose. For example, bandwidth, tickets, or emails processed. Publishers can define one or more meter dimensions for each plan. Publishers are responsible for tracking individual customers’ usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
 - **Free trial** – No charge for software licenses that range from 30 days up to six months, depending on the offer type. If publishers provide a free trial on multiple plans within the same offer, customers can switch to a free trial on another plan but the trial period does not restart. For virtual machine offers, customers are charged Azure infrastructure costs for using the offer during a trial period. Upon expiration of the trial period, customers are automatically charged for the last plan they tried based on standard rates unless they cancel before the end of the trial period.
 
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For more information, about removing an offer, see [Stop selling an offer or plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop selling an offer or plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### Free, Contact me, and bring-your-own-license (BYOL) pricing
 
-When publishing a free or bring-your-own-license transaction offer, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and trial publishing options, the publisher keeps 100% of software license fees.
+When publishing an offer with the Get it now (Free), Contact me, or BYOL option, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and free trial publishing options, the publisher keeps 100% of software license fees.
 
 ### Usage-based and subscription pricing
 
@@ -185,7 +185,7 @@ For more information on setting up these accounts, see [Manage your commercial m
 
 The transact publishing option is only available for use with the following marketplace offer types:
 
-- **Azure Virtual Machine** – Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as plans defined at the offer level. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
+- **Azure Virtual Machine** – Select from free, bring-your-own-license, or usage-based pricing models and present as plans defined at the offer level. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
 
 - **Azure application: solution template or managed app** – Must provision one or more virtual machines and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, a flat-rate monthly subscription can be selected as the pricing model instead the virtual machine pricing. In some cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement. However, if you configure a managed app offering for ISV infrastructure charges, the Azure resources are billed to the publisher, and the customer receives a flat fee that includes the cost of infrastructure, software licenses, and management services.
 
