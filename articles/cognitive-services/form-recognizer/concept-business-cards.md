@@ -47,7 +47,7 @@ The Business Card API also returns all recognized text from the Business Card. T
 
 ## The Analyze Business Card operation
 
-The [Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) takes an image or PDF of a business card as the input and extracts the values of intrest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) takes an image or PDF of a business card as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -371,7 +371,7 @@ The "readResults" node contains all of the recognized text. Text is organized by
 }
 ```
 
-Follow the [Extract Extract business card data](./QuickStarts/python-business-cards.md) quickstart to implement busienss card data extraction using Python and the REST API.
+Follow the [Extract Extract business card data](./QuickStarts/python-business-cards.md) quickstart to implement business card data extraction using Python and the REST API.
 
 ## Customer Scenarios  
 
@@ -386,7 +386,8 @@ The Business Card API also powers the [AIBuilder Business Card Processing featur
 
 ## Next steps
 
-- Follow the quickstart to get started * [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
+- Follow the quickstart to get started 
+- [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
 - Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
 - Learn more about [Form Recognizer](overview.md)
 
