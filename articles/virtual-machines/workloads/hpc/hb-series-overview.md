@@ -50,7 +50,7 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 
 | Software Specifications           |HB-series VM           |
 |-----------------------------|-----------------------|
-| Max MPI Job Size            | 18000 cores (300 VMs in a single VMSS with singlePlacementGroup=true)  |
+| Max MPI Job Size            | 18000 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | Unified Communication X, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
