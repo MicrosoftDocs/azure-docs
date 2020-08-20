@@ -92,9 +92,7 @@ After you sign in with GitHub, enter the repository information.
 
     To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
 
-### Review + create
-
-After the request validates your input, you can continue to create the application.
+    After the request validates your input, you can continue to create the application.
 
 1. Select **Create**.
 
