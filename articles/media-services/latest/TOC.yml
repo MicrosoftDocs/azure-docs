@@ -18,7 +18,7 @@
     - name: Access the API
       href: access-api-howto.md
     - name: Set up CLI Shell
-      href: how-to-set-up-cli-shell.md
+      href: https://docs.microsoft.com/azure/cloud-shell/overview
     - name: Develop with REST
       items:
       - name: Connect with Postman
