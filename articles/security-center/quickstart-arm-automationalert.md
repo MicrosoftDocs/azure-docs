@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
-ms.date: 08/19/2020
+ms.date: 08/20/2020
 ---
 
 # Quickstart: Create an automatic response to a specific security alert using an Azure Resource Manager template (ARM template)
@@ -36,7 +36,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 ### Relevant resources
 
-- [**Microsoft.Security/automations**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider): The Automation that will trigger the empty Logic App, upon receiving an Azure Security Center alert that contains a specific string(in our example the alert triggering rule is “Virtual Machine” and has a severity of either "Medium", "High", "Low").
+- [**Microsoft.Security/automations**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftsecurity-resource-provider): The automation that will trigger the logic app, upon receiving an Azure Security Center alert that contains a specific string.
 - [**Microsoft.Logic/workflows**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-securitycenter-create-automation-for-alertnamecontains/#microsoftlogic-resource-provider): An empty triggerable Logic App.
 
 For other Security Center quickstart templates, see these [community contributed templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Security).
