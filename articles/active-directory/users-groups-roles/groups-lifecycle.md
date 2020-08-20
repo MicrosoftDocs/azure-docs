@@ -76,7 +76,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 3. On the **Expiration** page, you can:
 
-    - Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more).
+    - Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 30 days or more).
     - Specify an email address where the renewal and expiration notifications should be sent when a group has no owner.
     - Select which Microsoft 365 groups expire. You can set expiration for:
       - **All** Microsoft 365 groups
@@ -178,7 +178,6 @@ The following cmdlets can be used to configure the policy in more detail. For mo
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy
-- Get-AzureADMSGroupLifecyclePolicy
 - Set-AzureADMSGroupLifecyclePolicy
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup

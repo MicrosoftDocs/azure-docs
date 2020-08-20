@@ -13,7 +13,7 @@ ms.author: swmachan
 ---
 # Language and region support for text and speech translation
 
-Use Translator to translate to and from any of the 60+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
+Use Translator to translate to and from any of the 70+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
 You can also use Translator in conjunction with Custom Translator to build neural translation systems that understand the terminology used in your own business and industry, and with Microsoft Speech Service to add speech translation to your app.
 
@@ -41,6 +41,7 @@ Translator supports the following languages for text to text translation.
 |Chinese Traditional|	`zh-Hant`		|
 |Croatian|	`hr`	|
 |Czech|	`cs`	|
+|Dari|	`prs`	|
 |Danish|	`da`		|
 |Dutch|	`nl`|
 |English|	`en`	|
@@ -68,6 +69,8 @@ Translator supports the following languages for text to text translation.
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku`	|
+|Kurdish (Northern)	|`kmr`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malagasy|	`mg`	|
@@ -77,6 +80,8 @@ Translator supports the following languages for text to text translation.
 |Maori| `mi`  |
 |Marathi| `mr`  |
 |Norwegian|	`nb`	|
+|Odia|	`or`	|
+|Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
 |Portuguese (Brazil)|	`pt-br`	|
@@ -287,6 +292,7 @@ The following languages are available for customization to or from English using
 | French      | `fr`          |
 | German      | `de`          |
 | Greek      | `el`          |
+| Gujarati|	`gu`	|
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
@@ -300,11 +306,14 @@ The following languages are available for customization to or from English using
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
+| Malay|	`ms`		|
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese (Brazil) | `pt-br` |
+| Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Samoan|	`sm`	|
@@ -316,6 +325,7 @@ The following languages are available for customization to or from English using
 | Thai      | `th`          |
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
+| Urdu|	`ur`	|
 | Vietnamese      | `vi`          |
 | Welsh | `cy` |
 
