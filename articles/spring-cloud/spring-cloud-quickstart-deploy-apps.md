@@ -194,10 +194,11 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
+1. In the **Name** field append *:gateway* to the existing **Name** refers to the configuration.
 1. In the **Artifact** textbox, select *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. In the **Subscription** textbox, verify your subscription.
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Set **Public Endpoint** to **Enable**.
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *gateway*, then click **OK**.
 
@@ -220,9 +221,12 @@ You will have to edit the previous configuration for both the `auth-service` and
  
 1. This will show the configuration dialog with the options configured for the `gateway` app.
 1. Modify the settings to identify the `auth-service` app.
+1. Verify that the **Public Endpoint** option is set to *Disabled*.
 1. Click **Apply** and then **OK**.
 
     ![Edit configuration for auth-servide](media/spring-cloud-intellij-howto/revision-reconfigure-auth.png)
+
+1. Repeat these procedurs to configure and deploy the `account-service`.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
