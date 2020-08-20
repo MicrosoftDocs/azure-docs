@@ -10,18 +10,20 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/15/2020
+ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Configure an availability group for SQL Server on Azure VM (Azure portal)
+# Configure an availability group for SQL Server on Azure VM (Azure portal - preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
 
 Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
+
+This feature is currently in preview. 
 
 
 ## Prerequisites
@@ -30,7 +32,7 @@ To configure an Always On availability group using the Azure portal, you must ha
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md) and are using the same domain account for the SQL Server service on each VM.
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider in full manageability mode](sql-vm-resource-provider-register.md) and are using the same domain account for the SQL Server service on each VM.
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions
@@ -58,7 +60,7 @@ If you do not already have an existing cluster, create it by using the Azure por
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Create new cluster by selecting the + new cluster in the portal":::
 
-1. Name your cluster and provide a storage account to use as the Cloud Witness. Use an existing storage account or select **Create new** to create a new storage account. 
+1. Name your cluster and provide a storage account to use as the Cloud Witness. Use an existing storage account or select **Create new** to create a new storage account. Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 1. Expand **Manage SQL service, cluster bootstrap and cluster operator accounts** to provide credentials for the cluster. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster.png" alt-text="Provide name, storage account, and credentials for the cluster":::
@@ -76,13 +78,12 @@ If you already have a cluster configured in your SQL Server VM environment, you 
 To do so, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
-1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
+1. Navigate to your [SQL virtual machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource. 
 1. Select **High Availability** under **Settings**. 
-1. Select **Onboard existing Windows Server failover cluster** to open the **Onboard Windows Server failover cluster**
+1. Select **Onboard existing Windows Server Failover Cluster** to open the **Onboard Windows Server Failover Cluster** page. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Onboard an existing cluster from the High Availability page on your SQL virtual machines resource":::
 
-1. Review the VMs that are part of the cluster and will be onboarded to the cluster group in the resource provider cluster metadata. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
 
 
@@ -91,7 +92,7 @@ To do so, follow these steps:
 Create the availability group using the Azure portal. To do so, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
-1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
+1. Navigate to your [SQL virtual machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource. 
 1. Select **High Availability** under **Settings**. 
 1. Select **+ Create Always On availability group** to open the **Create availability group** page.
 1. Enter a name for the availability group. 
@@ -140,21 +141,78 @@ After databases are added, you can check the status of your availability group i
 
 ## Add more VMs
 
-To add another SQL Server VM to the cluster after the cluster is created, follow the same steps as the [onboard](#onboard-existing-cluster) experience. 
+To add more SQL Server VMs to the cluster, follow these steps: 
+
+1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Navigate to your [SQL virtual machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource. 
+1. Select **High Availability** under **Settings**. 
+1. Select **Configure Windows Server Failover Cluster** to open the **Configure Windows Server Failover Cluster** page. 
+
+:::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Select Configure Windows Server Failover Cluster to add VMs to your cluster.":::
+
+1. Expand **Windows Server Failover Cluster credentials** and enter in the accounts used for the SQL Server service, cluster operator and cluster bootstrap accounts. 
+1. Select the SQL Server VMs you want to add to the cluster. 
+1. Select **Apply**. 
+
+You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
+
 
 ## Modify availability group 
 
 
-You can add more replicas to the availability group, configure the listener, or delete the listener from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
+You can **add more replicas** to the availability group, **configure the listener**, or **delete the listener** from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/add-another-replica.png" alt-text="Select the ellipses next to the availability group and then select add replica to add more replicas to the availability group.":::
+:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Select the ellipses next to the availability group and then select add replica to add more replicas to the availability group.":::
+
+# [Azure CLI](#tab/azure-cli)
+
+First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, and destroy the cluster:  
+
+```azurecli-interactive
+# Remove the VM from the cluster metadata
+# example: az sql vm remove-from-group --name SQLVM2 --resource-group SQLVM-RG
+
+az sql vm remove-from-group --name <VM1 name>  --resource-group <resource group name>
+az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group name>
+```
+
+Next, remove the cluster metadata: 
+
+```azurecli-interactive
+# Remove the cluster from the SQL VM RP metadata
+# example: az sql vm group delete --name Cluster --resource-group SQLVM-RG
+
+az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
+```
 
 
 
-## Remove cluster
+# [PowerShell](#tab/azure-powershell)
 
-If you want to remove the cluster, destroy it locally to the virtual machine, and this will remove it from the portal. 
+First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, and destroy the cluster: 
 
+```powershell-interactive
+# Remove the SQL VM from the cluster
+# example: $sqlvm = Get-AzSqlVM -Name SQLVM3 -ResourceGroupName SQLVM-RG
+#  $sqlvm. SqlVirtualMachineGroup = ""
+#  Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+
+$sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
+   $sqlvm. SqlVirtualMachineGroup = ""
+   
+   Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+```
+
+Next, remove the cluster metadata: 
+
+```powershell-interactive
+# Remove the cluster metadata
+# example: Remove-AzSqlVMGroup -ResourceGroupName "SQLVM-RG" -Name "Cluster"
+
+Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster name> "
+```
+
+---
 
 ## Troubleshooting
 

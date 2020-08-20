@@ -11,7 +11,7 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/06/2020
+ms.date: 08/20/2020
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -22,7 +22,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-az-portal-configure.md). | 
+| **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-az-portal-configure.md). This feature is currently in preview. | 
 
 
 ## July 2020

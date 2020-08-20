@@ -10,7 +10,7 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/15/2020
+ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
@@ -434,12 +434,12 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## Remove cluster
 
-If you want to destroy the cluster, first remove the cluster group from the SQL VM resource provider metadata by using the Azure CLI or PowerShell.  You will then need to manually destroy the cluster local to the VMs. 
+Remove the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the Azure CLI or PowerShell. 
 
 
 # [Azure CLI](#tab/azure-cli)
 
-First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, as well as remove them from the cluster metadata: 
+First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, and destroy the cluster:  
 
 ```azurecli-interactive
 # Remove the VM from the cluster metadata
@@ -462,7 +462,7 @@ az sql vm group delete --name <cluster name> Cluster --resource-group <resource 
 
 # [PowerShell](#tab/azure-powershell)
 
-First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, as well as remove them from the cluster metadata: 
+First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, and destroy the cluster: 
 
 ```powershell-interactive
 # Remove the SQL VM from the cluster
