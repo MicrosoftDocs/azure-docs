@@ -119,7 +119,7 @@ After deployment, your logic app works end-to-end with valid parameters. However
 * Preauthorize and share API connection resources across logic apps that are in the same region. API connections exist as Azure resources independently from logic apps. While logic apps have dependencies on API connection resources, API connection resources don't have dependencies on logic apps and remain after you delete the dependent logic apps. Also, logic apps can use API connections that exist in other resource groups. However, the Logic App Designer supports creating API connections only in the same resource group as your logic apps.
 
   > [!NOTE]
-  > If you're considering sharing API connections, make sure that your solution can [handle potential throttling problems](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling).
+  > If you're considering sharing API connections, make sure that your solution can [handle potential throttling problems](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). Throttling happens at the connection level, so reusing the same connection across multiple logic apps might increase the potential for throttling problems.
 
 * Run your continuous integration process on a virtual machine in a user space that has a browser session where the required connections are set up and consent is already provided. You can then use a script that provides consent for each OAuth connection without manual intervention, although this approach might still not work if you have to use multi-factor authentication. As a starting point, you can update and repurpose this example script in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) GitHub project.
 
