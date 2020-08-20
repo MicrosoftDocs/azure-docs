@@ -115,5 +115,4 @@ See the [Create a dataset monitor](how-to-monitor-datasets.md) article, to learn
 ## Next steps 
 
 + Create a dataset in Azure Machine Learning studio or with the Python SDK [using these steps.](how-to-create-register-datasets.md)
-+ Try out dataset training examples with our [sample notebooks](https://aka.ms/dataset-tutorial).
-+ For data drift examples, see this [data drift tutorial](https://aka.ms/datadrift-notebook).
++ Try out dataset training examples with our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
