@@ -1,5 +1,5 @@
 ---
-title: How to author and sign Azure Attestation policy
+title: How to author and sign an Azure Attestation policy
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -10,9 +10,9 @@ ms.author: mbaldwin
 
 
 ---
-# How to author and sign attestation policy
+# How to author and sign an attestation policy
 
-The Attestation policy is a file which will be uploaded to MAA. MAA offers the flexibility to upload the policy in a MAA specific policy format (details below). Alternatively, a encoded version of the policy, in JSON Web Signature, RFC 7515 format, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the RP (relying party) acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what’s defined in the policy, and returns the computed result.
+The Attestation policy is a file which will be uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in attestation specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. A sample policy file looks as below:
 
@@ -43,12 +43,12 @@ Version=MajorVersion.MinorVersion
 
 Currently the only version supported is version 1.0.
 
-**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if MAA should proceed to issuancerules. The claim rules apply in the order they are defined.
+**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to issuancerules. The claim rules apply in the order they are defined.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
 ## Claim Rule grammar
-To understand the rule grammar, in context of MAA it is important to understand what a claim is.
+To understand the rule grammar, in context of Azure Attestation it is important to understand what a claim is.
 
 ### Claim
 
