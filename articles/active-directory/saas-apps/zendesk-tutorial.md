@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Zendesk Admin Center**, click on **Security settings** in the **Security** tab.
 
-![Security](./media/zendesk-tutorial/settings.png "Security")
+	![Security](./media/zendesk-tutorial/settings.png "Security")
 
 1. Go to the **Single sign-on** page and click on **Edit** in the **SAML**.
 
