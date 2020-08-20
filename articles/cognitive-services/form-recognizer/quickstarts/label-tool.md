@@ -251,13 +251,22 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 > [!TIP]
 > You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
 
-## Compose trained models - v2.1 Preview Feature
+## Compose trained models
+
+# [v2.0](#tab/v2-0)  
+
+This feature is currently available in v2.1. preview. 
+
+# [v2.1 preview](#tab/v2-1) 
+
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
 
 To compose models in the sample labeling tool, click on the Model Compose (two arrows) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models. 
-Click on the “Compose” button. In the pop up, name your new composed model and click “Compose”. When the operation completes, your new composed model should appear in the list. 
+Click on the "Compose" button. In the pop up, name your new composed model and click "Compose". When the operation completes, your new composed model should appear in the list. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
+
+---
 
 ## Analyze a form 
 
