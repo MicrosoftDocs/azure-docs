@@ -297,7 +297,7 @@
         href: reserved-vm-instance-size-flexibility.md
     - name: Spot VMs
       displayName: pre-empt, preempt
-      href: spot-vms.md
+      href: ../spot-vms.md
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
     - name: Azure VM sizes naming conventions

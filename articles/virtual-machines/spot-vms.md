@@ -1,13 +1,17 @@
 ---
- title: include file
- description: include file
- author: cynthn
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 07/20/2020
- ms.author: cynthn
- ms.custom: include file
+title: Use Azure Spot VMs
+description: Learn how to use Azure Spot VMs to save on costs.
+author: cynthn
+ms.service: virtual-machines
+ms.workload: infrastructure-services
+ms.topic: how-to
+ms.date: 07/20/2020
+ms.author: cynthn
+ms.reviewer: jagaveer
 ---
+
+
+# Use Spot VMs in Azure
 
 Using Spot VMs allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
@@ -22,7 +26,7 @@ The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing
 
 If you would like your VM to be deleted when it is evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you will not continue to be charged for the storage. 
 
-You can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+You can opt-in to receive in-VM notifications through [Azure Scheduled Events](~/articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 
 | Option | Outcome |
@@ -89,5 +93,9 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 **A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
+## Next steps
+Use the [CLI](./linux/spot-cli.md), [portal](./windows/spot-portal.md), [ARM template](./linux/spot-template.md), or [PowerShell](./windows/spot-powershell.md) to deploy Spot VMs.
 
+You can also deploy a [scale set with Spot VM instances](../virtual-machine-scale-sets/use-spot.md).
 
+If you encounter an error, see [Error codes](./error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
