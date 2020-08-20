@@ -33,9 +33,9 @@ If using custom workspace, ensure Network Watcher is enabled in subscription and
 
 ## Steps to migrate from Connection Monitor to Connection Monitor (Preview)
 
-1. Click on “Connection Monitor”, navigate to “Migrate Connection Monitors” to migrate connection monitors from older to newer solution. 
-	
-	![Screenshot showing migrate connection monitors to Connection Monitor (Preview)](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
+1. Click on “Connection Monitor”, navigate to “Migrate Connection Monitors” to migrate connection monitors from older to newer solution.
+
+	![Screenshot showing migrate connection monitors to Connection Monitor Preview](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
 	
 1. Select subscription and connection monitors and click “Migrate selected”. In one click migrate existing connection monitors  to Connection Monitor(Preview) 
 1. You can customize connection monitor properties, change default workspace, download template and check status of migration. 
@@ -52,5 +52,5 @@ If using custom workspace, ensure Network Watcher is enabled in subscription and
 
 ## Next steps
 
-* Learn [how to migrate from Network Performance Monitor to Connection Monitor (Preview)](migrate_to_connectionmonitorpreview_from_npm.md)
+* Learn [how to migrate from Network Performance Monitor to Connection Monitor (Preview)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
 * Learn [how to create Connection Monitor (Preview) using Azure portal](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
