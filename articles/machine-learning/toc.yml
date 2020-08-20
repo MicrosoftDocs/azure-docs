@@ -72,9 +72,6 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Create workspaces with ARM template
-          displayName: Resource Manager
-          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
@@ -153,6 +150,8 @@
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
       items: 
+        - name: Security baseline
+          href: security-baseline.md
         - name: Enterprise security and governance
           items: 
             - name: Enterprise security overview
@@ -161,8 +160,11 @@
             - name: Manage users and roles
               href: how-to-assign-roles.md
             - name: Use virtual networks
-              displayName: vnet, blob, private endpoint, private link
+              displayName: vnet, blob
               href: how-to-enable-virtual-network.md
+            - name: Use Private Link	
+              displayName: private endpoint	
+              href: how-to-configure-private-link.md
             - name: Secure web services with TLS
               displayName: ssl
               href: how-to-secure-web-service.md
