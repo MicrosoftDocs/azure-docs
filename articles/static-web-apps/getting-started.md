@@ -26,9 +26,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-getting-started-clone-repo.md)]
 
-Now that the code cloned locally, open Visual Studio Code and go to **File > Open Folder** to open the repository in the editor.
-
-Now you can create an Azure Static Web App instance from Visual Studio Code.
+Now that the code is cloned locally, open Visual Studio Code and go to **File > Open Folder** to open the repository in the editor.
 
 ## Create a static web app
 
@@ -37,7 +35,7 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
     :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure Logo":::
 
     > [!NOTE]
-    > If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
+    > Azure and GitHub sign in are required. If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
 
 1. Place your mouse over the _Static Web Apps_ label and select the **plus sign**.
 
@@ -87,7 +85,7 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
 
     ---
 
-1. Select a location nearest to you and press **Enter**.
+1. Select a location nearest you and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-location.png" alt-text="Resource location":::
 
@@ -103,13 +101,11 @@ Now you can create an Azure Static Web App instance from Visual Studio Code.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
+If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the extension.
 
-1. Open the [Azure portal](https://portal.azure.com)
-1. Search for **my-first-web-static-app** from the top search bar
-1. Select the app name
-1. Select the **Delete** button
-1. Select **Yes** to confirm the delete action
+In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **my-first-static-web-app** and select **Delete**.
+
+    :::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app":::
 
 ## Next steps
 
