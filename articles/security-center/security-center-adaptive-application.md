@@ -79,7 +79,7 @@ Select the recommendation, or open the adaptive application controls page to vie
     - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
-      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) policy enabled by either a GPO or a local security policy
+      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
 
       > [!TIP]
       > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the **No recommendation** tab.
@@ -104,7 +104,7 @@ Select the recommendation, or open the adaptive application controls page to vie
       > [!TIP]
       > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
       > 
-      > Applications are defined by their publishers, if an application doesn’t have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
+      > Applications are defined by their publishers, if an application doesn't have publisher information (it's unsigned), a path rule is created for the full path of the specific application.
 
    1. To apply the rule, select **Audit**. 
 
