@@ -12,30 +12,30 @@ This article uses GitHub template repositories to make it easy for you to get st
 
 # [No Framework](#tab/vanilla-javascript)
 
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-web-app**
+1. Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+    1. https://github.com/staticwebdev/vanilla-basic/generate
+1. Name your repository **my-first-static-web-app**
 
 > [!NOTE]
 > Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
 # [Angular](#tab/angular)
 
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/angular-basic/generate
-- Name your repository **my-first-static-web-app**
+1. Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+    1. https://github.com/staticwebdev/angular-basic/generate
+1. Name your repository **my-first-static-web-app**
 
 # [React](#tab/react)
 
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/react-basic/generate
-- Name your repository **my-first-static-web-app**
+1. Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+    1. https://github.com/staticwebdev/react-basic/generate
+1. Name your repository **my-first-static-web-app**
 
 # [Vue](#tab/vue)
 
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vue-basic/generate
-- Name your repository **my-first-static-web-app**
+1. Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+    1. https://github.com/staticwebdev/vue-basic/generate
+1. Name your repository **my-first-static-web-app**
 
 ---
 
