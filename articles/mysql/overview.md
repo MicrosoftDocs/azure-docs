@@ -46,7 +46,7 @@ Flexible servers are best suited for
 - New application development requiring better control and customizations on database environments to optimize based on your needs. 
 - Migrating existing applications to managed service platform as it provides seamless experience and control at par with running in your own MySQL environments. 
 
-For detailed overview of single server deployment mode, refer [flexible server overview](flexible-server/index.yml).
+For detailed overview of flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml).
 
 ## Next Steps
 
