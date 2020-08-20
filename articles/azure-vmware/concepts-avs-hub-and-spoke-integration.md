@@ -25,7 +25,7 @@ The diagram shows an example of a Hub and Spoke deployment in Azure connected to
 
 :::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment":::
 
-![Azure VMware Solution Hub and Spoke integration deployment](./media/hub-spoke/avs-hub-and-spoke-deployment.svg)
+![Azure VMware Solution Hub and Spoke integration deployment](/media/hub-spoke/avs-hub-and-spoke-deployment.svg)
 
 
 The architecture has the following main components:
