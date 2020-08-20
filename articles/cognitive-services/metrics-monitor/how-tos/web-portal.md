@@ -131,10 +131,15 @@ Sometimes, expected events and occurrences (such as holidays) can generate anoma
 > [!Note]
 > Preset event configuration will take holidays into consideration during anomaly detection, and may change your results. It will be applied to the data points ingested after you save the configuration. 
 
-Click the **Configure Preset Event** button next to the metrics drop down list on each metric details page. In the window that appears, configure the options according to your usage. Make sure **Enable holiday event** is selected to use the configuration. 
+Click the **Configure Preset Event** button next to the metrics drop down list on each metric details page. 
 
 ![Preset events button](../media/metrics/preset-event-button.png)
 
+In the window that appears, configure the options according to your usage. Make sure **Enable holiday event** is selected to use the configuration. 
+
+![Preset events button](../media/metrics/preset-event-button.png)
+
+![Preset events button](../media/metrics/preset-events.png)
 The **Holiday event** section helps you suppress unnecessary anomalies detected during holidays. There are two options for the **Strategy** option that you can apply:
 
 * **Suppress holiday**: Suppresses all anomalies and alerts in anomaly detection results during holiday period.
@@ -157,16 +162,17 @@ The **Cycle event** section can be used in some scenarios to help reduce unneces
  
 Not all options are selectable for every granularity. The available options per granularity are below:
 
-|Granularity|YoY|MoM|WoW|DoD|
-|:----|:----|:----|:----|:----|
-|Yearly|X|X|X|X|
-|Monthly|X|X|X|X|
-|Weekly|✔|X|X|X|
-|Daily|✔|✔|✔|X|
-|Hourly|✔|✔|✔|✔|
-|Minutely|X|X|X|X|
-|Secondly|X|X|X|X|
-|Custom*|✔|✔|✔|✔|
+| Granularity | YoY | MoM | WoW | DoD |
+|:-|:-|:-|:-|:-|
+| Yearly | X | X | X | X |
+| Monthly | X | X | X | X |
+| Weekly | ✔ | X | X | X |
+| Daily | ✔ | ✔ | ✔ | X |
+| Hourly | ✔ | ✔ | ✔ | ✔ |
+| Minutely | X | X | X | X |
+| Secondly | X | X | X | X |
+| Custom* | ✔ | ✔ | ✔ | ✔ |
+
 X - Unavailable.  
 ✔ - Available.
   
