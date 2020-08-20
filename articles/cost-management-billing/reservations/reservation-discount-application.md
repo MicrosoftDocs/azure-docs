@@ -4,6 +4,7 @@ description: This article helps you understand how reserved instance discounts a
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
