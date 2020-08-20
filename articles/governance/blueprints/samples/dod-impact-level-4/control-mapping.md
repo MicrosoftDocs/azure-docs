@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 06/30/2020
+ms.date: 08/20/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -490,12 +490,9 @@ of the operating system for virtual machine scale sets.
 ## SI-02 (06) Flaw Remediation | Removal of Previous Versions of Software / Firmware
 
 This blueprint assigns policy definitions that help you ensure applications are using the latest
-version of the .NET Framework, HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
+version of HTTP, Java, PHP, Python, and TLS. This blueprint also assigns
 a policy definition that ensures that Kubernetes Services is upgraded to its non-vulnerable version.
 
-- Ensure that '.Net Framework' version is the latest, if used as a part of the API app
-- Ensure that '.Net Framework' version is the latest, if used as a part of the Function App
-- Ensure that '.Net Framework' version is the latest, if used as a part of the Web app
 - Ensure that 'HTTP Version' is the latest, if used to run the Api app
 - Ensure that 'HTTP Version' is the latest, if used to run the Function app
 - Ensure that 'HTTP Version' is the latest, if used to run the Web app
@@ -503,7 +500,6 @@ a policy definition that ensures that Kubernetes Services is upgraded to its non
 - Ensure that 'Java version' is the latest, if used as a part of the Function app
 - Ensure that 'Java version' is the latest, if used as a part of the Web app
 - Ensure that 'PHP version' is the latest, if used as a part of the Api app
-- Ensure that 'PHP version' is the latest, if used as a part of the Function app
 - Ensure that 'PHP version' is the latest, if used as a part of the WEB app
 - Ensure that 'Python version' is the latest, if used as a part of the Api app
 - Ensure that 'Python version' is the latest, if used as a part of the Function app
