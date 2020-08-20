@@ -40,7 +40,7 @@ If using custom workspace, ensure Network Watcher is enabled in subscription and
 1. Select subscription and connection monitors and click “Migrate selected”. In one click migrate existing connection monitors  to Connection Monitor(Preview) 
 1. You can customize connection monitor properties, change default workspace, download template and check status of migration. 
 1. Once migration begins, following changes happen: 
-	1. Azure Resource Manager (ARM) resource changes to the newer connection monitor
+	1. Azure Resource Manager resource changes to the newer connection monitor
 		1. Name, region, and subscription of the connection monitor remains unchanged. Hence, there is no impact on the resource ID.
 		1. Unless customized, a default Log Analytics workspace is created in the region and subscription of the connection monitor. This workspace is where monitoring data will be stored. Test result data will also be stored in metrics.
 		1. Each test is migrated to a test group called * defaultTestGroup*
