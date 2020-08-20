@@ -77,7 +77,7 @@ The incoming claim set is used by the policy engine to compute the attestation r
 Conditions list => Action (Claim);	
 ```
 
-Azure Attestation evaluation of a claim rule involves following steps:
+Azure Attestation evaluation of a claim rule involves the following steps:
 - If conditions list is not present, execute the action with specified claim 
 - Else, evaluate the conditions from the conditions list.
 - If the conditions list evaluates to false, stop. Else proceed.
