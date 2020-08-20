@@ -9,6 +9,7 @@ ms.author: mingshen
 author: mingshen-ms
 ms.reviewer: dannyevers
 ---
+
 # Commercial marketplace transact capabilities
 
 This article describes pricing, billing, invoicing, and payout considerations for the Microsoft commercial marketplace. 
