@@ -182,7 +182,6 @@
           href: create-new-saas-offer-marketing.md      
       - name: SaaS metered billing
         href: ./partner-center-portal/saas-metered-billing.md
-        href: ./partner-center-portal/create-new-saas-offer.md
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
