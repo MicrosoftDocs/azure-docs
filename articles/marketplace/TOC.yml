@@ -170,7 +170,19 @@
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
       - name: Create a SaaS offer
-        href: ./partner-center-portal/create-new-saas-offer.md
+        items:
+        - name: Create the SaaS offer 
+          href: create-new-saas-offer.md
+        - name: Configure offer listing
+          href: create-new-saas-offer-listing.md
+        - name: Preview audience and technical details
+          href: create-new-saas-offer-preview.md
+        - name: Create plans
+          href: create-new-saas-offer-plans.md
+        - name: Marketing options
+          href: create-new-saas-offer-marketing.md      
+      - name: SaaS metered billing
+        href: ./partner-center-portal/saas-metered-billing.md
       - name: Azure AD auth for SaaS
         items:
           - name: Azure AD and SaaS overview
