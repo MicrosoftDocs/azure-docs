@@ -30,14 +30,14 @@ az extension add --name spring-cloud
 
 1. Create a new folder and clone the sample app repository to your Azure Cloud account.  
 
-```
+```azurecli
 mkdir source-code
 git clone https://github.com/Azure-Samples/piggymetrics
 ```
 
 2. Change directory and build the project.
 
-```
+```azurecli
 cd piggymetrics
 mvn clean package -D skipTests
 ```
@@ -178,10 +178,10 @@ The following procedures deploy the Piggymetrics application using the IntelliJ 
 * Deploy to Azure Spring Cloud
 * Show streaming logs
 
-### Open gs-spring-boot project
+### Import sample project in IntelliJ
 
 1. Download and unzip the source repository for this tutorial, or clone it using Git: `git clone https://github.com/Azure-Samples/piggymetrics` 
-1. cd into `piggymetrics`.
+
 1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
 1. Select `piggymetric` folder.
 
