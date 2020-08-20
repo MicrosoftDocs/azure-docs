@@ -410,7 +410,13 @@ To add your own code that you can directly call and run from your workflow app, 
 
 ## Enable run history for stateless workflows
 
-In your workflow app's JSON definition (`workflow.json`) file, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview). To enable run history for a stateless workflow, set the `operationOptions` property value to `WithStatelessRunHistory`, for example:
+For easier debugging when you work with a stateless workflow, you can enable the run history capability for that workflow so that you can save and inspect the run in detail.
+
+### For a stateless workflow running in Visual Studio Code
+
+If you are working on and running the stateless workflow locally in Visual Studio Code, open the `local.settings.json` file, add the `operationOptions` property, and set the property value to `WithStatelessRunHistory`, for example:
+
+In your workflow app's JSON definition (`workflow.json`) file, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview).
 
 ```json
 "triggers": {
@@ -424,6 +430,20 @@ In your workflow app's JSON definition (`workflow.json`) file, you can change th
    }
 },
 ```
+
+### For a stateless workflow running in the Azure portal
+
+If you've deployed the function app project for your workflow to the Azure portal, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and open your function app.
+
+1. On the function app menu, under **Settings**, select **Configuration**.
+
+1. Under **Application Settings**, select **New application setting**.
+
+1. On the **Add/Edit application setting** pane, in the **Name** box, enter `Workflow.<your-workflow-name>.OperationOptions`.
+
+1. In the **Value** box, enter `WithStatelessRunHistory`. When you're done, select **OK**.
 
 ## Deploy to Docker container
 
