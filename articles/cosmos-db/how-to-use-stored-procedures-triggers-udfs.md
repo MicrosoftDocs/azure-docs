@@ -201,7 +201,7 @@ sproc_definition = {
     'id': 'spCreateToDoItems',
     'serverScript': file_contents,
 }
-client = CosmosClient(url, key)
+client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
 sproc = container.create_stored_procedure(container_link, sproc_definition)
@@ -365,7 +365,7 @@ trigger_definition = {
     'triggerType': documents.TriggerType.Pre,
     'triggerOperation': documents.TriggerOperation.Create
 }
-client = CosmosClient(url, key)
+client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
 trigger = container.create_trigger(container_link, trigger_definition)
@@ -515,7 +515,7 @@ trigger_definition = {
     'triggerType': documents.TriggerType.Post,
     'triggerOperation': documents.TriggerOperation.Create
 }
-client = CosmosClient(url, key)
+client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
 trigger = container.create_trigger(container_link, trigger_definition)
@@ -660,7 +660,7 @@ udf_definition = {
     'id': 'Tax',
     'serverScript': file_contents,
 }
-client = CosmosClient(url, key)
+client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
 udf = container.create_user_defined_function(container_link, udf_definition)
