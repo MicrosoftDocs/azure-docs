@@ -69,13 +69,13 @@ Granting the update permission is done in two steps:
 
     ![Add a assignment for the custom role to the user](./media/custom-enterprise-apps/assign-user-to-role.png)
 
-Assignment tips:
+#### Assignment tips
 
-To grant permissions to assignees to manage users and group access for all enterprise apps organization-wide, start from the organization-wide **Roles and Administrators** list on the Azure AD **Overview** page for your organization.
-To grant permissions to assignees to manage users and group access for a specific enterprise app, go to that app in Azure AD and open in the **Roles and Administrators** list for that app. Select the new custom role and complete the user or group assignment. The assignees can manage users and group access only for the specific app.
-To test your custom role assignment, sign in as the assignee and open an application’s **Users and groups** page to verify that the **Add user** option is enabled.
+* To grant permissions to assignees to manage users and group access for all enterprise apps organization-wide, start from the organization-wide **Roles and Administrators** list on the Azure AD **Overview** page for your organization.
+* To grant permissions to assignees to manage users and group access for a specific enterprise app, go to that app in Azure AD and open in the **Roles and Administrators** list for that app. Select the new custom role and complete the user or group assignment. The assignees can manage users and group access only for the specific app.
+* To test your custom role assignment, sign in as the assignee and open an application’s **Users and groups** page to verify that the **Add user** option is enabled.
 
-![Verify the user permissions](./media/custom-enterprise-apps/verify-user-permissions.png)
+    ![Verify the user permissions](./media/custom-enterprise-apps/verify-user-permissions.png)
 
 ## Use Azure AD PowerShell
 
