@@ -99,17 +99,16 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-### Python V4.1.0 SDK
+### Python V4 SDK
 
-The first step is to make sure that you are using version 4.1.0 of the [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos):
+Python 2.7 and Azure Cosmos DB ADK 4.1.0 are the minimum versions required. The first step is to make sure that you are using at least version 4.1.0 of the [Azure Cosmos DB Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos):
 
 ```python
 import azure.cosmos as cosmos
 
 print (cosmos.__version__)
 ```
-
-The following is the code below, it creates a container with analytical store by using the Azure Cosmos DB Python SDK:
+The next step creates a container with analytical store by using the Azure Cosmos DB Python SDK:
 
 ```python
 # Azure Cosmos DB Python SDK, for SQL API only.
@@ -153,6 +152,7 @@ try:
 except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
+> Note that Azure Cosmos DB Python SDK is only compatible with SQL API.
 
 ### <a id="update-analytical-ttl"></a> Update the analytical store time to live
 
