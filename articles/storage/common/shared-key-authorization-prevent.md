@@ -104,7 +104,7 @@ Azure Storage logs in Azure Monitor include the type of authorization that was u
 ```kusto
 StorageBlobLogs
 | where AuthenticationType in ("AccountKey", "SAS") and TimeGenerated > ago(7d)
-| summarize count() by CallerIpAddress, UserAgentHeader
+| summarize count() by CallerIpAddress, UserAgentHeader, AccountName
 | top 10 by count_ desc
 ```
 
