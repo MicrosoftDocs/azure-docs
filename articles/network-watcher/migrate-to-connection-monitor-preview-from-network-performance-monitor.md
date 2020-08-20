@@ -40,8 +40,8 @@ You can migrate tests from Network Performance Monitor to the new and improved C
 
 1.	Click on “Connection Monitor”, navigate to “Migrate tests from NPM” to migrate tests to Connection Monitor(Preview)
 
-	![Screenshot showing migrate tests from NPM to Connection Monitor (Preview)](./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png)
-
+	![Screenshot showing migrate tests from NPM to Connection Monitor Preview](./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png)
+	
 1.	Select subscription, workspace, and the NPM feature you want to migrate. Currently you can migrate only tests from Service Connectivity Monitor.  
 1.	Click “Import” to migrate tests
 1.	Once migration begins, following changes happen: 
@@ -58,5 +58,5 @@ You can migrate tests from Network Performance Monitor to the new and improved C
 
 ## Next steps
 
-* Learn [how to migrate from Connection Monitor to Connection Monitor (Preview)](migrate_to_connectionmonitorpreview_from_connection_monitor.md)
+* Learn [how to migrate from Connection Monitor to Connection Monitor (Preview)](migrate-to-connection-monitor-preview-from-connection-monitor.md)
 * Learn [how to create Connection Monitor (Preview) using Azure portal](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
