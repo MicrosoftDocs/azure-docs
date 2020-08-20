@@ -94,7 +94,7 @@ VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
 az role assignment create \
     --role "Owner" \
     --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-    --assignee e828g221-a19c-9jd7-b814-fd37c6caf9d2
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
 ## Deploy Azure Spring Cloud service instance in the virtual network
