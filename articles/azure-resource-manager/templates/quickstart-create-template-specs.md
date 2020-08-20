@@ -170,15 +170,11 @@ These options are shown below.
 
 1. Use Azure CLI or PowerShell to create a new resource group.
 
-    # [PowerShell](#tab/azure-powershell)
-
     ```azurepowershell
     New-AzResourceGroup `
       -Name templateSpecRG `
       -Location westus2
     ```
-
-    # [CLI](#tab/azure-cli)
 
     ```azurecli
     az group create \
@@ -186,11 +182,7 @@ These options are shown below.
       --location westus2
     ```
 
-    ---
-
 1. Deploy your template with Azure CLI or PowerShell.
-
-    # [PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
@@ -198,15 +190,11 @@ These options are shown below.
       -TemplateFile "c:\Templates\azuredeploy.json"
     ```
 
-    # [CLI](#tab/azure-cli)
-
     ```azurecli
     az deployment group create \
       --name templateSpecRG \
       --template-file "c:\Templates\azuredeploy.json"
     ```
-
-    ---
 
 ---
 
@@ -318,15 +306,11 @@ You can now deploy the template spec. Deploying the template spec is just like d
 
 1. Use Azure CLI or PowerShell to create a new resource group for the storage account.
 
-    # [PowerShell](#tab/azure-powershell)
-
     ```azurepowershell
     New-AzResourceGroup `
       -Name storageRG `
       -Location westus2
     ```
-
-    # [CLI](#tab/azure-cli)
 
     ```azurecli
     az group create \
@@ -334,11 +318,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
       --location westus2
     ```
 
-    ---
-
 1. Deploy your template with Azure CLI or PowerShell.
-
-    # [PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     New-AzResourceGroupDeployment `
@@ -346,15 +326,11 @@ You can now deploy the template spec. Deploying the template spec is just like d
       -TemplateFile "c:\Templates\storage.json"
     ```
 
-    # [CLI](#tab/azure-cli)
-
     ```azurecli
     az deployment group create \
       --name storageRG \
       --template-file "c:\Templates\storage.json"
     ```
-
-    ---
 
 ---
 
