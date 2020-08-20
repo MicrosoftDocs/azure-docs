@@ -39761,7 +39761,7 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech/async-synthesis-long-form-audio.md",
       "redirect_url": "/azure/cognitive-services/speech-service/long-audio-api",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
@@ -39771,7 +39771,7 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-audio-file.md",
