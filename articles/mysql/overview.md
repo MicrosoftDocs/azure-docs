@@ -36,7 +36,7 @@ Azure Database for MySQL Single Server is a fully managed database service with 
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom MySQL configuration settings. 
 
-For detailed overview of single server deployment mode, refer [single server overview](single-server-overview.md).
+For detailed overview of single server deployment mode, refer [single server overview](single-server/index.yml).
 
 ### Azure Database for MySQL - Flexible Server
 
@@ -46,7 +46,7 @@ Flexible servers are best suited for
 - New application development requiring better control and customizations on database environments to optimize based on your needs. 
 - Migrating existing applications to managed service platform as it provides seamless experience and control at par with running in your own MySQL environments. 
 
-For detailed overview of single server deployment mode, refer [flexible server overview](flexible-server-overview.md).
+For detailed overview of single server deployment mode, refer [flexible server overview](flexible-server/index.yml).
 
 ## Next Steps
 
