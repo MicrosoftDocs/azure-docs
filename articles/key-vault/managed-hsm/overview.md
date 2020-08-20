@@ -31,7 +31,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Access control, enhanced data protection & compliance
 
-- **Centralized key management** - Manage critical, high-value keys across your orginization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
+- **Centralized key management** - Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
 - **Isolated access control** - Managed HSM "local RBAC" access control model allows designated HSM pool administrators to have complete control over the HSMs that even management group, subscription or resource group administrators cannot override.
 - **FIPS 140-2 Level 3 validated HSMs** - Protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSM pools use Marvell LiquidSecurity family of HSMs.
 - **Monitor and audit** - fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
