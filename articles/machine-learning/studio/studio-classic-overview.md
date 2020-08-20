@@ -20,7 +20,7 @@ ms.date: 08/19/2020
 
 Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy machine learning models. Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
-Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
+We recommend that new users try Azure Machine Learning designer, which a modernized drag-and-drop ML pipeline builder. For more information, see [What is Azure Machine Learning studio](../what-is-ml-studio.md). 
 
 ## The Studio (classic)  interactive workspace
 
