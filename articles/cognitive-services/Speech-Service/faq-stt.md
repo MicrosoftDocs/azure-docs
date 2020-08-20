@@ -87,7 +87,7 @@ See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
 
-**A**: The limit is due to the restriction on the size of a file for HTTP upload. See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md) for the actual current limit.
+**A**: The limit is due to the restriction on the size of a file for HTTP upload. See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md) for the actual limit.
 
 **Q: Can I zip my text files so I can upload a larger text file?**
 
