@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Custom roles for enterprise app management permissions
 
-This article explains how to create a custom role with permissions to manage user and group assignments in Azure Active Directory (Azure AD). Custom permissions to manage user and group assignments. For the elements of roles assignments and the meaning of terms such as subtype, permission, and property set, see the [custom roles overview](roles-custom-overview.md). 
+This article explains how to create a custom role with permissions to manage enterprise app assignments for users and groups in Azure Active Directory (Azure AD). Custom permissions to manage user and group assignments. For the elements of roles assignments and the meaning of terms such as subtype, permission, and property set, see the [custom roles overview](roles-custom-overview.md). 
 
 ## Enterprise App role permissions
 

@@ -171,6 +171,8 @@
         href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
       - name: Assign custom roles in PowerShell
         href: roles-assign-powershell.md
+      - name: Custom roles for enterprise apps
+        href: custom-enterprise-apps.md
       - name: Custom role permissions
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
