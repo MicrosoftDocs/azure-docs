@@ -83,3 +83,4 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 * [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)
+* [Troubleshoot capacity pool issues](troubleshoot-capacity-pools.md)

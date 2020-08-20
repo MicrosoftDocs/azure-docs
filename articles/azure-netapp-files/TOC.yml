@@ -95,6 +95,10 @@
       href: azure-netapp-files-sdk-cli.md
     - name: Troubleshoot Azure NetApp Files Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot capacity pools 
+      href: troubleshoot-capacity-pools.md
 - name: Reference
   items:
   - name: REST
