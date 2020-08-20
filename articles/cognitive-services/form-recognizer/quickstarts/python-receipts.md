@@ -81,7 +81,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
         quit()
     ```
     
-    # [v2.1 preview](#tab/v2-1)    
+   # [v2.1 preview](#tab/v2-1)    
     ```
     python
     ########### Python Form Recognizer Async Receipt #############
