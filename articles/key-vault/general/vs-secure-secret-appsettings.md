@@ -98,7 +98,7 @@ To proceed, [download .NET 4.7.1](https://www.microsoft.com/download/details.asp
 ### Save secret settings in a secret file that is outside of source control folder
 If you are writing a quick prototype and don't want to provision Azure resources, go with this option.
 
-1. Right click on the project and select **Manage User Secrets**. This will install a Nuget package **Microsoft.Configuration.ConfigurationBuilders.UserSecrets** , create a file for saving secret settings outside of web.config file, and add a section **ConfigBuilders** in the web.config file.
+1. Right click on the project and select **Manage User Secrets**. This will install a NuGet package **Microsoft.Configuration.ConfigurationBuilders.UserSecrets** , create a file for saving secret settings outside of web.config file, and add a section **ConfigBuilders** in the web.config file.
 
 2. Put secret settings under root element. below is an example
 
@@ -135,7 +135,7 @@ Follow instructions from ASP.NET core section to configure a Key Vault for your 
    Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.
+2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in Global Azure, or full URI if you are using Sovereign cloud.
 
     ```xml
      <configBuilders>
