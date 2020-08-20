@@ -215,9 +215,6 @@ Currently 1.0.
 ## Drafting the policy file
 1. Create a new file.
 2. Add version to the file.
-   ```
-   version=1.0;
-   ```
 3. Add sections for authorizationrules and issuancerules
 
   ```
