@@ -21,7 +21,9 @@ Identity and access management recommendations focus on addressing issues relate
 | 3.1 | 16.1, 16.2, 16.4, 16.5, 16.6 | AC-3, IA-7, IA-8 |
 
 Azure Active Directory (Azure AD) is Azure's default identity and access management service. Standardize Azure AD to govern your organization’s identity and access management in:
+
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
+
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
 Azure AD supports external identity providers that allow users without a Microsoft account to sign in to their applications and resources with their external identity.
@@ -46,20 +48,13 @@ Azure AD provides an identity secure score to help you assess your identity secu
 
 **Responsibility**: Customer
 
-•	Identity and keys
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys 
+Identity and keys: /azure/cloud-adoption-framework/organize/cloud-security-identity-keys 
 
-•	Security architecture
+- [Security architecture](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-/azure/cloud-adoption-framework/organize/cloud-security-architecture
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-•	Application security and DevSecOps
-
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
-
-•	Posture management
-
-/azure/cloud-adoption-framework/organize/cloud-security-posture-management
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 ## 3.2: Manage application identities securely and automatically
 
