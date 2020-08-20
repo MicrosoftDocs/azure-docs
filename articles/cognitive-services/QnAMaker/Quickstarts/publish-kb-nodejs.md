@@ -26,7 +26,7 @@ Use the QnA Maker REST APIs for Node.js to:
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org).
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Data Manager UI
-description: Describes how to use StorSimple Data Manager service UI
+description: Learn how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual

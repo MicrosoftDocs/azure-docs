@@ -14,7 +14,7 @@ Enabling shared disks is only available to a subset of disk types. Currently onl
 
 ### Ultra disks
 
-Ultra disks have their own separate list of limitations, unrelated to shared disks. For ultra disk limitations, refer to [Using Azure ultra disks](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+Ultra disks have their own separate list of limitations, unrelated to shared disks. For ultra disk limitations, refer to [Using Azure ultra disks](../articles/virtual-machines/disks-enable-ultra-ssd.md).
 
 When sharing ultra disks, they have the following additional limitations:
 

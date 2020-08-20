@@ -1,5 +1,5 @@
 ---
-title: What is batch transcription - Speech service
+title: How to use batch transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
@@ -12,13 +12,11 @@ ms.date: 03/18/2020
 ms.author: wolfma
 ---
 
-# What is batch transcription?
+# How to use batch transcription
 
 Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. With the new v3.0 API, you have the choice of transcribing one or more audio files, or process a whole storage container.
 
 Asynchronous speech-to-text transcription is just one of the features. You can use batch transcription REST APIs to call the following methods:
-
-
 
 |    Batch Transcription Operation                                             |    Method    |    REST API Call                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -41,24 +39,18 @@ Next to the easy-to-use API, you don't need to deploy custom endpoints, and you 
 
 ## Prerequisites
 
-### Subscription Key
-
 As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
 
 >[!NOTE]
 > A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-### Custom models
-
 If you plan to customize models, follow the steps in [Acoustic customization](how-to-customize-acoustic-models.md) and [Language customization](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (`self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
 
-## The Batch Transcription API
+## Batch transcription API
 
-### Supported formats
+The batch transcription API supports the following formats:
 
-The Batch Transcription API supports the following formats:
-
-| Format | Codec | Bitrate | Sample Rate                     |
+| Format | Codec | Bits Per Sample | Sample Rate             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
 | MP3    | PCM   | 16-bit  | 8 kHz or 16 kHz, mono or stereo |
@@ -180,7 +172,7 @@ Use these optional properties to configure transcription:
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
-## The batch transcription result
+## Batch transcription result
 
 For each input audio, one transcription result file is being created. You can get the list of result files by calling [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). This method returns a list of result files for this transcription. To find the transcription file for a specific input file, filter all returned files with `kind` == `Transcription` and  `name` == `{originalInputName.suffix}.json`.
 
@@ -246,7 +238,7 @@ Each transcription result file his this format:
 }
 ```
 
-The result contains these forms:
+The result contains the following forms:
 
 :::row:::
    :::column span="1":::
@@ -284,9 +276,9 @@ The result contains these forms:
       The display form of the recognized text. Added punctuation and capitalization are included.
 :::row-end:::
 
-## Speaker separation (Diarization)
+## Speaker separation (diarization)
 
-Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
+Diarization is the process of separating speakers in a piece of audio. The batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
 
 The output of transcription with diarization enabled contains a `Speaker` entry for each transcribed phrase. If diarization is not used, the property `Speaker` is not present in the JSON output. For diarization we support two voices, so the speakers are identified as `1` or `2`.
 
@@ -312,7 +304,7 @@ Word-level timestamps must be enabled as the parameters in the above request ind
 
 ## Best practices
 
-The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to a reasonable value to ensure eventual deletion of the results.
+The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to a reasonable value to ensure eventual deletion of the results.
 
 ## Sample code
 

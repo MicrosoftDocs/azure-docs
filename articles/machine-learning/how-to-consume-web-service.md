@@ -156,30 +156,6 @@ The REST API expects the body of the request to be a JSON document with the foll
 > [!IMPORTANT]
 > The structure of the data needs to match what the scoring script and model in the service expect. The scoring script might modify the data before passing it to the model.
 
-For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request, and passes it to the model. The following example shows the data this service expects:
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
-
 ### Binary data
 
 For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-advanced-entry-script.md#binary-data).

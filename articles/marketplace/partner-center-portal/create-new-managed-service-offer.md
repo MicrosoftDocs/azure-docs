@@ -24,7 +24,7 @@ You must have a [Silver or Gold Cloud Platform competency level](https://partner
     ![Illustrates the left-navigation menu.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -170,6 +170,8 @@ Select **Save draft** before continuing.
 ## Plan overview
 
 Each offer must have one or more plans (formerly called SKUs). You might add multiple plans to support different feature sets at different prices or to customize a specific plan for a limited audience of specific customers. Customers can view the plans that are available to them under the parent offer.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 On the **Plan overview** page, select **+ Create new plan**. Then enter a **Plan ID** and a **Plan name**. Both of these values can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. These values may be visible to customers, and they can't be changed after you publish the offer.
 

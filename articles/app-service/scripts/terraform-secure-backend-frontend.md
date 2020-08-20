@@ -22,11 +22,11 @@ This article illustrates an example use of [Private Endpoint](https://docs.micro
 - Create the backend web app
 - Create the DNS private zone with the name of the private link zone for web app privatelink.azurewebsites.net
 - Link this zone to the VNet
-- Create the private endpoint for the backend web app in the endpoint subnet, and register the DNS names in the previously created DNS private zone
+- Create the private endpoint for the backend web app in the endpoint subnet, and register DNS names (website and SCM) in the previously created DNS private zone
 
 ## How to use terraform in Azure
 
-Browse to the [Azure portal](https://docs.microsoft.com/azure/developer/terraform/) to learn how to use terraform with Azure.
+Browse to the [Azure documentation](https://docs.microsoft.com/azure/developer/terraform/) to learn how to use terraform with Azure.
 
 ## The complete terraform file
 
