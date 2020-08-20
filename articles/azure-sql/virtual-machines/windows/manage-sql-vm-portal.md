@@ -47,7 +47,7 @@ To access the **SQL virtual machines** resource, do the following:
    Selecting your SQL Server VM opens the **SQL virtual machines** resource: 
 
 
-   ![SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-resource.png)
+   ![View the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-resource.png)
 
 > [!TIP]
 > The **SQL virtual machines** resource is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** box to open settings that are specific to the VM, but not exclusive to SQL Server. 

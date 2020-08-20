@@ -72,8 +72,7 @@ You can check the status of your deployment in the **Activity log** which is acc
 
 ### Onboard existing cluster
 
-If you already have a cluster configured in your SQL Server VM environment, you can onboard it from the Azure portal. You can also use these same steps to add additional VMs to the cluster. 
-
+If you already have a cluster configured in your SQL Server VM environment, you can onboard it from the Azure portal.
 
 To do so, follow these steps:
 
@@ -89,12 +88,15 @@ To do so, follow these steps:
 
 ## Create availability group
 
-Create the availability group using the Azure portal. To do so, follow these steps:
+After your cluster was either created or onboarded, create the availability group by using the Azure portal. To do so, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your [SQL virtual machines](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource. 
 1. Select **High Availability** under **Settings**. 
-1. Select **+ Create Always On availability group** to open the **Create availability group** page.
+1. Select **+ New Always On availability group** to open the **Create availability group** page.
+
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png alt-text="Select new always on availability group to open the create availability group page. ":::
+
 1. Enter a name for the availability group. 
 1. Select **Configure listener** to open the **Configure availability group listener** page. 
 
@@ -114,7 +116,9 @@ Create the availability group using the Azure portal. To do so, follow these ste
 You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
   > [!NOTE]
-  > Your **Replication health** on the **High Availability** page of the Azure portal will show as **Not healthy** until you add databases to your availability group. 
+  > Your **Synchronization health** on the **High Availability** page of the Azure portal will show as **Not healthy** until you add databases to your availability group. 
+
+
 
 
 ## Add database to availability group
@@ -137,7 +141,7 @@ To add databases to your availability group using SQL Server Management Studio, 
 
 After databases are added, you can check the status of your availability group in the Azure portal: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Right-click the availability group in object explorer and choose to Add database":::
+:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Check the status of your availability group from the high availability page from the Azure portal after databases are synchronized":::
 
 ## Add more VMs
 
@@ -160,7 +164,7 @@ You can check the status of your deployment in the **Activity log** which is acc
 ## Modify availability group 
 
 
-You can **add more replicas** to the availability group, **configure the listener**, or **delete the listener** from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
+You can **Add more replicas** to the availability group, **Configure the Listener**, or **Delete the Listener** from the **High Availability** page in the Azure portal by selecting the ellipses (...) next to your availability group: 
 
 :::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Select the ellipses next to the availability group and then select add replica to add more replicas to the availability group.":::
 
@@ -184,8 +188,6 @@ Next, remove the cluster metadata:
 
 az sql vm group delete --name <cluster name> Cluster --resource-group <resource group name>
 ```
-
-
 
 # [PowerShell](#tab/azure-powershell)
 
