@@ -105,7 +105,7 @@ If you're not going to continue to use this application, you can delete the Azur
 
 In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **my-first-static-web-app** and select **Delete**.
 
-    :::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app":::
 
 ## Next steps
 
