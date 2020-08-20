@@ -1,5 +1,5 @@
 ---
-title: Examples of Azure Attestation policy signer certificate
+title: Examples of an Azure Attestation policy signer certificate
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -10,7 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# Examples of attestation policy signer certificate
+# Examples of an attestation policy signer certificate
 
 ## Policy signer certificate content
 
