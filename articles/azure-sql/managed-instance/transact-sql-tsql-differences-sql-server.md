@@ -359,7 +359,7 @@ Some Windows-specific targets for Extended Events (XEvents) aren't supported:
 
 ### External libraries
 
-In-database R and Python, external libraries aren't yet supported. See [SQL Server Machine Learning Services](/sql/advanced-analytics/r/sql-server-r-services).
+In-database R and Python, external libraries are supported in limited public preview. See [Machine Learning Services in Azure SQL Managed Instance (preview)](machine-learning-services-overview.md).
 
 ### Filestream and FileTable
 
