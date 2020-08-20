@@ -96,8 +96,8 @@ Depending on your tools of choice, you can do so with the Visual Studio package 
 Add the following using statements to your Azure function.
 
 ```csharp
-using Azure.Identity;
 using Azure.DigitalTwins.Core;
+using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
@@ -158,7 +158,7 @@ Use the following command to create the system-managed identity. Take note of th
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the *principalId* value in the following command to assign the function app's identity to the *owner* role for your Azure Digital Twins instance:
+Use the *principalId* value in the following command to assign the function app's identity to the *Azure Digital Twins Owner (Preview)* role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities.
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
