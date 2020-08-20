@@ -20,7 +20,7 @@ ms.author: jawilley
 
 Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput levels. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md). 
 
-Because Azure Cosmos DB is accessed via network calls, you can make client-side optimizations to achieve peak performance when you use the [SQL .NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3).
+Because Azure Cosmos DB is accessed via network calls, you can make client-side optimizations to achieve peak performance when you use the [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 If you're trying to improve your database performance, consider the options presented in the following sections.
 
@@ -137,7 +137,7 @@ To reduce latency and CPU jitter, we recommend that you enable accelerated netwo
 
 **Install the most recent SDK**
 
-The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. To determine the most recent SDK and review improvements, see the [Azure Cosmos DB SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) pages.
+The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. To determine the most recent SDK and review improvements, see [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md).
 
 **Use stream APIs**
 
