@@ -317,7 +317,7 @@ Word-level timestamps must be enabled as the parameters in the above request ind
 
 ## Best practices
 
-The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual deletion of the results.
+The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual deletion of the results.
 
 ## Sample code
 
