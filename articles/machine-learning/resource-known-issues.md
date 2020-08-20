@@ -116,7 +116,7 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
-* **Azure Machine Learning SDK installation failing with an exception: 'ImportError: No module named ruamel.yaml'** 
+* **Azure Machine Learning SDK installation failing with an exception: ModuleNotFoundError: No module named 'ruamel' or 'ImportError: No module named ruamel.yaml' ** 
    
    This issue is getting encountered with the installation of Azure Machine Learning SDK for Python on the latest pip (>20.1.1) in the conda base environment for all released versions of Azure Machine Learning SDK for Python. Refer to the following workarounds:
 
