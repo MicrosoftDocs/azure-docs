@@ -51,14 +51,14 @@ To create the content repository for language packages and FODs:
 
 4. Go to the **FOD ISO file**, copy all of its content, then paste it into the file share.
 
->[!NOTE]
-> If you're working with limited storage, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+     >[!NOTE]
+     > If you're working with limited storage, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
->[!IMPORTANT]
-> Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
->
-> [!div class="mx-imgBorder"]
-> ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
+     >[!IMPORTANT]
+     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
+     >
+     > [!div class="mx-imgBorder"]
+     > ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
 
 5. Set the permissions on the language content repository share so that you have read access from the VM you'll use to build the custom image.
 
@@ -171,7 +171,7 @@ To run sysprep:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. Shut down the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md)
+2. Shut down the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 3. You can now use the customized image to deploy a Windows Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
