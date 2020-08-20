@@ -38,10 +38,12 @@ Let's say we check our health probe status and find out that all instances are s
 * Check the CPU utilization for your resources to check if your instances are in fact healthy
 * If using an HTTP or HTTPS probe check if the application is healthy and responsive
 * Review the Network Security Groups applied to our backend resources. Ensure that there are no rules of a higher priority than AllowAzureLoadBalancerInBound that will block the health probe
+  * You can do this by visiting the Networking blade of your backend VMs or VMSSes
   * If you find this NSG issue is the case, move the existing Allow rule or create a new high priority rule to allow AzureLoadBalancer traffic
 * Check your OS. Ensure your VMs are listening on the probe port and review their OS firewall rules to ensure they are not blocking the probe traffic originating from IP address 168.63.129.16
+  * You can check listening ports by running netstat -a the Windows command prompt or netstat -l in a Linux terminal
 * Don't place a firewall NVA VM in the backend pool of the load balancer, use [user-defined routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) to route traffic to backend instances through the firewall
-* Ensure you're using the right protocol, if using HTTP to probe listening for a non-HTTP application the probe will fail
+* Ensure you're using the right protocol, if using HTTP to probe a port listening for a non-HTTP application the probe will fail
 
 If you've gone through this checklist and are still finding health probe failures, there may be rare platform issues impacting the probe service for your instances. In this case, Azure has your back and an automated alert is sent to our team to rapidly resolve all platform issues.
 
