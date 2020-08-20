@@ -12,16 +12,11 @@ ms.service: digital-twins
 
 # Troubleshooting Azure Digital Twins: Log schemas
 
-This article describes the Azure Active Directory (Azure AD) log schemas in Azure Monitor for Azure Digital Twins. It contains three categories:
-* Audit log schemas
+This article describes the Azure Active Directory (Azure AD) log schemas in Azure Monitor for Azure Digital Twins. The schemas can be grouped into two greater categories:
 * API log schemas
 * Egress log schemas
 
 Each individual log entry is stored as text and formatted as a JSON blob. Example JSON bodies will be provided along with each section below.
-
-## Audit log schemas
-
-Here are the field and property descriptions for audit logs.
 
 ## API log schemas
 
