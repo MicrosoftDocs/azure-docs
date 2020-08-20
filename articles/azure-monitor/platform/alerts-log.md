@@ -18,7 +18,7 @@ This article shows you how to create and manage log alerts using Azure Monitor. 
 The term **Log Alert** describes alerts where a log query is evaluated on resources logs every set frequency, and an alert fired if the criteria is met. Learn more about functionality, terminology, and types from [Log alerts - Overview](alerts-unified-log.md).
 
 > [!NOTE]
-> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can also be routed to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
+> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
 ## Create a log alert rule with the Azure portal
 
@@ -147,7 +147,7 @@ Here the steps to get started writing queries for alerts:
 
 1. In the **Actions** tab, select or create the required [action groups](action-groups.md).
 
-
+![Details tab](media/alerts-log/ActionsTab.png)
 
 1. In the **Details** tab, define the **Alert rule details**, and **Project details** . You can optionally set whether to not **Start running now** and/or **Mute Actions** for a period after the alert fires.
 
@@ -183,7 +183,7 @@ Here the steps to get started writing queries for alerts:
 Log alerts in Azure Monitor are associated with resource type `Microsoft.Insights/scheduledQueryRules`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](/rest/api/monitor/scheduledqueryrules/). Log alerts for Application Insights or Log Analytics, can be created using [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn about using the current ScheduledQueryRules API](alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 
 ### Sample Log alert Template for workspaces and Application Insights
@@ -634,7 +634,7 @@ Azure Monitor - [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrule
 
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn about using the current ScheduledQueryRules API](alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 Log alerts currently do not have dedicated CLI commands; but as illustrated below can be used via Azure Resource Manager CLI command for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section:
 
