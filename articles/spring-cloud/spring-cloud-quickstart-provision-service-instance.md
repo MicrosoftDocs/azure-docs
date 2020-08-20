@@ -67,11 +67,11 @@ az extension add --name spring-cloud
 
 1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
-    ```azurecli
-        az login
-        az account list -o table
-        az account set --subscription <Name or ID of subscription from the last step>
-    ```
+```azurecli
+az login
+az account list -o table
+az account set --subscription <Name or ID of subscription from the last step>
+```
 
 2. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
 

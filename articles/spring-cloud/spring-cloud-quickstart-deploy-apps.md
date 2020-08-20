@@ -30,17 +30,17 @@ az extension add --name spring-cloud
 
 1. Create a new folder and clone the sample app repository to your Azure Cloud account.  
 
-    ```console
-        mkdir source-code
-        git clone https://github.com/Azure-Samples/piggymetrics
-    ```
+```
+mkdir source-code
+git clone https://github.com/Azure-Samples/piggymetrics
+```
 
 2. Change directory and build the project.
 
-    ```console
-        cd piggymetrics
-        mvn clean package -D skipTests
-    ```
+```
+cd piggymetrics
+mvn clean package -D skipTests
+```
 
 Compiling the project takes about 5 minutes.  Once completed, you should have individual JAR files for each service in their respective folders.
 
@@ -107,24 +107,24 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 
 1. Clone the Git repository by running the following command:
 
-    ```console
-    git clone https://github.com/Azure-Samples/PiggyMetrics
-    ```
+```
+git clone https://github.com/Azure-Samples/PiggyMetrics
+```
   
 1. Change directory and build the project by running the following command:
 
-    ```console
-    cd piggymetrics
-    mvn clean package -DskipTests
-    ```
+```
+cd piggymetrics
+mvn clean package -DskipTests
+```
 
 ### Generate configurations and deploy to the Azure Spring Cloud
 
 1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
 
-    ```console
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
-    ```
+```
+mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+```
 
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
 
@@ -136,9 +136,9 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
 
-   ```console
-   mvn azure-spring-cloud:deploy
-   ```
+```
+mvn azure-spring-cloud:deploy
+```
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
 1. Navigate to the URL in browser.

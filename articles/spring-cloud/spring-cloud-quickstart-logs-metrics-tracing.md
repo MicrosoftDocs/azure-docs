@@ -39,7 +39,6 @@ You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
 az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
-
 ```
 
 You will see logs like
