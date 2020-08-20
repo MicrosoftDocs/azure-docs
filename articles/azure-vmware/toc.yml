@@ -60,6 +60,8 @@
         href: backup-avs-vms-with-mabs.md
     - name: Application Gateway
       href: protect-avs-web-apps-with-app-gateway.md
+    - name: Traffic Manager with AVS
+      href: deploy-traffic-manager-to-balance-avs-workloads.md  
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations

@@ -243,34 +243,21 @@
         href: configure-connect-python-howto.md
     - name: Reset account credentials
       href: cli-reset-account-credentials.md
-  - name: Create and manage assets
+  - name: Create assets and upload media
     items:
     - name: Create an asset
-      href: cli-create-asset.md
-    - name: Manage assets
-      href: manage-asset-concept.md  
-      displayName: name, naming, file name, upload, output, download
-  - name: Upload content
-    items:
-    - name: From HTTPS
-      displayName: upload
-      href: job-input-from-http-how-to.md
-    - name: From a local file
-      items:
-      - name: With .NET
-        displayName: upload
-        href: job-input-from-local-file-how-to.md  
-      - name: With REST
-        displayName: upload
-        href: upload-files-rest-how-to.md
-      - name: With CLI
-        href: cli-upload-file-asset.md
+      href: how-to-create-asset.md
+    - name: Upload media
+      href: how-to-upload-media.md
   - name: Create transforms and jobs
     items:
     - name: Create transforms
       href: cli-create-transform.md
     - name: Create jobs
       href: cli-create-jobs.md
+    - name: Creat job input with a local file and .NET
+      displayName: upload
+      href: job-input-from-local-file-how-to.md
     - name: Jobs with multiple transform outputs
       href: job-multiple-transform-outputs.md
   - name: Encode content 
