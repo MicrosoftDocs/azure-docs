@@ -47,7 +47,7 @@ Connected Machines because it's included in the Arc Connected Machine agent.
 > The Guest Configuration extension and a managed identity is required to audit Azure virtual
 > machines. To deploy the extension at scale, assign the following policy initiative:
 > 
-> - [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### Limits set on the extension
 
