@@ -53,10 +53,10 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Add your Computer Vision subscription key and endpoint to your environment variables.
-        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
+        // Add your Computer Vision subscription key and endpoint as class variables
+        static string subscriptionKey = "COMPUTER_VISION_SUBSCRIPTION_KEY";
 
-        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        static string endpoint = "COMPUTER_VISION_ENDPOINT";
         
         // the OCR method endpoint
         static string uriBase = endpoint + "vision/v2.1/ocr";

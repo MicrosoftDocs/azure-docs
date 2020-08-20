@@ -50,9 +50,9 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Add your Computer Vision subscription key and base endpoint to your environment variables.
-        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
-        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        // Add your Computer Vision subscription key and endpoint as class variables
+        static string subscriptionKey = "COMPUTER_VISION_SUBSCRIPTION_KEY";
+        static string endpoint = "COMPUTER_VISION_ENDPOINT";
         
         // The GenerateThumbnail method endpoint
         static string uriBase = endpoint + "vision/v3.0/generateThumbnail";
