@@ -1,19 +1,24 @@
 ---
-title: Copy an Azure Event Grid system topic to another region | Microsoft Docs
-description: This article shows you how to move an Azure Event Grid system topic from the current region to another region. 
+title: Move Azure Event Grid resources to another region
+description: This article shows you how to move Azure Event Grid resources such as system topics from one region to another region.  
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 08/13/2020
-#Customer intent: As an Azure service administrator, I want to be able to copy an Azure event source and its associated system topic from one region to another region to have it closer to customers. 
+ms.date: 08/20/2020
+#Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers. 
 ---
 
-# Copy an Azure Event Grid system topic to another region
-This article shows you how to copy an Azure Event Grid system topic from one region to another region. You might copy your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
+# Move Azure Event Grid resources to another region
+You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-> [!NOTE]
-> Currently, you can only copy system topics and partner topics from one region to another region. Copying custom topics and domains across regions isn't supported yet. 
+Currently, you can only move **system topics** from one region to another region. Moving custom topics, partner topics, and domains across regions isn't supported yet. This article shows you how to move an Azure Event Grid system topic from one region to another region. 
 
-In this article, you learn how to copy a system topic from one region to another region. First, you export a template for the resource group that contains both the Azure resource and the system topic. Then, you use the template to deploy these resources to the target region. You can also export a template for just the system topic, but you need to remember to copy the Azure resource (for example: Azure Storage account) to the other region before copying the system topic. 
+Here's are the high-level steps covered in this article: 
+
+- **Export the resource group** that contains the Azure Storage account and its associated system topic to a Resource Manager template. You can also export a template for just the system topic. If you do so, you need to remember to move the Azure event source (in this example, an Azure Storage account) to the other region before moving the system topic. 
+- **Modify the template** to add the `endpointUrl` property to point to a webhook that subscribes to the system topic. When the system topic is exported, its subscription (in this case, it's a webhook) is also exported to the template, but the `endpointUrl` property isn't included. 
+- **Use the template to deploy resources** to the target region. You'll specify names for the storage account and the system topic to be created in the target region. 
+- **Verify the deployment**. Verify that the webhook is invoked when you upload a file to the blob storage in the target region. 
+- To **complete the move**, delete resources from the source region. 
 
 ## Prerequisites
 - Complete the [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md) in the source region. This step is **optional**. Do it to test steps in this article. Keep the storage account in a separate resource group from the App Service and App Service plan. 
@@ -21,10 +26,10 @@ In this article, you learn how to copy a system topic from one region to another
 - For any preview features, ensure that your subscription is whitelisted for the target region.
 
 ## Prepare
-To get started, export a Resource Manager template for the resource group that contains the system event source (for example: Azure Storage account) and its associated system topic. 
+To get started, export a Resource Manager template for the resource group that contains the system event source (Azure Storage account) and its associated system topic. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **Resource groups** on the left menu, and select the resource group that contains the event source for which the system topic was created. In the following example, it's the **Azure Storage** account. The resource group contains the storage account and its associated system topic. 
+1. Select **Resource groups** on the left menu. Then, select the resource group that contains the event source for which the system topic was created. In the following example, it's the **Azure Storage** account. The resource group contains the storage account and its associated system topic. 
 
     :::image type="content" source="./media/copy-across-regions/resource-group-page.png" alt-text="Resource group page":::        
 3. On the left menu, select **Export template** under **Settings**, and then, select **Download** on the toolbar. 
@@ -71,7 +76,7 @@ To get started, export a Resource Manager template for the resource group that c
         ```
 
 ## Recreate 
-Deploy the template to create a storage account and a system topic for the storage account in the new region. 
+Deploy the template to create a storage account and a system topic for the storage account in the target region. 
 
 1. In the Azure portal, select **Create a resource**.
 2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
@@ -83,7 +88,7 @@ Deploy the template to create a storage account and a system topic for the stora
 8. On the **Custom deployment** page, follow these steps: 
     1. Select an Azure **subscription**. 
     2. Select an existing **resource group** or create one. 
-    3. Select the target **location** or region. If you selected an existing resource group, this setting is read-only.
+    3. Select the target **location** or **region**. If you selected an existing resource group, this setting is read-only.
     4. In the **SETTINGS** section, do the following steps:    
         1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
         1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account. 
@@ -93,12 +98,12 @@ Deploy the template to create a storage account and a system topic for the stora
     6. Now, select **Select Purchase** to start the deployment process. 
 
 ## Verify
-In this example, upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. 
+Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
 
 ## Discard or clean up
-After the deployment, if you want to start over, delete the resource group in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#recreate) sections of this article.
+To complete the move, delete the resource group that contains the storage account and its associated system topic in the source region.  
 
-If you want to use the event source and the system topic only from the new region, delete the resource group in the source region. 
+If you want to start over, delete the resource group in the target region, and repeat steps in the [Prepare](#prepare) and [Recreate](#recreate) sections of this article.
 
 To delete a resource group (source or target) by using the Azure portal:
 
