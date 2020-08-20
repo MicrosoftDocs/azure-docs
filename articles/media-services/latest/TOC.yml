@@ -8,19 +8,42 @@
     displayName: release notes
     href: release-notes.md
 - name: Quickstarts
-  expanded: true
   items:
-  - name: Live event with portal and Wirecast
-    displayName: live, event, portal, wirecast
-    href: live-events-wirecast-quickstart.md
-  - name: Live event with portal and OBS
-    displayName: live, event, portal, obs
-    href: live-events-obs-quickstart.md
-  - name: Use portal to upload, encode, and stream content 
-    href: manage-assets-quickstart.md
-  - name: Use portal to encrypt content
-    displayName: protect, drm, aes
-    href: encrypt-content-quickstart.md       
+    -name: Set up your environment
+    items:
+    - name: Find your Azure subscription
+      href: how-to-set-azure-subscription.md
+    - name: Create a Media Services account
+      href: create-account-howto.md
+    - name: Access the API
+      href: access-api-howto.md
+    - name: Develop with REST
+      items:
+      - name: Connect with Postman
+        href: media-rest-apis-with-postman.md
+    - name: Develop with SDKs
+      items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
+      - name: Connect with .NET 
+        href: configure-connect-dotnet-howto.md
+      - name: Connect with Node.js
+        href: configure-connect-nodejs-howto.md
+      - name: Connect with Python
+        href: configure-connect-python-howto.md
+    - name: Try Media Services in the Azure portal
+      items:
+      - name: Live event with portal and Wirecast
+        displayName: live, event, portal, wirecast
+        href: live-events-wirecast-quickstart.md
+      - name: Live event with portal and OBS
+        displayName: live, event, portal, obs
+        href: live-events-obs-quickstart.md
+      - name: Use portal to upload, encode, and stream content 
+        href: manage-assets-quickstart.md
+      - name: Use portal to encrypt content
+        displayName: protect, drm, aes
+        href: encrypt-content-quickstart.md       
 - name: Tutorials
   items:
   - name: Encode remote file and stream video
@@ -56,6 +79,7 @@
   - name: Media Services v3 REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
+  expanded: true
   items:
   - name: Overview
     href: concepts-overview.md
@@ -217,30 +241,6 @@
       displayName: naming      
 - name: How-to guides
   items:
-  - name: Get started
-    items:
-    - name: Find your Azure subscription
-      href: how-to-set-azure-subscription.md
-    - name: Create a Media Services account
-      href: create-account-howto.md
-      displayName: portal, cli, storage
-    - name: Access API
-      displayName: portal, cli
-      href: access-api-howto.md
-    - name: Develop with REST
-      items:
-      - name: Connect with Postman
-        href: media-rest-apis-with-postman.md
-    - name: Develop with SDKs
-      items:
-      - name: Connect with Java
-        href: configure-connect-java-howto.md
-      - name: Connect with .NET 
-        href: configure-connect-dotnet-howto.md
-      - name: Connect with Node.js
-        href: configure-connect-nodejs-howto.md
-      - name: Connect with Python
-        href: configure-connect-python-howto.md
     - name: Reset account credentials
       href: cli-reset-account-credentials.md
   - name: Create assets and upload media
