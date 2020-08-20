@@ -135,7 +135,7 @@ Follow instructions from ASP.NET core section to configure a Key Vault for your 
    Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in Global Azure, or full URI if you are using Sovereign cloud.
+2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in global Azure, or full URI if you are using Sovereign cloud.
 
     ```xml
      <configBuilders>
