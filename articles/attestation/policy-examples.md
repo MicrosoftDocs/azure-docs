@@ -1,5 +1,5 @@
 ---
-title: Examples of an aAzure Attestation policies
+title: Examples of Azure Attestation policies
 description: XXX
 services: attestation
 author: msmbaldwin
