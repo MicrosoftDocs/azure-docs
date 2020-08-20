@@ -42,71 +42,71 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
   # [v2.0](#tab/v2-0) 
-    ```python
-    ########### Python Form Recognizer Async Layout #############
+```python
+########### Python Form Recognizer Async Layout #############
 
-    import json
-    import time
-    from requests import get, post
-    
-    # Endpoint URL
-    endpoint = r"<Endpoint>"
-    apim_key = "<Subscription Key>"
-    post_url = endpoint + "/formrecognizer/v2.0/Layout/analyze"
-    source = r"<path to your form>"
-    
-    headers = {
-        # Request headers
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': apim_key,
-    }
-    with open(source, "rb") as f:
-        data_bytes = f.read()
-    
-    try:
-        resp = post(url = post_url, data = data_bytes, headers = headers)
-        if resp.status_code != 202:
-            print("POST analyze failed:\n%s" % resp.text)
-            quit()
-        print("POST analyze succeeded:\n%s" % resp.headers)
-        get_url = resp.headers["operation-location"]
-    except Exception as e:
-        print("POST analyze failed:\n%s" % str(e))
+import json
+import time
+from requests import get, post
+
+# Endpoint URL
+endpoint = r"<Endpoint>"
+apim_key = "<Subscription Key>"
+post_url = endpoint + "/formrecognizer/v2.0/Layout/analyze"
+source = r"<path to your form>"
+
+headers = {
+    # Request headers
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': apim_key,
+}
+with open(source, "rb") as f:
+    data_bytes = f.read()
+
+try:
+    resp = post(url = post_url, data = data_bytes, headers = headers)
+    if resp.status_code != 202:
+        print("POST analyze failed:\n%s" % resp.text)
         quit()
-    ```   
+    print("POST analyze succeeded:\n%s" % resp.headers)
+    get_url = resp.headers["operation-location"]
+except Exception as e:
+    print("POST analyze failed:\n%s" % str(e))
+    quit()
+```   
   # [v2.1 preview](#tab/v2-1)  
-    ```python
-    ########### Python Form Recognizer Async Layout #############
+```python
+########### Python Form Recognizer Async Layout #############
 
-    import json
-    import time
-    from requests import get, post
-    
-    # Endpoint URL
-    endpoint = r"<Endpoint>"
-    apim_key = "<Subscription Key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/Layout/analyze"
-    source = r"<path to your form>"
-    
-    headers = {
-        # Request headers
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': apim_key,
-    }
-    with open(source, "rb") as f:
-        data_bytes = f.read()
-    
-    try:
-        resp = post(url = post_url, data = data_bytes, headers = headers)
-        if resp.status_code != 202:
-            print("POST analyze failed:\n%s" % resp.text)
-            quit()
-        print("POST analyze succeeded:\n%s" % resp.headers)
-        get_url = resp.headers["operation-location"]
-    except Exception as e:
-        print("POST analyze failed:\n%s" % str(e))
+import json
+import time
+from requests import get, post
+
+# Endpoint URL
+endpoint = r"<Endpoint>"
+apim_key = "<Subscription Key>"
+post_url = endpoint + "/formrecognizer/v2.1-preview.1/Layout/analyze"
+source = r"<path to your form>"
+
+headers = {
+    # Request headers
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': apim_key,
+}
+with open(source, "rb") as f:
+    data_bytes = f.read()
+
+try:
+    resp = post(url = post_url, data = data_bytes, headers = headers)
+    if resp.status_code != 202:
+        print("POST analyze failed:\n%s" % resp.text)
         quit()
-    ```  
+    print("POST analyze succeeded:\n%s" % resp.headers)
+    get_url = resp.headers["operation-location"]
+except Exception as e:
+    print("POST analyze failed:\n%s" % str(e))
+    quit()
+```  
 
 
   ---
