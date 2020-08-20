@@ -40,8 +40,26 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
+## [REST](#tab/rest/)
+
+### Using REST
+
+[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-rest.md)]
+
+### Using cURL
+
+[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
+
+## Using Postman
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
+
+## [.NET](#tab/net/)
+
+[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-dotnet.md)]
+
 ---
 
 ## Next steps
 
-[Manage assets](manage-asset-concept.md)
+[Media Services Overview](media-services-overview.md)
