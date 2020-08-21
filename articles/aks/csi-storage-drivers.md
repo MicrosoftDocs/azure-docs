@@ -1,0 +1,138 @@
+---
+title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
+description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure Disk and Azure Files in an Azure Kubernetes Service (AKS) cluster.
+services: container-service
+ms.topic: article
+ms.date: 08/17/2020
+
+---
+
+# Enable CSI drivers for Azure disks and Azure files on Azure Kubernetes Service (AKS) (preview)
+
+The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) now can write, deploy, and iterate plugins exposing new or improving existing storage systems in Kubernetes without having to touch the core Kubernetes code and waiting for its release cycles.
+
+The CSI storage driver support on AKS allows you to natively leverage:
+- *Azure Disks* can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium storage, backed by high-performance SSDs, or Azure Standard storage, backed by regular HDDs or standard SSDs. For most production and development workloads, use Premium storage. Azure Disks are mounted as *ReadWriteOnce*, so are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+- *Azure Files* can be used to mount an SMB 3.0 share backed by an Azure Storage account to pods. Files let you share data across multiple nodes and pods. Files can use Azure Standard storage backed by regular HDDs, or Azure Premium storage, backed by high-performance SSDs.
+
+> [!IMPORTANT]
+> Kubernetes will be transitioning to CSI storage drivers instead of in-tree drivers by default with kubernetes v1.21. These are the future of storage support in Kubernetes.
+
+
+## Before you begin
+
+This feature can only be set at cluster creation time.
+
+> [!IMPORTANT]
+> The minimum kubernetes minor version that supports CSI drivers is v1.17.
+
+### Register the `EnableAzureDiskFileCSIDriver` preview feature
+
+To create an AKS cluster that can leverage CSI drivers for Azure Disks and Azure Files, you must enable the `EnableAzureDiskFileCSIDriver` feature flag on your subscription.
+
+Register the `EnableAzureDiskFileCSIDriver` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
+```
+
+It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureDiskFileCSIDriver')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Install aks-preview CLI extension
+
+To create an AKS cluster or a node pool that can use Ultra Disks, you need the latest *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, or install any available updates using the [az extension update][az-extension-update] command:
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+``` 
+
+
+## Create a new cluster that can use CSI Storage Drivers
+
+Create a new cluster that can leverage CSI Storage Drivers for Azure disks and Azure Files by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableAzureDiskFileCSIDriver` feature.
+
+Create an Azure resource group:
+
+```azurecli-interactive
+# Create an Azure resource group
+az group create --name myResourceGroup --location canadacentral
+```
+
+Create the AKS cluster with support for CSI Storage drivers.
+
+```azurecli-interactive
+# Create an AKS-managed Azure AD cluster
+az aks create -g MyResourceGroup -n MyManagedCluster --aks-custom-headers EnableAzureDiskFileCSIDriver=true
+```
+
+If you want to create clusters in-tree storage drivers instead of CSI storage drivers, you can do so by omitting the custom `--aks-custom-headers` parameter.
+
+
+## Next steps
+
+- To know how to use CSI driver for Azure disks, see [Use Azure disk with CSI drivers](azure-disk-csi.md).
+- To know how to use CSI driver for Azure files, see [Use Azure files with CSI drivers](azure-files-csi.md).
+- For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
+
+<!-- LINKS - external -->
+[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
+[kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
+
+<!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md
+[azure-files-pvc]: azure-files-dynamic-pv.md
+[premium-storage]: ../virtual-machines/windows/disks-types.md
+[az-disk-list]: /cli/azure/disk#az-disk-list
+[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
+[az-disk-create]: /cli/azure/disk#az-disk-create
+[az-disk-show]: /cli/azure/disk#az-disk-show
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update
+[az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+
+
+
+
+
+## Use the Azure disk CSI driver
+
+### Leverage the built in storage classes
+
+### Create a custom Storage class
+
+### Resize a Persistent Volume (PV)
+
+### Azure File VHD Disk
+
+### Use NFS
+
+
+### Windows Containers

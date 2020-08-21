@@ -190,6 +190,8 @@
       href: azure-netapp-files.md
     - name: Use Azure Ultra Disks (preview)
       href: use-ultra-disks.md
+    - name: CSI Storage Drivers (preview)
+      href: csi-storage-drivers.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
