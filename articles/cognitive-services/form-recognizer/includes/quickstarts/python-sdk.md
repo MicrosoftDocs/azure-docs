@@ -257,7 +257,7 @@ Document errors: []
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned **CustomFormSubmodel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 > [!IMPORTANT]
 > To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **begin_training** function with the *use_training_labels* parameter set to `true`.
