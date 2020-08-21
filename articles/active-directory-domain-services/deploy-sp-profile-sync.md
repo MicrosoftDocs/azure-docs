@@ -67,7 +67,7 @@ From your Azure AD DS management VM, complete the following steps:
 
 ## Next steps
 
-For more information, see [Grant Active Directory Domain Services permissions for profile synchronization in SharePoint Server](/SharePoint/administration/user-profile-service-administration)
+For more information, see [Manage user profile synchronization in SharePoint Server](/SharePoint/administration/manage-profile-synchronization).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
