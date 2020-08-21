@@ -42,8 +42,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 # [v2.0](#tab/v2-0)    
-```
-    python
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -82,8 +81,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 ```
     
 # [v2.1 preview](#tab/v2-1)    
-```
-    python
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
