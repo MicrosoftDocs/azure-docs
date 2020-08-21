@@ -58,7 +58,7 @@ When you're debugging application crashes, start by checking the running status 
     * Gradual memory leaks.
   For more information, see [Metrics](spring-cloud-concept-metrics.md).
   
-* If your application cannot start, please check the application log and see if it has valid jvm parameters. If you set too large memory, you may see the following error:
+* If the application fails to start, please check if it has valid jvm parameters. If you set too large jvm memory, the following error message might appear in your logs:
 
   > "required memory 2728741K is greater than 2000M available for allocation". 
 
