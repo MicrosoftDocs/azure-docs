@@ -127,7 +127,7 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
   - "Quota or usage validation" to check existing limit
 - Click *Next: Solutions*
 - Proceed further with the request creation
-- When in *Details* fields enter in the *Description* field:
+- When in *Details* tab enter in the *Description* field:
   - a note, that the request is about **Speech-to-Text** quota
   - **Base** or **Custom** model
   - Azure resource information you [collected before](#have-the-required-information-ready) 
@@ -179,7 +179,7 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
   - "Quota or usage validation" to check existing limit
 - Click *Next: Solutions*
 - Proceed further with the request creation
-- When in *Details* fields enter in the *Description* field:
+- When in *Details* tab enter in the *Description* field:
   - a note, that the request is about **Text-to-Speech** quota
   - Azure resource information you [collected before](#prepare-the-required-information) 
   - Complete entering the required information and click *Create* button in *Review + create* tab
