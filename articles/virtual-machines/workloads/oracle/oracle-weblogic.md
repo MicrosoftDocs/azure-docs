@@ -51,7 +51,7 @@ This offer creates a highly available cluster of WLS virtual machines. The admin
 
 This offer creates a highly available and scalable dynamic cluster of WLS virtual machines. The administration server and all managed servers are started by default.
 
-The solutions will enable a wide range of production-ready deployment architectures with relative ease. You should be able to meet a majority of migration cases in the most productive way possible by allowing a focus on business application development.
+The solutions will enable a wide range of production-ready deployment architectures with relative ease. You can meet a majority of migration cases in the most productive way possible by allowing a focus on business application development.
 
 :::image type="content" source="media/oracle-weblogic/weblogic_architecture_vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
 
