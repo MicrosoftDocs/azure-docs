@@ -54,7 +54,7 @@ The component trying to replicate data to Azure is either down or not responding
 
    2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the "Microsoft Azure Gateway Service" is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and do: "Net Start asrgwy"
 
-3. Check for connectivity issues between Azure Migrate appliance and cache Storage Account: 
+3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account: 
 
     Run the following command after downloading azcopy in the Azure Migrate appliance:
     
@@ -144,7 +144,7 @@ The possible causes include:
     
       1. [Download](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
         
-      2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migrategwsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
+      2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
       3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Click on +Container and create a Container. Leave Public Access Level to default selected value.
         
@@ -221,7 +221,7 @@ For example: Error Message: An internal error occurred. [An Invalid snapshot con
 
 The following section lists some of the commonly seen VMware errors and how you can mitigate them.
 
-## Error Message: An internal error occurred. [Server Refused Connection]
+### Error Message: An internal error occurred. [Server Refused Connection]
 
 The issue is a known VMware issue and occurs in VDDK 6.7. You need to stop the gateway service running in the Azure Migrate appliance, [download an update from VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889), and restart the gateway service.
 
@@ -235,33 +235,33 @@ Steps to start gateway service:
 1. Press Windows + R, open services.msc. Right click on "Microsoft Azure Gateway Service", and start it.
 2. Alternatively, you can open command prompt or PowerShell and do: Net Start asrgwy.
 
-## Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
+### Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
 
 If you have a virtual machine with multiple disks, you may encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
 
-## Error Message: An internal error occurred. [Generate Snapshot Hung]
+### Error Message: An internal error occurred. [Generate Snapshot Hung]
 
 This issue occurs when snapshot generation is hung. When this issue occurs, you can see create snapshot task stops at 95% or 99%. Refer to this [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) to overcome this issue.
 
-## Error Message: An internal error occurred. [Failed to consolidate the disks on VM _[Reasons]_]
+### Error Message: An internal error occurred. [Failed to consolidate the disks on VM _[Reasons]_]
 
 When we consolidate disks at the end of replication cycle, the operation fails. Follow the instructions in the [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) by selecting the appropriate _Reason_ to resolve the issue.
 
 The following errors occur when VMware snapshot-related operations – create, delete, or consolidate disks fail. Follow the guidance in the next section to remediate the errors:
 
-## Error Message: An internal error occurred. [Another task is already in progress]
+### Error Message: An internal error occurred. [Another task is already in progress]
 
 This issue occurs when there are conflicting virtual machine tasks running in the background, or when a task within the vCenter Server times out. Follow the resolution provided in the following [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## Error Message: An internal error occurred. [Operation not allowed in current state]
+### Error Message: An internal error occurred. [Operation not allowed in current state]
 
 This issue occurs when vCenter Server management agents stop working. To resolve this issue, refer to the resolution in the following [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## Error Message: An internal error occurred. [Snapshot Disk size invalid]
+### Error Message: An internal error occurred. [Snapshot Disk size invalid]
 
 This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
+### Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
 
 This happens when the NFC host buffer is out of memory. To resolve this issue, you need to move the VM (compute vMotion) to a different host, which has free resources.
 
