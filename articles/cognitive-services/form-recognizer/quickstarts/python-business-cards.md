@@ -86,7 +86,7 @@ To start analyzing a business card, you call the **[Analyze Business Card](https
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example value, the string after `operations/` is the operation ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults{operationID}
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## Get the business card results
@@ -124,12 +124,11 @@ while n_try < n_tries:
 1. Again use the `python` command to run the sample. For example, `python form-recognizer-businesscards.py`.
 
 ### Examine the response
-
-The script will print responses to the console until the **Analyze Business Card** operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the business card, and the `"understandingResults"` field contains key/value information for the most relevant parts of the business card.
-
 ![A business card from Contoso company](../media/business-card-english.jpg)
 
-The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
+The script will print responses to the console until the **Analyze Business Card** operation completes. 
+The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the company name,first name, last name, phone and so on.
+
 
 ## Next steps
 
