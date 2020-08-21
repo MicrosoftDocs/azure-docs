@@ -21,6 +21,10 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 These sections explain deployment procedures using either the Azure CLI, Maven, or IntelliJ.
 
 #### [CLI](#tab/Azure-CLI)
+
+### Prerequisites
+[Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+
 To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
 
 ```azurecli
@@ -28,25 +32,24 @@ az extension add --name spring-cloud
 ```
 ### Build the microservices applications locally
 
-1. Create a new folder and clone the sample app repository to your Azure Cloud account.  
+1. Clone the sample app repository to your Azure Cloud account.  
 
-```azurecli
-mkdir source-code
-git clone https://github.com/Azure-Samples/piggymetrics
-```
+    ```azurecli
+    git clone https://github.com/Azure-Samples/piggymetrics
+    ```
 
 2. Change directory and build the project.
 
-```azurecli
-cd piggymetrics
-mvn clean package -D skipTests
-```
+    ```azurecli
+    cd piggymetrics
+    mvn clean package -DskipTests
+    ```
 
-Compiling the project takes about 5 minutes.  Once completed, you should have individual JAR files for each service in their respective folders.
+Compiling the project takes about 5 minutes. Once completed, you should have individual JAR files for each service in their respective folders.
 
 ### Create the microservices
 
-Create Spring Cloud microservices using the JAR files built in the previous step. You will create three microservices: **gateway**, **auth-service**, and **account-service**.
+Create Spring Cloud microservices using the JAR files built in the previous step. You will create three apps: **gateway**, **auth-service**, and **account-service**.
 
 ```azurecli
 az spring-cloud app create --name gateway
@@ -80,110 +83,60 @@ az spring-cloud app update -n gateway --is-public true
 az spring-cloud app show --name gateway --query properties.url
 ```
 
-3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
-
-    ![Launch PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
-
-You can also navigate the Azure portal to find the URL. 
-1. Navigate to the service
-2. Select **Apps**
-3. Select **gateway**
-
-    ![Navigate app](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-    
-4. Find the URL on the **gateway | Overview** page
-    ![Navigate app second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
-
 #### [Maven](#tab/Maven)
 
-To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
+To complete deployment using Maven plugin, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).
 
 ### Clone and build the sample application repository
 
-1. Launch the [Azure Cloud Shell](https://shell.azure.com).
-
 1. Clone the Git repository by running the following command:
 
-```
-git clone https://github.com/Azure-Samples/PiggyMetrics
-```
+    ```
+    git clone https://github.com/Azure-Samples/PiggyMetrics
+    ```
   
 1. Change directory and build the project by running the following command:
 
-```
-cd piggymetrics
-mvn clean package -DskipTests
-```
+    ```
+    cd piggymetrics
+    mvn clean package -DskipTests
+    ```
 
 ### Generate configurations and deploy to the Azure Spring Cloud
 
-1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
+1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. See our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) for more details.
 
-```
-mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
-
-```
-Then:
-    a. Select the modules `gateway`,`auth-service`, and `account-service`.
-
-    b. Select your subscription and Azure Spring Cloud service cluster.
-
-    c. In the list of provided projects, enter the number that corresponds with `gateway` to give it public access.
+    ```
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+    ```
     
-    d. Confirm the configuration.
+    You will be asked to select:
+    * **Modules:** select `gateway`,`auth-service`, and `account-service``)
+    * **Subscription:** your subscription with Azure Spring Cloud instance created
+    * **Service Instance:** name of your created Azure Spring Cloud instance
+    * **Public endpoint:** In the list of provided projects, enter the number that corresponds with `gateway` to give it public access.
 
-2. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
+1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command. 
 
-```
-mvn azure-spring-cloud:deploy
-```
+    ```
+    mvn azure-spring-cloud:deploy
+    ```
 
-3. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
-4. Navigate to the URL in browser.
-
-    ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
-  
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 #### [IntelliJ](#tab/IntelliJ)
 
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
 ### Prerequisites
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
-
-### Install the plug-in
-You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
-
-1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
-
-    ![Select Configure](media/spring-cloud-intellij-howto/configure-plugin-1.png)
-
-1. Search for Azure Toolkit for IntelliJ.  Click **Install**.
-
-    ![Install plugin](media/spring-cloud-intellij-howto/install-plugin.png)
-
-1. Click **Restart IDE**.
-
-### Deployment procedures
-The following procedures deploy the Piggymetrics application using the IntelliJ IDEA.  Before deployment, complete the examples to [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
-
-* Open gs-spring-boot project
-* Deploy to Azure Spring Cloud
-* Show streaming logs
+* [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)
 
 ### Import sample project in IntelliJ
 
 1. Download and unzip the source repository for this tutorial, or clone it using Git: `git clone https://github.com/Azure-Samples/piggymetrics` 
 
 1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
+
 1. Select `piggymetric` folder.
 
     ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
@@ -214,31 +167,30 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 1. The plug-in will run the command `mvn package` on the `gateway` app and deploy the jar generated by the `package` command.
 
 ### Deploy auth-service and account-service apps to Azure Spring Cloud
-You will have to edit the previous configuration for both the `auth-service` and the `account-service` apps to deploy them to Azure Spring Cloud.
+You can repeat the steps above to deploy `auth-service` and the `account-service` apps to Azure Spring Cloud. Make sure:
 
-1. Open the configuration dialog from the IntelliJ menu.
-
-    ![Edit configuration](media/spring-cloud-intellij-howto/revision-reconfigure-1.png)
- 
-1. This will show the configuration dialog with the options configured for the `gateway` app.
-1. Modify the settings to identify the `auth-service` app.
+1. Modify the **Name** and **Artifact** to identify the `auth-service` app.
+1. In the **App:** textbox, select **Create app...** to create `auth-service` apps.
 1. Verify that the **Public Endpoint** option is set to *Disabled*.
-1. Double click the **Before launch** description and navigate **Select Maven goal** to *auth-service*.
-1. Click **OK**>
-1. Click **Apply** at the bottom of the configuration dialog, and then **OK**.
-
-    ![Edit configuration for auth-service](media/spring-cloud-intellij-howto/revision-reconfigure-auth.png)
-
-1. Click the green run button to deploy the configuration.
-
-    ![Run configuration for auth-service](media/spring-cloud-intellij-howto/revision-run-config.png)
-
+1. In the **Before launch** section of the dialog, switch the **Working directory** to the *piggymetrics/auth-service* folder.
+1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. 
 1. Repeat these procedures to configure and deploy the `account-service`.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
-
 ---
+
+Navigate to the URL provided in the output the previous steps to access the PiggyMetrics application. e.g. `https://<service instance name>-gateway.azuremicroservices.io`
+
+    ![Access PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+You can also navigate the Azure portal to find the URL. 
+1. Navigate to the service
+2. Select **Apps**
+3. Select **gateway**
+
+    ![Navigate app](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    
+4. Find the URL on the **gateway | Overview** page
+
+    ![Navigate app second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## Next steps
 > [!div class="nextstepaction"]
