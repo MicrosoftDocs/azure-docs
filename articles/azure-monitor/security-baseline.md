@@ -4,7 +4,7 @@ description: The Azure Monitor security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -435,7 +435,7 @@ Application Insights and Log Analytics both continue to allow TLS 1.1 and TLS 1.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12432).
 
 **Guidance**: 
-Data identification, classification, and loss prevention features are not yet available for Azure Monitor Azure Data Explorer. Implement third-party solution if required for compliance purposes.
+Data identification, classification, and loss prevention features are not yet available for Azure Monitor. Implement third-party solution if required for compliance purposes.
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
