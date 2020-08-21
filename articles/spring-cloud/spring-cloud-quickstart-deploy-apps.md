@@ -18,18 +18,16 @@ This document explains how to build and deploy microservice applications to Azur
 
 Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
+## Prerequisites
+
+1. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+1. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+1. (Optional)[Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)and install the Azure Spring Cloud extension: `az extension add --name spring-cloud`.
+1. (Optional)[Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+
 ## Deployment procedures
 
 #### [CLI](#tab/Azure-CLI)
-
-### Prerequisites
-* [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-* To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
-
-```azurecli
-az extension add --name spring-cloud
-```
 
 ### Build the microservices applications locally
 
@@ -91,9 +89,6 @@ We need a way to access the application via a web browser. Our gateway applicati
 
 #### [Maven](#tab/Maven)
 
-### Prerequisites
-* [Install Maven 3.0 or later](https://maven.apache.org/download.cgi)
-
 ### Clone and build the sample application repository
 
 1. Clone the Git repository by running the following command:
@@ -129,12 +124,7 @@ We need a way to access the application via a web browser. Our gateway applicati
     mvn azure-spring-cloud:deploy
     ```
 
-
 #### [IntelliJ](#tab/IntelliJ)
-
-### Prerequisites
-* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
-* [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)
 
 ### Import sample project in IntelliJ
 
@@ -147,7 +137,7 @@ We need a way to access the application via a web browser. Our gateway applicati
     ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### Deploy gateway app to Azure Spring Cloud
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign-in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
