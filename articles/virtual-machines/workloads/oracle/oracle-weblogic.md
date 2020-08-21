@@ -55,7 +55,7 @@ The solutions will enable a variety of robust production-ready deployment archit
 
 :::image type="content" source="media/oracle-weblogic/weblogic_architecture_vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
 
-Beyond what is automatically provisioned by the solutions, customers have complete flexibilty to custmize their deployments further. It is likely in addition to deploying applications customers will integrate further Azure resources with their deployments. Customers are encouraged to provide feedback on further improving the solutions.
+Beyond what is automatically provisioned by the solutions, customers have complete flexibility to customize their deployments further. It is likely in addition to deploying applications customers will integrate further Azure resources with their deployments. Customers are encouraged to provide feedback on further improving the solutions.
 
 ## Next steps
 
