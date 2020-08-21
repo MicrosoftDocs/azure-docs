@@ -52,7 +52,7 @@ Use Log Analytics gateway to send data to a Log Analytics workspace in Azure Mon
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/12395).
 
 **Guidance**: 
-Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft. However, for resources that make network connections to the Azure Monitor offering, secure their network with a network security group. Enable NSG flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+Azure Monitor is a core service and does not support deploying directly into a virtual network, its underlying infrastructure is handled by Microsoft. However, for resources that make network connections to the Azure Monitor offering, secure their network with a network security group. Enable network security group flow logs and send logs into a Storage Account for traffic audit. You may also send flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 When using Azure Monitor with Private Link, you get access to network logging such as 'Data processed by the Private Endpoint (IN/OUT)'.
 
@@ -60,9 +60,9 @@ When using Azure Monitor with Private Link, you get access to network logging su
 
 - [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](platform/gateway.md)
 
-- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
 - [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
