@@ -25,23 +25,23 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 
 1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image:
 
-   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Plug in icon":::
+   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Select the plug in icon to connect":::
 
 2. Select **Add an Azure Account**, and then click **Sign-in**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Connect to Azure subscription":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Connect to your Azure subscription":::
 
 2. In the **Azure Sign in** dialog box, select **Sign in**, and then enter your Azure credentials.
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Sign in":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Sign into your Azure subscription":::
 
 3. Select your subscription from the list and then click **Apply**.
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Apply":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Choose a subscription ID from the list to filter":::
 
     The Explorer pane updates and displays the accounts in the selected subscription.
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Account list":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Select an Azure Cosmos DB account from the list available":::
 
     You have successfully connected to your **Cosmos DB account** to your Azure subscription.
 
