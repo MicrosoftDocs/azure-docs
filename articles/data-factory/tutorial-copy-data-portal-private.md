@@ -19,7 +19,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
 
 > [!NOTE]
 > If you're new to Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
