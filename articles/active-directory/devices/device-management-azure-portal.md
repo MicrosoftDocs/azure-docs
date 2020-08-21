@@ -29,7 +29,7 @@ The **All devices** page enables you to:
 - Identify devices, including:
    - Devices that have been joined or registered in Azure AD.
    - Devices deployed using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
-   - Printers using [Universal Print](https://docs.microsoft.com/universal-print/fundamentals/universal-print-getting-started)
+   - Printers using [Universal Print](/universal-print/fundamentals/universal-print-getting-started)
 - Perform device identity management tasks like enable, disable, delete, or manage.
    - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices have limited management options in Azure AD. They must be managed from their respective admin interfaces.
 - Configure your device identity settings.
@@ -154,7 +154,7 @@ To manage device identities using the Azure AD portal, those devices need to be 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. These users are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
 - **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOS devices to be registered with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
-- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > **Require Multi-Factor Auth to join devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
