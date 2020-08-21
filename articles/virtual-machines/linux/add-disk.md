@@ -36,13 +36,15 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
-## Connect to the Linux VM to mount the new disk
+## Format and mount the disk
 
 To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*:
 
 ```bash
 ssh azureuser@10.123.123.25
 ```
+
+### Find the disk
 
 Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
 
@@ -53,98 +55,39 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 The output is similar to the following example:
 
 ```bash
-sda     1:0:1:0      14G
-└─sda1               14G /mnt
-sdb     0:0:0:0      30G
-├─sdb1             29.9G /
-├─sdb14               4M
-└─sdb15             106M /boot/efi
-sdc     3:0:0:1     50G
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0      50G
 ```
 
-Here, *sdc* is the disk that we want, because it is 50G. If you aren't sure which disk it is based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. In this example, the portal shows the new disk at LUN 1, which matches the last value under HCTL, which is the LUN number.
+Here, *sdc* is the disk that we want, because it is 50G. If you aren't sure which disk it is based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. 
 
-Partition the disk with `parted`, if the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. If you're using MBR partitioning, you can use `fdisk`. Make it a primary disk on partition 1, and accept the other defaults. 
 
+### Format the disk
+
+Format the disk with `parted`, if the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. 
 
 > [!NOTE]
-> It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
+> It is recommended that you use the latest version `parted` that is available for your distro.
+> If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
 
-Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition, accept the rest of the default values, and select `w` to write the changes to the disk. 
 
-```bash
-sudo fdisk /dev/sdc
-```
-
-The output will be similar to the following example:
+The following example uses `parted` on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We are also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 
 ```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
-Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
-
-Command (m for help): p
-
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
+Use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
 
-Use the below command to update the kernel:
 
-```
-partprobe 
-```
-
-Now, write a file system to the partition with the `mkfs` command. Specify your filesystem type and the device name. The following example creates an *ext4* filesystem on the */dev/sdc1* partition that was created in the preceding steps:
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-The output is similar to the following example:
-
-```bash
-mke2fs 1.44.1 (24-Mar-2018)
-Discarding device blocks: done
-Creating filesystem with 67108608 4k blocks and 16777216 inodes
-Filesystem UUID: 6d0f8ac6-7700-4e72-8ac7-f08e0b4a69a8
-Superblock backups stored on blocks:
-        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
-        4096000, 7962624, 11239424, 20480000, 23887872
-
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (262144 blocks): done
-Writing superblocks and filesystem accounting information:    0/2done
-```
+### Mount the disk
 
 Now, create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 
@@ -157,6 +100,8 @@ Use `mount` to then mount the filesystem. The following example mounts the */dev
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
+
+### Persist the mount
 
 To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique IDentifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 

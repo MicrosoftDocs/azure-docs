@@ -110,16 +110,17 @@ Create an SSH connection with the virtual machine. Replace the example IP addres
 ssh 10.101.10.10
 ```
 
-Partition the disk with `fdisk`.
+Partition the disk with `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Write a file system to the partition by using the `mkfs` command.
+Write a file system to the partition by using the `mkfs` command. Use `partprobe` to make the OS aware of the change.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Mount the new disk so that it is accessible in the operating system.
@@ -131,15 +132,16 @@ sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 The disk can now be accessed through the *datadrive* mountpoint, which can be verified by running the `df -h` command.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
 The output shows the new drive mounted on */datadrive*.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
