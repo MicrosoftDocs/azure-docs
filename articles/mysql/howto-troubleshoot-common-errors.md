@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Common Errors - Azure Database for MySQL
+title: Troubleshoot common errors - Azure Database for MySQL
 description: Learn how to troubleshoot common migration errors encounters by users new to the Azure Database for MySQL service
 author: savjani
 ms.service: mysql
@@ -9,9 +9,9 @@ ms.topic: overview
 ms.date: 8/20/2020
 ---
 
-# Common Errors
+# Common errors
 
-Azure Database for MySQL is a fully managed service powered by community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you will see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL service for the first time.
+Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you will see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL service for the first time.
 
 ## Errors due to lack of SUPER privilege and DBA role
 
@@ -56,3 +56,10 @@ DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`AdminUserName`@`ServerName`*/ /*!50003
 DELIMITER ;
 ```
+
+## Next Steps
+If you did not find the answer you were looking for, consider following:
+- Post your question on [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Send an email to the Azure Database for MySQL Team [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). This email address is not a technical support alias.
+- Contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
