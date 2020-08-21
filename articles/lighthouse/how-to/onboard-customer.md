@@ -116,7 +116,7 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 
 |Field  |Definition  |
 |---------|---------|
-|**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer.         |
+|**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer and must be a unique value.        |
 |**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer").      |
 |**managedByTenantId**     |Your tenant ID.          |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
