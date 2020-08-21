@@ -132,8 +132,13 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example value, the string after `operations/` is the operation ID.
 
+# [v2.0](#tab/v2-0)    
 ```console
 https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+```
+# [v2.1](#tab/v2-1)    
+```console
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## Get the receipt results
@@ -172,7 +177,7 @@ while n_try < n_tries:
 
 ### Examine the response
 
-The script will print responses to the console until the **Analyze Receipt** operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
+The script will print responses to the console until the **Analyze Receipt** operation completes. Then, it will print the extracted text data in JSON format. The `"readResults"` field contains every line of text that was extracted from the receipt, and the `"documentResults"` field contains key/value information for the most relevant parts of the receipt.
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
