@@ -1892,7 +1892,6 @@ Deploying a few SAP application server instances in their dedicated VMs and assu
 
 ![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
 
-More details can be found in this documentation: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### High Availability for SAP Central Services on Azure
 
