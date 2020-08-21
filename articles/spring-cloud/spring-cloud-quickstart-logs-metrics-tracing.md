@@ -21,18 +21,6 @@ There are two ways to see logs on Azure Spring Cloud: Log Streaming of real-time
 
 ### Log Streaming
 
-#### [IntelliJ](#tab/IntelliJ)
-
-To get the logs using Azure Toolkit for IntelliJ:
-1. Select **Azure Explorer**, then **Spring Cloud**.
-1. Right-click the running app.
-1. Select **Streaming Logs** from the drop-down list.
-    ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
-1. Select **Instance**.
-    ![Select instance](media/spring-cloud-intellij-howto/select-instance.png)
-1. The streaming log will be visible in the output window.
-    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
-
 #### [CLI](#tab/Azure-CLI)
 
 You can use log streaming in the Azure CLI with the following command.
@@ -48,13 +36,29 @@ You will see logs like
 >[!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
 
+#### [IntelliJ](#tab/IntelliJ)
+
+To get the logs using Azure Toolkit for IntelliJ:
+1. Select **Azure Explorer**, then **Spring Cloud**.
+1. Right-click the running app.
+1. Select **Streaming Logs** from the drop-down list.
+    ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
+1. Select **Instance**.
+    ![Select instance](media/spring-cloud-intellij-howto/select-instance.png)
+1. The streaming log will be visible in the output window.
+    ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
+
 ---
 ### Log Analytics
 
-1. Go to the **service | Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud and you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
+1. Go to the **service | Overview** page and select **Logs** in **Monitoring** section. Click **Run** on one of the sample query for Azure Spring Cloud. 
 
     ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)
     
+1. Then you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
+
+    ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png)
+
 ## Metrics
 1. Go to the **service | Overview** page and select **Metrics** in **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
 
