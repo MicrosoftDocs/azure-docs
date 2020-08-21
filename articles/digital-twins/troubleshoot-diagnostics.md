@@ -45,7 +45,7 @@ Here is how to enable diagnostic settings for your Azure Digital Twins instance:
     
 4. Save the new settings. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic setting page where the user has filled in a diagnostic setting name, and made some checkbox selections for Category details and Destination details. The Save button is highlighted.":::
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
@@ -60,7 +60,7 @@ Here are more details about the log categories that can be selected under **Cate
 | ADTEventRoutesOperation | Log all API calls pertaining to Event Routes as well as egress of events from Azure Digital Twins to an endpoint service like Event Grid, Event Hubs and Service Bus |
 | ADTDigitalTwinsOperation | Log all API calls pertaining to Azure Digital Twins |
 
-Each log category consists of operations of write, read, delete and action.  These map to REST API calls as follows:
+Each log category consists of operations of write, read, delete, and action.  These map to REST API calls as follows:
 
 | Event type | REST API operations |
 | --- | --- |
@@ -77,16 +77,16 @@ Here is a comprehensive list of the operations and corresponding [Azure Digital 
 | Log category | Operation | REST API calls and other events |
 | --- | --- | --- |
 | ADTModelsOperation | Microsoft.DigitalTwins/models/write | Digital Twin Models Update API |
-|  | Microsoft.DigitalTwins/models/read | Digital Twin Models Get By Id and List APIs |
+|  | Microsoft.DigitalTwins/models/read | Digital Twin Models Get By ID and List APIs |
 |  | Microsoft.DigitalTwins/models/delete | Digital Twin Models Delete API |
 |  | Microsoft.DigitalTwins/models/action | Digital Twin Models Add API |
 | ADTQueryOperation | Microsoft.DigitalTwins/query/action | Query Twins API |
 | ADTEventRoutesOperation | Microsoft.DigitalTwins/eventroutes/write | Event Routes Add API |
-|  | Microsoft.DigitalTwins/eventroutes/read | Event Routes Get By Id and List APIs |
+|  | Microsoft.DigitalTwins/eventroutes/read | Event Routes Get By ID and List APIs |
 |  | Microsoft.DigitalTwins/eventroutes/delete | Event Routes Delete API |
 |  | Microsoft.DigitalTwins/eventroutes/action | Failure while attempting to publish events to an endpoint service (not an API call) |
 | ADTDigitalTwinsOperation | Microsoft.DigitalTwins/digitaltwins/write | Digital Twins Add, Add Relationship, Update, Update Component |
-|  | Microsoft.DigitalTwins/digitaltwins/read | Digital Twins Get By Id, Get Component, Get Relationship by Id, List Incoming Relationships, List Relationships |
+|  | Microsoft.DigitalTwins/digitaltwins/read | Digital Twins Get By ID, Get Component, Get Relationship by ID, List Incoming Relationships, List Relationships |
 |  | Microsoft.DigitalTwins/digitaltwins/delete | Digital Twins Delete, Delete Relationship |
 |  | Microsoft.DigitalTwins/digitaltwins/action | Digital Twins Send Component Telemetry, Send Telemetry |
 
@@ -105,7 +105,7 @@ Here are the field and property descriptions for API logs.
 | Field name | Data type | Description |
 |-----|------|-------------|
 | `Time` | DateTime | The date and time that this event occurred, in UTC |
-| `ResourceID` | String | The Azure Resource Manager ResourceId where the event took place |
+| `ResourceID` | String | The Azure Resource Manager Resource ID for the resource where the event took place |
 | `OperationName` | String  | The type of action being performed during the event |
 | `OperationVersion` | String | The API Version utilized during the event |
 | `Category` | String | The type of resource being emitted |
@@ -191,7 +191,7 @@ This is the schema for `ADTEventRoutesOperation` logs. These contain details per
 |Field name | Data type | Description |
 |-----|------|-------------|
 | `Time` | DateTime | The date and time that this event occurred, in UTC |
-| `ResourceId` | String | The Azure Resource Manager ResourceId where the event took place |
+| `ResourceId` | String | The Azure Resource Manager Resource ID for the resource where the event took place |
 | `OperationName` | String  | The type of action being performed during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultDescription` | String | Additional details about the event |
