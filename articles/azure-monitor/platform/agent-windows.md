@@ -28,22 +28,13 @@ The agent may be installed by using one of the following methods. Most installat
 
 If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
-## Supported operating systems
+## Requirements
 
-The following versions of the Windows operating system are officially supported for the Windows agent:
+### Supported operating systems
 
-* Windows Server 2019
-* Windows Server 2016, version 1709 and 1803
-* Windows Server 2012, 2012 R2
-* Windows Server 2008 R2
-* Windows 10 Enterprise (including multi-session) and Pro
-* Windows 8 Enterprise and Pro 
-* Windows 7 SP1
+See [Supported operating systems](agents-overview.md#supported-operating-systems).
 
->[!NOTE]
->While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
-
-## SHA-2 Code Signing Support Requirement 
+### SHA-2 Code Signing Support Requirement 
 The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
 
 1. Install the latest Service Pack for your OS. The required service pack versions are:
@@ -55,7 +46,7 @@ The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020
 3. Update to the latest version of the Windows agent (version 10.20.18029).
 4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
-## Network requirements
+### Network requirements
 See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
 
 ## Obtain workspace ID and key
@@ -203,7 +194,7 @@ Configuration MMAgent
 5. [Import the MMAgent.ps1 configuration script](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) into your Automation account. 
 6. [Assign a Windows computer or node](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
 
-## Verify agent connectivity to Log Analytics
+## Verify agent connectivity to Azure Monitor
 
 Once installation of the agent is complete, verifying it is successfully connected and reporting can be accomplished in two ways.  
 

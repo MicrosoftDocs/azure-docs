@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/05/2020
+ms.date: 08/20/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -41,6 +41,8 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
 | **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
 | **Data sent to** | Azure Monitor Logs<br>Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
+
+
 
 ## Azure Monitor agent (preview)
 The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux virtual machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
@@ -123,59 +125,66 @@ Consider the following when using the Dependency agent:
 
 The Log Analytics extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) install the Log Analytics agent on Azure virtual machines. The Azure Monitor Dependency extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) install the Dependency agent on Azure virtual machines. These are the same agents described above but allow you to manage them through [virtual machine extensions](../../virtual-machines/extensions/overview.md). You should use extensions to install and manage the agents whenever possible.
 
+## Supported services and solutions
+
+| | Azure Monitor agent (preview) | Log Analytics<br>agent | Dependency<br>agent | Diagnostics<br>extension | Telegraf<br>agent |
+|:---|:---|:---|:---|:---|:---|
+| Azure Monitor for VMs |  | X | X |  |  |   
+| Azure Security Center |  | X |   |  |  |
+| Azure Sentinel        |  | X |   |  |  |
+
 
 ## Supported operating systems
-The following tables list the operating systems that are supported by the Azure Monitor agents. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems.
+The following tables list the operating systems that are supported by the Azure Monitor agents. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems. All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
 ### Windows
 
 | Operations system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---|:---|:---|:---|
-| Windows Server 2019                                              | X | X | X | X |
-| Windows Server 2016                                              | X | X | X | X |
-| Windows Server 2016 Core                                         |   |   |   | X |
-| Windows Server 2012, 2012 R2                                     | X | X | X | X |
-| Windows Server 2008 R2                                           |   | X |   | X |
-| Windows Server 2008 SP2 (x64)                                    |   | X | X |   |
-| Windows 10 Enterprise (including multi-session) and Pro          |   | X | X | X |
-| Windows 8 Enterprise and Pro                                     |   | X | X |   |
-| Windows 7 SP1                                                    |   | X | X |   |
+| Windows Server 2019                                      | X | X | X | X |
+| Windows Server 2016                                      | X | X | X | X |
+| Windows Server 2016 Core                                 |   |   |   | X |
+| Windows Server 2012, 2012 R2                             | X | X | X | X |
+| Windows Server 2008 R2                                   |   | X | X | X |
+| Windows 10 Enterprise<br>(including multi-session) and Pro  |   | X | X | X |
+| Windows 8 Enterprise and Pro                             |   | X | X |   |
+| Windows 7 SP1                                            |   | X | X |   |
 
 
 ### Linux
 
 | Operations system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---|:---|:---|:---|
-| Amazon Linux 2017.09 (x64)                                       |   | X |   |   |
-| CentOS Linux 7 (x64)                                             | X | X |   | X |
-| CentOS Linux 7.6 (x64)                                           |   |   | X |   |
-| CentOS Linux 6 (x64)                                             | X | X |   |   |
-| CentOS Linux 6.5+                                                | X | X |   | X |
-| Debian 10                                                        | X |   |   |   |
-| Debian 9                                                         | X | X |   | X |
-| Debian 8                                                         |   | X |   | X |
-| Debian 7                                                         |   |   |   | X |
-| Oracle Linux 7 (x64)                                             | X | X |   | X |
-| Oracle Linux 6                                                   | X | X |   |   |
-| Oracle Linux 6.4                                                 | X | X |   | X |
-| Red Hat Enterprise Linux Server 8 (x64)                          | X | X |   |   |
-| Red Hat Enterprise Linux Server 7 (x64)                          | X | X | X | X |
-| Red Hat Enterprise Linux Server 6 (x64)                          | X | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                             | X | X | X | X |
-| SUSE Linux Enterprise Server 11                                  |   | X |   |   |
-| SUSE Linux Enterprise Server 12 (x64)                            | X | X | X | X |
-| SUSE Linux Enterprise Server 15 (x64)                            | X | X | X |   |
-| Ubuntu 16.04 LTS (x64), and 18.04 LTS (x64)                      | X | X | X | X |
-| Ubuntu 14.04 LTS (x86/x64)                                       | X | X |   | X |
+| Amazon Linux 2017.09                                     |   | X |   |   |
+| CentOS Linux 7                                           | X | X |   | X |
+| CentOS Linux 7.6                                         |   |   | X |   |
+| CentOS Linux 6                                           | X | X |   |   |
+| CentOS Linux 6.5+                                        | X | X |   | X |
+| Debian 10                                                | X |   |   |   |
+| Debian 9                                                 | X | X |   | X |
+| Debian 8                                                 |   | X |   | X |
+| Debian 7                                                 |   |   |   | X |
+| Oracle Linux 7                                           | X | X |   | X |
+| Oracle Linux 6                                           | X | X |   |   |
+| Oracle Linux 6.4                                         | X | X |   | X |
+| Red Hat Enterprise Linux Server 8                        | X | X |   |   |
+| Red Hat Enterprise Linux Server 7                        | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                        | X | X | X |   |
+| Red Hat Enterprise Linux Server 6.7+                     | X | X | X | X |
+| SUSE Linux Enterprise Server 11                          |   | X |   |   |
+| SUSE Linux Enterprise Server 12                          | X | X | X | X |
+| SUSE Linux Enterprise Server 15                          | X | X | X |   |
+| Ubuntu 16.04 LTS, 18.04 LTS                              | X | X | X | X |
+| Ubuntu 14.04 LTS                                         | X | X |   | X |
 
 
 #### Dependency agent Linux kernel support
-The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
+Since the Dependency agent works at the kernel level, we also have to specify the kernel versions that it supports. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
-|                    | 7.5     |   3.10.0-862  |
+|                    | 7.5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
