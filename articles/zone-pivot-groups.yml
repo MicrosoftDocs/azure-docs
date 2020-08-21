@@ -562,4 +562,20 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-  
+# Owner: msangapu
+- id: app-service-platform-windows-linux
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: App Service with custom containers
+  prompt: Choose a custom container platform
+  pivots:
+  - id: container-linux
+    title: Linux container
+  - id: container-windows
+    title: Windows container  

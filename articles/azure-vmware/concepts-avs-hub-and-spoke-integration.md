@@ -2,7 +2,7 @@
 title: Concept - Integrate an Azure VMware Solution deployment in a hub and spoke architecture
 description: Learn about the recommendations for integrating an Azure VMware Solution deployment in an existing or a new hub and spoke architecture on Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/20/2020
 ---
 
 # Integrate Azure VMware Solution in a hub and spoke architecture
@@ -23,10 +23,7 @@ Traffic between the on-premises datacenter, Azure VMware Solution private cloud,
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment" border="false":::
 
 The architecture has the following main components:
 
@@ -59,12 +56,12 @@ On-premises connectivity may use ExpressRoute Global Reach as well, but it is no
 
 * **On-premises to Azure VMware Solution traffic flow**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="On-premises to Azure VMware Solution traffic flow":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="On-premises to Azure VMware Solution traffic flow" border="false":::
 
 
 * **Azure VMware Solution to Hub VNET traffic flow**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow" border="false":::
 
 
 You can find more details about Azure VMware Solution networking and interconnectivity concepts in the [Azure VMware Solution product documentation](./concepts-networking.md).
@@ -92,7 +89,7 @@ A second level of traffic segmentation using the network security groups within 
 
 Azure Application Gateway V1 and V2 have been tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups" border="false":::
 
 
 ### Jumpbox and Azure Bastion
@@ -105,7 +102,7 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 > Do not give a public IP address to the Jumpbox VM or expose 3389/TCP port to the public internet. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub virtual network":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub virtual network" border="false":::
 
 
 ## Azure DNS resolution considerations
