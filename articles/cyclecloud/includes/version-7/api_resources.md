@@ -41,6 +41,7 @@ Status of the cluster
 |**familyConsumedCoreCount**  <br>*optional*|The number of cores for this family that are already in use across the entire region.  <br>**Example** : `2`|integer|
 |**familyQuotaCoreCount**  <br>*optional*|The number of total cores that can be started for this family in this region. This might not be an integer multiple of quotaCount.  <br>**Example** : `16`|integer|
 |**familyQuotaCount**  <br>*optional*|The number of total instances that can be started (given familyQuotaCoreCount)  <br>**Example** : `4`|integer|
+|**invalidReason**  <br>*required*|If valid is false, this will contain the reason the bucket is invalid. Currently NotActivated and DisabledMachineType are the only reasons.  <br>**Example** : `"DisabledMachineType"`|string|
 |**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this bucket, including global and nodearray limits.  Always a multiple of maxCount.  <br>**Example** : `16`|integer|
 |**maxCount**  <br>*required*|The maximum number of nodes that may be in this bucket, including global and nodearray limits  <br>**Example** : `4`|integer|
 |**maxPlacementGroupCoreSize**  <br>*required*|The maximum total number of cores that can be in a placement group in this bucket. Always a multiple of maxPlacementGroupSize.  <br>**Example** : `64`|integer|
@@ -75,8 +76,10 @@ Status of the cluster
 
 |Name|Description|Schema|
 |---|---|---|
+|**gpuCount**  <br>*required*|The number of GPUs this machine type has  <br>**Example** : `2`|integer|
 |**infiniband**  <br>*required*|If this virtual machine supports InfiniBand connectivity  <br>**Example** : `true`|boolean|
 |**memory**  <br>*required*|The RAM in this virtual machine, in GB  <br>**Example** : `7.5`|number|
+|**pcpuCount**  <br>*required*|The number of physical CPUs this machine type has  <br>**Example** : `16`|integer|
 |**vcpuCount**  <br>*required*|The number of virtual CPUs this machine type has  <br>**Example** : `32`|integer|
 
 

@@ -1,6 +1,6 @@
 ---
 title: Cluster Templates
-description: Use or Build Cluster Templates within Azure CycleCloud
+description: Use or build cluster templates within Azure CycleCloud. See configuration notation, cluster template parameters, machine types, spot virtual machines, and more.
 author: adriankjohnson
 ms.date: 07/17/2019
 ms.author: adjohnso

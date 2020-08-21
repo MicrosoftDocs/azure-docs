@@ -1,6 +1,6 @@
 ---
 title: Cluster Template Reference - Endpoints
-description: Endpoint reference for cluster templates for use with Azure CycleCloud
+description: Read a reference guide for input endpoints to be used with Azure CycleCloud. See an attribute reference and an example.
 author: adriankjohnson
 ms.date: 03/10/2020
 ms.author: adjohnso

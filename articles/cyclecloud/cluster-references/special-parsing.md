@@ -1,6 +1,6 @@
 ---
 title: Special Parsing for Parameters
-description: Parameterize attributes with expressions for enhanced configurability.
+description: Read about special parsing for parameters. Azure CycleCloud is able to resolve parameter values and perform logical evaluation of functions.
 author: mvrequa
 ms.date: 03/10/2020
 ms.author: mirequa

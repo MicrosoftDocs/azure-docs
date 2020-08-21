@@ -1,6 +1,6 @@
 ---
 title: Jetpack Reference
-description: Learn about Azure CycleCloud's Jetpack tool.
+description: Read reference information about the Jetpack tool in Azure CycleCloud. Jetpack provides node configuration, distributed synchronization, and HealthCheck.
 author: staer
 ms.date: 01/06/2020
 ms.author: adjohnso
@@ -12,7 +12,7 @@ Jetpack is required on every node of a cluster. It is automatically installed by
 
 * **Node Configuration** -- CycleCloud uses scripts and [Chef](https://www.chef.io) to automate the configuration of a provisioned VM into a working cluster node. A Chef client as well as the necessary resources for the configuration of the VM are embedded within Jetpack.
 * **Distributed Synchronization** -- Jetpack manages communication between the node and the CycleCloud application server. This enables CycleCloud to monitor the status of the provisioning VMs and synchronize the orchestration of multiple nodes in the cluster.
-* **HeathCheck** -- Jetpack uses [HealthCheck](./how-to/healthcheck.md) to determine the health of VMs so that unhealthy VMs can be terminated.
+* **HealthCheck** -- Jetpack uses [HealthCheck](./how-to/healthcheck.md) to determine the health of VMs so that unhealthy VMs can be terminated.
 
 ## Jetpack Installation
 

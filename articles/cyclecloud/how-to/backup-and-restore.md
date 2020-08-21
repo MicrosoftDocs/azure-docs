@@ -1,6 +1,6 @@
 ---
 title: Backup and Restore
-description: Backup schedules and Restore process for Azure CycleCloud.
+description: Learn about the backup and restore process for Azure CycleCloud. By default, CycleCloud takes underlying application datastore snapshots as recovery points.
 author: mvrequa
 ms.date: 02/04/2020
 ms.author: mirequa

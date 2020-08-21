@@ -1,6 +1,6 @@
 ---
 title: How to Monitor CycleCloud clusters
-description: Customize alerts and notifications to help monitor Azure CycleCloud.
+description: Customize alerts and notifications to help monitor Azure CycleCloud clusters. An event log can be used to analyze CycleCloud activity. Review logging levels.
 author: adriankjohnson
 ms.date: 03/20/2020
 ms.author: adjohnso

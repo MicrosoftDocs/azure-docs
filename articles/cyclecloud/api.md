@@ -1,14 +1,12 @@
 ---
 title: API Reference
-description:  Azure CycleCloud REST API Reference.
+description: Read the Azure CycleCloud REST API Reference. Review commands for operations and resources, such as getting cluster nodes or getting the status of the cluster.
 author: adriankjohnson
 ms.topic: reference
 ms.date: 02/08/2018
 ms.author: adjohnso
 monikerRange: '>= cyclecloud-7'
 ---
-
-<a name="operations"></a>
 # Operations
 
 ::: moniker range="cyclecloud-7"
@@ -18,8 +16,6 @@ monikerRange: '>= cyclecloud-7'
 [!INCLUDE [operations](~/includes/version-8/api_operations.md)]
 ::: moniker-end
 
-
-<a name="resources"></a>
 # Resources
 
 ::: moniker range="cyclecloud-7"

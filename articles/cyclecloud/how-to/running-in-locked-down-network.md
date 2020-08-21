@@ -1,6 +1,6 @@
 ---
 title: Running in Locked Down Networks
-description: Running Azure CycleCloud in locked down networks.
+description: Learn how to install and run Azure CycleCloud in a locked down networks. Details on internal communication between cluster nodes and CycleCloud.
 author: anhoward
 ms.date: 2/26/2020
 ms.author: anhoward
@@ -17,12 +17,16 @@ The CycleCloud VM must be able to connect to a number of Azure APIs to orchestra
 * _management.azure.com_ (Azure ARM Management)
 * _login.microsoftonline.com_ (Azure AD)
 * _watson.telemetry.microsoft.com_ (Azure Telemetry)
+* _dc.applicationinsights.azure.com_ (Azure Application Insights)
+* _dc.applicationinsights.microsoft.com_ (Azure Application Insights)
 * _dc.services.visualstudio.com_ (Azure Application Insights)
 * _ratecard.azure-api.net_ (Azure Price Data)
   
 The management API is hosted regionally, and the public IP address ranges can be found [here](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 The Azure AD login is part of the Microsoft 365 common APIs and IP address ranges for the service can be found [here](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges).
+
+The Azure Insights and Log Analytics IP address ranges can be found [here](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses).
 
 Azure CycleCloud must be able to access Azure Storage accounts. The recommended way to provide private access to this service and any other supported Azure service is through [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
 

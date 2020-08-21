@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud Cluster Template Reference
-description: Parameter reference for cluster templates for use with Azure CycleCloud
+title: Azure CycleCloud Cluster-Init Parameter Reference
+description: See a reference for cluster-init objects to be used with Azure CycleCloud. A cluster-init object defines the CycleCloud project specifications to run on a node.
 author: adriankjohnson
 ms.date: 03/10/2020
 ms.author: adjohnso

@@ -1,6 +1,6 @@
 ---
 title: Using Managed Identities
-description: How to use Managed Identities with Azure CycleCloud.
+description: Learn how to use Managed Identities with Azure CycleCloud. Assign roles to cluster VMs with Managed Identity.
 author: rokeptne
 ms.date: 02/05/2019
 ms.author: rokeptne
@@ -12,7 +12,7 @@ Azure AD Managed Identities may be used to permission Azure CycleCloud to manage
 
 ## CycleCloud VM Permissions with Managed Identity
 
-CycleCloud automates many calls to the Azure Resource Manager for the purposes of managing HPC clusters. This automation requires certain permissions to be granted to CycleCloud.   This access may be granted to CycleCloud by configuring a Service Pricipal or by assigning a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to the CycleCloud VM.  
+CycleCloud automates many calls to the Azure Resource Manager for the purposes of managing HPC clusters. This automation requires certain permissions to be granted to CycleCloud.   This access may be granted to CycleCloud by configuring a Service Principal or by assigning a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to the CycleCloud VM.  
 
 It is generally recommended to use either a [System-Assigned](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [User-Assigned Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity) to grant those permissions rather than a Service Principal. 
 

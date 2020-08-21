@@ -1,6 +1,6 @@
 ---
 title: Usage and Budget Tracking
-description: Set usage alerts and notifications for budget tracking with Azure CycleCloud.
+description: Set usage alerts and notifications to track budgets in Azure CycleCloud, which monitors resources like instances and volumes to estimate charges per resource.
 author: adriankjohnson
 ms.date: 03/17/2020
 ms.author: adjohnso

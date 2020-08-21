@@ -1,6 +1,6 @@
 ---
-title: Release Notes
-description: Product release notes for the Azure CycleCloud public preview release
+title: Release Notes - Azure CycleCloud Public Preview 8.0.x
+description: Read the product release notes for the Azure CycleCloud public preview release. This article covers preview releases 8.0.x.
 author: adriankjohnson
 ms.date: 07/02/2020
 ms.author: adjohnso
