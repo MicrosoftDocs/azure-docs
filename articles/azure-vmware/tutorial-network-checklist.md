@@ -2,7 +2,7 @@
 title: "Tutorial: Network checklist"
 description: Network Requirement prerequisites and details on Network Connectivity and Network Ports
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 08/21/2020
 ---
 
 # Networking checklist for Azure VMware Solution 

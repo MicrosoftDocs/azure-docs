@@ -2,7 +2,7 @@
 title: Tutorial - Deploy vSphere Cluster in Azure
 description: Learn to deploy a vSphere Cluster in Azure using Azure VMWare Solution
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 08/21/2020
 ---
 
 # Tutorial: Deploy an Azure VMware Solution private cloud in Azure
