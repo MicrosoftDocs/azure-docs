@@ -174,9 +174,12 @@ To adjust any price before you publish, just export the pricing spreadsheet, mod
 > [!NOTE]
 > After a price for a market in your plan is published, it can't be changed later. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
 
-The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you save the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
+The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
 
-Microsoft receives payments from customers in their local currency, and pays you in your local currency. Microsoft converts the customer local currency to your local currency using the Microsoft treasury exchange rate of the day of purchase.
+Microsoft receives payments from customers in their local currency, and pays you in your local currency. Microsoft converts the customer local currency to your local currency using the exchange rate of the day of purchase.
+
+> [!NOTE]
+> Microsoft converts offer prices using the Microsoft treasury exchange rate.
 
 ## Retrieving currency information by API
 
