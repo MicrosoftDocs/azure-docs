@@ -4,7 +4,7 @@ description: Learn how to access download requests for your marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
 ---
@@ -44,7 +44,7 @@ Support for Lifetime Export Capability of Analytics reports:
 
 A user can schedule for asynchronous downloads of reports from the Downloads section:
 
-[![Green check mark](media/download-reports.png)](media/download-reports.png#lightbox)
+[![scheduling asynchronous downloads of reports from the Downloads section](media/download-reports.png)](media/download-reports.png#lightbox)
 
 ## Next steps
 
