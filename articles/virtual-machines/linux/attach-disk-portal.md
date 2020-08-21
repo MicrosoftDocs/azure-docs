@@ -29,19 +29,19 @@ Before you attach disks to your VM, review these tips:
 
 1. On the **Disks** pane, under **Data disks**, select **Create and attach a new disk**.
 
-3. Enter a name for your managed disk. Review the default settings, and update the **Storage type** and **Size (GiB) as necessary.
+1. Enter a name for your managed disk. Review the default settings, and update the **Storage type**, **Size (GiB)**, **Encryption** and **Host caching** as necessary.
    
-   :::image type="content" source="./media/attach-disk-portal/create-new-md-settings.png" alt-text="Review disk settings.":::
+   :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
 
 
-4. When you are done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
+1. When you are done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
 
 
 ## Attach an existing disk
 1. On the **Disks** pane, under **Data disks**, select  **Attach existing disks**.
-2. Click the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
+1. Click the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
 
-3. Click **Save** to attach the existing managed disk and update the VM configuration:
+1. Click **Save** to attach the existing managed disk and update the VM configuration:
    
 
 ## Connect to the Linux VM to mount the new disk
