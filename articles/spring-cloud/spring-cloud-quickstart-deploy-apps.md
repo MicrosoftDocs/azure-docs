@@ -82,17 +82,17 @@ az spring-cloud app show --name gateway --query properties.url
 
 3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
 
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+    ![Launch PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 You can also navigate the Azure portal to find the URL. 
 1. Navigate to the service
 2. Select **Apps**
 3. Select **gateway**
 
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+    ![Navigate app](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
 4. Find the URL on the **gateway | Overview** page
-    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    ![Navigate app second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

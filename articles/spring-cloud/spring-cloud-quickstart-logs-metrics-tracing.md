@@ -79,11 +79,11 @@ You will see logs like
     
 1. Click the link between **gateway** and **account-service** to see more details like slowest calls by HTTP methods.
 
-    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png)
+    ![Distributed Tracing](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png)
     
 1. Finally, click **Investigate Performance** to explore more powerful built-in performance analysis.
 
-    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
+    ![Distributed Tracing performance](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
 
 ## Next steps
 > [!div class="nextstepaction"]
