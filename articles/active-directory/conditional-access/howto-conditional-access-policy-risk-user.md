@@ -26,7 +26,7 @@ There are two locations where this policy may be assigned. Organizations should 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies. For more info, [set naming standards for your policies](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies. For more info, [set naming standards for your policies](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. Under **Assignments**, select **Users and groups**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
@@ -63,4 +63,4 @@ There are two locations where this policy may be assigned. Organizations should 
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[What is Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

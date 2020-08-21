@@ -112,7 +112,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 - Applications published through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md)
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
-- [Custom applications not in the gallery](../manage-apps/add-non-gallery-app.md)
+- [Custom applications not in the gallery](../manage-apps/view-applications-portal.md)
 - [Legacy applications published through app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)
 - Applications that use [password based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

@@ -97,6 +97,6 @@ Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescr
 
 - [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
 - [Plan your Conditional Access deployment](plan-conditional-access.md)
-- [Learn about Identity Protection](../identity-protection/overview-v2.md)
+- [Learn about Identity Protection](../identity-protection/overview-identity-protection.md)
 - [Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 - [Learn about Microsoft Intune](/intune/index)

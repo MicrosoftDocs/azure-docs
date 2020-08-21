@@ -67,4 +67,4 @@ There are two locations where this policy may be assigned. Organizations should 
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[What is Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
