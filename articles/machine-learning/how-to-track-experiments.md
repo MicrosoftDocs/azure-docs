@@ -66,8 +66,6 @@ You can also use the same parameter in the `wait_for_completion` function on the
 run.wait_for_completion(show_output=True)
 ```
 
-For a complete sample notebook that uses ScriptRunConfigs logs, see [Train a model locally](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
-
 ## Native Python logging
 
 Some logs in the SDK may contain an error that instructs you to set the logging level to DEBUG. To set the logging level, add the following code to your script.
@@ -84,8 +82,8 @@ Azure Machine Learning can also log information from other sources during traini
 For information on logging metrics in Azure Machine Learning designer (preview), see [How to log metrics in the designer (preview)](how-to-track-designer-experiments.md)
 
 ## Example notebooks
+
 The following notebooks demonstrate concepts in this article:
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 

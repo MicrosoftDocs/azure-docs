@@ -210,7 +210,7 @@ To enable these components in your Jupyter Notebook environment:
     conda activate myenv
     ```
 
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
+1. Clone [the GitHub repository](https://github.com/Azure/MachineLearningNotebooks) for a set of sample notebooks.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git

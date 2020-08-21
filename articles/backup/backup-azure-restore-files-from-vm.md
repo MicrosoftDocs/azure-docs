@@ -81,7 +81,7 @@ Once the disks have been unmounted, you receive a message. It may take a few min
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
 
 > [!NOTE]
-> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. In case the connection is still open, the subsequent backup might fail with an error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage i.e., the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and hence they will not be available during backup.
+> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. In case the connection is still open, the subsequent backup might fail with an error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage i.e., the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and so they will not be available during backup.
 
 ## Selecting the right machine to run the script
 
@@ -163,7 +163,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 ###### Duplicate Volume groups
 
-There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the below example.
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -228,7 +228,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and hence might result in data loss.
+> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and so might result in data loss.
 
 #### For RAID arrays
 
@@ -392,7 +392,7 @@ The data flow between the recovery service and the machine is protected by build
 
 Any file Access Control List (ACL) present in the parent/backed up VM is preserved in the mounted file system as well.
 
-The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure Portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
+The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
 
 ## Next steps
 
