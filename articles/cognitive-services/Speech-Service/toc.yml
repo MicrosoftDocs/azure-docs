@@ -3,10 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: Speech service overview
     href: overview.md
-  - name: Try the Speech service for free
-    href: get-started.md
   - name: Language and voice support
     displayName: languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice
     href: language-support.md
