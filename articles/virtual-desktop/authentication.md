@@ -35,9 +35,14 @@ Supported sign-in methods:
 >[!NOTE]
 >Smartcard and Windows Hello can only use Kerberos to sign in.
 
-## Windows Virtual Desktop single sign-on (SSO)
+## Unsupported methods
 
-Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) or single sign-on (SSO) for authentication. The only way to avoid being prompted for your password is to select the **Remember Me** check box on the prompt window, which will save your username and password to the credential manager.
+Windows Virtual Desktop currently doesn't support the following authentication methods:
+
+- Active Directory Federation Services (ADFS)
+- Single sign-on (SSO)
+
+The only way to avoid being prompted for your password is to select the **Remember Me** check box on the prompt window, which will save your username and password to the credential manager.
 
 ## Next steps
 
