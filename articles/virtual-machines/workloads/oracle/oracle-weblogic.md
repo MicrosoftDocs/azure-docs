@@ -1,5 +1,5 @@
 ---
-title: Oracle WebLogic Server on Azure Solutions
+title: Oracle WebLogic Server on Azure solutions
 description: Learn how to run Oracle WebLogic Server on Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
