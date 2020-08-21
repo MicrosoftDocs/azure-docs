@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Quickstart: Building your first static web app
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using the Visual Studio Code extension.
+Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Visual Studio Code extension.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
