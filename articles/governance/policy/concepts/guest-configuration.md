@@ -166,9 +166,9 @@ Guest Configuration policies use the **AuditIfNotExists** effect. When the defin
 a back-end service automatically handles the lifecycle of all requirements in the `Microsoft.GuestConfiguration`
 Azure resource provider.
 
-The **AuditIfNotExists** policies will not return compliance results until all requirements are
+The **AuditIfNotExists** policies won't return compliance results until all requirements are
 met on the machine. The requirments are described in section
-[Deploy requirements for Azure virtual machines](##DeployrequirementsforAzurevirtualmachines)
+[Deploy requirements for Azure virtual machines](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
 > In a prior release of Guest Configuration, an initiative was required to combine **DeployIfNoteExists**
