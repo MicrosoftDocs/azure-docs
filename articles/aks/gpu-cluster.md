@@ -176,6 +176,12 @@ az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myRe
 
 If you want to create a node pool using the regular AKS images, you can do so by omitting the custom `--aks-custom-headers` tag. 
 
+> [!NOTE]
+> If your GPU sku requires generation 2 virtual machines, you can create doing:
+> ```azure-cli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
+
 ## Confirm that GPUs are schedulable
 
 With your AKS cluster created, confirm that GPUs are schedulable in Kubernetes. First, list the nodes in your cluster using the [kubectl get nodes][kubectl-get] command:
