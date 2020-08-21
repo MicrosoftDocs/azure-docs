@@ -42,8 +42,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
   # [v2.0](#tab/v2-0)    
-    ```
-    python
+    ```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -82,8 +81,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
     ```
     
    # [v2.1 preview](#tab/v2-1)    
-    ```
-    python
+    ```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -121,6 +119,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
         print("POST analyze failed:\n%s" % str(e))
         quit()
     ```
+    
 > [!NOTE]
 > **Language input** 
 >
@@ -172,13 +171,13 @@ while n_try < n_tries:
 
 ### Examine the response
 
-The script will print responses to the console until the **Analyze Receipt** operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
+The script will print responses to the console until the **Analyze Receipt** operation completes. Then, it will print the extracted text data in JSON format. The `"readResults"` field contains every line of text that was extracted from the receipt, and the `"documentResults"` field contains key/value information for the most relevant parts of the receipt.
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
 ![A receipt from Contoso store](../media/contoso-allinone.jpg)
 
-The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
+The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
 
 ```json
 { 
