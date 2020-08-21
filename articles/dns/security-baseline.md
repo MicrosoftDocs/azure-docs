@@ -4,7 +4,7 @@ description: The Azure DNS security baseline provides procedural guidance and re
 author: msmbaldwin
 ms.service: dns
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
