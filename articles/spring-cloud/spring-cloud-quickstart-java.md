@@ -33,8 +33,6 @@ To complete this quickstart:
 1. (Optional)[Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)
 
 ## Generate a Spring Cloud helloworld project
->[!TIP]
-> To skip the spring boot basics in this section, you can clone our sample repo `git clone https://github.com/yucwan/azure-spring-cloud-helloworld.git` and jump ahead to **Provision a service instance** section.
 
 Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
 ```url
@@ -196,7 +194,7 @@ Once deployment has completed, you can access the app at `https://<service insta
 
 For advanced logs analytics features, visit **Logs** tab in the menu on [Azure Portal](https://portal.azure.com/). Logs here have a latency of a few minutes.
 
-    ![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png)
+![Logs Analytics](media/spring-cloud-quickstart-java/logs-analytics.png)
 
 In this quickstart, you learned how to:
 
