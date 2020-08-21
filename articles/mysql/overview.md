@@ -24,7 +24,7 @@ These capabilities require almost no administration and all are provided at no a
 
 ![Azure Database for MySQL conceptual diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
-## Deployment Models
+## Deployment models
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 - Single Server 
@@ -48,7 +48,7 @@ Flexible servers are best suited for
 
 For detailed overview of flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml).
 
-## Next Steps
+## Next steps
 
 Learn more about the two deployment modes for Azure Database for MySQL and choose the right options based on your needs.
 
