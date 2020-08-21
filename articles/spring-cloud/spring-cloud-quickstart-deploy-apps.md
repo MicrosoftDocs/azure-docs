@@ -50,6 +50,13 @@ Compiling the project takes about 5 minutes. Once completed, you should have ind
 
 ### Create and deploy the apps
 
+1. Set your default resource group name and cluster name using the following commands:
+
+    ```azurecli
+    az configure --defaults group=<resource group name>
+    az configure --defaults spring-cloud=<service instance name>
+    ```
+
 1. Create Spring Cloud microservices using the JAR files built in the previous step. You will create three apps: **gateway**, **auth-service**, and **account-service**.
 
     ```azurecli
