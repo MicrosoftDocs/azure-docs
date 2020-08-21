@@ -30,10 +30,10 @@ You should have the following details before requesting a restore:
 
 * If one or more containers are deleted, you should provide the Azure Cosmos account name, database names, and the container names. And specify if a container with the same name exists.
 
-* If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups.
+* If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups. Before you create a support request to restore the data, make sure to [increase the backup retention](online-backup-and-restore.md) for your account to at least seven days. It’s best to increase your retention within 8 hours of this event. This way the Azure Cosmos DB support team will have enough time to restore your account.
   
-  * If you have accidentally deleted your database or container, open a Sev B or Sev C Azure support case. 
-  * If you have accidentally deleted or corrupted some documents within the container, open a Sev A support case. 
+  * If you have accidentally deleted your database or container, open a Sev B or Sev C Azure support case.
+  * If you have accidentally deleted or corrupted some documents within the container, open a Sev A support case.
 
 When data corruption occurs and if the documents within a container are modified or deleted, **delete the container as soon as possible**. By deleting the container, you can avoid Azure Cosmos DB from overwriting the backups. If for some reason the deletion is not possible, you should file a ticket as soon as possible. In addition to Azure Cosmos account name, database names, container names, you should specify the point in time to which the data can be restored to. It is important to be as precise as possible to help us determine the best available backups at that time. It is also important to specify the time in UTC. 
 
@@ -43,7 +43,7 @@ The following screenshot illustrates how to create a support request for a conta
 
 ## Post-restore actions
 
-After you restore the data, you get a notification about the name of the new account (it’s typically in the format `<original-name>-restored1`) and the time when the account was restored to. The restored account will have the same provisioned throughput, indexing policies and it is in same region as the original account. A user who is the subscription admin or a coadmin can see the restored account.
+After you restore the data, you get a notification about the name of the new account (it’s typically in the format `<original-name>-restored1`) and the time when the account was restored to. The restored account will have the same provisioned throughput, indexing policies and it is in same region as the original account. A user who is the subscription admin or a co-admin can see the restored account.
 
 After the data is restored, you should inspect and validate the data in the restored account and make sure it contains the version that you are expecting. If everything looks good, you should migrate the data back to your original account using [Azure Cosmos DB change feed](change-feed.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
