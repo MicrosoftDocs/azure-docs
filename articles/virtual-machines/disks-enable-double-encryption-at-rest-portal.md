@@ -20,7 +20,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
 ## Supported regions
 
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
 ## Getting started
 

@@ -18,7 +18,7 @@ This article answers some frequently asked questions about Azure Managed Disks a
 
 **What is Azure Managed Disks?**
 
-Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](managed-disks-overview.md).
 
 **If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?**
 
@@ -82,7 +82,7 @@ Managed Disks supports three key default roles:
 
 **Is there a way that I can copy or export a managed disk to a private storage account?**
 
-You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or [AzCopy](../storage/common/storage-use-azcopy-v10.md)
 
 **Can I create a copy of my managed disk?**
 
@@ -139,7 +139,7 @@ Generation 1 images can only use GPT partitioning on data disks, not OS disks. O
 Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
 **What are Azure disk reservations?**
-Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
+Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../cost-management-billing/reservations/understand-disk-reservations.md).
 
 **What options does Azure disk reservation offer?**    
 Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.    

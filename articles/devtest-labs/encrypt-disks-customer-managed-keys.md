@@ -20,7 +20,7 @@ The following section shows how a lab owner can set up encryption using a custom
 
 ## Pre-requisites
 
-1. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Note the following requirements for the disk encryption set: 
+1. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Note the following requirements for the disk encryption set: 
 
     - The disk encryption set needs to be **in same region and subscription as your lab**. 
     - Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks. 
