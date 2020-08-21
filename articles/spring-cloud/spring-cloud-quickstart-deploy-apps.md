@@ -126,7 +126,7 @@ mvn clean package -DskipTests
 mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
 
 ```
-
+Then:
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
 
     b. Select your subscription and Azure Spring Cloud service cluster.
@@ -135,14 +135,14 @@ mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
     
     d. Confirm the configuration.
 
-1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
+2. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
 
 ```
 mvn azure-spring-cloud:deploy
 ```
 
-1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
-1. Navigate to the URL in browser.
+3. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
+4. Navigate to the URL in browser.
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
   
