@@ -31,7 +31,7 @@ When you restore a database, the service determines which full, differential, an
 ### Backup storage redundancy
 
 > [!IMPORTANT]
-> Configurable storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option.
+> Both SQL Database and SQL Managed Instance support RA-GRS, LRS, and ZRS storage blobs, but the ability to configure storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option.
 
 The option to configure backup storage redundancy provides the flexibility to choose between locally-redundant (LRS), zone-redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. This feature is currently only available for SQL Managed Instance.
 
