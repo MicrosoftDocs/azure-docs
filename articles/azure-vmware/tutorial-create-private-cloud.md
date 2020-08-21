@@ -59,7 +59,7 @@ You can create an Azure VMware Solution private cloud by using the [Azure portal
    | **NSX-T manager password** | Enter an NSX-T administrator password. |
    | **Address block** | Enter an IP address block for the CIDR network for the private cloud, for example, 10.175.0.0/22. |
 
-   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="create a private cloud" border="true":::
+   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="On the Basics tab, enter values for the fields." border="true":::
 
 1. Once finished, select **Review + Create**. On the next screen, verify the information entered. If the information is all correct, select **Create**.
 
@@ -68,7 +68,7 @@ You can create an Azure VMware Solution private cloud by using the [Azure portal
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You'll see the status of **Succeeded** when the deployment has completed. 
 
-   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Validate the private cloud deployed" border="true":::
+   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verify that the deployment was successful." border="true":::
 
 ### Azure CLI
 

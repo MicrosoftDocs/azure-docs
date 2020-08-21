@@ -43,7 +43,7 @@ Before you can create a virtual network, make sure you have created an [Azure VM
 
 1. Select **Review + create**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="create a virtual network" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Select Review + create." border="true":::
 
 1. Verify the information and select **Create**. Once the deployment is complete, you'll see your virtual network in the resource group.
 
@@ -71,7 +71,7 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    | **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="create a gateway" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="On the Basics tab of the Create virtual network gateway page, provide values for the fields and then select Review + create." border="true":::
 
 1. Verify that the details are correct, and select **Create** to start the deployment of your virtual network gateway. 
 1. Once the deployment completes, move to the next section to connect your ExpressRoute connection to the virtual network gateway containing your Azure VMware Solution private cloud.
@@ -82,9 +82,9 @@ Now that you've deployed a virtual network gateway, you'll add a connection betw
 
 1. Navigate to the private cloud you created in the previous tutorial and select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
 
-1. Copy the authorization key. If there is not an authorization key, you need to create one, to do that select **+ Request an authorization key**
+1. Copy the authorization key. If there is not an authorization key, you need to create one, to do that select **+ Request an authorization key**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="request an authorization key" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="Copy the authorization key. If there is not an authorization key, you need to create one, to do that select + Request an authorization key." border="true":::
 
 1. Navigate to the Virtual Network Gateway you created
 in the previous step and under **Settings**, select **Connections**. On the **Connections** page, select **+ Add**.
@@ -100,7 +100,7 @@ in the previous step and under **Settings**, select **Connections**. On the **Co
    | **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
    | **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
 
-   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="add a connection" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="On the Add connection page, provide values for the fields and select OK." border="true":::
 
 The connection between your ExpressRoute circuit and your Virtual Network is created.
 
@@ -112,7 +112,7 @@ To sign in to vCenter and NSX manager you'll need the URLs to the vCenter web cl
 
 Navigate to your Azure VMware Solution private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="locate the vCenter urls" border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Navigate to your Azure VMware Solution private cloud, under Manage, select Identity, here you'll find the information needed." border="true":::
 
 ## Next steps
 

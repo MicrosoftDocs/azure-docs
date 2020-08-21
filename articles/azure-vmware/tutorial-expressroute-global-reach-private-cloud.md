@@ -32,7 +32,7 @@ The prerequisites for this tutorial are:
 
 1. From the private cloud **Overview**, under Manage, select **Connectivity > ExpressRoute > Request an authorization key**.
 
-   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Select Connectivity > ExpressRoute > Request an authorization key to start a new request":::
+   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Select Connectivity > ExpressRoute > Request an authorization key to start a new request.":::
 
 2. Enter the name for the authorization key and select **Create**. 
 

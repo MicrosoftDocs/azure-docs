@@ -25,27 +25,27 @@ You need a private cloud to complete this tutorial. If you haven't yet created a
 
 ## Add a new cluster
 
-On the overview page of an existing private cloud, under **Manage**, select **Scale private cloud**. Next, select **+ Add a cluster**.
+1. On the overview page of an existing private cloud, under **Manage**, select **Scale private cloud**. Next, select **+ Add a cluster**.
 
-:::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="select add a cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="select add a cluster" border="true":::
 
-In the **Add cluster** page, use the slider to select the number of hosts. Select **Save**.
+1. In the **Add cluster** page, use the slider to select the number of hosts. Select **Save**.
 
-:::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Configure a new private cloud cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="In the Add cluster page, use the slider to select the number of hosts. Select Save." border="true":::
 
-The deployment of the new cluster will begin.
+   The deployment of the new cluster will begin.
 
 ## Scale a cluster 
 
-On the overview page of an existing private cloud, select **Scale private cloud** and select the pencil icon to edit the cluster.
+1. On the overview page of an existing private cloud, select **Scale private cloud** and select the pencil icon to edit the cluster.
 
-:::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Select Scale private cloud in Overview" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Select Scale private cloud in Overview" border="true":::
 
-In the **Edit Cluster** page, use the slider to select the number of hosts. Select **Save**.
+1. In the **Edit Cluster** page, use the slider to select the number of hosts. Select **Save**.
 
-:::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="Configure a new private cloud cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="In the Edit Cluster page, use the slider to select the number of hosts. Select Save." border="true":::
 
-The addition of hosts to the cluster will begin.
+   The addition of hosts to the cluster will begin.
 
 ## Next steps
 
