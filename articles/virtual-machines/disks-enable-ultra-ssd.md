@@ -342,4 +342,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ```
 ## Next steps
 
-See [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks).
+See [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks.md).
