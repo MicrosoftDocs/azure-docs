@@ -57,7 +57,7 @@ resource-group | myresourcegroup | Name of the Azure resource group.
 location | westus | Azure location for the server.
 admin-user | myadmin | Username for the administrator login. It can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *secure password* | Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
-sku-name|GP_Gen5_2| Name of the pricing tier and compute configuration. Follow the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/server/).
+sku-name|GP_Gen5_2| Name of the pricing tier and compute configuration. Follow the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
