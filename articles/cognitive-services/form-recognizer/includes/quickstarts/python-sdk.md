@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 08/21/2020
 ms.author: pafarley
 ---
 
@@ -84,11 +84,14 @@ You'll also need to add references to the URLs for your training and testing dat
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Use the sample from and receipt images included in the samples below (also available on [GitHub]((https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms))) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
+> [!NOTE]
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
+
 ## Recognize form content
 
 You can use Form Recognizer to recognize tables, lines, and words in documents, without needing to train a model.
 
-To recognize the content of a file at a given URL, use the **begin_recognize_content** method. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
+To recognize the content of a file at a given URL, use the `begin_recognize_content` method. The returned value is a collection of `FormPage` objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
 ```Python
 formUrl = "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/tests/sample_forms/forms/Invoice_1.pdf"
@@ -183,7 +186,7 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
 
-The following code uses the training client with the **begin_training** function to train a model on a given set of documents. The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
+The following code uses the training client with the `begin_training` function to train a model on a given set of documents. The returned `CustomFormModel` object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
 ```python
 # To train a model you need an Azure Storage account.
@@ -256,10 +259,10 @@ Document errors: []
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned `CustomFormModel` indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 > [!IMPORTANT]
-> To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **begin_training** function with the *use_training_labels* parameter set to `true`.
+> To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the `begin_training` function with the *use_training_labels* parameter set to `true`.
 
 ```python
 # To train a model you need an Azure Storage account.
@@ -338,7 +341,7 @@ This section demonstrates how to extract key/value information and other content
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
 
-You'll use the **begin_recognize_custom_forms_from_url** method. The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
+You'll use the `begin_recognize_custom_forms_from_url` method. The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 ```python
 # Model ID from when you trained your model.
