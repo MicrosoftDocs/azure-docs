@@ -110,11 +110,11 @@ Now that the repository is created, you can create a static web app from the Azu
 
     You can now view the created app in Azure.
 
-1. Open the [Azure portal](https://portal.azure.com)
+1. Open the [Azure portal](https://portal.azure.com).
 
-1. Search for **my-first-web-static-app** from the top search bar
+1. Search for **my-first-web-static-app** from the top search bar.
 
-1. Select **my-first-web-static-app**
+1. Select **my-first-web-static-app**.
 
 [!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
 
