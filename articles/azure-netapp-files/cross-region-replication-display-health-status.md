@@ -25,7 +25,7 @@ You can view replication status on the source volume or the destination volume.
 1. From either the source volume or the destination volume, click **Replication** under Storage Service for either volume.
 
     The following replication status and health information is displayed:  
-    * **End point type** -- Identifies whether the volume is the source or destination of replication.
+    * **End point type** – Identifies whether the volume is the source or destination of replication.
     * **Health** – Displays the health status of the replication relationship.
     * **Mirror state** – Shows one of the following values:
         * *Uninitialized*:  
@@ -33,7 +33,7 @@ You can view replication status on the source volume or the destination volume.
         * *Mirrored*:   
             The destination volume has been initialized and is ready to receive mirroring updates.
         * *Broken*:   
-            This is the state after you break the peering relationship. The destination volume is ‘RW’ and snapshots are present.
+            This is the state after you break the peering relationship. The destination volume is `‘RW’` and snapshots are present.
     * **Relationship status** – Shows one of the following values: 
         * *Idle*:  
             No transfer operation is in progress and future transfers are not disabled.

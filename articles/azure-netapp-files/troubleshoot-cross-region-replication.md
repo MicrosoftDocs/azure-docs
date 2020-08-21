@@ -32,7 +32,7 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   RemoteResourceID is missing or invalid from the UI or API request (fix error   message).    |
+|     `Missing value   for 'AuthorizeSourceReplication'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request (fix error   message).    |
 |     `Missing value   for 'RemoteVolumeResourceId'`    |     The   `RemoteResourceID` is missing or invalid from the UI or API request.    |
 |     `Data   Protection volume not found for RemoteVolumeResourceId: {remoteResourceId}`    |     Validate if   `RemoteResourceID` is correct or exists for the user.    |
 |     `Remote volume   '{0}' is not configured for replication`    |     Destination   volume is not a data protection volume.    |
@@ -50,7 +50,7 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|     `Volume   Replication is in invalid status: (Mirrored\|Uninitialized) for operation:   'ResyncReplication'`    |     Validate that   volume replication is in state "broken”.    |
+|     `Volume Replication is in invalid status: (Mirrored|Uninitialized) for operation: 'ResyncReplication'`     |     Validate that   volume replication is in state "broken”.    |
 
 ## Errors authorizing volume  
 

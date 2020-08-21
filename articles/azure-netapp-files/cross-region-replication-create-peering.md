@@ -20,7 +20,7 @@ ms.author: b-juche
 
 This article shows you how to set up cross-region replication by creating replication peering. 
 
-Replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). The source volume and the destination volume must be deployed in separate regions. The service level for the destination capacity pool can match that of the source capacity pool, or you can select a different service level.   
+Setting up replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). The source volume and the destination volume must be deployed in separate regions. The service level for the destination capacity pool can match that of the source capacity pool, or you can select a different service level.   
 
 Azure NetApp Files replication does not currently support multiple subscriptions; all replications must be performed under a single subscription.
 
@@ -82,7 +82,7 @@ For the NFS protocol, ensure that the export policy rules satisfy the requiremen
 
 To authorize the replication, you need to obtain the resource ID of the replication destination volume and paste it to the Authorize field of the replication source volume. 
 
-1. While the new replication destination volume is deploying, in the Azure portal, navigate to Azure NetApp Files.
+1. In the Azure portal, navigate to Azure NetApp Files.
 
 2. Go to the destination NetApp account and destination capacity pool where the replication destination volume is located.
 

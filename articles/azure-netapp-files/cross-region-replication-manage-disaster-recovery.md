@@ -24,6 +24,8 @@ When such an event occurs, you can [failover to the destination volume](#break-r
 
 After disaster recovery, you can fail back to the source volume with a [resync operation](#resync-replication-to-reactivate-the-source-volume) that overwrites the source volume data with the destination volume data.  You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
+The details are described below. 
+
 ## Break replication peering to activate the destination volume
 
 When you need to activate the destination volume (for example, when you want to failover to the destination region), you need to break replication peering and then mount the destination volume.  
@@ -31,7 +33,7 @@ When you need to activate the destination volume (for example, when you want to 
 1. To break replication peering, select the destination volume. Click **Replication** under Storage Service.  
 
 2.	Check the following fields before continuing:  
-    * Ensures that Mirror State shows ***Mirrored***.   
+    * Ensure that Mirror State shows ***Mirrored***.   
         Do not attempt to break replication peering if Mirror State shows *Uninitialized*.
     * Ensure that Relationship Status shows ***Idle***.   
         Do not attempt to break replication peering if Relationship Status shows *Transferring*.   
@@ -40,7 +42,7 @@ When you need to activate the destination volume (for example, when you want to 
 
 3.	Click **Break Peering**.  
 
-4.	Type “Yes” when prompted and click the **Break** button. 
+4.	Type **Yes** when prompted and click the **Break** button. 
 
     ![Break replication peering](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
 
@@ -54,9 +56,9 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > [!IMPORTANT] 
 > The resync operation overwrites the source volume data with the destination volume data.  The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.
 
-1. To resync replication, select the source volume. Click **Replication** under Storage Service. Then click **Resync**.  
+1. To resync replication, select the *source* volume. Click **Replication** under Storage Service. Then click **Resync**.  
 
-2. Type “Yes” when prompted and click the **Resync** button. 
+2. Type **Yes** when prompted and click the **Resync** button. 
  
     ![Resync replication](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
@@ -66,16 +68,14 @@ After disaster recovery, you can reactivate the source volume by performing a re
     * Mirrored State: *Mirrored*  
     * Transfer State: *Idle*  
 
-    See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
-
 ## Reestablish source-to-destination replication
 
 After the resync operation from destination to source is complete, you need to break replication peering again to reestablish source-to-destination replication. You should also remount the source volume so that the client can access it.  
 
 1. Break the replication peering:  
-    a. Select the destination volume. Click **Replication** under Storage Service.  
+    a. Select the *destination* volume. Click **Replication** under Storage Service.  
     b. Check the following fields before continuing:   
-    * Ensures that Mirror State shows ***Mirrored***.   
+    * Ensure that Mirror State shows ***Mirrored***.   
     Do not attempt to break replication peering if Mirror State shows *uninitialized*.  
     * Ensure that Relationship Status shows ***Idle***.   
     Do not attempt to break replication peering if Relationship Status shows *transferring*.    
@@ -86,7 +86,7 @@ After the resync operation from destination to source is complete, you need to b
     d. Type **Yes** when prompted and click the **Break** button.  
 
 2. Resync the source volume with the destination volume:  
-    a. Select the destination volume. Click **Replication** under Storage Service. Then click **Resync**.   
+    a. Select the *destination* volume. Click **Replication** under Storage Service. Then click **Resync**.   
     b. Type **Yes** when prompted and click the **Resync** button.
 
 3. Remount the source volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
