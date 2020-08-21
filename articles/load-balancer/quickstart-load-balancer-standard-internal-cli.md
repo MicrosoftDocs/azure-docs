@@ -49,7 +49,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 # [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
->Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+>Standard SKU load balancer is recommended for production workloads. For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
 
 ## Configure virtual network
 
@@ -355,7 +355,7 @@ It may take a few minutes for the VMs to deploy.
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
->Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
+>Standard SKU load balancer is recommended for production workloads. For more information about SKUS, see **[Azure Load Balancer SKUs](skus.md)**.
 
 ## Configure virtual network
 
@@ -366,7 +366,9 @@ Before you deploy VMs and deploy your load balancer, create the supporting virtu
 Create a virtual network using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
 
 * Named **myVNet**.
+* Address prefix of **10.1.0.0/16**.
 * Subnet named **myBackendSubnet**.
+* Subnet prefix of **10.1.0.0/24**.
 * In the **myResourceGroupLB** resource group.
 * Location of **eastus**.
 
@@ -375,7 +377,9 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
     --resource-group myResourceGroupLB \
     --location eastus \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ## Create basic load balancer
