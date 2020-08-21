@@ -36,7 +36,11 @@ This container image has the following tags available:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)  | •	Further decrease memory usage for container. |
+|                                          | •	External cache is required for multi-pods setup. For example, set-up Redis for caching. |
+|                                          | •	Fix results missing issue when Redis cache is set-up and ResultExpirationPeroid=0.  |
+|                                          | •	Remove request body size limitation of 26MB. Container can now accept >26MB files.  |
+|                                          | •	Add time stamp and build version to console logging.  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
