@@ -257,7 +257,7 @@ The **Pricing and availability** tab is where you will define the plan’s marke
 
 ### Free trials
 
-When selling your offer through Microsoft, you can enable a one-month free trial, which will automatically convert to a paid offer at the end of the trial. Free trials are supported for all billing models except metered plans. When configuring a plan, you can enable a free trial by checking the **Allow a one-month free trial** box. For more information about free trials, see Free trials in the Microsoft commercial marketplace.
+When selling your offer through Microsoft, you can enable a one-month free trial, which will automatically convert to a paid offer at the end of the trial. Free trials are supported for all billing models except metered plans. When configuring a plan, you can enable a free trial by checking the **Allow a one-month free trial** box. For more information about free trials, see [Free trials in the Microsoft commercial marketplace](free-trial-offer.md).
 
 ### Plan visibility
 
