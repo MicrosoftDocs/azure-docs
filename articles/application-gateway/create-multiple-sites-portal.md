@@ -153,7 +153,7 @@ To add backend targets, you'll:
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *contosoVM* for the name of the virtual machine.
     - **Username**: Enter a name for the administrator user name.
-    - **Password**: Enter you password for the administrator.
+    - **Password**: Enter a password for the administrator.
 1. Accept the other defaults and then select **Next: Disks**.  
 2. Accept the **Disks** tab defaults and then select **Next: Networking**.
 3. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
