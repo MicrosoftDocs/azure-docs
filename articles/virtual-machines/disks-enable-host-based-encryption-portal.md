@@ -20,15 +20,15 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ## Restrictions
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](~/includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
 ### Supported regions
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](~/includes/virtual-machines-disks-encryption-at-host-regions.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
-[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](~/includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+[!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Sign in to the Azure portal using the [provided link](https://aka.ms/diskencrypt
 
 Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk encryption set, if you haven't already.
 
-[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](~/includes/virtual-machines-disks-encryption-create-key-vault-portal.md)]
+[!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](../includes/virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
 ## Deploy a VM
 
