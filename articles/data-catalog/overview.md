@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 08/21/2020
 ---
 
 # What is the Project Babylon Preview Program?
