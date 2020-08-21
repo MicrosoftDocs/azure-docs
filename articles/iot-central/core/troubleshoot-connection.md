@@ -39,6 +39,9 @@ To [install](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?vi
 az extension add --name azure-iot
 ```
 
+> [!NOTE]
+> You may be prompted to install the `uamqp` library the first time you run an extension command.
+
 When you've installed the `azure-iot` extension, start your device to see if the messages it's sending are making their way to IoT Central.
 
 Use the following commands to sign in the subscription where you have your IoT Central application:
@@ -89,8 +92,6 @@ version : 32
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
-You may be prompted to install the `uamqp` library the first time you run a `monitor` command.
-
 ### Interpreting terminal output
 
 If you see data appear in your terminal, then the data is making it as far as your IoT Central application.
@@ -107,7 +108,7 @@ If your data is not appearing on the monitor, check the provisioning status of y
 az iot central app device registration-info -n <app-id> -d <device-id>
 ```
 
-The following out shows an example of a device that's blocked from connecting:
+The following output shows an example of a device that's blocked from connecting:
 
 ```json
 {
@@ -172,10 +173,16 @@ There are two main categories of common issues that cause device data to not app
 To detect which categories your issue is in, run the most appropriate command for your scenario:
 
 - To validate telemetry, use the preview command:
-    `az iot central app validate-messages -n <app-id> -d <device-name>`
+
+    ```cmd/bash
+    az iot central app validate-messages -n <app-id> -d <device-name>
+    ```
 
 - To validate property updates, use the preview command
-    `az iot central app validate-properties -n <app-id> -d <device-name>`
+
+    ```cmd/bash
+    az iot central app validate-properties -n <app-id> -d <device-name>
+    ```
 
 - If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
 
