@@ -19,7 +19,7 @@ The SUPER privilege and DBA role are not supported on the service. As a result, 
 
 #### ERROR 1419: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
 
-The above error may occur while creating a function, trigger as below or importing a schema. The DDL statements like CREATE FUNCTION or CREATE TRIGGER are written to the binary log, so the secondary replica can execute them. The replica SQL thread has full privileges which may be exploited by a user who do not . To guard against this danger for servers that have binary logging enabled, MySQL engine requires stored function creators must have the SUPER privilege, in addition to the usual CREATE ROUTINE privilege that is required. 
+The above error may occur while creating a function, trigger as below or importing a schema. The DDL statements like CREATE FUNCTION or CREATE TRIGGER are written to the binary log, so the secondary replica can execute them. The replica SQL thread has full privileges, which can be exploited to elevate privileges. To guard against this danger for servers that have binary logging enabled, MySQL engine requires stored function creators must have the SUPER privilege, in addition to the usual CREATE ROUTINE privilege that is required. 
 
 ```sql
 CREATE FUNCTION f1(i INT)
