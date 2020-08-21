@@ -134,6 +134,7 @@
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/azure-arc/servers/**/*.md": "mgoedtel",
+        "articles/azure-arc/**/*.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
         "articles/batch/**/*.md": "JnHs",
         "articles/event-grid/**/*.md": "spelluru",
@@ -472,6 +473,7 @@
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
         "articles/azure-arc/servers/**/*.md": "magoedte",
+        "articles/azure-arc/**/*.md": "magoedte",
         "articles/connectors/*.md": "estfan",
         "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
@@ -707,7 +709,7 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
-        "articles/azure-arc/servers/*.md": "Azure Arc",
+        "articles/azure-arc/**/*.md": "Azure Arc",
         "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
         "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
