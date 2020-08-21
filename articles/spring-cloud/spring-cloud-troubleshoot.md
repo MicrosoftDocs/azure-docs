@@ -56,8 +56,13 @@ When you're debugging application crashes, start by checking the running status 
     * A memory explosion at the very beginning.
     * The surge memory allocation for a specific logic path.
     * Gradual memory leaks.
-
   For more information, see [Metrics](spring-cloud-concept-metrics.md).
+  
+* If your application cannot start, please check the application log and see if it has valid jvm parameters. If you set too large memory, you may see the following error:
+
+  > "required memory 2728741K is greater than 2000M available for allocation". 
+
+
 
 To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
