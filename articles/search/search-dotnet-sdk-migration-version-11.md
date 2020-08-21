@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 08/20/2020
 ---
 
 # Upgrade to Azure Cognitive Search .NET SDK version 11
@@ -24,6 +24,9 @@ Some key differences you'll notice in the new version include:
 + A new package name: `Azure.Search.Documents` instead of `Microsoft.Azure.Search`.
 + Three clients instead of two: `SearchClient`, `SearchIndexClient`, `SearchIndexerClient`
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
+
+> [!NOTE]
+> Review the [**change log**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for an itemized list of changes in .NET SDK version 11.
 
 ## Package and library consolidation
 
@@ -110,19 +113,23 @@ Each version of an Azure Cognitive Search client library targets a corresponding
 
 Version 11 targets the [2020-06-30 search service](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Because version 11 is also a new client library built from the ground up, most of the development effort has focused on equivalency with version 10, with some REST API feature support still pending.
 
-Version 11 fully supports the following objects and operations:
+Version 11.0 fully supports the following objects and operations:
 
 + Index creation and management
 + Synonym map creation and management
 + All query types and syntax (except geo-spatial filters)
 + Indexer objects and operations for indexing Azure data sources, including data sources and skillsets
 
+Version 11.1 adds the following:
+
++ [FieldBuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (added in 11.1)
++ [Serializer property](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (added in 11.1) to support custom serialization
+
 ### Pending features
 
-The following version 10 features are not yet available in version 11. If you use these features, hold off on migration until they are supported.
+The following version 10 features are not yet available in version 11. If you require these features, hold off on migration until they are supported.
 
 + geospatial types
-+ [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (although you can use [this workaround](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge store](knowledge-store-concept-intro.md)
 
 <a name="UpgradeSteps"></a>
@@ -143,9 +150,18 @@ The following steps get you started on a code migration by walking through the f
    using Azure.Search.Documents.Models;
    ```
 
-1. Replace [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials) with [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential).
+1. Revise client authentication code. In previous versions, you would use properties on the client object to set the API key (for example, the [SearchServiceClient.Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) property). In the current version, use the [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) class to pass the key as a credential, so that if needed, you can update the API key without creating new client objects.
 
-1. Update client references for indexer-related objects. If you are using indexers, datasources, or skillsets, change the client references to [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
+   Client properties have been streamlined to just `Endpoint`, `ServiceName`, and `IndexName` (where appropriate). The following example uses the system [Uri](https://docs.microsoft.com/dotnet/api/system.uri) class to provide the endpoint and the [Environment](https://docs.microsoft.com//dotnet/api/system.environment) class to read in the key value:
+
+   ```csharp
+   Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+   AzureKeyCredential credential = new AzureKeyCredential(
+      Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+   SearchIndexClient indexClient = new SearchIndexClient(endpoint, credential);
+   ```
+
+1. Add new client references for indexer-related objects. If you are using indexers, datasources, or skillsets, change the client references to [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
 
 1. Update client references for queries and data import. Instances of [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) should be changed to [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). To avoid name confusion, make sure you catch all instances before proceeding to the next step.
 
@@ -163,7 +179,7 @@ The following steps get you started on a code migration by walking through the f
 
 Given the sweeping changes to libraries and APIs, an upgrade to version 11 is non-trivial and constitutes a breaking change in the sense that your code will no longer be backward compatible with version 10 and earlier. For a thorough review of the differences, see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) for `Azure.Search.Documents`.
 
-In terms of service versions, moving from 10 to 11 introduces the following behavior changes: 
+In terms of service version updates, where code changes in version 11 relate to existing functionality (and not just a refactoring of the APIs), you will find the following behavior changes:
 
 + [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 
