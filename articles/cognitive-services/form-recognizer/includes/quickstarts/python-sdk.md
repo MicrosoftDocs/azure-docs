@@ -183,7 +183,7 @@ This section demonstrates how to train a model with your own data. A trained mod
 
 Train custom models to recognize all fields and values found in your custom forms without manually labeling the training documents.
 
-The following code uses the training client with the **begin_training** function to train a model on a given set of documents. The returned **CustomFormSubmodel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
+The following code uses the training client with the **begin_training** function to train a model on a given set of documents. The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
 ```python
 # To train a model you need an Azure Storage account.
