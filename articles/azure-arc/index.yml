@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 09/01/2020
+  ms.date: 08/21/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -35,7 +35,7 @@ highlightedContent:
 # productDirectory section (optional)
 productDirectory:
   title: Azure Arc enabled services
-  summary: See how to run these services anywhere
+  summary: See how to run services anywhere.
   items: 
     # Card
     - title: Azure Arc enabled servers
