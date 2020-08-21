@@ -15,7 +15,7 @@ ms.date: 8/8/2020
 
 The graph search feature allows customer to search for a node by its name and several properties. Customer can type keywords and add filters in UI as shown in below image. 
 
- ![graph search](media/search/graph-search.png)
+ ![graph search](media/search/graph-search.gif)
 
 It's also possible to type a search query directly. This article explains the supported search query syntax. 
 
