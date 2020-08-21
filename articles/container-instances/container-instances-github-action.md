@@ -21,7 +21,7 @@ This article shows how to set up a workflow in a GitHub repo that performs the f
 This article shows two ways to set up the workflow:
 
 * [Configure GitHub workflow](#configure-github-workflow) - Create a workflow in a GitHub repo using the Deploy to Azure Container Instances action and other actions.  
-* [Use CLI extension](#use-deploy-to-azure=extension) - Use the `az container app up` command in the [Deploy to Azure](https://github.com/Azure/deploy-to-azure-cli-extension) extension in the Azure CLI. This command streamlines creation of the GitHub workflow and deployment steps.
+* [Use CLI extension](#use-deploy-to-azure-extension) - Use the `az container app up` command in the [Deploy to Azure](https://github.com/Azure/deploy-to-azure-cli-extension) extension in the Azure CLI. This command streamlines creation of the GitHub workflow and deployment steps.
 
 > [!IMPORTANT]
 > The GitHub action for Azure Container Instances is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
