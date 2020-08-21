@@ -96,6 +96,8 @@ The second step is to call the [Get Analyze Receipt Result](https://westcentralu
 
 When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The receipt understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
+![sample receipt results](./media/contoso-receipt-2-information.png)
+
 ### Sample JSON output
 
 See the following example of a successful JSON response:

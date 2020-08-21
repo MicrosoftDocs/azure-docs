@@ -41,7 +41,8 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
-# [v2.0](#tab/v2-0)    
+# [v2.0](#tab/v2-0)
+
 ```python
     ########### Python Form Recognizer Async Receipt #############
 
@@ -118,7 +119,8 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
- ```
+```
+
 > [!NOTE]
 > **Language input** 
 >
