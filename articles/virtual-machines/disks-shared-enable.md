@@ -16,21 +16,21 @@ This article covers how to enable the shared disks feature for Azure managed dis
 
 If you are looking for conceptual information on managed disks that have shared disks enabled, refer to:
 
-* For Linux: [Azure shared disks](./linux/disks-shared.md)
+* For Linux: [Azure shared disks](linux/disks-shared.md)
 
-* For Windows: [Azure shared disks](./windows/disks-shared.md)
+* For Windows: [Azure shared disks](windows/disks-shared.md)
 
 ## Limitations
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ## Supported operating systems
 
-Shared disks support several operating systems. See the [Windows](/articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](/articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](windows/disks-shared.md#windows) and [Linux](linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## Deploy shared disks
 
