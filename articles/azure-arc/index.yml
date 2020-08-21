@@ -40,7 +40,7 @@ productDirectory:
     # Card
     - title: Azure Arc enabled servers
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./media/manage-450-machinesazurearc.svg
+      imageSrc: ./media/manage-450-machines-azure-arc.svg
       links:
         - url: ./servers/onboard-portal.md
           text: Connect machines to Azure Arc from the Azure portal
