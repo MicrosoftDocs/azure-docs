@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -487,11 +487,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
-**Guidance**: For the underlying platform, which is managed by Microsoft,
-Microsoft treats all customer content as sensitive and goes to great lengths to
-guard against customer data loss and exposure. To ensure customer data within
-Azure remains secure, Microsoft has implemented and maintains a suite of robust
-- [data protection controls and capabilities.Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+**Guidance**: For the underlying platform, which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
+
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -827,7 +825,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How t+G70o provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 
