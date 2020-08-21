@@ -22,15 +22,15 @@ If you are looking for conceptual information on managed disks that have shared 
 
 ## Limitations
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](/includes/virtual-machines-disks-shared-limitations.md)]
 
 ## Supported operating systems
 
-Shared disks support several operating systems. See the [Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](/articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](/articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](/includes/virtual-machines-disks-shared-sizes.md)]
 
 ## Deploy shared disks
 
