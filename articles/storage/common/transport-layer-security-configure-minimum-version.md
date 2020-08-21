@@ -83,6 +83,9 @@ StorageBlobLogs
 
 When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. Requiring that clients use a minimum version of TLS to make requests against a storage account is part of a strategy to minimize security risks to your data.
 
+> [!NOTE]
+> When your storage account is configured to require a minimum version of TLS, requests to the public endpoint for your storage account will continue to succeed with earlier versions of TLS, while requests to data resources in the account will fail. The public endpoint is the root URL for your storage account&mdash;for example, `https:\\mystorageaccount.blob.core.windows.net`.
+
 ### Configure the minimum TLS version for a storage account
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
