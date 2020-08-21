@@ -93,7 +93,7 @@ The following table shows a list of supported operating systems on Azure images:
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 and later|
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3 and later|
+|Suse|SLES|12 SP3-SP5|
 
 Custom virtual machine images are supported by Guest Configuration policies as long as they're one
 of the operating systems in the table above.
@@ -136,6 +136,11 @@ configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
 [service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
 used to reference the Guest Configuration service.
+
+For Arc connected servers in private datacenters, allow traffic using the following patterns:
+
+- Port: Only TCP 443 required for outbound internet access
+- Global URL: `*.guestconfiguration.azure.com`
 
 ## Managed identity requirements
 
@@ -214,12 +219,16 @@ about file changes provide evidence why an assignment is an exception to the exp
 
 #### Applying configurations using Guest Configuration
 
-The latest feature of Azure Policy configures settings inside machines. The definition _Configure
-the time zone on Windows machines_ makes changes to the machine by configuring the time zone.
+Only the definition _Configure the time zone on Windows machines_ makes changes to the machine
+by configuring the time zone. Custom policy definitions for configuring settings inside machines aren't supported.
 
 When assigning definitions that begin with _Configure_, you must also assign the definition _Deploy
 prerequisites to enable Guest Configuration Policy on Windows VMs_. You can combine these
 definitions in an initiative if you choose.
+
+> [!NOTE]
+> The built-in time zone policy is the only definition that supports configuring settings
+> inside machines and custom policies that configure settings inside machines aren't supported.
 
 #### Assigning policies to machines outside of Azure
 
