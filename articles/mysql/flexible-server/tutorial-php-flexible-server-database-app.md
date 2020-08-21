@@ -521,7 +521,7 @@ php artisan serve
 
 To see the task status change, navigate to `http://localhost:8000` and select the checkbox.
 
-![Added check box to task]((media/tutorial-php-flexible-server-database-app/complete-checkbox.png)
+![Added check box to task](media/tutorial-php-flexible-server-database-app/complete-checkbox.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
