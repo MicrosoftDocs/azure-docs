@@ -18,6 +18,7 @@ Azure Resource Health helps you diagnose and get support for service problems th
 
 Resource Health receives signals for your managed cluster to determine the cluster's health state. It examines the health state of your AKS cluster and reports actions required for each health signal. These signals range from auto-resolving issues, planned updates, unplanned health events, and unavailability caused by user-initiated actions. These signals are classified using the Azure Resource Health’s health status: *Available*, *Unavailable*, *Unknown*, and *Degraded*.
 
+![Subscription View](./media/aks-resource-health/resource-health-check.png)
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -34,25 +35,23 @@ Resource Health receives signals for your managed cluster to determine the clust
 - Select **Resource health** in the left navigation.
 - Select your subscription and set the resource type to Azure Kubernetes Service (AKS).
 
-![Subscription View](./media/aks-resource-health/subscription-view.png)
-
 ## Check the health status
 
-When there are no known issues affecting your cluster’s health, Resource Health reports your cluster as *Available*.
+Your cluster health will be displayed using the following statuses. 
 
-![Available](./media/aks-resource-health/available.png)
+- **Available**: When there are no known issues affecting your cluster’s health, Resource Health reports your cluster as *Available*.
 
-Resource Health displays its status as *Degraded* when it receives a signal from your managed cluster on a health issue requiring your action.
+- **Unavailable**: When there is a platform or non-platform event affecting your cluster's health, Resource Health reports your cluster as *Unavailable*.
 
-![Degraded](./media/aks-resource-health/degraded.png)
+- **Unknown**: When there is a temporary connection loss to your cluster's health metrics, Resource Health reports your cluster as *Unknown*.
+
+- **Degraded**: When there is a health issue requiring your action, Resource Health reports your cluster as *Degraded*.
 
 For additional details on what each health status indicates, visit [Resource Health overview](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
 
 ### View historical data
 
-You can also view the past 30 days of historical Resource Health information.
-
-![Health History](./media/aks-resource-health/health-history.png)
+You can also view the past 30 days of historical Resource Health information in the **Health history** section.
 
 ## Next steps
 
