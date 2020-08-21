@@ -24,7 +24,6 @@ This part of the series covers how to:
 > * Create a new resource group
 > * Deploy a Managed Service Fabric cluster
 
-
 ## Prerequisites
 
 Before you begin this tutorial:
@@ -47,23 +46,30 @@ Set-AzContext -SubscriptionId <your-subscription>
 Next, create the resource group for the Managed Service Fabric cluster, replacing `<your-rg>` and `<location>` with the desired group name and location.
 
 ```powershell
-New-AzResourceGroup -Name <your-rg> -Location <location>
+$resourceGroup = "myResourceGroup"
+$location = "East US" 
+
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## Deploy a Managed Service Fabric cluster
 
-Finally, create a password for the admin account, and deploy a new Managed Service Fabric cluster using the downloaded template, filling in the variables appropriately. The following example creates a new cluster with two node types:
+Create a password for the admin account, and deploy a new Managed Service Fabric cluster using the downloaded template, filling in the variables appropriately. Ues this [sample template](https://github.com/peterpogorski/azure-quickstart-templates/tree/managed-sfrp-sample-templates/101-managed-service-fabric-cluster-standard-1-nt) which contains a Standard SKU managed Service Fabric cluster with one node type. The following example shows how to deploy this template using PowerShell. 
 
 ```powershell
-$password="Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
-New-AzResourceGroupDeployment -Name <your-resource-name> -ResourceGroupName <your-rg> -TemplateFile .\template-cluster-default-2nt.json -clusterName <your-cluster-name> -nodeType1Name FE -nodeType2Name BE -nodeType1vmInstanceCount 5 -nodeType2vmInstanceCount 3 -adminPassword $password -Verbose
+$clusterName = "myCluster" 
+$password = "Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
+New-AzResourceGroupDeployment -Name $clusterName -ResourceGroupName $resourceGroup -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -adminPassword $password -Verbose
 ```
 
-After a few minutes, you'll see your cluster in the Azure portal.
+## Validate the deployment 
 
-## Cleaning Up
+### Review deployed resources 
 
-Congratulations! You've deployed a Managed Service Fabric cluster to Azure. When no longer needed, simply delete the cluster resource or the resource group.
+Once the deployment completes, find the Service Fabric Explorer value in the output and open the address in a web browser to view your cluster in Service Fabric Explorer. When prompted for a certificate, use the certificate for which the client thumbprint was provided in the template. 
+
+> [!NOTE]
+> You can find the output of the deployment in Azure Portal under the resource group deployments tab.
 
 ## Next steps
 

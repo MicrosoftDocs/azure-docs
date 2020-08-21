@@ -40,10 +40,6 @@ To delete a node type obtaining the resource ID for the target node type, simply
 Remove-AzResource -ResourceId <your-resource-id> -ApiVersion 2020-01-01-preview
 ```
 
-## Cleaning Up
-
-Congratulations! You've learned how to add and remove node types to a Managed Service Fabric cluster. When no longer needed, simply delete the cluster resource or the resource group.
-
 ## Next steps
 
 In this step we added and deleted node types. To learn more about how to use client certificates, see:
