@@ -34,11 +34,12 @@ Updates in August include:
 - [Added support for Azure Active Directory security defaults (for multi-factor authentication)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Service principals recommendation added](#service-principals-recommendation-added)
 - [Vulnerability assessment on VMs - recommendations and policies consolidated](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [New AKS security policies added to ASC_default initiative – for use by private preview customers only](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 
 ### Asset inventory - powerful new view of the security posture of your assets
 
-Security Center's asset inventory provides a way to view the security posture of the resources you've connected to Security Center.
+Security Center's asset inventory (currently in preview) provides a way to view the security posture of the resources you've connected to Security Center.
 
 Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities. When any resource has outstanding recommendations, they'll appear in the inventory.
 
@@ -55,7 +56,7 @@ Security defaults provide preconfigured identity security settings to defend you
 
 Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
 
-Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to their [secure score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
 
 Learn more about [security defaults](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -122,6 +123,17 @@ If you have scripts, queries, or automations referring to the previous recommend
 |[**Vulnerability assessment should be enabled on virtual machines**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Built-in + BYOL|
 ||||
 
+
+### New AKS security policies added to ASC_default initiative – for use by private preview customers only
+
+To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level policies and  hardening recommendations, including enforcement options with Kubernetes admission control.
+
+The early phase of this project includes a private preview and the addition of new (disabled by default) policies to the ASC_default initiative.
+
+You can safely ignore these policies and there will be no impact on your environment. If you'd like to enable them, sign up for the preview at https://aka.ms/SecurityPrP and select from the following options:
+
+1. **Single Preview** – To join only this private preview. Explicitly mention “ASC Continuous Scan” as the preview you would like to join.
+1. **Ongoing Program** – To be added to this and future private previews. You will need to complete a profile and privacy agreement.
 
 
 ## July 2020

@@ -66,7 +66,7 @@ Alternatively, add each package using [NuGet 2.12+](https://www.nuget.org/). For
 
 ## C# sample code
 
-The C# sample code may be found at [csharpquery-example](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample)
+Please refer to the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs) repo to access the C# sample code. 
 
 > [!NOTE]
 >
