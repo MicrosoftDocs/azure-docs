@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -14,9 +14,9 @@ manager: lizross
 
 In this article, we'll give you a brief overview of what kinds of authentication you can use in Windows Virtual Desktop.
 
-## NTLM and Kerberos
+## NT LAN Manager (NTLM) and Kerberos
 
-Windows Virtual Desktop supports both NTLM and Kerberos for authentication. However, in order to use Kerberos, the client needs to get Kerberos security tickets from a KDC service running on a domain controller. In order to get tickets, the client needs a direct connection to the domain controller. Controller.
+Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for authentication. However, in order to use Kerberos, the client needs to get Kerberos security tickets from a KDC service running on a domain controller. In order to get tickets, the client needs a direct connection to the domain controller. Controller.
 
 Supported sign-in methods:
 - Windows Virtual Desktop client
@@ -37,7 +37,7 @@ Supported sign-in methods:
 
 ## Windows Virtual Desktop single sign-on (SSO)
 
-Windows Virtual Desktop currently doesn't support ADFS or single sign-on (SSO) for authentication. The only way to avoid being prompted for your password is to select the **Remember Me** check box on the prompt window, which will save your username and password to the credential manager.
+Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) or single sign-on (SSO) for authentication. The only way to avoid being prompted for your password is to select the **Remember Me** check box on the prompt window, which will save your username and password to the credential manager.
 
 ## Next steps
 
