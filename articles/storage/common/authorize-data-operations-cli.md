@@ -1,5 +1,5 @@
 ---
-title: Authorize access to blob or queue data with Azure CLI
+title: Choose how to authorize access to blob or queue data with Azure CLI
 titleSuffix: Azure Storage
 description: Specify how to authorize data operations against blob or queue data with the Azure CLI. You can authorize data operations using Azure AD credentials, with the account access key, or with a shared access signature (SAS) token. 
 services: storage
@@ -7,14 +7,14 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 08/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
 ms.custom: devx-track-azurecli
 ---
 
-# Authorize access to blob or queue data with Azure CLI
+# Choose how to authorize access to blob or queue data with Azure CLI
 
 Azure Storage provides extensions for Azure CLI that enable you to specify how you want to authorize operations on blob or queue data. You can authorize data operations in the following ways:
 

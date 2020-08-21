@@ -92,7 +92,7 @@ To create a new Azure IoT Central application:
 
 To create a new video analytics application:
 
-1. Select the **Video analytics - object and motion detection** application template. This template includes device templates for the devices used in the tutorial. The template also provides an operator dashboard for monitoring the video.
+1. Select the **Video analytics - object and motion detection** application template. This template includes device templates for the devices used in the tutorial. The template includes sample dashboards that operators can use to perform tasks such as monitoring and managing cameras.
 
 1. Optionally, choose a friendly **Application name**. This application is based on a fictional retail store named Northwind Traders. The tutorial uses the **Application name** *Northwind Traders video analytics*.
 

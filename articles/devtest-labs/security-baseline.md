@@ -625,8 +625,8 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 ### 7.5: Securely store configuration of Azure resources
 **Guidance:** Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps.
 
-- [Azure Repos Git tutorial](/devops/repos/git/gitworkflow?view=azure-devops)
-- [About permissions and groups](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure Repos Git tutorial](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [About permissions and groups](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
 - [Integration between Azure DevTest Labs and Azure DevOps workflow](devtest-lab-dev-ops.md)
 
 **Azure Security Center monitoring:** Not applicable

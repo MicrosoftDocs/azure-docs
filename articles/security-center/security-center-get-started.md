@@ -29,7 +29,8 @@ To upgrade a subscription to the standard tier, you must be assigned the role of
 ## Enable your Azure subscription
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
-2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
+
+1. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
    ![Security Center overview][2]
 
@@ -44,21 +45,25 @@ Within minutes of launching Security Center the first time, you may see:
 
 To take full advantage of Security Center, you need to complete the steps below to upgrade to the standard tier and install the Log Analytics agent.
 
-## Upgrade to the standard pricing tier
-For the purpose of the Security Center quickstarts and tutorials you must upgrade to the standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Under the Security Center main menu, select **Getting started**.
+## Upgrade to the Standard tier
+
+For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. From Security Center's sidebar, select **Getting started**.
  
-   ![Get started][4]
+   ![Getting started](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
-   - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
-   -	You can upgrade subscriptions and workspaces that are not eligible for trial.
-   -	You can select eligible workspaces and subscriptions to start your trial.
-3. Click **Start trial** to start your trial on the selected subscriptions.
+    The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
+
+1. From the **Select workspaces to enable standard tier on** list, select the workspaces to upgrade.
 
 
-  ![Security alerts][9]
+    > [!TIP]
+    > If you select a workspace that's eligible for a free trial, the next step will begin a trial. If the workspaces isn't eligible for trial, it will be upgraded and charges will begin.
+
+1. Select **Upgrade** to upgrade the selected workspaces to standard tier.
+
 
 ## Automate data collection
 Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
@@ -68,9 +73,9 @@ When automatic provisioning is enabled, Security Center installs the Log Analyti
 To enable automatic provisioning of the Log Analytics agent:
 
 1. Under the Security Center main menu, select **Pricing & settings**.
-2. On the row of the subscription, click on the subscription on which you'd like to change the settings.
-3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
-4. Select **Save**.
+1. On the row of the subscription, click on the subscription on which you'd like to change the settings.
+1. In the **Data Collection** tab, set **Auto provisioning** to **On**.
+1. Select **Save**.
 ---
   ![Enable automatic provisioning][6]
 

@@ -3,14 +3,14 @@ title: Known issues & troubleshooting
 titleSuffix: Azure Machine Learning
 description: Get help finding and correcting errors or failures in Azure Machine Learning. Learn about known issues, troubleshooting, and workarounds. 
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
+ms.date: 08/13/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -243,6 +243,27 @@ From the Model Data Collector, it can take up to (but usually less than) 10 minu
 ```python
 import time
 time.sleep(600)
+```
+
+* **Log for real-time endpoints:**
+
+Logs of real-time endpoints are customer data. For real-time endpoint troubleshooting, you can use following code to enable logs. 
+
+See more details about monitoring web service endpoints in [this article](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+If you have multiple Tenant, you may need to add the following authenticate code before `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## Train models

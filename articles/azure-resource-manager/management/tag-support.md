@@ -897,7 +897,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | workspaces | Yes | No |
+> | workspaces | Yes | Yes |
 > | workspaces / dbWorkspaces | No | No |
 > | workspaces / storageEncryption | No | No |
 > | workspaces / virtualNetworkPeerings | No | No |
