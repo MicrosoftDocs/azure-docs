@@ -177,6 +177,48 @@ Select the **Import settings** button, and then select the YAML file from your p
 
 The information from your YAML file should be displayed in the Azure portal. Select **Apply** to finish. 
 
+## Using Azure Repos for Azure Spring Cloud Configuration
+
+Azure Spring Cloud can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. We will use that last option, as it is easier to create and manage with Azure Repos.
+
+### Get repo url and credentials
+1. In the Azure Repos portal for your project, click the "Clone" button:
+
+    ![Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
+
+1. Copy the clone URL from the textbox. This URL will typically be in the form:
+
+    ```Text
+        https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
+
+    ```Text
+        https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Save this URL for use in the next section.
+
+1. Click "Generate Git Credentials". A username and password will appear. Save these for use in the next section.
+
+
+### Configure Azure Spring Cloud to access the Git repository
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to your Azure Spring Cloud **Overview** page.
+
+1. Select the service to configure.
+
+1. In the left pane of the service page, under **Settings**, select the **Config Server** tab. Configure the repository we previously created:
+   - Add the repository URL that you have saved from the previous section.
+   - Click on `Authentication` and select `HTTP Basic`
+   - The __username__ is the username saved from the previous section
+   - The __password__ is the password saved from the previous section
+   - Click on "Apply" and wait for the operation to succeed
+
+![Spring Cloud config server](media/spring-cloud-tutorial-config-server/02-config-server-azdo.png)
 
 ## Delete your app configuration
 
