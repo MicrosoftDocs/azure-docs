@@ -1,6 +1,6 @@
 ---
 title: "Quickstart - Monitoring Azure Spring Cloud apps with logs, metrics, and tracing"
-description: Steps to use logs, metrics, and tracing for deployed Piggymetrics sample apps on Azure Spring Cloud.
+description: Use log streaming, log analytics, metrics, and tracing to monitor Piggymetrics sample apps on Azure Spring Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -10,8 +10,6 @@ ms.custom: devx-track-java
 ---
 
 # Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
-
-This article shows you how to set up logs, metrics, tracing for Azure Spring Cloud apps.
 
 With the built-in monitoring capability in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics and distributed tracing capability from the Azure portal. We will walk you though how to use Log Streaming, Log Analytics, Metrics and Distributed tracing with deployed PiggyMetrics apps.
 Please make sure you have complete previous steps: [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md), [set up the config server](spring-cloud-quickstart-setup-config-server.md) and [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
@@ -90,6 +88,8 @@ To get the logs using Azure Toolkit for IntelliJ:
     ![Distributed Tracing performance](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
 
 ## Next steps
+
+To explore more on the out of box monitoring capability for Azure Spring Cloud, see:
 > [!div class="nextstepaction"]
 > [Diagnostic services](diagnostic-services.md)
 > [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
