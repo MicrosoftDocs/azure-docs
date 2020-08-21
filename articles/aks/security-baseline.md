@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -32,45 +32,25 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32877.).
 
-**Guidance**: Azure Kubernetes Service (AKS) clusters can be deployed into existing Azure Virtual Network subnets for connectivity and security with on-premises networks. 
-Kubernetes ingress controllers can be defined with private, internal IP addresses so services are only accessible over this internal network connection. As an example, AKS clusters in these Virtual Networks may have an Azure Site-to-Site VPN or Express Route connection back to your on-premises network.
+**Guidance**: When you create an Microsoft Azure Kubernetes Service (AKS) cluster, an network security group and route table are automatically created and managed by the AKS control plane. The network security group is automatically associated with the virtual network interface cards on your nodes and the route table is associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services. You can also deploy AKS clusters into an existing Azure virtual network subnet. These Virtual Networks can have an Azure Site-to-Site VPN or Express Route connection back to your on-premises network for connectivity and security. 
 
-Azure uses network security group (NSG) rules to filter the flow of traffic in virtual networks to define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. 
-Default rules are created to allow TLS traffic to the Kubernetes API server. AKS automatically modifies the NSG for traffic to flow appropriately as services are created with load balancers, port mappings, or ingress routes. 
+In a private AKS cluster, the control plane or API server has internal IP addresses as defined in RFC1918. With the use of a private cluster, you can ensure network traffic between your API server and your node pools remains only on the private network.
 
-Kubernetes network policies can be used for security and filtering of the network traffic for pods. AKS offers support for Kubernetes network policies to limit network traffic between pods in an AKS cluster. You can choose to allow or deny specific network paths within the cluster based on namespaces and label selectors with network policies.
+The control plane or API server is in an AKS-managed Azure subscription while a customer's cluster or node pool is in the customer's subscription. The server and the cluster or node pool communicate with each other through the Azure Private Link service in the API server virtual network and a private endpoint that's exposed in the customer's AKS cluster subnet.
 
-In AKS, Each AKS cluster has its own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc.. The master components are part of the managed service provided by Microsoft. 
+Network security group rules can be used to filter the flow of traffic in virtual networks to define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources such as AKS nodes. Default rules are created to allow Transport Layer security (TLS) traffic to the Kubernetes API server. AKS automatically modifies the NSG for traffic to flow appropriately as services are created with load balancers, port mappings, or ingress routes. As services are created, e.g., a Load Balancer, the Azure platform automatically configures the appropriate rules after you define any required ports and forwarding as part of your Kubernetes Service manifests. 
 
-By default, the Kubernetes API server uses a public IP address and a fully qualified domain name (FQDN). Access can be limited to the API server endpoint using authorized IP ranges. You can also create a fully private cluster to limit API server access to your virtual network.
+By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows running nodes and services to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. AKS clusters are deployed on a virtual network with the cluster having outbound dependencies on services outside of that virtual network. The service has no inbound dependencies. It is recommended to not manually configure NSG rules to filter traffic for pods in an AKS cluster. The AKS outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them and NSGs cannot be used to lock down the outbound traffic from an AKS cluster.
 
-Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default. This SSH access is only available using the internal IP address.
+AKS offers support for Kubernetes network policies to limit network traffic between pods in an AKS cluster. Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. You can choose to allow or deny specific network paths within the cluster based on namespaces and label selectors with network policies. 
 
-The supported deployment scenarios in AKS use Kubnet and CNI plugin, along with Managed Virtual Network and  Bring you own (BYO) Virtual Network
+AKS clusters use kubenet with an Azure virtual network and subnet created for the customers. AKS kubenet, nodes get an IP address from the Azure virtual network subnet with network policies. Every pod gets an IP address from the subnet and can be accessed directly with Azure Container Networking Interface (CNI). 
 
-By default, AKS clusters use kubenet with an Azure virtual network and subnet created for the customers. AKS kubenet, nodes get an IP address from the Azure virtual network subnet with network policies.
+A route table must exist on your cluster subnet(s) with kubenet. AKS supports bringing your own existing subnet and route table. If your custom subnet does not contain a route table, AKS creates one for you and adds rules to it throughout the cluster lifecycle. If your custom subnet contains a route table when you create your cluster, AKS acknowledges the existing route table during cluster operations and adds/updates rules accordingly for cloud provider operations.
 
-Every pod gets an IP address from the subnet and can be accessed directly with Azure Container Networking Interface (CNI). These IP addresses must be unique across your network space and planned in advance. Each node has a configuration parameter for the maximum number of pods that are supported. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+- [Create an AKS cluster in the virtual network](configure-kubenet.md#create-an-aks-cluster-in-the-virtual-network)
 
-An NSG and route table are automatically created and are managed by the AKS control plane when you create an AKS cluster,. The NSG is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables are automatically updated as you create and expose services.
-
-configure-kubenet.md#create-an-aks-cluster-in-the-virtual-network
-
-configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet
-
-With kubenet, a route table must exist on your cluster subnet(s). AKS supports bringing your own existing subnet and route table.
-
-If your custom subnet does not contain a route table, AKS creates one for you and adds rules to it throughout the cluster lifecycle. If your custom subnet contains a route table when you create your cluster, AKS acknowledges the existing route table during cluster operations and adds/updates rules accordingly for cloud provider operations.
-
-#NSG
-
-AKS clusters are deployed on a virtual network with the cluster having outbound dependencies on services outside of that virtual network. The service has no inbound dependencies.
-
-A network security group (NSG) filters traffic for VMs, such as the AKS nodes. As services are created, e.g.,, a Load Balancer, the Azure platform automatically configures any NSG rules that are needed. It is recommended to not manually configure NSG rules to filter traffic for pods in an AKS cluster. Azure platform create or update the appropriate rules after you define any required ports and forwarding as part of your Kubernetes Service manifests. 
-
-By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks.
-
-The AKS outbound dependencies are almost entirely defined with FQDNs, which don't have static addresses behind them. The lack of static addresses means that NSGs can't be used to lock down the outbound traffic from an AKS cluster.
+- [Bring your own subnet and route table with kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet)
 
 - [How to configure networking for your AKS instance](configure-azure-cni.md#configure-networking---portal)
 
@@ -87,6 +67,8 @@ The AKS outbound dependencies are almost entirely defined with FQDNs, which don'
 Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS) limit-egress-traffic.md
 
 - [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)](use-network-policies.md)
+
+- [Create a private Azure Kubernetes Service cluster](private-clusters.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -320,7 +302,7 @@ You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
