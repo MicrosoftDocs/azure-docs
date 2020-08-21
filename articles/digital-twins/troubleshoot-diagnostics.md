@@ -104,20 +104,20 @@ Here are the field and property descriptions for API logs.
 
 | Field name | Data type | Description |
 |-----|------|-------------|
-| TimeGenerated [UTC] | DateTime | The date and time that this event occurred |
-| ResourceId | String | The Azure Resource Manager ResourceId where the event took place |
-| OperationName | String  | The type of action being performed during the event |
-| OperationVersion | String | The API Version utilized during the event |
-| Category | String | The type of resource being emitted |
-| ResultType | String | Outcome of the event |
-| ResultSignature | String | Http status code for the event |
-| ResultDescription | String | Additional details about the event |
-| DurationMs | String | How long it took to perform the event in milliseconds |
-| Caller IP Address | String | A masked source IP address for the event |
-| Correlation ID | Guid | Customer provided unique identifier for the event |
-| Level | String | The logging severity of the event |
-| Location | String | The region where the event took place |
-| RequestUri | Uri | The endpoint utilized during the event |
+| `Time` | DateTime | The date and time that this event occurred, in UTC |
+| `ResourceID` | String | The Azure Resource Manager ResourceId where the event took place |
+| `OperationName` | String  | The type of action being performed during the event |
+| `OperationVersion` | String | The API Version utilized during the event |
+| `Category` | String | The type of resource being emitted |
+| `ResultType` | String | Outcome of the event |
+| `ResultSignature` | String | Http status code for the event |
+| `ResultDescription` | String | Additional details about the event |
+| `DurationMs` | String | How long it took to perform the event in milliseconds |
+| `CallerIpAddress` | String | A masked source IP address for the event |
+| `CorrelationId` | Guid | Customer provided unique identifier for the event |
+| `Level` | String | The logging severity of the event |
+| `Location` | String | The region where the event took place |
+| `RequestUri` | Uri | The endpoint utilized during the event |
 
 Below are example JSON bodies for these types of logs.
 
@@ -190,14 +190,14 @@ This is the schema for `ADTEventRoutesOperation` logs. These contain details per
 
 |Field name | Data type | Description |
 |-----|------|-------------|
-| TimeGenerated [UTC] | DateTime | The date and time that this event occurred |
-| ResourceId | String | The Azure Resource Manager ResourceId where the event took place |
-| OperationName | String  | The type of action being performed during the event |
-| Category | String | The type of resource being emitted |
-| ResultDescription | String | Additional details about the event |
-| Level | String | The logging severity of the event |
-| Location | String | The region where the event took place |
-| EndpointName | String | The name of egress endpoint created in Azure Digital Twins |
+| `Time` | DateTime | The date and time that this event occurred, in UTC |
+| `ResourceId` | String | The Azure Resource Manager ResourceId where the event took place |
+| `OperationName` | String  | The type of action being performed during the event |
+| `Category` | String | The type of resource being emitted |
+| `ResultDescription` | String | Additional details about the event |
+| `Level` | String | The logging severity of the event |
+| `Location` | String | The region where the event took place |
+| `EndpointName` | String | The name of egress endpoint created in Azure Digital Twins |
 
 Below are example JSON bodies for these types of logs.
 
