@@ -231,7 +231,7 @@ If you want to create regular Gen1 node pools, you can do so by omitting the cus
 
 ## Ephemeral OS (Preview)
 
-By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and lower read/write latency.
+By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and higher read/write latency.
 
 By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
 
