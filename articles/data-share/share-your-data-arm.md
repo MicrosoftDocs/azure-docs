@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Share outside your org - Azure Data Share'
-description: Quickstart - Share data with customers and partners using Azure Data Share and Resource Manager template
+title: 'Share outside your org (ARM template) - Azure Data Share quickstart'
+description: Learn how to share data with customers and partners using Azure Data Share and Resource Manager template in this quickstart.
 author: mumian
 ms.author: jgao
 ms.service: data-share

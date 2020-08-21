@@ -3,10 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: Speech service overview
     href: overview.md
-  - name: Try the Speech service for free
-    href: get-started.md
   - name: Language and voice support
     displayName: languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice
     href: language-support.md
@@ -638,10 +636,12 @@
     - name: Sovereign Clouds
       displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
       href: sovereign-clouds.md
-    - name: Pricing and limits
+    - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+    - name: Quotas and Limits
+      href: speech-services-quotas-and-limits.md
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption
