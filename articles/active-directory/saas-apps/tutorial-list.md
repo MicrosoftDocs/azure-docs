@@ -54,7 +54,7 @@ To find more tutorials, use the table of contents on the left.
 
 | Logo | Application tutorial for single sign-on |
 | :--- | :--- |
-| ![logo](./media/tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8x8](8x8virtualoffice-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-8x8-virtual-office-tutorial.png)| [8x8](8x8virtualoffice-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|
