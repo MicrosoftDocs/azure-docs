@@ -126,6 +126,120 @@ while n_try < n_tries:
 ### Examine the response
 ![A business card from Contoso company](../media/business-card-english.jpg)
 
+This sample illustrates the JSON output returned by Form Recognizer. This samples has been truncated for readability of the example.
+
+```json
+{
+	"status": "succeeded",
+	"createdDateTime": "2020-06-04T08:19:29Z",
+	"lastUpdatedDateTime": "2020-06-04T08:19:35Z",
+	"analyzeResult": {
+		"version": "2.1.1",
+		"readResults": [
+			{
+				"page": 1,
+				"angle": -17.0956,
+				"width": 4032,
+				"height": 3024,
+				"unit": "pixel"
+			}
+		],
+		"documentResults": [
+			{
+				"docType": "prebuilt:businesscard",
+				"pageRange": [
+					1,
+					1
+				],
+				"fields": {
+					"ContactNames": {
+						"type": "array",
+						"valueArray": [
+							{
+								"type": "object",
+								"valueObject": {
+									"FirstName": {
+										"type": "string",
+										"valueString": "Avery",
+										"text": "Avery",
+										"boundingBox": [
+											703,
+											1096,
+											1134,
+											989,
+											1165,
+											1109,
+											733,
+											1206
+										],
+										"page": 1
+								},
+								"text": "Dr. Avery Smith",
+								"boundingBox": [
+									419.3,
+									1154.6,
+									1589.6,
+									877.9,
+									1618.9,
+									1001.7,
+									448.6,
+									1278.4
+								],
+								"confidence": 0.993
+							}
+						]
+					},
+					"Emails": {
+						"type": "array",
+						"valueArray": [
+							{
+								"type": "string",
+								"valueString": "avery.smith@contoso.com",
+								"text": "avery.smith@contoso.com",
+								"boundingBox": [
+									2107,
+									934,
+									2917,
+									696,
+									2935,
+									764,
+									2126,
+									995
+								],
+								"page": 1,
+								"confidence": 0.99
+							}
+						]
+					},
+					"Websites": {
+						"type": "array",
+						"valueArray": [
+							{
+								"type": "string",
+								"valueString": "https://www.contoso.com/",
+								"text": "https://www.contoso.com/",
+								"boundingBox": [
+									2121,
+									1002,
+									2992,
+									755,
+									3014,
+									826,
+									2143,
+									1077
+								],
+								"page": 1,
+								"confidence": 0.995
+							}
+						]
+					}
+				}
+			}
+		]
+	}
+}
+```
+
 The script will print responses to the console until the **Analyze Business Card** operation completes. 
 The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the company name,first name, last name, phone and so on.
 
