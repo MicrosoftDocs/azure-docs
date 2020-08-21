@@ -138,7 +138,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 ```console
 https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
-# [v2.1](#tab/v2-1)    
+# [v2.1 preview](#tab/v2-1)    
 ```console
 https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
