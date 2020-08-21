@@ -35,22 +35,22 @@ To get started with FIDO2 security keys and hybrid access to on-premises resourc
 
 ## Security keys
 
-* [My organization requires two factor authentication to access resources. What can I do to support this requirement?](#my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement)
-* [Where can I go to find compliant FIDO2 security keys?](#where-can-i-go-to-find-compliant-fido2-security-keys)
-* [What do I do if I lose my security key?](#what-do-i-do-if-i-lose-my-security-key)
+* [My organization requires two factor authentication to access resources. What can I do to support this requirement?](#my-organization-requires-multi-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement)
+* [Where can I find compliant FIDO2 security keys?](#where-can-i-find-compliant-fido2-security-keys)
+* [What do I do if I lose my security key?](#what-if-i-lose-my-security-key)
 * [How is the data protected on the FIDO2 security key?](#how-is-the-data-protected-on-the-fido2-security-key)
 * [How does the registering of FIDO2 security keys work?](#how-does-the-registering-of-fido2-security-keys-work)
 * [Is there a way for admins to provision the keys for the users directly?](#is-there-a-way-for-admins-to-provision-the-keys-for-the-users-directly)
 
 ### My organization requires multi-factor authentication to access resources. What can I do to support this requirement?
 
-FIDO2 Security keys come in a variety of form factors. Contact the device manufacturer of interest to discuss how their devices can be enabled with a PIN or biometric as a second factor. For a list of supported providers, see [FIDO2 security keys concepts and providers](concept-authentication-passwordless.md#fido2-security-keys).
+FIDO2 Security keys come in a variety of form factors. Contact the device manufacturer of interest to discuss how their devices can be enabled with a PIN or biometric as a second factor. For a list of supported providers, see [FIDO2 security keys providers](concept-authentication-passwordless.md#fido2-security-key-providers).
 
 ### Where can I find compliant FIDO2 security keys?
 
-For a list of supported providers, see [FIDO2 security keys concepts and providers](concept-authentication-passwordless.md#fido2-security-keys).
+For a list of supported providers, see [FIDO2 security keys providers](concept-authentication-passwordless.md#fido2-security-key-providers).
 
-### What do I do if I lose my security key?
+### What if I lose my security key?
 
 You can remove keys in the Azure portal by navigating to the **Security info** page and removing the FIDO2 security key.
 
