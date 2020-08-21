@@ -253,15 +253,15 @@ Once you've filled in the action link, click **Go to action link** on the incide
 
 Examples :
 
-If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`, we would go to action link `https://action-link/metric/1234?detectConfigId=2345` for anomalies or incidents under metric `1234` and detect config `2345`.
+* If the action link template is `https://action-link/metric/%metric?detectConfigId=%detect_config`, we would go to action link `https://action-link/metric/1234?detectConfigId=2345` for anomalies or incidents under metric `1234` and detect config `2345`.
 
-- If the action link template is ```https://action-link?[Dim1=%tagset.get('Dim1','')&][Dim2=%tagset.get('Dim2','')]```, 
-    - The action link would be ```https://action-link?Dim1=Val1&Dim2=Val2``` when the anomaly is { "Dim1": "Val1", "Dim2": "Val2" }; 
-    - The action link would be ```https://action-link?Dim2=Val2``` when anomaly is { "Dim1": "", "Dim2": "Val2" } because the part ```[Dim1=***&]``` is skipped for the dimension value empty string. 
+* If the action link template is `https://action-link?[Dim1=%tagset.get('Dim1','')&][Dim2=%tagset.get('Dim2','')]`, 
+    - The action link would be `https://action-link?Dim1=Val1&Dim2=Val2` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`; 
+    - The action link would be `https://action-link?Dim2=Val2` when the anomaly is `{ "Dim1": "", "Dim2": "Val2" } `, since `[Dim1=***&]` is skipped for the dimension value empty string. 
 
-- If the action link template is ```https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']```, 
-    - The action link would be ```https://action-link?filter=Name/Dim1 eq 'Val1' and Name/Dim2 eq 'Val2'``` when the anomaly is { "Dim1": "Val1", "Dim2": "Val2" }, 
-    - The action link would be ```https://action-link?filter=Name/Dim2 eq 'Val2'``` when anomaly is { "Dim1": "", "Dim2": "Val2" } because the part ```[Name/Dim1 eq '***' and ]``` is skipped for the dimension value empty string. 
+- If the action link template is `https://action-link?filter=[Name/Dim1 eq '%tagset.get('Dim1','')' and ][Name/Dim2 eq '%tagset.get('Dim2','')']`, 
+    - The action link would be `https://action-link?filter=Name/Dim1 eq 'Val1' and Name/Dim2 eq 'Val2'` when the anomaly is `{ "Dim1": "Val1", "Dim2": "Val2" }`, 
+    - The action link would be `https://action-link?filter=Name/Dim2 eq 'Val2'` when anomaly is `{ "Dim1": "", "Dim2": "Val2" }` since `[Name/Dim1 eq '***' and ]` is skipped for the dimension value empty string. 
 
 ### Fill gap when detecting: 
 

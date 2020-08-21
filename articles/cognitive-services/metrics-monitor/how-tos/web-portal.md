@@ -138,9 +138,6 @@ Click the **Configure Preset Event** button next to the metrics drop down list o
 
 In the window that appears, configure the options according to your usage. Make sure **Enable holiday event** is selected to use the configuration. 
 
-![Preset events button](../media/metrics/preset-event-button.png)
-
-![Preset events button](../media/metrics/preset-events.png)
 The **Holiday event** section helps you suppress unnecessary anomalies detected during holidays. There are two options for the **Strategy** option that you can apply:
 
 * **Suppress holiday**: Suppresses all anomalies and alerts in anomaly detection results during holiday period.
@@ -180,6 +177,8 @@ X - Unavailable.
 \* When using a custom granularity in seconds, only available if the metric is longer than one hour and less than one day.
 
 Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it will report an anomaly if multiple data points don't follow the pattern. **Strict mode** is used to enable anomaly reporting if even one data point doesn't follow the pattern. 
+
+![Preset events configuration](../media/metrics/preset-events.png)
 
 ## View recent incidents
 
