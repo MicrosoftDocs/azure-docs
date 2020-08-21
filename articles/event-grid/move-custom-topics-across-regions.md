@@ -44,15 +44,15 @@ To get started, export a Resource Manager template for the custom topic.
 8. Update `location` for the **topic** resource to the target region or location. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
 
     ```json
-    "type": "Microsoft.EventGrid/systemTopics",
-    "apiVersion": "2020-04-01-preview",
-    "name": "[parameters('systemTopics_spegridsystopic080420_name')]",
-    "location": "westus",
+    "type": "Microsoft.EventGrid/topics",
+    "apiVersion": "2020-06-01",
+    "name": "[parameters('topics_mytopic0130_name')]",
+    "location": "westus"
     ```
 1. **Save** the template. 
 
 ## Recreate 
-Deploy the template to create a storage account and a system topic for the storage account in the target region. 
+Deploy the template to create a custom topic in the target region. 
 
 1. In the Azure portal, select **Create a resource**.
 2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
@@ -90,5 +90,7 @@ To delete the resource group that contains the custom topic by using the Azure p
 You learned how to move an Event Grid custom topic from one region to another region. 
 
 To learn about moving system topics from one region to another, see [Move system topics across regions](move-system-topics-across-regions.md). 
+
+To learn about moving domains from one region to another, see [Move domains across regions](move-system-topics-across-regions.md). 
 
 To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

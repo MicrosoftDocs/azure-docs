@@ -237,7 +237,9 @@
     - name: Move system topics across regions
       href: move-system-topics-across-regions.md
     - name: Move custom topics across regions
-      href: move-custom-topics-across-regions.md      
+      href: move-custom-topics-across-regions.md
+    - name: Move domains across regions
+      href: move-domains-across-regions.md
   - name: Secure
     items:
     - name: Configure private endpoints
