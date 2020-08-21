@@ -62,27 +62,27 @@ After you sign in with GitHub, enter the repository information.
 
     # [No Framework](#tab/vanilla-javascript)
 
-    1. Clear the default value in the _App location_ box
-    1. Clear the default value from the _Api location_ box
-    1. Clear the default value from _App artifact location_ box
+    - Clear the default value in the _App location_ box
+    - Clear the default value from the _Api location_ box
+    - Clear the default value from _App artifact location_ box
 
     # [Angular](#tab/angular)
 
-    1. Clear the default value in the _App location_ box
-    1. Clear the default value from the _Api location_ box
-    1. Enter **dist/angular-basic** in the _App artifact location_ box
+    - Clear the default value in the _App location_ box
+    - Clear the default value from the _Api location_ box
+    - Type **dist/angular-basic** in the _App artifact location_ box
 
     # [React](#tab/react)
 
-    1. Clear the default value the _App location_ box
-    1. Clear the default value from the _Api location_ box
-    1. Enter **build** in the _App artifact location_ box
+    - Clear the default value the _App location_ box
+    - Clear the default value from the _Api location_ box
+    - Type **build** in the _App artifact location_ box
 
     # [Vue](#tab/vue)
 
-    1. Clear the default value the _App location_ box
-    1. Clear the default value from the _Api location_ box
-    1. Enter **dist** in the _App artifact location_ box
+    - Clear the default value the _App location_ box
+    - Clear the default value from the _Api location_ box
+    - Type **dist** in the _App artifact location_ box
 
     ---
 
@@ -90,9 +90,8 @@ After you sign in with GitHub, enter the repository information.
 
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
-    To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
-
-    After the request validates your input, you can continue to create the application.
+    > [!NOTE]
+    > You can edit the [workflow file](github-actions-workflow.md) to change these values after you create the app.
 
 1. Select **Create**.
 
