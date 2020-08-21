@@ -35,4 +35,4 @@ Complete the following steps to deploy an IoT Central application using the vide
 
 ## Next steps
 
-Now you have an overview of the steps to deploy and use the video analytics application template, see [Create a video analytics n application in Azure IoT Central](tutorial-video-analytics-create-app.md) to get started.
+Now you have an overview of the steps to deploy and use the video analytics application template, see [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) to get started.
