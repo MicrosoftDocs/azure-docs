@@ -119,7 +119,7 @@ traces
 
 The result is a list of tracking events that shows the execution path of the orchestration, including any activity functions ordered by the execution time in ascending order.
 
-![Application Insights query](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Application Insights single instance ordered query](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 ### Instance summary query
 
@@ -143,7 +143,7 @@ traces
 
 The result is a list of instance IDs and their current runtime status.
 
-![Application Insights query](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Application Insights single instance query](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
 ## Durable Task Framework Logging
 
@@ -189,7 +189,7 @@ traces
 ```
 The result is a set of logs written by the Durable Task Framework log providers.
 
-![Application Insights query](./media/durable-functions-diagnostics/app-insights-dtfx.png)
+![Application Insights DTFx query results](./media/durable-functions-diagnostics/app-insights-dtfx.png)
 
 For more information about what log events are available, see the [Durable Task Framework structured logging documentation on GitHub](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Core/Logging#durabletaskcore-logging).
 
