@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
 ---
 
@@ -116,7 +116,7 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 
 |Field  |Definition  |
 |---------|---------|
-|**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer.         |
+|**mspOfferName**     |A name describing this definition. This value is displayed to the customer as the title of the offer and must be a unique value.        |
 |**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer").      |
 |**managedByTenantId**     |Your tenant ID.          |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization, and mapped to a built-in **roleDefinitionId** value to specify the level of access.      |
@@ -133,7 +133,7 @@ The template you choose will depend on whether you are onboarding an entire subs
 |Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> The process described here requires a separate subscription-level deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one subscription-level deployment.
+> The process described here requires a separate deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
 >
 > Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
 
@@ -194,12 +194,22 @@ The last authorization in the example above adds a **principalId** with the User
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, a user in the customer's tenant must deploy the Azure Resource Manager template within their tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard). The deployment may be done by using PowerShell or Azure CLI, as shown below.
+Once you have updated your parameter file, a user in the customer's tenant must deploy the Azure Resource Manager template within their tenant. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
-> This subscription-level deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> This deployment must be done by a non-guest account in the customer's tenant who has the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
+
+The deployment may be done in the Azure portal, by using PowerShell, or by using Azure CLI, as shown below.
+
+### Azure portal
+
+1. In our [GitHub repo](https://github.com/Azure/Azure-Lighthouse-samples/), select the **Deploy to Azure** button shown next to the template you want to use. The template will open in the Azure portal.
+1. Enter your values for **Msp Offer Name**, **Msp Offer Description**, **Managed by Tenant Id**, and **Authorizations**. If you prefer, you can select **Edit parameters** to enter values for `mspOfferName`, `mspOfferDescription`, `managedbyTenantId`, and `authorizations` directly in the parameter file. Be sure to update these values rather than using the default values from the template.
+1. Select **Review and create**, then select **Create**.
+
+After a few minutes, you should see a notification that the deployment has completed.
 
 ### PowerShell
 
