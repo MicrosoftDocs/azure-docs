@@ -9,15 +9,17 @@ ms.topic: overview
 ms.date: 8/20/2020
 ---
 
-Azure Database for MySQL is a fully managed service powered by community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, we will document some of the common errors users may encounter while migrating to Azure Database for MySQL service.
+# Common Errors
+
+Azure Database for MySQL is a fully managed service powered by community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you will see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL service for the first time.
 
 ## Errors due to lack of SUPER privilege and DBA role
 
-The SUPER privilege and DBA role is not supported on the service. As a result of this, some of the common errors you may encounter are mentioned below along with the workaround to overcome the limitation
+The SUPER privilege and DBA role are not supported on the service. As a result, you may encounter some common errors listed below:
 
 #### ERROR 1419: You do not have the SUPER privilege and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)
 
-The above error may occur while creating a function, trigger as below or importing a schema. The DDL statements like CREATE FUNCTION or CREATE TRIGGER are written to the binary log, so the secondary replica can execute them. Because the replica SQL thread has full privileges, it can potentially be exploited.To guard against this danger for servers that have binary logging enabled, MySQL engine requires stored function creators must have the SUPER privilege, in addition to the usual CREATE ROUTINE privilege that is required. 
+The above error may occur while creating a function, trigger as below or importing a schema. The DDL statements like CREATE FUNCTION or CREATE TRIGGER are written to the binary log, so the secondary replica can execute them. The replica SQL thread has full privileges which may be exploited by a user who do not . To guard against this danger for servers that have binary logging enabled, MySQL engine requires stored function creators must have the SUPER privilege, in addition to the usual CREATE ROUTINE privilege that is required. 
 
 ```sql
 CREATE FUNCTION f1(i INT)
