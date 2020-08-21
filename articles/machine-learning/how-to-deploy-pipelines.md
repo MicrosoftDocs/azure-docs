@@ -20,7 +20,7 @@ ms.custom: how-to
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 
-Machine learning pipelines are reusable workflows for machine learning tasks. One benefit of pipelines is increased collaboration. Another is that pipelines can be versioned, allowing the current model to be used by customers while a new version is in development. 
+Machine learning pipelines are reusable workflows for machine learning tasks. One benefit of pipelines is increased collaboration. You can also version pipelines, allowing customers to use the current model while you're working on a new version. 
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 
 All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
-To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) reference or get more details in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token. Getting such a token is described in the [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) reference and in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -83,7 +83,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 ## Create a versioned pipeline endpoint
 
-You can create a Pipeline Endpoint with multiple published pipelines behind it. This can be used like a published pipeline but gives you a fixed REST endpoint as you iterate on and update your ML pipelines.
+You can create a Pipeline Endpoint with multiple published pipelines behind it. This gives you a fixed REST endpoint as you iterate on and update your ML pipelines.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
