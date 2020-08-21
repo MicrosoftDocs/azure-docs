@@ -155,7 +155,7 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 az extension update --name aks-preview
 ```
 
-### Use the AKS specialized GPU image on new clusters (preview)
+### Use the AKS specialized GPU image on new clusters (preview)    
 
 Configure the cluster to use the AKS specialized GPU image when the cluster is created. Use the `--aks-custom-headers` flag for the GPU agent nodes on your new cluster to use the AKS specialized GPU image.
 
