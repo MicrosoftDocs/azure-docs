@@ -122,7 +122,7 @@ In this step, you set up Data Lake Storage Gen2 as a source.
 
 1. Keep the dialog box open, and then go to your storage account.
 
-1. Follow instructions in [this section](#approval-of-a-private-link-in-storage-account) to approve the private link.
+1. Follow instructions in [this section](#approval-of-a-private-link-in-a-storage-account) to approve the private link.
 
 1. Go back to the dialog box. Select **Test connection** again, and select **Create** to deploy the linked service.
 
@@ -156,7 +156,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 
     ![Screenshot that shows the Manage private endpoint pane.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
 
-#### Approval of a private link in the storage account
+#### Approval of a private link in a storage account
 
 1. In the storage account, go to **Private endpoint connections** under the **Settings** section.
 

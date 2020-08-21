@@ -160,7 +160,7 @@ In this tutorial, you start by creating a pipeline. Then you create linked servi
    > The **Manage** tab might not be available for all data factory instances. If you don't see it, you can access private endpoints by selecting **Author** > **Connections** > **Private Endpoint**.
 1. Keep the dialog box open, and then go to your storage account.
 
-1. Follow instructions in [this section](#approval-of-a-private-link-in-storage-account) to approve the private link.
+1. Follow instructions in [this section](#approval-of-a-private-link-in-a-storage-account) to approve the private link.
 
 1. Go back to the dialog box. Select **Test connection** again, and select **Create** to deploy the linked service.
 
