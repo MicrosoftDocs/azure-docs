@@ -1,6 +1,6 @@
 ---
 title: Set up vRealize Operations for Azure VMware Solution
-description:  
+description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud. 
 ms.topic: how-to
 ms.date: 08/06/2020
 ---
@@ -13,8 +13,8 @@ vRealize Operations Manager is an operations management platform that allows VMw
 Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the two typical deployment topologies for vRealize Operations Manager with Azure VMware Solution:
 
 > [!div class="checklist"]
-> * [On-premises vRealize Operations managing Azure VMware Solution deployment ](#on-premises-vrealize-operations-managing-avs-deployment)
-> * [vRealize Operations running on Azure VMware Solution deployment](#vrealize-operations-running-on-avs-deployment)
+> * [On-premises vRealize Operations managing Azure VMware Solution deployment](#on-premises-vrealize-operations-managing-azure-vmware-solution-deployment)
+> * [vRealize Operations running on Azure VMware Solution deployment](#vrealize-operations-running-on-azure-vmware-solution-deployment)
 
 ## Before you begin
 * Review the [vRealize Operations Manager product documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) to learn more deploying vRealize Operations. 

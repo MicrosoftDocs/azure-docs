@@ -58,7 +58,7 @@ Perhaps you already have a private cloud and you experience a failure when you a
 
 When viewing a private cloud in the portal, select **Connectivity > ExpressRoute** and copy the **ExpressRoute ID** to your clipboard.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Collect an ExpressRoute ID."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copy the ExpressRoute ID to the clipboard."::: 
  
 Paste the ExpressRoute ID into the appropriate field in the new support request. For more info, see the following section, [Create your support request](#create-your-support-request).
  
@@ -73,7 +73,7 @@ Here is additional guidance specific to creating an SR for Azure VMware Solution
 
 1. Select the **Help** icon and then **+ New support request**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collect an ExpressRoute ID.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collect an ExpressRoute ID for your SR.":::
 
 2. Fill in all required fields, and on the **Basics** tab:
 

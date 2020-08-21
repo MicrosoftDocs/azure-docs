@@ -142,7 +142,7 @@ After installation, perform the following steps.
 
 1. Enter a compute profile name and select **Continue**.  
 
-    ![Create compute profile](./media/hybrid-cloud-extension-installation/create-compute-profile.png)
+    ![Enter a compute profile name and select Continue.](./media/hybrid-cloud-extension-installation/create-compute-profile.png)
 
 1. Select the services to enable, such as migration, Network Extension, or Disaster Recovery, and then select **Continue**.
 
@@ -195,7 +195,7 @@ After installation, perform the following steps.
 
 1. Review the connection rules and select **Continue**.  
 
-    ![Create compute profile](./media/hybrid-cloud-extension-installation/complete-compute-profile.png)
+    ![Review the connection rules and select Continue.](./media/hybrid-cloud-extension-installation/complete-compute-profile.png)
 
 1.  Select **Finish** to create the compute profile.
 
