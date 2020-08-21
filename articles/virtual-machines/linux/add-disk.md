@@ -5,7 +5,7 @@ author: roygara
 manager: twooley
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 06/13/2018
+ms.date: 08/20/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -38,38 +38,45 @@ az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 
 ## Connect to the Linux VM to mount the new disk
 
-To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*:
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*:
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-Once connected to your VM, you're ready to attach a disk. First, find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses dmesg to filter on *SCSI* disks:
+Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 The output is similar to the following example:
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     1:0:1:0      14G
+└─sda1               14G /mnt
+sdb     0:0:0:0      30G
+├─sdb1             29.9G /
+├─sdb14               4M
+└─sdb15             106M /boot/efi
+sdc     3:0:0:1     50G
 ```
+
+Here, *sdc* is the disk that we want, because it is 50G. If you aren't sure which disk it is based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. In this example, the portal shows the new disk at LUN 1, which matches the last value under HCTL, which is the LUN number.
+
+Partition the disk with `parted`, if the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. If you're using MBR partitioning, you can use `fdisk`. Make it a primary disk on partition 1, and accept the other defaults. 
+
 
 > [!NOTE]
 > It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
 
-Here, *sdc* is the disk that we want. Partition the disk with `parted`, if the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. If you're using MBR partitioning, you can use `fdisk`. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
+Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition, accept the rest of the default values, and select `w` to write the changes to the disk. 
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition and accept the rest of the default values. The output will be similar to the following example:
+The output will be similar to the following example:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -89,11 +96,7 @@ First sector (2048-10485759, default 2048):
 Using default value 2048
 Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
-```
 
-Print the partition table by typing `p` and then use `w` to write the table to disk and exit. The output should look similar to the following example:
-
-```bash
 Command (m for help): p
 
 Disk /dev/sdc: 5368 MB, 5368709120 bytes
@@ -112,7 +115,10 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
+
+
 Use the below command to update the kernel:
+
 ```
 partprobe 
 ```
@@ -126,26 +132,18 @@ sudo mkfs -t ext4 /dev/sdc1
 The output is similar to the following example:
 
 ```bash
-mke2fs 1.42.9 (4-Feb-2014)
+mke2fs 1.44.1 (24-Mar-2018)
 Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
+Creating filesystem with 67108608 4k blocks and 16777216 inodes
+Filesystem UUID: 6d0f8ac6-7700-4e72-8ac7-f08e0b4a69a8
 Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624, 11239424, 20480000, 23887872
+
 Allocating group tables: done
 Writing inode tables: done
-Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done
+Creating journal (262144 blocks): done
+Writing superblocks and filesystem accounting information:    0/2done
 ```
 
 Now, create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
@@ -180,7 +178,7 @@ The output looks similar to the following example:
 Next, open the */etc/fstab* file in a text editor as follows:
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
 In this example, use the UUID value for the */dev/sdc1* device that was created in the previous steps, and the mountpoint of */datadrive*. Add the following line to the end of the */etc/fstab* file:
@@ -188,6 +186,8 @@ In this example, use the UUID value for the */dev/sdc1* device that was created 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
+
+In this example, we are using the nano editor, so when you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.

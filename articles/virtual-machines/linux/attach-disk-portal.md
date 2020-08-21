@@ -4,7 +4,7 @@ description: Use the portal to attach new or existing data disk to a Linux VM.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 07/12/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
 
@@ -22,74 +22,68 @@ Before you attach disks to your VM, review these tips:
 ## Find the virtual machine
 1. Go to the [Azure portal](https://portal.azure.com/) to find the VM. Search for and select **Virtual machines**.
 2. Choose the VM from the list.
-3. In the **Virtual machines** page sidebar, under **Settings**, choose **Disks**.
-   
-    ![Open disk settings](./media/attach-disk-portal/find-disk-settings.png)
+3. In the **Virtual machines** page, under **Settings**, choose **Disks**.
 
 
 ## Attach a new disk
 
-1. On the **Disks** pane, click **+ Add data disk**.
-2. Click the drop-down menu for **Name** and select **Create disk**:
+1. On the **Disks** pane, under **Data disks**, select **Create and attach a new disk**.
 
-    ![Create Azure managed disk](./media/attach-disk-portal/create-new-md.png)
-
-3. Enter a name for your managed disk. Review the default settings, update as necessary, and then click **Create**.
+3. Enter a name for your managed disk. Review the default settings, and update the **Storage type** and **Size (GiB) as necessary.
    
-   ![Review disk settings](./media/attach-disk-portal/create-new-md-settings.png)
+   :::image type="content" source="./media/attach-disk-portal/create-new-md-settings.png" alt-text="Review disk settings.":::
 
-4. Click **Save** to create the managed disk and update the VM configuration:
 
-   ![Save new Azure Managed Disk](./media/attach-disk-portal/confirm-create-new-md.png)
+4. When you are done, select **Save** at the top of the page to create the managed disk and update the VM configuration.
 
-5. After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**. As managed disks are a top-level resource, the disk appears at the root of the resource group:
-
-   ![Azure Managed Disk in resource group](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## Attach an existing disk
-1. On the **Disks** pane, click **+ Add data disk**.
-2. Click the drop-down menu for **Name** to view a list of existing managed disks accessible to your Azure subscription. Select the managed disk to attach:
-
-   ![Attach existing Azure Managed Disk](./media/attach-disk-portal/select-existing-md.png)
+1. On the **Disks** pane, under **Data disks**, select  **Attach existing disks**.
+2. Click the drop-down menu for **Disk name** and select a disk from the list of available managed disks. 
 
 3. Click **Save** to attach the existing managed disk and update the VM configuration:
    
-   ![Save Azure Managed Disk updates](./media/attach-disk-portal/confirm-attach-existing-md.png)
-
-4. After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
 
 ## Connect to the Linux VM to mount the new disk
-To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*: 
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public IP address of *10.123.123.25* with the username *azureuser*: 
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-Once connected to your VM, you're ready to attach a disk. First, find the disk using `dmesg` (the method you use to discover your new disk may vary). The following example uses dmesg to filter on *SCSI* disks:
+Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 The output is similar to the following example:
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     1:0:1:0      14G
+└─sda1               14G /mnt
+sdb     0:0:0:0      30G
+├─sdb1             29.9G /
+├─sdb14               4M
+└─sdb15             106M /boot/efi
+sdc     3:0:0:1     128G
+└─sdc1              128G /datadrive
+sdd     3:0:0:0     128G
+sde     3:0:0:2       4G
 ```
 
-Here, *sdc* is the disk that we want. 
+In this example, the disk I most recently attached was 4GB and it was attached at LUN 2. Here, *sde* is the disk that I want because it is 4GB and the last number for the HCTL column is 2, which is LUN 2. 
 
 ### Partition a new disk
+
 If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
 
 > [!NOTE]
 > It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
 
-Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
+Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. 
+
+The following example starts the `fdisk` process on */dev/sdc*, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk.
 
 ```bash
 sudo fdisk /dev/sdc
@@ -98,43 +92,42 @@ sudo fdisk /dev/sdc
 Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition and accept the rest of the default values. The output will be similar to the following example:
 
 ```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
 
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
+Welcome to fdisk (util-linux 2.31.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table.
+Created a new DOS disklabel with disk identifier 0x2fe1952d.
 
 Command (m for help): n
-Partition type:
+Partition type
    p   primary (0 primary, 0 extended, 4 free)
-   e   extended
+   e   extended (container for logical partitions)
 Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
+Partition number (1-4, default 1):
+First sector (2048-8388607, default 2048):
+Last sector, +sectors or +size{K,M,G,T,P} (2048-8388607, default 8388607):
+
+Created a new partition 1 of type 'Linux' and of size 4 GiB.
 ```
 
 Print the partition table by typing `p` and then use `w` to write the table to disk and exit. The output should look similar to the following example:
 
 ```bash
 Command (m for help): p
+Disk /dev/sdc: 4 GiB, 4294967296 bytes, 8388608 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: dos
+Disk identifier: 0x2fe1952d
 
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
+Device     Boot Start     End Sectors Size Id Type
+/dev/sdc1        2048 8388607 8386560   4G 83 Linux
 
 Command (m for help): w
-The partition table has been altered!
-
+The partition table has been altered.
 Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
@@ -148,25 +141,16 @@ sudo mkfs -t ext4 /dev/sdc1
 The output is similar to the following example:
 
 ```bash
-mke2fs 1.42.9 (4-Feb-2014)
+mke2fs 1.44.1 (24-Mar-2018)
 Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
+Creating filesystem with 1048320 4k blocks and 262144 inodes
+Filesystem UUID: 1b3a50ca-fda8-4c02-9cb4-da15e7708e62
 Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
+        32768, 98304, 163840, 229376, 294912, 819200, 884736
+
 Allocating group tables: done
 Writing inode tables: done
-Creating journal (32768 blocks): done
+Creating journal (16384 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
@@ -180,6 +164,7 @@ partprobe /dev/sdc1
 As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
 
 ### Mount the disk
+
 Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 
 ```bash
@@ -212,7 +197,7 @@ The output looks similar to the following example:
 Next, open the */etc/fstab* file in a text editor as follows:
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
 In this example, use the UUID value for the */dev/sdc1* device that was created in the previous steps, and the mountpoint of */datadrive*. Add the following line to the end of the */etc/fstab* file:
@@ -220,7 +205,9 @@ In this example, use the UUID value for the */dev/sdc1* device that was created 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-When done, save the */etc/fstab* file and reboot the system.
+
+We used the nano editor, so when you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.
+
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 > 
