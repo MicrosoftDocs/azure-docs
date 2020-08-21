@@ -70,14 +70,14 @@ There are currently two available methods to create a DCR:
 The sample data collection rule below is for virtual machines with Azure Management agent and has the following details:
 
 - Performance data
-  - Collects specific Processor, Memory, Logical Disk and Physical Disk counters every 15 seconds and uploads every minute.
+  - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.
   - Collects specific Process counters every 30 seconds and uploads every 5 minutes.
 - Windows events
   - Collects Windows security events and uploads every minute.
   - Collects Windows application and system events and uploads every 5 minutes.
 - Syslog
-  - Collects Debug, Critical and Emergency events from cron facility.
-  - Collects Alert, Critical and Emergency events from syslog facility.
+  - Collects Debug, Critical, and Emergency events from cron facility.
+  - Collects Alert, Critical, and Emergency events from syslog facility.
 - Destinations
   - Sends all data to a Log Analytics workspace named centralWorkspace.
 
