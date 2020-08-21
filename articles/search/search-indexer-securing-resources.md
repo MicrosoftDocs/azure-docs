@@ -77,7 +77,8 @@ Details are described in the [how to guide](search-indexer-howto-access-ip-restr
 
 ## Granting access via private endpoints
 
-Indexers can utilize private endpoints to access resources, access to which are locked down either to select virtual networks or do not have any public access enabled. This functionality is only available for paid services, with limits on the number of private endpoints that be created. Details about the limits are documented in the [Azure Search limits page](search-limits-quotas-capacity.md).
+Indexers can utilize [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to access resources, access to which are locked down either to select virtual networks or do not have any public access enabled.
+This functionality is only available for paid services, with limits on the number of private endpoints that be created. Details about the limits are documented in the [Azure Search limits page](search-limits-quotas-capacity.md).
 
 ### Step 1: Create a private endpoint to the secure resource
 
@@ -92,7 +93,9 @@ The customer is then expected to locate this request on their secure resource an
 
 ### Step 3: Force indexers to run in the "private" environment
 
-Customers can override the default indexer execution environment behavior (in which Azure Cognitive Search determines the best environment in which to run indexers), by setting the indexer configuration property `executionEnvironment`.
+An approved private endpoint allows outgoing calls from the search service to a resource that has some form of network level access restrictions (for example a storage account data source that is configured to only be accessed from certain virtual networks) to succeed.
+This means any indexer that is able to reach out to such a data source over the private endpoint will succeed.
+If the private endpoint is not approved, or if the indexer does not utilize the private endpoint connection then the indexer run will end up in `transientFailure`.
 
 To enable indexers to access resources via private endpoint connections, it is mandatory to set the `executionEnvironment` of the indexer to `"Private"` to ensure that all indexer runs will be able to utilize the private endpoint. This is because private endpoints are provisioned within the private search service-specific environment.
 
