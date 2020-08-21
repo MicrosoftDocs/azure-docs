@@ -18,7 +18,7 @@ Azure ultra disks offer high throughput, high IOPS, and consistent low latency d
 
 ## GA scope and limitations
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](~/includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 ## Determine VM size and region availability
 
@@ -342,4 +342,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ```
 ## Next steps
 
-See [Use Azure ultra disks on Azure Kubernetes Service (preview)](/azure/aks/use-ultra-disks).
+See [Use Azure ultra disks on Azure Kubernetes Service (preview)](../aks/use-ultra-disks).
