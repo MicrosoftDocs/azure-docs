@@ -61,11 +61,11 @@ If you do not already have an existing cluster, create it by using the Azure por
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Create new cluster by selecting the + new cluster in the portal":::
 
 1. Name your cluster and provide a storage account to use as the Cloud Witness. Use an existing storage account or select **Create new** to create a new storage account. Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-1. Expand **Manage SQL service, cluster bootstrap and cluster operator accounts** to provide credentials for the cluster. 
+1. Expand **Windows Server Failover Cluster credentials** to provide [credentials](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) for the SQL Server service account, as well as the cluster operator and bootstrap accounts if they're different than the account used for the SQL Server service. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster.png" alt-text="Provide name, storage account, and credentials for the cluster":::
 
-1. Select the SQL Server VMs that you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are in the same location, domain, and on the same virtual network will be visible. 
+1. Select the SQL Server VMs you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are registered with the SQL VM resource provider in full manageability mode, and are in the same location, domain, and on the same virtual network as the primary SQL Server VM will be visible. 
 1. Select **Apply** to create the cluster. 
 
 You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
@@ -83,6 +83,7 @@ To do so, follow these steps:
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Onboard an existing cluster from the High Availability page on your SQL virtual machines resource":::
 
+1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
 
 
@@ -152,7 +153,7 @@ To add more SQL Server VMs to the cluster, follow these steps:
 1. Select **High Availability** under **Settings**. 
 1. Select **Configure Windows Server Failover Cluster** to open the **Configure Windows Server Failover Cluster** page. 
 
-:::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Select Configure Windows Server Failover Cluster to add VMs to your cluster.":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Select Configure Windows Server Failover Cluster to add VMs to your cluster.":::
 
 1. Expand **Windows Server Failover Cluster credentials** and enter in the accounts used for the SQL Server service, cluster operator and cluster bootstrap accounts. 
 1. Select the SQL Server VMs you want to add to the cluster. 
@@ -168,6 +169,10 @@ You can **Add more replicas** to the availability group, **Configure the Listene
 
 :::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Select the ellipses next to the availability group and then select add replica to add more replicas to the availability group.":::
 
+## Remove cluster
+
+Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or PowerShell. 
+
 # [Azure CLI](#tab/azure-cli)
 
 First, remove all of the SQL Server VMs from the cluster. This will physically remove the nodes from the cluster, and destroy the cluster:  
@@ -179,6 +184,8 @@ First, remove all of the SQL Server VMs from the cluster. This will physically r
 az sql vm remove-from-group --name <VM1 name>  --resource-group <resource group name>
 az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group name>
 ```
+
+If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
 
 Next, remove the cluster metadata: 
 
@@ -204,6 +211,9 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
    
    Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
 ```
+
+If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
+
 
 Next, remove the cluster metadata: 
 
