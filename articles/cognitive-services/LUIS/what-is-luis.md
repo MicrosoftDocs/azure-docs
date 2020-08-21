@@ -51,7 +51,7 @@ Learn more about [NLP](artificial-intelligence.md), and the LUIS-specific area o
 
 ## Step 1: Design and build your model
 
-Design your model with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide data that needs to be extracted with [machine-learning entities](luis-concept-entity-types.md#effective-machine-learned-entities.md).
+Design your model with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide data that needs to be extracted with [machine-learning entities](luis-concept-entity-types.md#effective-machine-learned-entities).
 
 |Example user utterance|Intent|Extracted data|
 |-----------|-----------|-----------|
