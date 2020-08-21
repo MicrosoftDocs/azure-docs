@@ -84,8 +84,9 @@ During manual database deployment, follow these steps to minimize downtime or re
 6. Keep the old production database so that you can roll back the changes. You can then evaluate to either delete the old production database or export it on Azure Storage if needed. 
 
 >[!NOTE]
->- If the application is like an e-commerce app and you can't put it in read-only state, deploy the changes directly on the production database after making a backup. Theses change should occur during off-peak hours with low traffic to the app to minimize the impact, because some users might experience failed requests. 
->- Make sure your application code also handles any failed requests.
+>If the application is like an e-commerce app and you can't put it in read-only state, deploy the changes directly on the production database after making a backup. Theses change should occur during off-peak hours with low traffic to the app to minimize the impact, because some users might experience failed requests. 
+>
+>Make sure your application code also handles any failed requests.
 
 ### Use MySQL native metrics to see if your workload is exceeding in-memory temporary table sizes
 With a read-heavy workload, queries running against your MySQL server might exceed the in-memory temporary table sizes. A read-heavy workload can cause your server to switch to writing temporary tables to disk, which affects the performance of your application. To determine if your server is writing to disk as a result of exceeding temporary table size, look at the following metrics:
