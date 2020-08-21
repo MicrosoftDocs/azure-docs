@@ -506,17 +506,22 @@ By default, the Functions PowerShell runtime can only process one invocation of 
 * When you're trying to handle a large number of invocations at the same time.
 * When you have functions that invoke other functions inside the same function app.
 
-You can change this behavior by setting the following environment variable to an integer value:
+There are a few concurrency models that you could explore depending on the type of workload:
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Increase ```FUNCTIONS_WORKER_PROCESS_COUNT```. This allows handling function invocations in multiple processes within the same instance, which introduces certain CPU and memory overhead. In general, I/O-bound functions will not suffer from this overhead. For CPU-bound functions, the impact may be significant.
 
-You set this environment variable in the [app settings](functions-app-settings.md) of your Function App.
+* Increase the ```PSWorkerInProcConcurrencyUpperBound``` app setting value. This allows creating multiple runspaces within the same process, which significantly reduces CPU and memory overhead.
+
+You set this environment variables in the [app settings](functions-app-settings.md) of your Function App.
+
+Depending on your use case, [Durable Functions](durable/quickstart-powershell-vscode.md) may significantly improve scalability.
+
+>[!NOTE]
+> You might get "requests are being queued due to no available runspaces" warnings, please note that this is not an error. The message is telling you that requests are being queued and they will be handled when the previous requests are completed.
 
 ### Considerations for using concurrency
 
-PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the PSWorkerInProcConcurrencyUpperBound application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
+PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the ```PSWorkerInProcConcurrencyUpperBound``` application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
 Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
