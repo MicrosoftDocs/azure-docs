@@ -1,10 +1,9 @@
 ---
 title: In-place change of SQL Server edition
-description: Learn how to change the edition of your SQL Server virtual machine in Azure. 
+description: Learn how to change the edition of your SQL Server virtual machine in Azure to downgrade to reduce cost or upgrade to enable more features.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 

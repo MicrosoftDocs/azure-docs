@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 05/25/2020
+ ms.date: 06/16/2020
  ms.author: jlian
 ---
 
@@ -44,6 +44,8 @@ Before proceeding ensure that the following prerequisites are met:
 
 ### Set up a private endpoint for IoT Hub ingress
 
+Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) as well as service APIs (like creating and updating devices).
+
 1. In Azure portal, select **Networking**, **Private endpoint connections**, and click the **+ Private endpoint**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::
@@ -65,8 +67,8 @@ The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-buil
 IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
 
 1. Configure private endpoint access for IoT Hub
-1. Turn off public network access by using IP filter to block all IP
-1. Turn off the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
+1. [Turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP
+1. Stop using the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
 1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Configure egress to other Azure resources using [trusted Microsoft service](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
@@ -88,6 +90,76 @@ To allow other services to find your IoT hub as a trusted Microsoft service, it 
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot showing how to turn on managed identity for IoT Hub":::
 
+### Assign managed identity to your IoT Hub at creation time using ARM template
+
+To assign managed identity to your IoT hub at resource provisioning time, use the ARM template below:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "sku": {
+                "name": "<your-hubs-SKU-name>",
+                "tier": "<your-hubs-SKU-tier>",
+                "capacity": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+After substituting the values for your resource `name`, `location`, `SKU.name` and `SKU.tier`, you can use Azure CLI to deploy the resource in an existing resource group using:
+
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+```
+
+After the resource is created, you can retrieve the managed service identity assigned to your hub using Azure CLI:
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
+
 ### Pricing for managed identity
 
 Trusted Microsoft first party services exception feature is free of charge. Charges for the provisioned storage accounts, event hubs, or service bus resources apply separately.
@@ -98,7 +170,7 @@ IoT Hub can route messages to a customer-owned storage account. To allow the rou
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-2. Select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
+2. Select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
 3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
@@ -106,7 +178,7 @@ IoT Hub can route messages to a customer-owned storage account. To allow the rou
 
 5. Navigate to **Custom endpoints** section and click **Add**. Select **Storage** as the endpoint type.
 
-6. On the page that shows up, provide a name for your endpoint, select the container that you intend to use in your blob storage, provide encoding, and file name format. Select **System Assigned** as the **Authentication type** to your storage endpoint. Click the **Create** button.
+6. On the page that shows up, provide a name for your endpoint, select the container that you intend to use in your blob storage, provide encoding, and file name format. Select **Identity-based** as the **Authentication type** to your storage endpoint. Click the **Create** button.
 
 Now your custom storage endpoint is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions. You can now use this endpoint to set up a routing rule.
 
@@ -152,13 +224,13 @@ IoT Hub's file upload feature allows devices to upload files to a customer-owned
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-2. Select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
+2. Select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
 3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
 4. On your IoT Hub's resource page, navigate to **File upload** tab.
 
-5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL**, and **Maximum delivery count** as desired. Select **System Assigned** as the **Authentication type** to your storage endpoint. Click the **Create** button.
+5. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings**, **SAS TTL**, **Default TTL**, and **Maximum delivery count** as desired. Select **Identity-based** as the **Authentication type** to your storage endpoint. Click the **Create** button.
 
 Now your storage endpoint for file upload is set up to use your hub's system assigned identity, and it has permission to access your storage resource despite its firewall restrictions.
 
@@ -170,7 +242,7 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
-2. Select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues)) as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
+2. Select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) as **role**, **Azure AD user, group, or service principal** as **Assigning access to** and select your IoT Hub's resource name in the drop-down list. Click the **Save** button.
 
 3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 

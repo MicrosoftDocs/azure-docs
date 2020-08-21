@@ -3,7 +3,7 @@ title: "PowerShell: Enable bring-your-own-key (BYOK) TDE"
 titleSuffix: Azure SQL Managed Instance
 description: "Learn how to configure Azure SQL Managed Instance to start using bring-your-own-key (BYOK) Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell."
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
@@ -40,6 +40,6 @@ If you are running PowerShell locally, you also need to run `Connect-AzAccount` 
 
 ## Next steps
 
-For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples for SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

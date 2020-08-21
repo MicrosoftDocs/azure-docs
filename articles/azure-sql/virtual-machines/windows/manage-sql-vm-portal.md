@@ -1,10 +1,9 @@
 ---
-title: Manage SQL Server VMs in Azure by using the Azure portal | Microsoft Docs
+title: Manage SQL Server virtual machines in Azure by using the Azure portal | Microsoft Docs
 description: Learn how to access the SQL virtual machine resource in the Azure portal for a SQL Server VM hosted on Azure. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 
@@ -19,7 +18,7 @@ ms.reviewer: jroth
 # Manage SQL Server VMs in Azure by using the Azure portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-In the [Azure portal](https://portal.azure.com), the **SQL virtual machines** resource is an independent management service. You can use it to view all of your SQL Server VMs simultaneously and modify settings dedicated to SQL Server: 
+In the [Azure portal](https://portal.azure.com), the **SQL virtual machines** (VMs) resource is an independent management service. You can use it to view all of your SQL Server VMs simultaneously and modify settings dedicated to SQL Server: 
 
 ![SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-manage.png)
 

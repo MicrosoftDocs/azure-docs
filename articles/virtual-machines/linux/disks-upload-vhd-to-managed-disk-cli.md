@@ -4,8 +4,8 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
+ms.date: 06/15/2020
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ---
@@ -23,13 +23,13 @@ ms.subservice: disks
 
 ## Getting started
 
-If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](disks-use-storage-explorer-managed-disks.md)
+If you'd prefer to upload disks through a GUI, you can do so using Azure Storage Explorer. For details refer to: [Use Azure Storage Explorer to manage Azure managed disks](../disks-use-storage-explorer-managed-disks.md)
 
 To upload your VHD to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) has been generated.
+- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]
@@ -42,6 +42,9 @@ Before you can create an empty standard HDD for uploading, you'll need the file 
 Create an empty standard HDD for uploading by specifying both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
+
+> [!TIP]
+> If you are creating an OS disk, add --hyper-v-generation <yourGeneration> to `az disk create`.
 
 ```azurecli
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -96,6 +99,9 @@ The follow script will do this for you, the process is similar to the steps desc
 
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
+> [!TIP]
+> If you are creating an OS disk, add --hyper-v-generation <yourGeneration> to `az disk create`.
+
 ```azurecli
 sourceDiskName = <sourceDiskNameHere>
 sourceRG = <sourceResourceGroupHere>
@@ -121,4 +127,3 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## Next steps
 
 Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM. 
-

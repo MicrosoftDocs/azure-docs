@@ -107,7 +107,7 @@ Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' 
 
 If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket as shown below.
 
-![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+![Screenshot showing a New support request (support ticket) for "Proof of ownership for public prefixes".](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### Is Dynamics 365 supported on ExpressRoute?
 
@@ -148,7 +148,7 @@ You will not lose connectivity if one of the cross connections fails. A redundan
 
 ### How do I implement redundancy on private peering?
 
-Multiple ExpressRoute circuits from different peering locations can be connected to the same virtual network to provide high-availability in the case that a single circuit becomes unavailable. You can then [assign higher weights](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) to the local connection to favor prefer a specific circuit. It is strongly recommended that customers setup at least two ExpressRoute circuits to avoid single points of failure. 
+Multiple ExpressRoute circuits from different peering locations or up to four connections from the same peering location can be connected to the same virtual network to provide high-availability in the case that a single circuit becomes unavailable. You can then [assign higher weights](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) to one of the local connections to prefer a specific circuit. It is strongly recommended that customers setup at least two ExpressRoute circuits to avoid single points of failure. 
 
 See [here](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) for designing for high availability and [here](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) for designing for disaster recovery.  
 
@@ -160,7 +160,7 @@ See [here](https://docs.microsoft.com/azure/expressroute/designing-for-high-avai
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
-You can achieve high availability by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
+You can achieve high availability by connecting up to four ExpressRoute circuits in the same peering location to your virtual network, or by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
@@ -172,7 +172,7 @@ See additional details [here](https://docs.microsoft.com/azure/expressroute/expr
 
 If your service provider can establish two Ethernet virtual circuits over the physical connection, you only need one physical connection. The physical connection (for example, an optical fiber) is terminated on a layer 1 (L1) device (see the image). The two Ethernet virtual circuits are tagged with different VLAN IDs, one for the primary circuit, and one for the secondary. Those VLAN IDs are in the outer 802.1Q Ethernet header. The inner 802.1Q Ethernet header (not shown) is mapped to a specific [ExpressRoute routing domain](expressroute-circuit-peerings.md).
 
-![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
+![Diagram highlighting the layer 1 (L1) Primary and Secondary virtual circuits that make up the physical connection between the switches on a Customer Site and an ExpressRoute Location.](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
 ### Can I extend one of my VLANs to Azure using ExpressRoute?
 
@@ -191,7 +191,7 @@ If your service provider offers ExpressRoute at both sites, you can work with yo
 
 ### Can I have multiple ExpressRoute circuits in the same metro? Can I link them to the same virtual network?
 
-Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can link up to 4 circuits to the same virtual network.
+Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can link up to four circuits to the same virtual network.
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 

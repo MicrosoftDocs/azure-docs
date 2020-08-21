@@ -5,9 +5,9 @@ author: yegu-ms
 
 ms.service: cache
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 06/18/2018
 ms.author: yegu
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
 
@@ -63,7 +63,7 @@ Next, you create the cache for the app.
 
     ```xml
     <appSettings>
-        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
     </appSettings>
     ```
 
@@ -129,19 +129,22 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 3. Add the following method to the `HomeController` class to support a new `RedisCache` action that runs some commands against the new cache.
 
     ```csharp
-        public ActionResult RedisCache()
+    public ActionResult RedisCache()
+    {
+        ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+
+        var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
-            ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
+        });
 
-            var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-            {
-                string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-                return ConnectionMultiplexer.Connect(cacheConnection);
-            });
-
-            // Connection refers to a property that returns a ConnectionMultiplexer
-            // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        // as shown in the previous example.
+            
+        using (ConnectionMultiplexer redis = lazyConnection.Value)
+        {
+            IDatabase cache = redis.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -162,12 +165,37 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
             // Get the client list, useful to see if connection list is growing...
             ViewBag.command5 = "CLIENT LIST";
-            ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+            StringBuilder sb = new StringBuilder();
 
-            lazyConnection.Value.Dispose();
+            var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+            var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+            var clients = server.ClientList();
 
-            return View();
+            sb.AppendLine("Cache response :");
+            foreach (var client in clients)
+            {
+                sb.AppendLine(client.Raw);
+            }
+
+            ViewBag.command5Result = sb.ToString();
+
+        return View();
+    }
+                
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
         }
+    }
+
     ```
 
 4. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.

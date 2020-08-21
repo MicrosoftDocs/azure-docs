@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: sample
 ms.workload: identity
 ms.date: 07/15/2019
 ms.author: ryanwi
@@ -120,4 +120,4 @@ For samples and tutorials that demonstrate different usage patterns for the Micr
 
 - [Azure Active Directory Developer's Guide](v1-overview.md)
 - [Azure Active Directory Authentication libraries](active-directory-authentication-libraries.md)
-- [Microsoft Graph API conceptual and reference](https://docs.microsoft.com/graph/use-the-api)
+- [Microsoft Graph API conceptual and reference](/graph/use-the-api)

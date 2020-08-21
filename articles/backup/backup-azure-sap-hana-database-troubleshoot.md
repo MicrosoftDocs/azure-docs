@@ -41,14 +41,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | Error Message      | <span style="font-weight:normal">The specified SAP HANA operation isn't supported</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Possible causes**    | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
-| **Recommended action** | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### UserErrorHANAPODoesNotSupportBackupType
 
 | Error Message      | <span style="font-weight:normal">This SAP HANA database doesn't support the requested backup type</span>  |
 | ------------------ | ------------------------------------------------------------ |
 | **Possible causes**    | Azure backup doesn't support incremental backup and backup using snapshots |
-| **Recommended action** | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Recommended action** | For more information, refer [here](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### UserErrorHANALSNValidationFailure
 
@@ -62,14 +62,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | Error Message      | <span style="font-weight:normal">SDC to MDC upgrade detected</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **Possible causes**    | The SAP HANA instance has been upgraded from SDC to MDC. Backups will fail after the update. |
-| **Recommended action** | Follow the steps listed in the [SDC to MDC upgrade](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) to resolve the issue |
+| **Recommended action** | Follow the steps listed in the [SDC to MDC upgrade](#sdc-to-mdc-upgrade-with-a-change-in-sid) to resolve the issue |
 
 ### UserErrorInvalidBackintConfiguration
 
 | Error Message      | <span style="font-weight:normal">Detected invalid backint configuration</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | **Possible causes**    | The backing parameters are incorrectly specified for Azure backup |
-| **Recommended action** | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
+| **Recommended action** | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
 ### UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -199,4 +199,4 @@ In the preceding scenarios, we recommend that you trigger a re-register operatio
 
 ## Next steps
 
-- Review the [frequently asked questions](https://docs.microsoft.com/azure/backup/sap-hana-faq-backup-azure-vm) about backing up SAP HANA databases on Azure VMs.
+- Review the [frequently asked questions](./sap-hana-faq-backup-azure-vm.md) about backing up SAP HANA databases on Azure VMs.

@@ -3,7 +3,7 @@ title: Configure Azure VM connectivity
 titleSuffix: Azure SQL Managed Instance 
 description: Connect to Azure SQL Managed Instance using SQL Server Management Studio from an Azure virtual machine.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
@@ -68,7 +68,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
 
 1. Make sure that you're signed in to the Azure portal in another browser tab. Then, select the following button to create a client virtual machine and install SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Fill out the form using the information in the following table:
 

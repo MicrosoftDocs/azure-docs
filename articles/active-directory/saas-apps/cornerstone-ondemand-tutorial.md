@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone OnDemand | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cornerstone OnDemand.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cornerstone OnDemand
@@ -35,6 +29,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Cornerstone OnDemand single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 

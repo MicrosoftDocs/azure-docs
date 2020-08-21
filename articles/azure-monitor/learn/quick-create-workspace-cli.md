@@ -20,18 +20,18 @@ The Azure CLI 2.0 is used to create and manage Azure resources from the command 
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-* [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md)
-* [Collect data from hybrid Linux computer](../learn/quick-collect-linux-computer.md)
+* [Collect data from Azure virtual machines](./quick-collect-azurevm.md)
+* [Collect data from hybrid Linux computer](./quick-collect-linux-computer.md)
 * [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create a workspace
-Create a workspace with [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
+Create a workspace with [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). The following example creates a workspace in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. Or you can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
 For information about regions supported, see [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field.
 
@@ -102,7 +102,7 @@ The following parameters set a default value:
     }
     ```
 
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported.
+2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported.
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.   
 4. You are ready to deploy this template. Use the following commands from the folder containing the template. When you're prompted for a workspace name, provide a name that is globally unique across all Azure subscriptions.
 
@@ -115,17 +115,18 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 ![Example result when deployment is complete](media/quick-create-workspace-cli/template-output-01.png)
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../platform/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
 2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
-   * [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace
-   * [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace
+   * [Recover](../platform/delete-workspace.md#recover-workspace) your workspace
+   * [Permanently delete](../platform/delete-workspace.md#permanent-workspace-delete) your workspace
    * Create a new workspace using the same workspace name
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  
 
-* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../platform/collect-azure-metrics-logs.md).  
+* To enable data collection from Azure resources with Azure Diagnostics or Azure storage, see [Collect Azure service logs and metrics for use in Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
 * Add [System Center Operations Manager as a data source](../platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
 * Connect [Configuration Manager](../platform/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
 * Review the [monitoring solutions](../insights/solutions.md) available and how to add or remove a solution from your workspace.
+

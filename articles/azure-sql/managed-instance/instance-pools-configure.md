@@ -3,7 +3,7 @@ title: Deploy SQL Managed Instance to an instance pool
 titleSuffix: Azure SQL Managed Instance
 description: This article describes how to create and manage Azure SQL Managed Instance pools (preview).
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
@@ -48,7 +48,7 @@ Available [PowerShell commands](https://docs.microsoft.com/powershell/module/az.
 
 To use PowerShell, [install the latest version of PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell), and follow instructions to [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-For operations related to instances both inside pools and single instances, use the standard [managed instance commands](api-references-create-manage-instance.md#powershell-create-and-manage-managed-instances), but the *instance pool name* property must be populated when using these commands for an instance in a pool.
+For operations related to instances both inside pools and single instances, use the standard [managed instance commands](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances), but the *instance pool name* property must be populated when using these commands for an instance in a pool.
 
 ## Deployment process
 
@@ -94,7 +94,7 @@ $instancePool = New-AzSqlInstancePool `
   -Name "mi-pool-name" `
   -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
-  -VCore 80 `
+  -VCore 8 `
   -Edition "GeneralPurpose" `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
@@ -110,13 +110,13 @@ After the successful deployment of the instance pool, it's time to create a mana
 To create a managed instance, execute the following command:
 
 ```powershell
-$instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
+$instanceOne = $instancePool | New-AzSqlInstance -Name "mi-one-name" -VCore 2 -StorageSizeInGB 256
 ```
 
 Deploying an instance inside a pool takes a couple of minutes. After the first instance has been created, additional instances can be created:
 
 ```powershell
-$instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -StorageSizeInGB 512
+$instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-two-name" -VCore 4 -StorageSizeInGB 512
 ```
 
 ## Create a database 

@@ -1,21 +1,13 @@
 ---
 title: Tutorial - Manage Azure disks with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure disks for virtual machines
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
@@ -48,20 +40,19 @@ To install applications and store data, additional data disks can be added. Data
 
 ## VM disk types
 
-Azure provides two types of disks, standard and Premium.
+Azure provides two types of disks.
 
-### Standard disk
+**Standard disks** - backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
 
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+**Premium disks** - backed by SSD-based, high-performance, low-latency disk. Perfect for VMs running production workload. VM sizes with an  **S** in the [size name](../vm-naming-conventions.md), typically support Premium Storage. For example, DS-series, DSv2-series, GS-series, and FS-series VMs support premium storage. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is more than 64 GB, but less than 128 GB, the disk type is P10. 
 
-### Premium disk
+<br>
 
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Over, 512 GB, the size is a P30.
-
-### Premium disk performance
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](sizes.md).
+When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance. Premium SSD disks are designed to provide low single-digit millisecond latencies and target IOPS and throughput described in the preceding table 99.9% of the time.
+
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks is sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [VM types and sizes](../sizes.md).
 
 ## Launch Azure Cloud Shell
 
@@ -177,7 +168,7 @@ exit
 
 ## Take a disk snapshot
 
-When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](/azure/backup/), which enables you to perform automated backups while the VM is running.
+When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](../../backup/index.yml), which enables you to perform automated backups while the VM is running.
 
 ### Create snapshot
 

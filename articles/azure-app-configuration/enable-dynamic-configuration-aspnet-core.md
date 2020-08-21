@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -54,6 +54,9 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 1. For **Key**, enter *TestApp:Settings:Sentinel*. For **Value**, enter 1. Leave **Label** and **Content type** blank.
 
 1. Select **Apply**.
+
+    > [!NOTE]
+    > If you're not using a sentinel key, you'll need to manually register every key you want to watch.
 
 ## Reload data from App Configuration
 
@@ -156,6 +159,9 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     }
     ```
     ---
+
+    > [!TIP]
+    > To learn more about the options pattern when reading configuration values, please see [Options Patterns in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Update the `Configure` method, adding the `UseAzureAppConfiguration` middleware to allow the configuration settings registered for refresh to be updated while the ASP.NET Core web app continues to receive requests.
 
@@ -307,11 +313,16 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
+```console
         dotnet build
+```
 
 1. After the build successfully completes, run the following command to run the web app locally:
 
+```console
         dotnet run
+```
+
 1. Open a browser window, and go to the URL shown in the `dotnet run` output.
 
     ![Launching quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-before.png)

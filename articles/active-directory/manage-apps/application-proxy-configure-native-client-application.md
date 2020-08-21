@@ -3,20 +3,18 @@ title: Publish native client apps - Azure AD | Microsoft Docs
 description: Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -121,4 +119,4 @@ After you edit the MSAL code with these parameters, your users can authenticate 
 
 For more information about the native application flow, see [Native apps in Azure Active Directory](../azuread-dev/native-app.md).
 
-Learn about setting up [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Learn about setting up [Single sign-on to applications in Azure Active Directory](sso-options.md#choosing-a-single-sign-on-method).

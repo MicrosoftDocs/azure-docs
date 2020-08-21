@@ -8,7 +8,7 @@ editor: curtand
 ms.reviewer: darora10
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath

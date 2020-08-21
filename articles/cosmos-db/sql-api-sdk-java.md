@@ -6,25 +6,29 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports synchronous operations.
@@ -43,6 +47,12 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## Release notes
+
+### <a name="2.5.1"></a>2.5.1
+* Fixes master partition cache issue on documentCollection query.
+
+### <a name="2.5.0"></a>2.5.0
+* Added support for 449 retry custom configuration.
 
 ### <a name="2.4.7"></a>2.4.7
 * Fixes connection pool timeout issue.
@@ -104,7 +114,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 ### <a name="1.16.4"></a>1.16.4
 * Fixed a bug in Read partition Key ranges for a query.
 
-### <a name="1.16.3"/>1.16.3
+### <a name="1.16.3"></a>1.16.3
 * Fixed a bug in setting continuation token header size in DirectHttps mode.
 
 ### <a name="1.16.2"></a>1.16.2
@@ -244,26 +254,19 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * GA SDK
 
 ## Release and retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
-
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
 
 > [!WARNING]
-> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**.
-> 
+> After 30 May 2020, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x of the Azure Cosmos DB Java SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x of the SDK will continue to be served by the Azure Cosmos DB service.
 >
+> After 29 February 2016, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 0.x of the Azure Cosmos DB Java SDK for SQL API. If you prefer not to upgrade, requests sent from version 0.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
-> [!WARNING]
-> All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
-> 
-> 
-
-<br/>
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |June 03, 2020 |--- |
+| [2.5.0](#2.5.0) |May 12, 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
 | [2.4.6](#2.4.6) |Jan 24, 2020 |--- |
 | [2.4.5](#2.4.5) |Nov 10, 2019 |--- |

@@ -11,7 +11,7 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
 ---
-# Tutorial: Secure an Azure SQL Database
+# Tutorial: Secure a database in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial you learn how to:
@@ -19,7 +19,7 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 >
 > - Create server-level and database-level firewall rules
-> - Configure an Azure Active Directory (AD) administrator
+> - Configure an Azure Active Directory (Azure AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
 > - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
@@ -36,7 +36,7 @@ Azure SQL Database secures data by allowing you to:
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](security-overview.md) articles.
 
 > [!TIP]
-> The following Microsoft Learn module helps you learn for free about  how to [Secure your Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> The following Microsoft Learn module helps you learn for free about how to [Secure your database in Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## Prerequisites
 
@@ -44,13 +44,13 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - A [server](logical-servers.md) and a single database
-  - Create them with [Azure portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](powershell-script-content-guide.md)
+  - Create them with the [Azure portal](single-database-create-quickstart.md), [CLI](az-cli-script-samples-content-guide.md), or [PowerShell](powershell-script-content-guide.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 
-For all steps in the tutorial, sign in to [Azure portal](https://portal.azure.com/)
+For all steps in the tutorial, sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create firewall rules
 
@@ -67,7 +67,7 @@ Server-level IP firewall rules apply to all databases within the same server.
 
 To set up a server-level firewall rule:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
     ![server firewall rule](./media/secure-database-tutorial/server-name.png)
 
@@ -88,7 +88,7 @@ You can now connect to any database in the server with the specified IP address 
 
 Database-level firewall rules only apply to individual databases. The database will retain these rules during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
 
-To setup a database-level firewall rule:
+To set up a database-level firewall rule:
 
 1. Connect to the database, for example using [SQL Server Management Studio](connect-query-ssms.md).
 
@@ -113,7 +113,7 @@ Make sure you're using the appropriate Azure Active Directory (AD) managed domai
 
 To set the Azure AD administrator:
 
-1. In Azure portal, on the **SQL server** page, select **Active Directory admin**. Next select **Set admin**.
+1. In the Azure portal, on the **SQL server** page, select **Active Directory admin**. Next select **Set admin**.
 
     ![select active directory](./media/secure-database-tutorial/admin-settings.png)  
 
@@ -140,7 +140,7 @@ For information about configuring Azure AD, see:
 - [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administer your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Manage Azure AD using PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Manage Azure AD using PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [Hybrid identity required ports and protocols](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## Manage database access
@@ -184,7 +184,7 @@ To add a user with SQL authentication:
 Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](authentication-aad-configure.md) on how to authenticate using Azure AD.
 
 > [!NOTE]
-> Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.
+> Database users (excluding administrators) cannot be created using the Azure portal. Azure roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.
 >
 > For example, the *SQL Server Contributor* role does not grant access to connect to a database or data warehouse. This permission must be granted within the database using T-SQL statements.
 
@@ -217,7 +217,7 @@ The connection is established using Transport Layer Security (TLS) and reduces t
 
 To copy a secure connection string:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select **Show database connection strings**.
 
@@ -238,7 +238,7 @@ The advanced data security feature detects potential threats as they occur and p
 
 To enable advanced data security:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select the **Server name** link. The server page will open.
 
@@ -264,7 +264,7 @@ The auditing feature tracks database events and writes events to an audit log in
 
 To enable auditing:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. In the **Security** section, select **Auditing**.
 
@@ -295,7 +295,7 @@ To enable auditing:
     ![Audit records](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> See [SQL database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
+> See [SQL Database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
 
 ### Dynamic data masking
 
@@ -303,7 +303,7 @@ The data masking feature will automatically hide sensitive data in your database
 
 To enable data masking:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. In the **Security** section, select **Dynamic Data Masking**.
 
@@ -321,7 +321,7 @@ The encryption feature automatically encrypts your data at rest, and requires no
 
 To enable or verify encryption:
 
-1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
+1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. In the **Security** section, select **Transparent data encryption**.
 

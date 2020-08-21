@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Functions HTTP trigger
@@ -493,7 +494,9 @@ The trigger input type is declared as either `HttpRequest` or a custom type. If 
 
 By default when you create a function for an HTTP trigger, the function is addressable with a route of the form:
 
-    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```http
+http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
+```
 
 You can customize this route using the optional `route` property on the HTTP trigger's input binding. As an example, the following *function.json* file defines a `route` property for an HTTP trigger:
 
@@ -630,12 +633,14 @@ public class HttpTriggerJava {
 
 ---
 
-By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
+By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```
@@ -665,7 +670,7 @@ You can also read this information from binding data. This capability is only av
 
 # [C#](#tab/csharp)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;
@@ -697,7 +702,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # [C# Script](#tab/csharp-script)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;
@@ -745,9 +750,6 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 ## <a name="authorization-keys"></a>Function access keys
 
-> [!IMPORTANT]
-> While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## Obtaining keys
@@ -762,7 +764,9 @@ You may obtain function keys programmatically by using [Key management APIs](htt
 
 Most HTTP trigger templates require an API key in the request. So your HTTP request normally looks like the following URL:
 
-    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```http
+https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
+```
 
 The key can be included in a query string variable named `code`, as above. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
@@ -793,7 +797,7 @@ In version 1.x, webhook templates provide additional validation for webhook payl
 
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![Screenshot that shows how to add a webhook for your function.](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### Slack webhooks
 
@@ -806,9 +810,17 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 * **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
+## Content types
+
+Passing binary and form data to a non-C# function requires that you use the appropriate content-type header. Supported content types include `octet-stream` for binary data and [multipart types](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+
+### Known issues
+
+In non-C# functions, requests sent with the content-type `image/jpeg` results in a `string` value passed to the function. In cases like these, you can manually convert the `string` value to a byte array to access the raw binary data.
+
 ## Limits
 
-The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config).
+The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 
 If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
 

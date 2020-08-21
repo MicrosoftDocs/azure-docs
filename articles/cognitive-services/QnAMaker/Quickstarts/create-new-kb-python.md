@@ -3,8 +3,8 @@ title:  "Quickstart: Create knowledge base - REST, Python - QnA Maker"
 description: This Python REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
+ms.custom: RESTCURL2020FEB27, devx-track-python
+ms.topic: how-to
 ---
 
 # Quickstart: Create a knowledge base in QnA Maker using Python

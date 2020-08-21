@@ -15,7 +15,7 @@ ms.date: 04/09/2020
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
 
-# Tutorial: Create a labeling project (preview) for multi-class image classification 
+# Tutorial: Create a labeling project for multi-class image classification 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
@@ -108,6 +108,12 @@ Now that you have access to the data you want to have labeled, create your label
 
 1. Select **Next** to continue creating the project.
 
+### Incremental refresh
+
+If you plan to add new images to your dataset,  incremental refresh will find these new images and add them to your project.  When you enable this feature, the project will periodically check for new images.  You won't be adding new images to the datastore for this tutorial, so leave this feature unchecked.
+
+Select **Next** to continue.
+
 ### Label classes
 
 1. On the **Label classes** form, type a label name, then select **+Add label** to type the next label.  For this project, the labels are **Cat**, **Dog**, and **Uncertain**.
@@ -122,7 +128,7 @@ Now that you have access to the data you want to have labeled, create your label
 
 1. Select **Next**.
 
-1. On the **ML assisted labeling** form, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
+1. If you are using an Enterprise workspace, you will see a **ML assisted labeling** section.  Leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 
@@ -138,9 +144,7 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
-1. Select the project name in the list.
-
-1. Below the project name, select **Label data**.
+1. Select **Label link** for the project.
 
 1. Read the instructions, then select **Tasks**.
 

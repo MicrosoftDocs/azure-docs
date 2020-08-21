@@ -46,7 +46,7 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 | IOException |No |Yes |No |No |
 
 ### <a name="WebExceptionStatus"></a> WebException status codes
-The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) enumeration defines the status codes.  
+The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) enumeration defines the status codes.  
 
 | Status | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -84,4 +84,3 @@ If you want to take a look at the actual implementation of the Media Services SD
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

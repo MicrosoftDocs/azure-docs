@@ -6,7 +6,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Create a DNS zone and record

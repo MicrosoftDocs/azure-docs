@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
+ms.date: 07/14/2020
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -26,6 +26,8 @@ The Integration Runtime (IR) is the compute infrastructure used by Azure Data Fa
 
 In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
+Integration runtimes can be created in the Azure Data Factory UX via the [management hub](author-management-hub.md) and any activities, datasets, or data flows that reference them.
+
 ## Integration runtime types
 
 Data Factory offers three types of Integration Runtime (IR), and you should choose the type that best serve the data integration capabilities and network environment needs you're looking for.  These three types are:
@@ -38,25 +40,22 @@ The following table describes the capabilities and network support for each of t
 
 IR type | Public network | Private network
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Data movement<br/>Activity dispatch | &nbsp;
+Azure | Data Flow<br/>Data movement<br/>Activity dispatch | Data Flow<br/>Data movement<br/>Activity dispatch
 Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity dispatch
 Azure-SSIS | SSIS package execution | SSIS package execution
 
-The following diagram shows how the different integration runtimes can be used in combination to offer rich data integration capabilities and network support:
-
-![Different types of integration runtimes](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## Azure integration runtime
 
 An Azure integration runtime can:
 
-- Running Data Flows in Azure 
-- Running copy activity between cloud data stores
-- Dispatching the following transform activities in public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
+- Run Data Flows in Azure 
+- Run copy activity between cloud data stores
+- Dispatch the following transform activities in public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
 
 ### Azure IR network environment
 
-Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Use a self-hosted integration runtime for Azure Virtual Network environment.
+Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment.
 
 ### Azure IR compute resource and scaling
 Azure integration runtime provides a fully managed, serverless compute in Azure.  You don't have to worry about infrastructure provision, software installation, patching, or capacity scaling.  In addition, you only pay for the duration of the actual utilization.
@@ -117,7 +116,11 @@ For more information about Azure-SSIS runtime, see the following articles:
 
 ## Integration runtime location
 
-The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the [globally available IR](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs.
+### Relationship between factory location and IR location
+
+When customer creates a data factory instance, they need to specify the location for the data factory. The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Metadata for the factory is only stored in the region of customer’s choice and will not be stored in other regions.
+
+Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the [globally available IR](https://azure.microsoft.com/global-infrastructure/services/) to ensure data compliance, efficiency, and reduced network egress costs.
 
 The IR Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to. 
 
@@ -125,7 +128,7 @@ The IR Location defines the location of its back-end compute, and essentially th
 
 You can set a certain location of an Azure IR, in which case the activity execution or dispatch will happen in that specific region.
 
-If you choose to use the auto-resolve Azure IR, which is the default,
+If you choose to use the auto-resolve Azure IR in public network, which is the default,
 
 - For copy activity, ADF will make a best effort to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the data factory region as alternative is used.
 
@@ -143,6 +146,8 @@ If you choose to use the auto-resolve Azure IR, which is the default,
 
   > [!TIP] 
   > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as Data Factory location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
+
+If you enable Managed Virtual Network for auto-resolve Azure IR, ADF uses the IR in the data factory region. 
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 

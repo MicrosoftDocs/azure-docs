@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Docs
+- name: Azure DB for MySQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -21,13 +21,19 @@
       href: quickstart-create-mysql-server-database-using-azure-powershell.md
     - name: Create DB - ARM template
       href: quickstart-create-mysql-server-database-using-arm-template.md
-      displayName: deploy azure resource manager template 
+      displayName: deploy azure resource manager template
   - name: Connect & query
     items:
     - name: PHP
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: Java with Spring Data JDBC
+      href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+    - name: Java with Spring Data JPA
+      href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+    - name: Java with Spring Data R2DBC
+      href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
     - name: .NET
       href: connect-csharp.md
     - name: Python
@@ -57,10 +63,10 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress in containers with MySQL
-      href: ../app-service/containers/tutorial-multi-container-app.md
+      href: ../app-service/tutorial-multi-container-app.md
       maintainContext: true
     - name: PHP with MySQL
-      href: ../app-service/app-service-web-tutorial-php-mysql.md
+      href: ../app-service/tutorial-php-mysql-app.md
       maintainContext: true
 - name: Samples
   items:
@@ -87,7 +93,7 @@
       href: concepts-pricing-tiers.md
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
-    - name: Limits
+    - name: Limitations
       href: concepts-limits.md
   - name: Data access & security
     items:
@@ -109,6 +115,8 @@
       href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
+    - name: Infrastructure double encryption
+      href: concepts-infrastructure-double-encryption.md
     - name: Security baseline
       href: security-baseline.md
   - name: Business continuity
@@ -132,8 +140,12 @@
       href: concepts-query-performance-insight.md
     - name: Performance Recommendations
       href: concepts-performance-recommendations.md
+    - name: Server parameters
+      href: concepts-server-parameters.md
   - name: Development
     items:
+    - name: Application Best practices
+      href: app-development-best-practices.md
     - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development
@@ -144,10 +156,14 @@
       href: concepts-aks.md
     - name: Java
       items:
-      - name: Configure Spring Data JDBC
-        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-      - name: Configure Spring Data JPA
-        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
+      - name: Use Java and JDBC
+        href: connect-java.md
+      - name: Use Spring Data JDBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+      - name: Use  Spring Data JPA
+        href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+      - name: Use Spring Data R2DBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
   - name: Replication
     items:
     - name: Data-in replication
@@ -187,9 +203,15 @@
     - name: Create users
       href: howto-create-users.md
     - name: Connection strings
-      href: howto-connection-string.md
+      items:
+      - name: Connect applications
+        href: howto-connection-string.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Configure TLS
+      href: howto-tls-configurations.md
     - name: Web apps
       href: howto-connect-webapp.md
     - name: Connect with redirection
@@ -240,6 +262,8 @@
       href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot common errors
+      href: howto-troubleshoot-common-errors.md
     - name: Troubleshoot connection errors
       href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance
@@ -272,6 +296,10 @@
       href: howto-data-encryption-cli.md
     - name: Data encryption validation
       href: howto-data-encryption-validation.md
+  - name: Infrastructure double encryption
+    items:
+    - name: Configure infrastructure double encryption
+      href: howto-double-encryption.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration
@@ -290,6 +318,10 @@
       href: howto-restart-server-cli.md
     - name: Azure PowerShell
       href: howto-restart-server-powershell.md
+  - name: Move between regions
+    items:
+    - name: Azure portal
+      href: howto-move-regions-portal.md
 - name: Reference
   items:
   - name: Azure CLI

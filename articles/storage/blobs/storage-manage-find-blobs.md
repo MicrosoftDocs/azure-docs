@@ -4,7 +4,7 @@ description: Learn how to use Blob Index tags to categorize, manage, and query t
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 08/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -59,7 +59,7 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Priority" = '01' 
 >
 
-To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time.
+To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time or eTag (entity tag). You can create or modify index tags for all current base blobs and previous versions; however tags on snapshots or soft deleted blobs cannot be modified. 
 
 The following limits apply to Blob Index tags:
 - Each blob can have up to 10 blob index tags
@@ -204,7 +204,7 @@ Callers using an [AAD identity](../common/storage-auth-aad.md) may be granted th
 
 |   Blob operations   |  RBAC action   |
 |---------------------|----------------|
-| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter |
+| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Set Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 
 | Get Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 
@@ -290,6 +290,7 @@ This section describes known issues and conditions in the current public preview
 -	Account failover is currently not supported. The blob index may not update properly after failover.
 -	Lifecycle management currently only supports equality checks with Blob Index Match.
 -	CopyBlob does not copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation. 
+- CopyBlob (Async copy) from another storage account with applied tags on the destination blob currently causes the blob index engine to not return the blob and its tags in the filter set. It is recommended to use CopyBlob from URL (Sync copy) in the interim.
 -	Tags are persisted on snapshot creation; however promoting a snapshot is currently not supported and may result in an empty tag set.
 
 ## FAQ
@@ -305,5 +306,7 @@ No, Azure Resource Manager tags help organize control plane resources such as su
 
 ## Next steps
 
-See an example of how to utilize Blob Index. See [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md)
+For an example of how to utilize Blob Index, see [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md).
+
+Learn about [lifecycle management](storage-lifecycle-management-concepts.md) and set a rule with Blob Index match.
 

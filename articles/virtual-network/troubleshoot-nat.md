@@ -9,7 +9,7 @@ manager: KumudD
 ms.service: virtual-network
 Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
 ms.devlang: na
-ms.topic: overview
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020

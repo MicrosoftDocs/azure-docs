@@ -5,12 +5,12 @@ description: Learn how to use Azure Machine Learning to deploy a model to a Web 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/27/2019
-
+ms.date: 06/23/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 ---
 

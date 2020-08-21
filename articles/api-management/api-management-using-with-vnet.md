@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
 ---
@@ -99,7 +99,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 > [!IMPORTANT]
 > If you plan to use a Custom DNS Server(s) for the VNET, you should set it up **before** deploying an API Management service into it. Otherwise you need to
-> update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates)
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
@@ -115,16 +115,15 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
-| * / 1886                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Needed to publish Health status to Resource Health          | External & Internal  |
-| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md)                       | External & Internal  |
-| * / 25                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
-| * / 587                      | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
-| * / 25028                    | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
-| * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Service for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
+| * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
+| * / 1886, 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) and [Application Insights](api-management-howto-app-insights.md)                   | External & Internal  |
+| * / 25, 587, 25028                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
+| * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines         | External & Internal  |
+| * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
 | * / *                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
 >[!IMPORTANT]
-> The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause degradation in the ability to use and monitor the running service.
+> The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause **degradation** in the ability to use and **monitor the running service and provide the committed SLA**.
 
 + **TLS functionality**: To enable TLS/SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
 
@@ -151,6 +150,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 + **Azure Load Balancer**: Allowing Inbound request from Service Tag `AZURE_LOAD_BALANCER` is not a requirement for the `Developer` SKU, since we only deploy one unit of Compute behind it. But Inbound from [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) becomes critical when scaling to higher SKU like `Premium`, as failure of Health Probe from Load Balancer, fails a deployment.
 
++ **Application Insights**: If [Azure Application Insights](api-management-howto-app-insights.md) monitoring is enabled on API Management, then we need to allow outbound connectivity to the [Telemetry endpoint](/azure/azure-monitor/app/ip-addresses#outgoing-ports) from the Virtual Network. 
+
 + **Force Tunneling Traffic to On-premises Firewall Using Express Route or Network Virtual Appliance**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces all traffic from the API Management delegated subnet to flow through an on-premises firewall or to a Network virtual appliance. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution requires you to do a couple of things:
 
   * Enable service endpoints on the subnet in which the API Management service is deployed. [Service Endpoints][ServiceEndpoints] need to be enabled for Azure Sql, Azure Storage, Azure EventHub and Azure ServiceBus. Enabling endpoints directly from API Management delegated subnet to these services allows them to use the Microsoft Azure backbone network providing optimal routing for service traffic. If you use Service Endpoints with a forced tunneled Api Management, the above Azure services traffic isn't forced tunneled. The other API Management service dependency traffic is forced tunneled and can't be lost or the API Management service would not function properly.
@@ -164,7 +165,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
       - Developer portal CAPTCHA
 
 ## <a name="troubleshooting"> </a>Troubleshooting
-* **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to first deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate that there is connectivity to one of each resource below in your azure subscription
+* **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to first deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate that there is connectivity to one of each resource below in your Azure subscription
     * Azure Storage blob
     * Azure SQL Database
     * Azure Storage Table
@@ -172,7 +173,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   > [!IMPORTANT]
   > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.
 
-* **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus), to verify that the API Management service has not lost access to any of the critical resources, which it depends upon. The connectivity status should be updated every 15 minutes.
+* **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus), to verify that the API Management service has not lost access to any of the critical resources, which it depends upon. The connectivity status should be updated every 15 minutes.
 
 * **Resource Navigation Links**: When deploying into Resource Manager style vnet subnet, API Management reserves the subnet, by creating a resource navigation Link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you move an API Management service to a different subnet or delete it, we will remove that resource navigation link.
 

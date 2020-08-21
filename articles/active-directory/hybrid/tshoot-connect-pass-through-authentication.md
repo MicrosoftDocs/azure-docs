@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 4/15/2019
+ms.topic: troubleshooting
+ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -46,6 +46,31 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80004|The username passed to the agent was not valid|Ensure the user is attempting to sign in with the right username.
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
+
+### Users get invalid username/password error 
+
+This can happen when a user’s on-premises UserPrincipalName (UPN) is different than the user's cloud UPN.
+
+To confirm that this is the issue, first test that the Pass-through Authentication agent is working correctly:
+
+
+1. Create a test account.  
+2. Import the PowerShell module on the agent machine:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Run the Invoke PowerShell command: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
+
+If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+> [!IMPORTANT]
+> If the Azure AD Connect server isn't domain joined, a requirement mentioned in [Azure AD Connect: Prerequisites](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), the invalid username/password issue occurs.
 
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 

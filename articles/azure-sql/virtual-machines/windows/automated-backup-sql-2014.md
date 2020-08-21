@@ -4,7 +4,6 @@ description: Explains the Automated Backup feature for SQL Server 2014 VMs runni
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
@@ -273,7 +272,7 @@ Another option is to take advantage of the built-in Database Mail feature for no
 
 ## Next steps
 
-Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup on SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
+Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup on SQL Server 2014](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure).
 
 You can find additional backup and restore guidance for SQL Server on Azure VMs in the following article: [Backup and restore for SQL Server on Azure virtual machines](backup-restore.md).
 

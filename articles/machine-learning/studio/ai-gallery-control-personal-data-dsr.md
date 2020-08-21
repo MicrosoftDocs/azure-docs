@@ -1,11 +1,10 @@
 ---
-title: Manage Azure AI Gallery data
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Manage Azure AI Gallery data - Azure'
 description: You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -16,7 +15,7 @@ ms.reviewer: jmartens, mldocs
 
 # View and delete in-product user data from Azure AI Gallery
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 You can view and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article tells you how.
 
@@ -41,12 +40,12 @@ Catalog responses are returned in JSON format.
 ### Get an author ID
 The author ID is based on the email address used when publishing to the Azure AI Gallery. It doesn't change:
 
-1.    Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
-2.    Click the profile picture in the top-right corner, and then the account name to load your profile page.
-3.    The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL: 
+1. Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
+2. Click the profile picture in the top-right corner, and then the account name to load your profile page.
+3. The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL:\
     `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
-        
-    Author ID: 
+
+    Author ID:\
     `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 ### Get your access token
@@ -65,16 +64,17 @@ To get an access token, you need to inspect the `DataLabAccessToken` header of a
 ### View user information
 Using the author ID you got in the previous steps, view information in a user's profile by replacing `[AuthorId]` in the following URL:
 
-    https://catalog.cortanaanalytics.com/users/[AuthorID]
+`https://catalog.cortanaanalytics.com/users/[AuthorID]`
 
 For example, this URL request:
-    
-    https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA
+
+`https://catalog.cortanaanalytics.com/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
 Returns a response such as:
 
-    {"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
-
+```json
+{"entities_count":9,"contribution_score":86.351575190956922,"scored_at":"2018-05-07T14:30:25.9305671+00:00","contributed_at":"2018-05-07T14:26:55.0381756+00:00","created_at":"2017-12-15T00:49:15.6733094+00:00","updated_at":"2017-12-15T00:49:15.6733094+00:00","name":"First Last","slugs":["First-Last"],"tenant_id":"14b2744cf8d6418c87ffddc3f3127242","community_id":"9502630827244d60a1214f250e3bbca7","id":"99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA","_links":{"self":"https://catalog.azureml.net/tenants/14b2744cf8d6418c87ffddc3f3127242/communities/9502630827244d60a1214f250e3bbca7/users/99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA"},"etag":"\"2100d185-0000-0000-0000-5af063010000\""}
+```
 
 ### View public entities
 
@@ -82,11 +82,11 @@ The Catalog API stores information about published entities to the Azure AI Gall
 
 To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-id) above.
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
 For example:
 
-    https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
+`https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 
 ### View unlisted and public entities
 

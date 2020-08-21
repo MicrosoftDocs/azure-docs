@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -97,6 +97,10 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
    2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
+   
+   >[!NOTE]
+   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
    >[!IMPORTANT]
@@ -126,6 +130,8 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Enable-AzureADSSO -Enable $false`.
+   
+   At this point Seamless SSO is disabled but the domains will remain configured in case you would like to enable Seamless SSO back. If you would like to remove the domains from Seamless SSO configuration completely, call the following cmdlet after you completed step 5 above: `Disable-AzureADSSOForest -DomainFqdn <fqdn>`.
 
    >[!IMPORTANT]
    >Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.

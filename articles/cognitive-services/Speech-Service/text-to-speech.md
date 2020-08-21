@@ -36,13 +36,7 @@ Text-to-speech from the Speech service enables your applications, tools, or devi
 
 ## Get started
 
-The text-to-speech service is available via the [Speech SDK](speech-sdk.md). There are several common scenarios available as quickstarts, in various languages and platforms:
-
-* [Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md)
-* [Synthesize speech to a speaker](quickstarts/text-to-speech.md)
-* [Asynchronously synthesize long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-If you prefer, the text-to-speech service is accessible via [REST](rest-text-to-speech.md).
+See the [quickstart](get-started-text-to-speech.md) to get started with text-to-speech. The text-to-speech service is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-text-to-speech.md), and the [Speech CLI](spx-overview.md)
 
 ## Sample code
 

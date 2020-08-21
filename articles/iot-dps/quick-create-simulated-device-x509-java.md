@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: java
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
 # Quickstart: Create and provision a simulated X.509 device using Java device SDK for IoT Hub Device Provisioning Service

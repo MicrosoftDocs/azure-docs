@@ -2,7 +2,7 @@
 title: Limits - LUIS
 description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several limits areas. Model limit controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
 ms.topic: reference
-ms.date: 05/06/2020
+ms.date: 06/04/2020
 ---
 # Limits for your LUIS model and keys
 LUIS has several limit areas. The first is the [model limit](#model-limits), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of limits is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
@@ -31,8 +31,8 @@ If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis
 | [Prebuilt entities](./luis-prebuilt-entities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
-| [Utterance][utterances] | 500 characters|
-| [Utterances][utterances] | 15,000 per application - there is no limit on the number of utterances per intent|
+| [Utterance][utterances] | 500 characters<br><br>If you have text longer than this character limit, you need to segment the utterance prior to input to LUIS and you will receive individual intent responses per segment. There are obvious breaks you can work with, such as punctuation marks and long pauses in speech.|
+| [Utterance examples][utterances] | 15,000 per application - there is no limit on the number of utterances per intent<br><br>If you need to train the application with more examples, use a [dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) model approach. You train individual LUIS apps (known as child apps to the parent dispatch app) with one or more intents and then train a dispatch app that samples from each child LUIS app's utterances to direct the prediction request to the correct child app. |
 | [Versions](luis-concept-version.md)| 100 versions per application |
 | [Version name][luis-how-to-manage-versions] | 128 characters |
 
@@ -62,7 +62,7 @@ Do not use the following characters in the following names.
 
 ## Resource usage and limits
 
-Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md).
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-how-to-azure-subscription.md).
 
 <a name="key-limits"></a>
 

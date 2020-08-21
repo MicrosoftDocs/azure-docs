@@ -74,7 +74,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 If the VM is online and can be accessed on another VM on the same virtual network, you can make the follow mitigations by using the other VM.
 
-1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.	On the troubleshooting VM, download [PSTools](/sysinternals/downloads/pstools).
 
 2.	Open a CMD instance, and access the VM through its Internal IP (DIP). 
 
@@ -104,7 +104,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
     
         Then, change **Active=FALSE** to **Active=TRUE** in the string:
 
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
     * To disable a rule, open the following registry value:
     
@@ -112,7 +112,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
         Then, change **Active =TRUE** to **Active=FALSE**:
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 3.	Restart the VM to apply the changes.
 
@@ -151,7 +151,7 @@ Before you follow these steps, take a snapshot of the system disk of the affecte
         
         Then, change **Active=FALSE** to **Active=True**.
         
-        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
+        `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
     3.	To disable a rule, open the following registry key:
 
@@ -159,7 +159,7 @@ Before you follow these steps, take a snapshot of the system disk of the affecte
 
         Then, change **Active=True** to **Active=FALSE**.
         
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
+        `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
 9.	Highlight **BROKENSYSTEM**, and then select **File** > **Unload Hive​** from the menu.
 

@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -18,30 +18,41 @@ These effects are currently supported in a policy definition:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
-- [EnforceOPAConstraint](#enforceopaconstraint) (preview)
-- [EnforceRegoPolicy](#enforceregopolicy) (preview)
 - [Modify](#modify)
+
+The following effects are being _deprecated_:
+
+- [EnforceOPAConstraint](#enforceopaconstraint)
+- [EnforceRegoPolicy](#enforceregopolicy)
+
+> [!IMPORTANT]
+> In place of the **EnforceOPAConstraint** or **EnforceRegoPolicy** effects, use _audit_ and
+> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`. The built-in policy definitions
+> have been updated. When existing policy assignments of these built-in policy definitions are
+> modified, the _effect_ parameter must be changed to a value in the updated _allowedValues_ list.
 
 ## Order of evaluation
 
-Requests to create or update a resource through Azure Resource Manager are evaluated by Azure Policy
-first. Azure Policy creates a list of all assignments that apply to the resource and then evaluates
-the resource against each definition. Azure Policy processes several of the effects before handing
-the request to the appropriate Resource Provider. Doing so prevents unnecessary processing by a
-Resource Provider when a resource doesn't meet the designed governance controls of Azure Policy.
+Requests to create or update a resource are evaluated by Azure Policy first. Azure Policy creates a
+list of all assignments that apply to the resource and then evaluates the resource against each
+definition. For a [Resource Manager mode](./definition-structure.md#resource-manager-modes), Azure
+Policy processes several of the effects before handing the request to the appropriate Resource
+Provider. This order prevents unnecessary processing by a Resource Provider when a resource doesn't
+meet the designed governance controls of Azure Policy. With a
+[Resource Provider mode](./definition-structure.md#resource-provider-modes), the Resource Provider
+manages the evaluation and outcome and reports the results back to Azure Policy.
 
 - **Disabled** is checked first to determine if the policy rule should be evaluated.
 - **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
-  may prevent an audit or deny effect from triggering.
+  may prevent an audit or deny effect from triggering. These effects are only available with a
+  Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
-- **Audit** is then evaluated before the request going to the Resource Provider.
+- **Audit** is evaluated last.
 
-After the Resource Provider returns a success code, **AuditIfNotExists** and **DeployIfNotExists**
-evaluate to determine if additional compliance logging or action is required.
-
-There currently isn't any order of evaluation for the **EnforceOPAConstraint** or
-**EnforceRegoPolicy** effects.
+After the Resource Provider returns a success code on a Resource Manager mode request,
+**AuditIfNotExists** and **DeployIfNotExists** evaluate to determine if additional compliance
+logging or action is required.
 
 ## Append
 
@@ -92,8 +103,8 @@ event occurs from the conflict.
 
 Example 2: Single **field/value** pair using an **\[\*\]** [alias](definition-structure.md#aliases)
 with an array **value** to set IP rules on a storage account. By using the **\[\*\]** alias, the
-effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet, it
-is created.
+effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet,
+it's created.
 
 ```json
 "then": {
@@ -108,9 +119,6 @@ is created.
 }
 ```
 
-
-
-
 ## Audit
 
 Audit is used to create a warning event in the activity log when evaluating a non-compliant
@@ -118,19 +126,35 @@ resource, but it doesn't stop the request.
 
 ### Audit evaluation
 
-Audit is the last effect checked by Azure Policy during the creation or update of a resource. Azure
-Policy then sends the resource to the Resource Provider. Audit works the same for a resource request
-and an evaluation cycle. Azure Policy adds a `Microsoft.Authorization/policies/audit/action`
-operation to the activity log and marks the resource as non-compliant.
+Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
+Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
+the same for a resource request and an evaluation cycle. Azure Policy adds a
+`Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the resource
+as non-compliant.
 
 ### Audit properties
 
-The audit effect doesn't have any additional properties for use in the **then** condition of the
-policy definition.
+For a Resource Manager mode, the audit effect doesn't have any additional properties for use in the
+**then** condition of the policy definition.
+
+For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the audit effect has the following
+additional subproperties of **details**.
+
+- **constraintTemplate** (required)
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy.
+- **constraint** (required)
+  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
+    `{{ .Values.<valuename> }}`. In example 2 below, these values are
+    `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **values** (optional)
+  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
+    Constraint template CRD.
 
 ### Audit example
 
-Example: Using the audit effect.
+Example 1: Using the audit effect for Resource Manager modes.
 
 ```json
 "then": {
@@ -138,10 +162,28 @@ Example: Using the audit effect.
 }
 ```
 
+Example 2: Using the audit effect for a Resource Provider mode of `Microsoft.Kubernetes.Data`. The
+additional information in **details** defines the Constraint template and CRD to use in Kubernetes
+to limit the allowed container images.
+
+```json
+"then": {
+    "effect": "audit",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
+
 ## AuditIfNotExists
 
-AuditIfNotExists enables auditing on resources that match the **if** condition, but doesn't have
-the components specified in the **details** of the **then** condition.
+AuditIfNotExists enables auditing of resources _related_ to the resource that matches the **if**
+condition, but don't have the properties specified in the **details** of the **then** condition.
 
 ### AuditIfNotExists evaluation
 
@@ -157,7 +199,7 @@ is marked as non-compliant.
 The **details** property of the AuditIfNotExists effects has all the subproperties that define the
 related resources to match.
 
-- **Type** [required]
+- **Type** (required)
   - Specifies the type of the related resource to match.
   - If **details.type** is a resource type underneath the **if** condition resource, the policy
     queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
@@ -229,21 +271,38 @@ definition and fails the request.
 
 ### Deny evaluation
 
-When creating or updating a matched resource, deny prevents the request before being sent to the
-Resource Provider. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can
-be viewed as a status on the deployment that was prevented by the policy assignment.
+When creating or updating a matched resource in a Resource Manager mode, deny prevents the request
+before being sent to the Resource Provider. The request is returned as a `403 (Forbidden)`. In the
+portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
+assignment. For a Resource Provider mode, the resource provider manages the evaluation of the
+resource.
 
 During evaluation of existing resources, resources that match a deny policy definition are marked as
 non-compliant.
 
 ### Deny properties
 
-The deny effect doesn't have any additional properties for use in the **then** condition of the
-policy definition.
+For a Resource Manager mode, the deny effect doesn't have any additional properties for use in the
+**then** condition of the policy definition.
+
+For a Resource Provider mode of `Microsoft.Kubernetes.Data`, the deny effect has the following
+additional subproperties of **details**.
+
+- **constraintTemplate** (required)
+  - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
+    template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
+    passed via **values** from Azure Policy.
+- **constraint** (required)
+  - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
+    `{{ .Values.<valuename> }}`. In example 2 below, these values are
+    `{{ .Values.excludedNamespaces }}` and `{{ .Values.allowedContainerImagesRegex }}`.
+- **values** (optional)
+  - Defines any parameters and values to pass to the Constraint. Each value must exist in the
+    Constraint template CRD.
 
 ### Deny example
 
-Example: Using the deny effect.
+Example 1: Using the deny effect for Resource Manager modes.
 
 ```json
 "then": {
@@ -251,6 +310,23 @@ Example: Using the deny effect.
 }
 ```
 
+Example 2: Using the deny effect for a Resource Provider mode of `Microsoft.Kubernetes.Data`. The
+additional information in **details** defines the Constraint template and CRD to use in Kubernetes
+to limit the allowed container images.
+
+```json
+"then": {
+    "effect": "deny",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
 
 ## DeployIfNotExists
 
@@ -277,7 +353,7 @@ resources can be remediated with a [remediation task](../how-to/remediate-resour
 The **details** property of the DeployIfNotExists effect has all the subproperties that define the
 related resources to match and the template deployment to execute.
 
-- **Type** [required]
+- **Type** (required)
   - Specifies the type of the related resource to match.
   - Starts by trying to fetch a resource underneath the **if** condition resource, then queries
     within the same resource group as the **if** condition resource.
@@ -309,7 +385,7 @@ related resources to match and the template deployment to execute.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in
     the same resource location as the matching related resource.
-- **roleDefinitionIds** [required]
+- **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
@@ -321,7 +397,7 @@ related resources to match and the template deployment to execute.
   - A _location_ property must be specified in the _Deployment_ when using subscription level
     deployments.
   - Default is _ResourceGroup_.
-- **Deployment** [required]
+- **Deployment** (required)
   - This property should include the full template deployment as it would be passed to the
     `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
@@ -391,11 +467,10 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode, which is set on the policy assignment.
+An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
 When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
-
 
 ## EnforceOPAConstraint
 
@@ -406,7 +481,10 @@ to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) to Kubernetes clu
 
 > [!NOTE]
 > [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
-> node pools and built-in policy definitions.
+> node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
+> category. The limited preview policy definitions with **EnforceOPAConstraint** effect and the
+> related **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_
+> and _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceOPAConstraint evaluation
 
@@ -418,15 +496,15 @@ Every 15 minutes, a full scan of the cluster is completed and the results report
 The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
 Gatekeeper v3 admission control rule.
 
-- **constraintTemplate** [required]
+- **constraintTemplate** (required)
   - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
     template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
     passed via **values** from Azure Policy.
-- **constraint** [required]
+- **constraint** (required)
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In the example below, these values are `{{ .Values.cpuLimit }}` and
     `{{ .Values.memoryLimit }}`.
-- **values** [optional]
+- **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
 
@@ -476,8 +554,8 @@ to pass Gatekeeper v2 admission control rules defined with
 > [Azure Policy for Kubernetes](./policy-for-kubernetes.md) is in Preview and only supports Linux
 > node pools and built-in policy definitions. Built-in policy definitions are in the **Kubernetes**
 > category. The limited preview policy definitions with **EnforceRegoPolicy** effect and the related
-> **Kubernetes Service** category are being _deprecated_. Instead, use the updated
-> [EnforceOPAConstraint](#enforceopaconstraint) effect.
+> **Kubernetes Service** category are being _deprecated_. Instead, use the effects _audit_ and
+> _deny_ with Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ### EnforceRegoPolicy evaluation
 
@@ -489,11 +567,11 @@ Every 15 minutes, a full scan of the cluster is completed and the results report
 The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
 Gatekeeper v2 admission control rule.
 
-- **policyId** [required]
+- **policyId** (required)
   - A unique name passed as a parameter to the Rego admission control rule.
-- **policy** [required]
+- **policy** (required)
   - Specifies the URI of the Rego admission control rule.
-- **policyParameters** [optional]
+- **policyParameters** (optional)
   - Defines any parameters and values to pass to the rego policy.
 
 ### EnforceRegoPolicy example
@@ -554,19 +632,31 @@ condition as non-compliant.
 The **details** property of the Modify effect has all the subproperties that define the permissions
 needed for remediation and the **operations** used to add, update, or remove tag values.
 
-- **roleDefinitionIds** [required]
+- **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
   - The role defined must include all operations granted to the [Contributor](../../../role-based-access-control/built-in-roles.md#contributor)
     role.
-- **operations** [required]
+- **conflictEffect** (optional)
+  - Determines which policy definition "wins" in the event that more than one policy definition
+    modifies the same property.
+    - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
+      definitions with _audit_ skip all **operations**. If more than one policy definition has
+      _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
+      of the **operations** of the conflicting policy definitions are processed.
+    - For existing resources, if more than one policy definition has _deny_, the compliance status
+      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment returns a
+      compliance status of _Non-compliant_.
+  - Available values: _audit_, _deny_, _disabled_.
+  - Default value is _deny_.
+- **operations** (required)
   - An array of all tag operations to be completed on matching resources.
   - Properties:
-    - **operation** [required]
+    - **operation** (required)
       - Defines what action to take on a matching resource. Options are: _addOrReplace_, _Add_,
         _Remove_. _Add_ behaves similar to the [Append](#append) effect.
-    - **field** [required]
+    - **field** (required)
       - The tag to add, replace, or remove. Tag names must adhere to the same naming convention for
         other [fields](./definition-structure.md#fields).
     - **value** (optional)
@@ -647,6 +737,7 @@ with a parameterized value:
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -661,8 +752,6 @@ with a parameterized value:
     }
 }
 ```
-
-
 
 ## Layering policy definitions
 

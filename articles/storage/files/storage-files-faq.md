@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
-description: Find answers to frequently asked questions about Azure Files.
+description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: roygara
 ms.service: storage
 ms.date: 02/23/2020
@@ -49,7 +49,7 @@ This article answers common questions about Azure Files features and functionali
 
     One approach to getting the best of both Azure Files and a file server that's hosted in Azure Virtual Machines (in addition to using Azure Disks as back-end storage) is to install Azure File Sync on a file server that's hosted on a cloud VM. If the Azure file share is in the same region as your file server, you can enable cloud tiering and set the volume of free space percentage to maximum (99%). This ensures minimal duplication of data. You also can use any applications you want with your file servers, like applications that require NFS protocol support.
 
-    For information about an option for setting up a high-performance and highly available file server in Azure, see [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). For a more in-depth description of the differences between Azure Files and Azure Disks, see [Introduction to the core Azure Storage services](../common/storage-introduction.md). To learn more about Azure Disks, see [Azure Managed Disks overview](../../virtual-machines/windows/managed-disks-overview.md).
+    For information about an option for setting up a high-performance and highly available file server in Azure, see [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). For a more in-depth description of the differences between Azure Files and Azure Disks, see [Introduction to the core Azure Storage services](../common/storage-introduction.md). To learn more about Azure Disks, see [Azure Managed Disks overview](../../virtual-machines/managed-disks-overview.md).
 
 * <a id="get-started"></a>
   **How do I get started using Azure Files?**  
@@ -72,13 +72,14 @@ This article answers common questions about Azure Files features and functionali
     > [!NOTE]
     > You cannot create Azure file shares from Blob storage accounts or *premium* general purpose (GPv1 or GPv2) storage accounts. Standard Azure file shares must created in *standard* general purpose accounts only and premium Azure file shares must be created in FileStorage storage accounts only. *Premium* general purpose (GPv1 and GPv2) storage accounts are for premium page blobs only. 
 
+* <a id="file-locking"></a>
+  **Does Azure Files support file locking?**  
+    Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
     The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! We're looking forward to delighting you with many new features.
 
-  **Does Azure Files support file locking?**  
-    Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -100,9 +101,9 @@ This article answers common questions about Azure Files features and functionali
     Performance will vary based on your environmental settings, configuration, and whether this is an initial sync or an ongoing sync. For more information, see [Azure File Sync performance metrics](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**If the same file is changed on two servers at approximately the same time, what happens?**  
-    Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed on two servers at the same time. The most recently written change keeps the original file name. The older file has the "source" machine and the conflict number appended to the name. It follows this taxonomy: 
+    Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the filename. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
     For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx. Azure File Sync supports 100 conflict files per file. Once the maximum number of conflict files has been reached, the file will fail to sync until the number of conflict files is less than 100.
 
@@ -128,6 +129,10 @@ This article answers common questions about Azure Files features and functionali
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
   See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  
+* <a id="afs-tiered-files-tiering-disabled"></a>
+  **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
+  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  
@@ -146,16 +151,16 @@ This article answers common questions about Azure Files features and functionali
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-  **Can I move the storage sync service and/or storage account to a different resource group or subscription?**  
-   Yes, the storage sync service and/or storage account can be moved to a different resource group or subscription within the existing Azure AD tenant. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+  **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Azure AD tenant?**  
+   Yes, the storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
-    > Azure File Sync does not support moving the subscription to a different Azure AD tenant.
+    > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.
     
 * <a id="afs-ntfs-acls"></a>
   **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
 
-    As of February 24th, 2020, new and existing ACLs tiered by Azure file sync will be persisted in NTFS format, and ACL modifications made directly to the Azure file share will sync to all servers in the sync group. Any changes on ACLs made to Azure Files will sync down via Azure file sync. When copying data to Azure Files, make sure you use SMB to access the share and preserve your ACLs. Existing REST based tools, such as AzCopy or Storage Explorer do not persist ACLs.
+    As of February 24th, 2020, new and existing ACLs tiered by Azure file sync will be persisted in NTFS format, and ACL modifications made directly to the Azure file share will sync to all servers in the sync group. Any changes on ACLs made to Azure Files will sync down via Azure file sync. When copying data to Azure Files, make sure you use a copy tool that supports the necessary "fidelity" to copy attributes, timestamps and ACLs into an Azure file share - either via SMB or REST. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file.
 
     If you have enabled Azure Backup on your file sync managed file shares, file ACLs can continue to be restored as part of the backup restore workflow. This works either for the entire share or individual files/directories.
 
@@ -199,6 +204,13 @@ This article answers common questions about Azure Files features and functionali
 **What data compliance policies does Azure Files support?**  
 
    Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), and go to the [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**How can I audit file access and changes in Azure Files?**
+
+  There are two options that provide auditing functionality for Azure Files:
+  - If users are accessing the Azure file share directly, [Azure Storage logs (preview)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
+  - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or 3rd party product to track file changes and user access on the Windows Server. 
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
@@ -265,7 +277,6 @@ This article answers common questions about Azure Files features and functionali
 **Are there REST APIs to support Get/Set/Copy directory/file Windows ACLs?**
 
     Yes, we support REST APIs that get, set, or copy NTFS ACLs for directories or files when using the [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (or later) REST API. We also support persisting Windows ACLs in REST based tools: [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## On-premises access
 

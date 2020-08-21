@@ -11,13 +11,14 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/19/2020
 ms.author: amverma
+ms.reviewer: cynthn
 ---
 
-# Known issues with HB-series and HC-series VMs
+# Known issues with H-series and N-series VMs
 
-This article provides the most common issues and solutions when using HB-series and HC-series VMs.
+This article provides the most common issues and solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
 
 ## DRAM on HB-series
 
@@ -30,10 +31,6 @@ Azure Accelerated Networking is not enabled at this time, but will as we progres
 ## qp0 Access Restriction
 
 To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX-5 NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications themselves.
-
-## UD Transport
-
-At launch, the HB- and HC-series do not support Dynamically Connected Transport (DCT). Support for DCT will be implemented over time. Reliable Connection (RC) and Unreliable Datagram (UD) transports are supported.
 
 ## GSS Proxy
 
@@ -83,6 +80,15 @@ You may see the following kernel warning messages when booting a HB-series VM un
 
 You can ignore this warning. This is due to a known limitation of the Azure hypervisor that will be addressed over time.
 
+
+## InfiniBand driver installation on InfiniBand enabled N-series VM sizes
+
+NC24r_v3 and ND40r_v2 are SR-IOV enabled while NC24r and NC24r_v2 are not SR-IOV enabled. Some details on the bifurcation [here](../../sizes-hpc.md#rdma-capable-instances).
+InfiniBand (IB) can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately on [CentOS-HPC VMIs](configure.md). For Ubuntu, see the [instruction here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) for installing both the OFED and ND drivers as described in the [docs](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+- Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
+- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

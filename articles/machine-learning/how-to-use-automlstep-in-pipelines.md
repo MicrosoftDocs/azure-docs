@@ -5,11 +5,12 @@ description: The AutoMLStep allows you to use automated machine learning in your
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
+ms.date: 06/15/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 ---
 
@@ -93,6 +94,8 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
 After that, the code checks if the AML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
@@ -106,18 +109,27 @@ The next step is making sure that the remote training run has all the dependenci
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). Building and registering this image can take quite a few minutes. 
 
 ## Prepare data for automated machine learning
 
@@ -254,7 +266,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparing the two techniques:
 
-| Technique |  | 
+| Technique | Benefits and drawbacks | 
 |-|-|
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 
@@ -312,8 +324,9 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
-    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
+    enable_default_model_output=False,
+    enable_default_metrics_output=False,
     allow_reuse=True)
 ```
 The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only 2 iterations or 15 minutes, whichever comes first.
@@ -330,7 +343,7 @@ The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as 
 The `AutoMLStep` itself takes the `AutoMLConfig` and has, as outputs, the `PipelineData` objects created to hold the metrics and model data. 
 
 >[!Important]
-> You must set `passthru_automl_config` to `False` if your `AutoMLStep` is using `PipelineOutputTabularDataset` objects for input.
+> You must set `enable_default_model_output` and `enable_default_metrics_output`  to `True` only if you are using  `AutoMLStepRun`.
 
 In this example, the automated ML process will perform cross-validations on the `training_data`. You can control the number of cross-validations with the `n_cross_validations` argument. If you've already split your training data as part of your data preparation steps, you can set `validation_data` to its own `Dataset`.
 

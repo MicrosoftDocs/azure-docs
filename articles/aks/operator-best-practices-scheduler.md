@@ -83,7 +83,7 @@ metadata:
 spec:
    minAvailable: 3
    selector:
-   matchLabels:
+    matchLabels:
       app: nginx-frontend
 ```
 
@@ -99,7 +99,7 @@ metadata:
 spec:
    maxUnavailable: 2
    selector:
-   matchLabels:
+    matchLabels:
       app: nginx-frontend
 ```
 

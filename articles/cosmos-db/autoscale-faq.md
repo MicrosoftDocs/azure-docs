@@ -82,6 +82,10 @@ Yes, autoscale is supported for shared throughput databases. To enable this feat
 ### What is the number of allowed containers per shared throughput database when autoscale is enabled?
 Azure Cosmos DB enforces a maximum of 25 containers in a shared throughput database, which applies to databases with autoscale or standard (manual) throughput. 
 
+### What is the impact of autoscale on database consistency level?
+There is no impact of the autoscale on consistency level of the database.
+See the [consistency levels](consistency-levels.md) article for more information regarding available consistency levels.
+
 ### What is the storage limit associated with each max RU/s option?  
 The storage limit in GB for each max RU/s is: Max RU/s of database or container / 100. For example, if the max RU/s is 20,000 RU/s, the resource can support 200 GB of storage. 
 See the [autoscale limits](provision-throughput-autoscale.md#autoscale-limits) article for the available max RU/s and storage options. 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI
 
@@ -105,14 +99,14 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
 
     > Port 443 is required on the **Identifier** and the **Reply URL** as these values are hardcoded into the Palo Alto Firewall. Removing the port number will result in an error during login if removed.
 
-1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The Palo Alto Networks - Admin UI application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
    > [!NOTE]
    > Because the attribute values are examples only, map the appropriate values for *username* and *adminrole*. There is another optional attribute, *accessdomain*, which is used to restrict admin access to specific virtual systems on the firewall.
 
-1. In addition to above, PureCloud by Genesys application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, the Palo Alto Networks - Admin UI application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name |  Source Attribute|
     | --- | --- |

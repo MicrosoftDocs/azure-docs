@@ -1,30 +1,30 @@
 ---
 title: Marketplace metering service authentication strategies | Azure Marketplace
 description: Metering service authentication strategies supported in the Azure Marketplace. 
-author: qianw211
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 05/21/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Marketplace metering service authentication strategies
 
 Marketplace metering service supports two authentication strategies:
 
-* [Azure AD security token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Azure AD security token](../../active-directory/develop/access-tokens.md)
+* [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) 
 
 We will explain when and how to use the different authentication strategies to securely submit custom meters using Marketplace metering service.
 
 ## Using the Azure AD security token
 
-Applicable offer types are SaaS and Azure Applications with managed application plan type.  
+Applicable offer types are transactable SaaS and Azure Applications with managed application plan type.  
 
-Submit custom meters by using a predefined fixed application ID to authenticate.
+Submit custom meters by using a predefined fixed Azure AD application ID to authenticate.
 
-For SaaS offers, Azure AD is the only available option.
+For SaaS offers, this is the only available option. It's a mandatory step for publishing any SaaS offer as described in [register a SaaS application](./pc-saas-registration.md).
 
 For Azure applications with managed application plan, you should consider using this strategy in the following cases:
 
@@ -33,7 +33,7 @@ For Azure applications with managed application plan, you should consider using 
 
 Once you have registered your application, you can programmatically request an Azure AD security token. The publisher is expected to use this token and make a request to resolve it.
 
-For more information about these tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+For more information about these tokens, see [Azure Active Directory access tokens](../../active-directory/develop/access-tokens.md).
 
 ### Get a token based on the Azure AD app
 
@@ -63,10 +63,10 @@ For more information about these tokens, see [Azure Active Directory access toke
 
 |  **Property name**  |  **Required**  |  **Description**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | Grant type. The default value is `client_credentials`. |
+|  `Grant_type`       |   True         | Grant type. Use `client_credentials`. |
 |  `Client_id`        |   True         | Client/app identifier associated with the Azure AD app.|
-|  `client_secret`    |   True         | The password associated with the Azure AD app.  |
-|  `Resource`         |   True         | Target resource for which the token is requested. The default value is `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `client_secret`    |   True         | Secret associated with the Azure AD app.  |
+|  `Resource`         |   True         | Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### *Response*
@@ -101,17 +101,17 @@ Using this approach will allow the deployed resources identity to authenticate t
 >[!Note]
 >Publisher should ensure that the resources that emit usage are locked, so it will not be tampered.
 
-Your managed application can contain different type of resources, from Virtual Machines to Azure Functions.  For more information on how to authenticate using managed identities for different services, see [how to use managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+Your managed application can contain different type of resources, from Virtual Machines to Azure Functions.  For more information on how to authenticate using managed identities for different services, see [how to use managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#how-can-i-use-managed-identities-for-azure-resources)).
 
 For example, follow the steps below to authenticate using a Windows VM,
 
 1. Make sure Managed Identity is configured using one of the methods:
-    * [Azure portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
-    * [Azure Resource Manager Template](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
-    * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
-    * [Azure SDKs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+    * [Azure portal UI](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+    * [CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+    * [PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+    * [Azure Resource Manager Template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+    * [REST](../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md#system-assigned-managed-identity))
+    * [Azure SDKs](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 1. Get an access token for Marketplace metering service application ID (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) using the system identity, RDP to the VM, open PowerShell console and run the command below
 
@@ -140,7 +140,7 @@ For example, follow the steps below to authenticate using a Windows VM,
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -151,3 +151,4 @@ For example, follow the steps below to authenticate using a Windows VM,
 ## Next steps
 
 * [Create an Azure application offer](./create-new-azure-apps-offer.md)
+* [Create a transactable SaaS offer](./offer-creation-checklist.md)

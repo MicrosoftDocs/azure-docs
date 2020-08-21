@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ---
 
@@ -117,6 +118,7 @@ If you do not see a specific tag in Cost Management, consider the following:
 - Was the tag applied more than 24 hours ago? See [Cost and usage data updates and retention](#cost-and-usage-data-updates-and-retention)
 - Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/tag-support.md) for the full list of what is supported.
     - Azure Active Directory B2C Directories
+    - Azure Bastion
     - Azure Firewalls
     - Azure NetApp Files
     - Data Factory

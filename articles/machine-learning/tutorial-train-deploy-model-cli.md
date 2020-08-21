@@ -7,7 +7,7 @@ author: Blackmist
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/26/2020
 ---
 
@@ -378,7 +378,7 @@ This command deploys a new service named `myservice`, using version 1 of the mod
 
 The `inferenceConfig.yml` file provides information on how to use the model for inference. For example, it references the entry script (`score.py`) and software dependencies.
 
-For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

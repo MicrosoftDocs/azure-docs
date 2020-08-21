@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with webMethods Integration Suite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and webMethods Integration Suite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 97261535-7a2d-4d73-94c8-38116b8a776e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with webMethods Integration Suite
 
@@ -105,19 +99,16 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `<SUBDOMAIN>.webmethodscloud.com` |
-	| `<SUBDOMAIN>.webmethodscloud.eu` |
-	| `<SUBDOMAIN>.webmethodscloud.de` |
+	- `<SUBDOMAIN>.webmethodscloud.com`
+	- `<SUBDOMAIN>.webmethodscloud.eu`
+	- `<SUBDOMAIN>.webmethodscloud.de`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
-	| `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse` |
-	| `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse` |
+
+	- `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse`
+	- `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse`
+	- `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse`
 
 	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -125,11 +116,9 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
-	| `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest` |
-	| `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
+	- `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest`
+	- `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoRequest`
+	- `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [webMethods Integration Suite Client support team](https://empower.softwareag.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -140,19 +129,15 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `<SUBDOMAIN>.webmethodscloud.com` |
-	| `<SUBDOMAIN>.webmethodscloud.eu` |
-	| `<SUBDOMAIN>.webmethodscloud.de` |
+	- `<SUBDOMAIN>.webmethodscloud.com`
+	- `<SUBDOMAIN>.webmethodscloud.eu`
+	- `<SUBDOMAIN>.webmethodscloud.de`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso` |
-	| `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso` |
-	| `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso` |
+	- `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso`
+	- `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso`
+	- `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso`
 
 	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -160,11 +145,9 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>` |
-	| `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>` |
-	| `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+	- `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>`
+	- `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>`
+	- `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [webMethods Integration Suite Client support team](https://empower.softwareag.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

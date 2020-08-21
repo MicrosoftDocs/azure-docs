@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/18/2020
 ---
 # Resource functions for ARM templates
 
@@ -77,7 +77,7 @@ The following example returns the resource ID for a resource group lock.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -95,14 +95,14 @@ The following example returns the resource ID for a resource group lock.
 }
 ```
 
-<a id="listkeys" />
-<a id="list" />
+<a id="listkeys"></a>
+<a id="list"></a>
 
 ## list*
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys`, `listKeyValue` and `listSecrets`.
+The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys`, `listKeyValue`, and `listSecrets`.
 
 ### Parameters
 
@@ -114,7 +114,9 @@ The syntax for this function varies by name of the list operations. Each impleme
 
 ### Valid uses
 
-The list functions can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a template. Output values are stored in the deployment history and could be retrieved by a malicious user.
+
+When used with [property iteration](copy-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
 ### Implementations
 
@@ -130,6 +132,7 @@ The possible uses of list* are shown in the following table.
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
@@ -157,12 +160,12 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
@@ -278,71 +281,31 @@ If you use a **list** function in a resource that is conditionally deployed, the
 
 ### List example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account.
-
-To get the SAS token, pass an object for the expiry time. The expiry time must be in the future. This example is intended to show how you use the list functions. Typically, you would use the SAS token in a resource value rather than return it as an output value. Output values are stored in the deployment history and aren't secure.
+The following example uses listKeys when setting a value for [deployment scripts](deployment-script-template.md).
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagename": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "southcentralus"
-        },
-        "accountSasProperties": {
-            "type": "object",
-            "defaultValue": {
-                "signedServices": "b",
-                "signedPermission": "r",
-                "signedExpiry": "2018-08-20T11:00:00Z",
-                "signedResourceTypes": "s"
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-02-01",
-            "name": "[parameters('storagename')]",
-            "location": "[parameters('location')]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "supportsHttpsTrafficOnly": false,
-                "accessTier": "Hot",
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            },
-            "dependsOn": []
-        }
-    ],
-    "outputs": {
-        "keys": {
-            "type": "object",
-            "value": "[listKeys(parameters('storagename'), '2018-02-01')]"
-        },
-        "accountSAS": {
-            "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
+"storageAccountSettings": {
+    "storageAccountName": "[variables('storageAccountName')]",
+    "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+}
+```
+
+The next example shows a list function that takes a parameter. In this case, the function is **listAccountSas**. Pass an object for the expiry time. The expiry time must be in the future.
+
+```json
+"parameters": {
+    "accountSasProperties": {
+        "type": "object",
+        "defaultValue": {
+            "signedServices": "b",
+            "signedPermission": "r",
+            "signedExpiry": "2020-08-20T11:00:00Z",
+            "signedResourceTypes": "s"
         }
     }
-}
+},
+...
+"sasToken": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties')).accountSasToken]"
 ```
 
 For a listKeyValue example, see [Quickstart: Automated VM deployment with App Configuration and Resource Manager template](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
@@ -380,7 +343,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -554,7 +517,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -648,7 +611,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -697,7 +660,7 @@ The **managedBy** property is returned only for resource groups that contain res
 
 ### Remarks
 
-The `resourceGroup()` function can't be used in a template that is [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group. You can use the `resourceGroup()` function in a [linked or nested template (with inner scope)](linked-templates.md) that targets a resource group, even when the parent template is deployed to the subscription. In that scenario, the linked or nested template is deployed at the resource group level. For more information about targeting a resource group in a subscription level deployment, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
+The `resourceGroup()` function can't be used in a template that is [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group. You can use the `resourceGroup()` function in a [linked or nested template (with inner scope)](linked-templates.md) that targets a resource group, even when the parent template is deployed to the subscription. In that scenario, the linked or nested template is deployed at the resource group level. For more information about targeting a resource group in a subscription level deployment, see [Deploy Azure resources to more than one subscription or resource group](cross-scope-deployment.md).
 
 A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
 
@@ -712,7 +675,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 
 You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
 
-When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the resourceGroup function. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
+When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the resourceGroup function. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-scope-deployment.md).
 
 ### Resource group example
 
@@ -720,7 +683,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -822,7 +785,7 @@ Often, you need to use this function when using a storage account or virtual net
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -868,7 +831,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -922,7 +885,7 @@ The function returns the following format:
 
 ### Remarks
 
-When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
+When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-scope-deployment.md).
 
 ### Subscription example
 
@@ -930,7 +893,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -977,7 +940,7 @@ The following template assigns a built-in role. You can deploy it to either a re
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
