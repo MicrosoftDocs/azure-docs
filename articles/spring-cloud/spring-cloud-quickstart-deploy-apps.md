@@ -19,18 +19,18 @@ This document explains how to build and deploy microservice applications to Azur
 Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
 ## Deployment procedures
-These sections explain deployment procedures using either the Azure CLI, Maven, or IntelliJ.
 
 #### [CLI](#tab/Azure-CLI)
 
 ### Prerequisites
-[Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
+* To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
 
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 ### Build the microservices applications locally
 
 1. Clone the sample app repository to your Azure Cloud account.  
@@ -92,7 +92,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 #### [Maven](#tab/Maven)
 
 ### Prerequisites
-[Install Maven 3.0 or later](https://maven.apache.org/download.cgi)
+* [Install Maven 3.0 or later](https://maven.apache.org/download.cgi)
 
 ### Clone and build the sample application repository
 
@@ -131,8 +131,6 @@ We need a way to access the application via a web browser. Our gateway applicati
 
 
 #### [IntelliJ](#tab/IntelliJ)
-
-The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
 ### Prerequisites
 * [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
