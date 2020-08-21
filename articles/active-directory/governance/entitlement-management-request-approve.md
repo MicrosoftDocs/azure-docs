@@ -71,6 +71,22 @@ After you open an access request pending approval, you can see details that will
 
     If none of the configured approvers are able to approve or deny the access request, the request expires after the configured request duration. The user gets notified that their access request has expired and that they need to resubmit the access request.
 
+## View which attributes are required for a package
+
+1. Go to any policy for the package
+
+1. Click on the **Requestor information** page
+
+1. Click on the **Attributes** sub-tab
+
+1. Here you will see all of the attributes required for all applications in this package
+
+    1. If a user does not have one of these attributes when requesting a package, they will be prompted to supply it. 
+    1. If they already have this attribute filled out, we will not ask them again.
+
+The approver of a request will see any attributes the requestor supplies when they are reviewing the request in Request details.
+
+
 ## Next steps
 
 - [Request access to an access package](entitlement-management-request-access.md)
