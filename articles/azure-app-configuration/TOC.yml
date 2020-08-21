@@ -64,11 +64,11 @@
           href: use-key-vault-references-spring-boot.md
     - name: CI/CD pipeline integration
       items:
-        - name: Sync using Azure DevOps Pipelines
+        - name: Push using Azure Pipelines
           href: push-kv-devops-pipeline.md
-        - name: Sync using GitHub Actions
+        - name: Push using GitHub Actions
           href: concept-github-action.md
-        - name: Read config data from Azure DevOps
+        - name: Build project using exported configuration
           href: integrate-ci-cd-pipeline.md
     - name: Integrate with Kubernetes deployment using Helm
       href: integrate-kubernetes-deployment-helm.md

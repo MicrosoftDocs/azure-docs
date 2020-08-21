@@ -52,8 +52,8 @@ Assign the proper App Configuration role assignments to the credentials being us
 This section will cover how to use the Azure App Configuration Push task in an Azure DevOps build pipeline.
 
 1. Navigate to the build pipeline page by clicking **Pipelines** > **Pipelines**. Documentation for build pipelines can be found [here](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
-  - If you're creating a new build pipeline, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration Push** task.
-  - If you're using an existing build pipeline, navigate to the **Tasks** tab when editing the pipeline, and search for the **Azure App Configuration Push** Task.
+      - If you're creating a new build pipeline, select **Show assistant** on the right side of the pipeline, and search for the **Azure App Configuration Push** task.
+      - If you're using an existing build pipeline, navigate to the **Tasks** tab when editing the pipeline, and search for the **Azure App Configuration Push** Task.
 2. Configure the necessary parameters for the task to push the key-values from the configuration file to the App Configuration store. The **Configuration File Path** parameter begins at the root of the file repository.
 3. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
@@ -94,8 +94,10 @@ If an unexpected error occurs, debug logs can be enabled by setting the pipeline
 
 ## FAQ
 
-Q: How can I upload multiple configuration files?
-A: Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
+**How can I upload multiple configuration files?**
 
-Q: Why am I receiving a 409 error when attempting to push key-values to my configuration store?
-A: A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
+Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
+
+**Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
+
+A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
