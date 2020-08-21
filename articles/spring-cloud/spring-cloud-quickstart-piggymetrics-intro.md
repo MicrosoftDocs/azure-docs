@@ -11,29 +11,28 @@ ms.custom: devx-track-java
 
 # Introduction to Piggymetrics sample app
 
-In this module we will use a proof-of-concept personal finances sample called Piggymetrics to show you how to deploy an app to the Azure Spring Cloud service. Piggymetrics demonstrates the microservice architecture pattern, and the following sections highlight the services breakdown.
+In this quickstart we will use a proof-of-concept personal finances sample called Piggymetrics to show you how to deploy an app to the Azure Spring Cloud service. Piggymetrics demonstrates the microservice architecture pattern, and the following sections highlight the services breakdown. Follow the steps, you will see how it is deployed to Azure Spring Cloud with powerful out of box Spring Cloud capabilies from service discovery, config server to logs, metrics and distributed tracing.
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
 
 ## Functional services
 PiggyMetrics is decomposed into three core microservices. All of them are independently deployable applications, organized around business domains.
 
-* **Account service**: Contains general user input logic and validation: incomes/expenses items, savings, and account settings.
-* **Statistics service**: Performs calculations on major statistics parameters and captures time series for each account. Datapoint contains values, normalized to base currency and time period. This data is used to track cash flow dynamics in account lifetime.
-* **Notification service**: Stores users contact information and notification settings, such as remind and backup frequency. Scheduled worker collects required information from other services and sends e-mail messages to subscribed customers.
+* **Account service (Will be deployed)**: Contains general user input logic and validation: incomes/expenses items, savings, and account settings.
+* **Statistics service (Not used in this quickstart)**: Performs calculations on major statistics parameters and captures time series for each account. Datapoint contains values, normalized to base currency and time period. This data is used to track cash flow dynamics in account lifetime.
+* **Notification service (Not used in this quickstart)**: Stores users contact information and notification settings, such as remind and backup frequency. Scheduled worker collects required information from other services and sends e-mail messages to subscribed customers.
 
 ## Infrastructure services
 There are several common patterns in distributed systems that help make core services work. Spring cloud provides powerful tools that enhance Spring Boot applications behavior to implement those patterns: 
 
-* **Config service**: Spring Cloud Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
-* **Auth service** Authorization responsibilities are completely extracted to a separate server, which grants OAuth2 tokens for the backend resource services. Auth Server does user authorization and secure machine-to-machine communication inside a perimeter.
-* **API Gateway**: The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering of one complex webpage. The API Gateway is a single entry point into the system, used to handle requests and route them to the appropriate backend service or to invoke multiple backend services, aggregating the results. 
+* **Config service (Hosted by Azure Spring Cloud)**: Spring Cloud Config is a horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository that currently supports local storage, Git, and Subversion.
+* **Service discovery (Hosted by Azure Spring Cloud)**: It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of auto-scaling, failures and upgrades.
+* **Auth service (Will be deployed)** Authorization responsibilities are completely extracted to a separate server, which grants OAuth2 tokens for the backend resource services. Auth Server does user authorization and secure machine-to-machine communication inside a perimeter.
+* **API Gateway (Will be deployed)**: The three core services expose an external API to client. In real-world systems, the number of functions can grow very quickly with system complexity. Hundreds of services might be involved in rendering of one complex webpage. The API Gateway is a single entry point into the system, used to handle requests and route them to the appropriate backend service or to invoke multiple backend services, aggregating the results. 
 
 ## Sample usage of Piggymetrics
-For full implementation details, see [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics).  The samples reference the source code as needed.
+For full implementation details, see [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics). The samples reference the source code as needed.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Spring Cloud quickstart](spring-cloud-quickstart-launch-app-portal.md)
-
-
+> [Provision Azure Spring Cloud instance](spring-cloud-quickstart-provision-service-instance.md)
