@@ -74,7 +74,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Create VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Create another VNet":::
 
 3. Select **Next: Backends**.
 
