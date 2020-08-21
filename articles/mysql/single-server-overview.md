@@ -12,7 +12,7 @@ ms.date: 8/20/2020
 
 [Azure Database for MySQL](overview.md) powered by the MySQL community edition is available in two deployment modes:
 - Single Server 
-- Flexible Server (Public Preview)
+- Flexible Server (Preview)
 
 In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml)
 
