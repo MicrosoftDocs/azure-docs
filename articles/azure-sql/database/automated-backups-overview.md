@@ -30,14 +30,13 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup storage redundancy
 
-> [!IMPORTANT]
-> Both SQL Database and SQL Managed Instance support RA-GRS, LRS, and ZRS storage blobs, but the ability to configure storage redundancy for backups is currently only available for SQL Managed Instance, and can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option.
+By default, SQL Database and SQL Managed Instance store data in geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md)s that are replicated to a [paired region](../../best-practices-availability-paired-regions.md) to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
 
-The option to configure backup storage redundancy provides the flexibility to choose between locally-redundant (LRS), zone-redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. This feature is currently only available for SQL Managed Instance.
+SQL Managed Instance introduces the ability to change the storage redundancy to either locally-redundant (LRS) and zone-redundant (ZRS) storage blobs to ensure that your data stays within the same region where your managed instance is deployed. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. 
 
-RA-GRS storage blobs are replicated to a [paired region](../../best-practices-availability-paired-regions.md) to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
 
-Conversely, LRS and ZRS storage blobs ensure that your data stays within the same region where your SQL Database or SQL Managed Instance is deployed. Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+The option to configure backup storage redundancy provides the flexibility to choose between LRS, ZRS, or RA-GRS storage blobs for a SQL Managed Instance. Configure backup storage redundancy during the managed instance creation process as once the resource is provisioned, it is no longer possible to change the storage redundancy. Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+
 
 > [!IMPORTANT]
 > In SQL Managed Instance, the configured backup redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR).
