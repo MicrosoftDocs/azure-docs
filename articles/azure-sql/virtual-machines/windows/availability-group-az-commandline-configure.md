@@ -451,7 +451,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
 
-Next, remove the cluster metadata: 
+Next, remove the cluster metadata from the SQL VM resource provider: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -479,6 +479,8 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 ```
 
 If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
+
+Next, remove the cluster metadata from the SQL VM resource provider: 
 
 ```powershell-interactive
 # Remove the cluster metadata

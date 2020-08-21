@@ -44,7 +44,7 @@ You need the following account permissions to configure the availability group b
 
 ## Configure cluster
 
-Configure the cluster by using the Azure portal. You can either create a new cluster, or if you already have an existing cluster, you can onboard it to the SQL VM resource provider to provide portal manageability.
+Configure the cluster by using the Azure portal. You can either create a new cluster, or if you already have an existing cluster, you can onboard it to the SQL VM resource provider to for portal manageability.
 
 
 ### Create a new cluster
@@ -61,9 +61,12 @@ If you do not already have an existing cluster, create it by using the Azure por
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Create new cluster by selecting the + new cluster in the portal":::
 
 1. Name your cluster and provide a storage account to use as the Cloud Witness. Use an existing storage account or select **Create new** to create a new storage account. Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Provide name, storage account, and credentials for the cluster":::
+
 1. Expand **Windows Server Failover Cluster credentials** to provide [credentials](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) for the SQL Server service account, as well as the cluster operator and bootstrap accounts if they're different than the account used for the SQL Server service. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster.png" alt-text="Provide name, storage account, and credentials for the cluster":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Provide credentials for the SQL Service account, cluster operator account and cluster bootstrap account":::
 
 1. Select the SQL Server VMs you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are registered with the SQL VM resource provider in full manageability mode, and are in the same location, domain, and on the same virtual network as the primary SQL Server VM will be visible. 
 1. Select **Apply** to create the cluster. 
@@ -118,8 +121,6 @@ You can check the status of your deployment in the **Activity log** which is acc
 
   > [!NOTE]
   > Your **Synchronization health** on the **High Availability** page of the Azure portal will show as **Not healthy** until you add databases to your availability group. 
-
-
 
 
 ## Add database to availability group
@@ -187,7 +188,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
 
-Next, remove the cluster metadata: 
+Next, remove the cluster metadata from the SQL VM resource provider: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -215,7 +216,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 If these are the only VMs in the cluster, then the cluster will be destroyed. If there are any other VMs in the cluster apart from the SQL Server VMs that were removed, the other VMs will not be removed and the cluster will not be destroyed. 
 
 
-Next, remove the cluster metadata: 
+Next, remove the cluster metadata from the SQL VM resource provider: 
 
 ```powershell-interactive
 # Remove the cluster metadata
