@@ -31,7 +31,7 @@ In this article, you learn how to view the service principal of a managed identi
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- Enable [system assigned identity on a virtual machine](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) or [application](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
+- Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 
 ## View the service principal
 
@@ -45,5 +45,4 @@ This procedure demonstrates how to view the service principal of a VM with syste
 
 ## Next steps
 
-[Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
-
+[Managed identities for Azure resources](./overview.md)
