@@ -28,9 +28,9 @@ You will receive a pop-up notification containing a link to the **Downloads** da
 
 On the Downloads page, end user can do the following:
 
-1. Lifetime export of commercial marketplace Analytics reports in csv and tsv format.
-2. Export of commercial marketplace Analytics reports for any date range.
-3. Export of commercial marketplace Analytics reports for 6- or 12-month duration.
+- Lifetime export of commercial marketplace Analytics reports in csv and tsv format.
+- Export of commercial marketplace Analytics reports for any date range.
+- Export of commercial marketplace Analytics reports for 6- or 12-month duration.
 
 Support for Lifetime Export Capability of Analytics reports:
 
