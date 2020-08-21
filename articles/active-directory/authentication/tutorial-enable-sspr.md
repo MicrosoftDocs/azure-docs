@@ -147,4 +147,4 @@ In this tutorial, you enabled Azure AD self-service password reset for a selecte
 > * Test the SSPR process as a user
 
 > [!div class="nextstepaction"]
-> [Enable Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Enable Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)
