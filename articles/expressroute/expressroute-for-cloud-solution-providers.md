@@ -56,7 +56,7 @@ This connectivity scenario requires that the customer connects directly through 
 
 The choice between these two option are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
-* **Role Based Access Control (RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../role-based-access-control/role-assignments-portal.md).
+* **Azure role-based access control (Azure RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../role-based-access-control/role-assignments-portal.md).
 * **Networking** – Covers the various topics of networking in Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and 3rd party SaaS applications. For more information about Azure AD see [here](https://azure.microsoft.com/documentation/services/active-directory/).  
 
@@ -127,5 +127,5 @@ The Cloud Solution Provider service provides you a way to increase your value to
 Additional Information can be found at the following links:
 
 [Azure in Cloud Solution Provider program](https://docs.microsoft.com/azure/cloud-solution-provider).  
-[Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
-[Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
+[Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
+[Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/solutions/cloud-reseller-resources).

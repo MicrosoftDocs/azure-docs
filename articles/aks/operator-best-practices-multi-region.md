@@ -53,9 +53,9 @@ Traffic Manager performs DNS lookups and returns a user's most appropriate endpo
 
 For information on how to set up endpoints and routing, see [Configure the geographic traffic routing method by using Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### Layer 7 application routing with Azure Front Door Service
+### Application routing with Azure Front Door Service
 
-Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](../frontdoor/front-door-overview.md) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
+Using split TCP-based anycast protocol, [Azure Front Door Service](../frontdoor/front-door-overview.md) ensures that your end users promptly connect to the nearest Front Door POP (Point of Presence). Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
 
 ### Interconnect regions with global virtual network peering
 
@@ -89,7 +89,7 @@ Geo-replication is a feature of *Premium* SKU container registries. For informat
 
 State can be either externalized or colocated with the code that manipulates the state. Typically, you externalize state by using a database or other data store that runs on different machines over the network or that runs out of process on the same machine.
 
-Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Database for MySQL, Azure Database for PostgreSQL, or Azure SQL Database.
+Containers and microservices are most resilient when the processes that run inside them don't retain state. Because applications almost always contain some state, use a PaaS solution such as Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL or Azure SQL Database.
 
 To build portable applications, see the following guidelines:
 
@@ -118,7 +118,7 @@ The typical strategy is to provide a common storage point where applications can
 If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
 * [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Backup](../backup/backup-overview.md)
 
 ### Application-based asynchronous replication
 

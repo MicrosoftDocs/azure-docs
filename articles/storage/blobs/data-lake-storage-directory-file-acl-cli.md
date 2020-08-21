@@ -8,7 +8,8 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: normesta
-ms.reviewer: prishet
+ms.reviewer: prishet 
+ms.custom: devx-track-azurecli
 ---
 
 # Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2

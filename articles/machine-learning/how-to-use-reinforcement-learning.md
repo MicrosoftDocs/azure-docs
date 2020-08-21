@@ -5,11 +5,11 @@ description: Learn how to use Azure Machine Learning Reinforcement Learning (pre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 ---
 
@@ -30,7 +30,7 @@ In this article you will learn how to:
 > * Submit an experiment to start a run
 > * View results
 
-This article is based on the [RLlib Pong example](https://aka.ms/azureml-rl-pong) that can be found in the Azure Machine Learning notebook [GitHub repository](https://aka.ms/azureml-rl-notebooks).
+This article is based on the [RLlib Pong example](https://aka.ms/azureml-rl-pong) that can be found in the Azure Machine Learning notebook [GitHub repository](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).
 
 ## Prerequisites
 
@@ -429,4 +429,4 @@ In short work, you have learned to configure multiple compute resources to train
 
 ## Next steps
 
-In this article, you learned how to train a reinforcement learning agent using an IMPALA learning agent. To see additional examples, go to the [Azure Machine Learning Reinforcement Learning GitHub repository](https://aka.ms/azureml-rl-notebooks).
+In this article, you learned how to train a reinforcement learning agent using an IMPALA learning agent. To see additional examples, go to the [Azure Machine Learning Reinforcement Learning GitHub repository](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).

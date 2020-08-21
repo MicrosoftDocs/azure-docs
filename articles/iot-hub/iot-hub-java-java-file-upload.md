@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, devx-track-java]
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Java)

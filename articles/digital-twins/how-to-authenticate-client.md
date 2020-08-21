@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-javascript
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -35,7 +36,7 @@ To proceed, you will need a client app project in which you write your code. If 
 
 First, include the following packages in your project in order to use the .NET SDK and authentication tools for this how-to:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity`
+* `Azure.Identity` (version `1.1.1`)
 
 Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
 

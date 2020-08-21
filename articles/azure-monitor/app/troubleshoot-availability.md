@@ -77,7 +77,7 @@ The error ("protocol violation..CR must be followed by LF") indicates an issue w
 
 ### I don't see any related server-side telemetry to diagnose test failures?*
 
-If you have Application Insights set up for your server-side application, that may be because [sampling](../../azure-monitor/app/sampling.md) is in operation. Select a different availability result.
+If you have Application Insights set up for your server-side application, that may be because [sampling](./sampling.md) is in operation. Select a different availability result.
 
 ### Can I call code from my web test?
 
@@ -93,7 +93,7 @@ The two terms may be referenced interchangeably. Availability tests is a more ge
    There are two possible solutions:
 
    * Configure your firewall to permit incoming requests from the [IP addresses
-    of our web test agents](../../azure-monitor/app/ip-addresses.md).
+    of our web test agents](./ip-addresses.md).
    * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests blades though the experience will be slightly simplified from what is available for tests created via the portal. Custom availability tests will also appear as availability results in Analytics, Search, and Metrics.
 
 ### Uploading a multi-step web test fails
@@ -131,3 +131,4 @@ Use the new alert experience/near-realtime alerts if you need to notify users ba
 
 * [Multi-step web testing](availability-multistep.md)
 * [URL ping tests](monitor-web-app-availability.md)
+

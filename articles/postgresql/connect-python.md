@@ -1,10 +1,10 @@
 ---
-title: Connect with Python - Azure Database for PostgreSQL - Single Server
+title: 'Quickstart: Connect with Python - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides Python code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter, tracking-python
+ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019

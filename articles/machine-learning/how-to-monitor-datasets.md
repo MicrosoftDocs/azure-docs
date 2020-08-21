@@ -5,11 +5,12 @@ description: Create Azure Machine Learning datasets monitors (preview), monitor 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 06/25/2020
+ms.topic: conceptual
+ms.custom: how-to
 
 ## Customer intent: As a data scientist, I want to monitor data drift in my datasets and set alerts.
 ---

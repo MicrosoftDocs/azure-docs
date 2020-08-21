@@ -1,5 +1,5 @@
 ---
-title: Oracle WebLogic Server Azure Applications | Microsoft Docs
+title: What is Oracle WebLogic Server on Azure?
 description: Learn how to run Oracle WebLogic Server on Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,34 +15,37 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2020
 ms.author: edburns
+#Customer intent: As an IT pro, I want to run get WebLogic running on Azure so that legacy Java code can run in the cloud.
 ---
-# Oracle WebLogic Server Azure Applications
+# What is Oracle WebLogic Server on Azure?
 
-## Oracle WebLogic Server is a scalable, enterprise-ready Java EE application server.
+This page describes solutions for running WebLogic Server (WLS) on Azure Virtual Machines.  These solutions are jointly developed by Oracle and Microsoft.
 
-Oracle WebLogic Server is the world’s first cloud native, enterprise Java platform application server for developing and deploying multi-tier distributed enterprise applications. Azure WebLogic Server offers enable you to embrace cloud computing by providing greater choice and flexibility for WebLogic migration including lift and shift of your Java EE applications to Azure Cloud with the smallest effort and biggest impact. The offers empower you to start your business applications quickly by automatically provisioning virtual network, storage and Linux resources, installing WebLogic Server, setting up security with a network security group, load balancing with Azure App Gateway, authentication with Azure Active Directory and easing database connectivity.
+Oracle WebLogic Server is the world’s first cloud native, enterprise Java platform application server for developing and deploying multi-tier distributed enterprise applications. Azure WebLogic Server offers enable you to embrace cloud computing.  You get greater choice and flexibility for WebLogic migration including lift and shift of your Java EE applications to Azure Cloud.   WLS on Azure yields big impact with a small effort. The offers empower you to start your line of business (LOB) applications quickly.  Each offer automatically provisions virtual network, storage and Linux resources.  With zero effort, WebLogic Server is installed.  WLS on Azure sets up security with a network security group, load balancing with Azure App Gateway, authentication with Azure Active Directory and automatically connects to your existing database.
 
-There are four offers available to meet different scenarios: single node without an admin server, single node with an admin server, cluster and dynamic cluster.  You should feel free to give them a try, the offers are available free of charge.
+:::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="You can use the Azure Portal to deploy WebLogic Server on Azure":::
 
-_These offers are Bring-Your-Own-License_. They assume you have already procured the appropriate licenses with Oracle and are properly licensed to run offers in Microsoft Azure.
+There are four offers available to meet different scenarios: single node without an admin server, single node with an admin server, cluster, and dynamic cluster.  Try the offers, they're available free of charge.
 
-_If you want to work closely on your migration scenarios with the engineering team developing these offers, just hit the [CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects and engineers will reach back out to you shortly and initiate collaboration!
+_These offers are Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Microsoft Azure.
 
-### Oracle WebLogic Server Single Node
+_If you want to work closely on your migration scenarios with the engineering team developing these offers, select the [CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects, and engineers will reach back out to you shortly and start collaboration!
 
-This offer provisions a single virtual machine and installs Oracle WebLogic Server on it. It does not create a domain or start the Administration Server. This is useful for scenarios with highly customized domain configuration.
+## Oracle WebLogic Server Single Node
 
-### Oracle WebLogic Server with Admin Server
+This offer provisions a single virtual machine and installs WLS on it. It doesn't create a domain or start the Administration Server. Single node is useful for scenarios with highly customized domain configuration.
 
-This offer provisions a single virtual machine and installs Oracle WebLogic Server on it. It creates a domain and starts up the Administration Server, which allows you to manage the domain.
+## Oracle WebLogic Server with Admin Server
 
-### Oracle WebLogic Server Cluster
+This offer provisions a single virtual machine and installs WLS on it. It creates a domain and starts up the Administration Server, which allows you to manage the domain.
 
-This offer creates a highly available cluster of Oracle WebLogic Server virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
+## Oracle WebLogic Server Cluster
 
-### Oracle WebLogic Server Dynamic Cluster
+This offer creates a highly available cluster of WLS virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
 
-This offer creates a highly available and scalable dynamic cluster of Oracle WebLogic Server virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
+## Oracle WebLogic Server Dynamic Cluster
+
+This offer creates a highly available and scalable dynamic cluster of WLS virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
 
 ## Next steps
 

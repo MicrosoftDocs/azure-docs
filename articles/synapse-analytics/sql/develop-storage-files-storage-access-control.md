@@ -78,15 +78,16 @@ In the table below you can find the available authorization types:
 
 You can use the following combinations of authorization and Azure Storage types:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Supported      | Not  supported   | Supported     |
-| *Managed  Identity* | Supported      | Supported        | Supported     |
-| *User  Identity*    | Supported      | Supported        | Supported     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported\*      | Not  supported   | Supported\*     |
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)    | Supported\*      | Supported\*        | Supported\*     |
 
+\* SAS token and Azure AD Identity can be used to access a storage that is not protected with firewall.
 
 > [!IMPORTANT]
-> When accessing storage that is protected with the firewall, only Managed Identity is can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an RBAC role](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
+> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 >
 
 ## Credentials
@@ -175,27 +176,46 @@ Database-scoped credentials enable access to Azure storage using the following a
 
 Azure AD users can access any file on Azure storage if they have at least `Storage Blob Data Owner`, `Storage Blob Data Contributor`, or `Storage Blob Data Reader` role. Azure AD users don't need credentials to access storage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 SQL users cannot use Azure AD authentication to access storage.
 
 ### [Shared access signature](#tab/shared-access-signature)
 
-The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
+The following script creates a credential that is used to access files on storage using SAS token specified in the credential. The script will create a sample external data source that uses this SAS token to access storage.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### [Managed Identity](#tab/managed-identity)
 
-The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
+The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. The script will create a sample external data source that uses workspace identity to access storage.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 The database scoped credential doesn't need to match the name of storage account because it will be explicitly used in DATA SOURCE that defines the location of storage.
@@ -204,6 +224,11 @@ The database scoped credential doesn't need to match the name of storage account
 
 Database scoped credential is not required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 Database scoped credentials are used in external data sources to specify what authentication method will be used to access this storage:
@@ -217,7 +242,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## Examples
 
-**Accessing publicly available data source**
+### **Access a publicly available data source**
 
 Use the following script to create a table that accesses publicly available data source.
 
@@ -242,11 +267,11 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
-**Accessing data source using credential**
+### **Access a data source using credentials**
 
 Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
 
@@ -287,7 +312,7 @@ Database user can read the content of the files from the data source using [exte
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

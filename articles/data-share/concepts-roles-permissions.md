@@ -1,11 +1,11 @@
 ---
 title: Roles and requirements for Azure Data Share   
 description: Learn about the permissions required to share and receive data using Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/30/2020
 ---
 
 # Roles and requirements for Azure Data Share 
@@ -85,7 +85,13 @@ To learn more about how to add a role assignment, refer to [this documentation,]
 
 ## Resource provider registration 
 
-To view Azure Data Share invitation for the first time in your Azure tenant, you may need to manually register the Microsoft.DataShare resource provider into your Azure subscription. Follow these steps to register the Microsoft.DataShare resource provider into your Azure Subscription. You need *Contributor* access to the Azure subscription to register resource provider.
+You may need to manually register the Microsoft.DataShare resource provider into your Azure subscription in the following scenarios: 
+
+* View Azure Data Share invitation for the first time in your Azure tenant
+* Share data from an Azure data store in a different Azure subscription from your Azure Data Share resource
+* Receive data into an Azure data store in a different Azure subscription from your Azure Data Share resource
+
+Follow these steps to register the Microsoft.DataShare resource provider into your Azure Subscription. You need *Contributor* access to the Azure subscription to register resource provider.
 
 1. In the Azure portal, navigate to **Subscriptions**.
 1. Select the subscription that you're using for Azure Data Share.

@@ -2,7 +2,7 @@
 title: Assign Azure AD roles to users - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign administrator and non-administrator roles to users with Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -24,7 +24,7 @@ For more information about the available Azure AD roles, see [Assigning administ
 
 ## Assign roles
 
-A common way to assign Azure AD roles to a user is on the **Assigned roles** page for a user. You can also the eligibility to be elevated just-in-time into a role using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+A common way to assign Azure AD roles to a user is on the **Assigned roles** page for a user. You can also configure the user eligibility to be elevated just-in-time into a role using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 > [!Note]
 > If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../users-groups-roles/directory-manage-roles-portal.md).

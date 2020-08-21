@@ -4,7 +4,7 @@ description: Learn how to use the CLI to deploy Azure Spot VMs to save costs.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer

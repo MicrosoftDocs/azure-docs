@@ -10,7 +10,7 @@ ms.subservice: ""
 ---
 # Stream Azure monitoring data to an event hub or external partner
 
-Azure Monitor provides a complete full stack monitoring solution for applications and services in Azure, in other clouds, and on-premises. In addition to using Azure Monitor for analyzing that data and leveraging it for different monitoring scenarios, you may need to send it to other monitoring tools in your environment. In most cases, the most effective method to stream monitoring data to external tools is using [Azure Event Hubs](/azure/event-hubs/). This article provides a brief description on how to do this and then lists some of the partners where you can send data. Some have special integration with Azure Monitor and may be hosted on Azure.  
+Azure Monitor provides a complete full stack monitoring solution for applications and services in Azure, in other clouds, and on-premises. In addition to using Azure Monitor for analyzing that data and leveraging it for different monitoring scenarios, you may need to send it to other monitoring tools in your environment. In most cases, the most effective method to stream monitoring data to external tools is using [Azure Event Hubs](../../event-hubs/index.yml). This article provides a brief description on how to do this and then lists some of the partners where you can send data. Some have special integration with Azure Monitor and may be hosted on Azure.  
 
 ## Create an Event Hubs namespace
 
@@ -32,7 +32,7 @@ Before you configure streaming for any data source, you need to [create an Event
 | [Azure subscription](data-sources.md#azure-subscription) | Azure Activity Log | Create a log profile to export Activity Log events to Event Hubs.  See [Stream Azure platform logs to Azure Event Hubs](./resource-logs.md#send-to-azure-event-hubs) for details. |
 | [Azure resources](data-sources.md#azure-resources) | Platform metrics<br> Resource logs |Both types of data are sent to an event hub using a resource diagnostic setting. See [Stream Azure resource  logs to an event hub](./resource-logs.md#send-to-azure-event-hubs) for details. |
 | [Operating system (guest)](data-sources.md#operating-system-guest) | Azure virtual machines | Install the [Azure Diagnostics Extension](diagnostics-extension-overview.md) on Windows and Linux virtual machines in Azure. See [Streaming Azure Diagnostics data in the hot path by using Event Hubs](diagnostics-extension-stream-event-hubs.md) for details on Windows VMs and [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) for details on Linux VMs. |
-| [Application code](data-sources.md#application-code) | Application Insights | Application Insights doesn't provide a direct method to stream data to event hubs. You can [set up continuous export](../../azure-monitor/app/export-telemetry.md) of the Application Insights data to a storage account and then use a Logic App to send the data to an event hub as described in [Manual streaming with Logic App](#manual-streaming-with-logic-app). |
+| [Application code](data-sources.md#application-code) | Application Insights | Application Insights doesn't provide a direct method to stream data to event hubs. You can [set up continuous export](../app/export-telemetry.md) of the Application Insights data to a storage account and then use a Logic App to send the data to an event hub as described in [Manual streaming with Logic App](#manual-streaming-with-logic-app). |
 
 ## Manual streaming with Logic App
 For data that you can't directly stream to an event hub, you can write to Azure storage and then use a time-triggered Logic App that [pulls data from blob storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
@@ -56,5 +56,6 @@ Other partners may also be available. For a more complete list of all Azure Moni
 
 ## Next Steps
 * [Archive the Activity log to a storage account](./activity-log.md#legacy-collection-methods)
-* [Read the overview of the Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md)
-* [Set up an alert based on an Activity log event](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Read the overview of the Azure Activity log](./platform-logs-overview.md)
+* [Set up an alert based on an Activity log event](./alerts-log-webhook.md)
+

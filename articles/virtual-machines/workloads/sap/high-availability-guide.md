@@ -375,7 +375,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -1448,7 +1448,7 @@ You need to add a new profile parameter. The profile parameter prevents connecti
 
 To modify the SAP profile of the ASCS/SCS instance:
 
-1. Add this profile parameter to the SAP ASCS/SCS instance profile:
+1. Add this profile parameter to the SAP ASCS/SCS instance profile, if using ENSA1:
 
    ```
    enque/encni/set_so_keepalive = true
@@ -1460,6 +1460,8 @@ To modify the SAP profile of the ASCS/SCS instance:
    For example, to the SAP SCS instance profile and corresponding path:
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+
+   For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
 2. To apply the changes, restart the SAP ASCS /SCS instance.
 

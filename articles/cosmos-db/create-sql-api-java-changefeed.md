@@ -8,6 +8,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
+ms.custom: devx-track-java
 ---
 
 # How to create a Java application that uses Azure Cosmos DB SQL API and change feed processor

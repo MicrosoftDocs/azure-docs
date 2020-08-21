@@ -15,7 +15,8 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 ---
 
 # Encrypt a Windows virtual machine in Azure
