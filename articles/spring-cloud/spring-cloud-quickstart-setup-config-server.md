@@ -13,6 +13,13 @@ ms.custom: devx-track-java
 
 Spring Cloud Config server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the config server to deploy microservice apps to Azure Spring Cloud.
 
+## Prerequisites
+
+1. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+1. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+1. (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+1. (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+
 ## Azure Spring Cloud config server procedures
 
 #### [Portal](#tab/Azure-portal)
@@ -31,22 +38,13 @@ The following procedure sets up the config server using the Azure portal to depl
 
 The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-piggymetrics-intro.md)
 
-Install the Azure Spring Cloud extension for the Azure CLI using the following command
-
-```azurecli
-az extension add --name spring-cloud
-```
-
-Update your config-server with the location of the git repository for the project:
+Set up your config-server with the location of the git repository for the project:
 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
-
 ```
----
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
+---
 
 ## Next steps
 > [!div class="nextstepaction"]
