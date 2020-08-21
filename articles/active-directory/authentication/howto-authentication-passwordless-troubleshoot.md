@@ -15,7 +15,7 @@ ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Known issues and troubleshooting passwordless for hybrid FIDO2 security key sign-in to on-premises resources with Azure AD(preview)
+# Troubleshooting for hybrid deployments of FIDO2 security keys in Azure AD (preview)
 
 This article covers frequently asked questions for hybrid Azure AD joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Azure AD authentication on Windows 10 devices for hybrid Azure AD joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
 
