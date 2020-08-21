@@ -141,14 +141,14 @@ Now that your configuration files are saved in a repository, you need to connect
 
     * **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Cloud. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-    ![The Edit Authentication pane](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
     > Some Git repository servers, such as GitHub, use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
 
     * **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-    ![The Edit Authentication pane](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+    ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### Pattern repository
 
@@ -189,13 +189,13 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 1. Copy the clone URL from the textbox. This URL will typically be in the form:
 
     ```Text
-        https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
 
     ```Text
-        https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Save this URL for use in the next section.
@@ -218,7 +218,7 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
    - The __password__ is the password saved from the previous section
    - Click on "Apply" and wait for the operation to succeed
 
-![Spring Cloud config server](media/spring-cloud-tutorial-config-server/02-config-server-azdo.png)
+   ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/02-config-server-azdo.png)
 
 ## Delete your app configuration
 
