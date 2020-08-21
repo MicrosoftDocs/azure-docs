@@ -8,6 +8,8 @@
     href: supported-data-stores.md
 - name: Quickstarts
   items:
+  - name: Create data share - Azure portal
+    href: share-your-data-portal.md
   - name: Create data share - ARM template
     displayName: Resource Manager
     href: share-your-data-arm.md
@@ -52,6 +54,9 @@
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Share Azure Data Explorer data
+    href: /azure/data-explorer/data-share
+    maintainContext: true
 - name: Reference
   items:
   - name: .NET
