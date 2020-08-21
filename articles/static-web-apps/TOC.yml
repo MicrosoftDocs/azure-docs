@@ -13,9 +13,9 @@
         - name: Visual Studio Code
           href: getting-started.md
         - name: Azure portal
-          href: getting-started-portal.md
+          href: get-started-portal.md
         - name: Azure CLI
-          href: getting-started-cli.md
+          href: get-started-cli.md
 - name: Concepts
   items:
     - name: API support with Azure Functions
