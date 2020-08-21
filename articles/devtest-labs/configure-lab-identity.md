@@ -47,7 +47,7 @@ A user-assigned managed identity is created as a standalone Azure resource. 
 
 DevTest Labs supports user assigned identities for both virtual machines and Azure Resource Manager based environments.  For more information, see the following topics:
 
-- [Add a user-assigned identity to deploy lab ARM environments](use-managed-identities-environments.md)
+- [Add a user-assigned identity to deploy lab Azure Resource Manager environments](use-managed-identities-environments.md)
 - [Add a user-assigned identities to deploy lab virtual machines](enable-managed-identities-lab-vms.md)
 
 ## Next steps
