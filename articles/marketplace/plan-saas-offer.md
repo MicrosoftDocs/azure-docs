@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 08/30/2020
 ---
 
-# Plan a SaaS offer for Microsoft commercial marketplace
+# Plan a SaaS offer for the commercial marketplace
 
 This article explains the different options and requirements for publishing a software as a service (SaaS) offer to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via an online subscription instead of local installation on individual computers. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
 ## Listing options
 
-As you prepare to publish a new SaaS offer, you need to decide which listing option to choose. This will determine what additional information you’ll need to provide as you create your offer in Partner Center. You will define your listing option on the  **Offer setup** page as explained in [Create a SaaS offer in the commercial marketplace](create-new-saas-offer.md).
+As you prepare to publish a new SaaS offer, you need to decide which _listing_ option to choose. This will determine what additional information you’ll need to provide as you create your offer in Partner Center. You will define your listing option on the  **Offer setup** page as explained in [Create a SaaS offer in the commercial marketplace](create-new-saas-offer.md).
 
 The following table shows the listing options for SaaS offers in the commercial marketplace.
 
@@ -25,14 +25,14 @@ The following table shows the listing options for SaaS offers in the commercial 
 | Contact me | The customer contacts you directly from information in your listing.``*`` |
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*`` |
 | Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*`` |
-| Sell through Microsoft  | Offers sold through Microsoft are called transactable offers. We bill the customer on your behalf for all _transactable_ offers. Microsoft hosts the SaaS application or solution in the commercial marketplace as a transactable offer. |
+| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers as a flat fee, and manage customer transactions on your behalf. Note that Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [Pricing and billing](#pricing-and-billing) below.  |
 |||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
 
 For more information about these listing options, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in the Azure Marketplace with the **Contact me** and **Test drive** buttons.
+After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the **Contact me** and **Test drive** buttons.
 
 ***Figure 1: Example of listing option buttons on an offer listing page***
 
@@ -52,10 +52,10 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing opti
   - [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
   - [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
 
-These additional technical requirements apply to the Sell through Microsoft listing option only:
+These additional technical requirements apply to the _Sell through Microsoft_ listing option only:
 
 - Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
-- You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
+- You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace and Microsoft AppSource. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 
 ### Additional requirements for selling through Microsoft
 
@@ -71,13 +71,13 @@ To sell your SaaS offer through Microsoft, you must meet these additional requir
 
 If you’re creating a transactable offer, you'll need to gather the following information for the **Technical configuration** page. If you choose to process transactions independently instead of creating a transactable offer, skip this section and go to [Test drives](#test-drives).
 
-- **Landing page URL**: The SaaS site URL (for example: `https://contoso.com/signup`) that end users will be directed to after acquiring your offer from the marketplace, triggering the configuration process from the newly created SaaS subscription. This URL will receive a token that can be used to call the fulfillment APIs to get provisioning details for your interactive registration page.
+- **Landing page URL**: The SaaS site URL (for example: `https://contoso.com/signup`) that users will be directed to after acquiring your offer from the commercial marketplace, triggering the configuration process from the newly created SaaS subscription. This URL will receive a token that can be used to call the fulfillment APIs to get provisioning details for your interactive registration page.
 
   This URL will be called with the marketplace purchase identification token parameter which uniquely identifies the specific customer's SaaS purchase. You must exchange this token for the corresponding SaaS subscription details using the [resolve API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete customer registration and activate their purchase. On this page, the user should sign up through one-click authentication by using Azure Active Directory (Azure AD).
 
   This URL with marketplace purchase identification token parameter will also be called when the customer launches a managed SaaS experience from the Azure portal or M365 Admin Center. You should handle both flows: when the token is provided for the first time after a new customer purchase, and when it's provided again for an existing customer managing their SaaS solution.
 
-    The Landing page you configure should be up and running 24/7. This is the only way you’ll be notified about new purchases of your SaaS offers made in the marketplace, or configuration requests for an active subscription of an offer.
+    The Landing page you configure should be up and running 24/7. This is the only way you’ll be notified about new purchases of your SaaS offers made in the commercial marketplace, or configuration requests for an active subscription of an offer.
 
 - **Connection webhook**: For all asynchronous events that Microsoft needs to send to you (for example, when a SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event.
 
@@ -103,14 +103,14 @@ You can choose to enable a test drive for your SaaS app. Test drives give custom
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
+You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
- [Lead management for commercial marketplace](lead-management-for-cloud-marketplace.md).
+ [Lead management for the commercial marketplace](lead-management-for-cloud-marketplace.md).
 
 ## Selecting an online store
 
-When you publish a SaaS offer, it will be listed in the online store of Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the target audience. For detailed information about selecting an online store, see [Selecting a storefront](determine-your-listing-type.md#selecting-a-storefront).
+When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the target audience. For detailed information about selecting an online store, see [Selecting a storefront](determine-your-listing-type.md#selecting-a-storefront).
 
 ## Legal contracts
 
@@ -160,8 +160,8 @@ When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
 - **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
-- **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the marketplace listing(s) search results.
-- **Description**: This description will be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
+- **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
   > [!NOTE]
   > This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. Most tags require both opening and closing tags. For information about HTML formatting, see [Supported HTML tags for offer descriptions](supported-html-tags.md).
@@ -189,7 +189,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 
   -  The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
   -  The Medium logo (90 x 90 pixels) appears when you create a new resource in Microsoft Azure.
-  -  The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource. 
+  -  The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
 
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
@@ -204,7 +204,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 > To publish your offer to the commercial marketplace, your offer must meet the general [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) and the [software as a service policies](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas).
 
 ## Preview audience
-A preview audience can access your offer prior to being published live in the marketplaces in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
+A preview audience can access your offer prior to being published live in the online stores in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
 > [!NOTE]
 > The preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more details, see the next section: Plans.
@@ -242,7 +242,7 @@ You must associate a pricing model with each plan: either _flat rate_ or _per us
 > [!TIP]
 > We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users frequently switching plans based on their changes in usage. For an example of an offer with three metered billing plans, see [Sample offer](./partner-center-portal/saas-metered-billing.md#sample-offer).
 
-**Flat rate** – Enable access to your offer with a single monthly or annual flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. For more information on metered billing, see [Metered billing using the marketplace metering service](./partner-center-portal/saas-metered-billing.md). You should also use this option if the usage behavior is in bursts for your SaaS service.
+**Flat rate** – Enable access to your offer with a single monthly or annual flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. For more information on metered billing, see [Metered billing using the marketplace metering service](./partner-center-portal/saas-metered-billing.md#sample-offer). You should also use this option if the usage behavior is in bursts for your SaaS service.
 
 **Per user** – Enable access to your offer with the price based on the number of users who can access the offer or occupy seats. With this user-based model, you can set the minimum and maximum number of users supported by the plan. This way, different price points can be configured based on the number of users by configuring multiple plans. These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields may be edited as part of an update to your plan.
 
@@ -257,16 +257,7 @@ The **Pricing and availability** tab is where you will define the plan’s marke
 
 ### Free trials
 
-You can enable a one-month free trial for your offer, which will automatically convert to a paid offer at the end of the trial. When a customer selects a free trial, we collect their billing information, but billing doesn’t start until the trial is converted to a paid subscription.
-
-SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. Free trials are supported for all billing models and terms except metered plans. This option gives customers one month of free access to try your offer.
-
-If you choose to enable a free trial for one or more plans within your offer, the customer can't convert to a paid subscription before the end of the initial one-month period. During this time, customers can evaluate any of the supported plans within the offer that have a free trial enabled and switch between them. If the customer doesn’t switch to a free trial in a different plan before the end of the trial period, the free trial is automatically converted to a paid subscription of the plan they're trying.
-
-> [!NOTE]
-> If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will end immediately and any data will be lost. After a customer starts paying for a plan, they can’t get a free trial on the same plan again, even if they switch to a plan that supports free trials.
-
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property isFreeTrial, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+When selling your offer through Microsoft, you can enable a one-month free trial, which will automatically convert to a paid offer at the end of the trial. Free trials are supported for all billing models except metered plans. When configuring a plan, you can enable a free trial by checking the **Allow a one-month free trial** box. For more information about free trials, see Free trials in the Microsoft commercial marketplace.
 
 ### Plan visibility
 
@@ -281,7 +272,7 @@ After your offer is published with a private plan, you can update the audience o
 
 For SaaS apps that run in your (the publisher’s) Azure subscription, infrastructure usage is billed to you directly; customers do not see actual infrastructure usage fees. You should bundle Azure infrastructure usage fees into your software license pricing to compensate for the cost of the infrastructure you deployed to run the solution.
 
-SaaS app offers that are sold through Microsoft support monthly or annual billing based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). Commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
+SaaS app offers that are sold through Microsoft support monthly or annual billing based on a flat fee, per user, or consumption charges using the [metered billing service](./partner-center-portal/saas-metered-billing.md). The commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to publishers while withholding an agency fee.
 
 This is a sample breakdown of costs and payouts to demonstrate the agency model. In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
 
@@ -299,11 +290,11 @@ This is a sample breakdown of costs and payouts to demonstrate the agency model.
 
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
-
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Providers](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) for more information.
+
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
 
 ## Next steps
 
 - [Create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
-- [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md)
+- [Best practices for commercial marketplace offer listings](gtm-offer-listing-best-practices.md)
