@@ -89,9 +89,9 @@ Metrics having to do with routing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messages Routed (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+| MessagesRouted | Messages Routed (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
 
 ## Dimensions
 
@@ -101,7 +101,7 @@ Dimensions help identify more details about the metrics. Some of the routing met
 | --- | --- |
 | Authentication | OAuth |
 | Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
-| Operation (for Routing) | Event Grid, <br>Event Hub, <br>Service Bus |
+| Endpoint Type | Event Grid, <br>Event Hub, <br>Service Bus |
 | Protocol | HTTPS |
 | Result | Success, <br>Failure |
 | Status Code | 200, 404, 500, and so on. |
