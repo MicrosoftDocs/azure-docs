@@ -82,7 +82,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
    ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
 
-1. On the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
+1. In the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
 1. In the factory top bar, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data flow clusters take five to seven minutes to warm up. Turn on **Data flow debug** first if you plan to do data flow development. For more information, see [Debug mode](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
 
     ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
