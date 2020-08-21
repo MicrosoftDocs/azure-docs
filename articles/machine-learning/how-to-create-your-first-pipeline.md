@@ -24,7 +24,7 @@ While you can use a different kind of pipeline called an [Azure Pipeline](https:
 
 The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
 
-ML pipelines execute on compute targets (see [What are compute targets in Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-target)). Pipelines can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
+ML pipelines execute on compute targets (see [What are compute targets in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)). Pipelines can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
