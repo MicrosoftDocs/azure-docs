@@ -2,7 +2,7 @@
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.custom: seodec18
 ---
 # Track asynchronous Azure operations
@@ -25,7 +25,7 @@ Refer to the [REST API documentation](/rest/api/azure/) to see the responses for
 
 After getting the 201 or 202 response code, you're ready to monitor the status of the operation.
 
-## Use URL to monitor status
+## URL to monitor status
 
 There are two different ways to monitor the status the asynchronous operation. You determine the correct approach by examining the header values that are returned from your original request. First, look for:
 
@@ -39,7 +39,9 @@ If `Azure-AsyncOperation` isn't one of the header values, then look for:
 
 ## Azure-AsyncOperation request and response
 
-If you have a URL from the `Azure-AsyncOperation` header value, send a GET request to that URL. Use the value from `Retry-After` to schedule how often to check the status. The response properties can vary but always include the status of the asynchronous operation.
+If you have a URL from the `Azure-AsyncOperation` header value, send a GET request to that URL. Use the value from `Retry-After` to schedule how often to check the status. You'll get a response object that indicates the status of the operation. A different response is returned when checking the status of the operation with the `Location` URL. For more information about the response from a location URL, see [Create storage account (202 with Location and Retry-After)](#create-storage-account-202-with-location-and-retry-after).
+
+The response properties can vary but always include the status of the asynchronous operation.
 
 ```json
 {
