@@ -51,6 +51,8 @@ To partition, format, and mount your new disk so your Linux VM can use it, SSH i
 ssh azureuser@10.123.123.25
 ```
 
+## Find the disk
+
 Once connected to your VM, you need to find the disk. In this example, we are using `lsblk` to list the disks. 
 
 ```bash
@@ -60,108 +62,59 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 The output is similar to the following example:
 
 ```bash
-sda     1:0:1:0      14G
-└─sda1               14G /mnt
-sdb     0:0:0:0      30G
-├─sdb1             29.9G /
-├─sdb14               4M
-└─sdb15             106M /boot/efi
-sdc     3:0:0:1     128G
-└─sdc1              128G /datadrive
-sdd     3:0:0:0     128G
-sde     3:0:0:2       4G
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
 ```
 
-In this example, the disk I most recently attached was 4GB and it was attached at LUN 2. Here, *sde* is the disk that I want because it is 4GB and the last number for the HCTL column is 2, which is LUN 2. 
+In this example, the disk that I added is `sdc`. It is a LUN 0 and is 4GB.
+
+For a more complex example, here is what multiple data disks looks like in the portal:
+
+:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Review disk settings.":::
+
+In the image, you can see that there are 3 data disks: 4 GB on LUN 0, 16GB at LUN 1, and 32G at LUN 2.
+
+Here is what that might look like using `lsblk`:
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+sdd     3:0:0:1      16G
+sde     3:0:0:2      32G
+```
+
+From the output of `lsblk` you can see that the 4GB disk at LUN 0 is `sdc`, the 16GB disk at LUN 1 is `sdd`, and the 32G disk at LUN 2 is `sde`.
 
 ### Partition a new disk
 
 If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
 
+The `parted` utility can be used to partition and to format a data disk.
+
 > [!NOTE]
-> It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
+> It is recommended that you use the latest version `parted` that is available for your distro.
+> If the disk size is 2 tebibytes (TiB) or larger, you must use GPT partitioning. If disk size is under 2 TiB, then you can use either MBR or GPT partitioning.  
 
-Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. 
 
-The following example starts the `fdisk` process on */dev/sdc*, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk.
+The following example starts the `fdisk` process on `/dev/sdc`, which is where the first data disk will typically be on most VMs. Replace `sdc` with the correct option for your disk. We are also formatting it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 
-```bash
-sudo fdisk /dev/sdc
-```
-
-Use the `n` command to add a new partition. In this example, we also choose `p` for a primary partition and accept the rest of the default values. The output will be similar to the following example:
-
-```bash
-
-Welcome to fdisk (util-linux 2.31.1).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
-
-Device does not contain a recognized partition table.
-Created a new DOS disklabel with disk identifier 0x2fe1952d.
-
-Command (m for help): n
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1):
-First sector (2048-8388607, default 2048):
-Last sector, +sectors or +size{K,M,G,T,P} (2048-8388607, default 8388607):
-
-Created a new partition 1 of type 'Linux' and of size 4 GiB.
-```
-
-Print the partition table by typing `p` and then use `w` to write the table to disk and exit. The output should look similar to the following example:
-
-```bash
-Command (m for help): p
-Disk /dev/sdc: 4 GiB, 4294967296 bytes, 8388608 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 4096 bytes
-I/O size (minimum/optimal): 4096 bytes / 4096 bytes
-Disklabel type: dos
-Disk identifier: 0x2fe1952d
-
-Device     Boot Start     End Sectors Size Id Type
-/dev/sdc1        2048 8388607 8386560   4G 83 Linux
-
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-
-Now, write a file system to the partition with the `mkfs` command. Specify your filesystem type and the device name. The following example creates an *ext4* filesystem on the */dev/sdc1* partition that was created in the preceding steps:
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-The output is similar to the following example:
-
-```bash
-mke2fs 1.44.1 (24-Mar-2018)
-Discarding device blocks: done
-Creating filesystem with 1048320 4k blocks and 262144 inodes
-Filesystem UUID: 1b3a50ca-fda8-4c02-9cb4-da15e7708e62
-Superblock backups stored on blocks:
-        32768, 98304, 163840, 229376, 294912, 819200, 884736
-
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (16384 blocks): done
-Writing superblocks and filesystem accounting information: done
-```
-
-#### Alternate method using parted
-The fdisk utility needs interactive input and hence is not ideal for use within automation scripts. However, the [parted](https://www.gnu.org/software/parted/) utility can be scripted and hence lends itself better in automation scenarios. The parted utility can be used to partition and to format a data disk. For the walkthrough below, we use a new data disk /dev/sdc and format it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 sudo mkfs.xfs /dev/sdc1
-partprobe /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
-As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+
+Use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
 
 ### Mount the disk
 
@@ -213,7 +166,32 @@ We used the nano editor, so when you are done editing the file, use `Ctrl+O` to 
 > 
 > The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
+
+## Verify the disk
+
+You can now use `lsblk` again to see the disk and the mountpoint.
+
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+```
+
+The output will look something like this:
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+└─sdc1                4G /datadrive
+```
+
+You can see that `sdc` is now mounted at `/datadrive`.
+
 ### TRIM/UNMAP support for Linux in Azure
+
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
