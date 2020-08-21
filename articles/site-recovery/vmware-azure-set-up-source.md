@@ -79,6 +79,18 @@ Exclude following folders from Antivirus software
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Azure Site Recovery load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
+### If Antivirus Software is active on the Linux Master Target
+
+Exclude following folders from Antivirus software
+
+1.	/usr/local/ASR
+2.	/usr/local/InMage
+3.	/var/log/vxlogs
+4.	/var/log
+5.	/var/log/ApplicationPolicyLogs
+6.	/var/log/ASRsetuptelemetry
+7.	/var/log/ASRsetuptelemetry_uploaded
+
 
 ## Next steps
 [Set up your target environment](./vmware-azure-set-up-target.md) 

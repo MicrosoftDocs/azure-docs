@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 06/25/2020
+ms.date: 08/14/2020
 ---
 
 # What is Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Part of the Azure SQL product family, Azure SQL Managed Instance is the intelligent, scalable cloud database service that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for existing SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](../database/automated-backups-overview.md), [high availability](../database/high-availability-sla.md)) that drastically reduce management overhead and TCO.
+Azure SQL Managed Instance is the intelligent, scalable cloud database service that combines the broadest SQL Server database engine compatibility with all the benefits of a fully managed and evergreen platform as a service. SQL Managed Instance has near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for existing SQL Server customers. SQL Managed Instance allows existing SQL Server customers to lift and shift their on-premises applications to the cloud with minimal application and database changes. At the same time, SQL Managed Instance preserves all PaaS capabilities (automatic patching and version updates, [automated backups](../database/automated-backups-overview.md), [high availability](../database/high-availability-sla.md)) that drastically reduce management overhead and TCO.
 
 > [!IMPORTANT]
 > For a list of regions where SQL Managed Instance is currently available, see [Supported regions](resource-limits.md#supported-regions).
@@ -68,8 +68,8 @@ The [vCore-based purchasing model](../database/service-tiers-vcore.md) for SQL M
 
 In the vCore model, you can choose between generations of hardware.
 
-- **Gen4** logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz and Intel SP-8160 (Skylake) processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Gen4** logical CPUs are based on Intel® E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen5** logical CPUs are based on Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake), and  Intel® 8272CL (Cascade Lake) 2.5 GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [SQL Managed Instance resource limits](resource-limits.md#hardware-generation-characteristics).
 

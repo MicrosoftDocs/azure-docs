@@ -147,6 +147,9 @@ Once your new solution loads in the Visual Studio Code window, take a moment to 
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your container images onto the IoT Edge device.
 
+>[!NOTE]
+>If you didn't replace the **localhost:5000** value with the login server value from your Azure container registry, in the [**Create a project template**](#create-a-project-template) step, the **.env** file and the registryCredentials section of the deployment manifest will be missing. 
+
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. Open the **.env** file in your module solution.

@@ -86,7 +86,7 @@ For information about when recommendations are generated for each of these prote
 
 | Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
+| Microsoft Defender Antivirus| Windows Server 2016 or later| No, Built in to OS| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
 | Trend Micro – Deep Security | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
