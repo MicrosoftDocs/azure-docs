@@ -58,10 +58,10 @@ time.nist.gov | Verifies time synchronization between system and global time.
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB. |
-| **UEFI boot | Secure boot**    | Not supported for migration | 
-| **UEFI boot | Shielded VM**    | Not supported for migration | 
-| **UEFI boot | vTPM**           | Not supported for migration | 
-| **UEFI boot | Virtualization-based security (VBS)**    | Not supported for migration | 
+| **UEFI boot - Secure boot**    | Not supported for migration | 
+| **UEFI boot - Shielded VM**    | Not supported for migration | 
+| **UEFI boot - vTPM**           | Not supported for migration | 
+| **UEFI boot - Virtualization-based security (VBS)**    | Not supported for migration | 
 | **Disk size**                  | 2 TB for the OS disk, 4 TB for data disks.
 | **Disk number**                | A maximum of 16 disks per VM.
 | **Encrypted disks/volumes**    | Not supported for migration. |
