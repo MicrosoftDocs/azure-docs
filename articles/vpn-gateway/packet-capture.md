@@ -12,9 +12,9 @@ ms.author: radwiv
 
 # Configure packet capture for VPN gateways
 
-Connectivity and performance-related problems are often complex. It can take significant time and effort just to narrow down the cause of the problem. Packet capture can help you narrow down the scope of the problem to certain parts of the network. It can help you determine whether the problem is on the customer side of the network, the Azure side of the network, or somewhere in between. After you narrow down the problem, it's more efficient to debug and take remedial action.
+Connectivity and performance-related problems are often complex. It can take significant time and effort just to narrow down the cause of the problem. Packet capture can help you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the customer side of the network, the Azure side of the network, or somewhere in between. After you narrow down the problem, it's more efficient to debug and take remedial action.
 
-There are some commonly available packet capture tools. Getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by Azure VPN Gateway packet capture is a major differentiator. You can use VPN Gateway packet capture together with commonly available packet capture tools.
+There are some commonly available packet capture tools. Getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by Azure VPN Gateway packet capture are a major differentiator. You can use VPN Gateway packet capture together with commonly available packet capture tools.
 
 ## VPN Gateway packet capture filtering capabilities
 
@@ -347,7 +347,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 ## Key considerations
 
 - Running packet capture can affect performance. Remember to stop the packet capture when you don't need it.
-- Suggested minimum packet capture duration is 600 seconds. Shorter packet captures might not provide complete data due to sync issues among multiple components on the path.
+- Suggested minimum packet capture duration is 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data.
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
 
 ## Next steps
