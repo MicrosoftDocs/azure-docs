@@ -91,7 +91,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-In the `main` function, create variables for your resource's Azure endpoint and key. 
+In your app create variables for your resource's Azure endpoint and key. 
 
 ```javascript
 // You will need to set these environment variables or edit the following values
@@ -99,7 +99,7 @@ const endpoint = "<paste-your-form-recognizer-endpoint-here>";
 const apiKey = "<paste-your-form-recognizer-key-here>";
 ```
 
-Then authenticate a client object using the subscription variables you defined. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
+Then authenticate a client object using the subscription variables you defined. You'll use an `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
 
 ```javascript
 const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));

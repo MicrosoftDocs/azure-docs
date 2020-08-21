@@ -69,7 +69,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
+Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects.
 
 ```python
 form_recognizer_client = FormRecognizerClient(endpoint, AzureKeyCredential(key))
