@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Azure IoT Hub
 
-The Azure Security Baseline for Azure IoT Hub contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+The Azure Security Baseline for Microsoft Azure IoT Hub contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -32,7 +32,7 @@ The Azure Security Baseline for Azure IoT Hub contains recommendations that will
 
 IoT Hub features including message routing, file upload, and bulk device import/export also require connectivity from IoT Hub to a customer-owned Azure resource over its public endpoint. These connectivity paths collectively make up the egress traffic from IoT Hub to customer resources.
 
-Recommend to restrict connectivity to your Azure resources (including Azure IoT Hub) through a virtual network that you own and operate to reduce connectivity exposure in an isolated network and enable on-premises network connectivity directly to Azure backbone network. Use Azure Private Link and Azure Private Endpoint, where feasible, to enable private access to your services from other virtual networks.
+Recommend restricting connectivity to your Azure resources (including Azure IoT Hub) through a virtual network that you own and operate to reduce connectivity exposure in an isolated network and enable on-premises network connectivity directly to Azure backbone network. Use Azure Private Link and Azure Private Endpoint, where feasible, to enable private access to your services from other virtual networks.
 
 Keep open hardware ports in your devices to a bare minimum to avoid unwanted access. Additionally, build mechanisms to prevent or detect physical tampering of the device.
 
@@ -78,9 +78,15 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32440.).
 
-**Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Azure IoT Hub to guard against distributed denial-of-service (DDoS) attacks.
+**Guidance**: Block known malicious IPs with IoT Hub IP filter rules . Malicious attempts are also recorded and alerted via Azure Security Center for IoT.
 
-- [Manage Azure DDoS Protection Standard using the Azure Portal](../virtual-network/manage-ddos-protection.md)
+Azure DDoS Protection Basic is already enabled and available for no additional cost as part of IoT Hub. Always-on traffic monitoring, and real-time mitigation of common network-level attacks, provide the same defenses utilized by Microsoft's online services. The entire scale of Azure's global network can be used to distribute and mitigate attack traffic across regions.
+
+- [IoT Hub IP filter](iot-hub-ip-filtering.md)
+
+- [Azure Security Center for IoT suspicious IP address communication](../asc-for-iot/concept-security-alerts.md)
+
+- [Manage Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
 
 - [Threat protection in Azure Security Center](../security-center/threat-protection.md)
 
@@ -95,7 +101,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: No
 
 **Responsibility**: Customer
 
@@ -106,7 +112,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 
 **Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
-Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic.
+Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic. 
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -148,7 +154,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32445.).
 
-**Guidance**: Define and implement standard security configurations for network resources associated with your Azure IoT Hub namespaces with Azure Policy. &lt;--- Use Azure Policy aliases in the "Microsoft.???IoT???" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. Don't find aliases that are related to IoT namespaces, need owners to clarify, note, only found IoTCentral as IoTApps type and IoTSpaces as Graph type ---&gt;
+**Guidance**: Define and implement standard security configurations for network resources associated with your Azure IoT Hub namespaces with Azure Policy. Use Azure Policy aliases in the "Microsoft.Devices" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. 
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -279,11 +285,12 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32454.).
 
-**Guidance**: Use Azure Security Center with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
+**Guidance**: Use Azure Security Center for IoT with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel. You can also define operational alerts with Azure Monitor that may have security implications, such as when traffic drops unexpectedly.
 
 - [Monitor Azure IoT Hub health](iot-hub-monitor-resource-health.md)
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
-- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+- [Azure Security Center for IoT alerts](../asc-for-iot/concept-security-alerts.md)
+
 - [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
@@ -373,23 +380,27 @@ You can also enable just-in-time access to administrative accounts by using Azur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32461.).
 
-**Guidance**: &lt;--- needs service team to confirm SSO supported or not, if yes, a summary on how is needed ---&gt;
+**Guidance**: For users accessing IoT Hub, use Azure Active Directory SSO. Use Azure Security Center identity and access recommendations. 
+
+&lt;---are we understanding this right ---&gt;
+
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Customer
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32462.).
 
-**Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center recommendations.
+**Guidance**: 
+Enable Azure AD MFA to protect your overall Azure tenant, benefiting all services. IoT Hub service doesn't have MFA support.  
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
+
 - [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
-
-&lt;--- again, AAD question before we can use this guideline ---&gt;
 
 **Azure Security Center monitoring**: Yes
 
@@ -429,12 +440,8 @@ You can also enable just-in-time access to administrative accounts by using Azur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32465.).
 
-**Guidance**: Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
-
-Use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions.
-&lt;--- again, AAD question before we can use this guideline ---&gt;
- 
-- [IoT Hub Identity Registry](iot-hub-devguide-identity-registry.md)
+**Guidance**: 
+For users accessing IoT Hub, conditional access isn't supported. To mitigate this, use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions for your overall Azure tenant, benefitting all services including IoT Hub. 
 
 - [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
@@ -447,13 +454,12 @@ Use Azure AD named locations to allow access only from specific logical grouping
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32466.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
-&lt;--- again, AAD question before we can use this guideline ---&gt;
+**Guidance**: For user access to IoT Hub, Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on network. 
+For device and service access, IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on network. 
 
-- [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -465,7 +471,6 @@ IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authent
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32467.).
 
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. 
-&lt;--- again, AAD question before we can use this guideline ---&gt;
 
 Use Azure AD Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -482,15 +487,16 @@ Use Azure AD Privileged Identity Management (PIM) for generation of logs and ale
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32468.).
 
-**Guidance**: Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
+**Guidance**: 
+You have access to Azure AD sign-in activity, audit, and risk event log sources, which allow you to integrate with any SIEM/monitoring tool. 
 
-You have access to Azure AD sign-in activity, audit, and risk event log sources, which allow you to integrate with any SIEM/monitoring tool.
- 
-You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
+You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace. 
 
-- [IoT Hub identity registry](iot-hub-devguide-identity-registry.md)
+User Azure Monitor diagnostic logs to monitor unauthorized connection attempts in the Connections category.
 
 - [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+
+- [Configure diagnostic logs for IoT hub](iot-hub-monitor-resource-health.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -518,11 +524,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32470.).
 
-**Guidance**: &lt;--- Currently not available; Customer Lockbox not yet supported for Azure Database for IoT, need confirmation from service owner ---&gt;
+**Guidance**: In support scenarios where Microsoft needs to access customer data, it will be requested directly from the customer. 
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Customer
 
 ## Data protection
 
@@ -607,11 +613,12 @@ For the underlying Azure platform managed by Microsoft, Microsoft treats all cus
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32476.).
 
-**Guidance**: &lt;--- again, AAD question before we can use this guideline , below content can be applied if yes. IoT solution accelerator might be used as reference ---&gt;
-
-Use Azure RBAC to control access to data and resources, otherwise use service specific access control methods.
+**Guidance**: 
+For control plane user access to IoT Hub, use Azure AD RBAC to control access. For data plane access to IoT Hub, use shared access policies for IoT Hub.
 
 - [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+
+- [Control access to IoT Hub](iot-hub-devguide-security.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -639,7 +646,7 @@ Microsoft manages the underlying infrastructure for Azure IoT Hub and has implem
 
 **Guidance**: IoT Hub supports encryption of data at rest with customer-managed keys (CMK), also known as "bring your own key" (BYOK).
 
-Azure IoT Hub provides encryption of data at rest and in-transit as its written in our datacenters and decrypts it for you as you access it. By default, IoT Hub uses Microsoft-managed keys to encrypt the data at rest.
+Azure IoT Hub provides encryption of data at rest and in-transit as it is written in our datacenters and decrypts it for you as you access it. By default, IoT Hub uses Microsoft-managed keys to encrypt the data at rest.
 
 - [Encryption of data at rest with customer-managed keys for IoT Hub](iot-hub-customer-managed-keys.md)
 
@@ -673,8 +680,6 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure IoT Hub.
 
-&lt;--- question for internal review, does this control apply to Azure IoT devices? ---&gt;
-
 **Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Microsoft
@@ -684,9 +689,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32481.).
 
-**Guidance**: Not applicable; Microsoft performs patch management on the underlying systems that support Azure IoT Hub.
-
-&lt;--- question for internal review, does this control apply to Azure ioT devices? ---&gt;
+**Guidance**: Not applicable; Microsoft performs patch management on the underlying systems that support Azure IoT Hub. 
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -790,19 +793,14 @@ Each IoT Hub has an identity registry that can be used to create per-device reso
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32489.).
 
-**Guidance**: Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
+**Guidance**: 
+Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions. 
 
-Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+Use Azure Resource Graph to query for and discover resources within their subscriptions.  Ensure that all Azure resources present in the environment are approved. 
 
-* Not allowed resource types
-* Allowed resource types
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-In addition, use the Azure Resource Graph to query/discover resources within the subscriptions.
-
-- [IoT Hub identity registry](iot-hub-devguide-identity-registry.md)
-
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1054,7 +1052,8 @@ You can also use the recommendations from Azure Security Center as a secure conf
 Use managed identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
 
 - [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
-- [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+- [How to use managed identities for IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+
 - [How to create a key vault](/azure/key-vault/quick-create-portal)
 - [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
 
@@ -1072,7 +1071,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 - [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
-- [How to configure managed identities for Azure resources](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+- [How to configure managed identities for IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1145,6 +1144,8 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 - [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md)
 
+- [How to clone IoT Hub](iot-hub-how-to-clone.md)
+
 **Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
@@ -1157,6 +1158,8 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Guidance**: Azure IoT Hub recommends the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context.
 
 - [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha)
+
+- [IoT Hub device identity export](iot-hub-bulk-identity-mgmt.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1172,6 +1175,8 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 Periodically perform data restoration of content in backup. Ensure that you can restore backed-up customer-managed keys.
 
 - [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha)
+
+- [IoT Hub device identity export](iot-hub-bulk-identity-mgmt.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
