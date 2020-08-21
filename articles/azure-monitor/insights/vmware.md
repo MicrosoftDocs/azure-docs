@@ -23,7 +23,7 @@ The solution uses native syslog functionality of the ESXi host to push data to a
 ## Install and configure the solution
 Use the following information to install and configure the solution.
 
-* Add the VMware Monitoring solution to your subscription using the process described in [Install a monitoring solution](../insights/solutions.md#install-a-monitoring-solution).
+* Add the VMware Monitoring solution to your subscription using the process described in [Install a monitoring solution](./solutions.md#install-a-monitoring-solution).
 
 #### Supported VMware ESXi hosts
 vSphere ESXi Host 5.5, 6.0, and 6.5
@@ -196,3 +196,4 @@ There can be multiple reasons:
 * Use [log queries](../log-query/log-query-overview.md) in Log Analytics to view detailed VMware host data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing VMware host data.
 * [Create alerts](../platform/alerts-overview.md) when specific VMware host events occur.
+

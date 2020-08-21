@@ -1,10 +1,7 @@
 ---
 title: PowerShell module Windows Virtual Desktop - Azure
 description: How to install and set up the PowerShell module for Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr

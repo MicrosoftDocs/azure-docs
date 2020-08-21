@@ -51,13 +51,13 @@ ms.date: 07/27/2020
 
 ### Changes 2.3.4
 
-- Removed empty caption label/track when playing HLS on iOS and MacOS Safari
+- Removed empty caption label/track when playing HLS on iOS and macOS Safari
 - Reduced the number of 412s for IMSC1 captions
 - Output warning in the console for 10 consecutive empty IMSC1 caption responses to help live debugging
 
 ## 2.3.2 (Official Update October 9 2019)
 
-### Features
+### Features 2.3.2
 
 -Added PlayReady support for DASH playback for Chromium Edge browser
 
@@ -98,7 +98,7 @@ IMSC1 captions can disappear after seeking within the current video/audio buffer
 
 - Upon getting a segmentDecryptError and the player is already on the live edge, the player now refreshes the manifest instead of trying the next segment
 - Added more logging for diagnosis
-- Updated documentation to inlcude FairPlay support for iOS Safari
+- Updated documentation to include FairPlay support for iOS Safari
 - Added an example for the "srclang" of IMSC1 option
 - Added padding, textPadding, boxShadow overrides for text tracks.
 - Added an errorcode (0x0020025B) to differentiate that segment download failed due to no internet rather than just throwing 0x00200259
@@ -226,7 +226,7 @@ IMSC1 captions can disappear after seeking within the current video/audio buffer
 
 ### Changes 2.1.8 ###
 
-- [Change]Updated 0x0600001 errror to display when AES content is played back with Flash 30 as it's not supported at this time. Please see [known issues](azure-media-player-known-issues.md) for more details
+- [Change]Updated 0x0600001 error to display when AES content is played back with Flash 30 as it's not supported at this time. Please see [known issues](azure-media-player-known-issues.md) for more details
 - [Change] Added additional retries for live scenarios when manifest requests 404 or returns empty manifests.
 
 ## 2.1.7 (Official Update) ##

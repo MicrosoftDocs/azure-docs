@@ -9,7 +9,7 @@ author: mingshen-ms
 ms.author: mingshen
 ---
 
-# Create a SaaS offer in the commercial marketplace
+# Create a new SaaS offer in the commercial marketplace
 
 To begin creating Software as a Service (SaaS) offers in the commercial marketplace, ensure that you first [create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
@@ -25,7 +25,7 @@ To begin creating Software as a Service (SaaS) offers in the commercial marketpl
    ![Illustrates the left-navigation menu.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -180,7 +180,7 @@ Your offer will be published to AppSource or Azure Marketplace depending on the 
 - At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
-See the full list of categories and subcategories applicable to each Storefront in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
+See the full list of categories and subcategories applicable to each online store in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industries
 
@@ -284,7 +284,7 @@ This field is required.
   - **Large** (216 x 216 pixels, required)
   - **Wide** (255 x 115 pixels) (optional)
 
-   These three logo sizes are used in different places in the storefronts:
+   These three logo sizes are used in different places in the online stores:
 
    -   The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page. 
    -   The Medium logo (90 x 90 pixels) appears when you create a new resource in Microsoft Azure.
@@ -346,6 +346,8 @@ Select **Save draft** before continuing.
 ## Plan overview
 
 This page lets you provide a variety of plan options within the same offer. These plans (sometimes referred to as SKUs) could differ in terms of version, monetization, or tiers of service. You must set up at least one plan in order to sell your offer in the marketplace.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 

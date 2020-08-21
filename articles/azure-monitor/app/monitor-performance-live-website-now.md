@@ -18,7 +18,7 @@ Status Monitor is used to instrument a .NET application hosted in IIS either on-
 - If your app is deployed into Azure VM or Azure virtual machine scale set, follow [these instructions](azure-vm-vmss-apps.md).
 - If your app is deployed into Azure app services, follow [these instructions](azure-web-apps.md).
 - If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
-- (There are also separate articles about instrumenting [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (There are also separate articles about instrumenting [Azure Cloud Services](./cloudservices.md).)
 
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -36,12 +36,12 @@ Here's a summary of what you get by each route:
 |  | Build time | Run time |
 | --- | --- | --- |
 | **Requests & exceptions** |Yes |Yes |
-| **[More detailed exceptions](../../azure-monitor/app/asp-net-exceptions.md)** | |Yes |
-| **[Dependency diagnostics](../../azure-monitor/app/asp-net-dependencies.md)** |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
-| **[System performance counters](../../azure-monitor/app/performance-counters.md)** |Yes |Yes |
+| **[More detailed exceptions](./asp-net-exceptions.md)** | |Yes |
+| **[Dependency diagnostics](./asp-net-dependencies.md)** |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP verb|
+| **[System performance counters](./performance-counters.md)** |Yes |Yes |
 | **[API for custom telemetry][api]** |Yes |No |
-| **[Trace log integration](../../azure-monitor/app/asp-net-trace-logs.md)** |Yes |No |
-| **[Page view & user data](../../azure-monitor/app/javascript.md)** |Yes |No |
+| **[Trace log integration](./asp-net-trace-logs.md)** |Yes |No |
+| **[Page view & user data](./javascript.md)** |Yes |No |
 | **Need to rebuild code** |Yes | No |
 
 
@@ -66,7 +66,7 @@ If your app is hosted on an IIS server, enable Application Insights by using Sta
 
 ## Customize monitoring options
 
-Enabling Application Insights adds DLLs and ApplicationInsights.config to your web app. You can [edit the .config file](../../azure-monitor/app/configuration-with-applicationinsights-config.md) to change some of the options.
+Enabling Application Insights adds DLLs and ApplicationInsights.config to your web app. You can [edit the .config file](./configuration-with-applicationinsights-config.md) to change some of the options.
 
 ## When you re-publish your app, re-enable Application Insights
 
@@ -102,7 +102,7 @@ These are some steps that you can perform to confirm that your installation was 
 
 ### Can't connect? No telemetry?
 
-* Open [the necessary outgoing ports](../../azure-monitor/app/ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
+* Open [the necessary outgoing ports](./ip-addresses.md#outgoing-ports) in your server's firewall to allow Status Monitor to work.
 
 ### Unable to login
 
@@ -258,7 +258,7 @@ A desktop application that you install in your IIS web server. It helps you inst
 ### When do I use Status Monitor?
 
 * To instrument any web app that is running on your IIS server - even if it is already running.
-* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](../../azure-monitor/app/asp-net.md) at compile time. 
+* To enable additional telemetry for web apps that have been [built with the Application Insights SDK](./asp-net.md) at compile time. 
 
 ### Can I close it after it runs?
 
@@ -316,7 +316,7 @@ For applications already instrumented at compile time:
 
 View your telemetry:
 
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage
+* [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../log-query/log-query-overview.md) for more advanced queries
 
@@ -328,11 +328,12 @@ Add more telemetry:
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
+[api]: ./api-custom-events-metrics.md
 [availability]: monitor-web-app-availability.md
-[client]: ../../azure-monitor/app/javascript.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
+[client]: ./javascript.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
 [qna]: ../faq.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[usage]: ../../azure-monitor/app/javascript.md
+[roles]: ./resources-roles-access-control.md
+[usage]: ./javascript.md
+

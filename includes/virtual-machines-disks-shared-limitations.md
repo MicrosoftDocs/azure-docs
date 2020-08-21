@@ -14,12 +14,14 @@ Enabling shared disks is only available to a subset of disk types. Currently onl
 
 ### Ultra disks
 
-Ultra disks have their own separate list of limitations, unrelated to shared disks. For ultra disk limitations, refer to [Using Azure ultra disks](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+Ultra disks have their own separate list of limitations, unrelated to shared disks. For ultra disk limitations, refer to [Using Azure ultra disks](../articles/virtual-machines/disks-enable-ultra-ssd.md).
 
 When sharing ultra disks, they have the following additional limitations:
 
 - Currently limited to Azure Resource Manager or SDK support. 
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+Shared ultra disks are available in all regions that support ultra disks by default, and do not require you to sign up for access to use them.
 
 ### Premium SSDs
 
@@ -33,4 +35,4 @@ When sharing ultra disks, they have the following additional limitations:
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Azure Backup and Azure Site Recovery support is not yet available.
 
-If you're interested in trying shared disks then [sign up for access](https://aka.ms/AzureSharedDiskGASignUp).
+If you're interested in trying shared premium SSDs, [sign up for access](https://aka.ms/AzureSharedDiskGASignUp).

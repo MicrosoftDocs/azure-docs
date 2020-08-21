@@ -2,7 +2,8 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 07/27/2020 
+ms.custom: devx-track-azurecli
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -11,7 +12,7 @@ You apply tags to your Azure resources, resource groups, and subscriptions to lo
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might kept the casing you provide for the tag name. You'll see that casing in cost reports.
+> Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
 > 
 > Tag values are case-sensitive.
 

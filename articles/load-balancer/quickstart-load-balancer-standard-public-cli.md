@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: allensu
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript, devx-track-azurecli
 ---
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
@@ -46,7 +46,7 @@ Create a resource group with [az group create](https://docs.microsoft.com/cli/az
 ```
 ---
 
-# [Option 1 (default): Create a load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -588,7 +588,7 @@ Add the virtual machines to the outbound pool with [az network nic ip-config add
    --lb-name myLoadBalancer
 ```
 
-# [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+# [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.

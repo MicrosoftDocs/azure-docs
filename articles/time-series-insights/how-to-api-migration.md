@@ -8,7 +8,7 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ms.custom: shresha
 ---
 
@@ -18,7 +18,7 @@ ms.custom: shresha
 
 If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article.
 
-The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Users must migrate their environment's [Time Series Model variables](./concepts-variables.md), saved queries, Power BI queries, and any custom tools making calls to the API endpoints. If you have any questions or concerns about the migration process, submit a support ticket through the Azure portal and mention this document.
 
@@ -90,7 +90,7 @@ If your custom application is making calls to the following REST endpoints, it i
     - [Delete, Get Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-For the following REST endpoints, you must update the API version to `2020-07-31` in the URI and make sure all occurrences of the `tsx` property use the updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+For the following REST endpoints, you must update the API version to `2020-07-31` in the URI and make sure all occurrences of the `tsx` property use the updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - Types APIs
   - [Put Operation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -281,7 +281,7 @@ Updated Request Body (used by `2020-07-31`):
 
 Alternatively, the `value` can also be `$event['Bar-Pressure-Offset'].Double`. If no data type is specified, the data type is always assumed to be Double. The bracket notation must be used to escape the special character (`-`).
 
-#### GetAggregateSeries
+#### AggregateSeries
 
 Old Request Body (used by `2018-11-01-preview`):
 
@@ -350,7 +350,7 @@ Alternatively, the `value` can also be `coalesce($event['Temp'].Double, toDouble
 
 #### InvalidInput
 
-If you see the following error, you are using the new API version (`2020-07-31`) but the TSX syntax has not been updated. Please review the [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) and migration examples above. Make sure all `tsx` properties are properly updated before resubmitting the API request.
+If you see the following error, you are using the new API version (`2020-07-31`) but the TSX syntax has not been updated. Please review the [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) and migration examples above. Make sure all `tsx` properties are properly updated before resubmitting the API request.
 
 ```JSON
 {

@@ -6,7 +6,8 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 3/27/2020
+ms.date: 3/27/2020 
+ms.custom: devx-track-azurecli
 ---
 # How to back up and restore a server in Azure Database for MySQL using the Azure CLI
 

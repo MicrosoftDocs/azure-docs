@@ -7,7 +7,9 @@ ms.reviewer: jasonh
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: how-to
 ms.date: 08/20/2019
+ms.custom: devx-track-java
 ---
+
 # Manage Azure Data Lake Analytics using a Java app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 

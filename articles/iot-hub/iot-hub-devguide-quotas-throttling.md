@@ -22,9 +22,9 @@ Each IoT hub is provisioned with a certain number of units in a specific tier. T
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
-### IoT Plug and Play
+## IoT Plug and Play
 
-During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your message quota.
+IoT Plug and Play devices send at least one telemetry message for each interface, including the root, which may increase the number of messages counted towards your message quota.
 
 ## Operation throttles
 
@@ -53,7 +53,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB.
 
-### Throttling Details
+### Throttling details
 
 * The meter size determines at what increments your throttling limit is consumed. If your direct call's payload is between 0 and 4 KB, it is counted as 4 KB. You can make up to 40 calls per second per unit before hitting the limit of 160 KB/sec/unit.
 

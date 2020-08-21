@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 07/28/2020
 ---
 
 # Resource types that extend capabilities of other resources
@@ -23,7 +23,9 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.Authorization/permissions
 - Microsoft.Authorization/policyAssignments
 - Microsoft.Authorization/policyDefinitions
+- Microsoft.Authorization/policyExemptions
 - Microsoft.Authorization/policySetDefinitions
+- Microsoft.Authorization/privateLinkAssociations
 - Microsoft.Authorization/roleAssignments
 - Microsoft.Authorization/roleAssignmentsUsageMetrics
 - Microsoft.Authorization/roleDefinitions
@@ -34,6 +36,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.Billing/createBillingRoleAssignment
 - Microsoft.Blueprint/blueprintAssignments
 - Microsoft.Blueprint/blueprints
+- Microsoft.ChangeAnalysis/resourceChanges
 - Microsoft.Consumption/AggregatedCost
 - Microsoft.Consumption/Balances
 - Microsoft.Consumption/Budgets
@@ -45,6 +48,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.Consumption/OperationStatus
 - Microsoft.Consumption/Pricesheets
 - Microsoft.Consumption/ReservationDetails
+- Microsoft.Consumption/ReservationRecommendationDetails
 - Microsoft.Consumption/ReservationRecommendations
 - Microsoft.Consumption/ReservationSummaries
 - Microsoft.Consumption/ReservationTransactions
@@ -59,6 +63,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.ContainerInstance/serviceAssociationLinks
 - Microsoft.CostManagement/Alerts
 - Microsoft.CostManagement/Budgets
+- Microsoft.CostManagement/costAllocationRules
 - Microsoft.CostManagement/Dimensions
 - Microsoft.CostManagement/Exports
 - Microsoft.CostManagement/ExternalSubscriptions
@@ -66,8 +71,8 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.CostManagement/Query
 - Microsoft.CostManagement/Reportconfigs
 - Microsoft.CostManagement/Reports
-- Microsoft.CostManagement/Views
 - Microsoft.CostManagement/showbackRules
+- Microsoft.CostManagement/Views
 - Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
@@ -103,12 +108,13 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.ManagedServices/registrationDefinitions
 - Microsoft.OperationalInsights/storageInsightConfigs
 - Microsoft.OperationsManagement/managementassociations
+- Microsoft.PolicyInsights/attestations
 - Microsoft.PolicyInsights/policyEvents
 - Microsoft.PolicyInsights/policyStates
 - Microsoft.PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft.RecoveryServices/backupProtectedItems
-- Microsoft.RecoveryServices/replicationEligibilityResults    
+- Microsoft.RecoveryServices/replicationEligibilityResults
 - Microsoft.ResourceHealth/availabilityStatuses
 - Microsoft.ResourceHealth/childAvailabilityStatuses
 - Microsoft.ResourceHealth/childResources
@@ -126,11 +132,12 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.Security/complianceResults
 - Microsoft.Security/dataCollectionAgents
 - Microsoft.Security/deviceSecurityGroups
-- Microsoft.Security/networkData
+- Microsoft.Security/jitPolicies
 - Microsoft.Security/serverVulnerabilityAssessments
 - Microsoft.SecurityInsights/aggregations
 - Microsoft.SecurityInsights/alertRuleTemplates
 - Microsoft.SecurityInsights/alertRules
+- Microsoft.SecurityInsights/automationRules
 - Microsoft.SecurityInsights/bookmarks
 - Microsoft.SecurityInsights/cases
 - Microsoft.SecurityInsights/dataConnectors
@@ -140,6 +147,7 @@ An extension resource is a resource that adds to another resource's capabilities
 - Microsoft.SecurityInsights/incidents
 - Microsoft.SecurityInsights/officeConsents
 - Microsoft.SecurityInsights/settings
+- Microsoft.SecurityInsights/threatIntelligence
 - Microsoft.SoftwarePlan/hybridUseBenefits
 - Microsoft.Subscription/CreateSubscription
 - microsoft.support/supporttickets

@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Back up a VM with the Azure Portal
+          - text: Back up a VM with the Azure portal
             url: quick-backup-vm-portal.md
           - text: Back up a VM with PowerShell
             url: quick-backup-vm-powershell.md
@@ -128,7 +128,7 @@ landingContent:
             url: backup-azure-manage-mars.md
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
-          - text: FAQ - Mars agent
+          - text: FAQ - MARS agent
             url: backup-azure-file-folder-backup-faq.md 
 # Card
   - title: Back up with Microsoft Azure Backup Server (MABS) and DPM

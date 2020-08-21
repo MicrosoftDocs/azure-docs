@@ -175,6 +175,22 @@
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
+    - name: Use groups to manage role assignments
+      items:
+      - name: Group-based role assignment preview
+        href: roles-groups-concept.md
+      - name: Create a role-assignable group
+        href: roles-groups-create-eligible.md
+      - name: Assign roles to a group
+        href: roles-groups-assign-role.md
+      - name: Remove role assignments from a group
+        href: roles-groups-remove-assignment.md
+      - name: View a group's role assignments
+        href: roles-groups-view-assignments.md
+      - name: Make a group eligible for a role in PIM
+        href: roles-groups-pim-eligible.md
+      - name: FAQ and troubleshooting
+        href: roles-groups-faq-troubleshooting.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
     - name: Microsoft 365 roles
@@ -189,11 +205,11 @@
       items:
       - name: Administrative units overview  
         href: directory-administrative-units.md
-      - name: Add & manage AUs
+      - name: Add and manage AUs
         href: roles-admin-units-manage.md
-      - name: Add & manage users in AUs
+      - name: Add and manage users in AUs
         href: roles-admin-units-add-manage-users.md
-      - name: Add & manage groups in AUs
+      - name: Add and manage groups in AUs
         href: roles-admin-units-add-manage-groups.md
       - name: Assign a role with AU scope
         href: roles-admin-units-assign-roles.md

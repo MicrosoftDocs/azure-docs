@@ -3,7 +3,7 @@ title: Create and upload a Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
 

@@ -5,7 +5,8 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 5/26/2020
+ms.date: 5/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Auto grow storage in Azure Database for MariaDB server using PowerShell
 

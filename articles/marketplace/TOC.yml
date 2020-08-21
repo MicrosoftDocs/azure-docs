@@ -8,7 +8,7 @@
   - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
-    - name: One marketplace, two storefronts
+    - name: One marketplace, two online stores
       href: ./comparing-appsource-azure-marketplace.md
     - name: Publishing options and considerations
       href: ./determine-your-listing-type.md
@@ -115,11 +115,13 @@
           href: ./partner-center-portal/azure-vm-create-offer.md
         - name: Create Azure VM technical asset
           items:
-            - name: Create Azure VM technical asset
+            - name: Virtual machine certification - issues and solutions
+              href: ./partner-center-portal/vm-certification-issues-solutions.md
+            - name: Create an Azure VM technical asset
               href: ./partner-center-portal/create-azure-vm-technical-asset.md
             - name: Azure VM technical asset FAQ
               href: ./partner-center-portal/common-issues-during-vhd-creation.md
-            - name: Certify Azure VM image
+            - name: Test Virtual Machine deployed from VHD 
               href: ./partner-center-portal/azure-vm-image-certification.md
             - name: SAS URI
               items:
@@ -280,7 +282,7 @@
       href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md
-  - name: CPP API Reference
+  - name: CPP API reference
     items:
     - name: Overview
       href: ./cloud-partner-portal-api-overview.md
