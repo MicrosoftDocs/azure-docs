@@ -1,6 +1,6 @@
 ---
-title: Transform data with an Azure Data Factory managed VNet mapping data flow
-description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow.
+title: Transform data with an Azure Data Factory managed virtual network mapping data flow
+description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flows.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -10,13 +10,13 @@ ms.custom: seo-lt-2019
 ms.date: 05/19/2019
 ---
 
-# Transform data securely using mapping data flows
+# Transform data securely by using mapping data flow
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 
-In this tutorial, you'll use the Data Factory user interface (UX) to create a pipeline that copies and transforms data *from an Azure Data Lake Storage Gen2 source to a Data Lake Storage Gen2 sink (both allowing access to only selected networks)* by using mapping data flow in a [Data Factory managed virtual metwork](managed-virtual-network-private-endpoint.md). The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow.
+In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that copies and transforms data *from an Azure Data Lake Storage Gen2 source to a Data Lake Storage Gen2 sink (both allowing access to only selected networks)* by using mapping data flow in [Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md). You can expand on the configuration pattern in this tutorial when you transform data by using mapping data flow.
 
 In this tutorial, you do the following steps:
 
@@ -30,46 +30,45 @@ In this tutorial, you do the following steps:
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**. You use Data Lake Storage as *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from Selected networks.* 
+* **Azure storage account**. You use Data Lake Storage as *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
 
-The file that we're transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save it locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). The examples will reference a container named 'sample-data'.
+The file that we'll transform in this tutorial is moviesDB.csv, which can be found at this [GitHub content site](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save it locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). The examples will reference a container named **sample-data**.
 
 ## Create a data factory
 
-In this step, you create a data factory and open the Data Factory UX to create a pipeline in the data factory.
+In this step, you create a data factory and open the Data Factory UI to create a pipeline in the data factory.
 
-1. Open Microsoft Edge or Google Chrome. Currently, the Data Factory UI is supported only in the Microsoft Edge and Google Chrome web browsers.
+1. Open Microsoft Edge or Google Chrome. Currently, only Microsoft Edge and Google Chrome web browsers support the Data Factory UI.
 1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**.
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
-   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+   The name of the data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
 
-    1. Select **Use existing**, and select an existing resource group from the drop-down list.
-    1. Select **Create new**, and enter the name of a resource group. 
+    * Select **Use existing**, and select an existing resource group from the drop-down list.
+    * Select **Create new**, and enter the name of a resource group. 
          
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 1. Under **Version**, select **V2**.
-1. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. Data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
+1. Under **Location**, select a location for the data factory. Only locations that are supported appear in the drop-down list. Data stores (for example, Azure Storage and Azure SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 
 1. Select **Create**.
-
-1. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+1. After the creation is finished, you see the notice in the Notifications center. Select **Go to resource** to go to the **Data Factory** page.
 1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
 ## Create an Azure IR in Data Factory Managed Virtual Network
 In this step, you create an Azure IR and enable Data Factory Managed Virtual Network.
 
-1. In the Data Factory portal, go to **Manage Hub**, and select **New** to create a new Azure IR.
+1. In the Data Factory portal, go to **Manage**, and select **New** to create a new Azure IR.
 
    ![Screenshot that shows creating a new Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
 1. Select the **Azure** IR option.
 
    ![Screenshot that shows a new Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
-1. Enable **Virtual Network**.
+1. Under **Virtual network configuration (Preview)**, select **Enable**.
 
    ![Screenshot that shows enabling a new Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
@@ -83,39 +82,39 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
    ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
 
-1. On the **Properties** pane for the pipeline, enter **TransformMovies** for **Name** of the pipeline.
-1. In the factory top bar, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data flow clusters take five to seven minutes to warm up. Turn **Data flow debug** on first if you plan to do data flow development. For more information, see [Debug mode](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
+1. On the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
+1. In the factory top bar, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data flow clusters take five to seven minutes to warm up. Turn on **Data flow debug** first if you plan to do data flow development. For more information, see [Debug mode](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode).
 
-    ![Screenshot that shows Data flow debug.](media/tutorial-data-flow-private/dataflow-debug.png)
+    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. In the **Activities** pane, expand **Move and Transform**. Drag the **Data Flow** activity from the pane to the pipeline canvas.
 
-1. In the **Adding data flow** pop-up, select **Create new Data Flow** and then select **Mapping Data Flow**. Select **OK** when you're finished.
+1. In the **Adding data flow** pop-up, select **Create new data flow** and then select **Mapping Data Flow**. Select **OK** when you're finished.
 
     ![Screenshot that shows Mapping Data Flow.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
-1. Name your data flow **TransformMovies** in the Properties pane.
+1. Name your data flow **TransformMovies** in the properties pane.
 
 ## Build transformation logic in the data flow canvas
 
-After you create your data flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the moviesDB.csv in Data Lake Storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to Data Lake Storage.
+After you create your data flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the moviesDB.csv file in Data Lake Storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to Data Lake Storage.
 
 ### Add the source transformation
 
-In this step, you set up Azure Data Lake Storage Gen2 as a source.
+In this step, you set up Data Lake Storage Gen2 as a source.
 
 1. In the data flow canvas, add a source by selecting the **Add Source** box.
 
 1. Name your source **MoviesDB**. Select **New** to create a new source dataset.
 
-1. Select **Azure Data Lake Storage Gen2**, and select **Continue**.
+1. Select **Azure Data Lake Storage Gen2**, and then select **Continue**.
 
-1. Select **DelimitedText**, and select **Continue**.
+1. Select **DelimitedText**, and then select **Continue**.
 
 1. Name your dataset **MoviesDB**. In the linked service drop-down, select **New**.
 
 1. In the linked service creation screen, name your Data Lake Storage Gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we're using **Account key** to connect to our storage account. 
 
-1. Make sure you enable **Interactive Authoring**. It might take a minute to be enabled.
+1. Make sure you enable **Interactive authoring**. It might take a minute to be enabled.
 
     ![Screenshot that shows Interactive authoring.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
@@ -127,7 +126,7 @@ In this step, you set up Azure Data Lake Storage Gen2 as a source.
 
 1. Go back to the dialog box. Select **Test connection** again, and select **Create** to deploy the linked service.
 
-1. On the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in the container sample-data. Because the file has headers, select the **First row as header** check box. Select **From connection/store** to import the header schema directly from the file in storage. Select **OK** when you're finished.
+1. On the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in the container **sample-data**. Because the file has headers, select the **First row as header** check box. Select **From connection/store** to import the header schema directly from the file in storage. Select **OK** when you're finished.
 
     ![Screenshot that shows the source path.](media/tutorial-data-flow-private/source-file-path.png)
 
@@ -137,22 +136,22 @@ In this step, you set up Azure Data Lake Storage Gen2 as a source.
 
 #### Create a managed private endpoint
 
-If you didn't use the hyperlink when you tested the preceding connection, follow the following path. Now you need to create a managed private endpoint that you will connect to the linked service created above.
+If you didn't use the hyperlink when you tested the preceding connection, follow the path. Now you need to create a managed private endpoint that you'll connect to the linked service you created.
 
 1. Go to the **Manage** tab.
 
    > [!NOTE]
-   > The **Manage** tab might not be available for all Data Factory instances. If you don't see it, you can still access private endpoints by selecting **Author** > **Connections** > **Private Endpoint**.
+   > The **Manage** tab might not be available for all Data Factory instances. If you don't see it, you can access private endpoints by selecting **Author** > **Connections** > **Private Endpoint**.
 
 1. Go to the **Managed private endpoints** section.
 1. Select **+ New** under **Managed private endpoints**.
 
     ![Screenshot that shows the Managed private endpoints New button.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
 
-1. Select the Azure Data Lake Storage Gen2 tile from the list, and select **Continue**.
+1. Select the **Azure Data Lake Storage Gen2** tile from the list, and select **Continue**.
 1. Enter the name of the storage account you created.
 1. Select **Create**.
-1. After waiting a few seconds, you should see that the private link created needs an approval.
+1. After a few seconds, you should see that the private link created needs an approval.
 1. Select the private endpoint that you created. You can see a hyperlink that will lead you to approve the private endpoint at the storage account level.
 
     ![Screenshot that shows the Manage private endpoint pane.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
@@ -167,11 +166,11 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 
 1. Add a description, and select **yes**.
 1. Go back to the **Managed private endpoints** section of the **Manage** tab in Data Factory.
-1. After about a minute, you should see the approval reflected for your private endpoint.
+1. After about a minute, you should see the approval appear for your private endpoint.
 
 ### Add the filter transformation
 
-1. Next to your source node on the data flow canvas, select the plus icon to add a new transformation. The first transformation you're adding is a **Filter**.
+1. Next to your source node on the data flow canvas, select the plus icon to add a new transformation. The first transformation you'll add is a **Filter**.
 
     ![Screenshot that shows adding a filter.](media/tutorial-data-flow-private/add-filter.png)
 1. Name your filter transformation **FilterYears**. Select the expression box next to **Filter on** to open the expression builder. Here you'll specify your filtering condition.
@@ -179,7 +178,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
     ![Screenshot that shows FilterYears.](media/tutorial-data-flow-private/filter-years.png)
 1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data flow expression builder](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
-    * In this tutorial, you want to filter movies in the comedy genre that came out between the years 1910 and 2000. Because the year is currently a string, you need to convert it to an integer by using the ```toInteger()``` function. Use the greater than or equal to (>=) and less than or equal to (<=) operators to compare against the literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
+    * In this tutorial, you want to filter movies in the comedy genre that came out between the years 1910 and 2000. Because the year is currently a string, you need to convert it to an integer by using the ```toInteger()``` function. Use the greater than or equal to (>=) and less than or equal to (<=) operators to compare against the literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
 
         ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
@@ -202,7 +201,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 1. The next transformation you'll add is an **Aggregate** transformation under **Schema modifier**.
 
     ![Screenshot that shows adding the aggregate.](media/tutorial-data-flow-private/add-aggregate.png)
-1. Name your aggregate transformation **AggregateComedyRatings**. On the **Group by** tab, select **year** from the drop-down box to group the aggregations by the year the movie came out.
+1. Name your aggregate transformation **AggregateComedyRating**. On the **Group by** tab, select **year** from the drop-down box to group the aggregations by the year the movie came out.
 
     ![Screenshot that shows the aggregate group.](media/tutorial-data-flow-private/group-by-year.png)
 1. Go to the **Aggregates** tab. In the left text box, name the aggregate column **AverageComedyRating**. Select the right expression box to enter the aggregate expression via the expression builder.
@@ -237,13 +236,13 @@ Now you've finished building your data flow. You're ready to run it in your pipe
 
 ## Run and monitor the data flow
 
-You can debug a pipeline before you publish it. In this step, you trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run will write data to your sink destination.
+You can debug a pipeline before you publish it. In this step, you trigger a debug run of the data flow pipeline. While the data preview doesn't write data, a debug run will write data to your sink destination.
 
 1. Go to the pipeline canvas. Select **Debug** to trigger a debug run.
 
-1. Pipeline debug of data flow activities uses the active debug cluster but still takes at least a minute to initialize. You can track the progress via the **Output** tab. After the run is successful, select the eyeglasses icon for run details.
+1. Pipeline debugging of data flow activities uses the active debug cluster but still takes at least a minute to initialize. You can track the progress via the **Output** tab. After the run is successful, select the eyeglasses icon for run details.
 
-1. On the **Details** page, you can see the number of rows and the time spent on each transformation step.
+1. On the details page, you can see the number of rows and the time spent on each transformation step.
 
     ![Screenshot that shows a monitoring run.](media/tutorial-data-flow-private/run-details.png)
 1. Select a transformation to get detailed information about the columns and partitioning of the data.
@@ -252,4 +251,4 @@ If you followed this tutorial correctly, you should have written 83 rows and 2 c
 
 ## Summary
 
-In this tutorial, you used the Data Factory UX to create a pipeline that copies and transforms data from a Data Lake Storage Gen2 source to a Data Lake Storage Gen2 sink (both allowing access to only selected networks) using mapping data flow in [Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).
+In this tutorial, you used the Data Factory UI to create a pipeline that copies and transforms data from a Data Lake Storage Gen2 source to a Data Lake Storage Gen2 sink (both allowing access to only selected networks) by using mapping data flow in [Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).
