@@ -22,47 +22,31 @@ landingContent:
   # Card (optional)
   - title: About HDInsight
     linkLists:
-      - linkListType: whats-new
-        links:
-          - text: Custom Ambari DB
-            url: ./hdinsight-custom-ambari-db.md
-          - text: 'Autoscale: automatically scale hadoop clusters'
-            url: ./hdinsight-autoscale-clusters.md
-          - text: Migrate Apache Hive tables to HDInsight 4.0
-            url: ./interactive-query/apache-hive-migrate-workloads.md
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: What is Azure HDInsight?
             url: ./hdinsight-overview.md
+      - linkListType: get-started
+        links:
           - text: Learn - Building Analytical Solutions with Azure HDInsight
             url: https://docs.microsoft.com/learn/paths/build-oss-analytical-solutions-az-hdinsight/
-          - text: HDInsight components and versions
+          - text: Create HDInsight clusters
+            url: ./hdinsight-hadoop-provision-linux-clusters.md
+          - text: Monitoring with HDInsight
+            url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+          - text: Scale up and down cluster to save cost 
+            url: ./hdinsight-scaling-best-practices.md
+      - linkListType: concept
+        links:
+          - text: HDInsight OSS components and versions
             url: ./hdinsight-component-versioning.md
-          - text: Selecting the right VM size
-            url: ./hdinsight-selecting-vm-size.md
+          - text: Seleting the right VM size
+            url: ./hdinsight-selecting-vm-size
           - text: HDInsight supported VM types
             url: ./hdinsight-supported-node-configuration.md
           - text: Compare storage options
             url: ./hdinsight-hadoop-compare-storage-options.md
 
-  # Card
-  - title: Enterprise readiness
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: HDInsight security overview
-            url: ./domain-joined/hdinsight-security-overview.md
-          - text: Plan virtual network
-            url: ./hdinsight-plan-virtual-network-deployment.md
-          - text: 'Hadoop on Active Directory: Enterprise Security Package'
-            url: ./domain-joined/apache-domain-joined-architecture.md
-          - text: Scale Hadoop clusters automatically
-            url: ./hdinsight-autoscale-clusters.md
-          - text: Migrate on-premises clusters to the cloud
-            url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-          - text: Enterprise security setup with Azure ADDS
-            url: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
-    
   # Card
   - title: Apache Spark
     linkLists:
@@ -74,18 +58,18 @@ landingContent:
             url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
           - text: Load data and run Apache Spark queries
             url: ./spark/apache-spark-load-data-run-query.md
-          - text: Predict food inspection results using sample data 
-            url: ./spark/apache-spark-machine-learning-mllib-ipython.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
+          - text: Manage Spark dependencies
+            url: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
+          - text: Optimize Spark jobs
+            url: ./spark/apache-spark-perf.md          
+          - text: Connect Spark and Hive with Hive Warehouse connector  
+            url: ./interactive-query/apache-hive-warehouse-connector.md   
+          - text: Apache Spark structured streaming with Apache Kafka 
+            url: ./hdinsight-apache-kafka-spark-structured-streaming.md                 
           - text: Query Apache HBase with Apache Spark
             url: ./hdinsight-using-spark-query-hbase.md
-          - text: Analyze Spark data with Power BI
-            url: ./spark/apache-spark-use-bi-tools.md
-          - text: Apache Spark structured streaming with Apache Kafka 
-            url: ./hdinsight-apache-kafka-spark-structured-streaming.md
-          - text: Connect Spark and Hive with Hive Warehouse connector  
-            url: ./interactive-query/apache-hive-warehouse-connector.md
 
   # Card
   - title: Apache Hadoop
@@ -94,19 +78,19 @@ landingContent:
         links:
           - text: What is Apache Hadoop?
             url: ./hadoop/apache-hadoop-introduction.md
-          - text: Create Apache Hadoop clusters in the Azure portal
+          - text: Create Hadoop clusters and run Apache Hive queries
             url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
           - text: Run Map Reduce samples 
             url: ./hadoop/apache-hadoop-run-samples-linux.md
-          - text: Monitor and manage Hadoop clusters with Ambari UI
-            url: ./hdinsight-hadoop-manage-ambari.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
-          - text: Connect Excel to Apache Hadoop
-            url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md         
-          - text: Monitor Hadoop with Azure monitor logs
-            url: ./hdinsight-hadoop-oms-log-analytics-tutorial
-          - text: Create on-demand clusters using ADF 
+          - text: Monitor and manage Hadoop clusters with Ambari UI
+            url: ./hdinsight-hadoop-manage-ambari.md        
+          - text: Use Microsoft Hive ODBC driver
+            url: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md     
+          - text: Query Apache Hive through JDBC driver
+            url: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+          - text: Create on-demand clusters using ADF
             url: ./hdinsight-hadoop-create-linux-clusters-adf.md
 
   # Card
@@ -116,16 +100,18 @@ landingContent:
         links:
           - text: What is Apache Kafka?
             url: ./kafka/apache-kafka-introduction.md
-          - text: Create Apache Kafka clusters in the Azure portal
+          - text: Create Apache Kafka clusters and manage Kafka topics
             url: ./kafka/apache-kafka-get-started.md
           - text: Use Kafka producer and consumper APIs
             url: ./kafka/apache-kafka-producer-consumer-api.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Use Kafka REST proxy
             url: ./kafka/rest-proxy.md
           - text: Apache Spark structured streaming with Apache Kafka
             url: ./hdinsight-apache-kafka-spark-structured-streaming.md
+          - text: Configure partition replicas for data high availability
+            url: ./kafka/apache-kafka-high-availability
 
   # Card
   - title: Apache HBase
@@ -140,7 +126,7 @@ landingContent:
             url: ./hbase/apache-hbase-query-with-phoenix.md
       - linkListType: tutorial
         links:
-          - text: Accelerated Writes for Apache HBase
+          - text: Enable Accelerated Writes for Apache HBase
             url: ./hbase/apache-hbase-accelerated-writes.md
           - text: Apache Phoenix best practices
             url: ./hbase/apache-hbase-phoenix-performance.md
@@ -154,8 +140,6 @@ landingContent:
         links:
           - text: What is Interactive Query?
             url: ./interactive-query/apache-interactive-query-get-started.md
-          - text: Execute Apache Hive queries using Apache Zeppelin
-            url: ./interactive-query/hdinsight-connect-hive-zeppelin.md
           - text: Analyze flight data with Apache Hive
             url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
       - linkListType: tutorial
@@ -166,3 +150,37 @@ landingContent:
             url: ./interactive-query/apache-hive-warehouse-connector.md
           - text: Connect Hive with Power BI using DirectQuery
             url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+
+  # Card
+  - title: Enterprise readiness
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: HDInsight security overview
+            url: ./domain-joined/hdinsight-security-overview.md
+          - text: Plan virtual network
+            url: ./hdinsight-plan-virtual-network-deployment.md
+          - text: 'Hadoop on Active Directory: Enterprise Security Package'
+            url: ./domain-joined/apache-domain-joined-architecture.md
+          - text: Migrate on-premises clusters to the cloud
+            url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+
+  # Card
+  - title: ML Services
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is ML Services on HDInsight?
+            url:  ./r-server/r-server-overview.md
+          - text: Execute an R script on an ML Services cluster
+            url: ./r-server/machine-learning-services-quickstart-job-rstudio.metadata
+
+  # Card
+  - title: Apache Strom
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Apache Storm?
+            url:  ./storm/apache-storm-overview
+          - text: Create an Apache Storm topology
+            url: ./storm/apache-storm-quickstart.md
