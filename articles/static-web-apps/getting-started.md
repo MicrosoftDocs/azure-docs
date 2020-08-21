@@ -22,9 +22,9 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Azure Static Web Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
 
-[!INCLUDE [create repository from template](../../includes/static-web-apps-getting-started-create-repo.md)]
+[!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
-[!INCLUDE [clone the repository](../../includes/static-web-apps-getting-started-clone-repo.md)]
+[!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
 Next, open Visual Studio Code and go to **File > Open Folder** to open the repository you just cloned to your machine in the editor.
 
@@ -101,7 +101,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     :::image type="content" source="media/getting-started/extension-open-in-portal.png" alt-text="Open portal":::
 
-[!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
 ## Clean up resources
 

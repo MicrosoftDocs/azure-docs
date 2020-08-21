@@ -22,9 +22,9 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [Azure](https://portal.azure.com) account
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed (version 2.8.0 and higher)
 
-[!INCLUDE [create repository from template](../../includes/static-web-apps-getting-started-create-repo.md)]
+[!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
-[!INCLUDE [clone the repository](../../includes/static-web-apps-getting-started-clone-repo.md)]
+[!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
 Next, switch to the new folder using the following command.
 
@@ -116,7 +116,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Select **my-first-web-static-app**.
 
-[!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
 ## Clean up resources
 

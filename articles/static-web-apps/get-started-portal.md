@@ -20,7 +20,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [GitHub](https://github.com) account
 - [Azure](https://portal.azure.com) account
 
-[!INCLUDE [create repository from template](../../includes/static-web-apps-getting-started-create-repo.md)]
+[!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
 ## Create a static web app
 
@@ -101,7 +101,7 @@ After you sign in with GitHub, enter the repository information.
 
     :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
 
-[!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
+[!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 
 ## Clean up resources
 
