@@ -47517,6 +47517,14 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/retail/howto-deploy-video-analytics-template.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
+      "redirect_document_id": true
+    },
+
+    
+
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -56099,6 +56107,11 @@
     {
       "source_path": "articles/media-services/latest/upload-files-rest-how-to.md",
       "redirect_url": "how-to-upload-media?tabs=rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-scale-up-node-type.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
     }
   ]
