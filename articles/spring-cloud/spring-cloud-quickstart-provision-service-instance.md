@@ -12,10 +12,12 @@ ms.custom: devx-track-java
 # Quickstart: Provision Azure Spring Cloud service
 
 You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
-
 ## Prerequisites
 
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+1. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+1. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+1. (Optional)[Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)and install the Azure Spring Cloud extension: `az extension add --name spring-cloud`.
+1. (Optional)[Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 ## Provision an instance of Azure Spring Cloud
 
@@ -51,15 +53,6 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 #### [CLI](#tab/Azure-CLI)
 
 The following procedure uses the Azure CLI extension to provision an instance of Azure Spring Cloud.
-
-### Prerequisites
-[Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-Install the Azure Spring Cloud extension for the Azure CLI using the following command
-
-```azurecli
-az extension add --name spring-cloud
-```
 
 ### Provision a service instance
 
