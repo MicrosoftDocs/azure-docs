@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -113,7 +113,7 @@ This query first uses the shared query, and then uses `limit` to further restric
 
 ## Supported KQL language elements
 
-Resource Graph supports all KQL [data types](/azure/kusto/query/scalar-data-types/),
+Resource Graph supports a subset of KQL [data types](/azure/kusto/query/scalar-data-types/),
 [scalar functions](/azure/kusto/query/scalarfunctions),
 [scalar operators](/azure/kusto/query/binoperators), and
 [aggregation functions](/azure/kusto/query/any-aggfunction). Specific
