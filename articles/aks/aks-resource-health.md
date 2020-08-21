@@ -11,14 +11,7 @@ ms.author: yunjchoi
 # Check for Resource Health events impacting your AKS cluster (Preview)
 
 
-When running your container workloads on AKS, you want to ensure you are able to troubleshoot and fix problems as soon as they arise to minimize the impact on the availability of your workloads. Now available in public preview for AKS, [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) gives you visibility into various health events that may cause your AKS cluster to be unavailable.
-
-Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources. Resource Health reports on the current and past health of your resources and helps you determine if the problem is caused by a user-initiated action or a platform event.
-
-
-Resource Health receives signals for your managed cluster to determine the cluster's health state. It examines the health state of your AKS cluster and reports actions required for each health signal. These signals range from auto-resolving issues, planned updates, unplanned health events, and unavailability caused by user-initiated actions. These signals are classified using the Azure Resource Health’s health status: *Available*, *Unavailable*, *Unknown*, and *Degraded*.
-
-![Subscription View](./media/aks-resource-health/resource-health-check.png)
+When running your container workloads on AKS, you want to ensure you can troubleshoot and fix problems as soon as they arise to minimize the impact on the availability of your workloads. [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) gives you visibility into various health events that may cause your AKS cluster to be unavailable.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -35,9 +28,13 @@ Resource Health receives signals for your managed cluster to determine the clust
 - Select **Resource health** in the left navigation.
 - Select your subscription and set the resource type to Azure Kubernetes Service (AKS).
 
+![resource-health-check](./media/aks-resource-health/resource-health-check.png)
+
 ## Check the health status
 
-Your cluster health will be displayed using the following statuses. 
+Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources. Resource Health reports on the current and past health of your resources and helps you determine if the problem is caused by a user-initiated action or a platform event.
+
+Resource Health receives signals for your managed cluster to determine the cluster's health state. It examines the health state of your AKS cluster and reports actions required for each health signal. These signals range from auto-resolving issues, planned updates, unplanned health events, and unavailability caused by user-initiated actions. These signals are classified using the Azure Resource Health’s health status: *Available*, *Unavailable*, *Unknown*, and *Degraded*.
 
 - **Available**: When there are no known issues affecting your cluster’s health, Resource Health reports your cluster as *Available*.
 
