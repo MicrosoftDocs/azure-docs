@@ -67,25 +67,25 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     Clear the box and press **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path":::
 
     # [Angular](#tab/angular)
 
     Type **dist/angular-basic** and press **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="Angular app files path":::
 
     # [React](#tab/react)
 
     Type **build** and press **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="React app files path":::
 
     # [Vue](#tab/vue)
 
     Type **dist** and press **Enter**.
 
-    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
+    :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="Vue app files path":::
 
     ---
 
