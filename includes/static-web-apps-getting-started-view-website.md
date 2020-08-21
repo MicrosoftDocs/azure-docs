@@ -16,6 +16,6 @@ The Static Web Apps overview window displays a series of links that help you int
 
 :::image type="content" source="../articles/static-web-apps/media/getting-started/overview-window.png" alt-text="Overview window":::
 
-1. Clicking on the banner that says, "Click here to check the status of your GitHub Actions runs" takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
+1. Clicking on the banner that says, _Click here to check the status of your GitHub Actions runs_ takes you to the GitHub Actions running against your repository. Once you verify the deployment job is complete, then you can navigate to your website via the generated URL.
 
-1. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.
+2. Once GitHub Actions workflow is complete, you can click on the _URL_ link to open the website in new tab.

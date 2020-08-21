@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-getting-started-clone-repo.md)]
 
-Now that the code is cloned locally, open Visual Studio Code and go to **File > Open Folder** to open the repository in the editor.
+Next, open Visual Studio Code and go to **File > Open Folder** to open the repository you just cloned to your machine in the editor.
 
 ## Create a static web app
 
@@ -41,7 +41,9 @@ Now that the code is cloned locally, open Visual Studio Code and go to **File > 
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
 
-1. The command palate opens at the top of the editor and prompts you to name your application. Type **my-first-static-web-app** and press **Enter**.
+1. The command palate opens at the top of the editor and prompts you to name your application.
+
+    Type **my-first-static-web-app** and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
@@ -53,7 +55,9 @@ Now that the code is cloned locally, open Visual Studio Code and go to **File > 
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application code location":::
 
-1. The extension is looking for the location of the API in your application. This article doesn't implement an API, so select **Skip for now** and press **Enter**.
+1. The extension is looking for the location of the API in your application. This article doesn't implement an API.
+
+    Select **Skip for now** and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
 
@@ -67,19 +71,19 @@ Now that the code is cloned locally, open Visual Studio Code and go to **File > 
 
     # [Angular](#tab/angular)
 
-    Enter **dist/angular-basic** and press **Enter**.
+    Type **dist/angular-basic** and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-artifact-angular.png" alt-text="App files path ":::
 
     # [React](#tab/react)
 
-    Enter **build** and press **Enter**.
+    Type **build** and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-artifact-react.png" alt-text="App files path ":::
 
     # [Vue](#tab/vue)
 
-    Enter **dist** and press **Enter**.
+    Type **dist** and press **Enter**.
 
     :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
 
