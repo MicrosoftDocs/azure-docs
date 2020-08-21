@@ -83,9 +83,6 @@ StorageBlobLogs
 
 When you are confident that traffic from clients using older versions of TLS is minimal, or that it's acceptable to fail requests made with an older version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. Requiring that clients use a minimum version of TLS to make requests against a storage account is part of a strategy to minimize security risks to your data.
 
-> [!NOTE]
-> When your storage account is configured to require a minimum version of TLS, requests to the public endpoint for your storage account will continue to succeed with earlier versions of TLS, while requests to data resources in the account will fail. The public endpoint is the root URL for your storage account&mdash;for example, `https:\\mystorageaccount.blob.core.windows.net`.
-
 ### Configure the minimum TLS version for a storage account
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
@@ -337,6 +334,10 @@ After you create the policy with the Deny effect and assign it to a scope, a use
 The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when a policy with a Deny effect requires that the minimum TLS version be set to TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
+
+## Network considerations
+
+When a client sends a request to storage account, the client establishes a connection with the public endpoint of the storage account first, before processing any requests. The minimum TLS version setting is checked after the connection is established. If the request uses an earlier version of TLS than that specified by the setting, the connection will continue to succeed, but the request will eventually fail. For more information about public endpoints for Azure Storage, see [Resource URI syntax](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## Next steps
 
