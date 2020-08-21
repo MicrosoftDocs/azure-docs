@@ -112,7 +112,7 @@ The code snippets in this guide use remote forms accessed by URLs. If you want t
 
 You'll also need to add references to the URLs for your training and testing data.
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Use the sample from and receipt images included in the samples below (also available on [GitHub]((https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms))) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
+* Use the sample from and receipt images included in the samples below (also available on [GitHub]((https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
 > [!NOTE]
 > The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
