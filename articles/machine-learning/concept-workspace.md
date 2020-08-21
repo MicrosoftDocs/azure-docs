@@ -117,7 +117,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 ### Azure storage account
 
-The Azure Storage account created by default with the workspace is a general-purpose v1 account. You can upgrade this to general-purpose v2 after the workspace has been created by following the steps in the [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-upgrade) article.
+The Azure Storage account created by default with the workspace is a general-purpose v1 account. You can upgrade this to general-purpose v2 after the workspace has been created by following the steps in the [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) article.
 
 > [!IMPORTANT]
 > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
