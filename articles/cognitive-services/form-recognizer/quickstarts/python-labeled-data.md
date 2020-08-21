@@ -36,9 +36,9 @@ To complete this quickstart, you must have:
 
 Next you'll need to set up the required input data. The labeled data feature has special input requirements beyond what's needed to train a custom model without labels.
 
-Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
+Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. When you train, you'll need to direct the API to a subfolder.
 
-In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
+In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these files below.
 
 * **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, PDF, or TIFF.
 * **OCR layout files** - these are JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
@@ -450,6 +450,7 @@ Copy the `"modelId"` value for use in the following steps.
 When the process is completed, you'll receive a `202 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The `"selectionMarks"` node (in v2.1 preview) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
 
 # [v2.0](#tab/v2-0)
+```json
 {
   "status": "succeeded",
   "createdDateTime": "2020-08-21T02:16:28Z",
@@ -509,7 +510,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
             ]
           },
 		  ...
-            ]KEEP
+            ]
           }
         ] 
       }
@@ -582,7 +583,9 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
     "errors": []
   }
 }
-# [v2.1 preview](#tab/v2-1)    
+```
+# [v2.1 preview](#tab/v2-1) 
+```json   
 {
   "status": "succeeded",
   "createdDateTime": "2020-08-21T02:29:42Z",
@@ -728,6 +731,8 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
     "errors": []
   }
 }
+```
+
 ---
 
 
