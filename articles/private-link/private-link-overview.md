@@ -65,6 +65,7 @@ Azure Private Link provides the following benefits:
 | Azure SignalR | EAST US, WEST US 2, SOUTH CENTRAL US      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
 | Azure File Sync | All public regions      | |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
+| Azure Batch | EAST US, WEST US 2, SOUTH CENTRAL US, WEST CENTRAL US, FRANCE CENTRAL, EAST ASIA, UK SOUTH, US GOV VIRGINIA, US GOV ARIZONA  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).
 
