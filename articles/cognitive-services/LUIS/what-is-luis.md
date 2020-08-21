@@ -51,7 +51,7 @@ Learn more about [NLP](artificial-intelligence.md), and the LUIS-specific area o
 
 ## Step 1: Design and build your model
 
-Design your model with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide data that needs to be extracted with [machine-learning entities](luis-concept-entity-types#effective-machine-learned-entities.md).
+Design your model with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide data that needs to be extracted with [machine-learning entities](luis-concept-entity-types.md#effective-machine-learned-entities.md).
 
 |Example user utterance|Intent|Extracted data|
 |-----------|-----------|-----------|
@@ -59,7 +59,7 @@ Design your model with categories of user intentions called **[intents](luis-con
 |`When does your store open?`|StoreHoursAndLocation|open|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
-Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs, or with the [**LUIS portal**](https://www.luis.ai), or both. Learn more how to build with the [portal](get-started-portal-build-app.md) and the [SDK client libraries](quickstart-sdk).
+Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs, or with the [**LUIS portal**](https://www.luis.ai), or both. Learn more how to build with the [portal](get-started-portal-build-app.md) and the [SDK client libraries](quickstart-sdk.md).
 
 ## Step 2: Get the query prediction
 
@@ -117,11 +117,11 @@ Other Cognitive Services used with LUIS:
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
 * [Speech service](../Speech-Service/overview.md) converts spoken language requests into text.
 
-LUIS provides Text Analytics service features of [sentiment analysis](luis-how-to-publish-app#configuring-publish-settings) and [key phrase extraction](luis-reference-prebuilt-keyphrase.md) as part of your existing LUIS resources.
+LUIS provides functionality from Text Analytics as part of your existing LUIS resources. This functionality includes [sentiment analysis](luis-how-to-publish-app.md#configuring-publish-settings) and [key phrase extraction](luis-reference-prebuilt-keyphrase.md) with the prebuilt keyPhrase entity.
 
 ## Learn with the Quickstarts
 
-Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal-build-app.md) and the [SDK client libraries](quickstart-sdk).
+Learn about LUIS with hands-on quickstarts using the [portal](get-started-portal-build-app.md) and the [SDK client libraries](quickstart-sdk.md).
 
 
 ## Next steps
