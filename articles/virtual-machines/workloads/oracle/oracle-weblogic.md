@@ -31,7 +31,7 @@ _These offers are Bring-Your-Own-License_. They assume you've already got the ap
 
 The offers support a range of operating system, Java and WebLogic versions such as WebLogic Server 14 and JDK 11 on Oracle Linux 7.6 through base images. These base images are also available on Azure on their own. The base images are suitable for customers that require very highly customized Azure deployments. The current set of base images are available [here](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/weblogic%20server%20base%20image).
 
-_If you want to work closely on your migration scenarios with the engineering team developing these offers, select the [CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects, and engineers will reach back out to you shortly and start collaboration! The opportunity to collaborate on a migration scenario is completely free while the offers are under active development.
+_If you want to work closely on your migration scenarios with the engineering team developing these offers, select the [CONTACT ME](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ on the [offer overview page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects, and engineers will reach back out to you shortly and start collaboration! The opportunity to collaborate on a migration scenario is completely free while the offers are under active development.
 
 ## Oracle WebLogic Server Single Node
 
@@ -51,7 +51,7 @@ This offer creates a highly available and scalable dynamic cluster of WLS virtua
 
 ## Next steps
 
-Explore the offers in the Azure Marketplace.
+Explore the offers on Azure.
 
 > [!div class="nextstepaction"]
 > [Oracle WebLogic Server Single Node](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls)
