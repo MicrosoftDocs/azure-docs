@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
+ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device']
 ---
 
 # Set up X.509 security in your Azure IoT hub

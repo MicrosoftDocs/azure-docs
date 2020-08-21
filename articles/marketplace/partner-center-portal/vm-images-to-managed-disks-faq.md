@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
+author: iqshahmicrosoft
+ms.author: iqshah
 ---
 
 # We’re moving virtual machine (VM) images on Azure Marketplace to managed disk storage

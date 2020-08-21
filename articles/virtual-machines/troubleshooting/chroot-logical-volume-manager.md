@@ -276,6 +276,6 @@ If the VM is running the Disk Swap will shut it down, reboot the VM once the dis
 ## Next steps
 Learn more about
 
- [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+ [Azure Serial Console]( ./serial-console-linux.md)
 
 [Single user mode](./serial-console-grub-single-user-mode.md)

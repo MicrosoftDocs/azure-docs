@@ -30,7 +30,7 @@ To use the solution, you need to enable logging of Azure Key Vault diagnostics a
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
 
-1. Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add the Azure Key Vault solution to your Log Analytics workspace.
+1. Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md) to add the Azure Key Vault solution to your Log Analytics workspace.
 2. Enable diagnostics logging for the Key Vault resources to monitor, using either the [portal](#enable-key-vault-diagnostics-in-the-portal) or [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### Enable Key Vault diagnostics in the portal
@@ -128,7 +128,7 @@ In January 2017, the supported way of sending logs from Key Vault to Log Analyti
 To use the updated solution:
 
 1. [Configure diagnostics to be sent directly to a Log Analytics workspace from Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
-2. Enable the Azure Key Vault solution by using the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md)
+2. Enable the Azure Key Vault solution by using the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md)
 3. Update any saved queries, dashboards, or alerts to use the new data type
    + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
    + Instead of: `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`
@@ -145,4 +145,5 @@ Data collected before the change is not visible in the new solution. You can con
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
-* Use [Log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) to view detailed Azure Key Vault data.
+* Use [Log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed Azure Key Vault data.
+

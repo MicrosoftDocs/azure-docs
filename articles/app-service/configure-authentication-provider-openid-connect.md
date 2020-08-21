@@ -56,7 +56,7 @@ This section will walk you through updating the configuration to include your ne
        "registration" : {},
        "login": {
              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "loginScopes": [],
+             "scope": [],
              "loginParameterNames": [],
        }
     }
@@ -107,7 +107,7 @@ An example configuration might look like the following (using Sign in with Apple
                         "secretSettingName": "APPLE_GENERATED_CLIENT_SECRET"
                     },
                     "openIdConnectConfiguration": {
-                        "authorizationEndpoint": "https://appleid.apple.com/.well-known/openid-configuration"
+                        "wellKnownOpenIdConfiguration": "https://appleid.apple.com/.well-known/openid-configuration"
                     }
                 },
                 "login": {

@@ -84,13 +84,13 @@ Azure Automation Hybrid Runbook Worker can be used in Azure Government to suppor
 
 ## Update Management on Hybrid Runbook Worker
 
-When Azure Automation [Update Management](automation-update-management.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker. Each worker can support runbooks targeted at update management.
+When Azure Automation [Update Management](update-management/update-mgmt-overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker. Each worker can support runbooks targeted at update management.
 
 A machine configured this way is not registered with any Hybrid Runbook Worker groups already defined in your Automation account. You can add the machine to a Hybrid Runbook Worker group, but you must use the same account for both Update Management and the Hybrid Runbook Worker group membership. This functionality was added to version 7.2.12024.0 of Hybrid Runbook Worker.
 
 ### Update Management addresses for Hybrid Runbook Worker
 
-On top of the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has additional network configuration requirements described under the [network planning](automation-update-management.md#ports) section.
+On top of the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has additional network configuration requirements described under the [network planning](update-management/update-mgmt-overview.md#ports) section.
 
 ## Azure Automation State Configuration on a Hybrid Runbook Worker
 

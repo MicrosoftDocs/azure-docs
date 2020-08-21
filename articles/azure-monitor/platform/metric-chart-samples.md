@@ -48,5 +48,6 @@ In the metric picker, select your storage account and the **Transactions** metri
 
 ## Next steps
 
-* Learn about Azure Monitor [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
+* Learn about Azure Monitor [Workbooks](./workbooks-overview.md)
 * Learn more about [Metric Explorer](metrics-charts.md)
+

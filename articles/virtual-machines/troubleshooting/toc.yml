@@ -57,7 +57,7 @@
   - name: VM startup is stuck
     href: troubleshoot-vm-boot-configure-update.md
   - name: VM lifecycle and states
-    href: ../windows/states-lifecycle.md
+    href: ../states-lifecycle.md
 - name: VM is not booting
   items:
   - name: Linux
@@ -194,7 +194,7 @@
 - name: Virtual Disk Management issues
   items:
   - name: Overview
-    href: ../windows/managed-disks-overview.md
+    href: ../managed-disks-overview.md
   - name: FAQ
     href: ../windows/faq-for-disks.md
   - name: Errors when deleting storage resources
@@ -233,6 +233,8 @@
     href: ../extensions/troubleshoot.md
   - name: Install Windows VM agent offline
     href: install-vm-agent-offline.md
+  - name: Troubleshoot Windows VM agent
+    href: windows-azure-guest-agent.md
 - name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM

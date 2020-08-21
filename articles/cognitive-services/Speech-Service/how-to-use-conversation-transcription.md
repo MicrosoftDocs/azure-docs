@@ -32,7 +32,7 @@ The Speech Device SDK provides sample code in Java for real-time audio capture u
 
 ## Prerequisites
 
-A Speech service subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
+A Speech service subscription. You can create [a free Azure account](https://azure.microsoft.com/free/cognitive-services/) if you don't have one.
 
 ## Create voice signatures
 

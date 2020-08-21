@@ -78,7 +78,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * The `endpoint-name` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to `EventRoutes.Add` also takes a [**filter** parameter](./how-to-manage-routes.md#filter-events), which can be used to restrict the types of events that follow this route.
+The event route object passed to `EventRoutes.Add` also takes a [**filter** parameter](./how-to-manage-routes-apis-cli.md#filter-events), which can be used to restrict the types of events that follow this route.
 
 Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
 
@@ -91,7 +91,7 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 ## Next steps
 
 See how to set up and manage an event route:
-* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md)
 
 Or, see how to use Azure Functions to route events within Azure Digital Twins:
 * [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md)

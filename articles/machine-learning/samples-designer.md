@@ -21,6 +21,8 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Use sample pipelines
 
 The designer saves a copy of the sample pipelines to your studio workspace. You can edit the pipeline to adapt it to your needs and save it as your own. Use them as a starting point to jumpstart your projects.

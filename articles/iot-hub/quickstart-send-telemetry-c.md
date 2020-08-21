@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: [mvc, mqtt]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development']
 ms.date: 04/10/2019
 ms.author: wesmc
 # As a C developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 

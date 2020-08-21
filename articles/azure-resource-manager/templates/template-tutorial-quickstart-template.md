@@ -4,7 +4,8 @@ description: Learn how to use Azure Quickstart templates to complete your templa
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Use Azure Quickstart templates

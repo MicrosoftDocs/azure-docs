@@ -8,9 +8,9 @@ ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 03/09/2020
-
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Use authentication credential secrets in Azure Machine Learning training runs

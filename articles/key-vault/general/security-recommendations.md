@@ -26,7 +26,7 @@ Some of the recommendations included in this article can be automatically monito
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-|Enable soft-delete | [Soft-delete](overview-soft-delete.md) allows you to recover deleted vaults and vault objects |  - |
+|Enable soft-delete | [Soft-delete](soft-delete-overview.md) allows you to recover deleted vaults and vault objects |  - |
 | Limit access to vault data  | Follow the principle of least privilege and limit which members of your organization have access to vault data |  - |
 
 ## Identity and access management

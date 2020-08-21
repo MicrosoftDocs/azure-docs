@@ -3,9 +3,10 @@ title: Azure CLI Samples
 description: Azure CLI Samples
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/01/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI Samples for Linux virtual machines

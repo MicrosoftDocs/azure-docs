@@ -1,6 +1,6 @@
 ---
 title: Comparison of Azure Data Lake Storage Gen1 with Blob storage
-description: Provides a summary of the differences between Azure Data Lake Storage Gen1 and Azure Blob storage.
+description: Learn about the differences between Azure Data Lake Storage Gen1 and Azure Blob Storage regarding some key aspects of big data processing.
 
 author: twooley
 ms.service: data-lake-store
@@ -29,7 +29,7 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Data Operations - Authorization |POSIX Access Control Lists (ACLs).  ACLs based on Azure Active Directory Identities can be set at the file and folder level. |For account-level authorization – Use [Account Access Keys](../storage/common/storage-account-keys-manage.md)<br>For account, container, or blob authorization -  Use [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Data Operations - Auditing |Available. See [here](data-lake-store-diagnostic-logs.md) for information. |Available |
 | Encryption data at rest |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (preview)</li></ul><li>Client-side encryption</li></ul> |
-| Management operations (for example, Account Create) |[Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management |[Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management |
+| Management operations (for example, Account Create) |[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management |[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management |
 | Developer SDKs |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Optimized performance for parallel analytics workloads. |
 | Size limits |No limits on account sizes, file sizes, or number of files |For specific limits, see [Scalability targets for standard storage accounts](../storage/common/scalability-targets-standard-account.md) and [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md). Larger account limits available by contacting [Azure Support](https://azure.microsoft.com/support/faq/) |
@@ -37,5 +37,3 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Service state |Generally available |Generally available |
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |Available in all Azure regions |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |
-
-

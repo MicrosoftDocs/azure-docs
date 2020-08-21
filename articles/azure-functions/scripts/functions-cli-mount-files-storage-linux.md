@@ -2,7 +2,8 @@
 title: Mount a file share to a Python function app - Azure CLI
 description: Create a serverless Python function app and mount an existing file share using the Azure CLI.
 ms.topic: sample
-ms.date: 03/01/2020
+ms.date: 03/01/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Mount a file share to a Python function app using Azure CLI

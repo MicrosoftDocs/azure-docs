@@ -28,7 +28,7 @@ After [failover](site-recovery-failover.md) of on-premises VMware VMs or physica
     - If you're using either the ESXi 5.5 free edition or the vSphere 6 Hypervisor free edition. Upgrade to a different version.
     - If you have a Windows Server 2008 R2 SP1 physical server.
     - VMware VMs can't fail back to Hyper-V.
-    - VMs that have [been migrated](migrate-overview.md#what-do-we-mean-by-migration).
+    - VMs that have been migrated.
     - A VM that's been moved to another resource group.
     - A replica Azure VM that's been deleted.
     - A replica Azure VM that isn't protected (replicating to the on-premises site).

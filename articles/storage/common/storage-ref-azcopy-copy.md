@@ -82,13 +82,13 @@ cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[co
 Upload an entire directory by using a SAS token:
   
 ```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
 or
 
 ```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --put-md5
+azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive --put-md5
 ```
 
 Upload a set of files by using a SAS token and wildcard (*) characters:
@@ -100,7 +100,7 @@ azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[cont
 Upload files and directories by using a SAS token and wildcard (*) characters:
 
 ```azcopy
-azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
 Download a single file by using OAuth authentication. If you have not yet logged into AzCopy, run the `azcopy login` command before you run the following command.
@@ -124,7 +124,7 @@ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[S
 Download an entire directory by using a SAS token:
  
 ```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive
 ``` 
 
 A note about using a wildcard character (*) in URLs:
@@ -174,7 +174,7 @@ azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/direc
 Copy all blob containers, directories, and blobs from storage account to another by using a SAS token:
 
 ```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 Copy a single object to Blob Storage from Amazon Web Services (AWS) S3 by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
@@ -186,7 +186,7 @@ azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].bl
 Copy an entire directory to Blob Storage from AWS S3 by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
  
 ```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
     
   Refer to https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html to better understand the [folder] placeholder.
@@ -194,19 +194,19 @@ azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].bl
 Copy all buckets to Blob Storage from Amazon Web Services (AWS) by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
  
 ```azcopy
-azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 Copy all buckets to Blob Storage from an Amazon Web Services (AWS) region by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
  
 ```azcopy
-- azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+- azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like the previous examples, you'll need an access key and a SAS token. Make sure to set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
 
 ```azcopy
-- azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+- azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 ## Options
