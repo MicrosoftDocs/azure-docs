@@ -24,7 +24,7 @@ You must have a [Silver or Gold Cloud Platform competency level](https://partner
     ![Illustrates the left-navigation menu.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+>After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 

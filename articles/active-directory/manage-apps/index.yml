@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is application management?
             url: what-is-application-management.md
+          - text: What is single sign-on?
+            url: what-is-single-sign-on.md
       - linkListType: quickstart
         links:
           - text: Quickstart Series

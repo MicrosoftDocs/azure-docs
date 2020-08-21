@@ -1,11 +1,18 @@
-- name: Azure Data Share Documentation
+- name: Azure Data Share documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Data Share?
     href: overview.md
-  - name: Supported data stores 
+  - name: Supported data stores
     href: supported-data-stores.md
+- name: Quickstarts
+  items:
+  - name: Create data share - Azure portal
+    href: share-your-data-portal.md
+  - name: Create data share - ARM template
+    displayName: Resource Manager
+    href: share-your-data-arm.md
 - name: Tutorials
   expanded: true
   items:
@@ -15,12 +22,12 @@
       href: subscribe-to-data-share.md
 - name: Concepts
   items:
-  - name: Azure Data Share terminology 
+  - name: Azure Data Share terminology
     href: terminology.md
-  - name: Roles and requirements 
+  - name: Roles and requirements
     href: concepts-roles-permissions.md
   - name: Understand pricing
-    href: concepts-pricing.md   
+    href: concepts-pricing.md
 - name: Samples
   items:
   - name: Code samples
@@ -31,7 +38,7 @@
   items:
   - name: Monitor
     href: how-to-monitor.md
-  - name: Troubleshoot 
+  - name: Troubleshoot
     href: data-share-troubleshoot.md
   - name: Add datasets
     href: how-to-add-datasets.md
@@ -47,6 +54,9 @@
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Share Azure Data Explorer data
+    href: /azure/data-explorer/data-share
+    maintainContext: true
 - name: Reference
   items:
   - name: .NET
@@ -61,7 +71,7 @@
   items:
   - name: Microsoft Q&A question page
     href: https://docs.microsoft.com/answers/topics/azure-data-share.html
-  - name: Stack Overflow 
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-share
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/Azure-Data-Share/bg-p/AzureDataShareBlog

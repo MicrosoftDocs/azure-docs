@@ -18,7 +18,7 @@ ms.custom: devx-track-python
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with Python to extract and identify relevant information in USA sales receipts.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -41,7 +41,9 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
-    ```python
+  # [v2.0](#tab/v2-0)    
+    ```
+    python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -78,6 +80,51 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
         print("POST analyze failed:\n%s" % str(e))
         quit()
     ```
+    
+   # [v2.1 preview](#tab/v2-1)    
+    ```
+    python
+    ########### Python Form Recognizer Async Receipt #############
+
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.0/prebuilt/receipt/analyze"
+    source = r"<path to your receipt>"
+    
+    headers = {
+        # Request headers
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    
+    params = {
+        "includeTextDetails": True
+        "locale": "en-US"
+    }
+    
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
+    ```
+> [!NOTE]
+> **Language input** 
+>
+> The Analzye Receipt 2.1 release operation has an optional request parameter for language, locale of the receipt. Supported locales include: en-AU, en-CA, en-GB, en-IN, en-US. 
 
 1. Save the code in a file with a .py extension. For example, *form-recognizer-receipts.py*.
 1. Open a command prompt window.

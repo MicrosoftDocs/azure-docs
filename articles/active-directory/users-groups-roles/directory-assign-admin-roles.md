@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 06/15/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -84,11 +84,11 @@ The [Privileged authentication administrator](#privileged-authentication-adminis
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 >
->- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
->- Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
->- Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
->- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+>* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+>* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+>* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+>* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+>* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 ### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
 
@@ -201,7 +201,7 @@ Users with this role have global permissions within Microsoft Dynamics 365 Onlin
 
 ### [Exchange Administrator](#exchange-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online administrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144).
@@ -272,7 +272,7 @@ Users with this role can change passwords, invalidate refresh tokens, manage ser
 >
 >- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Helpdesk Administrators. Through this path a Helpdesk Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >- Azure subscription owners, who might have access to sensitive or private information or critical configuration in Azure.
->- Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+>- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
@@ -462,7 +462,7 @@ Users with this role can open support requests with Microsoft for Azure and Offi
 
 ### [SharePoint Administrator](#sharepoint-service-administrator-permissions)
 
-Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
@@ -491,7 +491,7 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 ### [Teams Service Administrator](#teams-service-administrator-permissions)
 
-Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health.
+Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health.
 
 ### [User Administrator](#user-administrator-permissions)
 
@@ -508,7 +508,7 @@ Users with this role can create users, and manage all aspects of users with some
 >
 >- Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to User Administrators. Through this path a User Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >- Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
->- Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+>- Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 >- Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >- Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
@@ -1025,7 +1025,6 @@ Can read & write basic directory information. For granting access to application
 | microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for a user in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName /update | Update the users.userPrincipalName property in Azure Active Directory. |
 
-
 ### Exchange Service Administrator permissions
 
 Can manage all aspects of the Exchange product.
@@ -1040,11 +1039,11 @@ Can manage all aspects of the Exchange product.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
-| microsoft.directory/groups/unified/create | Create Office 365 Groups. |
-| microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
-| microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
+| microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
+| microsoft.directory/groups/unified/delete | Delete Microsoft 365 groups. |
+| microsoft.directory/groups/unified/members/update | Update membership of Microsoft 365 groups. |
+| microsoft.directory/groups/unified/owners/update | Update ownership of Microsoft 365 groups. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -1754,11 +1753,11 @@ Can manage all aspects of the SharePoint service.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
-| microsoft.directory/groups/unified/create | Create Office 365 Groups. |
-| microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
-| microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
+| microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
+| microsoft.directory/groups/unified/delete | Delete Microsoft 365 groups. |
+| microsoft.directory/groups/unified/members/update | Update membership of Microsoft 365 groups. |
+| microsoft.directory/groups/unified/owners/update | Update ownership of Microsoft 365 groups. |
 | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
@@ -1829,11 +1828,11 @@ Can manage the Microsoft Teams service.
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
-| microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
-| microsoft.directory/groups/unified/create | Create Office 365 Groups. |
-| microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
-| microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.directory/groups/unified/basic/update | Update basic properties of Microsoft 365 groups. |
+| microsoft.directory/groups/unified/create | Create Microsoft 365 groups. |
+| microsoft.directory/groups/unified/delete | Delete Microsoft 365 groups. |
+| microsoft.directory/groups/unified/members/update | Update membership of Microsoft 365 groups. |
+| microsoft.directory/groups/unified/owners/update | Update ownership of Microsoft 365 groups. |
 | microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |

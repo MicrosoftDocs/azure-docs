@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with XaitPorter | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and XaitPorter.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with XaitPorter
 
