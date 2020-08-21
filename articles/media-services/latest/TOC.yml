@@ -17,6 +17,8 @@
       href: create-account-howto.md
     - name: Access the API
       href: access-api-howto.md
+    - name: Set up Azure Cloud Shell
+      href: https://docs.microsoft.com/azure/cloud-shell/overview
     - name: Develop with REST
       items:
       - name: Connect with Postman

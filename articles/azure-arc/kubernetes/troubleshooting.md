@@ -65,9 +65,9 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-All Pods should show `STATUS` as `Running` and `READY` should be either `3/3` or `2/2`. Fetch logs and describe pods that are returning `Error` or `CrashLoopBackOff`.
+All Pods should show `STATUS` as `Running` and `READY` should be either `3/3` or `2/2`. Fetch logs and describe pods that are returning `Error` or `CrashLoopBackOff`. If any of these pods are stuck in `Pending` state it could be because of insufficient resources on cluster nodes. [Scaling up your cluster](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) will get these pods to transition to `Running` state.
 
-## Unable to connect my Kubernetes cluster to Azure
+## Connecting Kubernetes clusters to Azure Arc
 
 Connecting clusters to Azure requires access to both an Azure subscription and `cluster-admin` access to a target cluster. If the cluster cannot be reached or has insufficient permissions onboarding will fail.
 
@@ -95,8 +95,6 @@ $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
-
-There was a problem with connect-agent deployment. Please run 'kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent' to debug the error.
 ```
 
 ## Configuration management
@@ -154,4 +152,11 @@ kind: List
 metadata:
   resourceVersion: ""
   selfLink: ""
+```
+## Monitoring
+
+Azure Monitor for containers requires its DaemonSet to be run in privileged mode. To successfully set up a Canonical Charmed Kubernetes cluster for monitoring, run the following command:
+
+```console
+juju config kubernetes-worker allow-privileged=true
 ```
