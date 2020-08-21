@@ -13,19 +13,19 @@ ms.date: 8/8/2020
 ---
 # Graph search query syntax
 
-The graph search feature support search by full-text keyword on node name and comment. It also supports filter by node's property like runStatus, duration, computeTarget etc.
+The graph search feature allows customer to search for a node by its name and several properties. Customer can type keywords and add filters in UI as shown in below image. 
 
-The keyword search leverages lucene query. The filter recognizes a simple filter query describes below.
+ ![graph search](media/search/graph-search.png)
 
-The complete search query looks like this:  
-**[lucene query] | [filter query]** 
+It's also possible to type a search query directly. This article explains the supported search query syntax. 
+
+The graph search feature supports full-text keyword search on node name and comment. It also supports add filter on node property like runStatus, duration, computeTarget. The keyword search is based on lucene query. The filter recognizes a simple filter query describes below. The complete search query looks like this:  
+
+**[lucene query | [filter query]** 
 
  
 
-Customer can use only one of Lucene query or filter query. If there is need to use both, separator **|** is required.
-
- 
-The syntax of the filter query is more strict than Lucene query, so if customer input can be parsed as both, filter query will be applied.
+Customer can use only one of Lucene query or filter query. If customer wants to use both, separator **|** is required. The syntax of the filter query is more strict than Lucene query. So if customer input can be parsed as both, filter query will be applied.
 
  
 
@@ -36,7 +36,7 @@ Graph search will use Lucene simple query as full-text search syntax on node "na
 
  
 - AND/OR
-- Wildcard matching ? / *
+- Wildcard matching  ? / *
 
  
 ### Examples
@@ -64,7 +64,7 @@ Graph search will use Lucene simple query as full-text search syntax on node "na
 
  
 
-- Wildcard matching (**Please note that * can not be the first character of lucene query**)
+- Wildcard matching (**Please note that * cannot be the first character of lucene query**)
     - machi?e learning
     - mach*ing
 
@@ -86,10 +86,10 @@ Filter query will follow below pattern.
 
 Following node properties are supported as key:
 
-- Run Status
-- Compute Target
-- Duration
-- Reuse
+- runStatus
+- compute
+- duration
+- reuse
 
 And following operators are supported:
 
@@ -103,9 +103,6 @@ And following operators are supported:
 - In: `in`
 
  
-
-
-
  
 
 ### Example
@@ -114,10 +111,10 @@ And following operators are supported:
 - status in { Failed,NotStarted}
 - compute in {gpu-cluster}; runStatus in {Completed}
 
-### Technical notes
+## Technical notes
 
 - The relation between different filters is "AND"
-- If `>= / > / < / <=` these 4 operators is chosed, the value will be automatically convert to number type, otherwise string is used for comparison.
+- If `>= / > / < / <=` these four operators is chosen, the value will be automatically converted to number type, otherwise string is used for comparison.
 - For all string type value, case is insensitive in comparison.
-- Operator "In" expect a collection as value, collection syntax is `{name1, name2, name3}`
+- Operator "In" expects a collection as value, collection syntax is `{name1, name2, name3}`
 - Space will be ignored between keywords
