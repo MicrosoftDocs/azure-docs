@@ -26,7 +26,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
 - Task agent pools are available in preview in the following regions: East US, East US 2, South Central US, and West US 2.
-- For each registry, the default total vCPU (core) quota for all agent pools is 16. Open a [support request][open-support-ticket] for additional allocation.
+- For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
 ## Prerequisites
@@ -38,11 +38,13 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 Agent pool tiers provide the following resources per instance in the pool.
 
-|Tier  |CPU  |Memory (GB)  |
-|---------|---------|---------|
-|S1     |  2       |  3       |
-|S2     |  4       |   8      |
-|S3     |    8     |   16      |
+|Tier    | Type  |  CPU  |Memory (GB)  |
+|---------|---------|---------|---------|
+|S1     |  standard    | 2       |  3       |
+|S2     |  standard    | 4       |   8      |
+|S3     |   standard    | 8     |   16      |
+|I6     |  isolated    | 16      |  256      |
+
 
 ## Create and manage a task agent pool
 
