@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -19,6 +19,29 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
+## Network security
+
+*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+
+### 1.10: Document traffic configuration rules
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32270.).
+
+**Guidance**: Use resource tags for network security groups and other resources related to network security.  Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.   Azure Public IPs can be assigned tags.
+
+You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
+
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags) 
+
+- [How to create an Azure Virtual Network](quick-create-portal.md) 
+
+- [How to filter network traffic with network security group rules](tutorial-filter-network-traffic.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
 ## Logging and monitoring
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
@@ -28,7 +51,15 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32273.).
 
-**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate logs related to network traffic. Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate logs related to network traffic. 
+
+Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
+
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -106,17 +137,6 @@ Azure role-based access control (RBAC) allows you to manage access to Azure reso
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32283.).
-
-**Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
@@ -127,34 +147,6 @@ Azure role-based access control (RBAC) allows you to manage access to Azure reso
 You can also enable a Just-In-Time access by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
 - [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32285.).
-
-**Guidance**: Wherever possible, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations. 
-
-- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32286.).
-
-**Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
-
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -188,7 +180,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -229,7 +221,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -261,24 +253,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Currently Not Available
-
-**Responsibility**: Customer
-
-## Data protection
-
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
-
-### 4.9: Log and alert on changes to critical Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32303.).
-
-**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Public IP and other critical or related resources.
-
-- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
-
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -300,6 +275,19 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 - [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
+
+### 6.2: Maintain asset metadata
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32310.).
+
+**Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
+
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -363,6 +351,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 Not allowed resource types
 Allowed resource types
+
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
@@ -379,21 +368,6 @@ Allowed resource types
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-## Malware defense
-
-*For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
-
-### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32336.).
-
-**Guidance**: Not applicable; this recommendation is meant for Azure Compute resources
 
 **Azure Security Center monitoring**: Not applicable
 
