@@ -1,7 +1,7 @@
 ---
 title: Publish a Managed Service offer to Azure Marketplace
 description: Learn how to publish a Managed Service offer that onboards customers to Azure Lighthouse.
-ms.date: 07/28/2020
+ms.date: 08/18/2020
 ms.topic: how-to
 ---
 
@@ -17,8 +17,19 @@ Per the [Managed Service offer certification requirements](/legal/marketplace/ce
 
 Your Microsoft Partner Network (MPN) ID will be [automatically associated](../../cost-management-billing/manage/link-partner-id.md) with the offers you publish to track your impact across customer engagements.
 
-> [!NOTE]
-> If you don't want to publish an offer to Azure Marketplace, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Lighthouse](onboard-customer.md).
+If you don't want to publish an offer to Azure Marketplace, or don't meet all the requirements, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Lighthouse](onboard-customer.md).
+
+The following table can help determine whether to onboard customers by publishing a Managed Service offer or by using Azure Resource Manager templates.
+
+|**Consideration**  |**Managed Service offer**  |**ARM templates**  |
+|---------|---------|---------|
+|Requires [Partner Center account](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
+|Requires [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
+|Available to new customers through Azure Marketplace     |Yes     |No       |
+|Can limit offer to specific customers     |Yes (only with private offers, which can't be used with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program)         |Yes         |
+|Requires customer acceptance in Azure portal     |Yes     |No   |
+|Can use automation to onboard multiple subscriptions, resource groups, or customers |No     |Yes    |
+|Immediate access to new built-in roles and Azure Lighthouse features     |Not always (generally available after some delay)         |Yes         |
 
 ## Create your offer
 

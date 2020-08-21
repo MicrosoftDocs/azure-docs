@@ -64,7 +64,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
-| [NV4](nvv4-series.md) |230 - 260** | 2:1 |
+| [NVv4](nvv4-series.md) |230 - 260** | 2:1 |
 
 Here are links to more information about the different sizes:
 
