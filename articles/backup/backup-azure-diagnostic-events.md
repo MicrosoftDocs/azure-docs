@@ -77,7 +77,7 @@ Currently, we continue to support the AzureBackupReport event for backward compa
         | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
-        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+        // Some Workspaces will not have AzureDiagnostics Table, so you need to use isFuzzy
     let CombinedVaultTable = (){
         union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
