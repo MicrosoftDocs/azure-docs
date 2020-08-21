@@ -48,7 +48,7 @@ from azure.ai.formrecognizer import FormTrainingClient
 from azure.core.credentials import AzureKeyCredential
 ```
 
-Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you'll need to close and reopen the editor, IDE, or shell to access the variable.
+Create variables for your resource's Azure endpoint and key. 
 
 ```python
 endpoint = "<paste-your-form-recognizer-endpoint-here>"
@@ -82,8 +82,7 @@ The code snippets in this guide use remote forms accessed by URLs. If you want t
 
 You'll also need to add references to the URLs for your training and testing data.
 * To retrieve the SAS URL for your custom model training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* [Use the sample receipt included in the samples repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
-* [Use the sample receipt included in the samples repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
+* Use the sample from and receipt images included in the samples below (also available on [GitHub]((https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms))) or you can use the above steps to get the SAS URL of an individual document in blob storage. 
 
 ## Recognize form content
 
@@ -257,7 +256,7 @@ Document errors: []
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned **CustomFormSubmodel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 > [!IMPORTANT]
 > To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **begin_training** function with the *use_training_labels* parameter set to `true`.
