@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Menu** of Zylo at the top-right corner and select **Admin**
 
-    ![Configuration](./media/zylo-tutorial/click-admin.png)
+    ![Configuration for Zylo](./media/zylo-tutorial/click-admin.png)
 
 1. In the **Admin** page, go to the **Saml Info** tab and perform the following steps:
 
