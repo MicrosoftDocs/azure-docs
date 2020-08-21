@@ -89,7 +89,7 @@ This disk has a maximum capacity of 2,048 GiB.
 
 ### Temporary disk
 
-Most of VMs contains a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](~/articles/virtual-machines/windows/manage-availability.md) or when you [redeploy a VM](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md). During a successful standard reboot of the VM, data on the temporary disk will persist. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](~/articles/virtual-machines/azure-vms-no-temp-disk.md)
+Most VMs contain a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes, and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](~/articles/virtual-machines/windows/manage-availability.md) or when you [redeploy a VM](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md). During a successful standard reboot of the VM, data on the temporary disk will persist. For more information about VMs without temporary disks, see [Azure VM sizes with no local temporary disk](~/articles/virtual-machines/azure-vms-no-temp-disk.md)
 
 On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs the temporary disk is D: by default. The temporary disk is not encrypted by server side encryption unless you enable encryption at host.
 
