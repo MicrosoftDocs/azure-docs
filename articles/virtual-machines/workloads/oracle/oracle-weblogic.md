@@ -53,6 +53,7 @@ This offer creates a highly available and scalable dynamic cluster of WLS virtua
 
 The solutions will enable a variety of robust production-ready deployment architectures with relative ease. It should be possible to meet a majority of migration cases in the most productive way possible by allowing a focus on business application development.
 
+:::image type="content" source="media/oracle-weblogic/weblogic_architecture_vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
 
 Beyond what is automatically provisioned by the solutions, customers have complete flexibilty to custmize their deployments further. It is likely in addition to deploying applications customers will integrate further Azure resources with their deployments. Customers are encouraged to provide feedback on further improving the solutions.
 
