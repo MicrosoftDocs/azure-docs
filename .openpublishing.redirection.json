@@ -912,7 +912,7 @@
     },
     {
       "source_path": "articles/machine-learning/tutorial-resource-manager-workspace.md",
-      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template.md?tabs=azcli",
+      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template",
       "redirect_document_id": false
     },
     {
