@@ -95,7 +95,7 @@ There are two options for configuring the Web Service SDK. The first is with a u
 
 If you don't want to use a username and password, follow these steps to configure the Web Service SDK with a client certificate.
 
-1. Obtain a client certificate from a certificate authority for the server that is running the Web Service SDK. Learn how to [obtain client certificates](https://technet.microsoft.com/library/cc770328.aspx).  
+1. Obtain a client certificate from a certificate authority for the server that is running the Web Service SDK. Learn how to [obtain client certificates](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770328(v=ws.10)).  
 2. Import the client certificate to the local computer personal certificate store on the server that is running the Web Service SDK. Make sure that the certificate authority's public certificate is in Trusted Root Certificates certificate store.  
 3. Export the public and private keys of the client certificate to a .pfx file.  
 4. Export the public key in Base64 format to a .cer file.  
