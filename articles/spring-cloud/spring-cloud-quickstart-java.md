@@ -87,7 +87,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
     - **Subscription**: Select the subscription you want to be billed for this resource.
-    - **Resource group**: Creating new resource groups for new resources is a best practice. Note that this will be used in later steps as **\<resource group name\>**.
+    - **Resource group**: Creating new resource groups for new resources is a best practice. This will be used in later steps as **\<resource group name\>**.
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Location**: Select the location for your service instance.
 
@@ -98,7 +98,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 ## Build and deploy the app
     
 #### [CLI](#tab/Azure-CLI)
-The following procedure builds and deploys the application using the Azure CLI. Please execute the following command at the root of the project.
+The following procedure builds and deploys the application using the Azure CLI. Execute the following command at the root of the project.
 
 1. Build the project using Maven, for example:
 
@@ -106,7 +106,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     mvn clean package -DskipTests
     ```
 
-1. (If not done yet) Install the Azure Spring Cloud extension for the Azure CLI using the following command:
+1. (If you haven't already installed it) Install the Azure Spring Cloud extension for the Azure CLI using the following command:
 
     ```azurecli
     az extension add --name spring-cloud
@@ -138,7 +138,7 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
     ![Import Project](media/spring-cloud-quickstart-java/intellij-new-project.png)
 
 ### Deploy the app
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
