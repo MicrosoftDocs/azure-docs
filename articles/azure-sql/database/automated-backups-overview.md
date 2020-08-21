@@ -30,11 +30,11 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup storage redundancy
 
-By default, SQL Database and SQL Managed Instance store data in geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md)s that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). This helps to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
+By default, SQL Database and SQL Managed Instance store data in geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). This helps to protect against outages impacting backup storage in the primary region and allow you to restore your server to a different region in the event of a disaster. 
 
 SQL Managed Instance introduces the ability to change the storage redundancy to either locally-redundant (LRS) or zone-redundant (ZRS) storage blobs to ensure that your data stays within the same region where your managed instance is deployed. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. 
 
-The option to configure backup storage redundancy provides the flexibility to choose between LRS, ZRS, or RA-GRS storage blobs for a SQL Managed Instance. Configure backup storage redundancy during the managed instance creation process as once the resource is provisioned, it is no longer possible to change the storage redundancy. Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+The option to configure backup storage redundancy provides the flexibility to choose between LRS, ZRS, or RA-GRS storage blobs for a SQL Managed Instance. Configure backup storage redundancy during the managed instance creation process as once the resource is provisioned, it is no longer possible to change the storage redundancy. (Zone-redundant storage (ZRS) is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
 
 > [!IMPORTANT]
