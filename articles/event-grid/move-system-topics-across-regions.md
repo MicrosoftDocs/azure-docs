@@ -1,6 +1,6 @@
 ---
-title: Move Azure Event Grid resources to another region
-description: This article shows you how to move Azure Event Grid resources such as system topics from one region to another region.  
+title: Move Azure Event Grid system topics to another region
+description: This article shows you how to move Azure Event Grid system topics from one region to another region.  
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
@@ -10,12 +10,10 @@ ms.date: 08/20/2020
 # Move Azure Event Grid resources to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-Currently, you can only move **system topics** from one region to another region. Moving custom topics, partner topics, and domains across regions isn't supported yet. This article shows you how to move an Azure Event Grid system topic from one region to another region. 
-
 Here's are the high-level steps covered in this article: 
 
-- **Export the resource group** that contains the Azure Storage account and its associated system topic to a Resource Manager template. You can also export a template for just the system topic. If you do so, you need to remember to move the Azure event source (in this example, an Azure Storage account) to the other region before moving the system topic. 
-- **Modify the template** to add the `endpointUrl` property to point to a webhook that subscribes to the system topic. When the system topic is exported, its subscription (in this case, it's a webhook) is also exported to the template, but the `endpointUrl` property isn't included. 
+- **Export the resource group** that contains the Azure Storage account and its associated system topic to a Resource Manager template. You can also export a template for just the system topic. If you go this route, remember to move the Azure event source (in this example, an Azure Storage account) to the other region before moving the system topic. Then, in the exported template for the system topic, update the external ID for the storage account in the target region. 
+- **Modify the template** to add the `endpointUrl` property to point to a webhook that subscribes to the system topic. When the system topic is exported, its subscription (in this case, it's a webhook) is also exported to the template, but the `endpointUrl` property isn't included. Also, update the value of the `location` property to the new location or region. For other types of event handlers, you just need to the update the location. 
 - **Use the template to deploy resources** to the target region. You'll specify names for the storage account and the system topic to be created in the target region. 
 - **Verify the deployment**. Verify that the webhook is invoked when you upload a file to the blob storage in the target region. 
 - To **complete the move**, delete resources from the source region. 
@@ -36,44 +34,42 @@ To get started, export a Resource Manager template for the resource group that c
 
     :::image type="content" source="./media/copy-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
 5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
-6. Sensitive information isn't exported to the template. In this example, URL for the Webhook isn't exported to the template. So, do the following steps:
-    1. Open the **template.json** in an editor of your choice. 
-    1. Search for **WebHook**. 
+1. Open the **template.json** in an editor of your choice. 1. 
+1. URL for the Webhook isn't exported to the template. So, do the following steps:
+    1. In the template file, search for **WebHook**. 
     1. In the **Properties** section, add a comma (`,`) character at the end of the last line. In this example, it's `"preferredBatchSizeInKilobytes": 64`. 
     1. Add the `endpointUrl` property with the value set to your Webhook URL as shown in the following example. 
 
         ```json
-        {
-            "type": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
-            "apiVersion": "2020-04-01-preview",
-            "name": "[concat(parameters('systemTopics_spcontosostorage_systopic_name'), '/spcontosostorage-eventsubscription')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.EventGrid/systemTopics', parameters('systemTopics_spcontosostorage_systopic_name'))]"
-            ],
+        "destination": {
             "properties": {
-                "destination": {
-                    "properties": {
-                        "maxEventsPerBatch": 1,
-                        "preferredBatchSizeInKilobytes": 64,
-                        "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-                    },
-                    "endpointType": "WebHook"
-                },
-                "filter": {
-                    "includedEventTypes": [
-                        "Microsoft.Storage.BlobCreated",
-                        "Microsoft.Storage.BlobDeleted"
-                    ]
-                },
-                "labels": [],
-                "eventDeliverySchema": "EventGridSchema",
-                "retryPolicy": {
-                    "maxDeliveryAttempts": 30,
-                    "eventTimeToLiveInMinutes": 1440
-                }
-            }
-        }    
+                "maxEventsPerBatch": 1,
+                "preferredBatchSizeInKilobytes": 64,
+                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
+            },
+            "endpointType": "WebHook"
+        }
         ```
+
+        > [!NOTE]
+        > For other types of event handlers, all properties are exported to the template. You only need to update the `location` property to the target region as shown in the next step. 
+7. Update `location` for the **storage account** resource to the target region or location. To obtain region location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
+
+    ```json
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2019-06-01",
+    "name": "[parameters('storageAccounts_spegridstorage080420_name')]",
+    "location": "westus",
+    ```
+8. Repeat the step to update `location` for the **system topic** resource in the template. 
+
+    ```json
+    "type": "Microsoft.EventGrid/systemTopics",
+    "apiVersion": "2020-04-01-preview",
+    "name": "[parameters('systemTopics_spegridsystopic080420_name')]",
+    "location": "westus",
+    ```
+1. **Save** the template. 
 
 ## Recreate 
 Deploy the template to create a storage account and a system topic for the storage account in the target region. 
@@ -87,8 +83,8 @@ Deploy the template to create a storage account and a system topic for the stora
 7. Select **Save** to save the template. 
 8. On the **Custom deployment** page, follow these steps: 
     1. Select an Azure **subscription**. 
-    2. Select an existing **resource group** or create one. 
-    3. Select the target **location** or **region**. If you selected an existing resource group, this setting is read-only.
+    2. Select an existing **resource group** in the target region or create one. 
+    3. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
     4. In the **SETTINGS** section, do the following steps:    
         1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
         1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account. 
