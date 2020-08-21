@@ -8,7 +8,7 @@ ms.date: 04/24/2020
 
 # How to stop monitoring your Azure Red Hat OpenShift v3 cluster
 
-MPORTANT]
+>[!IMPORTANT]
 > Azure Red Hat OpenShift 3.11 will be retired June 2022.
 >
 > As of October 2020 you will no longer be able to create new 3.11 clusters.

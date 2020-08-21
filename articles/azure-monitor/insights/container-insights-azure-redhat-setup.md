@@ -7,7 +7,7 @@ ms.date: 06/30/2020
 
 # Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers
 
-MPORTANT]
+>[!IMPORTANT]
 > Azure Red Hat OpenShift 3.11 will be retired June 2022.
 >
 > As of October 2020 you will no longer be able to create new 3.11 clusters.
