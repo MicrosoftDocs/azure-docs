@@ -146,9 +146,9 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Use the [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
 
-```azurecli
-az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
-```
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
 
 1. Make the changes you need to make at elevated access.
 
