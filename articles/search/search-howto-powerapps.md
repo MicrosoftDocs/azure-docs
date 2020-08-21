@@ -8,7 +8,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
+ms.date: 08/21/2020
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps
