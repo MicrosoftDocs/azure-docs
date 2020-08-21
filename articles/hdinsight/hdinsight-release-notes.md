@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
+ms.date: 08/21/2020
 ---
 # Azure HDInsight release notes
 
@@ -66,3 +66,7 @@ Below JIRAs are back ported for HBase:
 
 ## Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+## Known issues
+
+When trying to create an Azure HDInsight cluster from the Azure portal and using an SSH authentication type of public key, users are experiencing an error when they click **Review + Create**. The error in the portal is "Must not contain any three consecutive characters from SSH username." This issue is being addressed; however, if you experience this issue, the workaround is to return to the **Create HDInsight cluster** blade in the portal, check the **Use cluster login password for SSH** box, and then uncheck the **Use cluster login password for SSH** box, and then click **Review + Create** again. Cluster creation should complete without error. 
