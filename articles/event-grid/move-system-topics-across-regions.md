@@ -7,7 +7,7 @@ ms.date: 08/20/2020
 #Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers. 
 ---
 
-# Move Azure Event Grid resources to another region
+# Move Azure Event Grid system topics to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
 Here's are the high-level steps covered in this article: 
@@ -29,12 +29,12 @@ To get started, export a Resource Manager template for the resource group that c
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** on the left menu. Then, select the resource group that contains the event source for which the system topic was created. In the following example, it's the **Azure Storage** account. The resource group contains the storage account and its associated system topic. 
 
-    :::image type="content" source="./media/copy-across-regions/resource-group-page.png" alt-text="Resource group page":::        
+    :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Resource group page":::        
 3. On the left menu, select **Export template** under **Settings**, and then, select **Download** on the toolbar. 
 
-    :::image type="content" source="./media/copy-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Stroage account - Export template page":::        
 5. Locate the **.zip** file that you downloaded from the portal, and unzip that file to a folder of your choice. This zip file contains template and parameters JSON files. 
-1. Open the **template.json** in an editor of your choice. 1. 
+1. Open the **template.json** in an editor of your choice. 
 1. URL for the Webhook isn't exported to the template. So, do the following steps:
     1. In the template file, search for **WebHook**. 
     1. In the **Properties** section, add a comma (`,`) character at the end of the last line. In this example, it's `"preferredBatchSizeInKilobytes": 64`. 
@@ -53,7 +53,7 @@ To get started, export a Resource Manager template for the resource group that c
 
         > [!NOTE]
         > For other types of event handlers, all properties are exported to the template. You only need to update the `location` property to the target region as shown in the next step. 
-7. Update `location` for the **storage account** resource to the target region or location. To obtain region location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
+7. Update `location` for the **storage account** resource to the target region or location. To obtain location codes, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, for example, `West US` is equal to `westus`.
 
     ```json
     "type": "Microsoft.Storage/storageAccounts",
@@ -81,17 +81,18 @@ Deploy the template to create a storage account and a system topic for the stora
 5. Select **Build your own template in the editor**.
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 7. Select **Save** to save the template. 
-8. On the **Custom deployment** page, follow these steps: 
-    1. Select an Azure **subscription**. 
-    2. Select an existing **resource group** in the target region or create one. 
-    3. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
-    4. In the **SETTINGS** section, do the following steps:    
+8. On the **Custom deployment** page, follow these steps. 
+    1. In the **BASICS** section, do these steps:
+        1. Select an Azure **subscription**. 
+        1. Select an existing **resource group** in the target region or create one. 
+        1. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
+    1. In the **SETTINGS** section, do the following steps:    
         1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
         1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account. 
 
-            :::image type="content" source="./media/copy-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
+            :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
     5. Select the **I agree to the terms and conditions stated above** checkbox.     
-    6. Now, select **Select Purchase** to start the deployment process. 
+    6. Now, select **Purchase** to start the deployment process. 
 
 ## Verify
 Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
@@ -106,8 +107,12 @@ To delete a resource group (source or target) by using the Azure portal:
 1. In the search window at the top of Azure portal, type **Resource groups**, and select **Resource groups** from search results. 
 2. Select the resource group to delete, and select **Delete** from the toolbar. 
 
-    :::image type="content" source="./media/copy-across-regions/delete-resource-group-button.png" alt-text="Delete resource group":::
+    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Delete resource group":::
 3. On the confirmation page, enter the name of the resource group, and select **Delete**.  
 
 ## Next steps
-You learned how to copy an Azure event source and its associated system topic from one region to another region. To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+You learned how to move an Azure event source and its associated system topic from one region to another region. 
+
+To learn about moving custom topics from one region to another, see [Move custom topics across regions](move-custom-topics-across-regions.md). 
+
+To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
