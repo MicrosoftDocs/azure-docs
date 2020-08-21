@@ -62,11 +62,10 @@ Deploy the template to create a storage account and a system topic for the stora
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 7. Select **Save** to save the template. 
 8. On the **Custom deployment** page, follow these steps: 
-    1. In the **BASICS** section, do these steps: 
-        1. Select an Azure **subscription**. 
-        1. Select an existing **resource group** in the target region or create one. 
-        1. For **Location**, select the target region. If you selected an existing resource group, this setting is read-only. 
-    1. In the **SETTINGS** section, for the **topic name**, enter a new name for the topic. 
+    1. Select an Azure **subscription**. 
+    1. Select an existing **resource group** in the target region or create one. 
+    1. For **Location**, select the target region. If you selected an existing resource group, this setting is read-only. 
+    1. For the **topic name**, enter a new name for the topic. 
     5. Select the **I agree to the terms and conditions stated above** checkbox.     
     6. Now, select **Purchase** to start the deployment process. 
 

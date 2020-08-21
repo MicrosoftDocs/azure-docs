@@ -82,15 +82,13 @@ Deploy the template to create a storage account and a system topic for the stora
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 7. Select **Save** to save the template. 
 8. On the **Custom deployment** page, follow these steps. 
-    1. In the **BASICS** section, do these steps:
-        1. Select an Azure **subscription**. 
-        1. Select an existing **resource group** in the target region or create one. 
-        1. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
-    1. In the **SETTINGS** section, do the following steps:    
-        1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
-        1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account. 
+    1. Select an Azure **subscription**. 
+    1. Select an existing **resource group** in the target region or create one. 
+    1. For **location**, select the target region. If you selected an existing resource group, this setting is read-only.
+    1. For the **storage account name**, enter a name for the storage account to be created in the target region. 
+    1. For the **system topic name**, enter a name for the system topic that will be associated with the storage account. 
 
-            :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template":::
     5. Select the **I agree to the terms and conditions stated above** checkbox.     
     6. Now, select **Purchase** to start the deployment process. 
 
