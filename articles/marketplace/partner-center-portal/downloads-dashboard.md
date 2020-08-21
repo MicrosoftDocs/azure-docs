@@ -42,7 +42,7 @@ Support for Lifetime Export Capability of Analytics reports:
 | Usage | ![Black X mark](media/check-black-no.png) | Maximum of one year |
 |
 
-A user can schedule for asynchronous downloads of reports from the Downloads section:
+A user can schedule asynchronous downloads of reports from the Downloads section:
 
 [![scheduling asynchronous downloads of reports from the Downloads section](media/download-reports.png)](media/download-reports.png#lightbox)
 
