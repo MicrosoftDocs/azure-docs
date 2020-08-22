@@ -240,7 +240,7 @@ az vm create \
 
 All data disks need to be reattached to the virtual machine.
 
-Find the data disk name using the [az disk list](/cli/azure/disk#az-disk-list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
+Find the data disk name using the [az disk list](/cli/azure/disk#az-disk-list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
 ```azurecli-interactive
 datadisk=$(az disk list \
