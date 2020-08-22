@@ -80,7 +80,7 @@ You can use VisualStudio's built in templates to create a Blazor server app. Ski
 
 You now have a working app sample that will sign users in using the Microsoft identity platform. 
 
-Try running the app. The first time it runs, you will see a screen that prompts you to provide consent for this app to access your directory information. This is part of the Microsoft identity platforms [permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) process which is necessary for the app to have permission to retireve data from the directory on behalf of the user. 
+Try running the app. The first time it runs, you will see a screen that prompts you to provide consent for this app to access your directory information. This is part of the Microsoft identity platforms [permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) process which is necessary for the app to have permission to retrieve data from the directory on behalf of the user. 
 
 ![Picture of dialog box asking the user for permission for the app to sign the user in and read their profile](.\media\tutorial-blazor-server\consent-dialog-1.png)
 
