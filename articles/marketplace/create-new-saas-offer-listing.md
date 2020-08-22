@@ -12,14 +12,14 @@ ms.date: 07/31/2020
 
 # Configure your SaaS offer listing details
 
-The information you provide on the **Offer listing** tab for your software as a service (SaaS) offer will be displayed in the Microsoft commercial marketplace storefronts. This includes the descriptions of your offer, screenshots, and your marketing assets.
+The information you provide on the **Offer listing** page for your software as a service (SaaS) offer will be displayed in the Microsoft commercial marketplace storefronts. This includes the descriptions of your offer, screenshots, and your marketing assets.
 
 > [!NOTE]
 > Offer listing content is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ## Marketplace details
 
-On the **Offer listing** tab, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-saas-offer.md#offer-listing-details).
+On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-saas-offer.md#offer-listing-details).
 
 > [!NOTE]
 > The following information is required unless otherwise noted.
@@ -29,7 +29,7 @@ On the **Offer listing** tab, under **Marketplace details**, complete the follow
 3. In the **Description** box, enter a description for your offer. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces.
 
    > [!NOTE]
-   > Use the rich text editor controls to make your description more engaging. You can also use HTML tags to format your description. Most tags require both opening and closing tags. For information about HTML formatting, see [Supported HTML tags for offer descriptions](supported-html-tags.md).
+   > Use the rich text editor controls to make your description more engaging. You can also use HTML tags to format your description. Most tags require both opening and closing tags. For information about HTML formatting, see [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 
 4. In the **Getting started instructions** box, provide instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
 5. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the marketplace.
@@ -73,11 +73,9 @@ You must add at least one and a maximum of three marketing documents for your of
 
 ## Add your marketplace media
 
-Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
-
-If you have an issue uploading files, make sure your local network does not block the [https://upload.xboxlive.com](https://upload.xboxlive.com) service used by Partner Center.
-
 ### Add logos
+
+There are multiple places in the commercial marketplace where your offer's logo images appear.
 
 1. Under **Logos**, upload logos with the following pixel sizes in .PNG format:
  
@@ -89,7 +87,7 @@ If you have an issue uploading files, make sure your local network does not bloc
 
 All three required logo sizes are used in different places in the storefronts.
 
-   - The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+   - The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results pages.
    - The **Medium** logo appears when you create a new resource in Microsoft Azure.
    - The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
  
@@ -108,13 +106,13 @@ You can add links to YouTube or Vimeo videos that demonstrate your offer. These 
 
 1. Under **Videos** , select the **Add video** link.
 2. In the boxes that appear, enter the name and link for your video.
-3. Drag and drop a .PNG file (1280x720 pixels) onto the gray **Thumbnail** box.
+3. Drag and drop a .PNG file (1280 x 720 pixels) onto the gray **Thumbnail** box.
 4. To add another video, repeat steps 1 through 3.
 
 > [!TIP]
 > If you have an issue uploading files, make sure your local network does not block the [**https://upload.xboxlive.com**](https://upload.xboxlive.com/) service used by Partner Center.
 
-Select **Save draft** before continuing to the next tab.
+Select **Save draft** before continuing to the next tab: Preview audience.
 
 ## Next steps
 

@@ -171,6 +171,8 @@
         items:
         - name: Create the SaaS offer 
           href: create-new-saas-offer.md
+        - name: Configure your SaaS offer properties
+          href: create-new-saas-offer-properties.md  
         - name: Configure offer listing
           href: create-new-saas-offer-listing.md
         - name: Add a preview audience

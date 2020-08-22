@@ -14,19 +14,14 @@ ms.date: 08/31/2020
 
 This article describes how to configure the properties for a software as a service (SaaS) offer in the Microsoft commercial marketplace.
 
-On the **Properties** tab, you'll define the following:
-
-- Categories and industries used to group your offer on the marketplaces.
-   > [!TIP]
-   > Based on the categories you select, we determine which storefronts to list your offer on. Either Azure Marketplace, Microsoft AppSource, or both.
-- Your app version. Customers will see this on the details page of the offer listing.
-- The legal contracts that support your offer.
-
-Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
+On the **Properties** tab, you'll define the the categories and industries applicable to your offer, your app version, and legal contracts. Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
 
 ## Select a category for your offer
 
 - Under **Category**, select at least one and up to two categories for grouping your offer into the appropriate marketplace search areas.
+
+> [!TIP]
+> Based on the categories you select, we determine which storefronts to list your offer on: either Azure Marketplace, Microsoft AppSource, or both.
 
 ## Select Industries (optional)
 
@@ -58,7 +53,7 @@ Under **Legal**, provide terms and conditions for your offer. You have two optio
 - [Use the Standard Contract with optional amendments](#use-the-standard-contract-with-optional-amendments)
 - [Use your own terms and conditions](#use-your-own-terms-and-conditions)
 
-To learn about the standard contract and optional amendments, see [Standard Contract for Microsoft commercial marketplace](standard-contract.md). You can download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
+To learn about the standard contract and optional amendments, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). You can download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
 ### Use the Standard Contract with optional amendments
 

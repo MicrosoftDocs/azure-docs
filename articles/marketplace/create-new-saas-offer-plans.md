@@ -19,7 +19,7 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 
 ## Create a plan
 
-1. Near the top of the **Plan overview** tab, click **+ Create new plan**.
+1. Near the top of the **Plan overview** tab, select **+ Create new plan**.
 
 1. In the dialog box that appears, in the **Plan ID** box, enter a unique plan ID.
 
@@ -32,7 +32,8 @@ Offers sold through the Microsoft commercial marketplace must have at least one 
 
 ## Define the plan listing
 
-On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace.<br>
+On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace.
+
 > [!NOTE]
 > This tab is only shown if you chose to sell your offer through Microsoft. If you don't see this tab, then go to [Marketing options](create-new-saas-offer-marketing.md).
 
@@ -61,25 +62,25 @@ Every plan must be available in at least one market. On the **Pricing and availa
 You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [Pricing models](plan-saas-offer.md#pricing-models).
 
 > [!IMPORTANT]
-> After your offer is published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
+> After your offer is published, your pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
 **To configure flat rate pricing**
 
 1. On the **Pricing and availability** tab, under **Pricing**, select **Flat rate**.
-2. Select either the **Monthly** or **Annual** check box, or both and then enter the price.
+1. Select either the **Monthly** or **Annual** check box, or both and then enter the price.
 
 **To add a custom meter dimension**
 
 This option is available only if you selected flat rate pricing.
 
 1. Under **Marketplace Metering Service dimensions**, select the **Add a Custom Meter Dimension (Max 30)** link.
-2. In the **ID** box, enter the immutable identifier reference while emitting usage events.
-3. In the **Display Name** box, enter the display name associated with the dimension. For example, "text messages sent".
-4. In the **Unit of Measure** box, enter the description of the billing unit. For example, "per text message" or "per 100 emails".
-5. In the **Price per unit in USD** box, enter the price for one unit of the dimension.
-6. In the **Monthly quantity included in base** box, enter the quantity (as an integer) of the dimension that's included each month for customers who pay the recurring monthly fee. To set an unlimited quantity, select the check box instead.
-7. In the **Annual quantity included in base** box, enter the quantity of the dimension (as an integer) that's included each month for customers who pay the recurring annual fee. To set an unlimited quantity, select the check box instead.
-8. To add another custom meter dimension, select the **Add another Dimension** link, and then repeat steps 1 through 7.
+1. In the **ID** box, enter the immutable identifier reference while emitting usage events.
+1. In the **Display Name** box, enter the display name associated with the dimension. For example, "text messages sent".
+1. In the **Unit of Measure** box, enter the description of the billing unit. For example, "per text message" or "per 100 emails".
+1. In the **Price per unit in USD** box, enter the price for one unit of the dimension.
+1. In the **Monthly quantity included in base** box, enter the quantity (as an integer) of the dimension that's included each month for customers who pay the recurring monthly fee. To set an unlimited quantity, select the check box instead.
+1. In the **Annual quantity included in base** box, enter the quantity of the dimension (as an integer) that's included each month for customers who pay the recurring annual fee. To set an unlimited quantity, select the check box instead.
+1. To add another custom meter dimension, select the **Add another Dimension** link, and then repeat steps 1 through 7.
 
 **To configure per user pricing**
 
@@ -104,18 +105,19 @@ Plan pricing is always displayed in United States Dollars (USD) on the **Pricing
 **To validate and set custom prices**
 
 1. You must first save your pricing changes to enable export of pricing data. Near the bottom of the **Pricing and availability** tab, select **Save draft**.
-2. Under **Pricing**, select the **Export pricing data** link.
-3. Open the exportedPrice.xlsx file in Microsoft Excel.
-4. In the spreadsheet, make the updates you want to your pricing information and then save the .CSV file.<br>
+1. Under **Pricing**, select the **Export pricing data** link.
+1. Open the exportedPrice.xlsx file in Microsoft Excel.
+1. In the spreadsheet, make the updates you want to your pricing information and then save the .CSV file.<br>
+
    > [!NOTE]
    > You may need to enable editing in Excel before you can update the file.
-5. On the **Pricing and availability** tab, under **Pricing**, select the **Import pricing data** link.
-6. In the dialog box that appears, click **Yes**.
-7. Select the exportedPrice.xlsx file you updated, and then click **Open**.
+1. On the **Pricing and availability** tab, under **Pricing**, select the **Import pricing data** link.
+1. In the dialog box that appears, click **Yes**.
+1. Select the exportedPrice.xlsx file you updated, and then click **Open**.
 
 ### Enable a free trial
 
-You can configure a free trial for each plan in your offer. Select the check box to allow a one-month trial. For more information about free trials, see [Free trials](plan-saas-offer.md#free-trials).
+You can configure a free trial for each plan in your offer. Select the check box to allow a one-month free trial. For more information about free trials, see [Free trials](plan-saas-offer.md#free-trials).
 
 > [!IMPORTANT]
 > After your transactable offer has been published with a free trial, it cannot be disabled for that plan. Make sure this setting is correct before you publish the offer to avoid having to re-create the plan.
@@ -134,17 +136,17 @@ You can configure each plan to be visible to everyone or to only a specific audi
 **To make your plan public**
 
 1. Under **Plan visibility**, select the **Public** box.
-2. Select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
-3. To create another plan for this offer, near the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, go to [View your plans](#view-your-plans).
+1. Select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
+1. To create another plan for this offer, near the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, go to [View your plans](#view-your-plans).
 
 **To make your plan private using the manual method**
 
 1. Under **Plan visibility**, select the **This is a private plan** box.
-2. In the **Tenant ID** box that appears, enter the Azure AD tenant ID of the audience you want to grant access to this private plan. A minimum of one tenant ID is required.
-3. (Optional) Enter a description of this audience in the **Description** box.
-4. To add another tenant ID, repeat steps 2 and 3.
-5. When you're done adding tenant IDs, select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
-6. To create another plan for this offer, near the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, go to [View your plans](#view-your-plans).
+1. In the **Tenant ID** box that appears, enter the Azure AD tenant ID of the audience you want to grant access to this private plan. A minimum of one tenant ID is required.
+1. (Optional) Enter a description of this audience in the **Description** box.
+1. To add another tenant ID, repeat steps 2 and 3.
+1. When you're done adding tenant IDs, select **Save draft**, and then in the upper left of the tab, select **Plan overview** to return to the **Plan overview** tab.
+1. To create another plan for this offer, near the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, go to [View your plans](#view-your-plans).
 
 **To make your plan private using a .CSV file**
 
