@@ -41,8 +41,13 @@ Auto-scaling is not yet available in the preview.
 ### Can I deploy my cluster across availability zones? 
 Cross availability zone clusters are not yet available in the preview. 
 
+### Can I select between automatic and manual upgrades for my cluster runtime? 
+In the preview, all runtime upgrades will be completed automatically.
+
 ## Applications 
 
 ### Is there a local development experience for managed Service Fabric clusters? 
 The local development experience remains unchanged from existing Service Fabric clusters. Please see [Create a .Net Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience. 
 
+### Can I deploy my applications as an ARM resource? 
+In the preview, you will not be able to deploy applications as an ARM resource. Applications must be deployed by connecting directly to the cluster either through PowerShell or CLI. This functionality will be added before manged Service Fabric clusters enter general availability. 
