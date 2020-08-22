@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 08/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -884,13 +884,14 @@ To ensure customer data within Azure remains secure, Microsoft has implemented a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32916.).
 
-**Guidance**: Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AAD) for user authentication. In this configuration, you sign in to an AKS cluster using an AAD authentication token. 
+**Guidance**: Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources.
 
-You can configure Kubernetes RBAC to limit access to cluster resources based a user's identity or group membership.
+Azure RBAC is designed to work on resources within your Azure subscription.
+Using Azure RBAC, create a role definition that outlines the permissions to be applied. A user or group is then assigned this role definition via a role assignment for a particular scope, which could be an individual resource, a resource group, or across the subscription.
+
+Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AAD) for user authentication. In this configuration, you sign in to an AKS cluster using an AAD authentication token. 
 
 - [How to control access to cluster resources using RBAC and Azure AD Identities in AKS](azure-ad-rbac.md)
-
-Users can control k8s RBAC from Azure. Allowing IAM at scale for many clusters. Feature (pending availability) at https://aka.ms/aks/azure-rbac
 
 **Azure Security Center monitoring**: Not applicable
 
