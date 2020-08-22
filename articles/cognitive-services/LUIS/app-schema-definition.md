@@ -2,7 +2,7 @@
 title: App schema definition
 description: The LUIS app is represented in either the `.json` or `.lu` and includes all intents, entities, example utterances, features, and settings.
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 08/22/2020
 ---
 
 # App schema definition
@@ -71,7 +71,7 @@ When you import and export the app, choose either `.json` or `.lu`.
 | "patternAnyEntities": [],   | [Pattern.any entity](reference-entity-pattern-any.md)    |
 | "regex_entities": [],    |  [Regular expression entity](reference-entity-regular-expression.md)   |
 | "phraselists": [],       |  [Phrase lists (feature)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
-| "regex_features": [],    |     |
+| "regex_features": [],    |  Deprecated, use [machine-learning entities](luis-concept-entity-types.md). |
 | "patterns": [],          |  [Patterns improve prediction accuracy](luis-concept-patterns.md) with [pattern syntax](reference-pattern-syntax.md)   |
 | "settings": []           | [App settings](luis-reference-application-settings.md)|
 
