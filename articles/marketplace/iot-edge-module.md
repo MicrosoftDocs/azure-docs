@@ -71,6 +71,5 @@ The primary technical requirements for an IoT Edge Module, in order for it to ge
 ## Next steps
 
 - [Learn](https://azuremarketplace.microsoft.com/sell) about the commercial marketplace.
-- [Create an IoT Edge module offer] in Partner Center.
 - Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) for information on how to publish an IoT Edge module offer.
+- [Create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) in Partner Center.
