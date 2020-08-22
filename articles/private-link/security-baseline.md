@@ -4,7 +4,7 @@ description: The Azure Private Link security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 08/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -70,7 +70,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18975).
 
-**Guidance**: Enable Azure Monitor activity logs which log operations taken on Private Link resources, who started the operation, when the operation occurred, the status of the operation and other useful audit information. Additional logging information that is available in Azure Monitor is: Data processed by the Private Endpoint, service, and NAT port availability.
+**Guidance**: Enable Azure Monitor activity logs which log operations taken on Private Link resources, who started the operation, when the operation occurred, the status of the operation and other useful audit information. 
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
@@ -121,7 +121,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18979).
 
-**Guidance**: Use Azure Security Center configured with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events.
+**Guidance**: Use Security Center configured with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events.
 
 Alternatively, you may enable and on-board log data to Azure Sentinel.
 
@@ -140,7 +140,8 @@ Alternatively, you may enable and on-board log data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18981).
 
-**Guidance**: Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizations need.
+**Guidance**: Not applicable to Private Link. 
+Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizations need.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -155,7 +156,7 @@ Alternatively, you may enable and on-board log data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18983).
 
-**Guidance**: Use Azure Active Directory(Azure AD) built-in administrator roles which can be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Use Azure Active Directory (Azure AD) built-in administrator roles which can be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -230,7 +231,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18989).
 
-**Guidance**: Utilize Azure AD Risk Detections to view alerts and reports on risky user behavior. Optionally, customer may ingest Azure Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
+**Guidance**: Utilize Azure AD (Active Directory) Risk Detections feature to view alerts and reports on risky user behavior. Customer could ingest Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
 
 - [Understanding Azure Security Center risk detections (suspicious activity)](/azure/active-directory/reports-monitoring/concept-risk-events)
 
@@ -290,7 +291,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: You have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool.
 
-You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
+You can streamline this process by creating Diagnostic Settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -371,7 +372,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in Azure virtual networks are able to negotiate TLS 1.2 or greater.
 
-Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
+Follow Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
 - [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -395,9 +396,9 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19001).
 
-**Guidance**: Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to data and resources, otherwise use service specific access control methods.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -408,7 +409,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19003).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources and resources which uses stores data.
+**Guidance**: Not applicable to Private Link; this recommendation is intended for compute resources and resources which uses stores data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -438,7 +439,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19005).
 
-**Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure network resources
+**Guidance**: Follow recommendations from Security Center on performing vulnerability assessments on your Azure network resources
 
 Additionally, use a third-party solution for performing vulnerability assessments on network resources if Azure Security Center does not meet your companies vulnerability scanning requirements. When conducting remote scans, do not use a single, perpetual, administrative account. Consider implementing JIT provisioning methodology for the scan account. Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
 
@@ -455,7 +456,7 @@ Additionally, use a third-party solution for performing vulnerability assessment
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19008).
 
-**Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendation suggested by Azure Security Center, customer may pivot into the selected solution's portal to view historical scan data.
+**Guidance**: Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendation suggested by Security Center, customer may pivot into the selected solution's portal to view historical scan data.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -466,7 +467,7 @@ Additionally, use a third-party solution for performing vulnerability assessment
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19009).
 
-**Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center to help prioritize the remediation of discovered vulnerabilities.
+**Guidance**: Use the default risk ratings (Secure Score) provided by Security Center to help prioritize the remediation of discovered vulnerabilities.
 
 - [Understand Azure Security Center Secure Score](/azure/security-center/security-center-secure-score)
 
@@ -541,7 +542,7 @@ Additionally, use a third-party solution for performing vulnerability assessment
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19014).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -619,7 +620,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 Also, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
-You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
+You may also use recommendations from Security Center as a secure configuration baseline for your Azure resources.
 
 - [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
