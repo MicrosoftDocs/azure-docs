@@ -4,7 +4,7 @@ description: The Azure DNS security baseline provides procedural guidance and re
 author: msmbaldwin
 ms.service: dns
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 08/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -114,15 +114,15 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31567.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
+**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
 
-In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control. Note, the private DNS zone resources use a different role name, Private DNS Zone Contributor. 
+In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level Azure RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control. Note, the private DNS zone resources use a different role name, Private DNS Zone Contributor.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Understand RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Understand Azure RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
 
 **Azure Security Center monitoring**: Yes
 
@@ -319,15 +319,15 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31585.).
 
-**Guidance**: Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure users, groups, and resources. With RBAC, you can grant the level of access that users need. 
+**Guidance**: Azure Role-Based Access Control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With Azure RBAC, you can grant the level of access that users need. 
 
-In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control.
+In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level Azure RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Understand RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Understand Azure RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
 
-- [Understand RBAC in Azure Private DNS](dns-protect-private-zones-recordsets.md)
+- [Understand Azure RBAC in Azure Private DNS](dns-protect-private-zones-recordsets.md)
 
 **Azure Security Center monitoring**: Not applicable
 
