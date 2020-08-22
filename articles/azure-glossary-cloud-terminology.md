@@ -26,7 +26,7 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
 
 ## account
-An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account, or an Office 365 user name and password. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
+An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
 See [Sign up for an Azure subscription with your Microsoft 365 account](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) and [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## API app
