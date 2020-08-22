@@ -87,11 +87,11 @@ You now have a working app sample that will sign users in using the Microsoft id
 
 Try running the app. The first time it runs, you will see a screen that prompts you to provide consent for this app to access your directory information. This is part of the Microsoft identity platforms [permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) process which is necessary for the app to have permission to retireve data from the directory on behalf of the user. 
 
-![Picture of dialog box asking the user for permission for the app to sign the user in and read their profile](.\media\tutorial-blazor-webapp\consent-dialog-1.png)
+![Picture of dialog box asking the user for permission for the app to sign the user in and read their profile](.\media\tutorial-blazor-server\consent-dialog-1.png)
 
 The VisualStudio creation tool automatically registered this application in your tenant. Applications that authenticate users always need to be registered with the identity provider they use. You can verify that this registration happened successfully by going to the Azure portal, navigating to Azure Active Directory, and viewing your registered apps. The TenantID and ClientID found there will match the settings defined in your appsettings.json file. 
 
-![Screenshot of the completed webapp. The webpage says "Hello, world! Welcome to your new app." There is a menu bar on the side with buttons for "home", "counter", and "fetch data".](.\media\tutorial-blazor-webapp\final-app-1.png)
+![Screenshot of the completed app. The webpage says "Hello, world! Welcome to your new app." There is a menu bar on the side with buttons for "home", "counter", and "fetch data".](.\media\tutorial-blazor-server\final-app-1.png)
 
 ## Simplify the code by using Microft.Identity.Web
 
@@ -108,9 +108,9 @@ First, download the following NuGet packages to have access to the libraries:
 
 You can find instructions for downloading the packages on [https://www.nuget.org/packages/Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) or use Visual Studio: 
 
-![Screenshot of VisualStudios package browser, with the Microsoft.Identity.Web package highlighted.](.\media\tutorial-blazor-webapp\nuget-package-1.png)
+![Screenshot of VisualStudios package browser, with the Microsoft.Identity.Web package highlighted.](.\media\tutorial-blazor-server\nuget-package-1.png)
 
-![Screenshot of VisualStudios package browser, with the Microsoft.Identity.Web.UI package highlighted.](.\media\tutorial-blazor-webapp\nuget-package-2.png)
+![Screenshot of VisualStudios package browser, with the Microsoft.Identity.Web.UI package highlighted.](.\media\tutorial-blazor-server\nuget-package-2.png)
 
 Next, perform a couple small code changes to swap out the old authentication code and plug-in the new code.
 
@@ -294,11 +294,11 @@ else
 
 Let’s launch our app and ensure that you are logged out first as the current token won’t have the right permissions and you’ve changed quite a few things in our code. You’ll notice that the next time you log in, you are prompted for the newly added permissions which means that everything is working as expected. Now, beyond basic user profile data, the app is requesting access to our email data. 
 
-![Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.](.\media\tutorial-blazor-webapp\consent-dialog-2.png)
+![Image of a dialog box asking the user permission for the Blazor app to maintain access to data you have given it access to, sign you in and read your profile, and read your mail.](.\media\tutorial-blazor-server\consent-dialog-2.png)
 
 After granting consent you can navigate to the “Fetch Data” page to read some emails!
 
-![Screenshot of the final app. The webpage is titled "Weather forecast". It has a heading that says "Hello Christos Matskas" and it shows a list of emails belonging to Christos.](.\media\tutorial-blazor-webapp\final-app-2.png)
+![Screenshot of the final app. The webpage is titled "Weather forecast". It has a heading that says "Hello Christos Matskas" and it shows a list of emails belonging to Christos.](.\media\tutorial-blazor-server\final-app-2.png)
 
 ## Notes
 
