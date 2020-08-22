@@ -79,7 +79,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    The amount of time it takes to perform the manual failover is proportional to the number of devices that are registered for your hub. For example, if you have 100,000 devices, it might take 15 minutes, but if you have five million devices, it might take an hour or longer.
 
-   ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Screenshot showing Manual Failover confirmation pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    While the manual failover process is running, a banner appears to tell you a manual failover is in progress. 
 
