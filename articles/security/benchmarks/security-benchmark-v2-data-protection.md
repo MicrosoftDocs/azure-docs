@@ -4,7 +4,7 @@ description: Azure Security Control Privileged Access
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -45,12 +45,9 @@ Note: Some Azure services such as Azure SQL support local user authentication in
 
 **Customer Security Functions**:
 
-•	Identity and keys
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-•	Application security and DevSecOps
-
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 ## 4.2: Review and reconcile user access regularly
 
@@ -82,24 +79,17 @@ Note: Some Azure services such as Azure SQL support local users which not manage
 
 - [Privileged Identity Management - Review access to Azure AD roles](../../active-directory/privileged-identity-management/pim-how-to-start-security-review.md)
 
-Azure Security Center - Monitor identity and access
-
-../../security-center/security-center-identity-access.md
+- [Azure Security Center - Monitor identity and access](../../security-center/security-center-identity-access.md)
 
 **Responsibility**: Customer
 
 **Customer Security Functions**:
 
-•	Identity and keys
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-•	Application security and DevSecOps
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
-
-•	Security compliance management
-
-/azure/cloud-adoption-framework/organize/cloud-security-compliance-management
+- [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 ## 4.3: Set up an emergency access account in Azure AD
 
@@ -117,20 +107,13 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 **Customer Security Functions**:
 
-•	Identity and keys
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-•	Application security and DevSecOps
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
+- [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-•	Security compliance management
-
-/azure/cloud-adoption-framework/organize/cloud-security-compliance-management
-
-•	Security operations center (SOC)
-
-/azure/cloud-adoption-framework/organize/cloud-security-operations-center
+- [Security operations center (SOC)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## 4.4: Automate Azure identity and access request workflow
 
@@ -148,16 +131,11 @@ Use Azure AD entitlement management features to automate Azure access request wo
 
 **Customer Security Functions**:
 
-•	Identity and keys
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-•	Application security and DevSecOps
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
-
-•	Security compliance management
-
-/azure/cloud-adoption-framework/organize/cloud-security-compliance-management
+- [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
 ## 4.5: Use highly secured machines for administrative tasks
 
@@ -172,28 +150,19 @@ Secured, isolated workstations are critically important for the security of sens
 
 - [Understand secure, Azure-managed workstations](../../active-directory/devices/concept-azure-managed-workstation.md)
 
-Deploy a secure, Azure-managed workstation
+- [Deploy a secure, Azure-managed workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-../../active-directory/devices/howto-azure-managed-workstation.md
-
-Use Azure Bastion host
-
-../../bastion/bastion-create-host-portal.md
+- [Use Azure Bastion host](../../bastion/bastion-create-host-portal.md)
 
 **Responsibility**: Customer
 
 **Customer Security Functions**:
 
-•	Application security and DevSecOps
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-•	Security operations center (SOC)
+- [Security operations center (SOC)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-/azure/cloud-adoption-framework/organize/cloud-security-operations-center
-
-•	Identity and keys
-
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 ## 4.6: Assign privileges to resources using Azure RBAC
 
@@ -203,9 +172,7 @@ Use Azure Bastion host
 
 Azure role-based access control (RBAC) allows you to manage privileges to Azure resource access through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal. 
 
-What is Azure role-based access control (Azure RBAC)
-
-../../role-based-access-control/overview.md
+- [What is Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 
 - [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md)
 
@@ -213,20 +180,13 @@ What is Azure role-based access control (Azure RBAC)
 
 **Customer Security Functions**:
 
-•	Application security and DevSecOps
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-•	Security compliance management
+- [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-/azure/cloud-adoption-framework/organize/cloud-security-compliance-management
+- [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-•	Posture management
-
-/azure/cloud-adoption-framework/organize/cloud-security-posture-management
-
-•	Identity and keys
-
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 ## 4.7: Choose approval process for Microsoft support
 
@@ -242,14 +202,9 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 
 **Customer Security Functions**:
 
-•	Application security and DevSecOps
-/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops
+- [Application security and DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-•	Security compliance management
+- [Security compliance management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-/azure/cloud-adoption-framework/organize/cloud-security-compliance-management
-
-•	Identity and keys
-
-/azure/cloud-adoption-framework/organize/cloud-security-identity-keys
+- [Identity and keys](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
