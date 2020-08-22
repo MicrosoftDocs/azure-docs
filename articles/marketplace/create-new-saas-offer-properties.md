@@ -97,14 +97,14 @@ There are two kinds of amendments available: *universal* and *custom*.
    > You can provide up to ten custom amendment terms per offer. Only customers associated with the tenant IDs you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
 1. Select **Save draft** before continuing.
 
-## Use your own terms and conditions
+### Use your own terms and conditions
 
 You can choose to provide your own terms and conditions, instead of the standard contract. Customers must accept these terms before they can try your offer.
 
 **To use your own custom terms and conditions**
 
 1. Under **Legal**, make sure the **Use the Standard Contract for Microsoft's commercial marketplace** check box is cleared.
-2. In the **Terms and conditions** box, enter up to 10,000 characters of text.
+1. In the **Terms and conditions** box, enter up to 10,000 characters of text.
 
    > [!NOTE]
    > If you require a longer description, enter a single web address that points to where your terms and conditions can be found. It will be displayed to customers as an active link.

@@ -35,9 +35,8 @@ For more details about these settings, see [Technical configuration](plan-saas-o
 
 - **Azure Active Directory application ID** (required) – To find your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-Select **Save draft** before continuing to the next tab.
+Select **Save draft** before continuing to the next tab: Plan overview.
 
 ## Next steps
 
-- If you're selling your SaaS offer through Microsoft, continue to [Create plans for your SaaS offer](create-new-saas-offer-plans.md).
-- If you're managing your own commerce transactions, go to [Marketing options for your Saas offer](create-new-saas-offer-marketing.md).
+- To configure one or more plans, go to [Create plans for your SaaS offer](create-new-saas-offer-plans.md).

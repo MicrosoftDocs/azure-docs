@@ -116,4 +116,4 @@ Select **Save draft** before continuing to the next tab: Preview audience.
 
 ## Next steps
 
-- If you’re selling your offer through Microsoft, go to [Add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). Otherwise, go to [Create plans for your SaaS offer](create-new-saas-offer-plans.md).
+- If you’re selling your offer through Microsoft, go to [Add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). Otherwise, go to [Marketing options for your SaaS offer](create-new-saas-offer-marketing.md).
