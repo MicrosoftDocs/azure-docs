@@ -17,7 +17,7 @@ ms.date: 05/11/2020
 ms.author: rezar
 #Customer intent: As an IT professional, I want to get WebLogic running on Azure so that my enterprise Java applications can run in the cloud.
 ---
-# Solutions for Running Oracle WebLogic Server on Azure
+# Solutions for running Oracle WebLogic Server on Azure
 
 This page describes the solutions for running Oracle WebLogic Server (WLS) on Azure virtual machines. These solutions are jointly developed by Oracle and Microsoft.
 
@@ -53,7 +53,7 @@ This offer creates a highly available and scalable dynamic cluster of WLS virtua
 
 The solutions will enable a wide range of production-ready deployment architectures with relative ease. You can meet a majority of migration cases in the most productive way possible by allowing a focus on business application development.
 
-:::image type="content" source="media/oracle-weblogic/weblogic_architecture_vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Complex WebLogic Server deployments are enabled on Azure":::
 
 Beyond what is automatically provisioned by the solutions, customers have complete flexibility to customize their deployments further. It's likely on top of deploying applications customers will integrate further Azure resources with their deployments. Customers are encouraged to provide feedback on further improving the solutions.
 
