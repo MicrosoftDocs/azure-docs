@@ -22,6 +22,8 @@
     href: concepts-twins-graph.md
   - name: Query language
     href: concepts-query-language.md
+  - name: Query Units
+    href: concepts-query-units.md
   - name: Integration with other services
     href: concepts-integration.md
   - name: Event routes
@@ -172,6 +174,8 @@
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL validator (sample)
         href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
+      - name: DPS and IoT Hub integration sample
+        href: https://github.com/Azure-Samples/digital-twins-iothub-integration    
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell

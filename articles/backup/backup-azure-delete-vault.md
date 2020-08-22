@@ -12,7 +12,7 @@ This article describes how to delete an [Azure Backup](backup-overview.md) Recov
 
 You can't delete a Recovery Services vault with any of the following dependencies:
 
-- You can't delete a vault that contains protected data sources (for example, IaaS VMs, SQL databases, Azure file shares, etc.)  
+- You can't delete a vault that contains protected data sources (for example, IaaS VMs, SQL databases, Azure file shares).
 - You can't delete a vault that contains backup data. Once backup data is deleted, it will go into the soft deleted state.
 - You can't delete a vault that contains backup data in the soft deleted state.
 - You can't delete a vault that has registered storage accounts.
@@ -37,6 +37,7 @@ To properly delete a vault, you must follow the steps in this order:
 - **Step 3**: You must check all of the following three places to verify if there are any protected items:
 
   - **Cloud protected items**: Go to the vault dashboard menu > **Backup Items**. All items listed here must be removed with **Stop Backup** or **Delete Backup Data** along with their backup data.  [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
+  - **SQL Server instance**: Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. In Protected Servers, select the server to unregister. To delete the vault, you must unregister all the servers. Right-click the protected server and select **Unregister**.
   - **MARS protected servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. If you have MARS protected servers, then all items listed here must be deleted along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete MARS protected servers.
   - **MABS or DPM management servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Backup Management Servers**. If you have DPM or Azure Backup Server (MABS), then all items listed here must be deleted or unregistered along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete the management servers.
 
@@ -123,7 +124,7 @@ After this process finishes, you can delete the backup items from management con
 3. From the **Stop a Scheduled Backup** page, select **Finish**.
 
     ![Stop a scheduled backup.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-4. You are prompted to enter a security PIN (personal identification number), which you must generate manually. To do this, first sign in to the Azure portal.
+4. You're prompted to enter a security PIN (personal identification number), which you must generate manually. To do this, first sign in to the Azure portal.
 5. Go to **Recovery Services vault** > **Settings** > **Properties**.
 6. Under **Security PIN**, select **Generate**. Copy this PIN. The PIN is valid for only five minutes.
 7. In the management console, paste the PIN, and then select **OK**.
@@ -227,7 +228,7 @@ To stop protection and delete the backup data:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post where the following prompt would appear:
+    Afterwards, the following prompt will appear:
 
     *Microsoft Azure Backup Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
@@ -238,7 +239,7 @@ To stop protection and delete the backup data:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post where the following prompt would appear:
+    Afterwards, the following prompt will appear:
 
    *Microsoft Azure Backup*
    Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
@@ -332,7 +333,7 @@ To delete existing Recovery services vault, perform the below:
 
 This option to delete the Recovery Services vault is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
 
-- From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer the [Before you start](#before-you-start) section.
+- From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer to the [Before you start](#before-you-start) section.
 - Try [deleting the vault from the portal](#delete-the-recovery-services-vault) again.
 - If all of the dependencies are removed and you're still getting the *Vault deletion error*, use the ARMClient tool to perform the following steps (after the note).
 

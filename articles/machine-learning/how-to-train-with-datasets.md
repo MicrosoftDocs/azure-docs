@@ -113,7 +113,7 @@ The following example creates a FileDataset and mounts the dataset to the comput
 
 ### Create a FileDataset
 
-The following example creates an unregistered FileDataset from web urls. Learn more about [how to create datasets](https://aka.ms/azureml/howto/createdatasets) from other sources.
+The following example creates an unregistered FileDataset from web urls. Learn more about [how to create datasets](how-to-create-register-datasets.md) from other sources.
 
 ```Python
 from azureml.core.dataset import Dataset

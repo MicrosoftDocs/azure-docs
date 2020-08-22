@@ -47,7 +47,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 
 1. In the vault associated with the VM you want to restore, select **Backup items** > **Azure Virtual Machine**.
 1. Select a VM. By default on the VM dashboard, recovery points from the last 30 days are displayed. You can display recovery points older than 30 days, or filter to find recovery points based on dates, time ranges, and different types of snapshot consistency.
-1. To restore the VM, click **Restore VM**.
+1. To restore the VM, select **Restore VM**.
 
     ![Restore point](./media/backup-azure-arm-restore-vms/restore-point.png)
 
@@ -79,7 +79,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 
 ## Restore disks
 
-As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following:
+As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following actions:
 
 - Use the template that is generated during the restore operation to customize settings, and trigger VM deployment. You edit the default template settings, and submit the template for VM deployment.
 - [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
@@ -89,7 +89,7 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](#storage-accounts).
 
-    ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    ![Select Resource group and Staging location](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
 1. Select **Restore** to trigger the restore operation.
 
@@ -178,7 +178,7 @@ The secondary region restore user experience will be similar to the primary regi
 
 ## Restoring unmanaged VMs and disks as managed
 
-You're provided with an option to restore [unmanaged disks](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) as [managed disks](../virtual-machines/windows/managed-disks-overview.md) during restore. By default, the unmanaged VMs / disks are restored as unmanaged VMs / disks. However, if you choose to restore as managed VMs / disks, it's now possible to do so. These restores aren't triggered from the snapshot phase but only from the vault phase. This feature isn't available for unmanaged encrypted VMs.
+You're provided with an option to restore [unmanaged disks](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) as [managed disks](../virtual-machines/managed-disks-overview.md) during restore. By default, the unmanaged VMs / disks are restored as unmanaged VMs / disks. However, if you choose to restore as managed VMs / disks, it's now possible to do so. These restores aren't triggered from the snapshot phase but only from the vault phase. This feature isn't available for unmanaged encrypted VMs.
 
 ![Restore as managed disks](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 
