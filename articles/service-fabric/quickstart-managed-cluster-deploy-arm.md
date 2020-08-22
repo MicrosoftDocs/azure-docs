@@ -9,25 +9,17 @@ ms.date: 08/19/2020
 
 Service Fabric Managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience. Service Fabric managed clusters are a fully encapsulated resource that enable you to deploy a single Service Fabric cluster resource rather than having to deploy all of the underlying resources that make up a Service Fabric cluster. This article describes how to do deploy a Managed Service Fabric test cluster in Azure using an Azure Resource Manager (ARM template)
 
-The three-node Basic SKU cluster deployed in this tutorial is only intended to be used for instructional purposes (rather than production workloads). For more information about Managed Service Fabric cluster SKUs please see [PLACEHOLDER]().
+The three-node Basic SKU cluster deployed in this tutorial is only intended to be used for instructional purposes (rather than production workloads). For more information about Managed Service Fabric cluster SKUs please see [PLACEHOLDER](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
 
 ## Prerequisites
 
 Before you begin this quickstart:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
-
-```azurepowershell-interactive
-Login-AzAccount
-```
-
 <!-- Section to be completed when templates are merged into the quickstart repo. -->
 ## Review the template 
 
-The template used in this quickstart is from [Azure Quickstart Templates](PLACEHOLDER).
+The template used in this quickstart is from [Azure Quickstart Templates - PLACEHOLDER](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
 
 :::code language="json" source="~peterpogorski/quickstart-templates/101-managed-service-fabric-cluster-basic/azuredeploy.json" range="1-112" :::
 
@@ -35,9 +27,9 @@ The template used in this quickstart is from [Azure Quickstart Templates](PLACEH
 
 Service Fabric managed clusters use a client certificate as a key for access control. If you already have a client certificate that you would like to use for access control to your cluster, you can skip this step. 
 
-If you need to create a new client certificate, please follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
+If you need to create a new client certificate, please follow the steps in [set and retrieve a certificate from Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal#:~:text=%20Quickstart%3A%20Set%20and%20retrieve%20a%20certificate%20from,vault%2C%20you%20just%20need%20to%20take...%20More%20).
 
-Take note of the certificate thumprint as this will be required to deploy the template in the next step.
+Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
 
 ## Deploy the template
 <!-- Link to be updated when template is merged into the quickstart repo -->

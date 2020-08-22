@@ -6,7 +6,7 @@ ms.author: pepogors
 ms.date: 08/21/2020
 ---
 
-# Commonly asked Service Fabric questions
+# Commonly asked managed Service Fabric questions
 
 There are many commonly asked questions about what managed Service Fabric can do and how it should be used. This document covers many of those common questions and their answers.
 
