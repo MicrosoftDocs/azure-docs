@@ -30,7 +30,7 @@ The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python
  
 ### Install via PyPi
 
-To install via the Python Package Index (PyPI), type:
+To install via the Python Package Index (PyPi), type:
 
 # [Python v12](#tab/python)
 
@@ -43,6 +43,7 @@ pip install azure-storage-queue
 ```console
 pip install azure-storage-queue==2.1.0
 ```
+
 ---
 
 > [!NOTE]
@@ -65,6 +66,7 @@ The [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueserv
 ```python
 from azure.storage.queue import QueueService
 ```
+
 ---
 
 # [Python v12](#tab/python)
@@ -80,6 +82,7 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 
 queue_service.create_queue('taskqueue')
 ```
+
 ---
 
 ## Insert a message into a queue
@@ -95,6 +98,7 @@ To insert a message into a queue, use the [put_message](/python/api/azure-storag
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
+
 ---
 
 Azure queue messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
@@ -114,6 +118,7 @@ Configure Base64 encoding and decoding functions on the queue service object.
 queue_service.encode_function = QueueMessageFormat.binary_base64encode
 queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
+
 ---
 
 ## Peek at the next message
@@ -131,6 +136,7 @@ messages = queue_service.peek_messages('taskqueue')
 for message in messages:
     print(message.content)
 ```
+
 ---
 
 ## Change the contents of a queued message
@@ -153,6 +159,7 @@ for message in messages:
     queue_service.update_message(
         'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
+
 ---
 
 ## Get the queue length
@@ -173,6 +180,7 @@ The [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.que
 metadata = queue_service.get_queue_metadata('taskqueue')
 count = metadata.approximate_message_count
 ```
+
 ---
 
 ## Dequeue messages
@@ -193,6 +201,7 @@ for message in messages:
     print(message.content)
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
+
 ---
 
 There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the `get_messages` method to get 16 messages in one call. Then it processes each message using a for loop. It also sets the invisibility timeout to five minutes for each message.
@@ -220,6 +229,7 @@ To delete a queue and all the messages contained in it, call the [delete_queue](
 ```python
 queue_service.delete_queue('taskqueue')
 ```
+
 ---
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
