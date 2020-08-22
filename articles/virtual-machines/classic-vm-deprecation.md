@@ -34,9 +34,11 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - Start planning your migration to Azure Resource Manager, today. 
 
+- Make a list of all affected VMs. VM type “Virtual Machines (classic)” on the [Azure Portal VM Blade](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) are all the affected VMs within the subscription. 
+
 - [Learn more](./windows/migration-classic-resource-manager-overview.md) about migrating your classic [Linux](./linux/migration-classic-resource-manager-plan.md) and [Windows](./windows/migration-classic-resource-manager-plan.md) VMs to Azure Resource Manager.
 
-- For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](./windows/migration-classic-resource-manager-faq.md)
+- For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](./migration-classic-resource-manager-faq.md)
 
 - For technical questions, issues, and adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
@@ -52,5 +54,5 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Microsoft Fast Track team can provide technical assistance during migration to eligible customers. 
 
-- If your company/organization has partnered with microsoft and/or work with Microsoft representative like (Cloud Solution Architect (CSA), Technical Account Managers (TAMs)), please work with them for additional resources for migration. 
+- If your company/organization has partnered with Microsoft and/or work with Microsoft representative like (Cloud Solution Architect (CSA), Technical Account Managers (TAMs)), please work with them for additional resources for migration. 
 
