@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 08/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -339,7 +339,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32458.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure IoT hub through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure IoT hub through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -381,8 +381,6 @@ You can also enable just-in-time access to administrative accounts by using Azur
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32461.).
 
 **Guidance**: For users accessing IoT Hub, use Azure Active Directory SSO. Use Azure Security Center identity and access recommendations. 
-
-&lt;---are we understanding this right ---&gt;
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -613,10 +611,9 @@ For the underlying Azure platform managed by Microsoft, Microsoft treats all cus
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32476.).
 
-**Guidance**: 
-For control plane user access to IoT Hub, use Azure AD RBAC to control access. For data plane access to IoT Hub, use shared access policies for IoT Hub.
+**Guidance**: For control plane user access to IoT Hub, use Azure RBAC to control access. For data plane access to IoT Hub, use shared access policies for IoT Hub.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Control access to IoT Hub](iot-hub-devguide-security.md)
 
