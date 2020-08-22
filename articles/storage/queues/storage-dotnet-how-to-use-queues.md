@@ -151,6 +151,8 @@ To target the Azurite storage emulator, you can use a shortcut that maps to the 
 
 ### Add using directives
 
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+
 Add the following `using` directives to the top of the `Program.cs` file:
 
 # [\.NET v12](#tab/dotnet)
