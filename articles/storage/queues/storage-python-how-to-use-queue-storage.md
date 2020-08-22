@@ -55,7 +55,7 @@ For alternative installation methods, see [Azure SDK for Python].
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## Create a queue
+## Configure your application to access queue storage
 
 # [Python v12](#tab/python)
 
@@ -71,7 +71,11 @@ from azure.storage.queue import QueueService
 
 ---
 
+## Create a queue
+
 # [Python v12](#tab/python)
+
+The following code creates a `QueueServiceClient` object using the storage connection string. The connection string is retrieved from the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_CreateQueue":::
 
