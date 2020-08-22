@@ -16,11 +16,11 @@ ms.custom: seo-javascript-october2019, devx-track-python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-This article demonstrates common scenarios using the Azure Queue storage service. The scenarios that are covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
-
 ## Overview
 
-The samples in this article are written in Python and use the [Azure Queue storage client library for Python]. For more information on queues, see the [Next steps](#next-steps) section.
+This article demonstrates common scenarios using the Azure Queue storage service. The scenarios that are covered include inserting, peeking, getting, and deleting queue messages. Code for creating and deleting queues is also covered.
+
+The examples in this article are written in Python and use the [Azure Queue storage client library for Python]. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -59,6 +59,8 @@ For alternative installation methods, see [Azure SDK for Python].
 
 # [Python v12](#tab/python)
 
+The [QueueClient](/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) object lets you work with a queue. Add the following code near the top of any Python file in which you wish to programmatically access an Azure queue:
+
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ImportStatements":::
 
 # [Python v2](#tab/python2)
@@ -75,7 +77,7 @@ from azure.storage.queue import QueueService
 
 # [Python v12](#tab/python)
 
-The following code creates a `QueueServiceClient` object using the storage connection string. The connection string is retrieved from the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
+The following code creates a `QueueClient` object using the storage connection string. The connection string is retrieved from the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_CreateQueue":::
 
