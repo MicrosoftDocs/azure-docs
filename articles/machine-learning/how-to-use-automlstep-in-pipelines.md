@@ -33,11 +33,12 @@ Automated ML in a pipeline is represented by an `AutoMLStep` object. The `AutoML
 
 There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`, this article will show a `PythonScriptStep` for data preparation and another for registering the model.
 
-The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps, the preferred way is with `OutputFileDatasetConfig` objects. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
+The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps and possibly save data output from runs, the preferred way is with `OutputFileDatasetConfig` objects. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
 
 > [!NOTE]
->The `OutputFileDatasetConfig` class is an experimental preview feature, and may change at any time.
-For more information, see https://aka.ms/azuremlexperimental.
+>The `OutputFileDatasetConfig` and `OutputTabularDatasetConfig` classes are experimental preview features, and may change at any time.
+>
+>For more information, see https://aka.ms/azuremlexperimental.
 
 The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -236,14 +237,12 @@ dataprep_step = PythonScriptStep(
     script_name="dataprep.py", 
     compute_target=compute_target, 
     runconfig=aml_run_config,
-    arguments=["--output_path", prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
+    arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
     allow_reuse=True
 )
 ```
 
-The `prepped_data_path` object is of type `OutputFileDatasetConfig`. Notice that it's specified in both the `arguments` and `outputs` arguments. If you review the previous step, you'll see that within the data preparation code, the value of the argument `'--output_path'` is the file path to which the Parquet file was written. 
+The `prepped_data_path` object is of type `OutputFileDatasetConfig` which points to a directory.  Notice that it's specified in the `arguments` parameter. 
 
 ## Train with AutoMLStep
 
@@ -269,14 +268,15 @@ The outputs of the `AutoMLStep` are the final metric scores of the higher-perfor
 
 from azureml.pipeline.core import TrainingOutput
 
-metrics_data = OutputFileDatasetConfig(name='metrics_data',
-                           destination=datastore,
-                           pipeline_output_name='metrics_output',
-                           training_output=TrainingOutput(type='Metrics'))
-model_data = OutputFileDatasetConfig(name='best_model_data',
-                           destination=datastore,
-                           pipeline_output_name='model_output',
-                           training_output=TrainingOutput(type='Model'))
+metrics_data = PipelineData(name='metrics_data',
+                            datastore=datastore,
+                            pipeline_output_name='metrics_output',
+                            training_output=TrainingOutput(type='Metrics'))
+
+model_data = PipelineData(name='best_model_data',
+                          datastore=datastore,
+                          pipeline_output_name='model_output',
+                          training_output=TrainingOutput(type='Model'))
 ```
 
 The snippet above creates the two `PipelineData` objects for the metrics and model output. Each is named, assigned to the default datastore retrieved earlier, and associated with the particular `type` of `TrainingOutput` from the `AutoMLStep`. Because we assign `pipeline_output_name` on these `PipelineData` objects, their values will be available not just from the individual pipeline step, but from the pipeline as a whole, as will be discussed below in the section "Examine pipeline results." 
