@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 08/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,7 +28,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32270.).
 
-**Guidance**: Use resource tags for network security groups and other resources related to network security.  Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.   Azure Public IPs can be assigned tags.
+**Guidance**: Azure Public IPs can be assigned tags. Use resource tags for network security groups and other resources related to network security.  Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.  
 
 You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
 
@@ -51,9 +51,9 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32273.).
 
-**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate logs related to network traffic. 
+**Guidance**: Use Azure Activity Log to monitor configurations and detect changes to your Public IP instances. Other than at the control plane (e.g. Azure portal), Public IP itself does not generate logs related to network traffic. 
 
-Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
@@ -70,7 +70,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32274.).
 
-**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate audit logs. Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Public IP instances. Other than at the control plane (e.g. Azure portal), Public IP itself does not generate audit logs. Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
 - [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
@@ -83,7 +83,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32276.).
 
-**Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with Azure Public IP according to your organization's compliance regulations.
+**Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with Public IP instances based upon your organization's compliance regulations.
 
 - [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -96,7 +96,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32277.).
 
-**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate logs related to network traffic. Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Public IP instances. Other than at the control plane (e.g. Azure portal), Public IP itself does not generate logs related to network traffic. Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
 - [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
@@ -109,7 +109,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32278.).
 
-**Guidance**: You can configure to receive alerts based on activity logs related to Azure Public IP. Azure Monitor allows you to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
+**Guidance**: You can configure to receive alerts based on activity logs related to Public IP. Azure Monitor allows you to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
@@ -127,13 +127,26 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32282.).
 
 **Guidance**: 
-Azure role-based access control (RBAC) allows you to manage access to Azure resources such as your Azure Public IP through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources such as your Public IP through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined Azure built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
+
+### 3.2: Change default passwords where applicable
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32283.).
+
+**Guidance**: Azure Active Directory does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. 
+
+You are responsible for third-party applications and marketplace services that may use default passwords.
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -304,6 +317,7 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 
 Not allowed resource types
 Allowed resource types
+
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
 - [How to create management groups](../governance/management-groups/create.md)
@@ -390,7 +404,7 @@ Allowed resource types
 
 - [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-- [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
+- [Customers may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -440,7 +454,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32346.).
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
+**Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
 - [How to configure continuous export](../security-center/continuous-export.md)
 
