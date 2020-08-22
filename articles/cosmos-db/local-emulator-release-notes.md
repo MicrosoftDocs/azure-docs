@@ -21,6 +21,12 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.11.4 (08/22/2020)
+
+- This release adds two new Cosmos emulator startup options: 
+* "/EnablePreview" - it enables preview features for the Cosmos emulator; these are features that are still developed and can be accessed via CI and sample writing.
+* "/EnableAadAuthorization" - it enables the Cosmos emulator to accept custom AAD tokens as an alternative to Cosmos master keys. This feature is still in development; specific role assignments and other permission related settings are not supported at this time.
+
 ### 2.11.2 (07/07/2020)
 
 - This release changes how ETL traces required when troubleshooting the Cosmos emulator are collected. WPR (Windows Performance Runtime tools) are now the default tools for capturing ETL based traces while old LOGMAN based capturing has been deprecated. This change is required in part because latest Windows security updates had an unexpected impact on how LOGMAN works when executed through the Cosmos emulator.
