@@ -14,20 +14,20 @@ Blazor Server provides support for hosting Razor components on the server in an 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Set up a new Blazor Server app configured to use Azure AD for authentication
+> * Set up a new Blazor Server app configured to use Azure Active Directory (Azure AD) for authentication
 > * Handle both authentication and authorization using Microsoft.Identity.Web 
 > * Retrieve data from Microsoft Graph
 
 ## Prerequisites
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-- An Azure AD tenant where you can register an app. If you don’t have access to an Azure AD tenant, you can get one by registering to the [Microsoft 365 Developer program](https://developer.microsoft.com/en-us/microsoft-365/dev-program) or by creating a [Free Azure Trial](https://azure.microsoft.com/free) account
+- An Azure AD tenant where you can register an app. If you don’t have access to an Azure AD tenant, you can get one by registering to the [Microsoft 365 Developer program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating a [Free Azure Trial](https://azure.microsoft.com/free) account
 - (Optional) [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## Option 1: Register and create the app using the .NET CLI
 
 Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. You can create a new registration and then use the [.NET CLI](https://docs.microsoft.com/dotnet/core/tools/) to create a new Blazor app using the following instructions. If you are using VisualStudio 2019, you can skip this step and complete step two. 
 
-First, follow the instructions in [Register a new application using the Azure portal](https://review.docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app) with the following settings:
+First, follow the instructions in [Register a new application using the Azure portal](https://review.docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) with the following settings:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Leave the **Redirect URI** drop down set to **Web** and provide the following redirect URI: `https://localhost:{PORT}/signin-oidc`.
@@ -65,12 +65,7 @@ The output location specified with the `-o|--output` option creates a project fo
 > [!NOTE]
 > If the port wasn't configured earlier with the app's known port, return to the app's registration in the Azure portal and update the redirect URI with the correct port.
 
-After creating the app, you should be able to:
-
-* Log into the app using an AAD user account.
-* Request access tokens for Microsoft APIs. For more information, see:
-  * [Access token scopes](#access-token-scopes)
-  * [Quickstart: Configure an application to expose web APIs](/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
+You can now run the app and log in using an Azure AD user account.
 
 You're now ready to move to step 3.
 
@@ -95,7 +90,7 @@ The VisualStudio creation tool automatically registered this application in your
 
 ## Simplify the code by using Microft.Identity.Web
 
-The apps created in the steps above utilize [ASP .Net Identity](https://docs.microsoft.com/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity) for authentication. You will need to add some more code that queries the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) endpoint in order to get authorization for your users to access protected APIs. In other words, **authentication** and **authorization** are done separately and require more code. 
+The apps created in the steps above utilize [ASP .Net Identity](https://docs.microsoft.com/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity) for authentication. You will need to add some more code that queries the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) endpoint in order to get authorization for your users to access protected APIs. In other words, **authentication** and **authorization** are done separately and require more code. 
 
 However, you can use the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) authentication and token management library to handle both. **Microsoft.Identity.Web** is meant to abstract away the complexities and allow you to quickly implement authentication and authorization, as shown here. You can use the following instructions to update your code and make use of Microsoft.Identity.Web.
 
@@ -162,7 +157,7 @@ As you can see, with a couple of lines of code, you are able to leverage the Mic
 
 ## Retrieving data from Microsoft Graph
 
-[Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview) offers a wide range of APIs to allow you to build rich and immersive apps with the Microsoft 365 data your users own. Using the Microsoft identity platform as the identity provider for your app enables you to access this information easily by accessing protected Graph APIs using the authentication and authorization tokens you get from the Microsoft identity platform. In this section, you learn how to do this.
+[Microsoft Graph](https://docs.microsoft.com/graph/overview) offers a wide range of APIs to allow you to build rich and immersive apps with the Microsoft 365 data your users own. Using the Microsoft identity platform as the identity provider for your app enables you to access this information easily by accessing protected Graph APIs using the authentication and authorization tokens you get from the Microsoft identity platform. In this section, you learn how to do this.
 
 Before you start, make sure to log out of your app, because we will be making changes to the required permissions and your current token will not work. 
 
