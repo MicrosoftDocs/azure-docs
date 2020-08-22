@@ -76,7 +76,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Australia South East | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Canada East          | 40.86.226.166, 40.86.226.166, 52.242.30.154 |
+| Canada East          | 40.86.226.166, 52.242.30.154 |
 | Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | China East           | 139.219.130.35     |
 | China East 2         | 40.73.82.1         |
@@ -107,7 +107,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Switzerland West     | 51.107.152.0, 51.107.153.0 |
 | UAE Central          | 20.37.72.64        |
 | UAE North            | 65.52.248.0        |
-| UK South             | 51.140.184.11,51.140.184.11, 51.105.64.0 |
+| UK South             | 51.140.184.11, 51.105.64.0 |
 | UK West              | 51.141.8.11        |
 | West Central US      | 13.78.145.25, 13.78.248.43        |
 | West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |

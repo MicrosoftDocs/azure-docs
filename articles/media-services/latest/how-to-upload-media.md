@@ -16,6 +16,7 @@ ms.author: inhenkel
 ---
 
 # Upload media for streaming or encoding
+
 In Media Services, you upload your digital files (media) into a blob container associated with an asset. The [Asset](/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files). Once the files are uploaded into the asset's container, your content is stored securely in the cloud for further processing  and streaming.
 
 Before you get started though, you'll need to collect or think about a few values.
@@ -33,10 +34,6 @@ Before you get started though, you'll need to collect or think about a few value
 ## [CLI](#tab/cli/)
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
-
-## [CLI Shell](#tab/clishell/)
-
-[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli-shell.md)]
 
 ## [REST](#tab/rest/)
 

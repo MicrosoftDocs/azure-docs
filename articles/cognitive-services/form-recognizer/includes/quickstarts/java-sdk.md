@@ -84,7 +84,7 @@ In your project's *build.gradle.kts* file, be sure to include the client library
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
 }
 ```
 
