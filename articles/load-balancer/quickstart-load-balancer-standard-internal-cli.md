@@ -75,6 +75,50 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
     --subnet-name myBackendSubnet \
     --subnet-prefixes 10.1.0.0/24
 ```
+### Create a network security group
+
+For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
+
+Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
+
+* Named **myNSG**.
+* In resource group **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupLB \
+    --name myNSG
+```
+
+### Create a network security group rule
+
+Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
+
+* Named **myNSGRuleHTTP**.
+* In the network security group you created in the previous step, **myNSG**.
+* In resource group **myResourceGroupLB**.
+* Protocol **(*)**.
+* Direction **Inbound**.
+* Source **(*)**.
+* Destination **(*)**.
+* Destination port **Port 80**.
+* Access **Allow**.
+* Priority **200**.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupLB \
+    --nsg-name myNSG \
+    --name myNSGRuleHTTP \
+    --protocol '*' \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 80 \
+    --access allow \
+    --priority 200
+```
 
 ## Create standard load balancer
 
@@ -160,51 +204,6 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
 ```
 >[!NOTE]
 >The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
-
-### Create a network security group
-
-For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
-
-Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
-
-* Named **myNSG**.
-* In resource group **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupLB \
-    --name myNSG
-```
-
-### Create a network security group rule
-
-Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
-
-* Named **myNSGRuleHTTP**.
-* In the network security group you created in the previous step, **myNSG**.
-* In resource group **myResourceGroupLB**.
-* Protocol **TCP**.
-* Direction **Inbound**.
-* Source **(*)**.
-* Destination **(*)**.
-* Destination port **Port 80**.
-* Access **Allow**.
-* Priority **200**.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupLB \
-    --nsg-name myNSG \
-    --name myNSGRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 80 \
-    --access allow \
-    --priority 200
-```
 
 ### Create network interfaces for the virtual machines
 
@@ -752,7 +751,8 @@ Create the virtual machine with [az vm create](https://docs.microsoft.com/cli/az
 * In resource group **myResourceGroupLB**.
 * Attached to network interface **myNicTestVM**.
 * Virtual machine image **Win2019Datacenter**.
-* Enter a **admin password** and **admin username** for the VM in the command.  Replace **\<adminpass>** and **\<adminuser>**.
+* Choose values for **\<adminpass>** and **\<adminuser>**.
+  
 
 ```azurecli-interactive
   az vm create \
