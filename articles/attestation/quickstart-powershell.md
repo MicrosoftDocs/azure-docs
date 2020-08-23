@@ -15,9 +15,9 @@ ms.author: mbaldwin
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
 
 Minimum version of Az modules required to support attestation specific operations:
-Az 4.5.0
-Az.Accounts 1.9.2
-Az.Attestation 0.1.8
+- Az 4.5.0
+- Az.Accounts 1.9.2
+- Az.Attestation 0.1.8
 
 ## Install Az.Attestation PowerShell module
 
