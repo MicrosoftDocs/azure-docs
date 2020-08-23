@@ -98,12 +98,18 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
 
 - **Query:** 
 
-```Kusto
-// Reported errors 
-union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
-| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
-or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
-```
+    ```Kusto
+    // Reported errors
+    union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+    | where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+    ```
+
+    When using workspaces and Application Insights currently this line needs to be added using **Metric measurement**:
+
+    ```Kusto
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
 
 - **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules isn't available currently for workspaces and Application Insights)
 - **Dimensions / Aggregated on:**
