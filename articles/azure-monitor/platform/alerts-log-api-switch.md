@@ -13,7 +13,7 @@ ms.subservice: alerts
 > Content stated applicable to users Azure public cloud only and **not** for Azure Government or Azure China cloud.  
 
 > [!NOTE]
-> Once a user chooses to switch preference to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) it is not possible to revert to using of the older [legacy Log Analytics Alert API](api-alerts.md).
+> Once a user chooses to switch preference to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) it is not possible to revert back to the older [legacy Log Analytics Alert API](api-alerts.md).
 
 In the past, users used the [legacy Log Analytics Alert API](api-alerts.md) based on SavedSearch to manage the log alert rules. Today all workspaces are created with [Azure Monitor - ScheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). This article describes the benefits and the process to switch from the legacy Log Analytics Alert API to the current API.
 
@@ -24,14 +24,13 @@ In the past, users used the [legacy Log Analytics Alert API](api-alerts.md) base
 - [PowerShell cmdlets support](alerts-log.md#managing-log-alerts-using-powershell).
 - Alignment of severities with all other alert types.
 - Ability to create [cross workspace log alert](../log-query/cross-workspace-query.md) that span several external resources like Log Analytics workspaces or Application Insights resources.
-- Users can specify dimensions to split the alert by using the 'Aggregate On' parameter.
+- Users can specify dimensions to split the alerts by using the 'Aggregate On' parameter.
 - Log alerts have extended period of up to two days of data (previously limited to one day).
 
 ## Impact
 
 - All new rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [sample use via PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
-- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: '<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>'. Display names of the alert rule will remain unchanged.
-- Template structure will be aligned to current API template.
+- As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
 
 ## Process
 
