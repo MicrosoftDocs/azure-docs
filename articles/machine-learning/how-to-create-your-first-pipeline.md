@@ -114,7 +114,7 @@ from azureml.data import OutputFileDatasetConfig
 output_data1 = OutputFileDatasetConfig()
 ```
 
-More details and sample code for working with datasets and OutputFileConfig onjects are in [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md).
+More details and sample code for working with datasets and OutputFileConfig objects are in [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## Set up a compute target
 
