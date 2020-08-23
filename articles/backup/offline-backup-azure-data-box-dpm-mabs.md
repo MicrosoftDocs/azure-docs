@@ -254,7 +254,7 @@ From the DPM/MABS server you're trying to configure offline backup, do the follo
 6. Right-click the string added in the step above and select **Modify**. In the value, provide the thumbprint of the certificate you exported in **point 2** and select **OK**.
 7. To get the value of thumbprint, double-click on the certificate, then select **Details**  and scroll-down until you see the thumbprint field. Select **Thumbprint** and copy the value.
 
-   ![Certificate](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Thumbprint value](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## Next steps
 
