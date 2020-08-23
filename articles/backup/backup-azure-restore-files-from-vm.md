@@ -7,7 +7,7 @@ ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
 
-Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
+Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 
 > [!NOTE]
 > This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
@@ -296,7 +296,7 @@ The script also requires Python and bash components to execute and connect secur
 If you run the script on a computer with restricted access, ensure there's access to:
 
 - `download.microsoft.com`
-- Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
+- Recovery Service URLs (geo-name refers to the region where the Recovery Services vault resides)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)

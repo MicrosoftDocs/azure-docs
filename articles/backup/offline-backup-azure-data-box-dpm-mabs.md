@@ -52,9 +52,9 @@ Ensure the following:
 
 - A valid Azure subscription.
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
-- The Data Box job and the Recovery Services Vault to which the data needs to be seeded must be available in the same subscriptions.
+- The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
     > [!NOTE]
-    > We recommend that the target storage account and the Recovery Services Vault be in the same region. However, this is not mandatory.
+    > We recommend that the target storage account and the Recovery Services vault be in the same region. However, this is not mandatory.
 
 ### Order and receive the Data Box device
 
@@ -188,7 +188,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 Follow these steps once the data backup to the Azure Data Box Disk is successful.
 
 - Follow the steps in [this article](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) to ship the Azure Data Box disk to Azure. If you used an Azure Data Box 100-TB device, follow [these steps](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) to ship the Azure Data Box to Azure.
-- [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. Once the Azure Data Box job is *Complete*, the DPM/MABS server automatically moves the data from the Storage Account to the Recovery Services Vault at the time of the next scheduled backup. It will then mark the backup job as *Job Completed* if a recovery point is successfully created.
+- [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. Once the Azure Data Box job is *Complete*, the DPM/MABS server automatically moves the data from the Storage Account to the Recovery Services vault at the time of the next scheduled backup. It will then mark the backup job as *Job Completed* if a recovery point is successfully created.
 
   > [!NOTE]
   > The DPM/MABS server triggers the backups at the times scheduled during protection group creation. However, these jobs will flag *Waiting for Azure Data Box job to be completed* until the time the job is complete.

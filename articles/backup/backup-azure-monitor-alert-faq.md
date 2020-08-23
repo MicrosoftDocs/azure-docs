@@ -59,7 +59,7 @@ Yes. In the following situations, notifications are not sent.
 * When a job is canceled
 * If a second backup job fails because the original backup job is in progress
 
-## Recovery Services Vault
+## Recovery Services vault
 
 ### How long does it take for the Azure backup agent job status to reflect in the portal?
 

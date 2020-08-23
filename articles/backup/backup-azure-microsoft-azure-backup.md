@@ -96,7 +96,7 @@ To edit the storage replication setting:
    * In the list of resources, type **Recovery Services**.
    * As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, select it.
 
-     ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Create Recovery Services vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      The list of Recovery Services vaults appears.
    * From the list of Recovery Services vaults, select a vault.
@@ -130,7 +130,7 @@ To edit the storage replication setting:
 
     ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. In the **Prepare infrastructure** pane that opens, select the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
+6. In the **Prepare infrastructure** pane that opens, select the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the Recovery Services vault. The links take you to the Download Center where the software package can be downloaded.
 
     ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -138,7 +138,7 @@ To edit the storage replication setting:
 
     ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Since the download size of all the files together is > 3G, on a 10-Mbps download link it may take up to 60 minutes for the download to complete.
+    Since the download size of all the files together is > 3 GB, on a 10-Mbps download link it may take up to 60 minutes for the download to complete.
 
 ### Extracting the software package
 
@@ -211,7 +211,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Summary of settings](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available, you can continue with the installation. If not, you need to provide proxy details to connect to the Internet.
 
-    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the recovery services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
+    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the Recovery Services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
     ![Register Server Wizard](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
