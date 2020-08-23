@@ -17,10 +17,10 @@ This article provides troubleshooting information to address any issues you come
 - Check if any file share under the storage account is already protected with another Recovery Services vault.
 
   >[!NOTE]
-  >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the recovery services vault where your storage account is registered.
+  >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the Recovery Services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
-- Please ensure that the combined length of storage account name and resource group name doesn't exceed 84 characters in case of new Storage accounts and 77 characters in case of classic storage accounts. 
+- Please ensure that the combined length of storage account name and resource group name doesn't exceed 84 characters in case of new Storage accounts and 77 characters in case of classic storage accounts.
 - Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
 
 ### Error in portal states discovery of storage accounts failed
@@ -49,7 +49,7 @@ Retry the registration. If the problem persists, contact support.
 In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage accounts from the Recovery Services vault.
 
 >[!NOTE]
->A recovery services vault can only be deleted after unregistering all storage accounts registered with the vault.
+>A Recovery Services vault can only be deleted after unregistering all storage accounts registered with the vault.
 
 ## Common backup or restore errors
 
