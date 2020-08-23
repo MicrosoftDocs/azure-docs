@@ -130,7 +130,7 @@ Here the steps to get started writing queries for alerts:
 
 1. Start from the **Condition** tab:
 
-    1. Check that the [**Measure**](alerts-unified-log.md#measure), [**Aggregation type**](alerts-unified-log.md#Aggregation-type), and [**Aggregation granularity**](alerts-unified-log.md#Aggregation-granularity) are correct. 
+    1. Check that the [**Measure**](alerts-unified-log.md#measure), [**Aggregation type**](alerts-unified-log.md#aggregation-type), and [**Aggregation granularity**](alerts-unified-log.md#aggregation-granularity) are correct. 
         1. By default, the rule counts the number of results in the last 5 minutes.
         1. If we detect summarized query results, the rule will be updated automatically within a few seconds to capture that.
 
@@ -156,7 +156,7 @@ Here the steps to get started writing queries for alerts:
 
 1. In the **Actions** tab, select or create the required [action groups](action-groups.md).
 
-    ![Details tab](media/alerts-log/ActionsTab.png)
+    ![Actions tab](media/alerts-log/ActionsTab.png)
 
 1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now** or [**Mute Actions**](alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
 
@@ -195,7 +195,7 @@ Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource 
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 
-### Sample log alert template for workspaces and Application Insights
+### Example of simple template (up to version 2018-04-16)
 
 [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [number of results log alert](alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
 
@@ -270,7 +270,7 @@ Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource 
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### Log alert template with cross-resource for workspaces and Application Insights
+### Example of template with cross-resource query (up to version 2018-04-16)
 
 [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-number-column-such-as-cpu-counter-value) that queries [cross-resources](../log-query/cross-workspace-query.md) (sample data set as variables):
 
@@ -364,7 +364,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### Sample log alert Template for all other resource types
+### Sample log alert Template for all resource types (from version 2020-05-01-preview)
 
 [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template for all resource types (sample data set as variables):
 
@@ -611,7 +611,7 @@ PowerShell cmdlets listed below are available to manage rules with the [Schedule
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell cmdlet to create or update object specifying action parameters for a log alert. Used as input by [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) and [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet to create or update object specifying action groups parameters for a log alert. Used as input by [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet to create or update object specifying trigger condition parameters for log alert. Used as input by [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
-- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet to create or update object specifying metric trigger condition parameters for [metric measurement type log alert](./alerts-unified-log.md#metric-measurement-alert-rules). Used as input by [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+- [New-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet to create or update object specifying metric trigger condition parameters for [metric measurement type log alert](./alerts-unified-log.md#calculation-of-measure-based-on-a-number-column-such-as-cpu-counter-value). Used as input by [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet to list existing log alert rules or a specific log alert rule
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell cmdlet to enable or disable log alert rule
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet to delete an existing log alert rule
