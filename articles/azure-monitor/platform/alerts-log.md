@@ -12,10 +12,10 @@ ms.subservice: alerts
 ## Overview
 This article shows you how to create and manage log alerts using Azure Monitor. Alert rules are defined by three components:
 - Target: A specific Azure resource to monitor
-- Criteria: A condition or logic to evaluate for truth. If true, the alert fires.  
-- Action: Specific call sent to a receiver of a notification - email, SMS, webhook, and so on.
+- Criteria: Logic to evaluate. If met, the alert fires.  
+- Action: Notifications or automation about the alert - email, SMS, webhook, and so on.
 
-**Log Alert** run a log query every set frequency on resource logs, and an alert fired based on the results. [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
