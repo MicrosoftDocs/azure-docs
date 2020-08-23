@@ -67,7 +67,7 @@ This example shows the previous primary and secondary logic app instances but de
 
 ## Connections to resources
 
-Azure Logic Apps provides [built-in triggers and actions plus hundreds of managed connectors](../connectors/apis-list.md) that your logic app can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, Office 365 Outlook email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
+Azure Logic Apps provides [built-in triggers and actions plus hundreds of managed connectors](../connectors/apis-list.md) that your logic app can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
 
 For your disaster recovery strategy, consider the locations where dependent resources exist relative to your logic app instances:
 
@@ -142,7 +142,7 @@ This example shows the active-passive setup where the primary logic app instance
 
 This example shows a combined setup where the primary location has both active logic app instances, while the secondary location has active-passive logic app instances. If the primary location experiences a disruption or failure, the active logic app in the secondary location, which is already handling a partial workload, can take over the entire workload.
 
-* In the primary location, an active logic app listens to an Azure Service Bus queue for messages, while another active logic app checks for emails by using a Office 365 Outlook polling trigger.
+* In the primary location, an active logic app listens to an Azure Service Bus queue for messages, while another active logic app checks for emails by using an Outlook for Microsoft 365 polling trigger.
 
 * In the secondary location, an active logic app works with the logic app in the primary location by listening and competing for messages from the same Service Bus queue. Meanwhile, a passive inactive logic app waits on standby to check for emails when the primary location becomes unavailable but is *disabled* to avoid rereading emails.
 
@@ -245,7 +245,7 @@ From a disaster recovery perspective, when you set up your logic app's primary a
 
 * For a logic app that works with client-side state, make sure that your logic app doesn't read the same message more than one time. Only one location can have an active logic app instance at any specific time. Make sure that the logic app instance in the alternate location is inactive or disabled until the primary instance fails over to the alternate location.
 
-  For example, the Office 365 Outlook trigger maintains client-side state and tracks the timestamp for the most recently read email to avoid reading a duplicate.
+  For example, the Outlook for Microsoft 365 trigger maintains client-side state and tracks the timestamp for the most recently read email to avoid reading a duplicate.
 
 * For a logic app that works with server-side state, you can set up your logic app instances to play either [active-active roles](#roles) where they work as competing consumers or [active-passive roles](#roles) where the alternate instance waits until the primary instance fails over to the alternate location.
 

@@ -266,7 +266,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Create CSV table** action, select **Output**. 
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
+   This example uses the Outlook for Microsoft 365 **Send an email** action and includes the **Output** field in the email's body:
 
    !["Output" fields for the "Create CSV table" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
@@ -419,7 +419,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Create HTML table** action, select **Output**. 
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
+   This example uses the Outlook for Microsoft 365 **Send an email** action and includes the **Output** field in the email's body:
 
    !["Output" fields for "Create HTML table"](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
 
@@ -498,7 +498,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
    `@actionBody('Filter_array')`
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the **actionBody('Filter_array')** expression in the email's body:
+   This example uses the Outlook for Microsoft 365 **Send an email** action and includes the outputs from the **actionBody('Filter_array')** expression in the email's body:
 
    ![Action outputs from "Filter array" action](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
@@ -558,7 +558,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Join** action, select **Output**. 
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
+   This example uses the Outlook for Microsoft 365 **Send an email** action and includes the **Output** field in the email's body:
 
    !["Output" fields for the "Join" action](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
@@ -626,7 +626,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON content.
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the **FirstName**, **LastName**, and **Email** fields in the email's body:
+   This example uses the Outlook for Microsoft 365 **Send an email** action and includes the **FirstName**, **LastName**, and **Email** fields in the email's body:
 
    ![JSON properties in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 
@@ -700,7 +700,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
    `@actionBody('Select')`
 
-   This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the `@actionBody('Select')` expression in the email's body:
+   This example uses the Outlook for Microsoft 365 **Send an email** action and includes the outputs from the `@actionBody('Select')` expression in the email's body:
 
    ![Action outputs from "Select" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 

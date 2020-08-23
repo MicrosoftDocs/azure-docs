@@ -31,7 +31,7 @@ Here are examples that describe commonly-used triggers:
     * [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Tutorial: Create automated, schedule-based recurring workflows by using Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * The **When an email is received** trigger lets your logic app check for new email from any mail provider that's supported by Logic Apps, for example, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](/connectors/gmail/), [Outlook.com](/connectors/outlook/), and so on.
+  * The **When an email is received** trigger lets your logic app check for new email from any mail provider that's supported by Logic Apps, for example, [Outlook for Microsoft 365](../connectors/connectors-create-api-office365-outlook.md), [Gmail](/connectors/gmail/), [Outlook.com](/connectors/outlook/), and so on.
 
     > [!IMPORTANT]
     > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 

@@ -30,7 +30,7 @@ tweets based on predefined keywords.
 
 In this scenario, you create a logic app that triggers on finding feedback from customers. 
 Some connectors that help you respond to customer feedback include Outlook.com, 
-Office 365, Survey Monkey, Twitter, and an 
+Microsoft 365, Survey Monkey, Twitter, and an 
 [HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
 The workflow that you create monitors a hashtag on Twitter.
 

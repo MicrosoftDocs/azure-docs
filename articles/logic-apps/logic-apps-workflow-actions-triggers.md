@@ -155,7 +155,7 @@ This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../
 
 *Example*
 
-This trigger definition checks for email every day inside the inbox for an Office 365 Outlook account:
+This trigger definition checks for email every day inside the inbox for a work or school account:
 
 ```json
 "When_a_new_email_arrives": {
@@ -236,7 +236,7 @@ This trigger sends a subscription request to an endpoint by using a [Microsoft-m
 
 *Example*
 
-This trigger definition subscribes to the Office 365 Outlook API, provides a callback URL to the API endpoint, and waits for the endpoint to respond when a new email arrives.
+This trigger definition subscribes to the Outlook for Microsoft 365 API, provides a callback URL to the API endpoint, and waits for the endpoint to respond when a new email arrives.
 
 ```json
 "When_a_new_email_arrives_(webhook)": {
@@ -810,7 +810,7 @@ Here are some commonly used action types:
 
   * [**Workflow**](#workflow-action) for calling another logic app workflow
 
-* [Managed API action types](#managed-api-actions) such as [**ApiConnection**](#apiconnection-action) and [**ApiConnectionWebHook**](#apiconnectionwebhook-action) that call various connectors and APIs managed by Microsoft, for example, Azure Service Bus, Office 365 Outlook, Power BI, Azure Blob Storage, OneDrive, GitHub, and more
+* [Managed API action types](#managed-api-actions) such as [**ApiConnection**](#apiconnection-action) and [**ApiConnectionWebHook**](#apiconnectionwebhook-action) that call various connectors and APIs managed by Microsoft, for example, Azure Service Bus, Outlook for Microsoft 365, Power BI, Azure Blob Storage, OneDrive, GitHub, and more
 
 * [Control workflow action types](#control-workflow-actions) such as [**If**](#if-action), [**Foreach**](#foreach-action), [**Switch**](#switch-action), [**Scope**](#scope-action), and [**Until**](#until-action), which contain other actions and help you organize workflow execution
 
@@ -910,7 +910,7 @@ This action sends an HTTP request to a [Microsoft-managed API](../connectors/api
 
 *Example*
 
-This definition describes the **Send an email** action for Office 365 Outlook connector, which is a Microsoft-managed API: 
+This definition describes the **Send an email** action for Outlook for Microsoft 365 connector, which is a Microsoft-managed API: 
 
 ```json
 "Send_an_email": {
@@ -1106,7 +1106,7 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in an Office 365 Outlook account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
 
 The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
 
@@ -1585,7 +1585,7 @@ To use this array output in other actions, pass this output into a **Compose** a
 },
 ```
 
-You can then use the output from the **Compose** action in your other actions, for example, the **Office 365 Outlook - Send an email** action:
+You can then use the output from the **Compose** action in your other actions, for example, the **Outlook for Microsoft 365 - Send an email** action:
 
 ```json
 "Send_an_email": {
