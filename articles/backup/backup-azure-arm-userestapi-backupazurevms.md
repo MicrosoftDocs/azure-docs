@@ -30,7 +30,7 @@ The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, 
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### Responses
+#### Responses to refresh operation
 
 The 'refresh' operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
@@ -41,7 +41,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |204 No Content     |         |  OK  with No content returned      |
 |202 Accepted     |         |     Accepted    |
 
-##### Example responses
+##### Example responses to refresh operation
 
 Once the *POST* request is submitted, a 202 (Accepted) response is returned.
 
@@ -97,13 +97,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The *GET* URI has all the required parameters. No additional request body is needed.
 
-#### <a name="responses-1"></a>Responses
+#### Responses to get operation
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses-1"></a>Example responses
+#### Example responses to get operation
 
 Once the *GET* request is submitted, a 200 (OK) response is returned.
 
@@ -197,7 +197,7 @@ The following request body defines properties required to create a protected ite
 
 The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#example-responses-1).
 
-#### Responses
+#### Responses to create protected item operation
 
 The creation of a protected item is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
@@ -208,7 +208,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
-##### Example responses
+##### Example responses to create protected item operation
 
 Once you submit the *PUT* request for protected item creation or update, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -285,7 +285,7 @@ The `{containerName}` and `{protectedItemName}` are as constructed [above](#resp
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### Create the request body
+### Create the request body for on-demand backup
 
 To trigger an on-demand backup, following are the components of the request body.
 
@@ -295,7 +295,7 @@ To trigger an on-demand backup, following are the components of the request body
 
 For the complete list of definitions of the request body and other details, refer to [trigger backups for protected items REST API document](/rest/api/backup/backups/trigger#request-body).
 
-#### Example request body
+#### Example request body for on-demand backup
 
 The following request body defines properties required to trigger a backup for a protected item. If the retention is not specified, it will be retained for 30 days from the time of trigger of the backup job.
 
@@ -308,7 +308,7 @@ The following request body defines properties required to trigger a backup for a
 }
 ```
 
-### Responses
+### Responses for on-demand backup
 
 Triggering an on-demand backup is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
@@ -318,7 +318,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |202 Accepted     |         |     Accepted    |
 
-#### <a name="example-responses-3"></a>Example responses
+#### Example responses for on-demand backup
 
 Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -428,7 +428,7 @@ The `{containerName}` and `{protectedItemName}` are as constructed [above](#resp
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses-2"></a>Responses
+#### Responses for delete protection
 
 *DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
