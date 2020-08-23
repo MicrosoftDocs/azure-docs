@@ -10,21 +10,22 @@ ms.subservice: alerts
 
 # Log alerts in Azure Monitor
 
-Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). 
+Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). 
 
-[Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs, can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
+[Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
 ## Condition parameters definition
 
-Log search rules are defined by the following details:
+Log search rules are defined by the following parameters:
 
 ### Log Query
-The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query scoped to:
+The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
+
 - A specific resource, such as a virtual machine.
-- An at scale resource, such as a subscription and resource group.
+- An at scale resource, such as a subscription or resource group.
 - Multiple resources using [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
@@ -84,7 +85,7 @@ Determines the interval that is used to aggregate multiple records to one numeri
 In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The query result must contain [bin()](/azure/kusto/query/binfunction) that sets interval in the query results. In all other resource types, **Aggregation granularity** is selected from the field of that name.
 
 > [!NOTE]
-> As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert bin command to bin_at command with appropriate time at runtime, to ensure results with a fixed point.
+> As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert [bin()](/azure/kusto/query/binfunction) command to [bin_at()](/azure/kusto/query/binatfunction) command with appropriate time at runtime, to ensure results with a fixed point.
 
 ### Split by alert dimensions
 
@@ -105,7 +106,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
     or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
     ```
 
-    When using workspaces and Application Insights currently this line needs to be added using **Metric measurement**:
+    When using workspaces and Application Insights this line needs to be added when using **Metric measurement** alert logic:
 
     ```Kusto
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
@@ -118,7 +119,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
-This rule monitors if the event errors happened in the last 15 minutes in the virtual machines. Each instance will get monitored individually and you'll trigger actions individually.
+This rule monitors if event errors happened in the last 15 minutes in the virtual machines. Each instance will be monitored and trigger actions individually.
 
 > [!NOTE]
 > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale at scale is only supported in the API version `2020-05-01-preview` and above.
@@ -143,7 +144,7 @@ For example, a query scans 60 minutes, when time range is 60 minutes, even if th
 
 You can specify the alert evaluation period and the number of failures needed to trigger an alert. Allowing you to better define an impact time to trigger an alert. 
 
-For example, if your rule (**Aggregation granularity**)[#aggregation-granularity] is defined as '5 minutes', you can trigger an alert only if three failures (15 minutes) of the last hour occurred. This setting is defined by your application business policy.
+For example, if your rule [**Aggregation granularity**](#aggregation-granularity) is defined as '5 minutes', you can trigger an alert only if three failures (15 minutes) of the last hour occurred. This setting is defined by your application business policy.
 
 ## State and resolving alerts
 
@@ -172,7 +173,7 @@ Pricing information is located in the [Azure Monitor pricing page](https://azure
 > Unsupported resource characters such as `<, >, %, &, \, ?, /` are replaced with `_` in the hidden resource names and this will also reflect in the billing information.
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](api-alerts.md) until user decides to switch and not using the hidden resources.
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md). Any alert rule management should be done using [legacy Log Analytics API](api-alerts.md) until you decides to switch and you can't use the hidden resources.
 
 ## Next steps
 
