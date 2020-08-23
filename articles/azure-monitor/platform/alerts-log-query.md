@@ -1,5 +1,5 @@
 ---
-title: Log alert queries in Azure Monitor | Microsoft Docs
+title: Optimizing log alert queries | Microsoft Docs
 description:  Recommendations for writing efficient alert queries
 author: yanivlavi
 ms.author: yalavi
