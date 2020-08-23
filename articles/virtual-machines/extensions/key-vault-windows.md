@@ -85,7 +85,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
+| certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |

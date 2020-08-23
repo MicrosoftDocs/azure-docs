@@ -63,7 +63,7 @@ In addition, there are a couple of things that you might need to do in some circ
 1. In **Backup goal** > **Where is your workload running?** select **Azure**.
 1. In **What do you want to back up?** select **Virtual machine**. Then select **Backup**.
 
-      ![Scenario blade](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Scenario pane](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. In **Backup policy** > **Choose backup policy**, select the policy that you want to associate with the vault. Then select **OK**.
     - A backup policy specifies when backups are taken, and how long they're stored.

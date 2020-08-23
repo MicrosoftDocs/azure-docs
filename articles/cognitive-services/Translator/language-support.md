@@ -69,6 +69,8 @@ Translator supports the following languages for text to text translation.
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku`	|
+|Kurdish (Northern)	|`kmr`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malagasy|	`mg`	|
@@ -290,6 +292,7 @@ The following languages are available for customization to or from English using
 | French      | `fr`          |
 | German      | `de`          |
 | Greek      | `el`          |
+| Gujarati|	`gu`	|
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
@@ -303,11 +306,14 @@ The following languages are available for customization to or from English using
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
+| Malay|	`ms`		|
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese (Brazil) | `pt-br` |
+| Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Samoan|	`sm`	|
@@ -319,6 +325,7 @@ The following languages are available for customization to or from English using
 | Thai      | `th`          |
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
+| Urdu|	`ur`	|
 | Vietnamese      | `vi`          |
 | Welsh | `cy` |
 

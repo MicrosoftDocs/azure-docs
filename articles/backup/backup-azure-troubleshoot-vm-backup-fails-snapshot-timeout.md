@@ -26,7 +26,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 - **Ensure Azure VM Guest Agent service is started and up-to-date**:
   - On a Windows VM:
     - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. To learn more, see [Windows VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - The Azure VM Agent is installed by default on any Windows VM deployed from the Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that is deployed to Azure.
+    - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that is deployed to Azure.
     - Review the support matrix to check if VM runs on the [supported Windows operating system](backup-support-matrix-iaas.md#operating-system-support-windows).
   - On Linux VM,
     - Ensure the Azure VM Guest Agent service is running by executing the command `ps-e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
@@ -171,8 +171,8 @@ Your backup operation could fail when backing up a VM with a disk size greater t
 
 Your recent backup job failed because there's an existing backup job in progress. You can't start a new backup job until the current job finishes. Ensure the backup operation currently in progress is completed before triggering or scheduling another backup operations. To check the backup jobs status, do the following steps:
 
-1. Sign in to the Azure portal, select **All services**. Type Recovery Services and select **Recovery Services vaults**. The list of recovery services vaults appears.
-2. From the list of recovery services vaults, select a vault in which the backup is configured.
+1. Sign in to the Azure portal, select **All services**. Type Recovery Services and select **Recovery Services vaults**. The list of Recovery Services vaults appears.
+2. From the list of Recovery Services vaults, select a vault in which the backup is configured.
 3. On the vault dashboard menu, select **Backup Jobs** it displays all the backup jobs.
    - If a backup job is in progress, wait for it to complete or cancel the backup job.
      - To cancel the backup job, right-click on the backup job and select **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
