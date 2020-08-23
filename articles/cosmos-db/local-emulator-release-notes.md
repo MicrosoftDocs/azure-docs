@@ -21,11 +21,11 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
-### 2.11.4 (08/22/2020)
+### 2.11.5 (08/23/2020)
 
 - This release adds two new Cosmos emulator startup options: 
 * "/EnablePreview" - it enables preview features for the Cosmos emulator; these are features that are still developed and can be accessed via CI and sample writing.
-* "/EnableAadAuthorization" - it enables the Cosmos emulator to accept custom AAD tokens as an alternative to Cosmos master keys. This feature is still in development; specific role assignments and other permission related settings are not supported at this time.
+* "/EnableAadAuthentication" - it enables the Cosmos emulator to accept custom AAD tokens as an alternative to Cosmos master keys. This feature is still in development; specific role assignments and other permission related settings are not supported at this time.
 
 ### 2.11.2 (07/07/2020)
 
