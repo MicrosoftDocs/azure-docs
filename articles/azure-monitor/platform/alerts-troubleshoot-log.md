@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 
 This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-**Log Alert** run a log query every set frequency on resource logs, and an alert fired based on the results. [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
+Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details on troubleshooting [here](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -25,7 +25,7 @@ Azure Monitor processes terabytes of customers' logs from across the world, whic
 
 Logs are semi-structured data and inherently more latent than metrics. If you're experiencing more than 4-minutes delay in fired alerts, you should consider using [metric alerts](alerts-metric-overview.md). You can send data to the metric store from logs using [metric alerts for logs](alerts-metric-logs.md).
 
-The system retries the alert evaluation multiple times to mitigate latency. Once the data arrives, the alert fires, which not equal the log record time.
+The system retries the alert evaluation multiple times to mitigate latency. Once the data arrives, the alert fires, which in most cases don't equal the log record time.
 
 ### Incorrect query time range configured
 
@@ -35,15 +35,15 @@ For example, a query scans 60 minutes, when time range is 60 minutes, even if th
 
 ![Time period](media/alert-log-troubleshoot/LogAlertTimePeriod.png)
 
-### Suppress Alerts option is set
+### Actions are muted in the alert rule
 
 Log alerts provide an option to mute fired alert actions for a set amount of time. This field is called **Suppress alerts** in workspaces and Application Insights. In all other resource types, it's called **Mute actions**. 
 
-A common issue is that you think that the alert didn't fire the actions, because of a service issue. Even tough it was muted by the rule configuration.
+A common issue is that you think that the alert didn't fire the actions because of a service issue. Even tough it was muted by the rule configuration.
 
 ![Suppress alerts](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
-### Metric measurement alert rule with grouping using legacy Log Analytics API
+### Metric measurement alert rule with splitting using the legacy Log Analytics API
 
 *Metric measurement log alerts* are a type of log alerts that are based on summarized time series results. You can use grouping in these rules by columns to split alerts. If you're using the legacy Log Analytics API, splitting won't work as expected. Choosing the grouping isn't supported.
 
@@ -51,7 +51,7 @@ The current ScheduledQueryRules API allows you to set **Aggregate On**, which wi
 
 ## Log alert fired unnecessarily
 
-A configured [log alert rule in Azure Monitor](./alerts-log.md) might be triggered unexpectedly when you view it in [Azure Alerts](./alerts-managing-alert-states.md). The following sections describe some common reasons.
+A configured [log alert rule in Azure Monitor](./alerts-log.md) might be triggered unexpectedly. The following sections describe some common reasons.
 
 ### Alert triggered by partial data
 
@@ -65,7 +65,7 @@ While there are builtin capabilities to prevent false alerts, they can still occ
 
 ### Query optimization issues
 
-The alerting service changes your query to optimize for lower load and alert latency. The field that shows the **Query to be executed** for workspaces and Application Insights is in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
+The alerting service changes your query to optimize for lower load and alert latency. For workspaces and Application Insights, it's called **Query to be executed** in the condition pane. In all other resource types, select **See final alert Query** in the condition tab.
 
 The optimized query is what the log alert service runs. You can run the modified query in Log Analytics [portal](../log-query/log-query-overview.md) or [API](/rest/api/loganalytics/).
 
@@ -73,13 +73,65 @@ The optimized query is what the log alert service runs. You can run the modified
 
 ## Log alert was disabled
 
-The following sections list some reasons why Azure Monitor might disable the [log alert rule](./alerts-log.md).
+The following sections list some reasons why Azure Monitor might disable a log alert rule. See below [example of activity log that is sent when a rule is disabled](#activity-log-example).
 
-### Resource where the alert was created no longer exists or was moved
+### Alert scope no longer exists or was moved
 
-When the target of an alert rule is no longer valid, execution of the rule fails. In this case, billing stops as well.
+When the scope of an alert rule is no longer valid, execution of the rule fails. In this case, billing stops as well.
 
-Azure Monitor will disable the log alert after a week and post an event to [Azure Activity Log](../../azure-resource-manager/management/view-activity-logs.md). You can find out the exact time when Azure Monitor disabled the log alert in the activity log. See this example:
+Azure Monitor will disable the log alert after a week.
+
+### Query used in a log alert isn't valid
+
+When a log alert rule is created, the query is validated for correct syntax. But sometimes, the query provided in the log alert rule can start to fail. Some common reasons are:
+
+- Rules were created via the API and validation was skipped by the user.
+- The query [runs on multiple resources](../log-query/cross-workspace-query.md) and one or more of the resources was deleted or moved.
+- The [query fails](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because:
+    - The logging solution wasn't deployed to the workspace.
+    - Data stopped flowing to the tables in the query. 
+    - Custom logs tables aren't yet created, since data flow hasn't started.
+- Changes in [query language](/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier is no longer valid.
+
+[Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the log alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
+
+## Alert rule quota was reached
+
+The number of log search alert rules per subscription and resource are subject to the quota limits described [here](../service-limits.md).
+
+### Recommended Steps
+    
+If you've reached the quota limit, the following steps may help resolve the issue.
+
+1. Try deleting or disabling log search alert rules that aren’t used anymore.
+1. Try to use splitting of alerts by dimensions to reduce rules count. These rules can monitor many resources and detection cases.
+1. If you need the quota limit to be increased, continue to open a support request, and provide the following information:
+
+    - Subscription IDs and Resource IDs for which the quota limit needs to be increased
+    - Reason for quota increase
+    - Resource type for the quota increase: **Log Analytics**, **Application Insights**, and so on.
+    - Requested quota limit
+
+
+### To check the current usage of new log alert rules
+	
+#### From the Azure portal
+
+1. Open the *Alerts* screen, and select *Manage alert rules*
+2. Filter to the relevant subscription using the *Subscription* dropdown control
+3. Make sure NOT to filter to a specific resource group, resource type, or resource
+4. In the *Signal type* dropdown control, select 'Log Search'
+5. Verify that the *Status* dropdown control is set to ‘Enabled’
+6. The total number of log search alert rules will be displayed above the rules list
+
+#### From API
+
+- PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- REST API - [List by subscription](/rest/api/monitor/scheduledqueryrules/listbysubscription)
+
+## Activity log example when rule is disabled
+
+If query fails for seven days, Azure Monitor will disable the log alert and stop billing of the rule. You can find out the exact time when Azure Monitor disabled the log alert in the [Azure Activity Log](../../azure-resource-manager/management/view-activity-logs.md). See this example:
 
 ```json
 {
@@ -141,57 +193,6 @@ Azure Monitor will disable the log alert after a week and post an event to [Azur
     "relatedEvents": []
 }
 ```
-
-### Query used in a log alert isn't valid
-
-When a log alert rule is created, the query is validated for correct syntax. But sometimes, the query provided in the log alert rule can start to fail. Some common reasons are:
-
-- Rules were created via the API and validation was skipped by the user.
-- The query [runs on multiple resources](../log-query/cross-workspace-query.md) and one or more of the resources was deleted or moved.
-- The [query fails](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because:
-    - The solution wasn't deployed to the workspace.
-    - Data stopped flowing to the tables of in query. 
-    - Custom logs tables are empty since data flow hasn't started.
-- Changes in [query language](/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier in an alert rule is no longer valid.
-
-[Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the log alert rule. The category used is 'High Availability' with medium impact and a description of "Repair your log alert rule to ensure monitoring".
-
-> [!NOTE]
-> If query fails for seven days, Azure Monitor will disable the log alert and stop billing of the rule. You can find out the exact time when Azure Monitor disabled the log alert in the [Azure Activity Log](../../azure-resource-manager/management/view-activity-logs.md).
-
-## Alert rule quota was reached
-
-The number of log search alert rules per subscription and resource are subject to the quota limits described [here](../service-limits.md).
-
-### Recommended Steps
-    
-If you've reached the quota limit, the following steps may help resolve the issue.
-
-1. Try deleting or disabling log search alert rules that aren’t used anymore.
-1. Try to use splitting of alerts by dimensions to reduce rules count. These rules can monitor many resources and detection cases.
-1. If you need the quota limit to be increased, continue to open a support request, and provide the following information:
-
-    - Subscription IDs and Resource IDs for which the quota limit needs to be increased
-    - Reason for quota increase
-    - Resource type for the quota increase: **Log Analytics**, **Application Insights**, and so on.
-    - Requested quota limit
-
-
-### To check the current usage of new log alert rules
-	
-#### From the Azure portal
-
-1. Open the *Alerts* screen, and select *Manage alert rules*
-2. Filter to the relevant subscription using the *Subscription* dropdown control
-3. Make sure NOT to filter to a specific resource group, resource type, or resource
-4. In the *Signal type* dropdown control, select 'Log Search'
-5. Verify that the *Status* dropdown control is set to ‘Enabled’
-6. The total number of log search alert rules will be displayed above the rules list
-
-#### From API
-
-- PowerShell - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
-- REST API - [List by subscription](/rest/api/monitor/scheduledqueryrules/listbysubscription)
 
 ## Next steps
 
