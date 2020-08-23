@@ -1,6 +1,6 @@
 ---
 title: Webhook actions for log alerts in Azure alerts
-description: This article describes how to create a log alert rule by using the Log Analytics workspace or Application Insights, how the alert pushes data as an HTTP webhook, and the details of the different customizations that are possible.
+description: Describes how to configure a log alert pushes with webhook action and available customizations
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
@@ -11,7 +11,7 @@ ms.subservice: alerts
 
 # Webhook actions for log alert rules
 
-[Log alert](alerts-log.md) support [configuring webhook action groups](action-groups.md#webhook). In this article we will describe what properties are available and how to configure a custom JSON-based webhook.
+[Log alert](alerts-log.md) support [configuring webhook action groups](action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON-based webhook.
 
 > [!NOTE]
 > Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
@@ -21,14 +21,14 @@ ms.subservice: alerts
 
 ## Webhook payload properties
 
-With webhook actions, you can invoke an external process through a single HTTP POST request. The service that's called should support webhooks and determine how to use any payload it receives.
-Here are the properties that are sent in the default webhook action and their custom JSON parameter names:
+Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
+Default webhook action properties and their custom JSON parameter names:
 
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |Name of the alert rule. |
 | *Severity* |#severity |Severity set for the fired log alert. |
-| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule, which uses greater than or less than. |
+| *AlertThresholdOperator* |#thresholdoperator |Threshold operator for the alert rule. |
 | *AlertThresholdValue* |#thresholdvalue |Threshold value for the alert rule. |
 | *LinkToSearchResults* |#linktosearchresults |Link to the Analytics portal that returns the records from the query that created the alert. |
 | *LinkToSearchResultsAPI* |#linktosearchresultsapi |Link to the Analytics API that returns the records from the query that created the alert. |
@@ -64,8 +64,9 @@ This example payload resolves to something like the following when it's sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Because all variables in a custom webhook must be specified within a JSON enclosure, like "#searchinterval," the resultant webhook also has variable data inside enclosures, like "00:05:00".
-To include search results in a custom payload, ensure that **IncludeSearchResults** is set as a top-level property in the JSON payload. 
+Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" the above webhook example will have a variable output based on the alert results.
+
+To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. **IncludeSearchResults** is of JSON structure, so results can't be referenced in custom defined fields. 
 
 > [!NOTE]
 > The **View Webhook** button alongside the **Include custom JSON payload for webhook** option for the log alert displays the sample webhook payload for the customization that was provided. It doesn't contain actual data but is representative of the JSON schema that's used for log alerts. 
@@ -272,7 +273,7 @@ The following sample payload is for a standard webhook when it's used for log al
 ```
 
 ### Log alert with custom JSON payload
-For example, to create a custom payload that includes just the alert name and the search results, you can use the following: 
+For example, to create a custom payload that includes just the alert name and the search results, use this configuration: 
 
 ```json
     {

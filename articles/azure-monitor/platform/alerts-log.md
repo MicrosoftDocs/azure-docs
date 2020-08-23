@@ -1,6 +1,6 @@
 ---
 title: Create, view, and manage log alerts Using Azure Monitor | Microsoft Docs
-description: Use the Azure Monitor to author, view, and manage log alert rules in Azure.
+description: Use Azure Monitor to create, view, and manage log alert rules
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
@@ -13,9 +13,9 @@ ms.subservice: alerts
 This article shows you how to create and manage log alerts using Azure Monitor. Alert rules are defined by three components:
 - Target: A specific Azure resource to monitor
 - Criteria: A condition or logic to evaluate for truth. If true, the alert fires.  
-- Action: Specific call sent to a receiver of a notification - email, SMS, webhook etc.
+- Action: Specific call sent to a receiver of a notification - email, SMS, webhook, and so on.
 
-The term **Log Alert** describes alerts where a log query is evaluated on resources logs every set frequency, and an alert fired if the criteria is met. Learn more about functionality, terminology, and types from [Log alerts - Overview](alerts-unified-log.md).
+**Log Alert** run a log query every set frequency on resource logs, and an alert fired based on the results. [Learn more about functionality and terminology of log alerts](alerts-unified-log.md).
 
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
@@ -25,74 +25,81 @@ The term **Log Alert** describes alerts where a log query is evaluated on resour
 Here the steps to get started writing queries for alerts:
 
 1. Go to logs section of the resources you would like to alert on. 
-1. Query the log data which can indicate the issue. You can use examples to understand what you can discover or get started on writing queries [here](../log-query/get-started-portal.md).
+1. Query the log data that can indicate the issue. You can use examples to understand what you can discover or get started on writing queries [here](../log-query/get-started-portal.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
 1. Press on '+ New Alert Rule' button to start the alert creation flow.
 
- ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
+    ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
 
 > [!NOTE]
-> It is recommended that you create alerts at scale, when using resource access mode for logs, which run on multiple resources using a resource group or subscription scope. To be able to target the resources, please include the resource ID column in the results.
+> It is recommended that you create alerts at scale, when using resource access mode for logs, which run on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, please include the resource ID column in the results.
 
 ### Log alert for Log Analytics and Application Insights
 
-1. If the query syntax is correct, then historical data for the query appears as a graph with the option to tweak the time window from last six hours to last week.
+1. If the query syntax is correct, then historical data for the query appears as a graph with the option to tweak the chart period from last six hours to last week.
+ 
+    If your query results contain summarized data or project-specific columns without time column, the chart shows a single value.
 
     ![Configure alert rule](media/alerts-log/AlertsPreviewAlertLog.png)
 
-   The historical data visualization is only shown if the query results have time details. If your query results in summarized data or specific column values, the display shows a single plot.
-  
-   For metric measurements using Application Insights or [the Log Analytics API](/rest/api/monitor/scheduledqueryrules), you can specify which specific variable to group the data by using the **Aggregate on** option; as shown here: 
-  
-   ![aggregate on option](media/alerts-log/aggregate-on.png)
+1. Choose the time range over which to assess the specified condition, using [**Period**](alerts-unified-log.md#time-range) option. 
 
-1. Next choose the **Alert Logic**  condition, aggregation and threshold. 
+1. Log Alerts can be based on two types of [**Measures**](alerts-unified-log.md#measure):
+    1. **Number of Records** - Count of records returned by the query.
+    1. **Metric Measurement** - *Aggregate value* calculated by group expression chosen and [bin()](/azure/kusto/query/binfunction) selection.
 
-1. Choose the time period over which to assess the specified condition, using **Period** option. 
+1. For metric measurements alert logic, you can optionally specify how to [split the alerts by dimensions](alerts-unified-log.md#split-by-alert-dimensions) using the **Aggregate on** option. Row grouping expression must be unique and sorted.
 
-1. Choose how often the alert runs in **Frequency**. 
+    > [!NOTE]
+    > As [bin()](/azure/kusto/query/binfunction) can result in uneven time intervals, the alert service will automatically convert bin command to bin_at command with appropriate time at runtime, to ensure results with a fixed point.
 
-    **Log Alerts** can be based on:
-    - [Number of Records](./alerts-unified-log.md#number-of-results-alert-rules): An alert is created if the count of records returned by the query is either greater than or less than the value provided.
-    - [Metric Measurement](./alerts-unified-log.md#metric-measurement-alert-rules): An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples.
+    > [!NOTE]
+    > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale at scale is only supported in the API version `2020-05-01-preview` and above.
 
+    ![aggregate on option](media/alerts-log/aggregate-on.png)
 
-1. Click **Done**. 
+1. Next, based on the preview data set the [**Operator**, **Threshold Value**](alerts-unified-log.md#threshold-and-operator), and [**Frequency**](alerts-unified-log.md#frequency).
 
-1. Define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details are reused in all alert emails, notifications, or pushes done by Azure Monitor. Additionally, you can choose to immediately activate the alert rule on creation by clicking **Enable rule upon creation**.
+1. You can also optionally set the [number of violations to trigger an alert](alerts-unified-log.md#number-of-violations-to-trigger-alert) by using **Total or Consecutive Breaches**.
 
-1. Choose if you want to **Suppress Alerts** for a period of time.  When you turn on suppression for the alert rule, actions for the rule are disabled for a defined length of time after creating a new alert. The rule still runs and creates alert records provided the criteria is met. This setting allows you time to correct the problem without running duplicate actions.
+1. Select **Done**. 
 
-   ![Suppress Alerts for Log Alerts](media/alerts-log/AlertsPreviewSuppress.png)
+1. Define the **Alert rule name**, **Description**, and select the alert **Severity**. These details are used in all alert actions. Additionally, you can choose to not activate the alert rule on creation by clicking **Enable rule upon creation**.
+
+1. Choose if you want to suppress rule actions for a time after an alert is fires, use the [**Suppress Alerts**](alerts-unified-log.md#state-and-resolving-alerts) option. The rule will still run and create alerts but actions won't be triggered to prevent noise.
+
+    ![Suppress Alerts for Log Alerts](media/alerts-log/AlertsPreviewSuppress.png)
 
     > [!TIP]
-    > Specify a suppress alert value greater than the frequency of alert to ensure notifications are stopped without overlap
+    > Specify a mute actions value greater than the frequency of alert to ensure notifications are stopped without overlap
 
-1. As the third and final step, specify if the alert rule should trigger one or more **Action Group** when alert condition is met. You can choose any existing Action Group or create a new one. With action groups, you can send perform a number of actions such as send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, and more. Learn more about [Action Groups](action-groups.md).
+1. Specify if the alert rule should trigger one or more [**Action Groups**](action-groups.md#webhook) when alert condition is met.
 
     > [!NOTE]
     > Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on the actions that can be performed.  
 
-    Some additional functionality is available to override the default Actions:
+1. You can optionally customize actions in log alert rules:
 
-    - **Email Notification**: Overrides *e-mail subject* in the email sent via the Action Group. You cannot modify the body of the mail and this field is **not** for email address.
-    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook type. For more information on webhook formats, see [webhook action for Log Alerts](./alerts-log-webhook.md). View Webhook option is provided to check format using sample JSON data.
+    - **Custom Email Subject**: Overrides the *e-mail subject* in the email sent via the Action Group. You can't modify the body of the mail and this field **isn't for email addresses**.
+    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups assuming the action group contains a webhook type. Learn more about [webhook action for Log Alerts](./alerts-log-webhook.md).
 
-        ![Action Overrides for Log Alerts](media/alerts-log/AlertsPreviewOverrideLog.png)
+    ![Action Overrides for Log Alerts](media/alerts-log/AlertsPreviewOverrideLog.png)
 
+1. If all fields are correctly set, the **Create alert rule** button can be clicked and an alert is created.
 
-1. If all fields are valid and with green tick the **create alert rule** button can be clicked and an alert is created in Azure Monitor - Alerts. All alerts can be viewed from the alerts Dashboard.
+    Within a few minutes, the alert is active and triggers as previously described.
 
-     ![Rule Creation](media/alerts-log/AlertsPreviewCreate.png)
+    ![Rule Creation](media/alerts-log/AlertsPreviewCreate.png)
 
-     Within a few minutes, the alert is active and triggers as previously described.
+#### Creating log alert for Log Analytics and Application Insights from the alerts management
 
-#### Creating log alert for Log Analytics and Application Insights from the alerts blade
+> [!NOTE]
+> Creation for alerts management is currently not supported for resource centric logs
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**. In that section, choose **Alerts**.
 
     ![Monitoring](media/alerts-log/AlertsPreviewMenu.png)
 
-1. Click **New Alert Rule**. 
+1. Select **New Alert Rule**. 
 
     ![Add Alert](media/alerts-log/AlertsPreviewOption.png)
 
@@ -104,91 +111,93 @@ Here the steps to get started writing queries for alerts:
 
     ![Create rule](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Define the alert condition by using the **Select Resource** link and specifying the target by selecting a resource. Filter by choosing the *Subscription*, *Resource Type*, and required *Resource*. 
+1. Define the alert condition by using the **Select Resource** link and specifying the target by selecting a resource. Filter by choosing the *Subscription*, *Resource Type*, and required *Resource*. Ensure the resource has logs enabled.
 
    ![Select resource](media/alerts-log/Alert-SelectResourceLog.png)
 
-1. Ensure **Resource Type** is an analytics source like *Log Analytics* or *Application Insights* and signal type as *Log*. Click **Done**. Next use the **Add criteria** button to view list of signal options available for the resource. Find and choose **Custom log search** option for either  *Log Analytics* or *Application Insights*, depending on where the data for your log alerts resides.
+1. Next, use the add **Condition** button to view list of signal options available for the resource. Select **Custom log search** option.
 
    ![Select a resource - custom log search](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-   > 
-   > Alerts lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts. For more details on using saved queries, see [using log query in Azure Monitor](../log-query/log-query-overview.md) and [shared query in Application Insights analytics](../app/app-insights-overview.md).
+   > The alerts portal lists saved queries from log analytics and Application Insights and they can be used as template alert query.
 
-1. Once selected, create the alerting query in the **Search Query** field. If the query syntax is incorrect, the field displays and error in red. 
+1. Once selected, paste the alerting query in the **Search Query** field.
 
-1. From this step continue the flow described in the last section.
+1. Continue to the next described in the [last section](#log-alert-for-log-analytics-and-application-insights).
 
 ### Log alert for all other resource types
 
 1. Start from the **Condition** tab:
 
-    1. Check that the **Measure**, **Aggregation type**, and **Aggregation granularity** are correct. By default, they are selected to count the number of results in the last 5 minutes and are updated automatically to summarized results, if it's detected.
-    1. Choose alert splitting by dimensions, if needed: 
-       - **Resource ID column** is selected automatically, if detected, and changed the context of the fired alert to the resulting resource. 
-       - **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. This is useful when query results is based on cross-resources (for example, query that check if 80% of the resource group virtual machines are experiencing hig CPU usage).
-       - Additional splitting can be also selected for any number or text columns using the dimensions table.
+    1. Check that the [**Measure**](alerts-unified-log.md#measure), [**Aggregation type**](alerts-unified-log.md#Aggregation-type), and [**Aggregation granularity**](alerts-unified-log.md#Aggregation-granularity) are correct. 
+        1. By default, the rule counts the number of results in the last 5 minutes.
+        1. If we detect summarized query results, the rule will be updated automatically within a few seconds to capture that.
+
+    1. Choose [alert splitting by dimensions](alerts-unified-log.md#split-by-alert-dimensions), if needed: 
+       - **Resource ID column** is selected automatically, if detected, and changes the context of the fired alert to the record's resource. 
+       - **Resource ID column** can be de-selected to fire alerts on subscription or resource groups. De-selecting is useful when query results are based on cross-resources. For example, a query that check if 80% of the resource group's virtual machines are experiencing high CPU usage.
+       - Up to six additional splittings can be also selected for any number or text columns using the dimensions table.
        - Alerts are fired separately according to splitting based on unique combinations and alert payload include this information.
     
-    ![Select aggregation parameters and splitting](media/alerts-log/SelectAggregationParametersAndSplitting.png)
+        ![Select aggregation parameters and splitting](media/alerts-log/SelectAggregationParametersAndSplitting.png)
 
-    1. The **Preview** chart shows query evaluations results over time, you can change the chart period and select different time series that resulted from unique  alert splitting by dimensions.
+    1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
-    ![Preview chart](media/alerts-log/PreviewChart.png)
+        ![Preview chart](media/alerts-log/PreviewChart.png)
 
-    1. Next, based on the preview data set the **Alert logic**; **Operator**, **Threshold Value** and **Frequency**.
+    1. Next, based on the preview data set the **Alert logic**; [**Operator**, **Threshold Value**](alerts-unified-log.md#threshold-and-operator), and [**Frequency**](alerts-unified-log.md#frequency).
 
-    ![Preview chart with threshold and alert logic](media/alerts-log/ChartAndAlertLogic.png)
+        ![Preview chart with threshold and alert logic](media/alerts-log/ChartAndAlertLogic.png)
 
-    1. You can optionally set **Number of violations to trigger the alert** in the **Advanced options** section.
+    1. You can optionally set [**Number of violations to trigger the alert**](alerts-unified-log.md#number-of-violations-to-trigger-alert) in the **Advanced options** section.
     
-    ![Advanced options](media/alerts-log/AdvancedOptions.png)
+        ![Advanced options](media/alerts-log/AdvancedOptions.png)
 
 1. In the **Actions** tab, select or create the required [action groups](action-groups.md).
 
-![Details tab](media/alerts-log/ActionsTab.png)
+    ![Details tab](media/alerts-log/ActionsTab.png)
 
-1. In the **Details** tab, define the **Alert rule details**, and **Project details** . You can optionally set whether to not **Start running now** and/or **Mute Actions** for a period after the alert fires.
+1. In the **Details** tab, define the **Alert rule details**, and **Project details**. You can optionally set whether to not **Start running now** or [**Mute Actions**](alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
 
     > [!NOTE]
     > Log alert rules are currently stateless and fires action every time an alert is created unless muting is defined.
 
-![Details tab](media/alerts-log/DetailsTab.png)
+    ![Details tab](media/alerts-log/DetailsTab.png)
 
 1. In the **Tags** tab, set any required tags on the alert rules resource.
 
-![Tags tab](media/alerts-log/TagsTab.png)
+    ![Tags tab](media/alerts-log/TagsTab.png)
 
-1. In the **Review + create** tab, a validation will run and inform of any issues. Please review and approve the rule definition.
-1. If all fields are valid **Create** button can be clicked and an alert is created in Azure Monitor. All alerts can be viewed from the alerts Dashboard.
+1. In the **Review + create** tab, a validation will run and inform of any issues. Review and approve the rule definition.
+1. If all fields are valid, **Create** button can be clicked and an alert is created in Azure Monitor. All alerts can be viewed from the alerts Dashboard.
  
-![Review and create tab](media/alerts-log/ReviewAndCreateTab.png)
+    ![Review and create tab](media/alerts-log/ReviewAndCreateTab.png)
 
 ### View & manage log alerts in Azure portal
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource or the **Monitor** service. Then select **Alerts** in the Monitor section.
 
-1. The **Alerts Dashboard** is displayed - wherein all Azure Alerts (including log alerts) are displayed in a singular board; including every instance of when your log alert rule has fired. To learn more, see [Alert Management](https://aka.ms/managealertinstances).
+1. The alerts management displays all alerts that fired. [Learn more about the alert management](alerts-managing-alert-instances.md).
 
     > [!NOTE]
-    > Log alert rules are currently stateless and do not resolved.
+    > Log alert rules are currently [stateless and do not resolved](alerts-unified-log.md#state-and-resolving-alerts).
 
-1. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all alert rules created are listed; including alerts that have been disabled.
+1. Select **Manage rules** button on the top bar to edit rules:
 
     ![ manage alert rules](media/alerts-log/manage-alert-rules.png)
 
 ## Managing log alerts using Azure Resource Template
 
-Log alerts in Azure Monitor are associated with resource type `Microsoft.Insights/scheduledQueryRules`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](/rest/api/monitor/scheduledqueryrules/). Log alerts for Application Insights or Log Analytics, can be created using [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
 
-### Sample log alert Template for workspaces and Application Insights
+### Sample log alert template for workspaces and Application Insights
 
-The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using standard log search query of [number of results type log alert](alerts-unified-log.md#number-of-results-alert-rules), with sample data set as variables.
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [number of results log alert](alerts-unified-log.md#count-of-the-results-table-rows) (sample data set as variables):
 
 ```json
 {
@@ -259,11 +268,11 @@ The following is the structure for [Scheduled Query Rules creation](/rest/api/mo
 
 ```
 
-The sample json above can be saved as sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-### Log alert with cross-resource query using Azure Resource Template
+### Log alert template with cross-resource for workspaces and Application Insights
 
-The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using [cross-resource log search query](../log-query/cross-workspace-query.md) of [metric measurement type log alert](./alerts-unified-log.md#metric-measurement-alert-rules), with sample data set as variables.
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template based on [metric measurement](./alerts-unified-log.md#calculation-of-measure-based-on-a-number-column-such-as-cpu-counter-value) that queries [cross-resources](../log-query/cross-workspace-query.md) (sample data set as variables):
 
 ```json
 {
@@ -353,11 +362,11 @@ The following is the structure for [Scheduled Query Rules creation](/rest/api/mo
 > [!IMPORTANT]
 > When using cross-resource query in log alert, the usage of [authorizedResources](/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
 
-The sample json above can be saved as sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ### Sample log alert Template for all other resource types
 
-The following is the structure for [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template with sample data set as variables.
+[Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template for all resource types (sample data set as variables):
 
 ```json
 {
@@ -584,7 +593,7 @@ The following is the structure for [Scheduled Query Rules creation](/rest/api/mo
 }
 ```
 
-The sample json above can be saved as sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Managing log alerts using PowerShell
 
@@ -593,7 +602,7 @@ The sample json above can be saved as sampleScheduledQueryRule.json for the purp
 > [!NOTE]
 > Powershell is not currently supported in the API version `2020-05-01-preview`
 
-Azure Monitor - [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. And PowerShell cmdlets listed below are available to leverage the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+PowerShell cmdlets listed below are available to manage rules with the [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 
 - [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell cmdlet to create a new log alert rule.
 - [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell cmdlet to update an existing log alert rule.
@@ -630,24 +639,20 @@ New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name f
 
 ## Managing log alerts using CLI or API
 
-Azure Monitor - [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager commands for Azure CLI.
-
-
 > [!NOTE]
-> Log alerts for Log Analytics used to be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-Log alerts currently do not have dedicated CLI commands; but as illustrated below can be used via Azure Resource Manager CLI command for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section:
+Log alerts currently don't have a dedicated CLI, but can be used with Azure Resource Manager CLI with templates files:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
 
-On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
+On success for creation, 201 is returned. On success for update, 200 is returned.
 
 ## Next steps
 
-* Learn about [Log Alerts in Azure Alerts](./alerts-unified-log.md)
-* Understand [Webhook actions for log alerts](./alerts-log-webhook.md)
-* Learn more about [Application Insights](../log-query/log-query-overview.md)
+* Learn about [log alerts](./alerts-unified-log.md)
+* Understand [webhook actions for log alerts](./alerts-log-webhook.md)
 * Learn more about [log queries](../log-query/log-query-overview.md).
 

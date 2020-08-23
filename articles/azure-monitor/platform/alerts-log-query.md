@@ -1,6 +1,6 @@
 ---
 title: Log alert queries in Azure Monitor | Microsoft Docs
-description: Provides recommendations on writing efficient queries for log alerts in Azure Monitor updates and a process for converting existing queries
+description:  Recommendations for writing efficient alert queries
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 02/19/2019
 ms.subservice: alerts
 ---
 # Log alert queries in Azure Monitor
-[Alert rules based on Azure Monitor logs](alerts-unified-log.md) run at frequently, so you should ensure that they are optimized to reduce latency and load. This article provides recommendations on writing efficient queries for log alerts and a process for converting existing queries. 
+This article describes how to write and convert [Log Alert](alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## Types of log queries
 [Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
 
-For example the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. This is the only table that the query must process.
+For example, the following query is scoped to the _SecurityEvent_ table and searches for specific event ID, it's the only table that the query must process:
 
 ``` Kusto
 SecurityEvent | where EventID == 4624 
@@ -29,12 +29,14 @@ search ObjectName == "Memory"
 union * | where ObjectName == "Memory"
 ```
 
-Although `search` and `union` are useful during data exploration, searching terms over the entire data model is less efficient than using a explicit table, since they must scan across multiple tables. This also reduces the alerting system ability to optimize the alert rule to minimize firing latency. Since queries in alert rules are run frequently, this can result in un-optimize and excessive overhead adding latency to the alert. Because of this overhead, queries for log alert rules in Azure should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
+Although `search` and `union` are useful during data exploration, searching terms over the entire data model is less efficient than using an explicit table, since they must scan across multiple tables. Using an explicit table also reduces the alerting system ability to optimize the alert rule to minimize firing latency. 
+
+Since queries in alert rules are run frequently, using `search` and `union` can result in unoptimize and excessive overhead adding latency to the alert. Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
 
 ## Unsupported queries
-We no longer support creating or modifying log alert rules that use `search`, or `union` operators will not be supported the in Azure portal. Using these operators in an alert rule will return an error message. You should still consider changing any alert rules that use these types of queries though to improve their efficiency.
+We no longer support creating or modifying log alert rules that use `search`, or `union` operators won't be supported the in Azure portal. Using these operators in an alert rule will return an error message. Change any alert rules that use these types of queries though to improve their efficiency.
 
-Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use `union`, which limits the query scope to specific resources. This is not equivalent of `union *` which cannot be used.  The following example would be valid in a log alert rule:
+Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use `union`, which limits the query scope to specific resources. A cross-resource query using `union` isn't equivalent of  that can't be used.  The following example would be valid in a log alert rule:
 
 ```Kusto
 union
@@ -50,7 +52,7 @@ workspace('Contoso-workspace1').Perf
 The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use with alert rules.
 
 ### Example 1
-You want to create a log alert rule using the following query which retrieves performance information using `search`: 
+You want to create a log alert rule using the following query that retrieves performance information using `search`: 
 
 ``` Kusto
 search *
@@ -71,7 +73,7 @@ search *
 
 The result of this query would show that the _CounterName_ property came from the _Perf_ table. 
 
-You can use this result to create the following query which you would use for the alert rule:
+You can use this result to create the following query that you would use for the alert rule:
 
 ``` Kusto
 Perf
@@ -82,7 +84,7 @@ Perf
 
 
 ### Example 2
-You want to create a log alert rule using the following query which retrieves performance information using `search`: 
+You want to create a log alert rule using the following query that retrieves performance information using `search`: 
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
@@ -102,7 +104,7 @@ search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
 
 The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. 
 
-You can use this result to create the following query which you would use for the alert rule:
+You can use this result to create the following query that you would use for the alert rule:
 
 ``` Kusto
 Perf
@@ -115,7 +117,7 @@ Perf
 
 ### Example 3
 
-You want to create a log alert rule using the following query which uses both `search` and `union` to retrieve performance information: 
+You want to create a log alert rule using the following query that uses both `search` and `union` to retrieve performance information: 
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")
@@ -148,7 +150,7 @@ union withsource=table *
 
 The result of this query would show that these properties also came from the _Perf_ table. 
 
-You can use these results to create the following query which you would use for the alert rule: 
+You can use these results to create the following query that you would use for the alert rule: 
 
 ``` Kusto
 Perf
@@ -162,7 +164,7 @@ Perf
 ``` 
 
 ### Example 4
-You want to create a log alert rule using the following query which joins the results of two `search` queries:
+You want to create a log alert rule using the following query that joins the results of two `search` queries:
 
 ```Kusto
 search Type == 'SecurityEvent' and EventID == '4625'
@@ -197,7 +199,7 @@ search in (Heartbeat) OSType == 'Windows'
  
 The result indicates that the properties in the right side of the join belong to Heartbeat table. 
 
-You can use these results to create the following query which you would use for the alert rule: 
+You can use these results to create the following query that you would use for the alert rule: 
 
 
 ``` Kusto

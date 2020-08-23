@@ -13,7 +13,7 @@ This article describes what alerts are, their benefits, and how to get started u
 
 ## What are alerts in Microsoft Azure?
 
-Alerts proactively notify you when issues are found with you infrastructure or application using your monitoring data in Azure Monitor. They allow you to identify and address issues before the users of your system notice them. 
+Alerts proactively notify you when issues are found with your infrastructure or application using your monitoring data in Azure Monitor. They allow you to identify and address issues before the users of your system notice them. 
 
 ## Overview
 
@@ -25,21 +25,28 @@ Alert rules are separated from alerts and the actions taken when an alert fires.
 
 The following are key attributes of an alert rule:
 
-**Target Resource**: Defines the scope and signals available for alerting. A target can be any Azure resource. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (like virtual machines), you can specify multiple resources as the target of the alert rule.
+**Target Resource** - Defines the scope and signals available for alerting. A target can be any Azure resource. Example targets:
 
-**Signal**: Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.
+- Virtual machines.
+- Storage accounts.
+- Log Analytics workspace.
+- Application Insights. 
 
-**Criteria**: A combination of signal and logic applied on a target resource. Examples: 
+For certain resources (like virtual machines), you can specify multiple resources as the target of the alert rule.
+
+**Signal** - Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.
+
+**Criteria** - A combination of signal and logic applied on a target resource. Examples: 
 
 - Percentage CPU > 70%
 - Server Response Time > 4 ms 
 - Result count of a log query > 100
 
-**Alert Name**: A specific name for the alert rule configured by the user.
+**Alert Name** - A specific name for the alert rule configured by the user.
 
-**Alert Description**: A description for the alert rule configured by the user.
+**Alert Description** - A description for the alert rule configured by the user.
 
-**Severity**: The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+**Severity** - The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
 
 - Sev 0 = Critical
 - Sev 1 = Error
@@ -47,11 +54,11 @@ The following are key attributes of an alert rule:
 - Sev 3 = Informational
 - Sev 4 = Verbose 
 
-**Action**: A specific action taken when the alert is fired. For more information, see [Action Groups](./action-groups.md).
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](./action-groups.md).
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](./data-sources.md). These include but are not limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](./data-sources.md). Signals include but aren't limited to:
 
 - Metric values
 - Log search queries
@@ -67,16 +74,18 @@ The following alert states are supported.
 
 | State | Description |
 |:---|:---|
-| New | The issue has just been detected and hasn't yet been reviewed. |
+| New | The issue has been detected and hasn't yet been reviewed. |
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
-*Alert state* is different and independent of the *monitor condition*. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
+*Alert state* is different and independent of the *monitor condition*. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *'fired'*, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to *'resolved'*. 
+
+The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
 ## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time range. It displays the total alerts for each severity, with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
-Alternatively, you can [programmatically enumerate the alert instances generated on your subscriptions by using REST APIs](#manage-your-alert-instances-programmatically).
+Instead, you can [programmatically enumerate the alert instances generated on your subscriptions by using REST APIs](#manage-your-alert-instances-programmatically).
 
 > [!NOTE]
    >  You can only access alerts generated in the last 30 days.
@@ -109,7 +118,7 @@ To show the **Rules** page, select **Manage alert rules**. The Rules page is a s
 
 
 ## Create an alert rule
-You can author alert rules in a consistent manner, regardless of the monitoring service or signal type.
+You can author alert rules in a consistent manner, whatever of the monitoring service or signal type.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
 
@@ -118,8 +127,8 @@ Here's how to create a new alert rule:
 1. Pick the _target_ for the alert.
 1. Select the _signal_ from the available signals for the target.
 1. Specify the _logic_ to be applied to data from the signal.
- 
-This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you are guided through defining the logic of the alert rule automatically.  
+
+This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you're guided through defining the logic of the alert rule automatically.  
 
 You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](./alerts-metric.md).
 
@@ -158,7 +167,7 @@ The Alert details page includes the following sections:
 |:---|:---|
 | Summary | Displays the properties and other significant information about the alert. |
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
-| Diagnostics | Information about the smart group in which the alert is included. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days, regardless of the time filter in the alerts list page. Select an alert to view its detail. |
+| Diagnostics | Information about the smart group in which the alert is included. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days, whatever of the time filter in the alerts list page. Select an alert to view its detail. |
 
 ## Role-based access control (RBAC) for your alert instances
 
@@ -166,11 +175,11 @@ The consumption and management of alert instances requires the user to have the 
 
 ## Manage your alert instances programmatically
 
-You might want to query programmatically for alerts generated against your subscription. This might be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+You might want to query programmatically for alerts generated against your subscription. Queries might be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
 
 You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph](../../governance/resource-graph/overview.md) and the [REST API for Resources](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-The Resource Graph REST API for Resources allows you to query for alert instances at scale. This is recommended when you have to manage alerts generated across many subscriptions. 
+The Resource Graph REST API for Resources allows you to query for alert instances at scale. Resource Graph is recommended when you have to manage alerts generated across many subscriptions. 
 
 The following sample request to the Resource Graph REST API returns the count of alerts within one subscription:
 
