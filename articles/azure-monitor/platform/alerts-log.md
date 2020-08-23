@@ -47,9 +47,9 @@ Here the steps to get started writing queries for alerts:
 1. Log Alerts can be based on two types of [**Measures**](alerts-unified-log.md#measure):
     1. **Number of results** - Count of records returned by the query.
     1. **Metric measurement** - *Aggregate value* calculated using summarize grouped by expressions chosen and [bin()](/azure/kusto/query/binfunction) selection. For example:
-    
+
     ```Kusto
-    // Reported errors 
+    // Reported errors
     union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
     | where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
     or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
