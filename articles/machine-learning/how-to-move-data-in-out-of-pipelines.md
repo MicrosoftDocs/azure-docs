@@ -195,7 +195,7 @@ After the initial pipeline step writes some data to the `OutputFileDatasetConfig
 
 In the following code, 
 
-* `step1_output_data` indicates that the ouput of the PythonScriptStep, `step1` is written to the ADLS Gen 2 datastore, `my_adlsgen2` in upload access mode. Learn more about how to [set up role permissions](how-to-access-data.md#azure-data-lake-storage-generation-2) in order to write data back to ADLS Gen 2 datastores. 
+* `step1_output_data` indicates that the output of the PythonScriptStep, `step1` is written to the ADLS Gen 2 datastore, `my_adlsgen2` in upload access mode. Learn more about how to [set up role permissions](how-to-access-data.md#azure-data-lake-storage-generation-2) in order to write data back to ADLS Gen 2 datastores. 
 
 * After `step1` completes and the output is written to the destination indicated by `step1_output_data`, then step2 is ready to use `step1_output_data` as an input. 
 
