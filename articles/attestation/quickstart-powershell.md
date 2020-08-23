@@ -14,6 +14,12 @@ ms.author: mbaldwin
 
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
 
+If you are unable to resolve package source 'https://www.powershellgallery.com/api/v2/', run the following command before the Install-Module commands
+
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+```
+
 ## Install Az.Attestation PowerShell module
 
 On machine with Azure PowerShell, install the Az.Attestation PowerShell module which contains cmdlets for Azure Attestation.  
