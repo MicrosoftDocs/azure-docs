@@ -22,7 +22,7 @@ The following user permissions are necessary to complete the steps in this artic
 
 * Administrator rights on your Dynamics 365 Customer Engagement instance to be able to install a solution.
 * Tenant admin rights to create a new service account for the lead service used to send leads from commercial marketplace offers.
-* Access to the Office 365 admin portal.
+* Access to the admin portal.
 * Access to the Azure portal.
 
 ## Install the solution
@@ -52,10 +52,10 @@ The following user permissions are necessary to complete the steps in this artic
 
 To write leads into your Dynamics 365 Customer Engagement instance, you must share a service account with Microsoft and configure permissions for the account.
 
-Use the following steps to create the service account and assign permissions. You can use Azure Active Directory or Office 365.
+Use the following steps to create the service account and assign permissions. You can use Azure Active Directory or Microsoft 365.
 
 >[!NOTE]
->Skip to the corresponding instructions based on the authentication option you select. See [Azure Active Directory](#azure-active-directory) or [Office 365](#office-365).
+>Skip to the corresponding instructions based on the authentication option you select. See [Azure Active Directory](#azure-active-directory) or [Microsoft 365](#microsoft-365).
 
 ### Azure Active Directory
 
@@ -107,11 +107,11 @@ To configure Azure Active Directory for Dynamics 365 Customer Engagement:
 
 1. Go to the "Security settings" section in this article to finish configuring the connection for this user.
 
-### Office 365
+### Microsoft 365
 
 If you don't want to use Azure Active Directory, you can register a new user on the Microsoft 365 admin center. You'll be required to update your username and password every 90 days to continue getting leads.
 
-To configure Office 365 for Dynamics 365 Customer Engagement:
+To configure Microsoft 365 for Dynamics 365 Customer Engagement:
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com).
 
@@ -177,14 +177,14 @@ To configure the lead management information for your offer in the publishing po
 
 1. Enter the **URL** for the Dynamics 365 instance, such as `https://contoso.crm4.dynamics.com`.
 
-1. Select the method of **Authentication**, either Azure Active Directory or Office 365. 
+1. Select the method of **Authentication**, either Azure Active Directory or Microsoft 365. 
 1. If you selected **Azure Active Directory**, enter the **Application (client) ID** (for example, `23456052-aaaa-bbbb-8662-1234df56788f`), **Directory ID** (for example, `12345678-8af1-4asf-1234-12234d01db47`), and **Client secret** (for example, `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
     ![Authentication with Azure Active Directory selected](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-1. If you selected **Office 365**, enter the **User name** (for example, `contoso@contoso.onmicrosoft.com`) and **Password** (for example, `P@ssw0rd`).
+1. If you selected **Microsoft 365**, enter the **User name** (for example, `contoso@contoso.onmicrosoft.com`) and **Password** (for example, `P@ssw0rd`).
 
-    ![Office 365 User name box](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+    ![Microsoft 365 User name box](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. For **Contact email**, enter email addresses for people in your company who should receive email notifications when a new lead is received. You can enter multiple email addresses by separating them with semicolons.
 1. Select **OK**.

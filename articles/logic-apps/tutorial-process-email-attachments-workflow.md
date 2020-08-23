@@ -33,9 +33,9 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
+* An email account from an email provider supported by Logic Apps, such as Outlook for Microsoft 365, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
 
-  This logic app uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+  This logic app uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -263,7 +263,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    ![Select this trigger for email provider: "When a new email arrives"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
-   * For Azure work or school accounts, select Office 365 Outlook.
+   * For Azure work or school accounts, select Outlook for Microsoft 365.
 
    * For personal Microsoft accounts, select Outlook.com.
 
@@ -588,7 +588,7 @@ Next, add an action so that your logic app sends email to review the attachments
 
    ![Select "send email" action for your email provider](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
 
-   * For Azure work or school accounts, select Office 365 Outlook.
+   * For Azure work or school accounts, select Outlook for Microsoft 365.
 
    * For personal Microsoft accounts, select Outlook.com.
 
