@@ -11,17 +11,18 @@ ms.subservice: alerts
 
 # Webhook actions for log alert rules
 
-[Log alert](alerts-log.md) support [configuring webhook action groups](action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON-based webhook.
+[Log alert](alerts-log.md) supports [configuring webhook action groups](action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
 
 > [!NOTE]
 > Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
 
 > [!NOTE]
-> It is recommended you use [common alert schema](alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the Log Analytics API.
+> It is recommended you use [common alert schema](alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
 ## Webhook payload properties
 
 Webhook actions allow you to invoke a single HTTP POST request. The service that's called should support webhooks and know how to use the payload it receives.
+
 Default webhook action properties and their custom JSON parameter names:
 
 | Parameter | Variable | Description |
@@ -64,12 +65,12 @@ This example payload resolves to something like the following when it's sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" the above webhook example will have a variable output based on the alert results.
+Variables in a custom webhook must be specified within a JSON enclosure. For example, referencing "#searchresultcount" in the above webhook example will output based on the alert results.
 
-To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. **IncludeSearchResults** is of JSON structure, so results can't be referenced in custom defined fields. 
+To include search results, add **IncludeSearchResults** as a top-level property in the custom JSON. Search results are included as a JSON structure, so results can't be referenced in custom defined fields. 
 
 > [!NOTE]
-> The **View Webhook** button alongside the **Include custom JSON payload for webhook** option for the log alert displays the sample webhook payload for the customization that was provided. It doesn't contain actual data but is representative of the JSON schema that's used for log alerts. 
+> The **View Webhook** button next to the **Include custom JSON payload for webhook** option displays preview of what was provided. It doesn't contain actual data, but is representative of the JSON schema that will be used. 
 
 ## Sample payloads
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
@@ -78,7 +79,7 @@ This section shows sample payloads for webhooks for log alerts. The sample paylo
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The "Severity" field value might change if you've [switched your API preference](alerts-log-api-switch.md) for log alerts on Log Analytics.
+> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](api-alerts.md).
 
 ```json
 {
@@ -272,7 +273,7 @@ The following sample payload is for a standard webhook when it's used for log al
 }
 ```
 
-### Log alert with custom JSON payload
+### Log alert with a custom JSON payload
 For example, to create a custom payload that includes just the alert name and the search results, use this configuration: 
 
 ```json
