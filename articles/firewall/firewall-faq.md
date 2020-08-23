@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/13/2020
 ms.author: victorh
 ---
 
@@ -90,8 +90,10 @@ Set-AzFirewall -AzureFirewall $azfw
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
-$azfw.Allocate($vnet,$publicip)
+$publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+$publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+$azfw.Allocate($vnet,@($publicip1,$publicip2))
+
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
@@ -116,7 +118,7 @@ Azure Firewall doesn't SNAT when the destination IP address is a private IP rang
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md). 
+Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 
@@ -178,9 +180,9 @@ No. Azure Firewall blocks Active Directory access by default. To allow access, c
 Yes, you can use Azure PowerShell to do it:
 
 ```azurepowershell
-# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+# Add a Threat Intelligence allow list to an Existing Azure Firewall
 
-## Create the Whitelist with both FQDN and IPAddresses
+## Create the allow list with both FQDN and IPAddresses
 
 $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
 $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
@@ -189,7 +191,7 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 ## Or Update FQDNs and IpAddresses separately
 
 $fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
-$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)
 $fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
 
 

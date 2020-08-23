@@ -19,7 +19,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
 ## Soft delete for VMs using Azure portal
 
-1. To delete the backup data of a VM, the backup must be stopped. In the Azure portal, go to your recovery services vault, right-click on the backup item and choose **Stop backup**.
+1. To delete the backup data of a VM, the backup must be stopped. In the Azure portal, go to your Recovery Services vault, right-click on the backup item and choose **Stop backup**.
 
    ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
@@ -27,7 +27,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. During those 14 days, in the Recovery Services Vault, the soft deleted VM will appear with a red "soft-delete" icon next to it.
+3. During those 14 days, in the Recovery Services vault, the soft deleted VM will appear with a red "soft-delete" icon next to it.
 
    ![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 

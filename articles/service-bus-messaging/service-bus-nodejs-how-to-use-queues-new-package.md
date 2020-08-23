@@ -17,7 +17,7 @@ In this tutorial, you learn how to write a Nodejs program to send messages to an
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the name of the queue you created. We'll use these values in the samples.
 
 > [!NOTE]
-> - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/app-service-web-get-started-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of queues yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
 
 ### Use Node Package Manager (NPM) to install the package

@@ -224,7 +224,7 @@ Take the following steps if returning the device in China.
 
 ### [Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in Japan, Singapore, Korea, West Europe, or India and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, West Europe, South Africa or India and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 

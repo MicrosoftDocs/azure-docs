@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -49,7 +49,9 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic (traffic from the NFSv3, NFSv4.1, or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
+
+Data traffic between NFSv3 or SMBv3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -120,7 +122,7 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 
 ### How do I enable root squashing?
 
-Root squashing is currently not supported.
+You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
 
 ## SMB FAQs
 
@@ -172,6 +174,11 @@ A dual-protocol volume supports both the NFS and SMB protocols.  When you try to
 
 To avoid the “Permission denied” issue, make sure that Windows Active Directory includes `pcuser` before you access the mount point. If you add `pcuser` after encountering the “Permission denied” issue, wait 24 hours for the cache entry to clear before trying the access again.
 
+### When I try to create a dual-protocol volume, why does the creation process fail with the error “Failed to validate LDAP configuration, try again after correcting LDAP configuration”?  
+
+The pointer (PTR) record of the AD host machine might be missing on the DNS server. You need to create a reverse lookup zone on the DNS server, and then add a PTR record of the AD host machine in that reverse lookup zone.
+
+For example, assume that the IP address of the AD machine is `1.1.1.1`, the hostname of the AD machine (as found by using the `hostname` command) is `AD1`, and the domain name is `myDomain.com`.  The PTR record added to the reverse lookup zone should be `1.1.1.1` -> `AD1.myDomain.com`.
 
 ## Capacity management FAQs
 

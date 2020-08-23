@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/21/2020
 ---
 
 # Service limits in Azure Cognitive Search
@@ -79,8 +79,8 @@ Maximum running times exist to provide balance and stability to the service as a
 | Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |10 |10 |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |No limit |No limit |
 | Minimum schedule | 5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes | 5 minutes |
-| Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |24 hours |24 hours |
-| Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |2 hours |2 hours |
+| Maximum running time| 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |24 hours |24 hours |
+| Maximum running time for indexers with a skillset <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |2 hours |2 hours |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4&nbsp;million |8&nbsp;million |16&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
 

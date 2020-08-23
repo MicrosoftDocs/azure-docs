@@ -68,7 +68,8 @@ To illustrate the application of a cluster with outbound type using a user-defin
 > [!IMPORTANT]
 > Outbound type of UDR requires there is a route for 0.0.0.0/0 and next hop destination of NVA (Network Virtual Appliance) in the route table.
 > The route table already has a default 0.0.0.0/0 to Internet, without a Public IP to SNAT just adding this route will not provide you egress. AKS will validate that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to NVA or gateway, etc.
-
+> 
+> When using a outbound type of UDR, a load balancer public IP address is not created unless a service of type *loadbalancer* is configured.
 
 ## Next steps
 
