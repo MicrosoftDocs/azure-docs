@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.subservice: alerts
 ---
-# Log alert queries in Azure Monitor
+# Optimizing log alert queries
 This article describes how to write and convert [Log Alert](alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## Types of log queries
 [Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
 
-For example, the following query is scoped to the _SecurityEvent_ table and searches for specific event ID, it's the only table that the query must process:
+For example, the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. It's the only table that the query must process.
 
 ``` Kusto
-SecurityEvent | where EventID == 4624 
+SecurityEvent
+| where EventID == 4624
 ```
 
 Queries that start with `search` or `union` allow you to search across multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
@@ -29,14 +30,14 @@ search ObjectName == "Memory"
 union * | where ObjectName == "Memory"
 ```
 
-Although `search` and `union` are useful during data exploration, searching terms over the entire data model is less efficient than using an explicit table, since they must scan across multiple tables. Using an explicit table also reduces the alerting system ability to optimize the alert rule to minimize firing latency. 
+Although `search` and `union` are useful during data exploration, searching terms over the entire data model is less efficient than using an explicit table, since it requires scanning across multiple tables. Not using an explicit table also reduces the alerting system ability to optimize the alert rule to minimize firing latency.
 
-Since queries in alert rules are run frequently, using `search` and `union` can result in unoptimize and excessive overhead adding latency to the alert. Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
+Since queries in alert rules run frequently, using `search` and `union` can result in excessive overhead adding latency to the alert. Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
 
 ## Unsupported queries
-We no longer support creating or modifying log alert rules that use `search`, or `union` operators won't be supported the in Azure portal. Using these operators in an alert rule will return an error message. Change any alert rules that use these types of queries though to improve their efficiency.
+We no longer support creating or modifying log alert rules that use `search` or `union` operators. Using these operators in an alert rule will return an error message. We recommend changing any alert rules that use these operators to improve their efficiency.
 
-Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use `union`, which limits the query scope to specific resources. A cross-resource query using `union` isn't equivalent of  that can't be used.  The following example would be valid in a log alert rule:
+Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be valid log alert query:
 
 ```Kusto
 union
@@ -46,10 +47,10 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [Cross-resource query](../log-query/cross-workspace-query.md) in log alerts is supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](api-alerts.md) for creating log alert, you can learn about switching [here](alerts-log-api-switch.md)
+> [Cross-resource queries](../log-query/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). If you still use the [legacy Log Analytics Alert API](api-alerts.md) for creating log alerts, you can learn about switching [here](alerts-log-api-switch.md)
 
 ## Examples
-The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use with alert rules.
+The following examples include log queries that use `search` and `union` and provide steps you can use to modify these queries for use in alert rules.
 
 ### Example 1
 You want to create a log alert rule using the following query that retrieves performance information using `search`: 
