@@ -120,91 +120,6 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
-## Create standard load balancer
-
-This section details how you can create and configure the following components of the load balancer:
-
-  * A frontend IP pool that receives the incoming network traffic on the load balancer.
-  * A backend IP pool where the frontend pool sends the load balanced network traffic.
-  * A health probe that determines health of the backend VM instances.
-  * A load balancer rule that defines how traffic is distributed to the VMs.
-
-### Create the load balancer resource
-
-Create a public load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
-
-* Named **myLoadBalancer**.
-* A frontend pool named **myFrontEnd**.
-* A backend pool named **myBackEndPool**.
-* Associated with the virtual network **myVNet**.
-* Associated with the backend subnet **myBackendSubnet**.
-
-```azurecli-interactive
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Standard \
-    --vnet-name myVnet \
-    --subnet myBackendSubnet \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### Create the health probe
-
-A health probe checks all virtual machine instances to ensure they can send network traffic. 
-
-A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
-
-Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Monitors the health of the virtual machines.
-* Named **myHealthProbe**.
-* Protocol **TCP**.
-* Monitoring **Port 80**.
-
-```azurecli-interactive
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### Create the load balancer rule
-
-A load balancer rule defines:
-
-* Frontend IP configuration for the incoming traffic.
-* The backend IP pool to receive the traffic.
-* The required source and destination port. 
-
-Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
-
-* Named **myHTTPRule**
-* Listening on **Port 80** in the frontend pool **myFrontEnd**.
-* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
-* Using health probe **myHealthProbe**.
-* Protocol **TCP**.
-* Enable outbound source network address translation (SNAT) using the frontend IP address.
-
-```azurecli-interactive
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
-    --disable-outbound-snat true 
-```
->[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
-
 ### Create network interfaces for the virtual machines
 
 Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
@@ -216,18 +131,14 @@ Create two network interfaces with [az network nic create](https://docs.microsof
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
-* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
 
 ```azurecli-interactive
-
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### VM2
 
@@ -236,7 +147,6 @@ Create two network interfaces with [az network nic create](https://docs.microsof
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
-* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
@@ -244,9 +154,7 @@ Create two network interfaces with [az network nic create](https://docs.microsof
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## Create backend servers
@@ -350,6 +258,126 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 ```
 
 It may take a few minutes for the VMs to deploy.
+
+## Create standard load balancer
+
+This section details how you can create and configure the following components of the load balancer:
+
+  * A frontend IP pool that receives the incoming network traffic on the load balancer.
+  * A backend IP pool where the frontend pool sends the load balanced network traffic.
+  * A health probe that determines health of the backend VM instances.
+  * A load balancer rule that defines how traffic is distributed to the VMs.
+
+### Create the load balancer resource
+
+Create a public load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+
+* Named **myLoadBalancer**.
+* A frontend pool named **myFrontEnd**.
+* A backend pool named **myBackEndPool**.
+* Associated with the virtual network **myVNet**.
+* Associated with the backend subnet **myBackendSubnet**.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Standard \
+    --vnet-name myVnet \
+    --subnet myBackendSubnet \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### Create the health probe
+
+A health probe checks all virtual machine instances to ensure they can send network traffic. 
+
+A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
+
+Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
+
+* Monitors the health of the virtual machines.
+* Named **myHealthProbe**.
+* Protocol **TCP**.
+* Monitoring **Port 80**.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### Create the load balancer rule
+
+A load balancer rule defines:
+
+* Frontend IP configuration for the incoming traffic.
+* The backend IP pool to receive the traffic.
+* The required source and destination port. 
+
+Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+
+* Named **myHTTPRule**
+* Listening on **Port 80** in the frontend pool **myFrontEnd**.
+* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
+* Using health probe **myHealthProbe**.
+* Protocol **TCP**.
+* Enable outbound source network address translation (SNAT) using the frontend IP address.
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe \
+    --disable-outbound-snat true 
+```
+>[!NOTE]
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+
+### Add virtual machines to load balancer backend pool
+
+Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+
+
+#### VM1
+* In backend address pool **myBackEndPool**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myNicVM1** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### VM2
+* In backend address pool **myBackEndPool**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myNicVM2** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
 
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
