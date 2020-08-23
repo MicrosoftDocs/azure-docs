@@ -236,7 +236,7 @@ Once the private endpoints created for the vault in your VNet have been approved
 >[!IMPORTANT]
 >Please ensure that you have completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
->1. Created a (new) Recovery Services Vault
+>1. Created a (new) Recovery Services vault
 >1. Enabled the vault to use system assigned Managed Identity
 >1. Created three Private DNS zones (two if using an integrated DNS zone for Backup)
 >1. Linked your Private DNS zones to your Azure Virtual Network
@@ -260,7 +260,7 @@ However, if you remove private endpoints for the vault after a MARS agent has be
 
 ### Create a Recovery Services vault using the Azure Resource Manager client
 
-You can create the Recovery Services Vault and enable its Managed Identity (enabling the Managed Identity is required, as we'll later see) using the Azure Resource Manager client. A sample for doing this is shared below:
+You can create the Recovery Services vault and enable its Managed Identity (enabling the Managed Identity is required, as we'll later see) using the Azure Resource Manager client. A sample for doing this is shared below:
 
 ```rest
 armclient PUT /subscriptions/<subscriptionid>/resourceGroups/<rgname>/providers/Microsoft.RecoveryServices/Vaults/<vaultname>?api-version=2017-07-01-preview @C:\<filepath>\MSIVault.json

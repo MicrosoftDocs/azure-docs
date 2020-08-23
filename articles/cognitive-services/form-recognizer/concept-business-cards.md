@@ -388,9 +388,8 @@ The Business Card API also powers the [AIBuilder Business Card Processing featur
 
 ## Next steps
 
-- Follow the quickstart to get started 
-- [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
-- Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+- Follow the quickstart to get started [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
+- Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Learn more about [Form Recognizer](overview.md)
 
 

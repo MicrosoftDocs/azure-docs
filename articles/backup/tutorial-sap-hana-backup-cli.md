@@ -14,7 +14,7 @@ This document assumes that you already have an SAP HANA database installed on an
 
 > [!div class="checklist"]
 >
-> * Create a recovery services vault
+> * Create a Recovery Services vault
 > * Register SAP HANA instance and discover database(s) on it
 > * Enable backup on an SAP HANA database
 > * Trigger an on-demand backup
@@ -25,7 +25,7 @@ Check out the [scenarios that we currently support](./sap-hana-backup-support-ma
 
 To install and use the CLI locally, you must run Azure CLI version xx.xxx.x or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Create a recovery services vault
+## Create a Recovery Services vault
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - like SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
@@ -66,7 +66,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
 
-Once the script is run, the SAP HANA instance can be registered with the recovery services vault we created earlier. To register the instance, use the [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) cmdlet. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
+Once the script is run, the SAP HANA instance can be registered with the Recovery Services vault we created earlier. To register the instance, use the [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) cmdlet. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
