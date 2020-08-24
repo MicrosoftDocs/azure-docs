@@ -297,7 +297,7 @@ Move these restored files to the SAP HANA server where you want to restore them 
     hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
     ```
 
-    In the above command:
+    In the command above:
 
     * `<DataFileDir>` - the folder that contains the full backups
     * `<LogFilesDir>` - the folder that contains the log backups

@@ -128,7 +128,7 @@ You can also enable soft delete and purge protection through PowerShell using th
 ### Assign encryption key to the RS vault
 
 >[!NOTE]
-> Before proceeding further, please ensure the following:
+> Before proceeding further, ensure the following:
 >
 > - All the steps mentioned above have been completed successfully:
 >   - The Recovery Services vault’s managed identity has been enabled, and has been assigned required permissions
