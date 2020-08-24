@@ -47,9 +47,9 @@ The agent collects various security-related configuration details and event logs
 
 Ensure your machines are running one of the supported operating systems for the agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Learn more about the [data collected by the Log Analytics agent](security-center-enable-data-collection.md).
 

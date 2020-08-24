@@ -33,8 +33,8 @@ For an Azure environment activated on an Azure subscription, Azure Security Cent
 
 Security Center depends on the [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
 
-* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
-* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Also ensure your Log Analytics agent is [properly configured to send data to Security Center](security-center-enable-data-collection.md#manual-agent)
 

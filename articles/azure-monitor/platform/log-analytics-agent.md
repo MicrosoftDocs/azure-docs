@@ -73,7 +73,7 @@ There are multiple methods to install the Log Analytics agent and connect your m
 | | Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) can be installed with the Azure portal, Azure CLI, Azure PowerShell, or a Azure Resource Manager template. |
 | | Install for individual Azure virtual machines [manually from the Azure portal](../learn/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json). |
 | Windows virtual machine<br>on-premises or in another cloud | [Manually install](agent-windows.md) the agent from the command line. |
-| | Automate the installation with [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation). |
+| | Automate the installation with [Azure Automation DSC](agent-windows.md#install-agent-using-dsc-in-azure-automation). |
 | | Use a [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) | 
 | Linux virtual machine<br>on-premises or in another cloud | [Manually install](../learn/quick-collect-linux-computer.md) the agent calling a wrapper-script hosted on GitHub. | 
 | System Center Operations Manager|[Integrate Operations Manager with Azure Monitor](./om-agents.md) to forward collected data from Windows computers reporting to a management group.|  
@@ -81,7 +81,7 @@ There are multiple methods to install the Log Analytics agent and connect your m
 ## Workspace ID and key
 Regardless of the installation method used, you will require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
 
-![Workspace details](media/log-analytics-agent/workspace-details.png)
+[![Workspace details](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
 ## TLS 1.2 protocol
 
