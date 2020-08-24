@@ -41,7 +41,7 @@ The following setup and registration tasks can be automated with PowerShell:
 * Networking settings
 * Encryption settings
 
-## Create a recovery services vault
+## Create a Recovery Services vault
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
@@ -134,7 +134,7 @@ The available options include:
 | /pu |Proxy Host UserName |- |
 | /pw |Proxy Password |- |
 
-## Registering DPM to a Recovery Services Vault
+## Registering DPM to a Recovery Services vault
 
 After you created the Recovery Services vault, download the latest agent and the vault credentials and store it in a convenient location like C:\Downloads.
 
@@ -315,7 +315,7 @@ Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -TimesOfDay 
 Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
-In the above example, ```$onlineSch``` is an array with four elements that contains the existing online protection schedule for the Protection Group in the GFS scheme:
+In the example above, ```$onlineSch``` is an array with four elements that contains the existing online protection schedule for the Protection Group in the GFS scheme:
 
 1. ```$onlineSch[0]``` contains the daily schedule
 2. ```$onlineSch[1]``` contains the weekly schedule
