@@ -103,8 +103,8 @@ The following properties are supported for the Snowflake dataset.
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The type property of the dataset must be set to **SnowflakeTable**. | Yes                         |
-| schema | Name of the schema. |No for source, yes for sink  |
-| table | Name of the table/view. |No for source, yes for sink  |
+| schema | Name of the schema. Note the schema name is case-sensitive in ADF. |No for source, yes for sink  |
+| table | Name of the table/view. Note the table name is case-sensitive in ADF. |No for source, yes for sink  |
 
 **Example:**
 
@@ -141,7 +141,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | Property                     | Description                                                  | Required |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The type property of the Copy activity source must be set to **SnowflakeSource**. | Yes      |
-| query          | Specifies the SQL query to read data from Snowflake.<br>Executing stored procedure is not supported. | No       |
+| query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure is not supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that Data Factory will pass through when you invoke the statement. | No       |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
@@ -192,7 +192,7 @@ If your sink data store and format meet the criteria described in this section, 
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -400,13 +400,12 @@ When transforming data in mapping data flow, you can read from and write to tabl
 
 ### Source transformation
 
-The below table lists the properties supported by Snowflake source. You can edit these properties in the **Source options** tab.
+The below table lists the properties supported by Snowflake source. You can edit these properties in the **Source options** tab. The connector utilizes Snowflake [internal data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer).
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Table | If you select Table as input, data flow will fetch all the data from the table specified in the Snowflake dataset or in the source options when using inline dataset. | No | String | *(for inline dataset only)*<br>tableName<br>schemaName |
-| Query | If you select Query as input, enter a query to fetch data from Snowflake. This setting overrides any table that you've chosen in dataset. | No | String | query |
-| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake [internal data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer) is recommended (enable staging as false).<br>When you execute a data flow activity with Snowflake sources from a pipeline and with staging enabled, you need to additionally set the staging store in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). Note Snowflake requires [**Azure Blob storage**](connector-azure-blob-storage.md#shared-access-signature-authentication) with **shared access signature** authentication as staging. | No | `true` or `false` | staged |
+| Query | If you select Query as input, enter a query to fetch data from Snowflake. This setting overrides any table that you've chosen in dataset.<br>If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`. | No | String | query |
 
 #### Snowflake source script examples
 
@@ -415,9 +414,8 @@ When you use Snowflake dataset as source type, the associated data flow script i
 ```
 source(allowSchemaDrift: true,
 	validateSchema: false,
-	query: 'select * from MyTable',
-	format: 'query',
-	staged: false) ~> SnowflakeSource
+	query: 'select * from MYTABLE',
+	format: 'query') ~> SnowflakeSource
 ```
 
 If you use inline dataset, the associated data flow script is:
@@ -426,21 +424,19 @@ If you use inline dataset, the associated data flow script is:
 source(allowSchemaDrift: true,
 	validateSchema: false,
 	format: 'query',
-	query: 'select * from MyTable',
-	store: 'snowflake',
-	staged: false) ~> SnowflakeSource
+	query: 'select * from MYTABLE',
+	store: 'snowflake') ~> SnowflakeSource
 ```
 
 ### Sink transformation
 
-The below table lists the properties supported by Snowflake sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
+The below table lists the properties supported by Snowflake sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. The connector utilizes Snowflake [internal data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer).
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update method | Specify what operations are allowed on your Snowflake destination.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | Key columns | For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | No | Array | keys |
 | Table action | Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
-| Enable staging | If your data flow execution is likely to take 36 hours or more, enable staging to use Snowflake [external data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#external-data-transfer). Otherwise, Snowflake [internal data transfer](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer) is recommended (enable staging as false).<br/>When you execute a data flow activity with Snowflake sinks from a pipeline and with staging enabled, you need to additionally set the staging store in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). Note Snowflake requires [**Azure Blob storage**](connector-azure-blob-storage.md#shared-access-signature-authentication) with **shared access signature** authentication as staging. | No | `true` or `false` | staged |
 
 #### Snowflake sink script examples
 
@@ -455,7 +451,6 @@ IncomingStream sink(allowSchemaDrift: true,
 	upsertable:false,
 	keys:['movieId'],
 	format: 'table',
-	staged: false,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
@@ -473,7 +468,6 @@ IncomingStream sink(allowSchemaDrift: true,
 	updateable: true,
 	upsertable: false,
 	store: 'snowflake',
-	staged: false,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> SnowflakeSink
 ```
