@@ -14,7 +14,13 @@ ms.author: mbaldwin
 
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
 
-If you are unable to resolve package source 'https://www.powershellgallery.com/api/v2/', run the following command before the Install-Module commands
+Please note that, the PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. 
+
+TLS 1.2 is set to be the default for the PowerShell Gallery. Hence if you are unable to install or retrieve the Az modules due to the following issues:
+WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'.
+PackageManagement\Find-Package : No match was found for the specified search criteria and module name 'PowerShellGet'
+
+run the following command before the Install-Module commands
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
