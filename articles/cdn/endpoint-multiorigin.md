@@ -12,9 +12,11 @@ ms.author: allensu
 
 # Azure CDN endpoint multi-origin
 
-With the support of multiple origins, you can establish global redundancy and eliminate downtime by choosing multiple origins within an Azure CDN endpoint. The redundancy provided by multi-origin spreads risk by probing the health of each origin and failing over if necessary. 
+Multi-origin support eliminates downtime and establishes global redundancy. 
 
-To set up multi-origin, setup one or more origin groups. Each origin group is a collection of one or more origins that can take similar workloads.
+By choosing multiple origins within an Azure CDN endpoint, the redundancy provided spreads the risk by probing the health of each origin and failing over if necessary.
+
+Setup one or more origin groups and choose a default origin group. Each origin group is a collection of one or more origins that can take similar workloads.
 
 > [!NOTE]
 > Currently this feature is only available from Azure CDN from Microsoft. 
@@ -38,7 +40,7 @@ To set up multi-origin, setup one or more origin groups. Each origin group is a 
    | Setting           | Value                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Origin group name | Enter a name for your origin group.                                   |
-   | Probe status      | Select **Enabled**. </br> Azure CDN will run health probes from different points across the globe to determine origin health. Don't enable if the current origin group is not active to avoid additional cost.
+   | Probe status      | Select **Enabled**. </br> Azure CDN will run health probes from different points across the globe to determine origin health. Don't enable if the current origin group isn't active to avoid additional cost.
    | Probe path        | The path in the origin that is used to determine the health. |
    | Probe interval    | Select a probe interval of 1, 2, or 4 minutes.                        |
    | Probe protocol    | Select **HTTP** or **HTTPS**.                                         |
