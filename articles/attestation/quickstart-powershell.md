@@ -63,6 +63,8 @@ To update for "all users", launch an elevated PowerShell window and run:
 Update-Module -Name Az.Attestation
 ```
 
+Close the elevated PowerShell console.
+
 ### Get installed modules
 
 Minimum version of Az modules required to support attestation operations:
@@ -76,8 +78,6 @@ Run the below command to verify the installed version of all Az modules
 Get-InstalledModule
 ```
 If the versions are not matching with the minimun requirement, run Update-Module commands.
-
-Close the elevated PowerShell console.
 
 ## Sign in to Azure
 
