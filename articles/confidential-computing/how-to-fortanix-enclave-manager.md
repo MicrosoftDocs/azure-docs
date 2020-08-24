@@ -1,6 +1,7 @@
 ---
 title: How To - Run an application with Fortanix Enclave Manager 
 description: Learn how to use Fortanix Enclave Manager to convert your containerized images
+services: virtual-machines
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
@@ -13,8 +14,13 @@ ms.author: JenCook
 
 Start running your application in Azure confidential computing using [Fortanix Enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
- > [!Note] 
- > [Fortanix](https://www.fortanix.com/) is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io). Please note that these companies are not owned/affiliated with Microsoft. 
+
+Fortanix is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).  
+
+> [!Note] 
+ > THE PRODUCTS REFERENCED IN THIS DOCUMENT ARE NOT UNDER THE CONTROL OF MICROSOFT. MICROSOFT IS PROVIDING THIS INFORMATION TO YOU ONLY AS A CONVENIENCE, AND THE REFERENCE TO THESE NON-MICROSOFT PRODUCTS DO NOT IMPLY ENDORSEMENT BY MICROSOFT.
+
+
 
 This tutorial shows you how to convert your application image to a confidential compute-protected image. This environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
 
@@ -33,8 +39,9 @@ This tutorial shows you how to convert your application image to a confidential 
 ## Add an application to Fortanix Enclave Manager
 1. Sign in to [Fortanix EM](https://fortanix.com)
 1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account. 
-
-    ![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
+    
+[!div class="mx-imgBorder"]
+![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications. 
 1. Select the **+ APPLICATION** button to add an application. In this example, we'll be adding a Flask Server Enclave OS application. 
@@ -96,7 +103,7 @@ In Fortanix Enclave Manager, you'll create a token. This token allows a compute 
 1. In the management console, select the **+ ENROLL NODE** button. 
 1. Select **GENERATE TOKEN** to generate the Join token. Copy the token.
 
-### Enroll nodes into Fortanix Node Agent in the Azure Marketplace
+### Enroll nodes into Fortanix Node Agent in Azure Marketplace
 
 Creating a Fortanix Node Agent will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Delete Azure resources when not in use. 
 
@@ -155,3 +162,10 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 To delete the Fortanix Enclave Manager Account you created, go the [Accounts Page](https://em.fortanix.com/accounts) in the Enclave Manager. Hover over the account you wish to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
 
   ![delete](media/how-to-fortanix-enclave-manager/delete-account.png)
+
+## Next steps
+
+In this quickstart, you used Fortanix tooling to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
+
+To learn more about Azure's confidential computing offerings, see [Azure confidential computing Overview](overview.md)
+
