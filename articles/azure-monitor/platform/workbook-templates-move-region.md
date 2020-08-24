@@ -18,7 +18,7 @@ ms.author: jgardner
 
 This article describes how to move Azure Workbook Template resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
-There currently is no portal UI to create Workbook Template resources, the only current way to create them is [via Azure Resource Manager Template (ARM template) deployments](./workbooks-automate.md). As such, the easist way to move a template is to re-use the previous ARM template and update it to be deployed to the new region.
+There currently is no portal UI to create Workbook Template resources, the only current way to create them is [via Azure Resource Manager Template (ARM template) deployments](./workbooks-automate.md). As such, the easiest way to move a template is to reuse the previous ARM template and update it to be deployed to the new region.
 
 ## Prerequisites
 
@@ -46,9 +46,9 @@ Use the Azure Workbooks browse UI to locate the newly deployed workbook template
 Once your workbook template has been created in the new region, delete the original workbook template in the previous region.
 1. Find the workbook template in the Azure Workbooks browse UI.
 2. Select the workbook template to delete.
-3. Sse the "Delete" command.
+3. See the "Delete" command.
 
-If you renamed your workbook template to import it into a new region, you can rename the workbook template to the previous name after the original workbook template has been deleted by using the "Rename" command in the Azure Workbook Template resource view.
+If you renamed your workbook template to import it into a new region, you can rename the workbook template to the previous name after the original item has been deleted by using the "Rename" command in the Azure Workbook Template resource view.
 
 ## Next Steps
 
