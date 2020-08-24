@@ -33,7 +33,7 @@ If you're creating a Recovery Services vault, you can use all the security featu
 
     ![Screenshot of Azure portal Browse option](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    The list of recovery services vaults appears. From this list, select a vault. The selected vault dashboard opens.
+    The list of Recovery Services vaults appears. From this list, select a vault. The selected vault dashboard opens.
 3. From the list of items that appears under the vault, under **Settings**, select **Properties**.
 
     ![Screenshot of Recovery Services vault options](./media/backup-azure-security-feature/vault-list-properties.png)
