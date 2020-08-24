@@ -50,7 +50,7 @@ This section involves the following steps:
 
 It's necessary that all these steps are followed in the order mentioned above to achieve the intended results. Each step is discussed in detail below.
 
-### Enable managed identity for your Recovery Services Vault
+### Enable managed identity for your Recovery Services vault
 
 Azure Backup uses system assigned managed identity to authenticate the Recovery Services vault to access encryption keys stored in the Azure Key Vault. To enable managed identity for your Recovery Services vault, follow the steps mentioned below.
 
@@ -128,7 +128,7 @@ You can also enable soft delete and purge protection through PowerShell using th
 ### Assign encryption key to the RS vault
 
 >[!NOTE]
-> Before proceeding further, please ensure the following:
+> Before proceeding further, ensure the following:
 >
 > - All the steps mentioned above have been completed successfully:
 >   - The Recovery Services vault’s managed identity has been enabled, and has been assigned required permissions
@@ -166,7 +166,7 @@ To assign the key:
 >[!NOTE]
 > This process remains the same when you wish to update/change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that is being currently used), make sure that:
 >
-> - The Key Vault is located in the same region as the Recovery Services Vault
+> - The Key Vault is located in the same region as the Recovery Services vault
 >
 > - The Key vault has soft-delete and purge protection enabled
 >
