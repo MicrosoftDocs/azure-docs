@@ -158,7 +158,7 @@ Application settings can be [configured in the App service in Azure](https://doc
 
 4. Go through sign-up flow and create an account
 
-5. Jumino service will be called during the flow, after user attribute is created. If the flow is incomplete, check that user isn't saved in the directory..
+5. Jumio service will be called during the flow, after user attribute is created. If the flow is incomplete, check that user isn't saved in the directory.
 
 ## Next steps
 
