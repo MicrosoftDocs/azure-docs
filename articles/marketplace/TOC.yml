@@ -235,6 +235,8 @@
         href: ./test-drive-technical-configuration.md
       - name: Test drive for Azure Resource Manager
         href: ./azure-resource-manager-test-drive.md
+    - name: Free trials
+      href: free-trial-offer.md    
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md 
       items:
