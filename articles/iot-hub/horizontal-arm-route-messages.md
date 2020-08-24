@@ -93,7 +93,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. To see the environment variables you've defined, type SET on the command line and press **Enter**, then look for the ones starting with **IoT**.
 
-   ![See environment variables](./media/horizontal-arm-route-messages/06-environmental-variables.png)
+   ![See environment variables](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
 Now the environment variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
 
