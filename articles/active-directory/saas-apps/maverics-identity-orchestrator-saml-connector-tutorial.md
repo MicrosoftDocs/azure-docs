@@ -393,9 +393,12 @@ To configure the migration workflow, do the following:
 1. Give the workflow a name (for example, **SiteMinder to Azure AD Migration**).
 1. Specify the `endpoint`, which is an HTTP path on which the workflow is exposed, triggering the `actions` of that workflow in response to requests. The `endpoint` typically corresponds to the app that's proxied (for example, `/my_app`). The value must include both the leading and trailing slashes.
 1. Add the appropriate `actions` to the workflow.
-    - Define the `login` method for the SiteMinder connector. The connector value must match the name value in the connector configuration.
-     - Define the `getprofile` method for the LDAP connector.
-     - Define the `createuser` method for the AzureAD connector.
+
+   a. Define the `login` method for the SiteMinder connector. The connector value must match the name value in the connector configuration.
+
+   b. Define the `getprofile` method for the LDAP connector.
+
+   c.  Define the `createuser` method for the AzureAD connector.
 
     ```yaml
       workflows:
@@ -430,8 +433,10 @@ After it's authenticated, the session token that's created as a result is passed
 1. Give the workflow a name (for example, **SiteMinder Session Abstraction**).
 1. Specify the `endpoint`, which corresponds to the app that's being proxied. The value must include both leading and trailing slashes (for example, `/my_app/`).
 1. Add the appropriate `actions` to the workflow.
-1. Define the `login` method for the Azure connector. The `connector` value must match the `name` value in the connector configuration.
-1. Define the `emulate` method for the SiteMinder connector.
+
+   a. Define the `login` method for the Azure connector. The `connector` value must match the `name` value in the connector configuration.
+
+   b. Define the `emulate` method for the SiteMinder connector.
 
      ```yaml
       - name: SiteMinder Session Abstraction
