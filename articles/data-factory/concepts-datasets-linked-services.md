@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ---
 
 # Datasets in Azure Data Factory
@@ -45,7 +45,7 @@ A dataset in Data Factory is defined in the following JSON format:
 {
     "name": "<name of dataset>",
     "properties": {
-        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "type": "<type of dataset: DelimitedText, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
                 "type": "LinkedServiceReference",
