@@ -76,19 +76,17 @@ Install the necessary libraries.
    dotnet add package Azure.Storage.Files.DataLake -v 12.3.0-dev.20200811.1 -s https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json
    ```
 
-For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
+3. Add these using statements to the top of your code file.
 
-Then, add these using statements to the top of your code file.
-
-```csharp
-using Azure;
-using Azure.Core;
-using Azure.Storage;
-using Azure.Storage.Files.DataLake;
-using Azure.Storage.Files.DataLake.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-```
+   ```csharp
+   using Azure;
+   using Azure.Core;
+   using Azure.Storage;
+   using Azure.Storage.Files.DataLake;
+   using Azure.Storage.Files.DataLake.Models;
+   using System.Collections.Generic;
+   using System.Threading.Tasks;
+    ```
 
 ### [Python](#tab/python)
 
