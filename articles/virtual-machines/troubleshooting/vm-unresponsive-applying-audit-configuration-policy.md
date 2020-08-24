@@ -61,18 +61,18 @@ Here’s the problematic policy:
 
    ![The navigation within Registry Editor to load a hive.](./media/vm-unresponsive-applying-audit-configuration-policy/3.png)
 
-- You can use Load Hive to load registry keys from an offline system. In this case, the system is the broken disk attached to the repair VM.
-- System-wide settings are stored on **HKEY_LOCAL_MACHINE** and can be abbreviated as **HKLM**.
+   - You can use Load Hive to load registry keys from an offline system. In this case, the system is the broken disk attached to the repair VM.
+   - System-wide settings are stored on **HKEY_LOCAL_MACHINE** and can be abbreviated as **HKLM**.
 
 1. In the attached disk, open the `\windows\system32\config\SOFTWARE` file.
 
-- When you're prompted for a name, enter **BROKENSOFTWARE**.
-- To verify that **BROKENSOFTWARE** was loaded, expand **HKEY_LOCAL_MACHINE** and look for the added **BROKENSOFTWARE** key.
+   - When you're prompted for a name, enter **BROKENSOFTWARE**.
+   - To verify that **BROKENSOFTWARE** was loaded, expand **HKEY_LOCAL_MACHINE** and look for the added **BROKENSOFTWARE** key.
 
 1. Go to BROKENSOFTWARE and check if the CleanupProfiles key exists in the loaded hive.
 
-- If the key exists, the **CleanupProfiles** policy is set. Its value represents the retention policy measured in days.
-- If the key doesn't exist, the CleanupProfiles policy isn't set. In this situation, skip ahead to [submit a support ticket with a memory dump file](#collect-the-memory-dump-file-and-submit-a-support-ticket).
+   - If the key exists, the **CleanupProfiles** policy is set. Its value represents the retention policy measured in days.
+   - If the key doesn't exist, the CleanupProfiles policy isn't set. In this situation, skip ahead to [submit a support ticket with a memory dump file](#collect-the-memory-dump-file-and-submit-a-support-ticket).
 
 1. Delete the **CleanupProfiles** key by using this command:
 
@@ -157,8 +157,8 @@ Here’s the problematic policy:
 
 1. Test if your VM boots normally to see if the issue has fixed the issue.
 
-- If the issue hasn’t been fixed, then continue to [collect a dump file and submit a support ticket](#collect-the-memory-dump-file-and-submit-a-support-ticket).
-- If the issue has been fixed, then no further steps are necessary.
+   - If the issue hasn’t been fixed, then continue to [collect a dump file and submit a support ticket](#collect-the-memory-dump-file-and-submit-a-support-ticket).
+   - If the issue has been fixed, then no further steps are necessary.
 
 If the issue was fixed, the policy is now disabled locally. For a permanent solution, don't use the CleanupProfiles policy on VMs, as it will automatically delete user profiles. Use a different method to perform profile cleanups, such as a scheduled task or script.
 
