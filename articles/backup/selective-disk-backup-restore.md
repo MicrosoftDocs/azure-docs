@@ -33,7 +33,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery services vault and the VM exist:
+Sign in to the subscription ID where the Recovery Services vault and the VM exists:
 
 ```azurecli
 az account set -s {subscriptionID}
