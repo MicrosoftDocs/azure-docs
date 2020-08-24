@@ -100,7 +100,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
 
-Please note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool][labeling_tool].
+Please note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool][../../quickstarts/label-tool.md].
 
 ## Code examples
 
