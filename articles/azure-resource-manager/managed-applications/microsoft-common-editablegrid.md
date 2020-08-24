@@ -3,7 +3,7 @@ title: EditableGrid UI element
 description: Describes the Microsoft.Common.EditableGrid UI element for Azure portal. Enables users to gather tabular input.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.author: tomfitz
 ---
 
@@ -91,11 +91,11 @@ A control for gathering tabular input. All fields within the grid are editable a
             "allowedValues": [
               {
                 "label": "Email",
-                "value": "on"
+                "value": "email"
               },
               {
                 "label": "Text",
-                "value": "off"
+                "value": "text"
               }
             ],
             "required": true
@@ -113,7 +113,7 @@ A control for gathering tabular input. All fields within the grid are editable a
 {
   "colName": "contoso",
   "colGender": "female",
-  "colContactPreference": "on"
+  "colContactPreference": "email"
 }
 ```
 
