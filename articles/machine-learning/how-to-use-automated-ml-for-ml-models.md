@@ -175,7 +175,7 @@ Included | Specifies which columns to include for training.
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
-![Azure Machine Learning studio task type form](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Azure Machine Learning studio custom featurization](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## Run experiment and view results
 
