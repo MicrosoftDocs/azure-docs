@@ -61,6 +61,8 @@ Your app's `package.json` file will be updated with the dependencies.
 
 ## Object model 
 
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition. 
+
 ### FormRecognizerClient
 `FormRecognizerClient` provides operations for:
 
