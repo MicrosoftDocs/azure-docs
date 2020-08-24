@@ -681,7 +681,7 @@ Create a network security group rule using [az network nsg rule create](https://
 * Named **myNSGRuleHTTP**.
 * In the network security group you created in the previous step, **myNSG**.
 * In resource group **myResourceGroupLB**.
-* Protocol **TCP**.
+* Protocol **(*)**.
 * Direction **Inbound**.
 * Source **(*)**.
 * Destination **(*)**.
@@ -694,7 +694,7 @@ Create a network security group rule using [az network nsg rule create](https://
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
