@@ -62,7 +62,7 @@ This Blob storage connector supports the following authentication types. See the
 - [Managed identities for Azure resource authentication](#managed-identity)
 
 >[!NOTE]
->When you're using PolyBase to load data into Azure SQL Data Warehouse, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. You must also use the self-hosted integration runtime with version 3.18 or later. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
+>When you're using PolyBase to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. You must also use the self-hosted integration runtime with version 3.18 or later. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
@@ -276,7 +276,7 @@ For general information about Azure Storage authentication, see [Authenticate ac
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
 >[!IMPORTANT]
->If you use PolyBase to load data from Blob storage (as a source or as staging) into SQL Data Warehouse, when you're using managed identity authentication for Blob storage, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configured Blob storage with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+>If you use PolyBase to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics (formerly SQL Data Warehouse), when you're using managed identity authentication for Blob storage, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configured Blob storage with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for an Azure Blob storage linked service:
 
