@@ -77,7 +77,7 @@ Run the below command to verify the installed version of all Az modules
 ```powershell
 Get-InstalledModule
 ```
-If the versions are not matching with the minimun requirement, run Update-Module commands.
+If the versions are not matching with the minimum requirement, run Update-Module commands.
 
 ## Sign in to Azure
 
