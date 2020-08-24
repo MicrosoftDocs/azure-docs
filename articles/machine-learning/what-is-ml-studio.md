@@ -14,7 +14,7 @@ ms.date: 08/24/2020
 
 In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in Azure Machine Learning. The studio combines no-code and code-first experiences for an inclusive data science platform.
 
-Use the studio to:
+Use the studio to visually:
 - Author machine learning projects
 - Manage assets and resources
 
