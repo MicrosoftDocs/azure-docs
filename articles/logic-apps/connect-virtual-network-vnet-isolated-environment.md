@@ -176,7 +176,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 1. On the **Integration Service Environments** pane, select **Add**.
 
-   ![Find and select "Integration Service Environments"](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
+   ![Select "Add" to create integration service environment](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
 1. Provide these details for your environment, and then select **Review + create**, for example:
 
