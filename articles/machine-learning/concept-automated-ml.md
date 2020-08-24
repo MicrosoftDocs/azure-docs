@@ -201,8 +201,6 @@ For example, building a model __for each instance or individual__ in the followi
 * Predictive maintenance for hundreds of oil wells
 * Tailoring an experience for individual users.
 
-For more information, see the [Many Models Solution Accelerator](https://aka.ms/many-models) on GitHub.
-
 ## AutoML in Azure Machine Learning
 
 Azure Machine Learning offers two experiences for working with automated ML
