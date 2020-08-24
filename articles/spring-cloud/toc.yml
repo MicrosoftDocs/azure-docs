@@ -11,12 +11,12 @@
   expanded: true 
   items:
     - name: Launch your first app
-      href: spring-cloud-quickstart-java.md
+      href: spring-cloud-quickstart.md
     - name: Build and run Microservices
       expanded: true 
       items:
       - name: Introduction to sample apps
-        href: spring-cloud-quickstart-piggymetrics-intro.md
+        href: spring-cloud-quickstart-sample-app-introduction.md
       - name: Provision Azure Spring Cloud service
         href: spring-cloud-quickstart-provision-service-instance.md
       - name: Set up configuration server

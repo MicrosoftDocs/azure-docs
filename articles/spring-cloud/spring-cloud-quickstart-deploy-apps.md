@@ -20,10 +20,10 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 ## Prerequisites
 
-1. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-1. (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-1. (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Deployment procedures
 
