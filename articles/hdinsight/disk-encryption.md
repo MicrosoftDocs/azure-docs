@@ -32,6 +32,15 @@ These types are summarized in the following table.
 |Kafka, HBase with Accelerated writes|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default, Layer2: Optional encryption at rest using CMK|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
 |All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
 
+Encyrption layer |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
+|---|---|---|---|---|
+| Layer1: [SSE Encryption](../virtual-machines/windows/managed-disks-overview.md#encryption)  |  |  |  |  |
+| Layer1: Optional Encryption at host using PMK  |  |  |  |  |
+| Layer2: Optional encryption at rest using CMK  |  |  |  |  |
+
+|Kafka, HBase with Accelerated writes|by default|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default, Layer2: Optional encryption at rest using CMK|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
+|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
+
 ## Encryption at rest using Customer-managed keys
 
 Customer-managed key encryption is a one-step process handled during cluster creation at no additional cost. All you need to do is to authorize a managed identity with Azure Key Vault and add the encryption key when you create your cluster.
