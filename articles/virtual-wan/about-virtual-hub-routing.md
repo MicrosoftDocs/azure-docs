@@ -73,10 +73,10 @@ Route tables now have features for association and propagation. A pre-existing r
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
 
-To use  new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal)
+If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal)
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use the new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="considerations"></a>Virtual WAN Routing Considerations
 
@@ -86,6 +86,8 @@ Please consider the following when configuring Virtual WAN routing:
 * All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a result, all connections associated to the Default route table will be able to reach all of the branches.
 * Branch-to-branch via Azure Firewall is currently not supported.
 * When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
+* A single next hop IP can be configured per VNet connection.
+* Virtual Hub does not support static route for 0.0.0.0/0 and next hop Virtual Network Connection (or an IP of an appliance in the VNet connection)
 
 ## Next steps
 
