@@ -420,7 +420,7 @@ When you update the requirements.psd1 file, updated modules are installed after 
 > Managed dependencies requires access to www.powershellgallery.com to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
 
 > [!NOTE]
-> Managed dependencies currently does not support modules that require the user to accept a license, either by accepting the license interactively, or by providing ```-AcceptLicense``` switch when invoking ```Install-Module```.
+> Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
 
 The following application settings can be used to change how the managed dependencies are downloaded and installed. Your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
 
