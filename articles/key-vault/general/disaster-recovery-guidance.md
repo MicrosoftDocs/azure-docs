@@ -1,6 +1,6 @@
 ---
-title: What to do in the event of an Azure service disruption that affects Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
+title: What to do if an Azure service disruption affects Azure Key Vault - Azure Key Vault | Microsoft Docs
+description: Learn what to do of an Azure service disruption affects Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -16,9 +16,9 @@ ms.author: sudbalas
 
 Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
-The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
+The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography to maintain high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
-If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It happens automatically and will be transparent to you.
+If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to start this process, it happens automatically and will be transparent to you.
 
 In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region. When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you do not need to take any action because this happens automatically.
 
