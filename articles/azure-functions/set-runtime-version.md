@@ -38,14 +38,14 @@ You can change the runtime version used by your function app. Because of the pot
 > [!IMPORTANT]
 > Although the runtime version is determined by the `FUNCTIONS_EXTENSION_VERSION` setting, you should make this change in the Azure portal and not by changing the setting directly. This is because the portal validates your changes and makes other related changes as needed.
 
-# [Portal](tab/portal)
+# [Portal](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
 > Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
 
-# [Azure CLI](tab/azurecli)
+# [Azure CLI](#tab/azurecli)
 
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.  
 
@@ -95,7 +95,7 @@ Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESO
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
 
-# [PowerShell](tab/powershell)
+# [PowerShell](#tab/powershell)
 
 To check the Azure Functions runtime, use the following cmdlet: 
 
