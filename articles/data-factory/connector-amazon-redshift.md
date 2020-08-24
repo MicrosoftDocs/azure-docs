@@ -162,7 +162,7 @@ Learn more on how to use UNLOAD to copy data from Amazon Redshift efficiently fr
 
 **Example: copy data from Amazon Redshift to Azure Synapse Analytics (formerly SQL Data Warehouse) using UNLOAD, staged copy and PolyBase**
 
-For this sample use case, copy activity unloads data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", and then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into Synapse Analytics (formerly SQL Data Warehouse). All the interim format is handled by copy activity properly.
+For this sample use case, copy activity unloads data from Amazon Redshift to Amazon S3 as configured in "redshiftUnloadSettings", and then copy data from Amazon S3 to Azure Blob as specified in "stagingSettings", lastly use PolyBase to load data into Azure Synapse Analytics (formerly SQL Data Warehouse). All the interim format is handled by copy activity properly.
 
 ![Redshift to SQL DW copy workflow](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
