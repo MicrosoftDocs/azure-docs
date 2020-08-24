@@ -31,7 +31,7 @@ This solution leverages the SQL native APIs to take backups of your SQL database
 
 ## Before you start
 
-Before you start, verify the below:
+Before you start, verify the following requirements:
 
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) in the marketplace.
 2. Review the [feature considerations](sql-support-matrix.md#feature-considerations-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
