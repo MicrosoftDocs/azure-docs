@@ -19,7 +19,7 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+# Card (optional)
   - title: About HDInsight
     linkLists:
       - linkListType: overview
@@ -39,32 +39,32 @@ landingContent:
           - text: Scale cluster to save cost 
             url: ./hdinsight-scaling-best-practices.md
 
-  # Card
+# Card
   - title: Apache Spark
     linkLists:
       - linkListType: get-started
         links:
           - text: What is Apache Spark?
             url: ./spark/apache-spark-overview.md
-          - text: Create Apache Spark clusters and run Spark in Jupyter
+          - text: Create Spark clusters and run Spark in Jupyter
             url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
-          - text: Load data and run Apache Spark queries
+          - text: Load data and run Spark queries
             url: ./spark/apache-spark-load-data-run-query.md
       - linkListType: how-to-guide
         links:
           - text: Manage Spark dependencies
-            url: ./spark/apache-spark-jupyter-notebofeok-use-external-packages.md
+            url: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
           - text: Optimize Spark jobs
             url: ./spark/apache-spark-perf.md          
 
-  # Card
+# Card
   - title: Apache Hadoop
     linkLists:
       - linkListType: get-started
         links:
           - text: What is Apache Hadoop?
             url: ./hadoop/apache-hadoop-introduction.md
-          - text: Create Hadoop clusters and run Apache Hive queries
+          - text: Create Hadoop clusters and run Hive queries
             url: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
           - text: Run Map Reduce samples 
             url: ./hadoop/apache-hadoop-run-samples-linux.md
@@ -74,6 +74,62 @@ landingContent:
             url: ./hdinsight-hadoop-manage-ambari.md            
           - text: Use JDBC/ODBC driver
             url: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+
+# Card
+  - title: Intergration
+    linkLists:
+      - linkListType: how-to-guide
+        links:     
+          - text: Spark/Hive - Connect Spark and Hive with Hive Warehouse connector  
+            url: ./interactive-query/apache-hive-warehouse-connector.md   
+          - text: Spark/Kafka - Apache Spark structured streaming with Apache Kafka 
+            url: ./hdinsight-apache-kafka-spark-structured-streaming.md                 
+          - text: Spark/HBase - Query Apache HBase with Apache Spark
+            url: ./hdinsight-using-spark-query-hbase.md  
+          - text: Create on-demand clusters using ADF
+            url: ./hdinsight-hadoop-create-linux-clusters-adf.md 
+      - linkListType: concept
+        links:
+          - text: Seleting the right VM size
+            url: ./hdinsight-selecting-vm-size.md
+          - text: HDInsight supported VM types
+            url: ./hdinsight-supported-node-configuration.md
+          - text: Compare storage options
+            url: ./hdinsight-hadoop-compare-storage-options.md 
+
+# Card
+  - title: Apache Kafka
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Apache Kafka?
+            url: ./kafka/apache-kafka-introduction.md
+          - text: Create Kafka clusters and manage Kafka topics
+            url: ./kafka/apache-kafka-get-started.md
+          - text: Use producer and consumper APIs
+            url: ./kafka/apache-kafka-producer-consumer-api.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use Kafka REST proxy
+            url: ./kafka/rest-proxy.md
+          - text: Kafka TLS encryption & authentication
+            url: ./kafka/apache-kafka-ssl-encryption-authentication.md
+
+# Card
+  - title: Interactive query
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Interactive Query?
+            url: ./interactive-query/apache-interactive-query-get-started.md
+          - text: Analyze flight data with Apache Hive
+            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Cluster sizing guide
+            url: ./interactive-query/hive-llap-sizing-guide.md
+          - text: Connect Hive with Power BI
+            url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
 
 # Card
   - title: Enterprise readiness
@@ -89,81 +145,25 @@ landingContent:
           - text: Migrate on-premises clusters to the cloud
             url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
 
-  # Card
-  - title: Apache Kafka
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is Apache Kafka?
-            url: ./kafka/apache-kafka-introduction.md
-          - text: Create Apache Kafka clusters and manage Kafka topics
-            url: ./kafka/apache-kafka-get-started.md
-          - text: Use Kafka producer and consumper APIs
-            url: ./kafka/apache-kafka-producer-consumer-api.md
-      - linkListType: how-to-guide
-        links:
-          - text: Use Kafka REST proxy
-            url: ./kafka/rest-proxy.md
-          - text: Configure partition replicas for data high availability
-            url: ./kafka/apache-kafka-high-availability
-
-  # Card
+# Card
   - title: Apache HBase
     linkLists:
       - linkListType: get-started
         links:
           - text: What is Apache HBase?
             url: ./hbase/apache-hbase-overview.md
-          - text: Use Apache HBase in Azure HDInsight
+          - text: Use HBase in Azure HDInsight
             url: ./hbase/apache-hbase-tutorial-get-started-linux.md
           - text: Query HBase with Apache Phoenix
             url: ./hbase/apache-hbase-query-with-phoenix.md
       - linkListType: how-to-guide
         links:
-          - text: Enable Accelerated Writes for Apache HBase
+          - text: Enable Accelerated Writes for HBase
             url: ./hbase/apache-hbase-accelerated-writes.md
           - text: Apache Phoenix best practices
             url: ./hbase/apache-hbase-phoenix-performance.md
 
-  # Card (optional)
-  - title: Intergration
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Seleting the right VM size
-            url: ./hdinsight-selecting-vm-size
-          - text: HDInsight supported VM types
-            url: ./hdinsight-supported-node-configuration.md
-          - text: Compare storage options
-            url: ./hdinsight-hadoop-compare-storage-options.md 
-      - linkListType: how-to-guide
-        links:     
-          - text: Spark/Hive - Connect Spark and Hive with Hive Warehouse connector  
-            url: ./interactive-query/apache-hive-warehouse-connector.md   
-          - text: Spark/Kafka - Apache Spark structured streaming with Apache Kafka 
-            url: ./hdinsight-apache-kafka-spark-structured-streaming.md                 
-          - text: Spark/HBase - Query Apache HBase with Apache Spark
-            url: ./hdinsight-using-spark-query-hbase.md  
-          - text: Create on-demand clusters using ADF
-            url: ./hdinsight-hadoop-create-linux-clusters-adf.md 
-
-  # Card
-  - title: Interactive query
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is Interactive Query?
-            url: ./interactive-query/apache-interactive-query-get-started.md
-          - text: Analyze flight data with Apache Hive
-            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-      - linkListType: how-to-guide
-        links:
-          - text: Optimize Hive queries
-            url: ./hdinsight-hadoop-optimize-hive-query.md
-          - text: Connect Hive with Power BI
-            url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
- 
-  # Card
+# Card
   - title: ML Services
     linkLists:
       - linkListType: get-started
@@ -171,7 +171,7 @@ landingContent:
           - text: What is ML Services on HDInsight?
             url:  ./r-server/r-server-overview.md
           - text: Execute an R script on an ML Services cluster
-            url: ./r-server/machine-learning-services-quickstart-job-rstudio.metadata
+            url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
 
   # Card
   - title: Apache Strom
@@ -179,6 +179,6 @@ landingContent:
       - linkListType: get-started
         links:
           - text: What is Apache Storm?
-            url:  ./storm/apache-storm-overview
+            url:  ./storm/apache-storm-overview.md
           - text: Create an Apache Storm topology
             url: ./storm/apache-storm-quickstart.md
