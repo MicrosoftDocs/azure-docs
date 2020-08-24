@@ -292,7 +292,7 @@ $file.ACL
 
 The following image shows the output after getting the ACL of a directory.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Get ACL output for directory](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
 
 In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -339,7 +339,7 @@ $file.ACL
 
 The following image shows the output after setting the ACL of a file.
 
-![Get ACL output](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Get ACL output for file](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 

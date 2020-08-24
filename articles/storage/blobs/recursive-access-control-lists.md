@@ -36,7 +36,7 @@ You can add, update, and remove ACLs recursively on the child items of a parent 
 
 ## Set up your project
 
-Install the necessary libraries. (Need info on where folks get these libraries)
+Install the necessary libraries.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -68,7 +68,13 @@ Install the necessary libraries. (Need info on where folks get these libraries)
 
 ### [.NET](#tab/dotnet)
 
-To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package.
+1. Open a command window (For example: Windows PowerShell).
+
+2. From your project directory, install the Azure.Storage.Files.DataLake preview package by using the `dotnet add package` command.
+
+   ```console
+   dotnet add package Azure.Storage.Files.DataLake -v 12.3.0-dev.20200811.1 -s https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json
+   ```
 
 For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
