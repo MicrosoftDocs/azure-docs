@@ -100,7 +100,7 @@ An IoT Hub message sink node enables you to publish events to IoT Edge hub. The 
 
 ## Rules on the use of nodes
 
-See [this](quotas-limitations.md#limitations-on-graph-topologies-at-preview) for additional rules on how different nodes can be used within a media graph.
+See [limitations on graph topologies](quotas-limitations.md#limitations-on-graph-topologies-at-preview) for additional rules on how different nodes can be used within a media graph.
 
 ## Scenarios
 
