@@ -47,7 +47,7 @@ Next, create the resource group for the Managed Service Fabric cluster, replacin
 
 ```powershell
 $resourceGroup = "myResourceGroup"
-$location = "East US" 
+$location = "EastUS2" 
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -56,11 +56,24 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Create a password for the admin account, and deploy a new Managed Service Fabric cluster using the downloaded template, filling in the variables appropriately. Ues this [sample template](https://github.com/peterpogorski/azure-quickstart-templates/tree/managed-sfrp-sample-templates/101-managed-service-fabric-cluster-standard-1-nt) which contains a Standard SKU managed Service Fabric cluster with one node type. The following example shows how to deploy this template using PowerShell. 
 
+Create a managed Service Fabric cluster using New-AzServiceFabricManagedCluster. The following example creates a cluster named myCluster in the resource group named myResourceGroup. This resource group was created in the previous step in the eastus2 region. 
+
+For this quickstart, provide your own values for the following  parameters: 
+* **Cluster Name**: Enter a unique name for your cluster, such as *myCluster*.
+* **Admin Password**: Enter a password for the admin to be used for RDP on the underlying VMs in the cluster.
+* **Client Certificate Thumbprint**: Provide the thumprint of the client certificate that you would like to use to access your cluster. If you do not have a certificate, follow [steps]() to create a self-signed certificate. 
+* **Cluster SKU**: This is the type of Service Fabric cluster being deployed, basic SKU clusters are meant for test deployments only. 
+
 ```powershell
 $clusterName = "myCluster" 
 $password = "Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
-New-AzResourceGroupDeployment -Name $clusterName -ResourceGroupName $resourceGroup -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -adminPassword $password -Verbose
+$thumbprint = "<Certificate Thumbprint>"
+$clusterSku = "Standard"
+
+New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
 ```
+
+This command may take a few minutes to complete.
 
 ## Validate the deployment 
 
