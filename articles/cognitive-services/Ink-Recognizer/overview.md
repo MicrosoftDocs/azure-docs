@@ -14,7 +14,7 @@ ms.author: aahi
 
 # What is the Ink Recognizer API?
 
-[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 The Ink Recognizer Cognitive Service provides a cloud-based REST API to analyze and recognize digital ink content. Unlike services that use Optical Character Recognition (OCR), the API requires digital ink stroke data as input. Digital ink strokes are time-ordered sets of 2D points (X,Y coordinates) that represent the motion of input tools such as digital pens or fingers. It then recognizes the shapes and handwritten content from the input and returns a JSON response containing all recognized entities.
 

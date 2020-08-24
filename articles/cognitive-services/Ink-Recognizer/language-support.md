@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Language and region support for the Ink Recognizer API
 
-[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 This article explains which languages are supported for the Ink Recognizer API. Digital ink content written in the following languages can be interpreted and processed by the API.
 
