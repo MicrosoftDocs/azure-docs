@@ -14,9 +14,13 @@ ms.date: 08/24/2020
 
 In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in Azure Machine Learning. The studio combines no-code and code-first experiences for an inclusive data science platform.
 
-Use the studio to visually:
-- Author machine learning projects
-- Manage assets and resources
+Use the studio to do the following, directly in your browser:
+>[!div class="checklist"]
+> - Author machine learning projects
+> - Manage assets and resources
+
+
+
 
 ## Author ML projects
 
@@ -66,7 +70,7 @@ Released in 2015, Machine Learning **Studio (classic)** was our first drag-and-d
 
 **Azure Machine Learning studio** is a web portal *in* Azure Machine Learning that contains low-code and no-code options for project authoring and asset management. 
 
-We recommend that new users choose **Azure Machine Learning**, instead of Machine Learning studio (classic), for the latest range of data science tools.
+We recommend that new users choose **Azure Machine Learning**, instead of Machine Learning Studio (classic), for the latest range of data science tools.
 
 ### Feature comparison
 
@@ -86,7 +90,7 @@ The following table summarizes the key differences between Machine Learning Stud
 
 ## Next steps
 
-Visit the studio at [ml.azure.com](https://ml.azure.com), or learn how to use some of the studio's features:  
+Visit the studio at [ml.azure.com](https://ml.azure.com), or learn how to use some of the studio's in the following articles:  
   + [Use Python notebooks to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)

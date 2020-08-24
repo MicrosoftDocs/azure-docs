@@ -11,4 +11,4 @@ ms.date: 03/20/2020
 ---
 
 > [!TIP]
-> Customers using or evaluating Machine Learning Studio (classic) are encouraged to try [Azure Machine Learning studio](https://docs.microsoft.com/azure/machine-learning/what-is-ml-studio) (preview), which provides drag and drop ML modules __plus__ scalability, version control, and enterprise security.
+> Customers using or evaluating Machine Learning Studio (classic) are encouraged to try [Azure Machine Learning studio](https://docs.microsoft.com/azure/machine-learning/what-is-ml-studio), which provides drag and drop ML modules __plus__ scalability, version control, and enterprise security.
