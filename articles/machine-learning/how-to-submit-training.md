@@ -34,6 +34,15 @@ When training, it is common to start on your local computer, and later run that 
 
 All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
+## What's a script run configuration?
+
+You submit your training experiment with a `ScriptRunConfig` object.  This object includes the:
+
+* **source_directory**: The source directory that contains your training script
+* **script**: Identify the training script
+* **run_config**: The run configuration, which in turn defines where the training will occur.
+
+
 ## What's an estimator?
 
 To facilitate model training using popular frameworks, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class.  This class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn). We recommend using an estimator for training as it automatically constructs embedded objects like an environment or RunConfiguration objects for you. If you wish to have more control over how these objects are created and specify what packages to install for your experiment run, follow [these steps](#amlcompute) to submit your training experiments using a RunConfiguration object on an Azure Machine Learning Compute.
@@ -135,13 +144,7 @@ First, create an experiment in your workspace.
 
 ## Submit the experiment
 
-Submit the experiment with a `ScriptRunConfig` object.  This object includes the:
-
-* **source_directory**: The source directory that contains your training script
-* **script**: Identify the training script
-* **run_config**: The run configuration, which in turn defines where the training will occur.
-
-For example, to use [the local target](#local) configuration:
+Submit the experiment with a `ScriptRunConfig` object.  For example, to use [the local target](#local) configuration:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_submit)]
 
