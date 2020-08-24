@@ -75,7 +75,7 @@ These properties apply to all root asset types and all annotation types.
 
 <table>
 <tr><td><b>Property Name</b></td><td><b>Data Type</b></td><td><b>Comments</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Boolean</td><td>Indicates whether item's data is derived from a source system (like Sql Server Database, Oracle Database) or authored by a user.</td></tr>
+<tr><td>fromSourceSystem</td><td>Boolean</td><td>Indicates whether item's data is derived from a source system (like SQL Server Database, Oracle Database) or authored by a user.</td></tr>
 </table>
 
 ### Common root properties
@@ -196,7 +196,7 @@ Common types can be used as the types for properties, but are not Items.
 
 ## Asset identity
 Azure Data Catalog uses "protocol" and identity properties from the "address" property bag of the DataSourceLocation "dsl" property to generate identity of the asset, which is used to address the asset inside the Catalog.
-For example, the TDS protocol has identity properties "server", "database", "schema", and "object". The combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
+For example, the Tabular Data Stream (TDS) protocol has identity properties "server", "database", "schema", and "object". The combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
 Azure Data Catalog provides several built-in data source protocols, which are listed at [Data source reference specification - DSL Structure](data-catalog-dsr.md).
 The set of supported protocols can be extended programmatically (Refer to Data Catalog REST API reference). Administrators of the Catalog can register custom data source protocols. The following table describes the properties needed to register a custom protocol.
 
@@ -208,7 +208,7 @@ The set of supported protocols can be extended programmatically (Refer to Data C
 <tr><td></td><td>namespace</td><td>string</td><td>The namespace of the protocol. Namespace must be from 1 to 255 characters long, contain one or more non-empty parts separated by dot (.). Each part must be from 1 to 255 characters long, start with a letter and contain only letters and numbers.</td></tr>
 <tr><td></td><td>name</td><td>string</td><td>The name of the protocol. Name must be from 1 to 255 characters long, start with a letter and contain only letters, numbers, and the dash (-) character.</td></tr>
 <tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>List of identity properties, must contain at least one, but no more than 20 properties. For example: "server", "database", "schema", "object" are identity properties of the "tds" protocol.</td></tr>
-<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>List of identity sets. Defines sets of identity properties, which represent valid asset's identity. Must contain at least one, but no more than 20 sets. For example: {"server", "database", "schema" and "object"} is an identity set for "tds" protocol, which defines identity of Sql Server Table asset.</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>List of identity sets. Defines sets of identity properties, which represent valid asset's identity. Must contain at least one, but no more than 20 sets. For example: {"server", "database", "schema" and "object"} is an identity set for the TDS protocol, which defines identity of SQL Server Table asset.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>The name of the property. Name must be from 1 to 100 characters long, start with a letter and can contain only letters and numbers.</td></tr>
