@@ -70,7 +70,7 @@ $password = "Password4321!@#" | ConvertTo-SecureString -AsPlainText -Force
 $thumbprint = "<Certificate Thumbprint>"
 $clusterSku = "Standard"
 
-New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
+New-AzServiceFabricManagedCluster -ResourceGroupName $resourceGroup -Location $location -ClusterName $clusterName -ClientCertThumbprint $thumbprint -ClientCertIsAdmin -AdminPassword $password -Sku $clusterSKU -Verbose
 ```
 
 This command may take a few minutes to complete.
