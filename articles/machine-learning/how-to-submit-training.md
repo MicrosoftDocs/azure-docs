@@ -1,5 +1,5 @@
 ---
-title: Use compute targets for model training
+title: Submit a training run to a compute target
 titleSuffix: Azure Machine Learning
 description: Train your machine learning model on various training environments (compute targets). You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
@@ -12,7 +12,9 @@ ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
-# Use compute targets for model training
+
+# Submit a training run to a compute target
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use various training environments (compute targets) to train your machine learning model.
@@ -26,7 +28,9 @@ All you need to do is define the environment for each compute target within a **
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
-* A [compute target](how-to-create-attach-compute-sdk.md)
+* Create a compute target from:
+  * [Studio](how-to-create-attach-compute-studio.md)
+  * [Python SDK](how-to-create-attach-compute-sdk.md)
 
 ## What's a run configuration?
 
