@@ -16,6 +16,7 @@ ms.date: 08/24/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
+ms.custom: contperfq1
 
 
 #Customer intent: As a administrator, I want learn about entitlement management so that see how I can use it to manage access to resources in my organization.
