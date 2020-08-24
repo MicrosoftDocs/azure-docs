@@ -48,6 +48,8 @@
     href: connect-virtual-network-vnet-isolated-environment-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
+  - name: Resource health status of logic apps
+    href: healthy-unhealthy-resource.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
