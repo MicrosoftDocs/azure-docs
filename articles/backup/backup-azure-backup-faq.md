@@ -9,7 +9,7 @@ ms.date: 07/07/2019
 
 This article answers common questions about the Azure Backup service.
 
-## Recovery services vault
+## Recovery Services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription?
 
