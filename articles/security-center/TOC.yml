@@ -111,8 +111,10 @@
       href: update-regulatory-compliance-packages.md
   - name: Scan your VMs for vulnerabilities
     items:
-    - name: Deploy a vulnerability scanner to your VMs
+    - name: Deploy the integrated vulnerability scanner to your VMs
       href: deploy-vulnerability-assessment-vm.md
+    - name: Deploy a BYOL vulnerability solution to your VMs
+      href: deploy-vulnerability-assessment-byol-vm.md
     - name: Review and remediate vulnerabilities on your VMs
       href: remediate-vulnerability-findings-vm.md
   - name: Configure threat protection and handle alerts
