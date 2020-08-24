@@ -127,7 +127,6 @@
   expanded: true
   items:
   - name: Access reviews - Graph API
-    href: https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta
+    href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
   - name: Entitlement management - Graph API
-    href: https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
-
+    href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

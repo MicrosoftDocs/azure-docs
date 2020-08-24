@@ -60,11 +60,6 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
-To modify a curated environment, it must be copied:
-
-```python
-env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
-```
 You can list the curated environments and their packages by using the following code:
 
 ```python

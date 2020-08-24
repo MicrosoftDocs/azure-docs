@@ -26,7 +26,7 @@ Before you continue, make sure that all the [prerequisites](backup-azure-dpm-int
 * Agent and vault credentials have been downloaded to the DPM server.
 * The agent is installed on the DPM server.
 * The vault credentials were used to register the DPM server.
-* If you are protecting Exchange 2016, please upgrade to DPM 2012 R2 UR9 or later
+* If you are protecting Exchange 2016, upgrade to DPM 2012 R2 UR9 or later
 
 ## DPM protection agent
 

@@ -26,7 +26,7 @@ A Recovery Services vault is an entity that stores the backups and recovery poin
 
 - To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
 
-## Encryption settings in the Recovery Services Vault
+## Encryption settings in the Recovery Services vault
 
 This section discusses the options available for encrypting your backup data stored in the Recovery Services vault.
 
