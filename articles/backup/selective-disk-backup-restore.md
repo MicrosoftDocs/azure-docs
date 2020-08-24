@@ -3,11 +3,15 @@ title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
 ms.date: 07/17/2020
+ms.custom: references_regions 
 ---
  
 # Selective disk backup and restore for Azure virtual machines
 
 Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation. This further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to both restore from snapshots and the vault.
+
+>[!NOTE]
+>Selective disk backup and restore for Azure virtual machines is in public preview in all regions.
 
 ## Scenarios
 
@@ -29,7 +33,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery services vault and the VM exist:
+Sign in to the subscription ID where the Recovery Services vault and the VM exists:
 
 ```azurecli
 az account set -s {subscriptionID}

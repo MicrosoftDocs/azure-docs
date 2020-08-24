@@ -86,7 +86,7 @@ There are two ways to stop protecting Files and Folders backup:
   - This option will stop all future backup jobs from protection.
   - Azure Backup service will continue to retain all the existing recovery points.  
   - You'll be able to restore the backed-up data for unexpired recovery points.
-  - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data would be retained based on the new retention policy.
+  - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data will be retained based on the new retention policy.
 - **Stop protection and delete backup data**.
   - This option will stop all future backup jobs from protecting your data and delete all the recovery points.
   - You'll receive a delete Backup data alert email with a message *Your data for this Backup item has been deleted. This data will be temporarily available for 14 days, after which it will be permanently deleted* and recommended action *Reprotect the Backup item within 14 days to recover your data.*
@@ -148,7 +148,7 @@ If you stopped protection while retaining data and decided to resume protection,
 
 ## Re-generate passphrase
 
-A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services Vault and the backup is configured) by following these steps:
+A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services vault and the backup is configured) by following these steps:
 
 1. From the MARS agent console, go to **Actions Pane** > **Change properties** >. Then go to **Encryption tab**.<br>
 1. Select **Change Passphrase** checkbox.<br>
@@ -157,7 +157,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Select **OK** to apply changes.  If the [Security Feature](./backup-azure-security-feature.md#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Select **OK** to apply changes.  If the [Security Feature](./backup-azure-security-feature.md#enable-security-features) is enabled on the Azure portal for the Recovery Services vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
 1. Paste the security PIN from the portal and select **OK** to apply the changes.<br>
 
     ![Paste the security PIN](./media/backup-azure-manage-mars/passphrase2.png)

@@ -10,10 +10,12 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: July 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
     - name: June 2020 new and updated features
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/
     - name: June 2020 UI and documentation updates
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/
     - name: May 2020 jobs and metrics updates
       href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
     - name: May 2020 dashboard updates
@@ -121,6 +123,8 @@
           href: howto-create-custom-analytics.md
         - name: Visualize your data in Power BI
           href: howto-connect-powerbi.md
+        - name: Configure and use file uploads
+          href: howto-configure-file-uploads.md
     - name: Administration
       items:
         - name: Manage your application
@@ -159,7 +163,10 @@
               href: howto-manage-preferences.md
             - name: Toggle live chat
               href: howto-show-hide-chat.md
-
+    - name: Troubleshoot
+      items:
+      -name: Device connections
+      href: troubleshoot-connection.md
 - name: Reference
   items:
   - name: Azure CLI
