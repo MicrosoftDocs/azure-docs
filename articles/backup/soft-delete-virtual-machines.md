@@ -32,7 +32,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
    ![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Please try vault deletion after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
+   > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Try deleting the vault after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
 
 4. To restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then select the option **Undelete**.
 
@@ -104,7 +104,7 @@ The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protec
 ## Soft delete for VMs using REST API
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## How to disable soft delete
 
