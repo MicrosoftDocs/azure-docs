@@ -218,7 +218,7 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
    - The __password__ is the password saved from the previous section
    - Click on "Apply" and wait for the operation to succeed
 
-   ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/02-config-server-azdo.png)
+   ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
 ## Delete your app configuration
 
