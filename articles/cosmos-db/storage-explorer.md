@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Cosmos DB and manage its resources by
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ---
@@ -29,7 +29,7 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 
 2. Select **Add an Azure Account**, and then click **Sign-in**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Connect to your Azure subscription":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Connect to the required Azure subscription":::
 
 2. In the **Azure Sign in** dialog box, select **Sign in**, and then enter your Azure credentials.
 
@@ -51,7 +51,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
 1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB...**
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Connect to Cosmos DB by connection string":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Connect to Azure Cosmos DB by using a connection string":::
 
 2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
 
@@ -66,11 +66,11 @@ Use the following steps to connect to an Azure Cosmos DB by Emulator, only suppo
 
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Connect to Cosmos DB by Emulator":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Connect to Azure Cosmos DB from the emulator":::
 
 3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
 
-    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Connect to Cosmos DB by Emulator dialog":::
+    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Connect to Cosmos DB from the emulator dialog":::
 
 
 ## Azure Cosmos DB resource management
@@ -103,29 +103,29 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 -   Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Create database":::
+    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Create a database in your Azure Cosmos account":::
 
 #### Delete a database
 
 - Right-click the database, click **Delete Database**, and click **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Delete database1":::
+    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Delete the first database":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Delete database2":::
+    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Delete the second databases":::
 
 #### Create a collection
 
 1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create collection1":::
+    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create first collection in the database":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Create collection2":::
+    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Create second collection in the database":::
 
 2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
     If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection.
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Partition key":::
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Configure a partition key":::
 
 #### Delete a collection
 
@@ -133,7 +133,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
     The collection node is deleted, and the database refreshes automatically.
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Delete collection":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Delete one of the collections":::
 
 ### Document management
 
@@ -151,7 +151,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 - Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Document Filter":::
+    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Query for specific documents":::
 
 ### Graph management
 
@@ -160,7 +160,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 1. To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.
 2. To modify an existing vertex, click the pen icon in the right pane.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Graph":::
+    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modify a graph's vertex":::
 
 #### Delete a graph
 
@@ -179,33 +179,33 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 1. To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
 2. To modify a table, click **Edit**, modify the content, then click **Update**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Table":::
+    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Create and modify a table":::
 
 #### Import and export table
 
 1. To import, click **Import** button and choose an existing table.
 2. To export, click **Export** button and choose a destination.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Table Import and Export":::
+    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Import or export a table":::
 
 #### Delete entities
 
 - Select the entities and click button **Delete**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Table delete":::
+    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Delete a table":::
 
 #### Query table
 
 - Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Table Query":::
+    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Query data from the table":::
 
 ### Manage stored procedures, triggers, and UDFs
 
 * To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**.
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or click **Discard** to cancel the change.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Stored procedure":::
+    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Create and manage stored procedures":::
 * The operations for **Triggers** and **UDF** are similar with **Stored Procedures**.
 
 ## Troubleshooting
@@ -300,7 +300,7 @@ If you see below error after attaching Azure Cosmos DB account in "Local and Att
 
 You may see below error while trying to expand the tree nodes in left.
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Expand Error":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Expand Azure Cosmos DB node error":::
 
 Try the following suggestions:
 
