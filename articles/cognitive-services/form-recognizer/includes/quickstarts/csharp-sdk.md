@@ -98,7 +98,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 - Managing models created in your account.
 - Copying a custom model from one Form Recognizer resource to another.
 
-See examples for [Train a Model](#train-a-model) and [Manage Custom Models](#manage-custom-models).
+See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
 
 Please note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool][labeling_tool].
 
