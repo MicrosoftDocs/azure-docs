@@ -387,7 +387,7 @@ Below `AuthenticateClient`, create a new method named `AuthenticateTrainingClien
 static private FormTrainingClient AuthenticateTrainingClient()
 {
     string endpoint = "https://formre-ga-sdk-testing.cognitiveservices.azure.com/";
-    string apiKey = "5435bb37ae7b415abf6112fcd5f4899e";
+    string apiKey = "<replace-with-your-form-recognizer-key-here>";
     var credential = new AzureKeyCredential(apiKey);
     var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
     return trainingClient;
