@@ -25,7 +25,7 @@ Today, Azure Backup provides a built-in policy (using Azure Policy) that can be 
 
 ## Using the built-in policy
 
-To assign the policy to the required scope, follow the below steps:
+To assign the policy to the required scope, follow the steps below:
 
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
 1. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
