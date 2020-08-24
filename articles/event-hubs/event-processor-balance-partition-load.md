@@ -85,5 +85,5 @@ See the following quick starts:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send)
+- [Python](event-hubs-python-get-started-send.md)
 - [JavaScript](event-hubs-node-get-started-send.md)

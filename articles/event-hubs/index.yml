@@ -146,7 +146,7 @@ landingContent:
           - text: Use Resource Manager template
             url: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
           - text: Enable capturing from a Python application
-            url: event-hubs-capture-python
+            url: event-hubs-capture-python.md
 
   # Card
   - title: Process events

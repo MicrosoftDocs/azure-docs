@@ -78,7 +78,7 @@ To get started using Event Hubs, see the **Send and receive events** tutorials:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send)
+- [Python](event-hubs-python-get-started-send.md)
 - [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)

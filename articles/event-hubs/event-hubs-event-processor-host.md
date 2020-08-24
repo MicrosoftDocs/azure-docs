@@ -189,7 +189,7 @@ Now that you're familiar with the Event Processor Host, see the following articl
 - Get started with Event Hubs
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send)
+    - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)

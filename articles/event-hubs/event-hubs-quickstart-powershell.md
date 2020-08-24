@@ -60,7 +60,7 @@ In this article, you created the Event Hubs namespace, and used sample applicati
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send)
+- [Python](event-hubs-python-get-started-send.md)
 - [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)

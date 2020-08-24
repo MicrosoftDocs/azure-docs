@@ -164,7 +164,7 @@ For more information about Event Hubs, visit the following links:
 - Get started with Event Hubs
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
-    - [Python](event-hubs-python-get-started-send)
+    - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-java-get-started-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Sample applications that use Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
