@@ -290,6 +290,9 @@ FROM size
 ;
 ```
 
+>[!TIP]
+> For improved performance in Synapse SQL, consider using **sys.pdw_permanent_table_mappings** instead of **sys.pdw_table_mappings** on permanent user tables. See **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** for more information.
+
 ### Table space summary
 
 This query returns the rows and space by table.  It allows you to see which tables are your largest tables and whether they're round-robin, replicated, or hash -distributed.  For hash-distributed tables, the query shows the distribution column.  
