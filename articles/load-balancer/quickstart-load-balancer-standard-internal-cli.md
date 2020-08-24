@@ -408,6 +408,209 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
     --subnet-name myBackendSubnet \
     --subnet-prefixes 10.1.0.0/24
 ```
+### Create a network security group
+
+For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
+
+Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
+
+* Named **myNSG**.
+* In resource group **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroupLB \
+    --name myNSG
+```
+
+### Create a network security group rule
+
+Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
+
+* Named **myNSGRuleHTTP**.
+* In the network security group you created in the previous step, **myNSG**.
+* In resource group **myResourceGroupLB**.
+* Protocol **(*)**.
+* Direction **Inbound**.
+* Source **(*)**.
+* Destination **(*)**.
+* Destination port **Port 80**.
+* Access **Allow**.
+* Priority **200**.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroupLB \
+    --nsg-name myNSG \
+    --name myNSGRuleHTTP \
+    --protocol '*' \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 80 \
+    --access allow \
+    --priority 200
+```
+
+### Create network interfaces for the virtual machines
+
+Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
+
+#### VM1
+
+* Named **myNicVM1**.
+* In resource group **myResourceGroupLB**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+* In network security group **myNSG**.
+
+```azurecli-interactive
+
+  az network nic create \
+    --resource-group myResourceGroupLB \
+    --name myNicVM1 \
+    --vnet-name myVNet \
+    --subnet myBackEndSubnet \
+    --network-security-group myNSG
+```
+#### VM2
+
+* Named **myNicVM2**.
+* In resource group **myResourceGroupLB**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+
+```azurecli-interactive
+  az network nic create \
+    --resource-group myResourceGroupLB \
+    --name myNicVM2 \
+    --vnet-name myVnet \
+    --subnet myBackEndSubnet \
+    --network-security-group myNSG
+```
+
+## Create backend servers
+
+In this section, you create:
+
+* A cloud configuration file named **cloud-init.txt** for the server configuration. 
+* Availability set for the virtual machines
+* Two virtual machines to be used as backend servers for the load balancer.
+
+To verify that the load balancer was successfully created, you install NGINX on the virtual machines.
+
+### Create cloud-init configuration file
+
+Use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. 
+
+In your current shell, create a file named cloud-init.txt. Copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+  - path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+  - path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+```
+
+### Create availability set for virtual machines
+
+Create the availability set with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create):
+
+* Named **myAvSet**.
+* In resource group **myResourceGroupLB**.
+* Location **eastus**.
+
+```azurecli-interactive
+  az vm availability-set create \
+    --name myAvSet \
+    --resource-group myResourceGroupLB \
+    --location eastus 
+    
+```
+
+### Create virtual machines
+
+Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+
+#### VM1
+* Named **myVM1**.
+* In resource group **myResourceGroupLB**.
+* Attached to network interface **myNicVM1**.
+* Virtual machine image **UbuntuLTS**.
+* Configuration file **cloud-init.txt** you created in step above.
+* In availability set **myAvSet**.
+
+```azurecli-interactive
+  az vm create \
+    --resource-group myResourceGroupLB \
+    --name myVM1 \
+    --nics myNicVM1 \
+    --image UbuntuLTS \
+    --admin-user azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --availability-set myAvSet \
+    --no-wait
+    
+```
+#### VM2
+* Named **myVM2**.
+* In resource group **myResourceGroupLB**.
+* Attached to network interface **myNicVM2**.
+* Virtual machine image **UbuntuLTS**.
+* Configuration file **cloud-init.txt** you created in step above.
+* In **Zone 2**.
+
+```azurecli-interactive
+  az vm create \
+    --resource-group myResourceGroupLB \
+    --name myVM2 \
+    --nics myNicVM2 \
+    --image UbuntuLTS \
+    --admin-user azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt \
+    --availability-set myAvSet  \
+    --no-wait
+```
+
+It may take a few minutes for the VMs to deploy.
 
 ## Create basic load balancer
 
@@ -489,217 +692,40 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe
 ```
+### Add virtual machines to load balancer backend pool
 
-### Create a network security group
+Add the virtual machines to the backend pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
-For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
-
-Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
-
-* Named **myNSG**.
-* In resource group **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupLB \
-    --name myNSG
-```
-
-### Create a network security group rule
-
-Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
-
-* Named **myNSGRuleHTTP**.
-* In the network security group you created in the previous step, **myNSG**.
-* In resource group **myResourceGroupLB**.
-* Protocol **TCP**.
-* Direction **Inbound**.
-* Source **(*)**.
-* Destination **(*)**.
-* Destination port **Port 80**.
-* Access **Allow**.
-* Priority **200**.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupLB \
-    --nsg-name myNSG \
-    --name myNSGRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 80 \
-    --access allow \
-    --priority 200
-```
-
-### Create network interfaces for the virtual machines
-
-Create two network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
 
 #### VM1
-
-* Named **myNicVM1**.
+* In backend address pool **myBackEndPool**.
 * In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-* In network security group **myNSG**.
-* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
+* Associated with network interface **myNicVM1** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
-
-  az network nic create \
-    --resource-group myResourceGroupLB \
-    --name myNicVM1 \
-    --vnet-name myVNet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
 ```
+
 #### VM2
-
-* Named **myNicVM2**.
+* In backend address pool **myBackEndPool**.
 * In resource group **myResourceGroupLB**.
-* In virtual network **myVNet**.
-* In subnet **myBackendSubnet**.
-* In network security group **myNSG**.
-* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
+* Associated with network interface **myNicVM2** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
-  az network nic create \
-    --resource-group myResourceGroupLB \
-    --name myNicVM2 \
-    --vnet-name myVnet \
-    --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
 ```
-
-## Create backend servers
-
-In this section, you create:
-
-* A cloud configuration file named **cloud-init.txt** for the server configuration. 
-* Availability set for the virtual machines
-* Two virtual machines to be used as backend servers for the load balancer.
-
-
-To verify that the load balancer was successfully created, you install NGINX on the virtual machines.
-
-### Create cloud-init configuration file
-
-Use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. 
-
-In your current shell, create a file named cloud-init.txt. Copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-    path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-    path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
-```
-### Create availability set for virtual machines
-
-Create the availability set with [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create):
-
-* Named **myAvSet**.
-* In resource group **myResourceGroupLB**.
-* Location **eastus**.
-
-```azurecli-interactive
-  az vm availability-set create \
-    --name myAvSet \
-    --resource-group myResourceGroupLB \
-    --location eastus 
-    
-```
-
-### Create virtual machines
-
-Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
-
-#### VM1
-* Named **myVM1**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicVM1**.
-* Virtual machine image **UbuntuLTS**.
-* Configuration file **cloud-init.txt** you created in step above.
-* In availability set **myAvSet**.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroupLB \
-    --name myVM1 \
-    --nics myNicVM1 \
-    --image UbuntuLTS \
-    --admin-user azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --availability-set myAvSet \
-    --no-wait
-    
-```
-#### VM2
-* Named **myVM2**.
-* In resource group **myResourceGroupLB**.
-* Attached to network interface **myNicVM2**.
-* Virtual machine image **UbuntuLTS**.
-* Configuration file **cloud-init.txt** you created in step above.
-* In **Zone 2**.
-
-```azurecli-interactive
-  az vm create \
-    --resource-group myResourceGroupLB \
-    --name myVM2 \
-    --nics myNicVM2 \
-    --image UbuntuLTS \
-    --admin-user azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud-init.txt \
-    --availability-set myAvSet  \
-    --no-wait
-```
-
-It may take a few minutes for the VMs to deploy.
 
 ---
 
