@@ -18,8 +18,8 @@ Please note that, the PowerShell Gallery has deprecated Transport Layer Security
 
 TLS 1.2 is set to be the default for the PowerShell Gallery. Hence if you are unable to install or retrieve the Az modules due to the following issues:
 
-WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'.
-PackageManagement\Find-Package : No match was found for the specified search criteria and module name 'PowerShellGet'
+-WARNING: Unable to resolve package source 'https://www.powershellgallery.com/api/v2'
+-PackageManagement\Find-Package : No match was found for the specified search criteria and module name 'PowerShellGet'
 
 run the following command before the Install-Module commands
 
