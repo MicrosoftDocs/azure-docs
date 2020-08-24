@@ -24,7 +24,7 @@ ms.date: 02/29/2020
 
 This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 
-* Build your job by using a visual designer and [ready-to-use connectors](../connectors/apis-list.md) from hundreds of services, such as Azure Blob Storage, Azure Service Bus, Office 365 Outlook, and SAP.
+* Build your job by using a visual designer and [ready-to-use connectors](../connectors/apis-list.md) from hundreds of services, such as Azure Blob Storage, Azure Service Bus, Outlook for Microsoft 365, and SAP.
 
 * Manage each scheduled workflow as a first-class Azure resource. You don't have to worry about the concept of a *job collection* because each logic app is an individual Azure resource.
 

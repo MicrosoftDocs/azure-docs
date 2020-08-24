@@ -53,7 +53,7 @@ By integrating Defender ATP with Azure Security Center, you can also benefit fro
 
 Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a standard tier subscription and for Non-Azure VMs you need standard tier in the workspace level only.
 
-Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers.
+Server endpoint monitoring using this integration has been disabled for Microsoft 365 GCC customers.
 
 ## Data storage location
 
