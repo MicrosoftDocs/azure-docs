@@ -55,7 +55,9 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ## Procedure
 
-### Initial steps (moving Key Vault)
+If you 
+
+### Moving Key Vault to a new subscription within the same tenant
 
 1. Log in to the Azure portal
 2. Navigate to your key vault
@@ -66,9 +68,9 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 7. Acknowledge the warning regarding moving resources
 8. Select "OK"
 
-### Additional steps (post move)
+### Additional steps if you moved key vault to a subscription in a new tenant
 
-Now that you have moved your key vault to the new subscription, you need to update the tenant ID and remove old access policies. Here are tutorials for these steps in PowerShell and Azure CLI.
+If you moved your key vault to a subscription in a new tenant, you need to manually update the tenant ID and remove old access policies. Here are tutorials for these steps in PowerShell and Azure CLI. If you are using PowerShell you may need to run the Clear-AzContext command documented below to allow you to see resources outside your current selected scope. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
