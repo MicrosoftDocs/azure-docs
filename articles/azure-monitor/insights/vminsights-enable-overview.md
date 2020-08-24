@@ -74,7 +74,8 @@ If you don't have a Log Analytics workspace, you can create one by using one of 
 
 ## Supported operating systems
 
-Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Supported operating systems](agents-overview.md#supported-operating-systems) for a complete list.
+Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
+](../platform/agents-overview.md#supported-operating-systems) for a complete list.
 
 
 ### Linux considerations and 

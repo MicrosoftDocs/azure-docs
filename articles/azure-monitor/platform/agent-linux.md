@@ -24,7 +24,7 @@ This article provides details on installing the Log Analytics agent on Windows c
 
 ### Supported operating systems
 
-See [Supported operating systems](agents-overview.md#supported-operating-systems).
+See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Linux distributions supported by the Log Analytics agent.
 
 >[!NOTE]
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
