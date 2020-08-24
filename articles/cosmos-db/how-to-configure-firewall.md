@@ -4,7 +4,7 @@ description: Learn how to configure IP access control policies for firewall supp
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/31/2019
+ms.date: 08/24/2020
 ms.author: mjbrown 
 ms.custom: devx-track-azurecli
 ---
@@ -90,7 +90,44 @@ When you access your Azure Cosmos DB account from a computer on the internet, th
 
 ## <a id="configure-ip-firewall-arm"></a>Configure an IP firewall by using a Resource Manager template
 
-To configure access control to your Azure Cosmos DB account, make sure that the Resource Manager template specifies the **ipRangeFilter** attribute with a list of allowed IP ranges. If configuring IP Firewall to an already deployed Cosmos account, ensure the `locations` array matches what is currently deployed. You cannot simultaneously modify the `locations` array and other properties. For more information and samples of Azure Resource Manager templates for Azure Cosmos DB see, [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-samples.md)
+To configure access control to your Azure Cosmos DB account, make sure that the Resource Manager template specifies the **ipRules** property with an array of allowed IP ranges. If configuring IP Firewall to an already deployed Cosmos account, ensure the `locations` array matches what is currently deployed. You cannot simultaneously modify the `locations` array and other properties. For more information and samples of Azure Resource Manager templates for Azure Cosmos DB see, [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-samples.md)
+
+> [!IMPORTANT]
+> The **ipRules** property has been introduced with API version 2020-04-01. Previous versions exposed an **ipRangeFilter** property instead, which is a list of comma-separated IP addresses.
+
+The example below shows how the **ipRules** property is exposed in API version 2020-04-01 or later:
+
+```json
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2020-04-01",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "ipRules": [
+      {
+        "ipAddressOrRange": "40.76.54.131"
+      },
+      {
+        "ipAddressOrRange": "52.176.6.30"
+      },
+      {
+        "ipAddressOrRange": "52.169.50.45"
+      },
+      {
+        "ipAddressOrRange": "52.187.184.26"
+      }
+    ]
+  }
+}
+```
+
+Here's the same example for any API version prior to 2020-04-01:
 
 ```json
 {
@@ -136,7 +173,7 @@ The following script shows how to create an Azure Cosmos DB account with IP acce
 # Create a Cosmos DB account with default values and IP Firewall enabled
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$ipRangeFilter = "192.168.221.17,183.240.196.255,40.76.54.131"
+$ipRules = @("192.168.221.17","183.240.196.255","40.76.54.131")
 
 $locations = @(
     @{ "locationName"="West US 2"; "failoverPriority"=0; "isZoneRedundant"=False },
@@ -147,11 +184,11 @@ $locations = @(
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "ipRangeFilter"=$ipRangeFilter
+    "ipRules"=$ipRules
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -ApiVersion "2020-04-01" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
