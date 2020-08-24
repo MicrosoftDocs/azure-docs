@@ -164,7 +164,6 @@ Create three network interfaces with [az network nic create](https://docs.micros
 * In virtual network **myVNet**.
 * In subnet **myBackendSubnet**.
 * In network security group **myNSG**.
-* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
