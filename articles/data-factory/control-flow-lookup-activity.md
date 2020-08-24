@@ -3,14 +3,14 @@ title: Lookup activity in Azure Data Factory
 description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
+author: linda33wj
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/24/2020
 ---
 
 # Lookup activity in Azure Data Factory
@@ -214,7 +214,17 @@ This example demonstrates lookup for the first row only. For lookup for all rows
                 "outputs": [
                     {
                         "referenceName": "SinkDataset",
-                        "type": "DatasetReference"
+                        "type": "DatasetReference",
+                        "parameters": {
+                            "schema": {
+                                "value": "@activity('LookupActivity').output.firstRow.schema",
+                                "type": "Expression"
+                            },
+                            "table": {
+                                "value": "@activity('LookupActivity').output.firstRow.table",
+                                "type": "Expression"
+                            }
+                        }
                     }
                 ]
             }
@@ -299,12 +309,23 @@ Copy Activity copies data from the SQL table to the **filebylookup.csv** file in
             "referenceName": "AzureBlobStorageLinkedService",
             "type": "LinkedServiceReference"
         },
+        "parameters": {
+            "schema": {
+                "type": "string"
+            },
+            "table": {
+                "type": "string"
+            }
+        },
         "annotations": [],
         "type": "DelimitedText",
         "typeProperties": {
             "location": {
                 "type": "AzureBlobStorageLocation",
-                "fileName": "filebylookup.csv",
+                "fileName": {
+                    "value": "@{dataset().schema}_@{dataset().table}.csv",
+                    "type": "Expression"
+                },
                 "container": "csv"
             },
             "columnDelimiter": ",",
