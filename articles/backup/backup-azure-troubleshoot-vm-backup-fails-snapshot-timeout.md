@@ -171,8 +171,8 @@ Your backup operation could fail when backing up a VM with a disk size greater t
 
 Your recent backup job failed because there's an existing backup job in progress. You can't start a new backup job until the current job finishes. Ensure the backup operation currently in progress is completed before triggering or scheduling another backup operations. To check the backup jobs status, do the following steps:
 
-1. Sign in to the Azure portal, select **All services**. Type Recovery Services and select **Recovery Services vaults**. The list of recovery services vaults appears.
-2. From the list of recovery services vaults, select a vault in which the backup is configured.
+1. Sign in to the Azure portal, select **All services**. Type Recovery Services and select **Recovery Services vaults**. The list of Recovery Services vaults appears.
+2. From the list of Recovery Services vaults, select a vault in which the backup is configured.
 3. On the vault dashboard menu, select **Backup Jobs** it displays all the backup jobs.
    - If a backup job is in progress, wait for it to complete or cancel the backup job.
      - To cancel the backup job, right-click on the backup job and select **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
