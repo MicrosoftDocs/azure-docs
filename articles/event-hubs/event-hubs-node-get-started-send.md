@@ -9,8 +9,6 @@ ms.custom: devx-track-javascript
 # Send events to or receive events from event hubs by using JavaScript  (azure/event-hubs version 5)
 This quickstart shows how to send events to and receive events from an event hub using the **azure/event-hubs version 5** JavaScript package. 
 
-> [!IMPORTANT]
-> This quickstart uses the latest azure/event-hubs version 5 package. For a quick start that uses the old azure/event-hubs version 2 package, see [Send and receive events using azure/event-hubs version 2](event-hubs-node-get-started-send.md). 
 
 ## Prerequisites
 If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
