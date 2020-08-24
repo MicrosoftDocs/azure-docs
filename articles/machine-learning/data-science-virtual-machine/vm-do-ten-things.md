@@ -146,7 +146,7 @@ git clone https://github.com/Azure/DataScienceVM.git
 
 In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio:
 
-![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
+![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.png)
 
 You can find more information on using Git to work with your GitHub repository from resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
@@ -247,7 +247,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 The data is read as a data frame:
 
-![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
 ### Azure Synapse Analytics (formerly SQL DW) and databases
@@ -303,7 +303,7 @@ You can start building reports and visualizations by using the data model. You c
 You can scale up and down the DSVM to meet your project's needs. If you don't need to use the VM in the evening or on weekends, you can shut down the VM from the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> You incur compute charges if you use just the shutdown button for the operating system on the VM. Instead You should deallocate your DSVM using the Azure Portal or Cloud Shell.
+> You incur compute charges if you use just the shutdown button for the operating system on the VM. Instead You should deallocate your DSVM using the Azure portal or Cloud Shell.
 > 
 > 
 

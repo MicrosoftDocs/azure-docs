@@ -18,7 +18,7 @@ Enhance the model creation process by tracking your experiments and monitoring r
 
 The following diagram illustrates that with MLflow Tracking, you track an experiment's run metrics and store model artifacts in your Azure Machine Learning workspace.
 
-![track experiments](./media/mlflow-diagram-track.png)
+![track experiments](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
 ## Prerequisites
 
@@ -28,13 +28,13 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda enviroment. In Jupyterlab, click on the launcher and select the following kernel:
 
-![kernel selection](./media/experiment-tracking-1.PNG)
+![kernel selection](./media/how-to-track-experiments/experiment-tracking-1.png)
 
 ## Set up the workspace
 
 Go to the [Azure portal](https://portal.azure.com) and select the workspace you provisioned as part of the prerequisites. You will see __Download config.json__ (see below) - download the config and ensure it is stored in your working directory on the DSVM.
 
-![Get config file](./media/experiment-tracking-2.PNG)
+![Get config file](./media/how-to-track-experiments/experiment-tracking-2.png)
 
 The config contains information such as the workspace name, subscription, etc and it means that you do not need to hard code these parameters.
 
@@ -113,11 +113,11 @@ with mlflow.start_run():
 
 You can view the experiment run in [Azure Machine Learning Studio](https://ml.azure.com). Click on __Experiments__ in the left-hand menu and select the 'experiment_with_mlflow' (or if you decided to name your experiment differently in the above snippet, click on the name used):
 
-![select experiment](./media/mlflow-experiments-aml.PNG)
+![select experiment](./media/how-to-track-experiments/mlflow-experiments.png)
 
 You should see the logged Mean Squared Error (MSE):
 
-![MSE](./media/mlflow-experiments-aml-2.PNG)
+![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
 If you click on the run you will see other details and also the pickled model in the __Outputs+logs__
 
@@ -129,7 +129,7 @@ In this section we outline how to deploy models trained on a DSVM to Azure Machi
 
 On the left-hand menu in [AzureML Studio](https://ml.azure.com) click on __Compute__ and then the __Inference clusters__ tab. Next, click on __+ New__ as articulated below:
 
-![Create Inference Compute](./media/mlflow-experiments-aml-6.PNG)
+![Create Inference Compute](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
 In the __New Inference cluster__ pane fill in details for:
 
@@ -143,7 +143,7 @@ In the __New Inference cluster__ pane fill in details for:
 
 Next, click on __Create__.
 
-![compute details](./media/mlflow-experiments-aml-7.PNG)
+![compute details](./media/how-to-track-experiments/mlflow-experiments-7.png)
 
 ### Step 2: Deploy no-code inference service
 
@@ -157,21 +157,21 @@ No-code deployment means that you can deploy straight from the model artefact wi
 
 To deploy the diabetes model, go to the left-hand menu in the [Azure Machine Learning Studio](https://ml.azure.com) and select __Models__. Next, click on the registered diabetes_model:
 
-![Select model](./media/mlflow-experiments-aml-3.PNG)
+![Select model](./media/how-to-track-experiments/mlflow-experiments-3.png)
 
 Next, click on the __Deploy__ button in the model details pane:
 
-![Deploy](./media/mlflow-experiments-aml-4.PNG)
+![Deploy](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 We will deploy the model to the Inference Cluster (Azure Kubernetes Service) we created in step 1. Fill in the details below by providing a name for the service, and the name of the AKS compute cluster (created in step 1). We also recommend that you increase the __CPU reserve capacity__ to 1 (from 0.1) and the __Memory reserve capacity__ to 1 (from 0.5) - you can do this by clicking on __Advanced__ and filling in the details. Then click __Deploy__.
 
-![deploy details](./media/mlflow-experiments-aml-5.PNG)
+![deploy details](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
 ### Step 3: Consume
 
 When the model has deployed successfully you should see the following (to get to this page click on Endpoints from the left-hand menu > then click on the name of deployed service):
 
-![Consume model](./media/mlflow-experiments-aml-8.PNG)
+![Consume model](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
 You should notice that the deployment state goes from __transitioning__ to __healthy__. In addition this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
 
