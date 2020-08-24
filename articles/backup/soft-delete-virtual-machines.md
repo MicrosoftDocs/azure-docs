@@ -19,7 +19,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
 ## Soft delete for VMs using Azure portal
 
-1. To delete the backup data of a VM, the backup must be stopped. In the Azure portal, go to your recovery services vault, right-click on the backup item and choose **Stop backup**.
+1. To delete the backup data of a VM, the backup must be stopped. In the Azure portal, go to your Recovery Services vault, right-click on the backup item and choose **Stop backup**.
 
    ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
@@ -27,12 +27,12 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
 
    ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
-3. During those 14 days, in the Recovery Services Vault, the soft deleted VM will appear with a red "soft-delete" icon next to it.
+3. During those 14 days, in the Recovery Services vault, the soft deleted VM will appear with a red "soft-delete" icon next to it.
 
    ![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Please try vault deletion after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
+   > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Try deleting the vault after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
 
 4. To restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then select the option **Undelete**.
 
@@ -104,7 +104,7 @@ The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protec
 ## Soft delete for VMs using REST API
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## How to disable soft delete
 
