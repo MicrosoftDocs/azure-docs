@@ -110,4 +110,3 @@ If the recovery point has snapshot and that is the latest RP available, it's ret
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
 Instant restore feature is enabled for everyone and can't be disabled. You can reduce the snapshot retention to a minimum of one day.
-
