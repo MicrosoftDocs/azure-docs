@@ -205,6 +205,6 @@ In this quickstart, you learned how to:
 > * Streaming logs in real time
 ## Next steps
 > [!div class="nextstepaction"]
-> [Build and Run Microservices](spring-cloud-quickstart-piggymetrics-intro.md)
+> [Build and Run Microservices](spring-cloud-quickstart-sample-app-introduction.md)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

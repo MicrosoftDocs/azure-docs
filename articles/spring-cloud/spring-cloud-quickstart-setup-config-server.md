@@ -24,7 +24,7 @@ Spring Cloud Config server is centralized configuration service for distributed 
 
 #### [Portal](#tab/Azure-portal)
 
-The following procedure sets up the config server using the Azure portal to deploy the [Piggymetrics sample](spring-cloud-quickstart-piggymetrics-intro.md).
+The following procedure sets up the config server using the Azure portal to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md).
 
 1. Go to the service **Overview** page and select **Config Server**.
 
@@ -36,7 +36,7 @@ The following procedure sets up the config server using the Azure portal to depl
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-piggymetrics-intro.md)
+The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md)
 
 Set up your config-server with the location of the git repository for the project:
 

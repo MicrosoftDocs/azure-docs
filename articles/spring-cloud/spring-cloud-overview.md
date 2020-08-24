@@ -50,4 +50,4 @@ To get started, complete the Spring Cloud quickstart using the [Azure CLI](sprin
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart-java.md)
+> [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
