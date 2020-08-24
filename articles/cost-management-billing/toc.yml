@@ -283,7 +283,7 @@
       - name: Data Explorer
         href: /azure/data-explorer/pricing-reserved-capacity
       - name: Disk Storage
-        href: ../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        href: ../virtual-machines/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - name: Dedicated Host
         href: ../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/toc.json
       - name: Software plans

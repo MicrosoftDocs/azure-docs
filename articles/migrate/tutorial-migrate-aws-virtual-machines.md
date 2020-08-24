@@ -375,7 +375,7 @@ Mobility Agent is installed on the source VM to be migrated and is registered th
 **Answer:** Currently, we do not support the import of assessment for this workflow. As a workaround, you can export the assessment and then manually select the VM recommendation during the Enable Replication step.
   
 **Question:** I am getting the error “Failed to fetch BIOS GUID” while trying to discover my AWS VMs   
-**Answer:** Review supported operating systems for AWS VMs.  
+**Answer:** Always use root login for authentication and not any pseudo user. Also review supported operating systems for AWS VMs.  
 
 **Question:** My replication status is not progressing    
 **Answer:** Check if your replication appliance meets the requirements. Make sure you’ve enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that there are no stale duplicate versions of the replication appliance connected to the same project.   
