@@ -1,6 +1,6 @@
 ---
 title: Compute environments supported by Azure Data Factory 
-description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
+description: Compute environments that can be used with Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
