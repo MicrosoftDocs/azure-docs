@@ -194,7 +194,7 @@ This section shows how to write a .NET Core console application that receives me
 
 Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
 
-![New project](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
+![New project for receive](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
 
 ### Add the Event Hubs NuGet package
 
