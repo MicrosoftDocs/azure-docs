@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 08/22/2020
+ms.date: 08/24/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -983,22 +983,17 @@ This feature is charged per image, as shown on the pricing page. Enabling the Co
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32921.).
 
-**Guidance**: To protect your Azure Kubernetes Service (AKS) clusters, security updates are automatically applied to Linux nodes. These updates include OS security fixes or kernel updates. Some of these updates require a node reboot to complete the process. 
+**Guidance**: Security updates are automatically applied to Linux nodes to protect your Azure Kubernetes Service (AKS) clusters. These updates include OS security fixes or kernel updates. 
 
-Note that AKS doesn't automatically reboot these Linux nodes to complete the update process.
 The process to keep Windows Server nodes up to date differs from nodes running Linux. Windows Server nodes don't receive daily updates. Instead, you perform an AKS upgrade that deploys new nodes with the latest base Window Server image and patches. 
 
-Microsoft doesn't automatically reboot worker nodes to apply OS-level patches. Although OS patches are delivered to the worker nodes, the customer is responsible for rebooting the worker nodes to apply the changes. 
-
-Shared libraries, daemons such as solid-state hybrid drive (SSHD), and other components at the level of the system or OS are automatically patched.
-
-Customers are responsible for executing Kubernetes upgrades. They can execute upgrades through the Azure control panel or the Azure CLI. This applies for updates that contain security or functionality improvements to Kubernetes.
+Customers are responsible for executing Kubernetes upgrades and can execute upgrades through the Azure control panel or the Azure CLI. This includes updates that contain security or functionality improvements to Kubernetes.
 
 - [Understand how updates are applied to AKS cluster nodes running Linux](node-updates-kured.md)
 
-- [How to upgrade an AKS node pool for AKS clusters that use Windows Server nodes)](use-multiple-node-pools.md#upgrade-a-node-pool)
+- [How to upgrade an AKS node pool for AKS clusters that use Windows Server nodes](use-multiple-node-pools.md#upgrade-a-node-pool)
 
-- [Preview - Azure Kubernetes Service (AKS) node image upgrades](node-image-upgrade.md)
+- [Azure Kubernetes Service (AKS) node image upgrades](node-image-upgrade.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1468,33 +1463,13 @@ security-hardened-vm-host-image.md
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32944.).
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings for the Azure resources related to your Azure Kubernetes Service (AKS) deployments (such as virtual networks, subnets, Azure Firewalls, Azure Storage Accounts, etc.). 
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s) using built-in policy definitions as well as Azure Policy aliases in the "Microsoft.ContainerService" namespace. Create custom policies to alert, audit, and enforce system configurations. 
 
-You may use Azure Policy Aliases from the "Microsoft.ContainerService" namespace to create custom policies for your AKS deployments. You may also use built-in policies. 
-
-Examples of built-in policy definitions include:
-
-Enforce HTTPS ingress in Kubernetes cluster Authorized IP ranges should be defined on Kubernetes Services Based Access Control (RBAC) should be used on Kubernetes Services Ensure only allowed container images in Kubernetes cluster
-
-Use Azure policy to put restrictions on the type of resources that can be created in your subscription(s) using built-in policy definitions.
-
-Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. 
-
-The add-on enacts the following functions:
-
-•	Checks with Azure Policy service for policy assignments to the cluster.
-
-•	Deploys policy definitions into the cluster as constraint template and constraint custom resources.
-
-•	Reports auditing and compliance details back to Azure Policy service.
-
-- [Understand Azure Policy for Kubernetes clusters (preview)](../governance/policy/concepts/policy-for-kubernetes.md)
-
-- [Understand Azure Policy for Kubernetes clusters (preview)](../governance/policy/concepts/policy-for-kubernetes.md)
+Additionally, develop a process and pipeline for managing policy exceptions.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center monitoring**: Not applicable
 
