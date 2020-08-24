@@ -3,8 +3,8 @@ title: What is Azure Machine Learning studio?
 description: Azure Machine Learning studio is a web portal for Azure Machine Learning workspaces. The studio combines no-code and code-first experiences to create an inclusive data science platform.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: overview
-ms.topic: concept
+ms.subservice: core
+ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 08/24/2020
@@ -14,10 +14,11 @@ ms.date: 08/24/2020
 
 In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in Azure Machine Learning. The studio combines no-code and code-first experiences for an inclusive data science platform.
 
-Use the studio to do the following, directly in your browser:
+In this article you learn:
 >[!div class="checklist"]
-> - Author machine learning projects
-> - Manage assets and resources
+> - How to author machine learning projects in the studio
+> - How to manage assets and resources in the studio
+> - The differences between Azure Machine Learning studio and ML Studio (classic)
 
 
 

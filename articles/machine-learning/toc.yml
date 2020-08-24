@@ -8,7 +8,7 @@
       href: overview-what-is-azure-ml.md
     - name: What is Azure Machine Learning studio?
       displayName: AML, Studio, designer
-      href: what-is-ml-studio.md
+      href: overview-what-is-ml-studio.md
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md

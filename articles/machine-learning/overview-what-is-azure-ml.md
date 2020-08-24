@@ -64,7 +64,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 ## Build and manage ML experiments in the studio
 
-Use [Azure Machine Learning studio](https://www.ml.azure.com) for low-code and no-code options for model training, tracking, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience for code-first users. For more information, see [What is Azure Machine Learning studio](what-is-ml-studio.md).
+Use [Azure Machine Learning studio](https://www.ml.azure.com) for low-code and no-code options for model training, tracking, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience for code-first users. For more information, see [What is Azure Machine Learning studio](overview-what-is-ml-studio.md).
 
 + **Azure Machine Learning designer (preview)**
 
