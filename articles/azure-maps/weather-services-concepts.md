@@ -474,7 +474,7 @@ Detailed color palette for infrared satellite tiles is shown below.
 restrict returned results to specific index types or index
 groups.
 
-Below is the table of available index IDs, their names, and a link to their value ranges. Below this table is a table listing the various Index Groups.
+Below is a table of available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
 
   Index Name |  ID  | Value Range
   -------------------------- |---|-----
@@ -542,9 +542,9 @@ Below is the list of available Index Groups (indexGroupId):
   12       |Sporting
   13       |Home
 
-## Daily index categories and values
+## Daily index range sets
 
-[Get Daily Indices API](https://aka.ms/AzureMapsWeatherDailyIndices) returns the ranged value and its associated category name for each index ID. Category names and their value ranges are not the same for all indices. The tables below group all category names and value ranges with the indices that use them. To find which indexes usee which value range, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+[Get Daily Indices API](https://aka.ms/AzureMapsWeatherDailyIndices) returns the ranged value and its associated category name for each index ID. Range sets are not the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
 
 ### Poor-Excellent 1
 
