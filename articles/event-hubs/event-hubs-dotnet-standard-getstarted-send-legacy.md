@@ -9,7 +9,7 @@ ms.date: 06/23/2020
 This quickstart shows how to send events to and receive events from an event hub using the **Microsoft.Azure.EventHubs** .NET Core library.
 
 > [!WARNING]
-> This quickstart uses the old **Microsoft.Azure.EventHubs** package. For a quickstart that uses the latest  **Azure.Messaging.EventHubs** library, see [Send and receive events using Azure.Messaging.EventHubs library](get-started-dotnet-standard-send-v2.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+> This quickstart uses the old **Microsoft.Azure.EventHubs** package. For a quickstart that uses the latest  **Azure.Messaging.EventHubs** library, see [Send and receive events using Azure.Messaging.EventHubs library](event-hubs-dotnet-standard-getstarted-send.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
 ## Prerequisites
 If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 

@@ -15554,17 +15554,17 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/event-hubs/get-started-dotnet-standard-send-v2.md.md",
+      "source_path": "articles/event-hubs/get-started-dotnet-standard-send-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/event-hubs/get-started-java-send-v2.md.md",
+      "source_path": "articles/event-hubs/get-started-java-send-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/event-hubs/get-started-node-send-v2.md.md",
+      "source_path": "articles/event-hubs/get-started-node-send-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
       "redirect_document_id": false
     },                
@@ -15574,10 +15574,10 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/event-hubs/get-started-python-send-v2.md.md",
+      "source_path": "articles/event-hubs/get-started-python-send-v2.md",
       "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
       "redirect_document_id": false
-    },    
+    },   
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
