@@ -185,10 +185,6 @@ The language worker runtime to load in the function app.  This will correspond t
 |---|------------|
 |FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
-## FUNCTIONS\_WORKER\_RUNTIME\_VERSION
-
-
-
 ## PIP\_EXTRA\_INDEX\_URL
 
 The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.   
