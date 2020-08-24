@@ -28,9 +28,10 @@ All Azure Machine Learning features will be available in these regions within **
 
 ## Azure government	
 
-| Features                                                                   | Commercial Status | Region availability    | |
-|----------------------------------------------------------------------------|----------------------|--------------------|-------------|
-| <h4>Automated machine learning</h4>                                        |                      | <h4>US-Virginia</h4>        |<h4>US-Arizona</h4>|
+
+
+| Automated machine learning | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Create and run experiments in notebooks                                    | GA                   | YES                | YES         |
 | Create and run experiments in studio web experience                        | Public Preview       | YES                | YES         |
 | Industry-leading forecasting capabilities                                  | GA                   | YES                | YES         |
@@ -38,7 +39,9 @@ All Azure Machine Learning features will be available in these regions within **
 | Large data support (up to 100 GB)                                          | Public Preview       | YES                | YES         |
 | Azure Databricks Integration                                              | GA                   | NO                 | NO          |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA                   | YES                | YES         |
-| <h4>Machine Learning pipelines</h4>                                        |                      | <h4>US-Virginia </h4>        |<h4> US-Arizona</h4>|  
+
+| Machine Learning pipelines | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
@@ -46,18 +49,26 @@ All Azure Machine Learning features will be available in these regions within **
 | Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview       | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
 | Create pipeline endpoints in Azure ML designer                             | Public Preview       | YES                | YES         |
-| <h4>Integrated notebooks </h4>                                             |                      | <h4>US-Virginia </h4>        |<h4>US-Arizona</h4>|
+
+| Integrated notebooks | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
 | Virtual Network support                                                    | Public Preview       | NO                 | NO          |
-| <h4>Compute instance </h4>                                                 |                      | <h4>US-Virginia  </h4>       |<h4>US-Arizona</h4>|
+
+| Compute instance | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
-| <h4>SDK support    </h4>                                                   |                      | <h4>US-Virginia  </h4>       |<h4>US-Arizona</h4>|
+
+| SDK support | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | R SDK support                                                              | Public Preview       | YES                | YES         |
 | Python SDK support                                                         | GA                   | YES                | YES         |
-| <h4>Security   </h4>                                                       |                      | <h4>US-Virginia</h4>         |<h4>US-Arizona </h4>|
+
+| Security | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
@@ -65,40 +76,56 @@ All Azure Machine Learning features will be available in these regions within **
 | ACI behind Vnet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind Vnet                                                            | Public Preview       | NO                 | NO          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
-| <h4>Compute </h4>                                                          |                      | <h4>US-Virginia </h4>       | <h4>US-Arizona </h4> |
+
+| Compute | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | quota management across workspaces                                         | GA                   | YES                | YES         |
-|<h4> Data for machine learning</h4>                                         |                      | <h4>US-Virginia</h4>        | <h4>US-Arizona </h4> |
+
+| Data for machine learning | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Create, view, or edit datasets and datastores from the SDK                  | GA                   | YES                | YES         |
 | Create, view, or edit datasets and datastores from the UI                   | GA                   | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview       | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
-| <h4>Machine learning lifecycle  </h4>                                                    |                      | <h4>US-Virginia</h4>        | <h4>US-Arizona </h4> |
+
+| Machine learning lifecycle | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Model profiling                                                            | GA                   | YES                | PARTIAL     |
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA                   | YES                | YES         |
 | FPGA-based Hardware Accelerated Models                                     | GA                   | NO                 | NO          |
 | Visual Studio Code integration                                             | Public Preview       | NO                 | NO          |
 | Event Grid integration                                                     | Public Preview       | NO                 | NO          |
 | Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview       | NO                 | NO          |
-| <h4>Labeling </h4>                                                        |                      | <h4>US-Virginia</h4>        | <h4>US-Arizona</h4>  |
+
+| Labeling | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Labeling Project Management Portal                                        | GA                   | YES                | YES         |
 | Labeler Portal                                                            | GA                   | YES                | YES         |
 | Labeling using private workforce                                          | GA                   | YES                | YES         |
 | ML assisted labeling (Image classification and object detection)           | Public Preview       | YES                | YES         |
-| <h4>Responsible ML   </h4>                                                 |                      | <h4>US-Virginia  </h4>      | <h4>US-Arizona</h4>  |
+
+| Responsible ML | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
 | Differential privacy WhiteNoise toolkit                                    | OSS                  | NO                 | NO          |
 | custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
 | Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
-| <h4>Training  </h4>                                                        |                      | <h4>US-Virginia  </h4>      | <h4>US-Arizona </h4> |
+
+| Training | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Experimentation log streaming                                              | GA                   | YES                | YES         |
 | Reinforcement Learning                                                     | Public Preview       | NO                 | NO          |
 | Experimentation UI                                                         | GA                   | YES                | YES         |
 | .NET integration ML.NET 1.0                                                | GA                   | YES                | YES         |
-| <h4>Inference </h4>                                                        |                      | <h4>US-Virginia </h4>       | <h4>US-Arizona </h4> |
+
+| Inference | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Batch inferencing                                                          | GA                   | YES                | YES         |
 | Data Box Edge with FPGA                                                    | Public Preview       | NO                 | NO          |
-| <h4>Other </h4>                                                            |                      |<h4> US-Virginia</h4>        | <h4>US-Arizona</h4>  |
+
+| Misc. | Commercial status  | US-Virginia | US-Arizona| 
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Open Datasets                                                              | Public Preview       | YES                | YES         |
 | Custom Cognitive Search                                                    | Public Preview       | YES                | YES         |
 | Many Models                                                                | Public Preview       | NO                 | NO          |
@@ -106,19 +133,21 @@ All Azure Machine Learning features will be available in these regions within **
 
 ### Azure Government scenarios
 
-|<h4>General security setup</h4>                                                     | <h4>US-Virginia</h4> | <h4>US-Arizona</h4>| <h4>Limitations </h4> |
-|----------------------------------------------------------------------------|----------------------|--------------------|-------------|
-| Private network communication between services                                     | NO | NO | No Private Link right now for USGOV | 
-| "Disable/control internet access (inbound and outbound) and specific VNet          | PARTIAL| PARTIAL	| ACR behind VNet is not available in Azure government - double checking on ACI | 
-| placement for all associated resources/services"                                   | YES | YES |  |
+|General security setup                                                     | US-Virginia | US-Arizona| Limitations  |
+|----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
+| Private network communication between services                                     | NO | NO | No Private Link currently | 
+| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	| ACR behind VNet is not available in Azure government - double checking on ACI | 
+| Placement for all associated resources/services  | YES | YES |  |
 | Encryption at-rest and in-transit.                                                 | YES | YES |  |
 | Root and SSH access to compute resources.                                          | YES | YES |  |
-| "Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging." |  PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available |                                  
+| Maintain the security of deployed systems (instances, endpoints, etc.), including endpoint protection, patching, and logging |  PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available |                                  
 | Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available|
 | Role-Based Access Control (RBAC) - Custom Role Creations                           | YES | YES |  |
-| "Control access to ACR images used by ML Service (Azure provided/maintained versus custom)."  |PARTIAL|	PARTIAL	| ACR behind private endpoint and VNet not supported in Azure Government |
-| <h4>General Machine Learning Service Usage </h4>                                   | <h4>US-Virginia</h4> | <h4>US-Arizona</h4>| <h4>Limitations </h4> |
-| "Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp. "     | YES | YES |  |
+| Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	| ACR behind private endpoint and VNet not supported in Azure Government |
+
+| General Machine Learning Service Usage                                    | US-Virginia | US-Arizona | Limitations  |
+| ----- |:-----:|:-----:| ------ |
+| Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp     | YES | YES |  |
 | Ability to pull data from ADLS (Data Lake Storage)                                 |YES | YES |  |
 | Ability to pull data from Azure Blob Storage                                       |YES | YES |  |
 
@@ -141,8 +170,8 @@ All Azure Machine Learning features will be available in these regions within **
 <h2>Azure China 21Vianet</h2>	
 
 | Features                                                                   | Commercial Status | China region| |
-|----------------------------------------------------------------------------|------------------|--------------------|-------------|
-| <h4>Automated machine learning</h4>                                        |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| Automated machine learning                                        |                  | CH-East 2 | CH-North 3 |
 | Create and run experiments in notebooks                                    | GA               | YES       | N/A        |
 | Create and run experiments in studio web experience                        | Public Preview   | YES       | N/A        |
 | Industry-leading forecasting capabilities                                  | GA               | YES       | N/A        |
@@ -150,7 +179,7 @@ All Azure Machine Learning features will be available in these regions within **
 | Large data support (up to 100 GB)                                          | Public Preview   | YES       | N/A        |
 | Azure Databricks Integration                                              | GA               | NO        | N/A        |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA               | YES       | N/A        |
-| <h4>Machine Learning pipelines</h4>                                        |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Machine Learning pipelines                                        |                  | CH-East 2 | CH-North 3 |
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
@@ -158,18 +187,18 @@ All Azure Machine Learning features will be available in these regions within **
 | Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview   | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | NO        | N/A        |
 | Create pipeline endpoints in Azure ML designer                             | Public Preview   | YES       | N/A        |
-| <h4>Integrated notebooks</h4>                                              |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Integrated notebooks                                              |                  | CH-East 2 | CH-North 3 |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
 | Virtual Network support                                                    | Public Preview   | NO        | N/A        |
-| <h4>Compute instance</h4>                                                  |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Compute instance                                                  |                  | CH-East 2 | CH-North 3 |
 | Managed compute Instances for integrated Notebooks                         | GA               | NO        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
 | Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
-| <h4>SDK support</h4>                                                       |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| SDK support                                                       |                  | CH-East 2 | CH-North 3 |
 | R SDK support                                                              | Public Preview   | YES       | N/A        |
 | Python SDK support                                                         | GA               | YES       | N/A        |
-| <h4>Security</h4>                                                          |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Security                                                          |                  | CH-East 2 | CH-North 3 |
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
 | Virtual Network (VNet) support for inference                               | GA               | YES       | N/A        |
 | Scoring endpoint authentication                                            | Public Preview   | YES       | N/A        |
@@ -177,40 +206,40 @@ All Azure Machine Learning features will be available in these regions within **
 | ACI behind Vnet                                                            | Public Preview   | NO        | N/A        |
 | ACR behind Vnet                                                            | Public Preview   | NO        | N/A        |
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
-| <h4>Compute</h4>                                                           |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Compute                                                           |                  | CH-East 2 | CH-North 3 |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
-| <h4>Data for machine learning</h4>                                         |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Data for machine learning                                         |                  | CH-East 2 | CH-North 3 |
 | Create, view, or edit datasets and datastores from the SDK                  | GA               | YES       | N/A        |
 | Create, view, or edit datasets and datastores from the UI                   | GA               | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview   | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview   | YES       | N/A        |
-| <h4>Machine learning lifecycle</h4>                                                      |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Machine learning lifecycle                                                      |                  | CH-East 2 | CH-North 3 |
 | Model profiling                                                            | GA               | PARTIAL   | N/A        |
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA               | YES       | N/A        |
 | FPGA-based Hardware Accelerated Models                                     | GA               | NO        | N/A        |
 | Visual Studio Code integration                                             | Public Preview   | NO        | N/A        |
 | Event Grid integration                                                     | Public Preview   | YES       | N/A        |
 | Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview   | NO        | N/A        |
-| <h4>Labeling</h4>                                                         |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Labeling                                                         |                  | CH-East 2 | CH-North 3 |
 | Labeling Project Management Portal                                        | GA               | YES       | N/A        |
 | Labeler Portal                                                            | GA               | YES       | N/A        |
 | Labeling using private workforce                                          | GA               | YES       | N/A        |
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
-| <h4>Responsible ML</h4>                                                    |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Responsible ML                                                    |                  | CH-East 2 | CH-North 3 |
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
 | Differential privacy WhiteNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |
 | Fairness AzureML Integration                                               | Public Preview   | NO        | N/A        |
 | Interpretability  SDK                                                      | GA               | YES       | N/A        |
-| <h4>Training</h4>                                                          |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Training                                                          |                  | CH-East 2 | CH-North 3 |
 | Experimentation log streaming                                              | GA               | YES       | N/A        |
 | Reinforcement Learning                                                     | Public Preview   | NO        | N/A        |
 | Experimentation UI                                                         | GA               | YES       | N/A        |
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
-| <h4>Inference</h4>                                                         |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Inference                                                         |                  | CH-East 2 | CH-North 3 |
 | Batch inferencing                                                          | GA               | YES       | N/A        |
 | Data Box Edge with FPGA                                                    | Public Preview   | NO        | N/A        |
-| <h4>Other</h4>                                                             |                  | <h4>CH-East 2</h4> | <h4>CH-North 3</h4> |
+| Other                                                             |                  | CH-East 2 | CH-North 3 |
 | Open Datasets                                                              | Public Preview   | YES       | N/A        |
 | Custom Cognitive Search                                                    | Public Preview   | YES       | N/A        |
 | Many Models                                                                | Public Preview   | NO        | N/A        |
