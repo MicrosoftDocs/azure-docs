@@ -19,9 +19,6 @@ ms.date: 07/10/2020
 
 In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time-series forecasting model to predict rental demand for a bike sharing service.
 
->[!IMPORTANT]
-> The automated ML experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
-
 For a classification model example, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 In this tutorial, you learn how to do the following tasks:
@@ -35,8 +32,8 @@ In this tutorial, you learn how to do the following tasks:
 
 ## Prerequisites
 
-* An Enterprise edition Azure Machine Learning workspace. If you don't have a workspace, [create an Enterprise edition workspace](how-to-manage-workspace.md). 
-    * Automated machine learning in the Azure Machine Learning studio is only available for Enterprise edition workspaces. 
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+
 * Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
 
 ## Get started in Azure Machine Learning studio
