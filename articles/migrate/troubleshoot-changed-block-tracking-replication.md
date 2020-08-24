@@ -241,7 +241,7 @@ If you have a virtual machine with multiple disks, you may encounter this error 
 
 ### Error Message: An internal error occurred. [Generate Snapshot Hung]
 
-This issue occurs when snapshot generation is hung. When this issue occurs, you can see create snapshot task stops at 95% or 99%. Refer to this [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) to overcome this issue.
+This issue occurs when snapshot generation stops responding. When this issue occurs, you can see create snapshot task stops at 95% or 99%. Refer to this [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) to overcome this issue.
 
 ### Error Message: An internal error occurred. [Failed to consolidate the disks on VM _[Reasons]_]
 
