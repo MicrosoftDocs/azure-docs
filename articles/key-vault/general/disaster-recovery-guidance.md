@@ -8,7 +8,7 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 08/24/2020
 ms.author: sudbalas
 
 ---
@@ -26,11 +26,11 @@ Through this high availability design, Azure Key Vault requires no downtime for 
 
 There are a few caveats to be aware of:
 
-* In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time may fail until the failover completes.
-* After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are:
+* In the event of a region failover, it may take a few minutes for the service to fail over. Requests that are made during this time prior to failover may fail.
+* During failover, your key vault is in read-only mode. Requests that are supported in this mode are:
   * List key vaults
   * Get properties of key vaults
-   * List certificates
+  * List certificates
   * Get certificates
   * List secrets
   * Get secrets
@@ -43,5 +43,6 @@ There are a few caveats to be aware of:
   * Verify
   * Sign
   * Backup
+* During failover, you will not be able to make changes to key vault properties. You will not be able to change access policy or firewall configurations and settings.
 * After a failover is failed back, all request types (including read *and* write requests) are available.
 
