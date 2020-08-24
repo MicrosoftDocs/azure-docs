@@ -15,7 +15,7 @@ ms.custom: references_regions
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
+> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery Services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
 >
 >- If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
 >- If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
