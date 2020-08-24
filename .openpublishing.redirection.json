@@ -907,7 +907,7 @@
     },
     {
       "source_path": "articles/machine-learning/tutorial-resource-manager-workspace.md",
-      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template.md?tabs=azcli",
+      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template",
       "redirect_document_id": false
     },
     {
@@ -39829,6 +39829,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/get-started.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
       "redirect_document_id": false
@@ -55581,11 +55586,6 @@
     {
       "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
       "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-arc/kubernetes/index.yml",
-      "redirect_url": "/azure/azure-arc/kubernetes/overview",
       "redirect_document_id": false
     },
     {

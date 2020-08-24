@@ -52,9 +52,9 @@ Ensure the following:
 
 - A valid Azure subscription.
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
-- The Data Box job and the Recovery Services Vault to which the data needs to be seeded must be available in the same subscriptions.
+- The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
     > [!NOTE]
-    > We recommend that the target storage account and the Recovery Services Vault be in the same region. However, this is not mandatory.
+    > We recommend that the target storage account and the Recovery Services vault be in the same region. However, this is not mandatory.
 
 ### Order and receive the Data Box device
 
@@ -125,7 +125,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
     ![Choose initial online replication](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
     >[!NOTE]
-    > The option to select **Transfer using Microsoft Owned disks** is not available for MABS v3 since the feature is in preview. Please reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) if you want to use this feature for MABS v3.
+    > The option to select **Transfer using Microsoft Owned disks** is not available for MABS v3 since the feature is in preview. Reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) if you want to use this feature for MABS v3.
 
 12. Sign into Azure when prompted, using the user credentials that have owner access on the Azure Subscription. After a successful sign-in, the following screen is displayed:
 
@@ -188,7 +188,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 Follow these steps once the data backup to the Azure Data Box Disk is successful.
 
 - Follow the steps in [this article](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) to ship the Azure Data Box disk to Azure. If you used an Azure Data Box 100-TB device, follow [these steps](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) to ship the Azure Data Box to Azure.
-- [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. Once the Azure Data Box job is *Complete*, the DPM/MABS server automatically moves the data from the Storage Account to the Recovery Services Vault at the time of the next scheduled backup. It will then mark the backup job as *Job Completed* if a recovery point is successfully created.
+- [Monitor the Data Box job](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) in the Azure portal. Once the Azure Data Box job is *Complete*, the DPM/MABS server automatically moves the data from the Storage Account to the Recovery Services vault at the time of the next scheduled backup. It will then mark the backup job as *Job Completed* if a recovery point is successfully created.
 
   > [!NOTE]
   > The DPM/MABS server triggers the backups at the times scheduled during protection group creation. However, these jobs will flag *Waiting for Azure Data Box job to be completed* until the time the job is complete.
@@ -237,7 +237,7 @@ To resolve this issue, do the following steps and retry the policy configuration
 From the DPM/MABS server you're trying to configure offline backup, do the following actions:
 
 1. Open the **Manage computer certificate application** > **Personal** tab and look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
-2. Select the above certificate, right-click **All Tasks** and **Export** without private key, in the .cer format.
+2. Select the certificate above, right-click **All Tasks** and **Export** without private key, in the .cer format.
 3. Go to the Azure Offline Backup application mentioned in **point 2**. In the **Settings** > **Keys** > **Upload Public Key,** upload the certificate exported in the step above.
 
    ![Upload public keys](./media/offline-backup-azure-data-box-dpm-mabs/upload-public-keys.png)
@@ -254,7 +254,7 @@ From the DPM/MABS server you're trying to configure offline backup, do the follo
 6. Right-click the string added in the step above and select **Modify**. In the value, provide the thumbprint of the certificate you exported in **point 2** and select **OK**.
 7. To get the value of thumbprint, double-click on the certificate, then select **Details**  and scroll-down until you see the thumbprint field. Select **Thumbprint** and copy the value.
 
-   ![Certificate](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Thumbprint value](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## Next steps
 
