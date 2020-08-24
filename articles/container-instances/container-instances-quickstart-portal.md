@@ -12,7 +12,7 @@ Use Azure Container Instances to run serverless Docker containers in Azure with 
 
 In this quickstart, you use the Azure portal to deploy an isolated Docker container and make its application available with a fully qualified domain name (FQDN). After configuring a few settings and deploying the container, you can browse to the running application:
 
-![App deployed to Azure Container Instances viewed in browser][aci-portal-07]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-07.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
 ## Sign in to Azure
 
@@ -32,8 +32,6 @@ On the **Basics** page, enter the following values in the **Resource group**, **
 * Container name: `mycontainer`
 * Image source: **Quickstart images**
 * Container image: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
-
-![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
 :::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Configuring basic settings for a new container instance in the Azure portal":::
 
