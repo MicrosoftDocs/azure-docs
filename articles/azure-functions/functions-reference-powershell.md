@@ -412,7 +412,7 @@ When running locally the Azure Functions runtime defaults to using PowerShell Co
 
 Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-The Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
+Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
 # [Portal](#tab/portal)
 
@@ -436,6 +436,8 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/$Res
 Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with either `~6` or `~7`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
 
 ---
+
+The function app restarts after the change is made to the configuration.
 
 ## Dependency management
 

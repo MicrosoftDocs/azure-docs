@@ -115,7 +115,7 @@ As before, replace `<FUNCTION_APP>` with the name of your function app and `<RES
 
 ---
 
-Because of the application setting change, the function app restarts after the script completes.
+The function app restarts after the change is made to the application setting.
 
 ## Next steps
 
