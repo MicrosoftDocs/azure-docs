@@ -112,9 +112,9 @@ The following section helps you identify all the stakeholders that are involved 
 | Name and email | **IT support manager / Helpdesk**<br/>A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. | R/I |
 | Name and email for pilot users | **Azure role users**<br/>The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once Privileged Identity Management is implemented. | I |
 
-### Enable Privileged Identity Management
+### Start using Privileged Identity Management
 
-As part of the planning process, you should prepare Privileged Identity Management by following our [start using Privileged Identity Management](pim-getting-started.md) article. Enabling Privileged Identity Management gives you access to some features that are specifically designed to help with your deployment.
+As part of the planning process, you should prepare Privileged Identity Management by following our [start using Privileged Identity Management](pim-getting-started.md) article. Privileged Identity Management gives you access to some features that are specifically designed to help with your deployment.
 
 If your objective is to deploy Privileged Identity Management for Azure resources, you should follow our [discover Azure resources to manage in Privileged Identity Management](pim-resource-roles-discover-resources.md) article. Only owners of subscriptions and management groups can discover and onboard these resources onto Privileged Identity Management. After it is onboarded, the PIM functionality is available for owners at all levels including management group, subscription, resource group, and resource. If you are a Global Administrator trying to deploy Privileged Identity Management for your Azure resources, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with Privileged Identity Management.
 
