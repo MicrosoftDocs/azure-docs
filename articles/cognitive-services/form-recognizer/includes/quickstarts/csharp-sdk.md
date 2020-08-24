@@ -119,8 +119,8 @@ Below `Main`, create a new method named `AuthenticateClient`. You'll use this in
 
 ```csharp
 static FormRecognizerClient AuthenticateClient(){
-    string endpoint = "https://formre-ga-sdk-testing.cognitiveservices.azure.com/";
-    string apiKey = "5435bb37ae7b415abf6112fcd5f4899e";
+    string endpoint = "<replace-with-your-form-recognizer-endpoint-here>";
+    string apiKey = "<replace-with-your-form-recognizer-key-here>";
     var credential = new AzureKeyCredential(apiKey);
     var client = new FormRecognizerClient(new Uri(endpoint), credential);
     return client;
