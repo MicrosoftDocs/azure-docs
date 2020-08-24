@@ -4,6 +4,7 @@ description: Add feature flags to ASP.NET Core apps and manage them using Azure 
 author: lisaguthrie
 
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
@@ -112,7 +113,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a secret named **ConnectionStrings:AppConfig** to Secret Manager.
 
-    This secret contains the connection string to access your App Configuration store. Replace the `<your_connection_string>` value in the following command with the connection string for your App Configuration store. You can find the connection string under **Access Keys** in the Azure portal.
+    This secret contains the connection string to access your App Configuration store. Replace the `<your_connection_string>` value in the following command with the connection string for your App Configuration store. You can find the primary read-only key  connection string under **Access Keys** in the Azure portal.
 
     This command must be executed in the same directory as the *.csproj* file.
 

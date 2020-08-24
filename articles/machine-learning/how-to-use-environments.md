@@ -60,11 +60,6 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
-To modify a curated environment, it must be copied:
-
-```python
-env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
-```
 You can list the curated environments and their packages by using the following code:
 
 ```python
@@ -247,6 +242,9 @@ build.wait_for_completion(show_output=True)
 
 It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. And setting the optional parameter `pushImageToWorkspaceAcr = True` will push the resulting image into the Azure ML workspace container registry. 
 
+> [!WARNING]
+>  Changing the order of dependencies or channels in an environment will result in a new environment and will require a new image build.
+
 ## Enable Docker
 
 Docker container provides an efficient way to encapsulate the dependencies. When you enable Docker, Azure ML builds a Docker image and creates a Python environment within that container, given your specifications. The Docker images are cached and reused: the first run in a new environment typically takes longer as the image is build.
@@ -417,10 +415,6 @@ service = Model.deploy(
 ## Notebooks
 
 This [article](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
-
-This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
-
-This [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) demonstrates how to train a model locally with different types of environments.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

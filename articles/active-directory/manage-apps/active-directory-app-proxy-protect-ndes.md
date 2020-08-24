@@ -84,10 +84,10 @@ Azure AD Application Proxy is built on Azure. It gives you a massive amount of n
 
 1. You should see an **HTTP Error 403 – Forbidden** response.
 
-1. Change the NDES URL provided (via Microsoft Intune) to devices, this change could either be in Microsoft Endpoint Configuration Center or in Intune Cloud.
+1. Change the NDES URL provided (via Microsoft Intune) to devices. This change could either be in Microsoft Endpoint Configuration Manager or the Microsoft Endpoint Manager admin center.
 
-   * For Configuration Center, go to the Certificate Registration Point (CRP) and adjust the URL. This URL is what devices call out to and present their challenge.
-   * For Intune Cloud Only, also known as Intune Standalone, either edit or create a new SCEP policy and add the new URL.
+   * For Configuration Manager, go to the certificate registration point and adjust the URL. This URL is what devices call out to and present their challenge.
+   * For Intune standalone, either edit or create a new SCEP policy and add the new URL.
 
 ## Next steps
 

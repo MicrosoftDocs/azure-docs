@@ -10,9 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/19/2019
-
-#Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
+ms.date: 08/20/2020
 ---
 
 # Compare Azure Government and global Azure
@@ -54,7 +52,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|*.servicebus.windows.net| *.servicebus.usgovcloudapi.net||
 |**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api)|
+|||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](https://docs.microsoft.com/azure/azure-monitor/platform/data-collector-api)|
 |||*.ods.opinsights.azure.com| *.ods.opinsights.azure.us|Agent comms - [configuring firewall settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)|
 |||*.oms.opinsights.azure.com| *.oms.opinsights.azure.us|Agent comms - [configuring firewall settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)|
 |||*.blob.core.windows.net| *.blob.core.usgovcloudapi.net| Agent comms - [configuring firewall settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)|
@@ -63,7 +61,7 @@ Azure Government services operate the same way as the corresponding services in 
 |||docs.loganalytics.io|docs.loganalytics.us| Advanced Analytics Portal - [configuring firewall settings](https://docs.microsoft.com/azure/azure-monitor/log-query/portals)|
 |||*.azure-automation.net| *.azure-automation.us| Azure Automation - [configuring firewall settings](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements)|
 |||N/A| *.usgovtrafficmanager.net| Azure Traffic Manager - [configuring firewall settings](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements)|
-| **Migration**|Azure Site Recovery |*.hypervrecoverymanager.windowsazure.com| *.hypervrecoverymanager.windowsazure.com| Site Recovery service|
+| **Migration**|Azure Site Recovery |*.hypervrecoverymanager.windowsazure.com| *.hypervrecoverymanager.windowsazure.us| Site Recovery service|
 |||*.backup.windowsazure.com/|*.backup.windowsazure.us/|Protection service|
 |||*.blob.core.windows.net/|*.blob.core.usgovcloudapi.net/|Storing VM snapshots|
 |||[Public download MySQL](https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)|[Gov download MySQL](https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi)|Download MySQL|
@@ -112,7 +110,7 @@ Commonly used services in bot applications that are not currently available in A
 - Application Insights
 - Speech Service
 
-For more information, see [How do I create a bot that uses US Government data center](https://docs.microsoft.com/azure/bot-service/bot-service-resources-bot-framework-faq?view=azure-bot-service-4.0#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
+For more information, see [How do I create a bot that uses US Government data center](https://docs.microsoft.com/azure/bot-service/bot-service-resources-faq-ecosystem?view=azure-bot-service-4.0#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
 ### [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview)
 The following Content Moderator **features are not currently available** in Azure Government:
@@ -137,6 +135,10 @@ The following Translator Text **features are not currently available** in Azure 
 
 ## Analytics
 This section outlines variations and considerations when using Analytics services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
+
+
+### [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks)
+For access to Azure Databricks in an Azure Government environment, contact your Microsoft or Databricks account representative.
 
 ### [HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)
 The following HDInsight **features are not currently available** in Azure Government:
@@ -174,7 +176,7 @@ The following Power BI Embedded **features are not yet available** in Azure Gove
 ## Compute
 This section outlines variations and considerations when using Compute services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware-cloudsimple,cloud-services,batch,container-instances,app-service,service-fabric,functions,kubernetes-service,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
 
-### [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=/azure/virtual-machines/windows/toc.json)
+### [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/sizes)
 The following Virtual Machines **features are not currently available** in Azure Government:
 - Settings
     - Continuous delivery
@@ -302,7 +304,7 @@ The following Azure Advisor recommendation **features are not currently availabl
 - Performance
     - Improve App Service performance and reliability
     - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve SQL Data Warehouse performance
+    - Improve Azure Synapse Analytics (formerly SQL Data Warehouse) performance
     - Use Premium Storage
     - Migrate your Storage Account to Azure Resource Manager
 - Cost
@@ -332,13 +334,9 @@ The following Azure Migrate **features are not currently available** in Azure Go
 - Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization which is currently unavailable in Azure Government.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-### [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)
-The following Azure Site Recovery **features are not currently available** in Azure Government:
-- Email notification
-
 
 ## Networking
-This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the products available by region dashboard.
+This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
 
 ### [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/)
 Azure ExpressRoute is used to create private connections between Azure Government datacenters and customer's on-premises infrastructure or a colocation facility.  ExpressRoute connections do not go over the public Internet—they offer optimized pathways (shortest hops, lowest latency, highest performance, etc.) for customers and Azure Government geo-redundant regions.
@@ -435,8 +433,6 @@ The following Azure Security Center **features are not currently available** in 
     - *UEBA for Azure resources*: Integration with Microsoft Cloud App Security for user and entity behavior analytics on Azure resources.
     - *Advanced threat detection*: Azure Security Center standard tier in Azure Government does not support threat detection for App Service.
 
-    Threat detection for storage accounts is available in US government clouds, but no other sovereign or Azure government cloud regions.
-
 - **Server protection**
     - *OS Security Configuration*: Vulnerability specific metadata, such as the potential impact and countermeasures for OS security configuration vulnerabilities.
 
@@ -447,12 +443,6 @@ Additional FAQ for Azure Security Center in Azure Government are listed below.
 
 **What will customers be charged for Azure Security Center in Azure Government?**
 The standard tier of Azure Security Center is free for the first 30 days. Should you choose to continue to use public preview or generally available standard features beyond 30 days, we automatically start to charge for the service.
-
-**What features are available for Azure Security Center government customers?**
-A detailed list of feature variations in the Azure Security Center government offering can found in the variations section of this article. All other Azure Security Center capabilities can be referenced in the Azure Security Center public documentation.
-
-**What is the compliance commitment for Azure Security Center in Azure Government?**
-Azure Security Center in Azure Government has achieved FedRAMP High authorization.
 
 **Is Azure Security Center available for DoD customers?**
 Azure Security Center is deployed on Azure Government regions but not DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features which collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. Customers who want to enable Azure Security Center features for DoD resources are recommended to consider data residency before doing so.
@@ -500,7 +490,7 @@ When you're deploying the StorSimple Manager service, use the [https://portal.az
 ### [Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region.
 
-For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.
+For DoD L5 data, use a DoD region storage account to ensure that data is loaded directly into the DoD regions.  For more information, see [Azure Import/Export IL5 isolation guidance](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5#azure-importexport).
 
 For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage).
 
@@ -514,6 +504,8 @@ The following API Management **features are not currently available** in Azure G
 
 ### [App Service](https://docs.microsoft.com/azure/app-service/overview)
 The following App Service **features are not currently available** in Azure Government:
+- Resource
+    - App Service Certificate
 - Deployment
     - Deployment Options: only Local Git Repository and External Repository are available
 - Development Tools

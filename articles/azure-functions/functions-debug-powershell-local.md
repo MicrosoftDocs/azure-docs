@@ -239,6 +239,16 @@ The Azure Functions runtime runs a few commands before actually invoking your `r
 
 Should this break happen,  run the `continue` or `c` command to skip over this breakpoint. You then stop at the expected breakpoint.
 
+## Troubleshooting
+
+If you have difficulties during debugging, you should check for the following:
+
+| Check | Action |
+|------|------|
+| Run `func --version` from the terminal. If you get an error that `func` can't be found, Core Tools (func.exe) may be missing from the local `path` variable.| [Reinstall Core Tools](functions-run-local.md#v2).|  
+| In Visual Studio Code, the default terminal needs to have access to func.exe. Make sure you aren't using a default terminal that doesn't have Core Tools installed, such as Windows Subsystem for Linux (WSL).  | Set the default shell in Visual Studio Code to either PowerShell 7 (recommended) or Windows PowerShell 5.1.|
+  
+
 ## Next steps
 
 To learn more about developing Functions using PowerShell, see [Azure Functions PowerShell developer guide](functions-reference-powershell.md).

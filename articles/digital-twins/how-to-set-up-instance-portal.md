@@ -128,6 +128,9 @@ In the *Request API permissions* page that follows, switch to the *APIs my organ
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins":::
 
+>[!NOTE]
+> If you have an existing Azure Digital Twins instance from the previous public preview of the service (prior to July 2020) still in your subscription, you'll need to look for *Azure Smart Spaces Service* instead. This is an older name for the same set of APIs, and will not change your experience beyond this step.
+
 Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs":::
