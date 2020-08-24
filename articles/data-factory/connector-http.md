@@ -270,6 +270,8 @@ The following properties are supported for HTTP under `storeSettings` settings i
 ]
 ```
 
+When using the HTTP Connector with basic authentication as a source in a copy activity, Azure Data Factory expects that the source will respond to the initial HTTP GET request with a "401 Unauthorized" reponse. If this doesn't occur, the specified username and password from the HTTP linked service will not be used. To get the correct source data, the **additionalHeaders** property of the copy activity source should be updated with "Authorization: Basic " followed by the Base64-encoded value for &lt;user name&gt;:&lt;password&gt;. You can [use an Azure Key Vault secret in the pipeline](how-to-use-azure-key-vault-secrets-pipeline-activities.md) to supply the credentials to the copy activity.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
