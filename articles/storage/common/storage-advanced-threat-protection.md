@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ---
@@ -28,6 +28,17 @@ Advanced threat protection for Azure Storage is currently available for Blob sto
 Accounts with hierarchical namespaces enabled for Data Lake Storage support transactions using both the Azure Blob storage APIs and the Data Lake Storage APIs. Azure file shares support transactions over SMB.
 
 For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+
+The following list summarizes the availability of advanced threat protection for Azure Storage:
+
+- Release state:
+  - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview supports SMB and REST transactions)
+  - Azure Data Lake Storage Gen2 (preview)
+- Clouds:<br>
+    ✔ Commercial clouds<br>
+    ✔ US Gov<br>
+    ✘ China Gov, Other Gov
 
 ## Set up advanced threat protection
 
