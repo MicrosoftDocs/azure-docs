@@ -83,7 +83,7 @@ Use this tab to view key billing parameters for your backups. The information sh
    ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown in the Recovery services vault overview tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource which is not surfaced as an artifact for reporting.
+> For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown in the Recovery Services vault **Overview** tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource which is not surfaced as an artifact for reporting.
 
 ##### Jobs
 
