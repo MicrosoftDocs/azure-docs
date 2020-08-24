@@ -58,6 +58,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 
 1. Fill out the form for your compute type:
+
   * [Compute instance](#compute-instance)
   * [Compute clusters](#compute-clusters)
   * [Inference clusters](#inference-clusters)
@@ -83,7 +84,7 @@ Use the [steps above](#portal-create) to create the compute instance.  Then fill
 |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet .        |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
 ### Compute clusters
 
@@ -99,7 +100,17 @@ Create a single or multi node compute cluster for your training, batch inferenci
 |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
 
-### Inference clusters 
+#### <a id="managed-identity"></a> Set up managed identity
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
+
+During cluster creation or when editing compute cluster details, in the **Advanced settings**, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
+
+#### Managed identity usage
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+### Inference clusters
 
 Create or attach an Azure Kubernetes Service (AKS) cluster for large scale inferencing. Use the [steps above](#portal-create) to create the AKS cluster.  Then fill out the form as follows:
 
@@ -152,7 +163,7 @@ To see all compute targets for your workspace, use the following steps:
 
 ## Next steps
 
-After a target is created and attached to your workspace, you use it in your [run configuration](how-to-submit-training.md) with a `ComputeTarget` object: 
+After a target is created and attached to your workspace, you use it in your [run configuration](how-to-submit-training.md) with a `ComputeTarget` object:
 
 ```python
 from azureml.core.compute import ComputeTarget
