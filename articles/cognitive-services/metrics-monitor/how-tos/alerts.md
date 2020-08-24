@@ -1,7 +1,7 @@
 ---
-title: Metrics Monitor alerts
+title: Metrics Advisor alerts
 titleSuffix: Azure Cognitive Services
-description: How to configure your Metrics Monitor alerts
+description: How to configure your Metrics Advisor alerts
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # How-to: Configure alerts
 
-After an anomaly is detected by your Metrics Monitor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
+After an anomaly is detected by your Metrics Advisor instance, an alert notification can be sent out based on your alert settings, using a web hook. An alert settings can correspond to multiple detection configurations, and you can set specific alert conditions.
 
 You can find the **Alert settings** options at the downward left corner of metrics detail page. It lists alert settings that are related to the selected detection configuration. When a detection configuration is first created, the alert setting list will be empty, and no alerts will be sent.  
 You can use the **add**, **edit** and **delete** icons to modify alerts.
@@ -79,7 +79,7 @@ The **Operator** selector is the logical relationship of each section, to determ
     `{"timestamp":"2019-09-11T00:00:00Z","alertSettingGuid":"49635104-1234-4c1c-b94a-744fc920a9eb"}`
 > * When a web hook is created or modified, the API will be called as a test with an empty request body. Your API needs to return a 200 HTTP code.
 
-A web hook is the entry point for all the information available from the Metrics Monitor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
+A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided api when an alert is triggered. All alerts, including "Data feed not available" and "Incident report" alerts are sent through web hooks only.
 
 To create a web hook, you will need to add the following information
 

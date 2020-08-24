@@ -1,7 +1,7 @@
 ---
-title: How to configure your Metrics Monitor instance using the web portal
+title: How to configure your Metrics Advisor instance using the web portal
 titleSuffix: Azure Cognitive Services
-description: How to configure your Metrics Monitor instance using the web portal
+description: How to configure your Metrics Advisor instance using the web portal
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,13 +14,13 @@ ms.author: aahi
 
 # How to: configure metrics and anomaly detection using the web portal
 
-Use this article to start configuring your Metrics Monitor instance using the web portal. To browse the metrics for a specific data feed, go to the **Data feeds** page and select one of the feeds. This will display a list of metrics associated with it.
+Use this article to start configuring your Metrics Advisor instance using the web portal. To browse the metrics for a specific data feed, go to the **Data feeds** page and select one of the feeds. This will display a list of metrics associated with it.
 
 ![Select Metric](../media/metrics/select-metric.png)
 
 Click on one of the metric names to see its details. In this detailed view, you can switch to another metric in the same data feed using the drop down list in the top right corner of the screen.
 
-When you first view a metrics' details, you can load a time series by letting Metrics Monitor choose one for you, or by specifying values to be included for each dimension. 
+When you first view a metrics' details, you can load a time series by letting Metrics Advisor choose one for you, or by specifying values to be included for each dimension. 
 
 You can also select time ranges, and change the layout of the page. Note the following:
 - The start time is inclusive.
@@ -50,7 +50,7 @@ Click **Advanced Configuration** below the metric level configuration options to
 
 ### Anomaly Detection Methods
 
-Metrics Monitor offers multiple anomaly detection methods. You can use one or combine them using logical operators by clicking the **+** button. 
+Metrics Advisor offers multiple anomaly detection methods. You can use one or combine them using logical operators by clicking the **+** button. 
 
 
 **Smart detection** 
@@ -70,7 +70,7 @@ When the sensitivity is turned down, the expected value range will be wider, and
 
 **Boundary version**
 
-Two versions of boundaries are provided by Metrics Monitor. tolerant disturbance has relative small or great magnitude compared with regular value magnitude
+Two versions of boundaries are provided by Metrics Advisor. tolerant disturbance has relative small or great magnitude compared with regular value magnitude
 
 Seasonal series:
 
@@ -182,7 +182,7 @@ Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it 
 
 ## View recent incidents
 
-Metrics Monitor detects anomalies on all your time series data in near real-time. However, not all of these anomalies would be escalated to customers, because they might not critical enough to be noticed. Aggregation will be performed on anomalies to get related anomalies clustered for escalating a potential incident. 
+Metrics Advisor detects anomalies on all your time series data in near real-time. However, not all of these anomalies would be escalated to customers, because they might not critical enough to be noticed. Aggregation will be performed on anomalies to get related anomalies clustered for escalating a potential incident. 
 
 Customers are able to view these incidents from 'Incident' tab in metrics detail page. 
 
@@ -195,7 +195,7 @@ Click on **Manage incidents in a new Incident hub**, and you will be taken to th
 
 ## View diagnostic insights
 
-With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Metrics Monitor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Those are been exposed as **diagnostics insights** by a set of powerful features. 
+With fine-tuned detecting configuration, anomalies that detected mostly reflect real business issues. Metrics Advisor performs analysis on multi-dimensional metrics, like anomaly clustering, incident correlation and root cause analysis. Those are been exposed as **diagnostics insights** by a set of powerful features. 
 
 To view the diagnostic insights, you can just click on the red dots on time series visualizations which stand for anomalies that detected. A pop-up window will be displayed with a link to incident analysis page. 
 

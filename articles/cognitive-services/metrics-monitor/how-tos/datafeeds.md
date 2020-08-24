@@ -1,7 +1,7 @@
 ---
-title: how to add datafeeds to Metrics Monitor
+title: how to add datafeeds to Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: add Datafeeds to Metrics Monitor
+description: add Datafeeds to Metrics Advisor
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 08/19/2020
 ms.author: aahi
 ---
 
-# How to: add data feeds to Metrics Monitor
+# How to: add data feeds to Metrics Advisor
 
-Learn how to create data feeds in Metrics Monitor to pull your time series data from different sources. This article will guide you through key concepts for adding data feeds and common data schema requirements for time series data.
+Learn how to create data feeds in Metrics Advisor to pull your time series data from different sources. This article will guide you through key concepts for adding data feeds and common data schema requirements for time series data.
 
 ## Avoid loading partial data
 
-Partial data is caused by inconsistencies between the data stored in Metrics Monitor and the data source. This can happen when the data source is updated after Metrics Monitor has finished pulling data. Metrics Monitor pulls data from a given data source once.
+Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor pulls data from a given data source once.
 
-For example, suppose you have two data sources. If the data for a given date is available in the first data source, but not the second, Metrics Monitor will only retrieve metrics from the first data source. If this data is later added to the second data source, Metrics Monitor won't retrieve it. 
+For example, suppose you have two data sources. If the data for a given date is available in the first data source, but not the second, Metrics Advisor will only retrieve metrics from the first data source. If this data is later added to the second data source, Metrics Advisor won't retrieve it. 
 
 You can try to backfill historical data (described below) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
@@ -28,7 +28,7 @@ To avoid loading partial data, we recommend two approaches:
 
 1. Generate data in one transaction:
 
-    Ensure the metric values for all dimension combinations at the same timestamp are stored to the data source in one transaction. In the above example, wait until data from all data sources is ready, and then load it into Metrics monitor in one transaction. Metrics Monitor can poll the data feed regularly until data is successfully (or partially) retrieved.
+    Ensure the metric values for all dimension combinations at the same timestamp are stored to the data source in one transaction. In the above example, wait until data from all data sources is ready, and then load it into Metrics Advisor in one transaction. Metrics Advisor can poll the data feed regularly until data is successfully (or partially) retrieved.
 
 2. Set the ingestion time offset parameter:
 
@@ -45,7 +45,7 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 
 ## Add a data feed using the web Portal
 
-After signing into your Metrics Monitor portal with your Active Directory account, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
+After signing into your Metrics Advisor portal with your Active Directory account, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
 
 ### Add connection settings
 
@@ -66,23 +66,23 @@ Next, you'll need to specify the connection information of the data source as we
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
 
 1. Your connection string and query are correct.
-2. Your Metrics Monitor instance is able to connect to the data source if there are firewall settings.
+2. Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
 
 ### Schema configuration
 
 Once the data schema is loaded, select the appropriate fields.
 
-If the timestamp of a data point is omitted, Metrics Monitor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Monitor can only consume only one chunk (one day, one hour, etc., according to the granularity) of time-series data from the given source each time.
+If the timestamp of a data point is omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as a timestamp. If you get a message that a column cannot be specified as a timestamp, check your query or data source, and whether there are multiple timestamps in the query result - not only in the preview data. When performing data ingestion, Metrics Advisor can only consume only one chunk (one day, one hour, etc., according to the granularity) of time-series data from the given source each time.
 
 |Selection  |Description  |Notes  |
 |---------|---------|---------|
 | **Display Name** | Name to be displayed on the portal instead of the original column name. | |
-|**Timestamp**     | The timestamp of a data point. If omitted, Metrics Monitor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
+|**Timestamp**     | The timestamp of a data point. If omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures but at least one column should be selected as measure.        | Should be specified with at least one column.        |
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
 |**Ignore**     | Ignore the selected column.        | Optional. See the below text.       |
 
-If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Monitor may end up ingesting partial data. For example, assume the data from your query is as below:
+If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
 
 Row ID | Timestamp | Country | Language | Income
 --- | --- | --- | --- | ---
@@ -92,7 +92,7 @@ Row ID | Timestamp | Country | Language | Income
 4 | 2019/11/11 | US | EN-US | 23000
 ... | ...
 
-If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions. Metrics Monitor will arbitrarily use one value from the two rows. Metrics Monitor will not aggregate the rows in this case.
+If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
 
 ### Specify a name for onboarded data feed
  
@@ -113,7 +113,7 @@ To check ingestion failure details:
 ![Check Failed Ingestion](../media/datafeeds/check-failed-ingestion.png)
 
 A *failed* status indicates the ingestion for this data source will be retried later.
-An *Error* status indicates Metrics Monitor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.
+An *Error* status indicates Metrics Advisor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.
 
 You can also reload the progress of an ingestion by clicking **Refresh Progress**.
 
@@ -122,15 +122,15 @@ You can also reload the progress of an ingestion by clicking **Refresh Progress*
 > [!IMPORTANT]
 > Once enabled, the auto roll-up settings cannot be changed
 
-Metrics Monitor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. There are three possibilities, depending on your scenario:
+Metrics Advisor can automatically generate the data cube (sum) during ingestion, which can help when performing hierarchical analysis. There are three possibilities, depending on your scenario:
 
 1. *I do not need to include the roll-up analysis for my data.*
 
-    You do not need to use the Metrics Monitor roll-up.
+    You do not need to use the Metrics Advisor roll-up.
 
 2. *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
 
-    This option means Metrics monitor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
+    This option means Metrics Advisor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
     
     Row ID | Country | Language | Income
     --- | --- | --- | ---
@@ -140,10 +140,10 @@ Metrics Monitor can automatically generate the data cube (sum) during ingestion,
     4 |  | EN-US | 5000
     ... | ...
     
-2. *I need Metrics Monitor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
+2. *I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
 
-    Some data sources such as Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Monitor provides the roll up option to automatically generate a data cube during ingestion.
-    This option means you need Metrics Monitor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Monitor. This won't change any data in your data source.
+    Some data sources such as Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Advisor provides the roll up option to automatically generate a data cube during ingestion.
+    This option means you need Metrics Advisor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Advisor. This won't change any data in your data source.
     For example, suppose you have a set of time series which stands for Sales metrics with the dimension (Country, Region). For a given timestamp, it might look like the following:
     
     | Country       | Region           | Sales |
@@ -152,7 +152,7 @@ Metrics Monitor can automatically generate the data cube (sum) during ingestion,
     | Canada        | British Columbia | 500   |
     | United States | Montana          | 100   |
     
-    After enabling Auto Roll Up with *Sum*, Metrics Monitor will calculate the dimension combinations, and sum the metrics during data ingestion. The result might be:
+    After enabling Auto Roll Up with *Sum*, Metrics Advisor will calculate the dimension combinations, and sum the metrics during data ingestion. The result might be:
     
     | Country       | Region           | Sales |
     | :------------ | :--------------- | :---- |
@@ -197,7 +197,7 @@ Metrics Monitor can automatically generate the data cube (sum) during ingestion,
 
 A data feed is considered not available if no data is ingested from the source within the grace period specified from the time the data feed starts ingestion. An alert is triggered in this case.
 
-Currently, Metrics Monitor only supports Web Hooks for alerting you when a data feed is not available. See the [Alerts](alerts.md#-create-a-web-hook) for details.
+Currently, Metrics Advisor only supports Web Hooks for alerting you when a data feed is not available. See the [Alerts](alerts.md#-create-a-web-hook) for details.
 
 ## Advanced settings
 
@@ -230,7 +230,7 @@ A data feed is considered as not available if no data is ingested from the sourc
 
 To configure an alert, you need a hook first. Alerts will be sent to this hook.
 
-* **Grace period**: The Grace Period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Monitor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
+* **Grace period**: The Grace Period setting is used to determine when to send an alert if no data points are ingested. The reference point is the time of first ingestion. If an ingestion fails, Metrics Advisor will keep trying at a regular interval specified by the granularity. If it continues to fail past the grace period, an alert will be sent.
 
 * **Auro snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
 
@@ -268,7 +268,7 @@ Examples :
 > [!NOTE]
 > This setting won't affect your data source and will not affect the data charts displayed on the portal. The auto-filling only occurs during anomaly detection.
 
-Some time series are not continuous. When there're missing data points, Metrics Monitor will use the specified value to fill them before anomaly detection for better accuracy.
+Some time series are not continuous. When there're missing data points, Metrics Advisor will use the specified value to fill them before anomaly detection for better accuracy.
 The options are: 
 
 * Using the value from the previous actual data point. This is used by default.
@@ -316,4 +316,4 @@ datafeedName| Data feed Name | String | YES | The custom name of the data feed.
 
 ## Next steps
 
-* Learn the unique settings and requirements for time series stored in different type of data sources from [Adding Metrics Monitor data feeds from different data sources](../data-feeds-from-different-sources.md)
+* Learn the unique settings and requirements for time series stored in different type of data sources from [Adding Metrics Advisor data feeds from different data sources](../data-feeds-from-different-sources.md)

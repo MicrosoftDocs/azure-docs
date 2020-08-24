@@ -1,7 +1,7 @@
 ---
-title: how to add datafeeds to Metrics Monitoring
+title: how to add datafeeds to Metrics Advisor
 titleSuffix: Azure Cognitive Services
-description: add Datafeeds to Metrics Monitoring
+description: add Datafeeds to Metrics Advisor
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 07/13/2020
 ms.author: aahi
 ---
 
-# Add data feeds from different data sources to Metrics Monitor
+# Add data feeds from different data sources to Metrics Advisor
 
-Use this article to find the settings and requirements for connecting different types of data sources to Metrics Monitor. See the [data feeds](adding-data-feeds-overview.md) article for more information.
+Use this article to find the settings and requirements for connecting different types of data sources to Metrics Advisor. See the [data feeds](adding-data-feeds-overview.md) article for more information.
 
 ## Azure Blob Storage (JSON)
 
 * **Connection String**: See the Azure Blob Storage [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) article for information on retrieving this string.
 
-* **Container**: Metrics monitor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
+* **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
 * **Blob Template**: The is the template of the Blob file names. For example: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. The following placeholders are supported:
   * %Y=year in format yyyy
@@ -29,7 +29,7 @@ Use this article to find the settings and requirements for connecting different 
   * %h=hour in format HH
   * %M=minute in format mm
 
-* **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Monitor supports two versions:
+* **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions:
   * v1 (Default value)
   Only the metrics *Name* and *Value* are accepted. For example:
 

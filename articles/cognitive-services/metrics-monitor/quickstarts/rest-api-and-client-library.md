@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Metrics Monitor REST API and Client libraries | Microsoft Docs"
+title: "Quickstart: Metrics Advisor REST API and Client libraries | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to connect your applications to the Metrics Monitor API from Azure Cognitive Services.
+description: Use this quickstart to connect your applications to the Metrics Advisor API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,11 +13,11 @@ ms.author: aahi
 zone_pivot_groups: programming-languages-metrics-monitor
 ---
 
-# Quickstart: Use the Metrics Monitor REST API and client library
+# Quickstart: Use the Metrics Advisor REST API and client library
 
-Get started with the the Metrics Monitor REST API and client library. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the the Metrics Advisor REST API and client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-Use Metrics Monitor to perform:
+Use Metrics Advisor to perform:
 
 * Add a data feed from a data source
 * Check ingestion status
