@@ -85,9 +85,9 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 `FormRecognizerClient` provides operations for:
 
- - Recognizing form fields and content, using custom models trained to recognize your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Recognize Custom Forms](#recognize-custom-forms).
- - Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Recognize Content](#recognize-content).
- - Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service.  These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Recognize Receipts](#recognize-receipts).
+ - Recognizing form fields and content, using custom models trained to recognize your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
+ - Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Recognize form content](#recognize-form-content).
+ - Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service.  These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Recognize receipts](#recognize-receipts).
 
 ### FormTrainingClient
 
@@ -585,7 +585,7 @@ Submodel Form Type: form-63c013e3-1cab-43eb-84b0-f4b20cb9214c
 This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
 
 > [!IMPORTANT]
-> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.
+> In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below.
 
 You'll use the `StartRecognizeCustomFormsFromUri` method. The returned value is a collection of `RecognizedForm` objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
@@ -689,7 +689,7 @@ Field 'Azure.AI.FormRecognizer.Models.FieldValue:
    ...
 ```
 
-## Manage your custom models
+## Manage custom models
 
 This section demonstrates how to manage the custom models stored in your account. 
 
