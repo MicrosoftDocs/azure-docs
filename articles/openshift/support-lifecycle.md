@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ---
 
-# Azure Red Hat OpenShift support lifecycle
+# Support lifecycle for Azure Red Hat OpenShift 4
 
 Red Hat releases minor versions of Red Hat OpenShift Container Platform (OCP) roughly every three months. These releases include new features and improvements. Patch releases are more frequent (typically weekly) and are only intended for critical bug fixes within a minor version. These patch releases may include fixes for security vulnerabilities or major bugs.
 
-Azure Red Hat OpenShift is built from specific releases of OCP. This document covers the versions of OCP that are supported for Azure Red Hat OpenShift, as well as information about upgrades, deprecations, and support policy.
+Azure Red Hat OpenShift is built from specific releases of OCP. This article covers the versions of OCP that are supported for Azure Red Hat OpenShift and details about upgrades, deprecations, and support policy.
 
 ## Red Hat OpenShift versions
 
@@ -25,14 +25,14 @@ Red Hat OpenShift Container Platform uses semantic versioning. Semantic versioni
 Each number in the version indicates general compatibility with the previous version:
 
 * **Major version**: No major version releases are planned at this time. Major versions change when incompatible API changes or backwards compatibility may be broken.
-* **Minor version**: Released approximately every 3 months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
+* **Minor version**: Released approximately every three months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
 * **Patches**: Typically released each week, or as needed. Patch version upgrades can include bug fixes, security enhancements, and other improvements.
 
-Customers should aim to run the latest minor release of the major version they are running. For example, if your production cluster is on 4.4 and 4.5 is the latest generally available minor version for the 4 series, you should upgrade to 4.5 as soon as you are able.
+Customers should aim to run the latest minor release of the major version they're running. For example, if your production cluster is on 4.4, and 4.5 is the latest generally available minor version for the 4 series, you should upgrade to 4.5 as soon as you can.
 
 ### Upgrade Channels
 
-Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.4 upgrade channels will never include an upgrade to a 4.5 release. Upgrade channels control only release selection and do not impact the version of the cluster.
+Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.4 upgrade channels will never include an upgrade to a 4.5 release. Upgrade channels control only release selection and don't impact the version of the cluster.
 
 Azure Red Hat OpenShift 4 supports stable channels only. For example: stable-4.4.
 
@@ -109,7 +109,7 @@ If you are on the N-2 version or older, it means you are outside of support and 
 * If the oldest supported Azure Red Hat OpenShift version is 4.4.z and you are on 4.3.z or older, you are outside of support.
 * When the upgrade from 4.3.z to 4.4.z or higher succeeds, you are back within our support policies.
 
-Reverting your cluster to a previous version, or a rollback, is not supported. Only upgrading to a newer version is supported.
+Reverting your cluster to a previous version, or a rollback, isn't supported. Only upgrading to a newer version is supported.
 
 **What does "Outside of Support" mean?**
 

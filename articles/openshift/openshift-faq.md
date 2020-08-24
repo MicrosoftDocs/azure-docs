@@ -60,10 +60,9 @@ On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes are not currently 
 
 On Azure Red Hat OpenShift 3.11 clusters, infrastructure nodes are included by default.
 
-## Upgrades
+## How do I handle cluster upgrades?
 
-> [!NOTE]
-> For information upgrades, maintenance, and supported versions, see the [support lifecycle guide](support-lifecycle.md).
+For information on upgrades, maintenance, and supported versions, see the [support lifecycle guide](support-lifecycle.md).
 
 ### How will the host operating system and OpenShift software be updated?
 
