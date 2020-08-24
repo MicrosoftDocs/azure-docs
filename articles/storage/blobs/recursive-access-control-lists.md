@@ -1,18 +1,18 @@
 ---
-title: Set ACLs recursively in Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Set ACLs recursively for Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Put some description here.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/24/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Set access control lists (ACLs) recursively in Azure Data Lake Storage Gen2
+# Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2
 
-You can apply the ACL of a parent directory to all child directories and files that exist beneath the parent directory.  This means that if you want to apply the same ACL entries to a hierarchy of directories and files, you can do that without having to modify the ACL of each one individually. Instead, you can apply them recursively.
+You can add, update, and remove ACLs recursively on the child items of a parent directory without having to make these changes individually for each child item. If you encounter permission errors during this process, you won't need to re-apply your change to child items that have already been successfully processed.
 
 > [!NOTE]
 > The ability to set access lists recursively is in public preview and is available in all regions.  
@@ -33,38 +33,10 @@ You can apply the ACL of a parent directory to all child directories and files t
 
 - An understanding of how ACLs are applied to directories and files. See [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-- Review the README files for the SDK that plan to use to recursively set ACLs. 
-
-## Best practice guidelines
-
-Review these best practice guidelines before you begin. 
-
-#### Handling runtime errors
-
-A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be re-applied to items without causing a negative impact. 
-
-#### Handling permission errors (403)
-
-If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed won't have to be processed again. 
-
-#### Credentials 
-
-We recommend that you provision an AAD security principal that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
-
-#### Performance 
-
-To reduce latency, we recommend that you run the recursive ACL process in an Azure Virtual Machine (VM) that is located in the same region as your storage account. 
-
-#### ACL limits
-
-The maximum number of ACLs that you can apply to a directory or file is 32 access ACLs and 32 default ACLs. For more information, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ## Set up your project
 
 Install the necessary libraries. (Need info on where folks get these libraries)
-
-> [!NOTE] 
-> For optimal performance, we recommend that you run processes that set ACLs recursively in an Azure VM that is located in the same region as your storage account.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -284,11 +256,11 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-You can set the ACL of a directory recursively. You add up to 32 entries (security principals) to the ACL of a directory or file. 
+You can set the ACLs recursively.  
 
 ### [PowerShell](#tab/azure-powershell)
 
-Use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Set-AzDataLakeGen2AclRecursive` cmdlet to commit the ACL recursively.
+Set an ACL recursively by using the `Set-AzDataLakeGen2AclRecursive` cmdlet.
 
 This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
@@ -376,9 +348,9 @@ You can update an existing ACL recursively.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursiv** cmdlet. 
+Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** cmdlet. 
 
-This example adds write permission to an ACL entry, and then updates the ACL with that entry.
+This example updates an ACL entry with write permission.
 
 ```powershell
 $filesystemName = "my-container"
@@ -395,7 +367,7 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 
 Update an ACL recursively by calling the **DataLakeDirectoryClient.UpdateAccessControlRecursiveAsync** method. 
 
-This example adds write permission to an ACL entry, and then updates the ACL with that entry. 
+This example updates an ACL entry with write permission. 
 
 ```cs
 public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
@@ -424,7 +396,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 Update an ACL recursively by calling the **DataLakeDirectoryClient.update_access_control_recursive** method. 
 
-This example adds write permission to an ACL entry, and then updates the ACL with that entry. 
+This example updates an ACL entry with write permission. 
 
 ```python
 def update_permission_recursively():
@@ -454,7 +426,7 @@ You can remove one or more ACL entries recursively.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Remove ACL entries by calling the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
+Remove ACL entries by using the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
 
 This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
 
@@ -520,11 +492,7 @@ def remove_permission_recursively():
 
 ## Recover from failures
 
-You application might encounter a run-time error, or a permission error. Permission errors can occur if the security principal that you used to connect to your storage account doesn't have permission to modify the ACL of a directory or file that is in the hierarchy of files being modified.
-
-If your application encounters an error, you can address fix the error, and then restart the process. Your application can resume where it left off by using a continuation token. 
-
-You don't have to use this token if you prefer to restart from the very beginning. You can re-apply ACL entries without any negative impact.
+You might encounter runtime or permission errors. For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can re-apply ACL entries without any negative impact.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -604,87 +572,35 @@ def resume_set_acl_recursive(continuation_token):
 
 ---
 
-If you want the process to complete uninterrupted by permission errors, you can specify that. 
+## Best practice guidelines
 
-### [PowerShell](#tab/azure-powershell)
+Review these best practice guidelines before you begin. 
 
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the results (including the number of failures) to the console. 
+#### Handling runtime errors
 
-```powershell
-$ContinueOnFailure = $true
+A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be re-applied to items without causing a negative impact. 
 
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
+#### Handling permission errors (403)
 
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed won't have to be processed again. 
 
-echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
-echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
-echo "FailedEntries:"$($result.FailedEntries | ft)
+#### Credentials 
 
-```
+We recommend that you provision an AAD security principal that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
 
-### [.NET](#tab/dotnet)
+#### Performance 
 
-To ensure that the process completes uninterrupted, pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
+To reduce latency, we recommend that you run the recursive ACL process in an Azure Virtual Machine (VM) that is located in the same region as your storage account. 
 
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+#### ACL limits
 
-```cs
-public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
-    DataLakeDirectoryClient directoryClient, 
-    List<PathAccessControlItem> accessControlList)
-{
-    var accessControlChangeResult = 
-        await directoryClient.SetAccessControlRecursiveAsync(
-            accessControlList, null, new AccessControlChangeOptions() 
-            { ContinueOnFailure = true });
-
-    var counters = accessControlChangeResult.Value.Counters;
-
-    Console.WriteLine("Number of directories changed: " +
-        counters.ChangedDirectoriesCount.ToString());
-
-    Console.WriteLine("Number of files changed: " +
-        counters.ChangedFilesCount.ToString());
-
-    Console.WriteLine("Number of failures: " +
-        counters.FailedChangesCount.ToString());
-}
-```
-
-### [Python](#tab/python)
-
-To ensure that the process completes uninterrupted, Put parameter information here.
-
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
-
-```python
-def continue_on_failure():
-    
-    try:
-        file_system_client = service_client.get_file_system_client(file_system="my-container")
-
-        directory_client = file_system_client.get_directory_client("my-parent-directory")
-              
-        acl = 'user::rwx,group::rwx,other::rwx,user:4a9028cf-f779-4032-b09d-970ebe3db258:r--'
-
-        acl_change_result = directory_client.set_access_control_recursive(acl=acl)
-
-        print("Summary: {} directories and {} files were updated successfully, {} failures were counted."
-          .format(acl_change_result.counters.directories_successful, acl_change_result.counters.files_successful,
-                  acl_change_result.counters.failure_count))
-        
-    except Exception as e:
-     print(e)
-```
-
----
+The maximum number of ACLs that you can apply to a directory or file is 32 access ACLs and 32 default ACLs. For more information, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ## See also
 
 [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+[known issues](data-lake-storage-known-issues.md)
+**PowerShell resources**: [Readme](https://recursiveaclpr.blob.core.windows.net/privatedrop/README.txt?sv=2019-02-02&st=2020-08-24T17%3A03%3A18Z&se=2021-08-25T17%3A03%3A00Z&sr=b&sp=r&sig=sPdKiCSXWExV62sByeOYqBTqpGmV2h9o8BLij3iPkNQ%3D) | [Sample](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D)
+**.NET resources**: [Readme](Need link) | [Sample](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0)
+**Python resources**: [Readme](Need link) | [Sample](https://recursiveaclpr.blob.core.windows.net/privatedrop/datalake_samples_access_control_async.py?sv=2019-02-02&st=2020-08-24T07%3A48%3A10Z&se=2021-08-25T07%3A48%3A00Z&sr=b&sp=r&sig=%2F1c540%2BpXYyNcuTmWPWHg2m9SyClXLIMw7ChLZGsyD0%3D)
+
