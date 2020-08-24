@@ -37,7 +37,7 @@ All Azure Machine Learning features will be available in these regions within **
 | Industry-leading forecasting capabilities                                  | GA                   | YES                | YES         |
 | Support for deep learning and other advanced learners                      | GA                   | YES                | YES         |
 | Large data support (up to 100 GB)                                          | Public Preview       | YES                | YES         |
-| Azure Databricks Integration                                              | GA                   | NO                 | NO          |
+| Azure Databricks integration                                              | GA                   | NO                 | NO          |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA                   | YES                | YES         |
 
 | Machine Learning pipelines | Commercial status  | US-Virginia | US-Arizona| 
