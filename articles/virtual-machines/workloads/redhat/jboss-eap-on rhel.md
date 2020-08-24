@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
-ms.date: 08/23/2020
+ms.date: 08/24/2020
 ---
 
 # Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux
@@ -20,15 +20,15 @@ These Quickstart templates will show you how to deploy [JBoss Enterprise (EAP)](
 
 * JBoss EAP installation - You need to have a Red Hat Account and your Red Hat Subscription Management (RHSM) account must have JBoss EAP entitlement to download the Red Hat tested and certified JBoss EAP version.  If you don't have EAP entitlement, obtain a [JBoss EAP evaluation subscription](https://access.redhat.com/products/red-hat-jboss-enterprise-application-platform/evaluation) before you get started. If you would like to create a new Red Hat subscription, go to [Red Hat Customer Portal](https://access.redhat.com/) and set up an account.
 
-* [Azure Command-Line Interface](https://docs.microsoft.com/en-us/cli/azure/overview).
+* [Azure Command-Line Interface](https://docs.microsoft.com/cli/azure/overview).
 
 * RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/) RHEL Gold Image.
 
 ## JBoss EAP use case
 
 ### Migrate to JBoss EAP
-JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Edition (Java EE) 8 specification. JBoss EAP provides preconfigured options for features such as high-availability (HA) clustering, messaging, and distributed caching. It also enables users to write, deploy, and run applications using the various APIs and services that JBoss EAP provides.  For additional information on JBoss EAP, visit [Introduction to JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index#about_eap).
- or [Introduction to JBoss EAP 7.3](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
+JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Edition (Java EE) 8 specification. JBoss EAP provides preconfigured options for features such as high-availability (HA) clustering, messaging, and distributed caching. It also enables users to write, deploy, and run applications using the various APIs and services that JBoss EAP provides.  For additional information on JBoss EAP, visit [Introduction to JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/introduction_to_jboss_eap/index#about_eap).
+ or [Introduction to JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/html/introduction_to_jboss_eap/index).
 
  You can develop the following applications with JBoss EAP:
 
@@ -36,7 +36,7 @@ JBoss EAP 7.2 and 7.3 are certified implementations of the Java Enterprise Editi
 
 * EJB Applications - Enterprise JavaBeans (EJB) 3.2 is an API for developing distributed, transactional, secure, and portable Java EE applications through the use of server-side components called Enterprise Beans. Enterprise Beans implement the business logic of an application in a decoupled manner that encourages reuse. Learn more by visiting [Developing EJB Applications](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html/developing_ejb_applications/index).
 
-* Hibernate Applications - Developers and administrators can develop and deploy JPA/Hibernate applications with JBoss EAP. Hibernate Core is an object-relational mapping framework for the Java language. It provides a framework for mapping an object-oriented domain model to a relational database, allowing applications to avoid direct interaction with the database. Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined by the [Java Persistence API (JPA) 2.1 specification](https://www.jcp.org/jsr/detail?id=338). Together with Hibernate Annotations, this wrapper implements a complete (and standalone) JPA solution on top of the mature Hibernate Core. Additional information on [Developing Hibernate Applications](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/java_persistence_api) is available from Red Hat. 
+* Hibernate Applications - Developers and administrators can develop and deploy JPA/Hibernate applications with JBoss EAP. Hibernate Core is an object-relational mapping framework for the Java language. It provides a framework for mapping an object-oriented domain model to a relational database, allowing applications to avoid direct interaction with the database. Hibernate EntityManager implements the programming interfaces and lifecycle rules as defined by the [Java Persistence API (JPA) 2.1 specification](https://www.jcp.org/jsr/detail?id=338). Together with Hibernate Annotations, this wrapper implements a complete (and standalone) JPA solution on top of the mature Hibernate Core. Additional information on [Developing Hibernate Applications](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/java_persistence_api) is available from Red Hat. 
 
 ### Migrate from on-premises to Azure
 The Azure Marketplace offer of JBoss EAP on RHEL will install and provision Azure VMs or VMSS in less than 20 minutes. You will have a Load Balancer (LB), Private IP for LB and VMs, Virtual Network (VNet) with a single subnet, cluster, or stand-alone setup, Network Security Group (NSG), and a sample Java app. 
@@ -91,7 +91,7 @@ In order to use BYOS for RHEL OS Licensing, you need to have a valid Red Hat sub
     
 3. Accept the Marketplace Terms and Conditions in Azure for the RHEL BYOS Images. You can complete this by running Azure CLI commands, as given below. For more information, see the [Red Hat Enterprise Linux BYOS Gold Images in Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/byos) for more details.
 
-    3.1 Launch an Azure CLI session and authenticate with your Azure account. Refer to [Signing in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest) for assistance. Make sure you are running the latest Azure CLI version before moving on.
+    3.1 Launch an Azure CLI session and authenticate with your Azure account. Refer to [Signing in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) for assistance. Make sure you are running the latest Azure CLI version before moving on.
 
     3.2 Verify the RHEL BYOS images are available in your subscription by running the following CLI command. If you don't get any results here, refer to #2 and ensure that your Azure subscription is activated for RHEL BYOS images.
 
@@ -159,5 +159,5 @@ You can deploy the template in three following ways:
 * [Learn more about JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/)
 * [Learn more about Red Hat Subscription Management (RHSM)](https://access.redhat.com/products/red-hat-subscription-management)
 * [MS Docs for Red Hat on Azure](https://aka.ms/rhel-docs)
-* [Deploy RHEL 7.7 VM from Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM?tab=Overview)
-* [Deploy RHEL 8.0 VM from Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM?tab=Overview)
+* [Deploy RHEL 7.7 VM from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM?tab=Overview)
+* [Deploy RHEL 8.0 VM from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM?tab=Overview)
