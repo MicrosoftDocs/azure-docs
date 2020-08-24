@@ -208,7 +208,7 @@ The following list shows the configuration of the (A)SCS/ERS load balancer. The 
 - Frontend configuration
 	- Static ASCS/SCS IP address **10.0.0.43**
 - Backend configuration  
-	Add all virtual machines that should be part of the (A)SCS/ERS cluster, e.g. VMs **pr1-ascs-10** and **pr1-ascs-11**.
+	Add all virtual machines that should be part of the (A)SCS/ERS cluster. In this example VMs **pr1-ascs-10** and **pr1-ascs-11**.
 - Probe Port
 	- Port 620**nr**
 	Leave the default option for Protocol (TCP), Interval (5), Unhealthy threshold (2)
@@ -223,7 +223,7 @@ The following list shows the configuration of the (A)SCS/ERS load balancer. The 
 		- 5**nr**14 TCP
 		- 5**nr**16 TCP
 
-	- Make sure that Idle timeout (minutes) is set to max value e.g. 30, and that Floating IP (direct server return) is Enabled.
+	- Make sure that Idle timeout (minutes) is set to max value 30, and that Floating IP (direct server return) is Enabled.
 
 **ERS2**
 
@@ -247,7 +247,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 		- 5**nr**14 TCP
 		- 5**nr**16 TCP
 
-	- Make sure that Idle timeout (minutes) is set to max value e.g. 30, and that Floating IP (direct server return) is Enabled.
+	- Make sure that Idle timeout (minutes) is set to max value 30, and that Floating IP (direct server return) is Enabled.
 
 
 > [!TIP]
@@ -297,7 +297,7 @@ Once the feature installation has completed, reboot both cluster nodes.
 
 On Windows 2019, the cluster will automatically recognize that it is running in Azure, and as a default option for cluster management IP, it will use Distributed Network name. Therefore, it will use any of the cluster nodes local IP addresses. As a result, there is no need for a dedicated (virtual) network name for the cluster, and there is no need to configure this IP address on Azure Internal Load Balancer.
 
-For more information see [Windows Server 2019 Failover Clustering New features](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2019-failover-clustering-new-features/ba-p/544029)
+For more information see, [Windows Server 2019 Failover Clustering New features](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2019-failover-clustering-new-features/ba-p/544029)
 Run this command on one of the cluster nodes:
 
    ```powershell
@@ -364,7 +364,7 @@ Run this command on one of the cluster nodes. You will need to adjust the values
 	$DiskSizeInGB = 512
 	$DiskName = "$($SAPSID)ASCSSharedDisk"
 	
-	# With this parameter e.g. '-MaxSharesCount', we define the maximum number of cluster nodes to attach the shared disk
+	# With parameter '-MaxSharesCount', we define the maximum number of cluster nodes to attach the shared disk
 	$NumberOfWindowsClusterNodes = 2
 			
 	$diskConfig = New-AzDiskConfig -Location $location -SkuName Premium_LRS  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
@@ -401,7 +401,7 @@ Run this command on one of the cluster nodes. You will need to adjust the values
 	# 2      Msft Virtual Disk               Healthy      Online                512 GB RAW            
 
    ```
-2. Format the disk. In this example it is disk number 2. 
+2. Format the disk. In this example, it is disk number 2. 
 
    ```powershell
 	# Format SAP ASCS Disk number '2', with drive letter 'S'

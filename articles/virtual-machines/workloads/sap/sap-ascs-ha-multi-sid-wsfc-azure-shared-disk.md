@@ -84,7 +84,7 @@ Both Enqueue replication server 1 (ERS1) and Enqueue replication server 2 (ERS2)
   SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP3), which is configured on the Azure Internal Load balancer.
   SAP ERS2, used by SAP SID2 system has its own (virtual) IP address (SID2 ERS2 IP4), which is configured on the Azure Internal Load balancer.
 
-Here we have a total of three virtual IP addresses:
+Here we have a total of four virtual IP addresses:
 - SID1 (A)SCS IP1
 - SID2 ERS2   IP2
 - SID2 (A)SCS IP3
