@@ -303,7 +303,7 @@ This is a fusion of:
 - Carbon having the asserts fire in release builds (killing the process).
 
 The workaround is either switch to using continuous recognition in your code, or (quicker) connect to either the interactive or continuous endpoints in the container.
-For your code, set the endpoint to <host:port>/speech/recognition/interactive/cognitiveservices/v1
+For your code, set the endpoint to `host:port`/speech/recognition/interactive/cognitiveservices/v1
 
 For the various modes, see Speech modes - see below:
 
