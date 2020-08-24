@@ -35,25 +35,19 @@ Graph search uses Lucene simple query as full-text search syntax on node "name" 
 
 ### Examples
 
-- Simple search
-    
-    `JSON Data`
+- Simple search: `JSON Data`
 
-- AND/OR
+- AND/OR: `JSON AND Validation`
 
-    `JSON AND Validation`
-
-- Complicated AND/OR
-   
-    `(JSON AND Validation) OR (TSV AND Training)`
+- Multiple AND/OR: `(JSON AND Validation) OR (TSV AND Training)`
 
  
-- Wildcard matching (You cannot start a Lucene query with a "*" character)
-    
-    `machi?e learning`
-
-    `mach*ing`
+- Wildcard matching: 
+    - `machi?e learning`
+    -   `mach*ing`
  
+>[!NOTE]
+> You cannot start a Lucene query with a "*" character.
 
 ##  Filter query
 
