@@ -83,6 +83,7 @@ Evaluation of conditions list
 - A claim is said to satisfy the filtering criterion represented by the condition if each of its properties satisfy the corresponding claim property conditions present in the condition.  
 
 The set of actions that are allowed in a policy are described below.
+
 | Action Verb | Description | Policy sections to which these apply |
 |--|--|--|
 | permit() | The incoming claim set can be used to compute the issuancerules. Does not take any claim as a parameter | Authorizationrules |

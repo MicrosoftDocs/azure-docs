@@ -5,7 +5,9 @@
   - name: About Microsoft Azure Attestation
     href: overview.md
 - name: Quickstarts
-  items:
+  items: 
+  - name: ARM template
+    href: quickstart-template.md
   - name: PowerShell
     href: quickstart-powershell.md
 - name: Tutorials
