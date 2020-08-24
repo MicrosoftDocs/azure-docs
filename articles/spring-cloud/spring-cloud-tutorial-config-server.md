@@ -212,7 +212,7 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 1. Select the service to configure.
 
 1. In the left pane of the service page, under **Settings**, select the **Config Server** tab. Configure the repository we previously created:
-   - Add the repository URL that you have saved from the previous section.
+   - Add the repository URL that you have saved from the previous section
    - Click on `Authentication` and select `HTTP Basic`
    - The __username__ is the username saved from the previous section
    - The __password__ is the password saved from the previous section
