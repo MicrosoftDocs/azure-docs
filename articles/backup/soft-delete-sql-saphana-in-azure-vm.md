@@ -56,7 +56,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 >[!NOTE]
 >These instructions also apply to SAP HANA in Azure VM.
 
-1. To delete the backup data of a database in a SQL server, the backup must be stopped. In the Azure portal, go to your recovery services vault, go to the backup item, and choose **Stop backup**.
+1. To delete the backup data of a database in a SQL server, the backup must be stopped. In the Azure portal, go to your Recovery Services vault, go to the backup item, and choose **Stop backup**.
 
    ![Stop backup](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
@@ -64,7 +64,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
    ![Delete backup data](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 
-3. During those 14 days, in the Recovery Services Vault, the soft deleted item will appear with a red “soft-delete” icon next to it.
+3. During those 14 days, in the Recovery Services vault, the soft deleted item will appear with a red “soft-delete” icon next to it.
 
    ![Soft deleted items](./media/soft-delete-sql-saphana-in-azure-vm/soft-deleted-items.png)
 
