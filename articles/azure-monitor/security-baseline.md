@@ -4,7 +4,7 @@ description: The Azure Monitor security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/22/2020
+ms.date: 08/24/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
