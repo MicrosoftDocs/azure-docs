@@ -23,25 +23,23 @@ This article describes how to move Azure Workbook resources to a different Azure
 
 * Ensure that workbooks are supported in the target region.
 
-## Prepare
+* These instructions apply to both shared workbooks (`microsoft.insights/workbooks`) and private workbooks (`microsoft.insights/myworkbooks`) saved in Azure Monitor and on most resource types.
 
-When using the Azure Portal UI to move a workbook, no special preparation is necessary.
+  However, for workbooks specifically linked to the Application Insights resource type, those workbooks are stored in the Azure region where the Application Insights resource is saved.
 
-These instructions apply to both shared workbooks (`microsoft.insights/workbooks`) and private workbooks (`microsoft.insights/myworkbooks`) saved in Azure Monitor and on most resource types.
-However, for workbooks specifically linked to the Application Insights resource type, those workbooks are stored in the Azure region where the Application Insights resource is saved.
-Those workbooks cannot be individually moved to another region.
-
+  Those workbooks cannot be individually moved to another region.
 
 ## Move
 
-The simplest way to move an Azure Workbook is to use "Save as" in the the Workbooks tool in the Portal UI:
+The simplest way to move an Azure Workbook is to use "Save as" in the Workbooks tool in the Portal UI:
 
 1. Open the target workbook in the workbook viewer.
 2. Use the "Edit" toolbar button to enter edit mode.
 3. Use the "Save As" toolbar button.
-4. In the Save form, choose a name and the desired region for the workbook.  Ensure the other fields for subscription, resource group, and sharing are appropriate.
+4. In the Save form, choose a name and the desired region for the workbook. Ensure the other fields for subscription, resource group, and sharing are appropriate.
 
-    *Note: you may need to use a new name for the workbook to avoid any duplicate names.*
+   > [!NOTE]
+   > you may need to use a new name for the workbook to avoid any duplicate names.
 
 5. Save. 
 
@@ -52,8 +50,15 @@ Use the Azure Workbooks browse UI to locate the new workbook. Ensure the locatio
 ## Clean up
 
 Once your workbook has been created in the new region, delete the original workbook in the previous region.
-1. open the original workbook in the workbook viewer
+1. Open the original workbook in the workbook viewer.
 2. Use the "Edit" toolbar button to enter edit mode.
-3. From the edit tools dropdown (pencil icon), choose "Delete Workbook"
+3. From the edit tools dropdown (pencil icon), choose "Delete Workbook".
 
 If you renamed your workbook to import it into a new region, you can rename the workbook to the previous name after the original workbook has been deleted by using the Edit Mode toolbar's edit tools dropdown "Rename" item.
+
+## Next Steps
+
+Need to move a workbook template instead of a workbook? See how to [move an Azure Workbook Template to another region](./workbooks-templates-move-region.md).
+
+See how to [deploy Workbooks and Workbook Templates](./workbooks-automate.md) via ARM Templates.
+
