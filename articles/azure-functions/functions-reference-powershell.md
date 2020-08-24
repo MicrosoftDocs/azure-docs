@@ -512,7 +512,7 @@ There are a few concurrency models that you could explore depending on the type 
 
 * Increase the ```PSWorkerInProcConcurrencyUpperBound``` app setting value. This allows creating multiple runspaces within the same process, which significantly reduces CPU and memory overhead.
 
-You set this environment variables in the [app settings](functions-app-settings.md) of your Function App.
+You set these environment variables in the [app settings](functions-app-settings.md) of your function app.
 
 Depending on your use case, [Durable Functions](durable/quickstart-powershell-vscode.md) may significantly improve scalability.
 
