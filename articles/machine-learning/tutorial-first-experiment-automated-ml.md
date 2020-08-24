@@ -19,9 +19,6 @@ ms.date: 07/10/2020
 
 In this tutorial, you learn how to create a basic classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
->[!IMPORTANT]
-> The automated machine learning experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
-
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
 For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
@@ -44,9 +41,9 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-Create an **Enterprise edition** workspace via the Azure portal, a web-based console for managing your Azure resources.
+Create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
