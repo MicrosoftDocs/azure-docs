@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/24/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
