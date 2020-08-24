@@ -30,7 +30,7 @@ This article addresses recommendations that apply to your Azure resources from a
 
 The **Networking** page provides an overview of the sections you can deep dive into, to get more information about the health of your network resources:
 
-- Network map (Azure Security Center Standard tier only)
+- Network map (Azure Security Center standard tier only)
 - Adaptive Network Hardening
 - Networking security recommendations.
 - Legacy **Networking** blade (the previous networking blade) 
@@ -111,7 +111,7 @@ To drill down into a resource:
 
 ## Legacy networking <a name ="legacy-networking"></a>
 
-If you don't have Security Center Standard tier, this section explains how to view free Networking recommendations.
+If you don't have Security Center standard tier, this section explains how to view free Networking recommendations.
 
 To access this information, in the Networking blade, click **View legacy networking**. 
 

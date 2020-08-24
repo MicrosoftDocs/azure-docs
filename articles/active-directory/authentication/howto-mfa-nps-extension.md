@@ -47,7 +47,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA stand-alone license). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
+The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](./concept-mfa-howitworks.md) (included with Azure AD Premium, EMS, or an MFA stand-alone license). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
 
 ### Software
 
@@ -70,9 +70,13 @@ You need to manually install the following library:
 
 Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be registered for MFA.
 
-When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator. Search for and select the **Azure Active Directory**, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
+When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
+1. Search for and select the **Azure Active Directory**.
+1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+
+   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### Network requirements
 
@@ -203,7 +207,7 @@ Unless you want to use your own certificates (instead of the self-signed certifi
    ```
 
 4. Sign in to Azure AD as an administrator.
-5. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
+5. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
 6. PowerShell shows a success message when the script is finished.  
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
@@ -283,7 +287,7 @@ You can choose to create this key and set it to FALSE while your users are onboa
 
 The following script is available to perform basic health check steps when troubleshooting the NPS extension.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -358,7 +362,7 @@ To check if you have a valid certificate, check the local Computer Account's Cer
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 
-It is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+It is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ### Additional troubleshooting
 
@@ -366,7 +370,7 @@ Additional troubleshooting guidance and possible solutions can be found in the a
 
 ## Next steps
 
-- [Overview and configuration of Network Policy Server in Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Overview and configuration of Network Policy Server in Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

@@ -1,8 +1,9 @@
 ---
 title: Customer-managed transparent data encryption (TDE)
 description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption (TDE) with Azure Key Vault for SQL Database and Azure Synapse Analytics. TDE with BYOK overview, benefits, how it works, considerations, and recommendations."
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang:
@@ -55,7 +56,7 @@ For server to be able to use TDE protector stored in AKV for encryption of the D
 
 - **unwrapKey** - to be able to unprotect (decrypt) DEK
 
-Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When server is configured to use a TDE protector from AKV, the server sends the DEK of each TDE-enabled database to the key vault for encryption. Key vault returns the encrypted DEK, which is then stored in the user database.
 
@@ -71,7 +72,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions are not supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- [Soft-delete](../../key-vault/general/overview-soft-delete.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) or [the CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). It cannot be enabled via the Azure portal.  
+- [Soft-delete](../../key-vault/general/soft-delete-overview.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) or [the CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). It cannot be enabled via the Azure portal.  
 
 - Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created. When using PowerShell or the CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
 

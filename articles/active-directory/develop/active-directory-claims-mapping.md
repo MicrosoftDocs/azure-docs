@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -256,13 +256,15 @@ To control what claims are emitted and where the data comes from, use the proper
 **Data type:** JSON blob with one or more claim schema entries
 
 **Summary:** This property defines which claims are present in the tokens affected by the policy, in addition to the basic claim set and the core claim set.
-For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value** or **Source/ID pair**), and which claim the data is emitted as (**Claim Type**).
+For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value**, **Source/ID pair**, or **Source/ExtensionID pair**), and which claim the data is emitted as (**Claim Type**).
 
 ### Claim schema entry elements
 
 **Value:** The Value element defines a static value as the data to be emitted in the claim.
 
-**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from. 
+**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.  
+
+**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
 
 Set the Source element to one of the following values: 
 
@@ -322,7 +324,7 @@ The ID element identifies which property on the source provides the value for th
 | User | facsimiletelephonenumber | Facsimile Telephone Number |
 | User | assignedroles | list of App roles assigned to user|
 | application, resource, audience | displayname | Display Name |
-| application, resource, audience | objected | ObjectID |
+| application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
 | Company | tenantcountry | Tenant's country/region |
 
@@ -357,7 +359,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
+|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
 
@@ -411,7 +413,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors. In order to add a custom signing key, you can use the Azure PowerShell cmdlet `new-azureadapplicationkeycredential` to create a symmetric key credential for your Application object. For more information on this Azure PowerShell cmdlet, see [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use: 
 
@@ -430,6 +432,9 @@ Claims mapping policies can only be assigned to service principal objects.
 ### Example claims mapping policies
 
 In Azure AD, many scenarios are possible when you can customize claims emitted in tokens for specific service principals. In this section, we walk through a few common scenarios that can help you grasp how to use the claims mapping policy type.
+
+> [!NOTE]
+> When creating a claims mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
 #### Prerequisites
 
@@ -522,4 +527,5 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 ## See also
 
-To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).

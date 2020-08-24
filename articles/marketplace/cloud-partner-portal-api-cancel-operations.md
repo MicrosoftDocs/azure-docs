@@ -1,18 +1,18 @@
 ---
 title: Cancel operation API - Microsoft commercial marketplace
 description: The API to cancel an operation currently in progress on the offer
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/16/2020
+author: mingshen-ms
 ms.author: mingshen
+ms.date: 07/14/2020
 ---
 
 # Cancel operation
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 This API cancels an operation currently in progress on the offer. Use the [Retrieve operations
 API](./cloud-partner-portal-api-retrieve-operations.md) to get an

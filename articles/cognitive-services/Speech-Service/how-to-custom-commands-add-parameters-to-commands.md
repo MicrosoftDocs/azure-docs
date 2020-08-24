@@ -42,7 +42,7 @@ Edit the existing **TurnOn** command to turn on and turn off multiple devices.
        > [!div class="mx-imgBorder"]
        > ![Create required parameter response](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md). Configure the rest of the properties of the parameter as follows:
+   1. Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md). Configure the properties of the parameter as follows:
       
 
        | Configuration      | Suggested value     | Description                                                      |
@@ -56,9 +56,11 @@ Edit the existing **TurnOn** command to turn on and turn off multiple devices.
        | Predefined input values     | `on`, `off`           | Set of possible values and their aliases         |
        
         
-   1. For adding predefined input values, select **Add a predefined input** and in **New Item**  window, type in **Name** as provided in the table above. In this case, we aren't using aliases, so you can leave it blank. 
-    > [!div class="mx-imgBorder"]
-        > ![Create parameter](media/custom-commands/create-on-off-parameter.png)
+   1. For adding predefined input values, select **Add a predefined input** and in **New Item**  window, type in **Name** as provided in the table above. In this case, we aren't using aliases, so you can leave it blank.
+   
+      > [!div class="mx-imgBorder"]
+      > ![Create parameter](media/custom-commands/create-on-off-parameter.png)
+
    1. Select **Save** to save all configurations of the parameter.
  
  ### Add SubjectDevice parameter 
@@ -111,6 +113,7 @@ Modify the existing Completion rule **ConfirmationResponse**.
 
 1. In the **Conditions** section, select **Add a condition**.
 1. In the **New Condition** window, in the **Type** list, select **Required parameters**. In the check-list below, check both **OnOff** and **SubjectDevice**.
+1. Leave **IsGlobal** as unchecked.
 1. Select **Create**.
 1. In the **Actions** section, edit the existing **Send speech response** action by hovering over the action and selecting the edit button. This time, make use of the newly created **OnOff** and **SubjectDevice** parameters
 
@@ -120,7 +123,7 @@ Modify the existing Completion rule **ConfirmationResponse**.
 1. Select **Save**.
 
 ### Try it out
-1. Select **Train** icon present on top of the right pane.
+1. Select **Train** icon on top of the right pane.
 
 1. When training completes, select **Test**. A **Test your application** window will appear.
  Try a few interactions.

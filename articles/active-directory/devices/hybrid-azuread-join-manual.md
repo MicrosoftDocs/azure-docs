@@ -58,6 +58,9 @@ Make sure that the following URLs are accessible from computers inside your orga
 * `https://device.login.microsoftonline.com`
 * Your organization's STS (for federated domains), which should be included in the user's local intranet settings
 
+> [!WARNING]
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.
+
 If your organization plans to use Seamless SSO, the following URL needs to be reachable from the computers inside your organization. It must also be added to the user's local intranet zone.
 
 * `https://autologon.microsoftazuread-sso.com`
@@ -566,7 +569,7 @@ Here are 3 ways to locate and verify the device state:
 
 ### Using PowerShell
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 

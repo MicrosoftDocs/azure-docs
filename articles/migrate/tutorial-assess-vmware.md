@@ -70,7 +70,7 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 ### Download the OVA template
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMWare vSphere hypervisor**.
+2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. Select **Download** to download the OVA template file.
 
    ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
@@ -141,7 +141,7 @@ Set up the appliance for the first time.
      - Only HTTP proxy is supported.
    - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
    - **Install updates**: The appliance ensures that the latest updates are installed.
-   - **Install VDDK**: The appliance checks that VMWare vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance.
+   - **Install VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance.
 
      Azure Migrate Server Migration uses the VDDK to replicate machines during migration to Azure.       
 
@@ -195,7 +195,7 @@ You can create two types of assessments by using Azure Migrate Server Assessment
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type. [Learn more](concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Server Assessment provides two sizing criteria options:
 

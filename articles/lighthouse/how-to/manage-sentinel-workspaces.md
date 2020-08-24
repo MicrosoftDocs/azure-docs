@@ -1,17 +1,20 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
 ---
 
 # Manage Azure Sentinel workspaces at scale
 
-As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. Azure Lighthouse allows service providers to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks more efficient.
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks more efficient.
 
 Azure Sentinel delivers security analytics and threat intelligence, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. With Azure Lighthouse, you can manage multiple Azure Sentinel workspaces across tenants at scale. This enables scenarios such as running queries across multiple workspaces, or creating workbooks to visualize and monitor data from your connected data sources to gain insights. IP such as queries and playbooks remain in your managing tenant, but can be used to perform security management in the customer tenants.
 
 This topic provides an overview of how to use [Azure Sentinel](../../sentinel/overview.md) in a scalable way for cross-tenant visibility and managed security services.
+
+> [!TIP]
+> Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 ## Architectural considerations
 
@@ -30,7 +33,7 @@ This centralized model of deployment has the following advantages:
 
 ## Granular role-based access control (RBAC)
 
-Each customer subscription that an MSSP will manage must be [onboarded for Azure delegated resource management](onboard-customer.md). This allows designated users in the managing tenant to access and perform management operations on Azure Sentinel workspaces deployed in customer tenants.
+Each customer subscription that an MSSP will manage must be [onboarded to Azure Lighthouse](onboard-customer.md). This allows designated users in the managing tenant to access and perform management operations on Azure Sentinel workspaces deployed in customer tenants.
 
 When creating your authorizations, you can assign the Azure Sentinel built-in roles to users, groups, or service principals in your managing tenant:
 
@@ -61,9 +64,9 @@ You can deploy workbooks in your managing tenant and create at-scale dashboards 
 
 You can also deploy workbooks directly in an individual tenant that you manage for scenarios specific to that customer.
 
-## Run queries across Azure Sentinel workspaces
+## Run Log Analytics and hunting queries across Azure Sentinel workspaces
 
-You can create and save Log Analytics queries for threat detection centrally in the managing tenant. These queries can then be run across all of your customers' Azure Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+You can create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can then be run across all of your customers' Azure Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## Use automation for cross-workspace management
 

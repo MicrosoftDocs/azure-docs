@@ -2,7 +2,6 @@
 title: Knowledge store concepts
 titleSuffix: Azure Cognitive Search
 description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -110,13 +109,11 @@ The **Import data** wizard includes options for creating a knowledge store. For 
 
 1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
 
-### Use Create Skillset and the preview REST API
+### Use Create Skillset (REST API)]
 
 A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). During enrichment, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
 
-The REST API is the only mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
-
-Reference content for this preview feature is located in the [API reference](#kstore-rest-api) section of this article. 
+The REST API is one mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
@@ -136,8 +133,8 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 REST API version `2020-06-30` provides knowledge store through additional definitions on skillsets. In addition to the reference, see  [Create a knowledge store using Postman](knowledge-store-create-rest.md) for details on how to call the APIs.
 
-+ [Create Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/create-skillset)
-+ [Update Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/2020-06-30/update-skillset)
++ [Create Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Update Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
 
 
 ## Next steps

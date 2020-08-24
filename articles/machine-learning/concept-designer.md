@@ -1,5 +1,5 @@
 ---
-title: Build ML models with designer
+title: Build ML models with the designer (preview)
 titleSuffix: Azure Machine Learning
 description: Learn about the terms, concepts, and workflow that makes up the designer for Azure Machine Learning.
 services: machine-learning
@@ -110,25 +110,6 @@ Published pipelines are flexible, they can be used to train or retrain models, [
 A published pipeline runs on the compute resources you define in the pipeline draft for each module.
 
 The designer creates the same [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) object as the SDK.
-
-
-## Moving from the visual interface to the designer
-
-The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
-
-As a result of these updates, some concepts and terms for the visual interface have been changed or renamed. See the table below for the most important conceptual changes. 
-
-| Concept in the designer | Previously in the visual interface |
-| ---- |:----:|
-| Pipeline draft | Experiment |
-| Real-time endpoint | Web service |
-
-### Migrating to the designer
-
-You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate your visual interface assets:
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
 
 ## Next steps
 

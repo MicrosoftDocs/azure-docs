@@ -3,16 +3,13 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
+ms.date: 07/17/2020
 
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][customer-managed-keys] to use for encryption at rest for both the OS and data disks for your AKS clusters.
-
-> [!NOTE]
-> BYOK Linux and Windows based AKS clusters are available in [Azure regions][supported-regions] that support server side encryption of Azure managed disks.
 
 ## Before you begin
 
@@ -22,11 +19,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 * You need the Azure CLI version 2.0.79 or later and the aks-preview 0.4.26 extension
 
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies](support-policies.md)
-> * [Azure Support FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Install latest AKS CLI preview extension
 
@@ -95,7 +88,7 @@ Create a **new resource group** and AKS cluster, then use your key to encrypt th
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName
@@ -160,9 +153,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## Limitations
 
-* BYOK is only currently available in GA and Preview in certain [Azure regions][supported-regions]
-* Data Disk Encryption supported with Kubernetes version 1.17 and above   
-* Available only in regions where BYOK is supported
+* Data Disk Encryption supported with Kubernetes version 1.17 and above
 * Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
 
 ## Next steps
@@ -174,8 +165,8 @@ Review [best practices for AKS cluster security][best-practices-security]
 <!-- LINKS - internal -->
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[best-practices-security]: /azure/aks/operator-best-practices-cluster-security
-[byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
-[customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
-[key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
-[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-regions
+[best-practices-security]: ./operator-best-practices-cluster-security.md
+[byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
+[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[key-vault-generate]: ../key-vault/general/manage-with-cli2.md
+[supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

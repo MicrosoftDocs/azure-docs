@@ -3,7 +3,7 @@ title: Azure Functions scale and hosting
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/17/2020
 
 ms.custom: H1Hack27Feb2017
 
@@ -140,11 +140,19 @@ After your function app has been idle for a number of minutes, the platform may 
 
 Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. There are a few intricacies of scaling behaviors to be aware of:
 
-* A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.
+* A single function app only scales out to a maximum of 200 instances. A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.  You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
 * For HTTP triggers, new instances are allocated, at most, once per second.
 * For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](#premium-plan).
 * For Service Bus triggers, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling isn't as accurate because the queue length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 * For Event Hub triggers, see the [scaling guidance](functions-bindings-event-hubs-trigger.md#scaling) in the reference article. 
+
+### Limit scale out
+
+You may wish to restrict the number of instances an app scales out to.  This is most common for cases where a downstream component like a database has limited throughput.  By default, consumption plan functions will scale out to as many as 200 instances, and premium plan functions will scale out to as many as 100 instances.  You can specify a lower maximum for a specific app by modifying the `functionAppScaleLimit` value.  The `functionAppScaleLimit` can be set to 0 or null for unrestricted, or a valid value between 1 and the app maximum.
+
+```azurecli
+az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <function_app_name>/config/web --set properties.functionAppScaleLimit=<scale_limit>
+```
 
 ### Best practices and patterns for scalable apps
 
@@ -171,7 +179,7 @@ The following comparison table shows all important aspects to help the decision 
 | | |
 | --- | --- |  
 |**[Consumption plan](#consumption-plan)**| Scale automatically and only pay for compute resources when your functions are running. On the Consumption plan, instances of the Functions host are dynamically added and removed based on the number of incoming events.<br/> ✔ Default hosting plan.<br/>✔ Pay only when your functions are running.<br/>✔ scale-out automatically, even during periods of high load.|  
-|**[Premium plan](#premium-plan)**|While automatically scaling based on demand, use pre-warmed workers to run applications with no delay after being idle, run on more powerful instances, and connect to VNETs. Consider the Azure Functions Premium plan in the following situations,  in addition to all features of the App Service plan: <br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You have a high number of small executions and have a high execution bill but low GB second bill in the Consumption plan.<br/>✔ You need more CPU or memory options than what is provided by the Consumption plan.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require features that are only avail [able on a Premium plan, such as virtual network connectivity.|  
+|**[Premium plan](#premium-plan)**|While automatically scaling based on demand, use pre-warmed workers to run applications with no delay after being idle, run on more powerful instances, and connect to VNETs. Consider the Azure Functions Premium plan in the following situations,  in addition to all features of the App Service plan: <br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You have a high number of small executions and have a high execution bill but low GB second bill in the Consumption plan.<br/>✔ You need more CPU or memory options than what is provided by the Consumption plan.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require features that are only available on a Premium plan, such as virtual network connectivity.|  
 |**[Dedicated plan](#app-service-plan)**<sup>1</sup>|Run your functions within an App Service plan at regular App Service plan rates. Good fit for long running operations, as well as when more predictive scaling and costs are required. Consider an App Service plan in the following situations:<br/>✔ You have existing, underutilized VMs that are already running other App Service instances.<br/>✔ You want to provide a custom image on which to run your functions.|  
 |**[ASE](#app-service-plan)**<sup>1</sup>|App Service Environment (ASE) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. ASEs are appropriate for application workloads that require: <br/>✔ Very high scale.<br/>✔ Isolation and secure network access.<br/>✔ High memory utilization.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes provides a fully isolated and dedicated environment running on top of the Kubernetes platform.  Kubernetes is appropriate for application workloads that require: <br/>✔ Custom hardware requirements.<br/>✔ Isolation and secure network access.<br/>✔ Ability to run in hybrid or multi-cloud environment.<br/>✔ Run alongside existing Kubernetes applications and services.|  

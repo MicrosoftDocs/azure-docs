@@ -50,7 +50,7 @@ Provides the strongest security position and improved user experience. Adds [ris
 
 ## Authentication methods
 
-|   | Security defaults | All other methods |
+| Method | Security defaults | All other methods |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token |   | X |

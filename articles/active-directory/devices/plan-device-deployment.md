@@ -101,7 +101,7 @@ Use this tree to determine options for organization-owned devices.
 
 iOS and Android devices may only be Azure AD registered. The following table presents high-level considerations for Windows client devices. Use it as an overview, then explore the different integration methods in detail.
 
-| | Azure AD registered| Azure AD join| Hybrid Azure AD join |
+| Consideration | Azure AD registered| Azure AD join| Hybrid Azure AD join |
 | - | - | - | - |
 | **Client operating systems**| | |  |
 | Windows 10 devices| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
@@ -225,10 +225,6 @@ Once you have registered or joined your devices to Azure AD, use the [Azure port
 
 * [Configure your device settings](device-management-azure-portal.md#configure-device-settings)
 * You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md), automatically adding those with the device manager role as administrators to all joined devices.
-
-* [Locate devices](device-management-azure-portal.md#locate-devices)
-
-* [Perform device identity management tasks](device-management-azure-portal.md#device-identity-management-tasks)
 
 Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing current devices.
 

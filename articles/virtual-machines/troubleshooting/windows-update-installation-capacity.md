@@ -45,7 +45,7 @@ In this situation, the operating system (OS) is unable to complete a Windows Upd
 
 ### Create and Access a Repair VM
 
-1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Use steps 1-3 of the [VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 1. Using Remote Desktop Connection, connect to the Repair VM.
 
 ### Free Up Space on the disk
@@ -56,10 +56,10 @@ To solve the issue:
 - Perform a disk cleanup.
 - De-fragment the drive.
 
-1. Check if the disk is full. If the disk size is below 1 TB, expand it up to a maximum of 1 TB [using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Check if the disk is full. If the disk size is below 1 TB, expand it up to a maximum of 1 TB [using PowerShell](../windows/expand-os-disk.md).
 1. If the disk is already 1 TB, you will need to perform a disk cleanup.
-   1. Detach the data disk [from the broken VM](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk).
-   1. Attach the data disk [to a functioning VM](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm).
+   1. Detach the data disk [from the broken VM](../windows/detach-disk.md).
+   1. Attach the data disk [to a functioning VM](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
 1. Once resizing and clean-up are finished, de-fragment the drive using the following command:
 
@@ -119,4 +119,4 @@ Depending upon the level of fragmentation, de-fragmentation could take several h
    
 ### Rebuild the VM
 
-Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to rebuild the VM.
+Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to rebuild the VM.

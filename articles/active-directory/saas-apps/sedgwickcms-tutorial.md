@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Sedgwick CMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sedgwick CMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Sedgwick CMS
 
@@ -104,17 +97,13 @@ To configure Azure AD single sign-on with Sedgwick CMS, perform the following st
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `expresspreview.sedgwickcms.net/voe/sso` |
-	| `claimlookup.com/Voe/sso` |
+    - `expresspreview.sedgwickcms.net/voe/sso`
+    - `claimlookup.com/Voe/sso`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.sedgwickcms.net/voe/sso` |
-	| `https://claimlookup.com/Voe/sso` |
+    - `https://<subdomain>.sedgwickcms.net/voe/sso`
+    - `https://claimlookup.com/Voe/sso`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Sedgwick CMS Client support team](https://www.sedgwick.com/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

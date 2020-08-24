@@ -74,7 +74,7 @@ This setting mimics the [device platforms condition](concept-conditional-access-
 
 ### Client apps
 
-This setting mimics the [client apps condition](concept-conditional-access-conditions.md#client-apps-preview).
+This setting mimics the [client apps condition](concept-conditional-access-conditions.md#client-apps).
 By default, this setting causes an evaluation of all policies having **Browser** or **Mobile apps and desktop clients** either individually or both selected. It also detects policies that enforce **Exchange ActiveSync (EAS)**. You can narrow this setting down by selecting:
 
 - **Browser** to evaluate all policies having at least **Browser** selected. 

@@ -19,7 +19,7 @@ ms.custom: contperfq4
 ---
 # What are security defaults?
 
-Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing are becoming more and more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
+Managing security can be difficult with common identity-related attacks like password spray, replay, and phishing becoming more and more popular. Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:
 
 - Requiring all users to register for Azure Multi-Factor Authentication.
 - Requiring administrators to perform multi-factor authentication.
@@ -120,7 +120,7 @@ The following additional considerations are related to deployment of security de
 
 These free security defaults allow registration and use of Azure Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
 
-|   | Security defaults | Conditional Access |
+| Method | Security defaults | Conditional Access |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token | X** | X |

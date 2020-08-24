@@ -85,7 +85,7 @@ Tokens are base64 encoded and the values can be decoded at websites such as [htt
 
 We can see many important parts in this token:
 
-- aud (audience): The resource of the token. Notice that this is <https://vault.azure.net>. This token will NOT work for any resource that does not explicitly match this value, such as graph.
+- aud (audience): The resource of the token. Notice that this is `https://vault.azure.net`. This token will NOT work for any resource that does not explicitly match this value, such as graph.
 - iat (issued at): The number of ticks since the start of the epoch when the token was issued.
 - nbf (not before): The number of ticks since the start of the epoch when this token becomes valid.
 - exp (expiration): The number of ticks since the start of the epoch when this token expires.
@@ -130,7 +130,7 @@ HTTP 403 often occurs when the customer's application is not using the client ID
 
 ### Troubleshooting 403
 
-First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md)).
+First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md).
 
 Once logging is turned on, you can determine if the 403 is due to access policy or firewall policy.
 

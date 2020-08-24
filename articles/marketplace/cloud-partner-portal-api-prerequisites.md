@@ -1,12 +1,12 @@
 ---
 title: API Prerequisites - Azure Marketplace
 description: Prerequisites for using the Cloud Partner Portal APIs.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.author: dsindona
+ms.topic: reference
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
 ---
 
 
@@ -14,7 +14,7 @@ API Prerequisites
 ================
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 There are two required programmatic assets that you need to use the Cloud Partner Portal APIs: a service principal and an Azure Active Directory (Azure AD) access token.
 
@@ -22,7 +22,7 @@ There are two required programmatic assets that you need to use the Cloud Partne
 Create a service principal in your Azure Active Directory tenant
 ----------------------------------------------------------------
 
-First, you need to create a service principal in your Azure AD tenant. This tenant will be assigned its own set of permissions in the Cloud Partner Portal. Your code will call APIs using as this tenant instead of using your personal credentials.  For a full explanation of creating a service principal, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+First, you need to create a service principal in your Azure AD tenant. This tenant will be assigned its own set of permissions in the Cloud Partner Portal. Your code will call APIs using as this tenant instead of using your personal credentials.  For a full explanation of creating a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 
 Add the service principal to your account
@@ -73,7 +73,7 @@ The Cloud Partner Portal APIs use the following assets and protocols during auth
 
 - A JSON Web Token (JWT) bearer token to request access to resources
 - The [OpenID Connect](https://openid.net/connect/) (OIDC) protocol to verify identity
-- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) as the identity authority
+- [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) as the identity authority
 
 There are two principle approaches to programmatically acquiring a JWT token:
 

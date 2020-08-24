@@ -71,7 +71,7 @@ Next, add a secret to the Key Vault, so that later you can retrieve the secret u
  
 ## Access data  
 
-This section shows how to get an access token using the VM identity and use it to retrieve the secret from the Key Vault. If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
+This section shows how to get an access token using the VM identity and use it to retrieve the secret from the Key Vault. If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/).
 
 First, we use the VM’s system-assigned managed identity to get an access token to authenticate to Key Vault:
  

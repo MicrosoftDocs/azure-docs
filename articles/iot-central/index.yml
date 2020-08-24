@@ -44,9 +44,6 @@ conceptualContent:
         - url: ./core/howto-set-up-template.md
           itemType: how-to-guide
           text: Set up a device template 
-        - url: ./core/tutorial-connect-pnp-device.md
-          itemType: tutorial
-          text: Connect an IoT Plug and Play (preview) device
       footerLink: 
         url: ./core/index.yml
         text: See more
@@ -74,9 +71,9 @@ conceptualContent:
         - url: ./core/tutorial-create-telemetry-rules.md
           itemType: how-to-guide
           text: Create a telemetry rule 
-        - url: ./core/howto-export-data.md
+        - url: ./core/howto-use-data-export.md
           itemType: how-to-guide
-          text: Export data to destinations in Azure
+          text: Export data to cloud destinations - preview
       footerLink: 
         url: ./core/index.yml
         text: See more
@@ -101,6 +98,8 @@ productDirectory:
             url: ./retail/tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
             url: ./retail/tutorial-iot-central-digital-distribution-center.md 
+          - text: Create a video analytics application
+            url: ./retail/tutorial-video-analytics-create-app.md 
 
     # Card
     - title: Build for healthcare

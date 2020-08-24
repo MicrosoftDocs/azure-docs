@@ -5,12 +5,12 @@ description: Learn how to use Azure Machine Learning to deploy a model to an Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, racking-python
 
 ---
 
@@ -52,6 +52,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+For more information on entry script, see [Define scoring code](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 

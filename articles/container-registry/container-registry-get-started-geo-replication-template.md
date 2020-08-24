@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create geo-replicated registry - Resource Manager template
+title: Quickstart - Create geo-replicated registry - Azure Resource Manager template
 description: Learn how to create a geo-replicated Azure container registry by using an Azure Resource Manager template.
 services: azure-resource-manager
 author: dlepow
@@ -10,25 +10,25 @@ ms.author: danlep
 ms.date: 05/26/2020
 ---
 
-# Quickstart: Create a geo-replicated container registry by using a Resource Manager template
+# Quickstart: Create a geo-replicated container registry by using an ARM template
 
-This quickstart shows how to create an Azure Container Registry instance by using an Azure Resource Manager template. The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier. 
+This quickstart shows how to create an Azure Container Registry instance by using an Azure Resource Manager template (ARM template). The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
 ## Prerequisites
 
-None.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Create a geo-replicated registry
-
-### Review the template
+## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
 
-:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
+:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json":::
 
 The following resources are defined in the template:
 
@@ -37,7 +37,7 @@ The following resources are defined in the template:
 
 More Azure Container Registry template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
 
-### Deploy the template
+## Deploy the template
 
  1. Select the following image to sign in to Azure and open a template.
 
@@ -81,7 +81,7 @@ When you no longer need them, delete the resource group, the registry, and the r
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with a Resource Manager template, and configured a registry replica in another location. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
+In this quickstart, you created an Azure Container Registry with an ARM template, and configured a registry replica in another location. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry tutorials](container-registry-tutorial-prepare-registry.md)
@@ -89,4 +89,4 @@ In this quickstart, you created an Azure Container Registry with a Resource Mana
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first Azure Resource Manager template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

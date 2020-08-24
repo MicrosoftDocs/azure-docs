@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ---
-# Update Azure Recovery Services Vault configurations using REST API
+# Update Azure Recovery Services vault configurations using REST API
 
 This article describes how to update backup related configurations in Azure Recovery Services vault using REST API.
 
@@ -19,7 +19,7 @@ So you need to carefully choose whether or not to disable soft-delete for a part
 
 ### Fetch soft delete state using REST API
 
-By default, the soft-delete state will be enabled for any newly created Recovery Services vault. To fetch/update the state of soft-delete for a vault, use the backup vault's config related [REST API document](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs)
+By default, the soft-delete state will be enabled for any newly created Recovery Services vault. To fetch/update the state of soft-delete for a vault, use the backup vault's config related [REST API document](/rest/api/backup/backupresourcevaultconfigs)
 
 To fetch the current state of soft-delete for a vault, use the following *GET* operation
 
@@ -39,7 +39,7 @@ The successful response for the 'GET' operation is shown below:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### Example response
 
@@ -59,7 +59,7 @@ Once the 'GET' request is submitted, a 200 (successful) response is returned.
 
 ### Update soft delete state using REST API
 
-To update the soft-delete state of the recovery services vault using REST API, use the following *PATCH* operation
+To update the soft-delete state of the Recovery Services vault using REST API, use the following *PATCH* operation
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -75,13 +75,13 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 THe following common definitions are used to create a request body
 
-For more details, refer to [the REST API documentation](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
+For more details, refer to [the REST API documentation](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  Optional eTag       |
 |location     |  true       |String         |   Resource location      |
-|properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Properties of the vault       |
+|properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Properties of the vault       |
 |tags     |         | Object        |     Resource tags    |
 
 #### Example request body
@@ -97,15 +97,15 @@ The following example is used to update the soft-delete state to 'disabled'.
 }
 ```
 
-#### Responses
+#### Responses for the PATCH operation
 
 The successful response for the 'PATCH' operation is shown below:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### Example response
+##### Example response for the PATCH operation
 
 Once the 'PATCH' request is submitted, a 200 (successful) response is returned.
 

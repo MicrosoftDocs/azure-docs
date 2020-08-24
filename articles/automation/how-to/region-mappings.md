@@ -73,11 +73,11 @@ With the features removed, you can follow the steps below to unlink your Automat
 
 Alternatively, you can unlink your workspace from your Automation account within the workspace.
 
-1. In the workspace, select **Automation Account** under **Related Resources**. 
+1. In the workspace, select **Automation Account** under **Related Resources**.
 2. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 
-* Learn about Update Management in [Update Management overview](../automation-update-management.md).
+* Learn about Update Management in [Update Management overview](../update-management/update-mgmt-overview.md).
 * Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking.md).
 * Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).

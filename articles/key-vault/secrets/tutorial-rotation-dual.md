@@ -1,6 +1,6 @@
 ---
-title: Dual credential rotation tutorial
-description: Use this tutorial to learn how to automate the rotation of a secret for resources that use dual credential authentication.
+title: Rotation tutorial for resources with two sets of credentials
+description: Use this tutorial to learn how to automate the rotation of a secret for resources that use two sets of authentication credentials.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -13,11 +13,11 @@ ms.date: 06/22/2020
 ms.author: jalichwa
 
 ---
-# Automate the rotation of a secret for resources that use dual credential authentication
+# Automate the rotation of a secret for resources with two sets of authentication credentials
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or passwords are used. Access keys and passwords should be rotated frequently.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use dual credential authentication. Specifically, this tutorial rotates Azure Storage account keys stored in Azure Key Vault as secrets using a function triggered by Azure Event Grid notification. :
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. Specifically, this tutorial rotates Azure Storage account keys stored in Azure Key Vault as secrets using a function triggered by Azure Event Grid notification. :
 
 > [!NOTE]
 > Storage Account Keys can be automatically managed in Key Vault by providing shared access signature tokens for delegated access to Storage Account. There are services which require storage account connection string with access key and for that scenario this solution is recommended
@@ -37,9 +37,8 @@ In above solution, Azure Key Vault stores Storage Account individual access keys
 * Two Azure Storage Accounts
 
 Below deployment link can be used, if you don't have existing key vault and storage accounts:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. Under **Resource group**, select **Create new**. Name the group **akvrotation** and click **Ok**.
 1. Select **Review+Create**.
@@ -76,9 +75,8 @@ The function app rotation functions require these components and configuration:
 - EventGrid event subscription for **SecretNearExpiry** event
 
 1. Select the Azure template deployment link: 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+   [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. In the **Resource group** list, select **akvrotation**.
 1. In the **Storage Account Name**, type the storage account name with access keys to rotate
@@ -153,9 +151,8 @@ Adding additional storage account keys for rotation to existing function require
 - EventGrid event subscription for **SecretNearExpiry** event
 
 1. Select the Azure template deployment link: 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+   [![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. In the **Resource group** list, select **akvrotation**.
 1. In the **Storage Account Name**, type the storage account name with access keys to rotate

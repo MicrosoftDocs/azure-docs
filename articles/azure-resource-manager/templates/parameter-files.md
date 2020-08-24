@@ -180,8 +180,8 @@ The following example shows the formats of different parameter types.
 
 See:
 
-- [Deploy resources with ARM templates and Azure CLI](./deploy-powershell.md#pass-parameter-values)
-- [Deploy resources with ARM templates and Azure PowerShell](./deploy-cli.md#parameters)
+- [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters)
+- [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
 
 ## File name
 

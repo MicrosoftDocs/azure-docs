@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: seoapr2020
+ms.topic: how-to
+ms.custom: contperfq1
 ms.date: 05/27/2020
 ---
 # Connect to Apache Beeline on HDInsight or install it locally

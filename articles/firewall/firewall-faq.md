@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/13/2020
 ms.author: victorh
 ---
 
@@ -17,15 +17,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## What capabilities are supported in Azure Firewall?
 
-* Stateful firewall as a service
-* Built-in high availability with unrestricted cloud scalability
-* FQDN filtering
-* FQDN tags
-* Network traffic filtering rules
-* Outbound SNAT support
-* Inbound DNAT support
-* Centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
-* Fully integrated with Azure Monitor for logging and analytics
+To learn about Azure Firewall features, see [Azure Firewall features](features.md).
 
 ## What is the typical deployment model for Azure Firewall?
 
@@ -98,8 +90,10 @@ Set-AzFirewall -AzureFirewall $azfw
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
-$azfw.Allocate($vnet,$publicip)
+$publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+$publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+$azfw.Allocate($vnet,@($publicip1,$publicip2))
+
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
@@ -124,7 +118,7 @@ Azure Firewall doesn't SNAT when the destination IP address is a private IP rang
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
-Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md). 
+Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 
@@ -139,6 +133,8 @@ Yes. The firewall, VNet, and the public IP address all must be in the same resou
 No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 ## How do wildcards work in an application rule target FQDN?
+
+Wildcards currently can only be used on the left side of the FQDN. For example, ***.contoso.com** and ***contoso.com**.
 
 If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
 
@@ -171,7 +167,9 @@ Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out t
 
 ## How long does it take for Azure Firewall to scale out?
 
-Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
+Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. A default deployment maximum throughput is approximately 2.5 - 3 Gbps and starts to scale out when it reaches 60% of that number. Scale out takes five to seven minutes. 
+
+When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
 
 ## Does Azure Firewall allow access to Active Directory by default?
 
@@ -182,9 +180,9 @@ No. Azure Firewall blocks Active Directory access by default. To allow access, c
 Yes, you can use Azure PowerShell to do it:
 
 ```azurepowershell
-# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+# Add a Threat Intelligence allow list to an Existing Azure Firewall
 
-## Create the Whitelist with both FQDN and IPAddresses
+## Create the allow list with both FQDN and IPAddresses
 
 $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
 $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
@@ -192,9 +190,10 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 
 ## Or Update FQDNs and IpAddresses separately
 
-$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
-$fw.ThreatIntelWhitelist.FQDNs = @("fqdn1", "fqdn2", …)
-$fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
+$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)
+$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
+
 
 Set-AzFirewall -AzureFirewall $fw
 ```
@@ -214,3 +213,11 @@ No, moving an IP Group to another resource group isn't currently supported.
 ## What is the TCP Idle Timeout for Azure Firewall?
 
 A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## Can I deploy Azure Firewall without a public IP address?
+
+No, currently you must deploy Azure Firewall with a public IP address.
+
+## Where does Azure Firewall store customer data?
+
+Azure Firewall doesn't move or store customer data out of the region it's deployed in.

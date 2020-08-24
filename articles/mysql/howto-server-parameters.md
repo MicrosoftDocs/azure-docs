@@ -4,7 +4,7 @@ description: This article describes how to configure MySQL server parameters in 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
 ---
 
@@ -28,7 +28,7 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 
 If the server parameter you want to update is not listed in the Azure portal, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server. 
 
-1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MariaDB server.
+1. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
 2. Search for `init_connect`
 3. Add the server parameters in the format: `SET parameter_name=YOUR_DESIRED_VALUE` in value the value column.
 

@@ -12,31 +12,34 @@ ms.date: 03/13/2020
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
-# Quickstart: Create Interactive Query cluster in Azure HDInsight using Resource Manager template
+# Quickstart: Create Interactive Query cluster in Azure HDInsight using ARM template
 
-In this quickstart, you use an Azure Resource Manager template to create an [Interactive Query](./apache-interactive-query-get-started.md) cluster in Azure HDInsight. Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an [Interactive Query](./apache-interactive-query-get-started.md) cluster in Azure HDInsight. Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
+
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create an Interactive Query cluster
+## Review the template
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-interactive-hive/).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-interactive-hive).
-
-:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json" range="1-158":::
-
+:::code language="json" source="~/quickstart-templates/101-hdinsight-interactive-hive/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): create an HDInsight cluster.
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): create an HDInsight cluster.
 
 ### Deploy the template
 
-1. Select the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template.
+1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
     [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json)
 
@@ -73,7 +76,7 @@ You can also select the resource group name to open the resource group page, and
 
 ## Next steps
 
-In this quickstart, you learned how to create an Interactive Query cluster in HDInsight using a Resource Manager template. In the next article, you learn how to use Apache Zeppelin to run Apache Hive queries.
+In this quickstart, you learned how to create an Interactive Query cluster in HDInsight using an ARM template. In the next article, you learn how to use Apache Zeppelin to run Apache Hive queries.
 
 > [!div class="nextstepaction"]
 > [Execute Apache Hive queries in Azure HDInsight with Apache Zeppelin](./hdinsight-connect-hive-zeppelin.md)

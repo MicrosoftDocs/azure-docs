@@ -36,7 +36,7 @@ You need the Azure CLI version 2.0.65 or later installed and configured. Run `a
 
 In many environments, you have defined virtual networks and subnets with allocated IP address ranges. These virtual network resources are used to support multiple services and applications. To provide network connectivity, AKS clusters can use *kubenet* (basic networking) or Azure CNI (*advanced networking*).
 
-With *kubenet*, only the nodes receive an IP address in the virtual network subnet. Pods can't communicate directly with each other. Instead, User Defined Routing (UDR) and IP forwarding is used for connectivity between pods across nodes. You could also deploy pods behind a service that receives an assigned IP address and load balances traffic for the application. The following diagram shows how the AKS nodes receive an IP address in the virtual network subnet, but not the pods:
+With *kubenet*, only the nodes receive an IP address in the virtual network subnet. Pods can't communicate directly with each other. Instead, User Defined Routing (UDR) and IP forwarding is used for connectivity between pods across nodes. By default, UDRs and IP forwarding configuration is created and maintained by the AKS service, but you have to the option to [bring your own route table for custom route management][byo-subnet-route-table]. You could also deploy pods behind a service that receives an assigned IP address and load balances traffic for the application. The following diagram shows how the AKS nodes receive an IP address in the virtual network subnet, but not the pods:
 
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
@@ -44,13 +44,24 @@ Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluste
 
 With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with *Azure CNI*.
 
+### Limitations & considerations for kubenet
+
+* An additional hop is required in the design of kubenet, which adds minor latency to pod communication.
+* Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
+* Direct pod addressing isn't supported for kubenet due to kubenet design.
+* Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
+* Features **not supported on kubenet** include:
+   * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
+   * [Windows node pools](windows-node-limitations.md)
+   * [Virtual nodes add-on](virtual-nodes-portal.md#known-limitations)
+
 ### IP address availability and exhaustion
 
 With *Azure CNI*, a common issue is the assigned IP address range is too small to then add additional nodes when you scale or upgrade a cluster. The network team may also not be able to issue a large enough IP address range to support your expected application demands.
 
 As a compromise, you can create an AKS cluster that uses *kubenet* and connect to an existing virtual network subnet. This approach lets the nodes receive defined IP addresses, without the need to reserve a large number of IP addresses up front for all of the potential pods that could run in the cluster.
 
-With *kubenet*, you can use a much smaller IP address range and be able to support large clusters and application demands. For example, even with a */27* IP address range, you could run a 20-25 node cluster with enough room to scale or upgrade. This cluster size would support up to *2,200-2,750* pods (with a default maximum of 110 pods per node). The maximum number of pods per node that you can configure with *kubenet* in AKS is 110.
+With *kubenet*, you can use a much smaller IP address range and be able to support large clusters and application demands. For example, even with a */27* IP address range on your subnet, you could run a 20-25 node cluster with enough room to scale or upgrade. This cluster size would support up to *2,200-2,750* pods (with a default maximum of 110 pods per node). The maximum number of pods per node that you can configure with *kubenet* in AKS is 110.
 
 The following basic calculations compare the difference in network models:
 
@@ -80,7 +91,7 @@ Use *Azure CNI* when:
 
 - You have available IP address space.
 - Most of the pod communication is to resources outside of the cluster.
-- You don't want to manage the UDRs.
+- You don't want to manage user defined routes for pod connectivity.
 - You need AKS advanced features such as virtual nodes or Azure Network Policy.  Use [Calico network policies][calico-network-policies].
 
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
@@ -135,10 +146,10 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Now assign the service principal for your AKS cluster *Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own *\<appId>* as shown in the output from the previous command to create the service principal:
+Now assign the service principal for your AKS cluster *Network Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own *\<appId>* as shown in the output from the previous command to create the service principal:
 
 ```azurecli-interactive
-az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
+az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Contributor"
 ```
 
 ## Create an AKS cluster in the virtual network
@@ -234,7 +245,7 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [building apps using Azure Dev Spaces][dev-spaces], [deploy existing apps using Helm][use-helm], or [creating new apps using Helm][develop-helm].
 
 <!-- LINKS - External -->
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
@@ -249,6 +260,7 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
 [virtual-nodes]: virtual-nodes-cli.md
