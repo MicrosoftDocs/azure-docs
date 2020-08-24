@@ -388,7 +388,7 @@ The following table shows the PowerShell versions supported by each major versio
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3.x (recommended) | PowerShell 7 (recommended)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.2 |
+| 3.x (recommended) | PowerShell 7 (recommended)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
 | 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
