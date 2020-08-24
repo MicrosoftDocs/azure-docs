@@ -64,7 +64,7 @@ requests
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
-Then alert would run the query every 15 minutes, with 15 minutes of data, looking records where result code was 500. If even one such record is found, it fires the alert and triggers the actions configured.
+Then alert rules monitors for any requests ending with 500 error code. The query runs every 15 minutes, over the last 15 minutes. If even one record is found, it fires the alert and triggers the actions configured.
 
 #### Calculation of measure based on a number column (such as CPU counter value)
 
@@ -106,7 +106,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
     or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
     ```
 
-    When using workspaces and Application Insights this line needs to be added when using **Metric measurement** alert logic:
+    When using workspaces and Application Insights, this line needs to be added when using **Metric measurement** alert logic:
 
     ```Kusto
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
@@ -119,7 +119,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
 
-This rule monitors if event errors happened in the last 15 minutes in the virtual machines. Each instance will be monitored and trigger actions individually.
+This rule monitors if any virtual machine had error events in the last 15 minutes. Each virtual machine is monitored separately and will trigger actions individually.
 
 > [!NOTE]
 > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale at scale is only supported in the API version `2020-05-01-preview` and above.

@@ -648,7 +648,7 @@ New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name f
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-The log alert service currently doesn't have a dedicated CLI, but can still used with Azure Resource Manager CLI with templates files:
+The log alert service currently doesn't have a dedicated CLI, but can be used with Azure Resource Manager CLI with templates files:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
