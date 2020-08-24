@@ -15,7 +15,7 @@ ms.author: sebansal
 ---
 # Export certificates from Azure Key Vault
 
-Learn how to export certificates from Azure Key Vault. You can export by using Azure CLI, Azure PowerShell or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
+Learn how to export certificates from Azure Key Vault. You can export certificates by using Azure CLI, Azure PowerShell or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
 
 ## About Azure Key Vault certificates
 
@@ -27,7 +27,7 @@ When a Key Vault certificate is created, an addressable *key* and *secret* are c
 
 ### Exportable and non-exportable keys
 
-After a Key Vault certificate is created, you can retrieve it from the addressable secret, with the private key. This can be done in PFX or PEM format.
+After a Key Vault certificate is created, you can retrieve it from the addressable secret with the private key. Retrieve the certificate in PFX or PEM format.
 
 - **Exportable**: The policy used to create the certificate indicates the key is exportable.
 - **Non-exportable**: The policy used to create the certificate indicates the key is non-exportable. In this case, the private key isn't part of the value when it's retrieved as a secret.
@@ -41,13 +41,13 @@ See [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-va
 
 ## Export stored certificates
 
-You can export stored certificates in Azure Key Vault by using Azure CLI, Azure PowerShell or the Azure portal.
+You can export stored certificates in Azure Key Vault by using Azure CLI, Azure PowerShell, or the Azure portal.
 
 > [!NOTE]
-> Only require a certificate password when you import it in the key vault. Key Vault doesn't save the associated password. So, when you export the certificate, the password is blank.
+> Only require a certificate password when you import the certificate in the key vault. Key Vault doesn't save the associated password. When you export the certificate, the password is blank.
 
 
-# [CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the following command in Azure CLI to download the **public portion** of a Key Vault certificate.
 
@@ -75,7 +75,7 @@ az keyvault secret download –file {nameofcert.pfx}
                             [--version]
 ```
 
-See [parameter definitions](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download) for more information.
+For more information, see [parameter definitions](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -93,12 +93,12 @@ $pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
 [System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
 ```
 
-This command exports the entire chain of certificates with private key. This certificate is password protected.
-For more information on the **Get-AzKeyVaultCertificate** command and parameters, refer to [Example 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+This command exports the entire chain of certificates with private key. The certificate is password protected.
+For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # [Portal](#tab/azure-portal)
 
-On the Azure portal, when you create/import a certificate on the **Certificate** blade, you get a notification that the certificate is successfully created. You can select the current version of the certificate to see the option to download.
+On the Azure portal, after you create/import a certificate on the **Certificate** blade, you get a notification that the certificate is successfully created. Select the certificate and the current version to see the option to download.
 
 To download the certificate, select **Download in CER format** or **Download in PFX/PEM format**.
 
@@ -106,9 +106,9 @@ To download the certificate, select **Download in CER format** or **Download in 
 
 **Export Azure App Service certificates**
 
-Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. These certificates can also be exported from the portal as PFX files to be used elsewhere. Once imported, the App Service certificates are located under **secrets**.
+Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. You can also export these certificates from the portal as PFX files to be used elsewhere. After you import them, the App Service certificates are located under **secrets**.
 
-See [Exporting Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx) for steps to export these certificates.
+For more information, see the steps to [export Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
 ## Read more
 * [Various certificate file types and definitions](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
