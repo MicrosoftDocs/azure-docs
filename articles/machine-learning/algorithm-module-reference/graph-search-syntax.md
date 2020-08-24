@@ -1,7 +1,7 @@
 ---
 title: "Graph search query syntax"
 titleSuffix: Azure Machine Learning
-description: Learn how to use custom query to search for a node in pipeline graph.
+description: Learn how to use the search query syntax to search for nodes in in pipeline graph.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 8/24/2020
 ---
 # Graph search query syntax
 
-In this article, you learn about the graph search query syntax in Azure Machine Learning.  The graph search feature lets you search for a node by its name and properties. 
+In this article, you learn about the graph search query syntax in Azure Machine Learning. The graph search feature lets you search for a node by its name and properties. 
 
  ![Animated screenshot showing an example graph search experience](media/search/graph-search.gif)
 
