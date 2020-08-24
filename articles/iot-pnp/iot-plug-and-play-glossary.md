@@ -88,7 +88,7 @@ The IoT Hub query language is used for multiple purposes. For example, you can u
 
 ## IoT Plug and Play bridge
 
-IoT Plug and Play bridge is an open-source application that enable existing sensors and peripherals attached to Windows or Linux gateways to connect as [IoT Plug and Play devices](#iot-plug-and-play-device).
+IoT Plug and Play bridge is an open-source application that enables existing sensors and peripherals attached to Windows or Linux gateways to connect as [IoT Plug and Play devices](#iot-plug-and-play-device).
 
 ## IoT Plug and Play device
 
