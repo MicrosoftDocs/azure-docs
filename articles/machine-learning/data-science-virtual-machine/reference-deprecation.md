@@ -39,7 +39,7 @@ Any provisioned DSVM image in your subscription will continue to operate after t
 
 ## Impact
 
-Existing DSVM provisioned images in your subscription will continue to operate after the retirement date. However, we recommend users upgrade their DSVM image to the newer version using either the Azure Portal or ARM template.
+Existing DSVM provisioned images in your subscription will continue to operate after the retirement date. However, we recommend users upgrade their DSVM image to the newer version using either the Azure portal or ARM template.
 
 > [!WARNING]
 > Retired DSVM images provisioned using Virtual Machine Scale Sets will fail to scale up after the retirement date.

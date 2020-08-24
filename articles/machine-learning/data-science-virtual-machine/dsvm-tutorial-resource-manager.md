@@ -69,7 +69,7 @@ When you run the above command, enter:
 
 To see your Data Science Virtual Machine:
 
-1. Go to the [Azure Portal](https://portal.azure.com)
+1. Go to the [Azure portal](https://portal.azure.com)
 1. Sign in.
 1. Choose the resource group you just created.
 
