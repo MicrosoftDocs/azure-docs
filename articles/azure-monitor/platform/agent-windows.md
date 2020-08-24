@@ -1,5 +1,5 @@
 ---
-title: Connect Windows computers to Azure Monitor | Microsoft Docs
+title: Install Log Analytics agent on Windows computers
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.subservice: logs
 ms.topic: conceptual
@@ -21,9 +21,7 @@ This article provides details on installing the Log Analytics agent on Windows c
 > [!NOTE]
 > If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
-## Requirements
-
-### Supported operating systems
+## Supported operating systems
 
 See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Windows versions supported by the Log Analytics agent.
 
@@ -39,7 +37,7 @@ The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020
 3. Update to the latest version of the Windows agent (version 10.20.18029).
 4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
-### Network requirements
+## Network requirements
 See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
 
 

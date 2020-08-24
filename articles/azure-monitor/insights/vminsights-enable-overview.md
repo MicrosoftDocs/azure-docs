@@ -77,17 +77,14 @@ If you don't have a Log Analytics workspace, you can create one by using one of 
 Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Overview of Azure Monitor agents
 ](../platform/agents-overview.md#supported-operating-systems) for a complete list.
 
+See the following list of considerations on Linux support:
 
-### Linux considerations and 
-<sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
-
->[!NOTE]
->In the Linux operating system:
-> - Only default and SMP Linux kernel releases are supported.
-> - Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
-> - Custom kernels, including recompilations of standard kernels, aren't supported.
-> - CentOSPlus kernel is supported.
-> - The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
+- Only default and SMP Linux kernel releases are supported.
+- Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
+- Custom kernels, including recompilations of standard kernels, aren't supported.
+- For Debian distros, the map feature isn't supported, and the Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
+- CentOSPlus kernel is supported.
+- The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
 
 
 

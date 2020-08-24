@@ -1,5 +1,5 @@
 ---
-title: Connect Linux computers to Azure Monitor | Microsoft Docs
+title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
 ms.subservice: logs
 ms.topic: conceptual
@@ -20,9 +20,7 @@ This article provides details on installing the Log Analytics agent on Windows c
 
 
 
-## Requirements
-
-### Supported operating systems
+## Supported operating systems
 
 See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Linux distributions supported by the Log Analytics agent.
 
@@ -55,7 +53,7 @@ The python2 executable must be aliased to "python" using the following command:
 alternatives --set python `which python2`
 ```
 
-### Supported Linux hardening
+## Supported Linux hardening
 The OMS Agent has limited customization support for Linux. 
 
 The following are currently supported: 
@@ -67,7 +65,7 @@ The following are planned but not yet supported:
 
 Other hardening and customization methods are not supported nor planned for OMS Agent.  
 
-### Agent prerequisites
+## Agent prerequisites
 
 The following table highlights the packages required for [supported Linux distros](#supported-operating-systems) that the agent will be installed on.
 
@@ -83,7 +81,7 @@ The following table highlights the packages required for [supported Linux distro
 >[!NOTE]
 >Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
-### Network requirements
+## Network requirements
 See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
 
 ## Agent install package
