@@ -294,7 +294,7 @@
       - name: What are Azure reservations?
         href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
       - name: VM instance size flexibility
-        href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Spot VMs
       displayName: pre-empt, preempt
       href: spot-vms.md
@@ -317,7 +317,7 @@
       - name: What are Azure reservations?
         href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
       - name: VM instance size flexibility
-        href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Benchmark scores
       href: compute-benchmark-scores.md
   - name: Endorsed distros
@@ -331,7 +331,7 @@
     - name: Introduction to managed disks
       href: ../managed-disks-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Select a disk type for IaaS VMs
-      href: ../disks-types.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encryption
       href: disk-encryption.md
     - name: Disk Storage reservations
