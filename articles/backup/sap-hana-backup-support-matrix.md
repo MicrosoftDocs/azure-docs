@@ -37,7 +37,6 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 >
 >Modify the policy manually as needed.
 
-
 > [!NOTE]
 > You can now [monitor the backup and restore](./sap-hana-db-manage.md#monitor-manual-backup-jobs-in-the-portal) jobs (to the same machine) triggered from HANA native clients (SAP HANA Studio/ Cockpit/ DBA Cockpit) in the Azure portal.
 
