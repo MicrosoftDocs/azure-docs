@@ -63,7 +63,7 @@ This article documents the security controls that are built into Azure SQL Datab
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md). |
-| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](data-discovery-and-classification-overview.md). |
+| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md). |
 | Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](threat-detection-overview.md). |
 
 ## Next steps
