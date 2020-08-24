@@ -3,7 +3,7 @@ title: Create a Linux environment with the Azure CLI
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
 
@@ -319,7 +319,7 @@ Output:
 ```
 
 ## Create a virtual NIC
-Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](/cli/azure/network/nic) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
+Virtual network interface cards (NICs) are programmatically available because you can apply rules to their use. Depending on the [VM size](../sizes.md), you can attach multiple virtual NICs to a VM. In the following [az network nic create](/cli/azure/network/nic) command, you create a NIC named *myNic* and associate it with your network security group. The public IP address *myPublicIP* is also associated with the virtual NIC.
 
 ```azurecli
 az network nic create \

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with MVISION Cloud Azure AD SSO Configuration | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and MVISION Cloud Azure AD SSO Configuration.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 48d6ddd1-4d3e-4019-8234-5e5212684d9c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate MVISION Cloud Azure AD SSO Configuration with Azure Active Directory
 

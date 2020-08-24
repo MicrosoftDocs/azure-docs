@@ -5,11 +5,13 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Marketplace Insights dashboard in Partner Center
 
-This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace storefronts: Microsoft AppSource and Azure Marketplace.
+This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace.
 
 ## Marketplace Insights dashboard
 
@@ -35,11 +37,11 @@ The maximum latency between users visiting offers on Azure Marketplace or AppSou
 
 View commercial marketplace metrics in a variety of ways:
 
-- Storefront tabs
+- Online store tabs
 - Page filters
 - Date filters
 
-**Storefront tabs**: You can view the metrics of your offers separately via the AppSource & Azure Marketplace tabs. Select the offer(s) from the offer dropdown list on the right to see a visualization of the metrics for the selected offer(s). By default, all offers are selected.
+**Online store tabs**: You can view the metrics of your offers separately via the AppSource & Azure Marketplace tabs. Select the offer(s) from the offer dropdown list on the right to see a visualization of the metrics for the selected offer(s). By default, all offers are selected.
 
 ![Partner Center Insights dashboard offer dropdown list](./media/insights-offer-dropdown.png)
 
@@ -89,7 +91,7 @@ The heatmap includes the following capabilities:
 
 ## Page visits versus unique visitors trend
 
-The columns below represent the count of monthly page visits, which are displayed on the Y-axis (axis on the left side of the chart). The trend line represents the monthly trend of unique visitors, which is displayed on the secondary Y-Axis (axis on the right side of the chart), for your offers published in the storefronts: Azure Marketplace and AppSource.
+The columns below represent the count of monthly page visits, which are displayed on the Y-axis (axis on the left side of the chart). The trend line represents the monthly trend of unique visitors, which is displayed on the secondary Y-Axis (axis on the right side of the chart), for your offers published in the online stores: Azure Marketplace and AppSource.
 
 ![Partner Center Insights page visits versus unique visitors trend](./media/insights-page-vists-unique-visitors.png)
 

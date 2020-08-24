@@ -13,9 +13,11 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 
+ms.custom: contperfq1
+
 ms.collection: M365-identity-device-management
 ---
-# What is Azure Active Directory Identity Protection?
+# What is Identity Protection?
 
 Identity Protection is a tool that allows organizations to accomplish three key tasks:
 
@@ -66,6 +68,12 @@ Administrators can review detections and take manual action on them if needed. T
 - Risk detections
 
 More information can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk.md).
+
+### Risk levels
+
+Identity Protection categorizes risk into three tiers: low, medium, and high. 
+
+While Microsoft does not provide specific details about how risk is calculated, we will say that each level brings higher confidence that the user or sign-in is compromised. For example, something like one instance of unfamiliar sign-in properties for a user might not be as threatening as leaked credentials for another user.
 
 ## Exporting risk data
 

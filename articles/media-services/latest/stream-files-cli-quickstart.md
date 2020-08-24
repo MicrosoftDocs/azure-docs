@@ -10,7 +10,7 @@ keywords: azure media services, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.date: 08/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.

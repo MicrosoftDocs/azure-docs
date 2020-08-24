@@ -1,5 +1,5 @@
 ---
-title: How to use Azure ML environments 
+title: Use software environments 
 titleSuffix: Azure Machine Learning
 description: Create and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.author: roastala
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 07/23/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
 ---
 
-# How to use environments in Azure Machine Learning
+# Create & use software environments in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Use the environments to track and reproduce your projects' software dependencies as they evolve.
@@ -30,7 +30,7 @@ The examples in this article show how to:
 * Use an environment for training.
 * Use an environment for web service deployment.
 
-For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md).
+For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about configuring development environments, see [here](how-to-configure-environment.md).
 
 ## Prerequisites
 
@@ -60,11 +60,6 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
-To modify a curated environment, it must be copied:
-
-```python
-env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
-```
 You can list the curated environments and their packages by using the following code:
 
 ```python
@@ -247,6 +242,9 @@ build.wait_for_completion(show_output=True)
 
 It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. And setting the optional parameter `pushImageToWorkspaceAcr = True` will push the resulting image into the Azure ML workspace container registry. 
 
+> [!WARNING]
+>  Changing the order of dependencies or channels in an environment will result in a new environment and will require a new image build.
+
 ## Enable Docker
 
 Docker container provides an efficient way to encapsulate the dependencies. When you enable Docker, Azure ML builds a Docker image and creates a Python environment within that container, given your specifications. The Docker images are cached and reused: the first run in a new environment typically takes longer as the image is build.
@@ -260,7 +258,8 @@ myenv.docker.enabled = True
 
 By default, the newly built Docker image appears in the container registry that's associated with the workspace.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuid*) part of the name corresponds to a hash that's computed from the environment configuration. This correspondence allows the service to determine whether an image for the given environment already exists for reuse.
 
-Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers). It installs the specified Python packages. The base image has CPU versions and GPU versions. Azure Machine Learning automatically detects which version to use. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
+### Use a custom Docker image or Dockerfile 
+The service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers). It installs the specified Python packages. The base image has CPU versions and GPU versions. Azure Machine Learning automatically detects which version to use. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -316,6 +315,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 
 > [!WARNING]
 > If you install some Python dependencies in your Docker image and forget to set user_managed_dependencies = True, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
+
+### Retrieve image details
+
+For a registered environment, you can retrieve image details using the following code where `details` is an instance of [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11) and provides all the information about the environment image such as the dockerfile, registry, and image name.
+
+```python
+details = environment.get_image_details()
+```
 
 ## Use environments for training
 
@@ -405,11 +412,9 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## Example notebooks
+## Notebooks
 
-This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
-
-This [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) demonstrates how to train a model locally with different types of environments.
+This [article](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

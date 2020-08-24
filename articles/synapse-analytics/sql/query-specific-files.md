@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Using file metadata in queries
+# Use file metadata in queries
 
 The SQL on-demand Query service can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
 

@@ -3,18 +3,18 @@ title: Encryption-at-rest with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: article
 ms.date: 05/01/2020
-ms.custom: 
+ms.custom:
 ---
 
 # Encrypt registry using a customer-managed key
 
-When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
+When you store images and other artifacts in an Azure container registry, Azure automatically encrypts the registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md). You can supplement default encryption with an additional encryption layer using a key that you create and manage in Azure Key Vault. This article walks you through the steps using the Azure CLI and the Azure portal.
 
 Server-side encryption with customer-managed keys is supported through integration with [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or use Azure Key Vault's APIs to generate keys. With Azure Key Vault, you can also audit key usage.
 
 This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
-   
+
 ## Things to know
 
 * You can currently enable a customer-managed key only when you create a registry.
@@ -43,7 +43,7 @@ Create a user-assigned [managed identity for Azure resources](../active-director
 ```azurecli
 az identity create \
   --resource-group <resource-group-name> \
-  --name <managed-identity-name> 
+  --name <managed-identity-name>
 ```
 
 In the command output, take note of the following values: `id` and `principalId`. You need these values in later steps to configure registry access to the key vault.
@@ -73,9 +73,9 @@ identityPrincipalID=$(az identity show --resource-group <resource-group-name> --
 
 ### Create a key vault
 
-Create a key vault with [az keyvault create][az-keyvault-create] to store a customer-managed key for registry encryption. 
+Create a key vault with [az keyvault create][az-keyvault-create] to store a customer-managed key for registry encryption.
 
-To prevent data loss caused by accidental key or key vault deletions, you must enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings: 
+To prevent data loss caused by accidental key or key vault deletions, you must enable the following settings: **Soft delete** and **Purge protection**. The following example includes parameters for these settings:
 
 ```azurecli
 az keyvault create --name <key-vault-name> \
@@ -93,7 +93,7 @@ az keyvault set-policy \
   --resource-group <resource-group-name> \
   --name <key-vault-name> \
   --object-id $identityPrincipalID \
-  --key-permissions get unwrapKey wrapKey 
+  --key-permissions get unwrapKey wrapKey
 ```
 
 ### Create key and get key ID
@@ -156,7 +156,7 @@ az acr create \
 To show whether registry encryption with a customer-managed key is enabled, run the [az acr encryption show][az-acr-encryption-show] command:
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 Output is similar to:
@@ -227,7 +227,7 @@ To see the encryption status of your registry in the portal, navigate to your re
 
 ## Enable customer-managed key - template
 
-You can also use a Resource Manager template to create a registry and enable encryption with a customer-managed key. 
+You can also use a Resource Manager template to create a registry and enable encryption with a customer-managed key.
 
 The following template creates a new container registry and a user-assigned managed identity. Copy the following contents to a new file and save it using a filename such as `CMKtemplate.json`.
 
@@ -340,7 +340,7 @@ Follow the steps in the previous sections to create the following resources:
 * Key vault, identified by name
 * Key vault key, identified by key ID
 
-Run the following [az group deployment create][az-group-deployment-create] command to create the registry using the preceding template file. Where indicated, provide a new registry name and managed identity name, as well as the key vault name and key ID you created. 
+Run the following [az group deployment create][az-group-deployment-create] command to create the registry using the preceding template file. Where indicated, provide a new registry name and managed identity name, as well as the key vault name and key ID you created.
 
 ```bash
 az group deployment create \
@@ -358,7 +358,7 @@ az group deployment create \
 To show the status of registry encryption, run the [az acr encryption show][az-acr-encryption-show] command:
 
 ```azurecli
-az acr encryption show --name <registry-name> 
+az acr encryption show --name <registry-name>
 ```
 
 ## Use the registry
@@ -372,7 +372,7 @@ Rotate a customer-managed key used for registry encryption to your compliance po
 When rotating a key, typically you specify the same identity used when creating the registry. Optionally, configure a new user-assigned identity for key access, or enable and specify the registry's system-assigned identity.
 
 > [!NOTE]
-> Ensure that the required [key vault access policy](#add-key-vault-access-policy) is set for the identity you configure for key access. 
+> Ensure that the required [key vault access policy](#add-key-vault-access-policy) is set for the identity you configure for key access.
 
 ### Azure CLI
 
@@ -382,12 +382,12 @@ Use [az keyvault key][az-keyvault-key] commands to create or manage your key vau
 # Create new version of existing key
 az keyvault key create \
   –-name <key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 
 # Create new key
 az keyvault key create \
   –-name <new-key-name> \
-  --vault-name <key-vault-name> 
+  --vault-name <key-vault-name>
 ```
 
 Then run the [az acr encryption rotate-key][az-acr-encryption-rotate-key] command, passing the new key ID and the identity you want to configure:
@@ -408,14 +408,14 @@ az acr encryption rotate-key \
 
 ### Portal
 
-Use the registry's **Encryption** settings to update the key version, key, key vault, or identity settings used for the customer-managed key. 
+Use the registry's **Encryption** settings to update the key version, key, key vault, or identity settings used for the customer-managed key.
 
 For example, to generate and configure a new key version:
 
-1. In the portal, navigate to your registry. 
+1. In the portal, navigate to your registry.
 1. Under **Settings**, select  **Encryption** > **Change key**.
 1. Select **Select key**
-    
+
     ![Rotate key in the Azure portal](./media/container-registry-customer-managed-keys/rotate-key.png)
 1. In the **Select key from Azure Key Vault** window, select the key vault and key you configured previously, and in **Version**, select **Create new**.
 1. In the **Create a key** window, select **Generate**, and then **Create**.
@@ -442,7 +442,7 @@ You can configure a registry's system-assigned managed identity to access the ke
 
 To enable the registry's system-assigned identity in the portal:
 
-1. In the portal, navigate to your registry. 
+1. In the portal, navigate to your registry.
 1. Select **Settings** >  **Identity**.
 1. Under **System assigned**, set **Status** to **On**. Select **Save**.
 1. Copy the **Object ID** of the identity.
@@ -457,7 +457,7 @@ To grant the identity access to your key vault:
 
 To update the registry's encryption settings to use the identity:
 
-1. In the portal, navigate to your registry. 
+1. In the portal, navigate to your registry.
 1. Under **Settings**, select  **Encryption** > **Change key**.
 1. In **Identity**, select **System assigned**, and select **Save**.
 
@@ -466,9 +466,9 @@ To update the registry's encryption settings to use the identity:
 If your Azure key vault is deployed in a virtual network with a Key Vault firewall, perform the following steps:
 
 1. Configure registry encryption to use the registry's system-assigned identity. See the preceding section.
-2. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+2. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
 
-For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md). 
+For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
 
 ## Next steps
 

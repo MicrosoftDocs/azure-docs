@@ -28,7 +28,7 @@ Speech containers enable customers to build a speech application architecture th
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 | Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -349,7 +349,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Text-to-speech* container from the container image.
-* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
@@ -389,7 +389,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs a *Custom Text-to-speech* container from the container image.
-* Allocates 2 CPU cores and one gigabyte (GB) of memory.
+* Allocates 1 CPU core and 2 gigabytes (GB) of memory.
 * Loads the *Custom Text-to-speech* model from the volume input mount, for example *C:\CustomVoice*.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Downloads the model given the `ModelId` (if not found on the volume mount).

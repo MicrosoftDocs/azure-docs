@@ -14,7 +14,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 To get started, [install the latest PowerShell release](/powershell/azure/install-az-ps).
 
-## Create a recovery services vault
+## Create a Recovery Services vault
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
@@ -118,7 +118,7 @@ The available options include:
 | /pu |Proxy Host UserName |- |
 | /pw |Proxy Password |- |
 
-## Registering Windows Server or Windows client machine to a Recovery Services Vault
+## Registering Windows Server or Windows client machine to a Recovery Services vault
 
 After you created the Recovery Services vault, download the latest agent and the vault credentials and store it in a convenient location like C:\Downloads.
 
@@ -142,7 +142,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet to register the machine with the vault.
-This, and other cmdlets used for backup, are from the MSONLINE module, which the Mars AgentInstaller added as part of the installation process.
+This, and other cmdlets used for backup, are from the MSONLINE module, which the MARS AgentInstaller added as part of the installation process.
 
 The Agent installer doesn't update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this, you can do the following:
 

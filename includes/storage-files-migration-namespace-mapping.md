@@ -63,7 +63,7 @@ In your situation, it's possible that a set of folders can logically sync to the
 
 :::row:::
     :::column:::
-        [![](media/storage-files-migration-namespace-mapping/namespace-mapping.png "An example of a mapping table. Download the file below to experience and use the content of this image.")](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![An example of a mapping table. Download the file below to experience and use the content of this image.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Use a combination of the previous concepts to help determine how many Azure file shares you need, and which parts of your existing data will end up in which Azure file share.

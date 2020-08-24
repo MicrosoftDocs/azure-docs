@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
 ---
 

@@ -25,7 +25,7 @@ Both resource disk and managed disks on each node of the cluster are encrypted w
 
 If the key vault firewall is enabled on the key vault where the disk encryption key is stored, the HDInsight regional Resource Provider IP addresses for the region where the cluster will be deployed must be added to the key vault firewall configuration. This is necessary because HDInsight is not a trusted Azure key vault service.
 
-You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/general/overview-soft-delete.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
+You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/general/soft-delete-overview.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|

@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
+ms.author: mingshen
+author: mingshen-ms
 ---
 
 # Partner Center submission API to onboard Azure apps in Partner Center

@@ -5,7 +5,8 @@ author: anuragdalmia
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
-ms.author: banders
+ms.author: banders 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Programmatically create Azure subscriptions (preview)
@@ -151,11 +152,11 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
-In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](https://docs.microsoft.com/rest/api/subscription/)
+In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](/rest/api/subscription/)
 
 ### [PowerShell](#tab/azure-powershell)
 
-First, install this preview module by running `Install-Module Az.Subscription -AllowPrerelease`. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
 
 Run the [New-AzSubscription](/powershell/module/az.subscription) command below, replacing `<enrollmentAccountObjectId>` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
@@ -172,7 +173,8 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription).
+To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
+
 
 ### [Azure CLI](#tab/azure-cli)
 

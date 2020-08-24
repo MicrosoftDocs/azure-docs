@@ -12,7 +12,7 @@ ms.date: 06/15/2020
 > Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource. 
 > Also, the list of resource log categories you could collect used to be listed in this article. They were moved to [Resource log categories](resource-logs-categories.md). 
 
-[Azure Monitor resource logs](../../azure-monitor/platform/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor resource logs](./platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
 A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. This article describes the top-level schema for resource logs and links to the schemata for each service.
 
@@ -60,6 +60,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accessing logs for Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accessing logs for Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure Databricks | [Diagnostic logging in Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
@@ -84,7 +85,8 @@ The schema for resource logs varies depending on the resource and log category. 
 ## Next Steps
 
 * [See the resource log categories you can collect](resource-logs-categories.md)
-* [Learn more about resource logs](../../azure-monitor/platform/platform-logs-overview.md)
+* [Learn more about resource logs](./platform-logs-overview.md)
 * [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

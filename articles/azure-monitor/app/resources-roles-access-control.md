@@ -8,7 +8,7 @@ ms.date: 02/14/2019
 
 # Resources, roles, and access control in Application Insights
 
-You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+You can control who has read and update access to your data in Azure [Application Insights][start], by using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
@@ -97,7 +97,7 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 
 ## Related content
 
-* [Role based access control in Azure](../../role-based-access-control/role-assignments-portal.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## PowerShell query to determine role membership
 
@@ -130,4 +130,4 @@ $resourceGroup = "RGNAME"
 [account]: https://account.microsoft.com
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[start]: ./app-insights-overview.md

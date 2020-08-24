@@ -64,5 +64,6 @@ The versatile Java standalone agent works on any environment, there's no need to
 ## Next steps
 
 * [Application Insights Overview](./app-insights-overview.md)
-* [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+* [Application map](./app-map.md)
+* [End-to-end performance monitoring](../learn/tutorial-performance.md)
+

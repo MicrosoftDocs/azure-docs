@@ -8,7 +8,8 @@ ms.author: luquinta
 ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 07/09/2020
 ---
 

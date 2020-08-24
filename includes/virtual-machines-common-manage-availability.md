@@ -28,9 +28,9 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
-* [Use scheduled events to proactively respond to VM impacting events](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use scheduled events to proactively respond to VM impacting events](../articles/virtual-machines/linux/scheduled-events.md)
 * [Configure each application tier into separate availability sets]
-* [Combine a Load Balancer with availability sets]
+* [Combine a load balancer with availability zones or sets]
 * [Use availability zones to protect from datacenter level failures]
 
 ## Use availability zones to protect from datacenter level failures
@@ -49,7 +49,9 @@ Learn more about deploying a [Windows](../articles/virtual-machines/windows/crea
 Availability sets are another datacenter configuration to provide VM redundancy and availability. This configuration within a datacenter ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> A single instance virtual machine in an availability set by itself should use Premium SSD or Ultra Disk for all operating system disks and data disks in order to qualify for the SLA for Virtual Machine connectivity of at least 99.9%.
+> A single instance virtual machine in an availability set by itself should use Premium SSD or Ultra Disk for all operating system disks and data disks in order to qualify for the SLA for Virtual Machine connectivity of at least 99.9%. 
+> 
+> A single instance virtual machine with a Standard SSD will have an SLA of at least 99.5%, while a single instance virtual machine with a Standard HDD will have an SLA of at least 95%.  See [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/)
 
 Each virtual machine in your availability set is assigned an **update domain** and a **fault domain** by the underlying Azure platform. For a given availability set, five non-user-configurable update domains are assigned by default (Resource Manager deployments can then be increased to provide up to 20 update domains) to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single availability set, the sixth virtual machine is placed into the same update domain as the first virtual machine, the seventh in the same update domain as the second virtual machine, and so on. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. A rebooted update domain is given 30 minutes to recover before maintenance is initiated on a different update domain.
 
@@ -61,7 +63,7 @@ Fault domains define the group of virtual machines that share a common power sou
 ## Use managed disks for VMs in an availability set
 If you are currently using VMs with unmanaged disks, we highly recommend you [convert VMs in Availability Set to use Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md) provide better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage fault domains (storage clusters) and aligning them with the VM fault domain. If a storage fault domain fails due to hardware or software failure, only the VM instance with disks on the storage fault domain fails.
+[Managed disks](../articles/virtual-machines/managed-disks-overview.md) provide better reliability for Availability Sets by ensuring that the disks of VMs in an Availability Set are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage fault domains (storage clusters) and aligning them with the VM fault domain. If a storage fault domain fails due to hardware or software failure, only the VM instance with disks on the storage fault domain fails.
 ![Managed disks FDs](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]
@@ -93,7 +95,7 @@ If you plan to use VMs with unmanaged disks, follow below best practices for Sto
 
 ## Use scheduled events to proactively respond to VM impacting events
 
-When you subscribe to [scheduled events](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), your VM is notified about upcoming maintenance events that can impact your VM. When scheduled events are enabled, your virtual machine is given a minimum amount of time before the maintenance activity is performed. For example, Host OS updates that might impact your VM are queued up as events that specify the impact, as well as a time at which the maintenance will be performed if no action is taken. Schedule events are also queued up when Azure detects imminent hardware failure that might impact your VM, which allows you to decide when the healing should be performed. Customers can use the event to perform tasks prior to the maintenance, such as saving state, failing over to the secondary, and so on. After you complete your logic for gracefully handling the maintenance event, you can approve the outstanding scheduled event to allow the platform to proceed with maintenance.
+When you subscribe to [scheduled events](../articles/virtual-machines/linux/scheduled-events.md), your VM is notified about upcoming maintenance events that can impact your VM. When scheduled events are enabled, your virtual machine is given a minimum amount of time before the maintenance activity is performed. For example, Host OS updates that might impact your VM are queued up as events that specify the impact, as well as a time at which the maintenance will be performed if no action is taken. Schedule events are also queued up when Azure detects imminent hardware failure that might impact your VM, which allows you to decide when the healing should be performed. Customers can use the event to perform tasks prior to the maintenance, such as saving state, failing over to the secondary, and so on. After you complete your logic for gracefully handling the maintenance event, you can approve the outstanding scheduled event to allow the platform to proceed with maintenance.
 
 
 ## Combine a load balancer with availability zones or sets
@@ -106,7 +108,7 @@ For a tutorial on how to load balance across availability zones, see [Load balan
 
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Combine a load balancer with availability zones or sets]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
 [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures

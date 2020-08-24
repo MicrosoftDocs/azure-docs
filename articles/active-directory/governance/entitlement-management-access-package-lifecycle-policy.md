@@ -3,7 +3,7 @@ title: Change lifecycle settings for an access package in Azure AD entitlement m
 description: Learn how to change lifecycle settings for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory

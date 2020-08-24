@@ -168,6 +168,9 @@ Determine the web endpoint of your Split-Merge service. You can find this in the
 
 The deployment and your environment can be tested by running the included sample PowerShell scripts.
 
+> [!IMPORTANT]
+> The sample scripts run on PowerShell 5.1. They do not currently run on PowerShell 6 or later.
+
 The script files included are:
 
 1. *SetupSampleSplitMergeEnvironment.ps1* - sets up a test data tier for Split/Merge (see table below for detailed description)

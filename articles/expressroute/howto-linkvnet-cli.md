@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 05/21/2019
+ms.date: 07/27/2020
 ms.author: cherylmc
 
 ---
@@ -149,7 +149,7 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 
 ## Configure ExpressRoute FastPath 
-You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your ExpressRoute circuit is on [ExpressRoute Direct](expressroute-erdirect-about.md) and your virtual newtork gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
 
 **Configure FastPath on a new connection**
 

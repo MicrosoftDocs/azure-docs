@@ -10,25 +10,25 @@ ms.subservice: alerts
 
 # Log alerts in Azure Monitor
 
-Log alerts are one of the alert types that are supported in [Azure Alerts](../../azure-monitor/platform/alerts-overview.md). Log alerts allow users to use the Azure analytics platform as a basis for alerting.
+Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use the Azure analytics platform as a basis for alerting.
 
-Log Alert consists of Log Search rules created for [Azure Monitor Logs](../log-query/get-started-portal.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md)
+Log Alert consists of Log Search rules created for [Azure Monitor Logs](../log-query/get-started-portal.md) or [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](./alerts-log.md)
 
 > [!NOTE]
-> Popular log data from [Azure Monitor Logs](../log-query/get-started-portal.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md)
+> Popular log data from [Azure Monitor Logs](../log-query/get-started-portal.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](./alerts-metric-logs.md)
 
 
 ## Log search alert rule - definition and types
 
-Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](../../azure-monitor/platform/action-groups.md). [Azure Monitoring Contributor](../../azure-monitor/platform/roles-permissions-security.md) role for creating, modifying, and updating log alerts may be required; along with access & query execution rights for the analytics target(s) in alert rule or alert query. In case the user creating doesn't have access to all analytics target(s) in alert rule or alert query - the rule creation may fail or the log alert rule will be executed with partial results.
+Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](./action-groups.md). [Azure Monitoring Contributor](./roles-permissions-security.md) role for creating, modifying, and updating log alerts may be required; along with access & query execution rights for the analytics target(s) in alert rule or alert query. In case the user creating doesn't have access to all analytics target(s) in alert rule or alert query - the rule creation may fail or the log alert rule will be executed with partial results.
 
 Log search rules are defined by the following details:
 
-- **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is to be triggered. Analytics query can be for a specific Log Analytics workspace or Application Insights app and even span across [multiple Log Analytics and Application Insights resources](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) provided the user has access as well as query rights to all resources. 
+- **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is to be triggered. Analytics query can be for a specific Log Analytics workspace or Application Insights app and even span across [multiple Log Analytics and Application Insights resources](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) provided the user has access as well as query rights to all resources. 
     > [!IMPORTANT]
-    > [cross-resource query](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) support in log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) only.
+    > [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) support in log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](./alerts-log-api-switch.md) only.
 
-    Some analytic commands and combinations are incompatible with use in log alerts; for more details view, [Log alert queries in Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
+    Some analytic commands and combinations are incompatible with use in log alerts; for more details view, [Log alert queries in Azure Monitor](./alerts-log-query.md).
 
 - **Time Period**.  Specifies the time range for the query. The query returns only records that were created within this range of the current time. Time period restricts the data fetched for log query to prevent abuse and circumvents any time command (like ago) used in log query. <br>*For example, If the time period is set to 60 minutes, and the query is run at 1:15 PM, only records created between 12:15 PM and 1:15 PM is returned to execute log query. Now if the log query uses time command like ago (7d), the log query would be run only for data between 12:15 PM and 1:15 PM - as if data exists for only the past 60 minutes. And not for seven days of data as specified in log query.*
 
@@ -36,7 +36,7 @@ Log search rules are defined by the following details:
 
 - **Threshold**.  The results of the log search are evaluated to determine whether an alert should be created.  The threshold is different for the different types of log search alert rules.
 
-Log search rules be it for [Azure Monitor Logs](../log-query/get-started-portal.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), can be of two types. Each of these types is described in detail in the sections that follow.
+Log search rules be it for [Azure Monitor Logs](../log-query/get-started-portal.md) or [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), can be of two types. Each of these types is described in detail in the sections that follow.
 
 - **[Number of results](#number-of-results-alert-rules)**. Single alert created when the number records returned by the log search exceed a specified number.
 - **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold.
@@ -76,7 +76,7 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 - **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**. In case, there are multiple group fields specified in alert query, user can specify which field to be used to sort results by using the **Aggregate On** (metricColumn) parameter
 
     > [!NOTE]
-    > *Aggregate On* (metricColumn) option is available for Metric Measurement type log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) only.
+    > *Aggregate On* (metricColumn) option is available for Metric Measurement type log alerts for Application Insights and log alerts for [Log Analytics configured using scheduledQueryRules API](./alerts-log-api-switch.md) only.
 
 - **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time period specified for the alert.
 
@@ -147,22 +147,23 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 - Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
 - Log Alerts on Log Analytics shown with exact alert name along with resource group and alert properties; when created using [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)
 
-The [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/management/overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](../../azure-monitor/platform/alerts-log-api-switch.md) or via [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
+The [legacy Log Analytics API](./api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/management/overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](./alerts-log-api-switch.md) or via [legacy Log Analytics API](./api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
 
 > [!NOTE]
 > If invalid characters such as `<, >, %, &, \, ?, /` are present, they will be replaced with `_` in the hidden pseudo  alert rule name and hence also in the Azure bill.
 
 To remove the hidden scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md), user can do any of the following:
 
-- Either user can [switch API preference for the alert rules on the Log Analytics workspace](../../azure-monitor/platform/alerts-log-api-switch.md) and with no loss of their alert rules or monitoring move to Azure Resource Manager compliant [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). Thereby eliminate the need to make pseudo hidden alert rules for billing.
-- Or if the user doesn't want to switch API preference, the user will need to **delete** the original schedule and alert action using [legacy Log Analytics API](api-alerts.md) or delete in [Azure portal the original log alert rule](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+- Either user can [switch API preference for the alert rules on the Log Analytics workspace](./alerts-log-api-switch.md) and with no loss of their alert rules or monitoring move to Azure Resource Manager compliant [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules). Thereby eliminate the need to make pseudo hidden alert rules for billing.
+- Or if the user doesn't want to switch API preference, the user will need to **delete** the original schedule and alert action using [legacy Log Analytics API](api-alerts.md) or delete in [Azure portal the original log alert rule](./alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-Additionally for the hidden scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md), any modification operation like PUT will fail. As the `microsoft.insights/scheduledqueryrules` type pseudo rules are for purpose of billing the alert rules created using [legacy Log Analytics API](api-alerts.md). Any alert rule modification should be done using [legacy Log Analytics API](api-alerts.md) (or) user can [switch API preference for the alert rules](../../azure-monitor/platform/alerts-log-api-switch.md) to use [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) instead.
+Additionally for the hidden scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md), any modification operation like PUT will fail. As the `microsoft.insights/scheduledqueryrules` type pseudo rules are for purpose of billing the alert rules created using [legacy Log Analytics API](api-alerts.md). Any alert rule modification should be done using [legacy Log Analytics API](api-alerts.md) (or) user can [switch API preference for the alert rules](./alerts-log-api-switch.md) to use [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules) instead.
 
 ## Next steps
 
-* Learn about [creating in log alerts in Azure](../../azure-monitor/platform/alerts-log.md).
+* Learn about [creating in log alerts in Azure](./alerts-log.md).
 * Understand [webhooks in log alerts in Azure](alerts-log-webhook.md).
-* Learn about [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+* Learn about [Azure Alerts](./alerts-overview.md).
 * Learn more about [Application Insights](../log-query/log-query-overview.md).
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [Log Analytics](../log-query/log-query-overview.md).
+

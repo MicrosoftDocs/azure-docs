@@ -4,8 +4,8 @@ description: Here's how to onboard to the Business Applications ISV Connect Prog
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 7/14/2020
 ---
 

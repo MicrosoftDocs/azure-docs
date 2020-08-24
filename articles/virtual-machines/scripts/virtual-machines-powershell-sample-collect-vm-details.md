@@ -44,7 +44,7 @@ $vms = Get-AzVM
 $publicIps = Get-AzPublicIpAddress 
 $nics = Get-AzNetworkInterface | ?{ $_.VirtualMachine -NE $null} 
 foreach ($nic in $nics) { 
-    $info = "" | Select VmName, ResourceGroupName, Region, VmSize, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+    $info = "" | Select VmName, ResourceGroupName, Region, VmSize, VirtualNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress, NicName, ApplicationSecurityGroup 
     $vm = $vms | ? -Property Id -eq $nic.VirtualMachine.id 
     foreach($publicIp in $publicIps) { 
         if($nic.IpConfigurations.id -eq $publicIp.ipconfiguration.Id) {
@@ -56,12 +56,14 @@ foreach ($nic in $nics) {
         $info.ResourceGroupName = $vm.ResourceGroupName 
         $info.Region = $vm.Location 
         $info.VmSize = $vm.HardwareProfile.VmSize
-        $info.VirturalNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
+        $info.VirtualNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
         $info.Subnet = $nic.IpConfigurations.subnet.Id.Split("/")[-1] 
         $info.PrivateIpAddress = $nic.IpConfigurations.PrivateIpAddress 
+        $info.NicName = $nic.Name 
+        $info.ApplicationSecurityGroup = $nic.IpConfigurations.ApplicationSecurityGroups.Id 
         $report+=$info 
     } 
-$report | ft VmName, ResourceGroupName, Region, VmSize, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+$report | ft VmName, ResourceGroupName, Region, VmSize, VirtualNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress, NicName, ApplicationSecurityGroup 
 $report | Export-CSV "$home/$reportName"
 ```
 

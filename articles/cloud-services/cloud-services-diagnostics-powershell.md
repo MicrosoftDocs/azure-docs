@@ -1,6 +1,6 @@
 ---
 title: Enable diagnostics in Azure Cloud Services using PowerShell | Microsoft Docs
-description: Learn how to enable diagnostics for cloud services using PowerShell
+description: Learn how to use PowerShell to enable collecting diagnostic data from an Azure Cloud Service with the Azure Diagnostics extension.
 services: cloud-services
 documentationcenter: .net
 author: tgore03

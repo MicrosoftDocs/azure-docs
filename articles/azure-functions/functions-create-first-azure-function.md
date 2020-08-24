@@ -4,16 +4,21 @@ description: Learn how to create your first Azure Function for serverless execut
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47"
 ---
 
 # Create your first function in the Azure portal
 
 Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+We recommend that you [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure.  
+Use one of the following links to get started with your chosen local development environment and language:
 
-If you're a C# developer, consider [creating your first function in Visual Studio 2019](functions-create-your-first-function-visual-studio.md) instead of in the portal. 
+| Visual Studio Code | Terminal/command prompt | Visual Studio |
+| --- | --- | --- |
+|  &bull;&nbsp;[Get started with C#](./functions-create-first-function-vs-code.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-function-vs-code.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-function-vs-code.md?pivots=programming-language-python) |&bull;&nbsp;[Get started with C#](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-csharp)<br/>&bull;&nbsp;[Get started with Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)<br/>&bull;&nbsp;[Get started with JavaScript](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)<br/>&bull;&nbsp;[Get started with PowerShell](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-powershell)<br/>&bull;&nbsp;[Get started with Python](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
 

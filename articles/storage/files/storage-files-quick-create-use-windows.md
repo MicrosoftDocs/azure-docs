@@ -1,6 +1,6 @@
 ---
 title: Create and use an Azure Files share on Windows VMs
-description: In this quickstart, you setup an Azure Files share in the Azure portal and connect it to a Windows virtual machine. You connect to the Files share, upload a file to the Files share. Then you take a snapshot of the Files share, modify the file in the Files share, and restore a previous snapshot of the Files share.
+description: Create and use an Azure Files share in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart

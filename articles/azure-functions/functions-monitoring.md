@@ -4,7 +4,7 @@ description: Learn how to use Azure Application Insights with Azure Functions to
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.custom: fasttrack-edit
+ms.custom: "devx-track-csharp, fasttrack-edit"
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
@@ -592,6 +592,9 @@ Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, 
 You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> Dependencies are written at Information level. If you filter at Warning or above, you won't see any of this data. Also, automatic collection of dependencies happens at non-user scope. So make sure the level is set to at least **Information** outside the user scope in your host.json (i.e. outside the Function.<YOUR_FUNCTION_NAME>.User key) if you want those dependencies to be captured.
 
 ## Enable Application Insights integration
 

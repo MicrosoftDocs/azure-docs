@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create a Recovery Services vault, 
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Back up a virtual machine in Azure with the CLI
@@ -17,7 +17,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
 To install and use the CLI locally, you must run Azure CLI version 2.0.18 or later. To find the CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-## Create a recovery services vault
+## Create a Recovery Services vault
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 

@@ -5,12 +5,12 @@ description: Learn how to run your PyTorch training scripts at enterprise scale 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.reviewer: peterlu
 ms.date: 08/01/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -217,7 +217,7 @@ estimator= PyTorch(source_directory=project_folder,
                       node_count=2,
                       process_count_per_node=1,
                       distributed_training=MpiConfiguration(),
-                      framework_version='1.13',
+                      framework_version='1.4',
                       use_gpu=True)
 ```
 Horovod and its dependencies will be installed for you, so you can import it in your training script `train.py` as follows:

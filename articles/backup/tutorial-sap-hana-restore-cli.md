@@ -2,7 +2,8 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 12/4/2019
+ms.date: 12/4/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
@@ -83,7 +84,7 @@ In this tutorial, you'll restore to a previous restore point. [View the list of 
 Using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
 * **--target-item-name** This is the name that the restored database will be using. In this case, we used the name *restored_database*.
-* **--target-server-name** This is the name of an SAP HANA server that is successfully registered to a recovery services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we have protected, named *hxehost*.
+* **--target-server-name** This is the name of an SAP HANA server that is successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database to the same SAP HANA server that we have protected, named *hxehost*.
 * **--target-server-type** For the restore of SAP HANA databases, **SapHanaDatabase** must be used.
 
 ```azurecli-interactive
@@ -175,7 +176,7 @@ For this tutorial, we'll choose the previous point-in-time `28-11-2019-09:53:00`
 
 Using the restore point name above and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
-* **--target-container-name** This is the name of an SAP HANA server that is successfully registered to a recovery services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database as files to the same SAP HANA server that we've protected, named *hxehost*.
+* **--target-container-name** This is the name of an SAP HANA server that is successfully registered to a Recovery Services vault and lies in the same region as the database to be restored. For this tutorial, we'll restore the database as files to the same SAP HANA server that we've protected, named *hxehost*.
 * **--rp-name** For a point-in-time restore the restore point name will be **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive
@@ -296,7 +297,7 @@ Move these restored files to the SAP HANA server where you want to restore them 
     hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
     ```
 
-    In the above command:
+    In the command above:
 
     * `<DataFileDir>` - the folder that contains the full backups
     * `<LogFilesDir>` - the folder that contains the log backups

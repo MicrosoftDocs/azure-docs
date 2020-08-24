@@ -4,7 +4,7 @@ description: Learn what's new with Azure Load Balancer, such as the latest relea
 services: load-balancer
 author: anavinahar
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ---
@@ -28,6 +28,16 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 | Validation | Addition of validation for HA ports | A validation was added to ensure that HA port rules and non HA port rules are only configurable when Floating IP is enabled. Previously, the this configuration would go through, but not work as intended. No change to functionality was made. You can learn more [here](load-balancer-ha-ports-overview.md#limitations)| June 2020 |
 | Feature| IPv6 support for Azure Load Balancer (generally available) | You can have IPv6 addresses as your frontend for your Azure Load Balancers. Learn how to [create a dual stack application here](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |April 2020|
 | Feature| TCP Resets on Idle Timeout (generally available)| Use TCP resets to create a more predictable application behavior. [Learn more](load-balancer-tcp-reset.md)| February 2020 |
+
+## Known issues
+
+The product group is actively working on resolutions for the following known issues:
+
+|Issue |Description  |Mitigation  |
+| ---------- |---------|---------|
+| Log Analytics export | Log Analytics cannot export metrics for Standard Load Balancers nor health probe status logs for Basic Load Balancer  | [Utilize Azure Monitor for multi-dimensional metrics for your Standard Load Balancer](load-balancer-standard-diagnostics.md). While not able to use Log Analytics for monitoring, Azure Monitor provides visualization for a rich set of multi-dimensional metrics. You can leverage the pre-configured metrics dashboard via the Insights sub-blade of your Load Balancer. If using Basic Load Balancer [upgrade to Standard](upgrade-basic-standard.md) for production level metrics monitoring.
+
+  
 
 ## Next steps
 
