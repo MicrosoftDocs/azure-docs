@@ -7,7 +7,7 @@ ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
 
-Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
+Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 
 > [!NOTE]
 > This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
@@ -62,7 +62,7 @@ Refer to the [Access requirements](#access-requirements) section to make sure th
 
 When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was "Data Disk (E:`\`)", that volume can be attached on the local computer as "Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.  
 
-   ![File recovery menu](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### For Linux
 
@@ -81,7 +81,7 @@ Once the disks have been unmounted, you receive a message. It may take a few min
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
 
 > [!NOTE]
-> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. In case the connection is still open, the subsequent backup might fail with an error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage i.e., the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and hence they will not be available during backup.
+> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. In case the connection is still open, the subsequent backup might fail with an error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage i.e., the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and so they will not be available during backup.
 
 ## Selecting the right machine to run the script
 
@@ -163,7 +163,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 ###### Duplicate Volume groups
 
-There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the below example.
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -194,13 +194,13 @@ Now we have all VG names with unique IDs.
 
 ###### Active volume groups
 
-Make sure that the Volume groups corresponding to script's volumes are active. The below command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
+Make sure that the Volume groups corresponding to script's volumes are active. The following command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
 
 ```bash
 vgdisplay -a
 ```  
 
-Otherwise, activate the volume group by using the below command.
+Otherwise, activate the volume group by using the following command.
 
 ```bash
 #!/bin/bash
@@ -209,7 +209,7 @@ vgchange –a y  <volume-group-name>
 
 ##### Listing logical volumes within Volume groups
 
-Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the below command.
+Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the following command.
 
 ```bash
 #!/bin/bash
@@ -228,7 +228,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and hence might result in data loss.
+> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and so might result in data loss.
 
 #### For RAID arrays
 
@@ -296,7 +296,7 @@ The script also requires Python and bash components to execute and connect secur
 If you run the script on a computer with restricted access, ensure there's access to:
 
 - `download.microsoft.com`
-- Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
+- Recovery Service URLs (geo-name refers to the region where the Recovery Services vault resides)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
@@ -326,7 +326,7 @@ Since file recovery process attaches all disks from the backup, when large numbe
     - Ensure that the OS is WS 2012 or higher.
     - Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it's 0004. Navigate through the registry key path until the parameters section.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -337,7 +337,7 @@ Since file recovery process attaches all disks from the backup, when large numbe
 
 - If the restore server is a Linux VM:
   - In the file /etc/iscsi/iscsid.conf, change the setting from:
-    - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
 - After making the change above, run the script again. With these changes, it's highly probable that the file recovery will succeed.
 - Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this process will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Therefore, it's recommended to download a script from Portal/PowerShell/CLI, wait for 20-30 minutes (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
 - After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
@@ -392,7 +392,7 @@ The data flow between the recovery service and the machine is protected by build
 
 Any file Access Control List (ACL) present in the parent/backed up VM is preserved in the mounted file system as well.
 
-The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure Portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
+The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
 
 ## Next steps
 

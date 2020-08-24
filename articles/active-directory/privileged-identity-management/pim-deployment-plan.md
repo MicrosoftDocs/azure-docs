@@ -286,7 +286,7 @@ In this table, identify the test users that will verify that the settings for ea
 
 ### Test implementation
 
-Now that you have identified the test users, use this step to configure Privileged Identity Management for your test users. If your organization wants to incorporate Privileged Identity Management workflow into your own internal application instead of using Privileged Identity Management in the Azure portal, all the operations in Privileged Identity Management are also supported through our [graph API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
+Now that you have identified the test users, use this step to configure Privileged Identity Management for your test users. If your organization wants to incorporate Privileged Identity Management workflow into your own internal application instead of using Privileged Identity Management in the Azure portal, all the operations in Privileged Identity Management are also supported through our [graph API](/graph/api/resources/privilegedidentitymanagement-root).
 
 #### Configure Privileged Identity Management for Azure AD roles
 
