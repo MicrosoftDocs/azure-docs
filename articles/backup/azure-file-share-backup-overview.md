@@ -24,7 +24,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 ## How the backup process works
 
-1. The first step in configuring backup for Azure file shares is creating a recovery services vault. The vault gives you a consolidated view of the backups configured across different workloads.
+1. The first step in configuring backup for Azure file shares is creating a Recovery Services vault. The vault gives you a consolidated view of the backups configured across different workloads.
 
 2. Once you create a vault, the Azure Backup service discovers the storage accounts that can be registered with the vault. You can select the storage account hosting the file shares you want to protect.
 
@@ -37,9 +37,9 @@ Azure file share backup is a native, cloud based backup solution that protects y
     >[!NOTE]
     >The file share data is not transferred to the Backup service, since the Backup service creates and manages snapshots that are part of your storage account, and backups are not transferred to the vault.
 
-6. You can restore the Azure file share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice. 
+6. You can restore the Azure file share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 
-7. If you are using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any files that have changed are synced down to the server endpoint. This process happens in parallel with the original restore to the Azure file share. 
+7. If you are using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any files that have changed are synced down to the server endpoint. This process happens in parallel with the original restore to the Azure file share.
 
 8. The backup and restore job monitoring data is pushed to the Azure Backup Monitoring service. This allows you to monitor cloud backups for your file shares in a single dashboard. In addition, you can also configure alerts or email notifications when backup health is affected. Emails are sent via the Azure email service.
 

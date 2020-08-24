@@ -72,12 +72,12 @@ To install Windows Server Backup using Server Manager, perform the steps below:
 3. Select a server from the server pool and click **Next**. In the Server Role, leave the default selection and click **Next**.
 4. Select **Windows Server Backup** in **Features** tab and click **Next**.
 
-    ![features](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Select features window](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. In the **Confirmation** tab, click **Install** to start the installation process.
 6. In the **Results** tab, it will display the Windows Server Backup feature is successfully installed on your Windows Server.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Results of installation](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### System Volume information permission
 

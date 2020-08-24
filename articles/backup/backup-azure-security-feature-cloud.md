@@ -138,7 +138,7 @@ If items were deleted before soft-delete was disabled, then they will be in a so
 
 ### Do I need to enable the soft-delete feature on every vault?
 
-No, it's built-in and enabled by default for all the recovery services vaults.
+No, it's built-in and enabled by default for all the Recovery Services vaults.
 
 ### Can I configure the number of days for which my data will be retained in soft-deleted state after the delete operation is complete?
 
