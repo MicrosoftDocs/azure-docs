@@ -4,6 +4,7 @@ description: Learn about Azure Reservations and pricing to save on your virtual 
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: overview
 ms.date: 08/04/2020
 ms.author: banders
