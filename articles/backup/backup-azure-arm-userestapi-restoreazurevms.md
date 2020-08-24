@@ -112,6 +112,8 @@ The recovery point is identified with the `{name}` field in the above response.
 
 ## Restore operations
 
+After selecting the [relevant restore point](#select-recovery-point), proceed to trigger the restore operation.
+
 ***All restore operations on the backup item are performed with the same *POST* API. Only the request body changes with the restore scenarios.***
 
 > [!IMPORTANT]
@@ -318,7 +320,7 @@ As explained [above](#restore-operations), the following request body defines pr
 }
 ```
 
-The response should be handled in the same way as [explained above for restoring disks](#response).
+The response should be handled in the same way as [explained above for restoring disks](#responses).
 
 ## Next steps
 
