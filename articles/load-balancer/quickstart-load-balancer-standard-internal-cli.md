@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Create a internal load balancer - Azure CLI"
+title: "Quickstart: Create an internal load balancer - Azure CLI"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a internal load balancer using the Azure CLI
+description: This quickstart shows how to create an internal load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -17,7 +17,7 @@ ms.date: 08/20/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
 ---
-# Quickstart: Create a internal load balancer to load balance VMs using Azure CLI
+# Quickstart: Create an internal load balancer to load balance VMs using Azure CLI
 
 Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
 
@@ -342,7 +342,7 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --disable-outbound-snat true 
 ```
 >[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
 ### Add virtual machines to load balancer backend pool
 
