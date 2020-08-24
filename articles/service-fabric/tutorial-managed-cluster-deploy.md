@@ -29,7 +29,6 @@ This part of the series covers how to:
 Before you begin this tutorial:
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
-* [Download the Managed Service Fabric cluster template](PLACEHOLDER.json)
 
 > [!Note]
 > This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/16/2020.
@@ -58,10 +57,7 @@ $location = "EastUS2"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
-
 ## Deploy a Managed Service Fabric cluster
-
-Create a password for the admin account, and deploy a new Managed Service Fabric cluster using the downloaded template, filling in the variables appropriately. Ues this [sample template](https://github.com/peterpogorski/azure-quickstart-templates/tree/managed-sfrp-sample-templates/101-managed-service-fabric-cluster-standard-1-nt) which contains a Standard SKU managed Service Fabric cluster with one node type. The following example shows how to deploy this template using PowerShell. 
 
 Create a managed Service Fabric cluster using New-AzServiceFabricManagedCluster. The following example creates a cluster named myCluster in the resource group named myResourceGroup. This resource group was created in the previous step in the eastus2 region. 
 
