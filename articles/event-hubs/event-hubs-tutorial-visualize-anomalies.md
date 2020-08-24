@@ -303,7 +303,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot specifying dataset.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select **fraudulentuses**.
+9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select `fraudulentuses`.
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -324,9 +324,9 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
 12. Under **Visualization Type**, select **Line chart**.
 
-13. Under **Axis**, click **Add Value**, and select **windowend**. 
+13. Under **Axis**, click **Add Value**, and select `windowend`. 
 
-14. Under **Values**, click **Add value** and select **fraudulentuses**.
+14. Under **Values**, click **Add value** and select `fraudulentuses`.
 
 15. Under **Time window to display**, select the last five minutes. Click **Next**.
 

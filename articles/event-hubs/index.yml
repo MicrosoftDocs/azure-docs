@@ -98,7 +98,7 @@ landingContent:
           - text: Java
             url: event-hubs-java-get-started-send.md
           - text: Python
-            url: event-hubs-python-get-started-send
+            url: event-hubs-python-get-started-send.md
           - text: JavaScript
             url: event-hubs-node-get-started-send.md
           - text: Apache Kafka
