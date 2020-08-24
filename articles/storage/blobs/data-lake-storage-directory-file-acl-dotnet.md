@@ -358,6 +358,10 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
+## Set an ACL recursively (preview)
+
+You can add, update, and remove ACLs recursively on the child items of a parent directory without having to make these changes individually for each child item. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
+
 ## See also
 
 * [API reference documentation](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)

@@ -40,7 +40,9 @@ Install the necessary libraries. (Need info on where folks get these libraries)
 
 ### [PowerShell](#tab/azure-powershell)
 
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+1. Ensure that the .NET framework is installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+ 
+2. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
@@ -48,10 +50,18 @@ Install the necessary libraries. (Need info on where folks get these libraries)
     
    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Install **Az.Storage** module.
+3. Install the latest version of the PowershellGet module.
 
    ```powershell
-   Install-Module Az.Storage -Repository PSGallery -Force  
+   install-Module PowerShellGet –Repository PSGallery –Force  
+   ```
+
+4. Close, and then reopen the PowerShell console.
+
+5. Install **Az.Storage** preview module.
+
+   ```powershell
+   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.1-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
