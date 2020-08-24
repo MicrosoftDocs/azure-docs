@@ -39,7 +39,7 @@ The following are common issues with backup failures on Azure virtual machines.
 Error code: VMRestorePointInternalError
 
 If at the time of backup, the **Event Viewer Application logs** displays the message **Faulting application name: IaaSBcdrExtension.exe** then it is confirmed that the antivirus configured in the VM is restricting the execution of backup extension.
-To resolve this issue, exclude below directories in the antivirus configuration and retry the backup operation.
+To resolve this issue, exclude the directories below in the antivirus configuration and retry the backup operation.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 * `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -85,11 +85,11 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 
 * Try starting/restarting Windows service **COM+ System Application** (from an elevated command prompt **- net start COMSysApp**).
 * Ensure **Distributed Transaction Coordinator** service is running as **Network Service** account. If not, change it to run as **Network Service** account and restart **COM+ System Application**.
-* If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the below steps:
+* If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the steps below:
   * Stop the MSDTC service
   * Open a command prompt (cmd)
-  * Run command "msdtc -uninstall"
-  * Run command "msdtc -install"
+  * Run the command `msdtc -uninstall`
+  * Run the command `msdtc -install`
   * Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 
@@ -161,7 +161,7 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 Error code: ExtensionFailedSnapshotLimitReachedError  <br/>
 Error message: Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
 
-The snapshot operation failed as the snapshot limit has exceeded for some of the disks attached. Complete the below troubleshooting steps and then retry the operation.
+The snapshot operation failed as the snapshot limit has exceeded for some of the disks attached. Complete the following troubleshooting steps and then retry the operation.
 
 * Delete the disk blob-snapshots that are not required. Be cautious to not delete Disk blob, only snapshot blobs should be deleted.
 * If Soft-delete is enabled on VM disk Storage-Accounts, configure soft-delete retention such that existing snapshots are less than the maximum allowed at any point of time.
@@ -179,7 +179,7 @@ Backup operation on the VM failed due to delay in network calls while performing
 
 **Step 1**: Create snapshot through Host
 
-From an elevated (admin) command-prompt, run the below command:
+From an elevated (admin) command-prompt, run the following command:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
@@ -286,23 +286,23 @@ If your backup takes more than 12 hours, or restore takes more than 6 hours, rev
 
 Typically, the VM Agent is already present in VMs that are created from the Azure gallery. But virtual machines that are migrated from on-premises datacenters won't have the VM Agent installed. For those VMs, the VM Agent needs to be installed explicitly.
 
-#### Windows VMs
+#### Windows VMs - Set up the agent
 
 * Download and install the [agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to finish the installation.
 * For virtual machines created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
 
-#### Linux VMs
+#### Linux VMs - Set up the agent
 
 * Install the latest version of the agent from the distribution repository. For details on the package name, see the [Linux Agent repository](https://github.com/Azure/WALinuxAgent).
 * For VMs created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
 
 ### Update the VM Agent
 
-#### Windows VMs
+#### Windows VMs - Update the agent
 
 * To update the VM Agent, reinstall the [VM Agent binaries](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Before you update the agent, make sure no backup operations occur during the VM Agent update.
 
-#### Linux VMs
+#### Linux VMs - Update the agent
 
 * To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 
