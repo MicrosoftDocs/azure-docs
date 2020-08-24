@@ -29,11 +29,11 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 
 3. Select **Origin** under **Settings** in the endpoint configuration:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-1.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-1.png" alt-text="CDN endpoint" border="true":::
 
 4. To enable multi-origin, you need at least one origin group. Select **Create Origin Group**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Origin settings" border="true":::
 
 5. In the **Add Origin Group** configuration, enter or select the following information:
 
@@ -47,7 +47,7 @@ Setup one or more origin groups and choose a default origin group. Each origin g
    | Probe method      | Select **Head** or **Get**.                                           |
    | Default origin group | Select the box to set as default origin group.
     
-   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Azure CDN multi-origin" border="true":::
+   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Add origin group" border="true":::
 
 6. Select **Add**.
 
@@ -55,7 +55,7 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 
 1. In the origin settings for your endpoint, select **+ Create Origin**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Create origin" border="true":::
 
 2. Enter or select the following information in the **Add Origin** configuration:
 
@@ -72,13 +72,13 @@ Setup one or more origin groups and choose a default origin group. Each origin g
     > [!NOTE]
     > When an origin is created within an origin group, it must be accorded a priority and weight. If an origin group has only one origin, then the default priority and weight is set as 1. Traffic is routed to the highest priority origins if the origin is healthy. If an origin is determined to be unhealthy then the connections are diverted to another origin in the order of priority. If two origins have the same priority, then traffic is distributed as per weight specified for the origin 
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Add additional origin" border="true":::
 
 3. Select **Add**.
 
 4. Select **Configure origin** to set the origin path for all origins:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configure origin path" border="true":::
 
 5. Select **OK**.
 
@@ -88,27 +88,27 @@ Once you have several origins and an origin group, you can add or remove the ori
 
 1. In the origin settings of the Azure CDN endpoint, select the name of the origin group you wish to configure:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Configure origins and origin group settings" border="true":::
 
 2. In **Update origin group**, select **+ Select Origin**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Update origin group" border="true":::
 
 4. Select the origin to be added to the group in the pull-down box and select **OK**.
 
 5. Verify the origin has been added to the group, then select **Save**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Verify additional origin added to group" border="true":::
 
 ## Remove origin from origin group
 
 1. In the origin settings of the Azure CDN endpoint, select the name of the origin group:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Remove origin from group" border="true":::
 
 2. To remove an origin from the origin group, select the trash can icon next to the origin and select **Save**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Azure CDN multi-origin" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Update origin group delete origin" border="true":::
 
 ## Next Steps
 In this article, you enabled Azure CDN endpoint multi-origin.
