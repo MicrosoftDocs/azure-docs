@@ -33,7 +33,7 @@ Securing privileged access requires changes to:
 * Processes, administrative practices, and knowledge management
 * Technical components such as host defenses, account protections, and identity management
 
-Secure your privileged access in a way that is managed and reported in the Microsoft services you care about. If you have on-premises admin accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access).
+Secure your privileged access in a way that is managed and reported in the Microsoft services you care about. If you have on-premises admin accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
 > The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure Active Directory Premium plans P1 and P2. Azure Active Directory Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term global administrator (or global admin) means the same thing as "company administrator" or "tenant administrator."
@@ -89,7 +89,7 @@ After turning on Azure AD Privileged Identity Management, view the users who are
 * Exchange administrator
 * SharePoint administrator
 
-If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role because a global admin has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
+If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role because a global admin has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
 
 Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to admin roles:
 
@@ -126,7 +126,7 @@ The increase in "bring your own device" and work from home policies and the grow
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD.
-* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security practices for Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security practices for Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Do the inventory in services your organization relies on, such as Azure, Intune, or Dynamics 365.
 * Ensure that your accounts that are used for administration purposes:
 
@@ -165,11 +165,11 @@ Turn on:
 
 * [MFA using Conditional Access policies](../authentication/howto-mfa-getstarted.md) for all users in your organization.
 
-If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign-in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport).
+If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign-in experience. For more information, see [Windows Hello](/windows/uwp/security/microsoft-passport).
 
 #### Configure Identity Protection
 
-Azure AD Identity Protection is an algorithm-based monitoring and reporting tool that detects potential vulnerabilities affecting your organization's identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Azure AD Identity Protection is an algorithm-based monitoring and reporting tool that detects potential vulnerabilities affecting your organization's identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
 #### Obtain your Office 365 Secure Score (if using Office 365)
 
@@ -189,7 +189,7 @@ Establishing a successful incident response capability requires considerable pla
 
 #### Secure on-premises privileged administrative accounts, if not already done
 
-If your Azure Active Directory organization is synchronized with on-premises Active Directory, then follow the guidance in [Security Privileged Access Roadmap](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): This stage includes:
+If your Azure Active Directory organization is synchronized with on-premises Active Directory, then follow the guidance in [Security Privileged Access Roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access): This stage includes:
 
 * Creating separate admin accounts for users who need to conduct on-premises administrative tasks
 * Deploying Privileged Access Workstations for Active Directory administrators
@@ -207,13 +207,13 @@ Microsoft accounts from other programs, such as Xbox, Live, and Outlook, shouldn
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/platform/alerts-activity-log.md).
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
 
 #### Configure Conditional Access policies
 
-Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Azure Active Directory device registration](../active-directory-device-registration-on-premises-setup.md).
+Prepare Conditional Access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises Conditional Access by using Azure Active Directory device registration](../devices/overview.md).
 
 ## Stage 3: Take control of admin activity
 
@@ -251,7 +251,7 @@ Attackers might try to target privileged accounts so that they can disrupt the i
 * Impersonation attacks
 * Credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket
 
-By deploying privileged access workstations, you can reduce the risk that admins enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+By deploying privileged access workstations, you can reduce the risk that admins enter their credentials in a desktop environment that hasn't been hardened. For more information, see [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents
 
@@ -275,7 +275,7 @@ If you're already using Azure AD Privileged Identity Management, adjust timefram
 
 #### Determine exposure to password-based sign-in protocols (if using Exchange Online)
 
-We recommend you identify every potential user who could be catastrophic to the organization if their credentials were compromised. For those users, put in place strong authentication requirements and use Azure AD Conditional Access to keep them from signing in to their email using username and password. You can block [legacy authentication using Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication), and you can [block basic authentication](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online.
+We recommend you identify every potential user who could be catastrophic to the organization if their credentials were compromised. For those users, put in place strong authentication requirements and use Azure AD Conditional Access to keep them from signing in to their email using username and password. You can block [legacy authentication using Conditional Access](../conditional-access/block-legacy-authentication.md), and you can [block basic authentication](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online.
 
 #### Complete a roles review assessment for Office 365 roles (if using Office 365)
 
@@ -287,7 +287,7 @@ You can download this report from [Security Incident Management in Microsoft Off
 
 #### Continue to secure on-premises privileged administrative accounts
 
-If your Azure Active Directory is connected to on-premises Active Directory, then follow the guidance in the [Security Privileged Access Roadmap](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Stage 2. In this stage, you:
+If your Azure Active Directory is connected to on-premises Active Directory, then follow the guidance in the [Security Privileged Access Roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access): Stage 2. In this stage, you:
 
 * Deploy Privileged Access Workstations for all administrators
 * Require MFA
@@ -310,11 +310,11 @@ You don't usually need to give users unrestricted permissions to all your Azure 
 
 #### Implement PIM for Azure AD administrator roles
 
-Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md).
+Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../../role-based-access-control/best-practices.md).
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems
 
-Azure log integration enables you to integrate raw logs from your Azure resources to your organization's existing Security Information and Event Management (SIEM) systems. [Azure log integration](../../security/fundamentals/azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs and Azure resources from:
+Azure log integration enables you to integrate raw logs from your Azure resources to your organization's existing Security Information and Event Management (SIEM) systems. [Azure log integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview) collects Windows events from Windows Event Viewer logs and Azure resources from:
 
 * Azure activity Logs
 * Azure Security Center alerts
@@ -328,7 +328,7 @@ Azure AD allows you to automate creating and maintaining user identities in clou
 
 #### Integrate information protection
 
-Microsoft Cloud App Security allows you to investigate files and set policies based on Azure Information Protection classification labels, enabling greater visibility and control of your cloud data. Scan and classify files in the cloud and apply Azure information protection labels. For more information, see [Azure Information Protection integration](https://docs.microsoft.com/cloud-app-security/azip-integration).
+Microsoft Cloud App Security allows you to investigate files and set policies based on Azure Information Protection classification labels, enabling greater visibility and control of your cloud data. Scan and classify files in the cloud and apply Azure information protection labels. For more information, see [Azure Information Protection integration](/cloud-app-security/azip-integration).
 
 #### Configure Conditional Access
 
@@ -336,7 +336,7 @@ Configure Conditional Access based on a group, location, and application sensiti
 
 #### Monitor activity in connected cloud apps
 
-We recommend using [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) to ensure that user access is also protected in connected applications. This feature secures the enterprise access to cloud apps and secures your admin accounts, allowing you to:
+We recommend using [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) to ensure that user access is also protected in connected applications. This feature secures the enterprise access to cloud apps and secures your admin accounts, allowing you to:
 
 * Extend visibility and control to cloud apps
 * Create policies for access, activities, and data sharing
@@ -344,7 +344,7 @@ We recommend using [Microsoft Cloud App Security](https://docs.microsoft.com/clo
 * Prevent data leakage
 * Minimize risk and automated threat prevention and policy enforcement
 
-The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Office 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](https://docs.microsoft.com/cloud-app-security/siem).
+The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM server to enable centralized monitoring of Office 365 alerts and activities. It runs on your server and pulls alerts and activities from Cloud App Security and streams them into the SIEM server. For more information, see [SIEM integration](/cloud-app-security/siem).
 
 ## Stage 4: Continue building defenses
 
@@ -381,7 +381,7 @@ Determine if current built-in Azure AD admin roles are still up to date and ensu
 
 #### Review users who have administration of Azure AD joined devices
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](../device-management-hybrid-azuread-joined-devices-setup.md).
+For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
 
 #### Review members of [built-in Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Office 365.
