@@ -11,15 +11,6 @@ keywords: prometheus, aro, openshift, metrics, red hat
 
 # Deploy a standalone Prometheus instance in an Azure Red Hat OpenShift cluster
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11 will be retired June 2022.
->
-> As of October 2020 you will no longer be able to create new 3.11 clusters.
-> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
->
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster).
-> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
-
 This article describes how to configure a standalone Prometheus instance that uses service discovery in an Azure Red Hat OpenShift cluster.
 
 > [!NOTE]

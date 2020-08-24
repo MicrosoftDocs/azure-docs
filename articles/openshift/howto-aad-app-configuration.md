@@ -10,15 +10,6 @@ ms.date: 05/13/2019
 
 # Azure Active Directory integration for Azure Red Hat OpenShift
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11 will be retired June 2022.
->
-> As of October 2020 you will no longer be able to create new 3.11 clusters.
-> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
->
-> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster).
-> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
-
 If you haven't already created an Azure Active Directory (Azure AD) tenant, follow the directions in [Create an Azure AD tenant for Azure Red Hat OpenShift](howto-create-tenant.md) before continuing with these instructions.
 
 Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster. If your organization doesn't already have an Azure AD user, Azure AD security group, or an Azure AD app registration to use as the service principal, follow these instructions to create them.
