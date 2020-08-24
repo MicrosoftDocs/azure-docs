@@ -187,7 +187,7 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 
 * [Customer-Managed Keys (CMK)](../platform/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
 * [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
-* [Bring Your Own Storage(BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you to have full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
+* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
 
 ## Modifying the associated workspace
 
