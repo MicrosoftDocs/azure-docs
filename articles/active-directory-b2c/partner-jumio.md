@@ -96,7 +96,7 @@ Use the PowerShell script below to create a 64-character length alphanumeric val
 
 ```
 
-### Part 3 - Configure the API
+### Part 4 - Configure the API
 
 Application settings can be [configured in the App service in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). With this method,  settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
 
@@ -112,7 +112,7 @@ Application settings can be [configured in the App service in Azure](https://doc
 |AppSettings:BaseRedirectUrl | The base url of the B2C policy | https://{your-tenant-name}.b2clogin.com/{your-application-id}|
 | WEBSITE_LOAD_CERTIFICATES| Thumbprint of self-signed certificate created |
 
-### Part 4 - Deploy the UI
+### Part 5 - Deploy the UI
 
 1. Set up a [blob storage container in your storage account](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
@@ -131,7 +131,7 @@ Application settings can be [configured in the App service in Azure](https://doc
 >[!NOTE]
 > As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
 
-### Part 5 - Configure the Azure AD B2C policy
+### Part 6 - Configure the Azure AD B2C policy
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) in the Policies folder.
 
