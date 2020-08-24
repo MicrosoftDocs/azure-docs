@@ -19,7 +19,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Backup Goal - SQL Server in Azure VM](./media/backup-azure-sql-database/sql.png)
 
 During the backup configuration, if the SQL VM and its instances aren't visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) ensure that:
 

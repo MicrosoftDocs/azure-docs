@@ -168,7 +168,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
         ```
 
-        In the above command:
+        In the command above:
 
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups

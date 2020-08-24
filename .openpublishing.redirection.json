@@ -55589,11 +55589,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-arc/kubernetes/index.yml",
-      "redirect_url": "/azure/azure-arc/kubernetes/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/batch/batch-visual-studio-templates.md",
       "redirect_url": "/azure/batch/",
       "redirect_document_id": false
