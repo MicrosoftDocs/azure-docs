@@ -470,13 +470,13 @@ Detailed color palette for infrared satellite tiles is shown below.
 
 ## Index IDs and Index Groups IDs
 
-[Get Daily Indices API]() allows users to
+[Get Daily Indices API](https://aka.ms/AzureMapsWeatherDailyIndices) allows users to
 restrict returned results to specific index types or index
 groups.
 
-Below is the table of available index IDs, their names, and a link to their value ranges.
+Below is the table of available index IDs, their names, and a link to their value ranges. Below this table is a table listing the various Index Groups.
 
-  Index Name (indexId)  |  ID  | Value Range
+  Index Name |  ID  | Value Range
   -------------------------- |---|-----
   Arthritis Pain             |21 | [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
   Asthma                     |23|  [Beneficial-At Extreme Risk](#beneficial-at-extreme-risk)
@@ -500,7 +500,7 @@ Below is the table of available index IDs, their names, and a link to their valu
   Hair Frizz                 |42| [Unlikely-Emergency](#unlikely-emergency)
   Healthy Heart Fitness      |16| [Poor-Excellent 1](#poor-excellent-1)
   Hiking                     |3| [Poor-Excellent 1](#poor-excellent-1)
-  Home Energy Efficiency     |36| [Poor-Excellent 1](#poor-excellent)
+  Home Energy Efficiency     |36| [Poor-Excellent 1](#poor-excellent-1)
   Hunting                    | 20| [Poor-Excellent 1](#poor-excellent-1)
   Indoor Activity            | -2| [Poor-Excellent 1](#poor-excellent-1)
   Jogging                    |2| [Poor-Excellent 1](#poor-excellent-1)
@@ -544,7 +544,7 @@ Below is the list of available Index Groups (indexGroupId):
 
 ## Daily index categories and values
 
-[Get Daily Indices API]() returns the ranged value and its associated category name for each index ID. Category names and their value ranges are not the same for all indices. The tables below group all category names and value ranges with the indices that use them. To find which indexes usee which value range, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+[Get Daily Indices API](https://aka.ms/AzureMapsWeatherDailyIndices) returns the ranged value and its associated category name for each index ID. Category names and their value ranges are not the same for all indices. The tables below group all category names and value ranges with the indices that use them. To find which indexes usee which value range, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
 
 ### Poor-Excellent 1
 
