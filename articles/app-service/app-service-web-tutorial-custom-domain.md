@@ -273,7 +273,7 @@ When the CNAME is added, the DNS records page looks like the following example:
 
 #### Enable the CNAME record mapping in the app
 
-You can now add any subdomain that matches the wildcard name to the app (for example, `sub1.contoso.com` and `sub2.contoso.com` both match `*.contoso.com`).
+You can now add any subdomain that matches the wildcard name to the app (for example, `sub1.contoso.com`, `sub2.contoso.com` and `*.contoso.com` both match `*.contoso.com`).
 
 In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
