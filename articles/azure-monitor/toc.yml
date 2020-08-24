@@ -330,27 +330,27 @@
     - name: Data collection rules
       href: platform/data-collection-rule-overview.md
     - name: Agent data sources
-        items:
-        - name: Overview
-          href: platform/agent-data-sources.md
-        - name: Windows events
-          href: platform/data-sources-windows-events.md
-        - name: Custom JSON data
-          href: platform/data-sources-json.md
-        - name: CollectD performance data
-          href: platform/data-sources-collectd.md
-        - name: Syslog
-          href: platform/data-sources-syslog.md
-        - name: Performance counters
-          href: platform/data-sources-performance-counters.md
-        - name: Linux application performance
-          href: platform/data-sources-linux-applications.md
-        - name: IIS logs
-          href: platform/data-sources-iis-logs.md
-        - name: Custom logs
-          href: platform/data-sources-custom-logs.md
-        - name: Custom fields
-          href: platform/custom-fields.md
+      items:
+      - name: Overview
+        href: platform/agent-data-sources.md
+      - name: Windows events
+        href: platform/data-sources-windows-events.md
+      - name: Custom JSON data
+        href: platform/data-sources-json.md
+      - name: CollectD performance data
+        href: platform/data-sources-collectd.md
+      - name: Syslog
+        href: platform/data-sources-syslog.md
+      - name: Performance counters
+        href: platform/data-sources-performance-counters.md
+      - name: Linux application performance
+        href: platform/data-sources-linux-applications.md
+      - name: IIS logs
+        href: platform/data-sources-iis-logs.md
+      - name: Custom logs
+        href: platform/data-sources-custom-logs.md
+      - name: Custom fields
+        href: platform/custom-fields.md
     - name: Custom metrics
       items:
       - name: Custom metrics
