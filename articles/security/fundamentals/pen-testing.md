@@ -22,11 +22,11 @@ ms.author: terrylan
 
 One of the benefits of using Azure for application testing and deployment is that you can quickly get environments created. You don’t have to worry about requisitioning, acquiring, and “racking and stacking” your own on-premises hardware.
 
-This is great – but you still need to make sure you perform your normal security due diligence. One of the things you likely want to do is penetration test the applications you deploy in Azure.
+Quickly creating environments is great – but you still need to make sure you perform your normal security due diligence. One of the things you likely want to do is penetration test the applications you deploy in Azure.
 
-You might already know that Microsoft performs [penetration testing of our Azure environment](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). This helps drive Azure improvements.
+You might already know that Microsoft performs [penetration testing of our Azure environment](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). This testing helps drive Azure improvements.
 
-We don’t penetration test your application for you, but we do understand that you will want and need to perform testing on your own applications. That’s a good thing, because when you enhance the security of your applications you help make the entire Azure ecosystem more secure.
+We don’t perform penetration testing of your application for you, but we do understand that you want and need to perform testing on your own applications. That’s a good thing, because when you enhance the security of your applications you help make the entire Azure ecosystem more secure.
 
 As of June 15, 2017, Microsoft no longer requires pre-approval to conduct a penetration test against Azure resources. This process is only related to Microsoft Azure, and not applicable to any other Microsoft Cloud Service.
 
@@ -39,11 +39,11 @@ Standard tests you can perform include:
 * [Fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
 
-One type of pen test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate or simulate any type of DoS attack.
+One type of pen test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This test includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate, or simulate any type of DoS attack.
 
 >[!Note]
 >Microsoft has partnered with BreakingPoint Cloud to build an interface where you can generate traffic against DDoS Protection-enabled public IP addresses for simulations. To learn more about the BreakPoint Cloud simulation see [validate DDoS detection](../virtual-network/manage-ddos-protection.md#validate-ddos-detection).
 
 ## Next steps
 
-* If you would like to formally document an upcoming penetration testing against your applications hosted in Microsoft Azure, head on over to the [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) and fill out the testing notification form.
+* Learn more about the [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2).
