@@ -26,7 +26,7 @@ The following lists some of the most popular Azure Maps open-source projects and
 
 **Open Web SDK modules**
 
-The following is a list of open-source projects that extend the capabilites of the Azure Maps Web SDK.
+The following is a list of open-source projects that extend the capabilities of the Azure Maps Web SDK.
 
 | Project Name | Description |
 |-|-|
@@ -50,15 +50,6 @@ The following is a list of open-source projects that extend the capabilites of t
 |-|-|
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source for all Azure Location Based Services documentation. |
 | [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator Tools. |
-
-**Open Web SDK modules**
-
-The following is a list of open-source projects that extend the capabilites of the Azure Maps Web SDK.
-
-| Project Name | Description |
-|-|-|
-| [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations)| A rich library of animations for use with the Azure Maps Web SDK. |
-| [Azure Maps Services UI module](https://github.com/Azure-Samples/azure-maps-services-ui) | A set of web UI controls that wrap the Azure Maps REST services. |
 
 A longer list of open-source projects for Azure Maps that includes community created projects is available [here](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 
