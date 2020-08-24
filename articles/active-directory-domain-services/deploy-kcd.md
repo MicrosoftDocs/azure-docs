@@ -109,4 +109,4 @@ To learn more about how delegation works in Active Directory Domain Services, se
 [Set-ADUser]: /powershell/module/addsadministration/set-aduser
 
 <!-- EXTERNAL LINKS -->
-[kcd-technet]: https://technet.microsoft.com/library/jj553400.aspx
+[kcd-technet]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)
