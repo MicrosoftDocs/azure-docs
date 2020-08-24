@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
 ---
 
 # Quickstart: Recognize digital ink with the Ink Recognizer REST API and JavaScript
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Use this quickstart to begin using the Ink Recognizer API on digital ink strokes. This JavaScript application sends an API request containing JSON-formatted ink stroke data, and displays the response.
 
