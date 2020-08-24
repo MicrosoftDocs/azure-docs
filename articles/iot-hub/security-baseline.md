@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 08/22/2020
+ms.date: 08/24/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -267,7 +267,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results from your Azure IoT Hub. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
-Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
 - [Monitor Azure IoT health](iot-hub-monitor-resource-health.md)
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
@@ -339,7 +339,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32458.).
 
-**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure IoT hub through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure IoT hub through role assignments. You can assign these roles to users, groups service principals, and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, or Azure PowerShell, or the Azure portal. 
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -1065,7 +1065,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 **Guidance**: IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on the network. 
 
-Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+Use managed identities to provide Azure services with an automatically managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 - [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [How to configure managed identities for IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
@@ -1220,7 +1220,8 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32519.).
 
-**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytically used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+
   
  Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
   
