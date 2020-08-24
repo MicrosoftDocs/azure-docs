@@ -22,10 +22,6 @@ To configure routing, see [How to configure virtual hub routing](how-to-virtual-
 
 The following sections describe the key concepts in virtual hub routing.
 
-> [!NOTE]
-> Some of these new concepts for hub route table, association, propagation and static routes in a virtual network connection may still be rolling out and expected to complete in week of Aug 17th.
->
-
 ### <a name="hub-route"></a>Hub route table
 
 A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associated or propagates to a route table
