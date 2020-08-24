@@ -90,7 +90,7 @@ To install the MMA on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Learn more](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) about the list of Linux operating systems support by MMA. 
+[Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA. 
 
 ## Install the Dependency agent
 
