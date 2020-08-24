@@ -1,30 +1,30 @@
 ---
 title: Frequently asked questions
-description: Provides answers to some of the common questions about Azure VMware Solution (AVS).
+description: Provides answers to some of the common questions about Azure VMware Solution.
 ms.topic: conceptual
 ms.date:  05/04/2020
 ms.author: dikamath
 ---
 
-# Frequently asked questions about Azure VMware Solution (AVS) preview
+# Frequently asked questions about Azure VMware Solution preview
 
-Answers for frequently asked questions about Azure VMware Solution (AVS).
+Answers for frequently asked questions about Azure VMware Solution.
 
 ## General
 
-**What is Azure VMware Solution (AVS)?**
+**What is Azure VMware Solution?**
 
-As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. AVS combines VMware’s Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem. The AVS solution is managed to meet performance, availability, security, and compliance requirements.
+As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. Azure VMware Solution combines VMware’s Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem. The Azure VMware Solution is managed to meet performance, availability, security, and compliance requirements.
 
-## AVS Service
+## Azure VMware Solution Service
 
-**Where is AVS available today?**
+**Where is Azure VMware Solution available today?**
 
-During the preview, it's available in US East in North America and in Amsterdam in Western Europe.
+The service is continuously being added to new regions, so view the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) for more details. 
 
-**Can workloads running in an Azure VMware Solution (AVS) instance consume or integrate with Azure services?**
+**Can workloads running in an Azure VMware Solution instance consume or integrate with Azure services?**
 
-All Azure services will be available to AVS solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
+All Azure services will be available to Azure VMware Solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
 **Do I use the same tools that I use now to manage private cloud resources?**
 
@@ -32,16 +32,16 @@ Yes. The Azure portal is used for deployment and a number of management operatio
 
 **Can I manage a private cloud with my on-premises vCenter?**
 
-At launch, AVS won't support a single management experience across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
+At launch, Azure VMware Solution won't support a single management experience across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
 
 **Can I use vRealize Suite running on-premises?** 
 
 Specific integrations and use cases may be evaluated on a case-by-case
 basis.
 
-**Can I migrate vSphere VMs from on-premises environments to AVS private clouds?**
+**Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?**
 
-Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements][https://kb.vmware.com/s/article/210695] are met.
+Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements](https://kb.vmware.com/s/article/210695) are met.
 
 **Is a specific version of vSphere required in on-premises environments?**
 
@@ -54,7 +54,7 @@ Updates made to the service itself will follow Microsoft Azure’s standard chan
 
 **How is this different from Azure VMware Solution by CloudSimple?**
 
-With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
+With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
 
 **If I'm an existing Azure VMware Solution customer, what does this preview mean for me?**
 
@@ -62,7 +62,7 @@ There is no change to the existing Azure VMware Solution by CloudSimple. We cont
 
 **Can I migrate from Azure VMware Solution by CloudSimple to this new solution?**
 
-Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, please work with your Microsoft account team to explore options and available support.
+Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, work with your Microsoft account team to explore options and available support.
 
 
 
@@ -86,7 +86,7 @@ Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2
 
 **How much network bandwidth is available in each ESXi host?**
 
-ESXi hosts support connectivity bandwidth up to 25 Gbps.
+Each ESXi host is Azure VMware Solution is configured with four 25 Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
 
 **Is data stored on the vSAN datastores encrypted at rest?**
 
@@ -108,13 +108,13 @@ Yes, clusters scale between the minimum and maximum number of ESXi hosts. Trial 
 
 **What are trial clusters?**
 
-Trial clusters are three host clusters used for one month evaluations of AVS private clouds.
+Trial clusters are three host clusters used for one month evaluations of Azure VMware Solution private clouds.
 
 **Can I use High-end hosts for trial clusters?**
 
 No. High-end ESXi hosts are reserved for use in production clusters.
 
-## AVS and VMware software
+## Azure VMware Solution and VMware software
 
 **What versions of VMware software is used in private clouds?**
 
@@ -122,7 +122,7 @@ Private clouds use vSphere 6.7, vSAN 6.7, HCX, and version 2.5 of NSX-T.
 
 **Do private clouds use VMware NSX?**
 
-Yes, NSX-T 2.5 is used for the software defined networking in AVS private clouds.
+Yes, NSX-T 2.5 is used for the software defined networking in Azure VMware Solution private clouds.
 
 **Can I use VMware NSX-V in a private cloud?**
 
@@ -144,9 +144,9 @@ The private cloud software is upgraded on a schedule that tracks with the releas
 
 **What network IP address planning is required to incorporate private clouds with on-premises environments?**
 
-A private network /22 address space is required to deploy an AVS private cloud. This private address space shouldn't overlap with other virtual networks in a subscription, or with on-premises networks.
+A private network /22 address space is required to deploy an Azure VMware Solution private cloud. This private address space shouldn't overlap with other virtual networks in a subscription, or with on-premises networks.
  
-**How do I connect from on-premises environments to an AVS private cloud?**
+**How do I connect from on-premises environments to an Azure VMware Solution private cloud?**
 
 You can connect to the service in one of two methods: 
 
@@ -167,7 +167,7 @@ Yes. You'll need to use NSX-T manager to create a firewall that restricts VM acc
 
 ## Accounts and privileges
 
-**What accounts and privileges will I get with my new AVS private cloud?**
+**What accounts and privileges will I get with my new Azure VMware Solution private cloud?**
 
 You're provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There's also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
@@ -188,19 +188,19 @@ You'll have full administrator privileges on NSX-T and can manage role-based acc
 
 ## Billing and Support
 
-**How will I be billed during the preview of AVS**
+**How will I be billed during the preview of Azure VMware Solution**
 
-Billing for AVS during preview is monthly on a pay-as-you-go basis. Additional options will be available at general availability.
+Billing for Azure VMware Solution during preview is monthly on a pay-as-you-go basis. Additional options will be available at general availability.
 
-**How will pricing be structured during the preview of AVS?**
+**How will pricing be structured during the preview of Azure VMware Solution?**
 
-For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, please contact your account team or follow the link on the pricing page to contact sales.
+For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, contact your account team or follow the link on the pricing page to contact sales.
 
-**Who supports AVS?**
+**Who supports Azure VMware Solution?**
 
-Support for AVS is delivered by Microsoft. Please note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday thru Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Support for Azure VMware Solution is delivered by Microsoft. Note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday - Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-**What accounts do I need to create an AVS private cloud?**
+**What accounts do I need to create an Azure VMware Solution private cloud?**
 
 You'll need an Azure account in an Azure subscription.
 

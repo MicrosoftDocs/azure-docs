@@ -36,7 +36,7 @@ To register to use the account encryption key with Queue or Table storage, use P
 
 # [PowerShell](#tab/powershell)
 
-To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `

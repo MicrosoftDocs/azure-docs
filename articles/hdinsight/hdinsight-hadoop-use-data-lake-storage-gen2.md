@@ -101,6 +101,7 @@ You can [download a sample template file](https://github.com/Azure-Samples/hdins
 | `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
 | `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
 | `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
+| `<FILESYSTEMNAME>`  | The name of the filesystem that this cluster should use in the storage account. |
 | `<CLUSTERNAME>` | The name of your HDInsight cluster. |
 | `<PASSWORD>` | Your chosen password for signing in to the cluster using SSH and the Ambari dashboard. |
 
@@ -133,7 +134,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor** role on the storage account. This step is described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-After you've assigned the role for the user-assigned managed identity, deploy the template by using the following code snippet.
+ > [!IMPORTANT]
+ > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Contributor** role permissions, otherwise cluster creation will fail.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

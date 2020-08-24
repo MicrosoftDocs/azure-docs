@@ -28,7 +28,7 @@ The identifier for a directory schema extension attribute is of the form *Extens
 ## Registering and using directory schema extensions
 Directory schema extension attributes can be registered and populated in one of two ways:
 
-- By configuring AD Connect to create them and to sync data into them from on premises AD. See [Azure AD Connect Sync Directory Extensions](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- By configuring AD Connect to create them and to sync data into them from on premises AD. See [Azure AD Connect Sync Directory Extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Using Microsoft Graph to register, set the values of, and read from directory schema extension attributes [Directory schema extensions | Graph API concepts](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) and/or PowerShell+ [Managing extension attributes with AzureAD PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### Emitting claims with data from directory schema extension attributes created with AD Connect

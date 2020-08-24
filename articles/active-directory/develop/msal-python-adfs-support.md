@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
-ms.custom: aaddev, tracking-python
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Python so I can decide if this platform meets my application development needs and requirements.
 ---
 

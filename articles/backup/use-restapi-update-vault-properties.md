@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ---
-# Update Azure Recovery Services Vault configurations using REST API
+# Update Azure Recovery Services vault configurations using REST API
 
 This article describes how to update backup related configurations in Azure Recovery Services vault using REST API.
 
@@ -59,7 +59,7 @@ Once the 'GET' request is submitted, a 200 (successful) response is returned.
 
 ### Update soft delete state using REST API
 
-To update the soft-delete state of the recovery services vault using REST API, use the following *PATCH* operation
+To update the soft-delete state of the Recovery Services vault using REST API, use the following *PATCH* operation
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -97,7 +97,7 @@ The following example is used to update the soft-delete state to 'disabled'.
 }
 ```
 
-#### Responses
+#### Responses for the PATCH operation
 
 The successful response for the 'PATCH' operation is shown below:
 
@@ -105,7 +105,7 @@ The successful response for the 'PATCH' operation is shown below:
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### Example response
+##### Example response for the PATCH operation
 
 Once the 'PATCH' request is submitted, a 200 (successful) response is returned.
 

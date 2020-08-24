@@ -63,7 +63,7 @@ conceptualContent:
         - url: ../app-service/configure-ssl-bindings.md
           itemType: tutorial
           text: Secure a custom domain with an SSL binding
-        - url: ../app-service/app-service-web-get-started-windows-container.md
+        - url: ../app-service/quickstart-custom-container.md
           itemType: get-started
           text: Run a custom Windows container
         - url: ../app-service/containers/quickstart-docker.md

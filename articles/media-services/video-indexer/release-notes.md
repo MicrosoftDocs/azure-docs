@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,28 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## July 2020
+
+### GA for multi-language identification
+
+Multi-language identification is moved from preview to GA and ready for productive use.
+
+There is no pricing impact related to the "Preview to GA" transition.
+
+### Video Indexer website improvements
+
+#### Adjustments in the video gallery
+
+New search bar for deep insights search with additional filtering capabilities was added. Search results were also enhanced.
+
+New list view with ability to sort and manage video archive with multiple files.
+
+#### New panel for easy selection and configuration
+
+Side panel for easy selection and user configuration was added, allowing simple and quick account creation and sharing as well as setting configuration.
+
+Side panel is also used for user preferences and help.
 
 ## June 2020
 

@@ -19,7 +19,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Select a VM to back up
 
-Create a simple scheduled daily backup to a Recovery Services Vault.
+Create a simple scheduled daily backup to a Recovery Services vault.
 
 1. In the menu on the left, select **Virtual machines**.
 2. From the list, choose a VM to back up. If you used the sample VM quickstart commands, the VM is named *myVM* in the *myResourceGroup* resource group.

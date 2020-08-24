@@ -1,4 +1,4 @@
-- name: Azure DB for MySQL Docs
+- name: Azure DB for MySQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -28,14 +28,18 @@
       href: connect-php.md
     - name: Java
       href: connect-java.md
+    - name: Java with Spring Data JDBC
+      href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+    - name: Java with Spring Data JPA
+      href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+    - name: Java with Spring Data R2DBC
+      href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
     - name: .NET
       href: connect-csharp.md
     - name: Python
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
-    - name: Azure PowerShell
-      href: connect-powershell.md
     - name: Ruby
       href: connect-ruby.md
     - name: C++
@@ -59,10 +63,10 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress in containers with MySQL
-      href: ../app-service/containers/tutorial-multi-container-app.md
+      href: ../app-service/tutorial-multi-container-app.md
       maintainContext: true
     - name: PHP with MySQL
-      href: ../app-service/app-service-web-tutorial-php-mysql.md
+      href: ../app-service/tutorial-php-mysql-app.md
       maintainContext: true
 - name: Samples
   items:
@@ -140,6 +144,8 @@
       href: concepts-server-parameters.md
   - name: Development
     items:
+    - name: Application Best practices
+      href: app-development-best-practices.md
     - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development
@@ -150,10 +156,14 @@
       href: concepts-aks.md
     - name: Java
       items:
-      - name: Configure Spring Data JDBC
-        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-      - name: Configure Spring Data JPA
-        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
+      - name: Use Java and JDBC
+        href: connect-java.md
+      - name: Use Spring Data JDBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+      - name: Use  Spring Data JPA
+        href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+      - name: Use Spring Data R2DBC
+        href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
   - name: Replication
     items:
     - name: Data-in replication
@@ -193,7 +203,11 @@
     - name: Create users
       href: howto-create-users.md
     - name: Connection strings
-      href: howto-connection-string.md
+      items:
+      - name: Connect applications
+        href: howto-connection-string.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure SSL
       href: howto-configure-ssl.md
     - name: Configure TLS
@@ -248,6 +262,8 @@
       href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
+    - name: Troubleshoot common errors
+      href: howto-troubleshoot-common-errors.md
     - name: Troubleshoot connection errors
       href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance

@@ -77,6 +77,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ### How do I retrieve log data?
 All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
 
+### Can I delete data from a Log Analytics workspace?
+Data is removed from a workspace according to its [retention period](platform/manage-cost-storage.md#change-the-data-retention-period). You can delete specific data for privacy or compliance reasons. See [How to export and delete private data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) for more information.
+
+
 ### What is a Log Analytics workspace?
 All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
 
@@ -666,7 +670,7 @@ If your virtual machines are already connected to a Log Analytics workspace, you
 ### Can I onboard to a new workspace? 
 If your VMs are not currently connected to an existing Log Analytics workspace, you need to create a new workspace to store your data. Creating a new default workspace is done automatically if you configure a single Azure VM for Azure Monitor for VMs through the Azure portal.
 
-If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager template](insights/vminsights-enable-at-scale-powershell.md) article. 
+If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager template](./insights/vminsights-enable-powershell.md) article. 
 
 ### What do I do if my VM is already reporting to an existing workspace?
 If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to Azure Monitor for VMs at this time.  We are actively working to support additional regions.
@@ -687,7 +691,7 @@ If you have initiated onboarding and see messages indicating the VM needs to be 
 ### I don't see some or any data in the performance charts for my VM
 Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](insights/vminsights-ga-release-faq.md) for additional information.
 
-If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./insights/vminsights-enable-powershell.md).
 
 
 ### How is Azure Monitor for VMs Map feature different from Service Map?

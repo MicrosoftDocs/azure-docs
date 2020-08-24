@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -60,11 +60,6 @@ ws = Workspace.from_config()
 env = Environment.get(workspace=ws, name="AzureML-Minimal")
 ```
 
-To modify a curated environment, it must be copied:
-
-```python
-env = Environment.get(workspace=ws, name="AzureML-Tutorial").clone("new_env")
-```
 You can list the curated environments and their packages by using the following code:
 
 ```python
@@ -247,6 +242,9 @@ build.wait_for_completion(show_output=True)
 
 It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. And setting the optional parameter `pushImageToWorkspaceAcr = True` will push the resulting image into the Azure ML workspace container registry. 
 
+> [!WARNING]
+>  Changing the order of dependencies or channels in an environment will result in a new environment and will require a new image build.
+
 ## Enable Docker
 
 Docker container provides an efficient way to encapsulate the dependencies. When you enable Docker, Azure ML builds a Docker image and creates a Python environment within that container, given your specifications. The Docker images are cached and reused: the first run in a new environment typically takes longer as the image is build.
@@ -318,6 +316,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > If you install some Python dependencies in your Docker image and forget to set user_managed_dependencies = True, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
 
+### Retrieve image details
+
+For a registered environment, you can retrieve image details using the following code where `details` is an instance of [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11) and provides all the information about the environment image such as the dockerfile, registry, and image name.
+
+```python
+details = environment.get_image_details()
+```
+
 ## Use environments for training
 
 To submit a training run, you need to combine your environment, [compute target](concept-compute-target.md), and your training Python script into a run configuration. This configuration is a wrapper object that's used for submitting runs.
@@ -375,12 +381,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 # Submit the run 
 run = experiment.submit(sk_est)
 ```
-### Retrieve Dockerfile from a run
-
-Use the following code to obtain the Dockerfile for a Docker-enabled run.
-```python
-print(run.get_environment().get_image_details().dockerfile)
-```
 
 ## Use environments for web service deployment
 
@@ -415,10 +415,6 @@ service = Model.deploy(
 ## Notebooks
 
 This [article](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
-
-This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
-
-This [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) demonstrates how to train a model locally with different types of environments.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SuccessFactors | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SuccessFactors.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SuccessFactors
@@ -113,7 +107,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     - `https://<companyname>.sapsf.cn/<companyname>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/content/ssf-site/en/support.html) to get these values.
+	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.sap.com/support.html) to get these values.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -224,7 +218,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To enable Azure AD users to sign in to SuccessFactors, they must be provisioned into SuccessFactors. In the case of SuccessFactors, provisioning is a manual task.
 
-To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.successfactors.com/content/ssf-site/en/support.html).
+To get users created in SuccessFactors, you need to contact the [SuccessFactors support team](https://www.sap.com/support.html).
 
 ## Test SSO 
 

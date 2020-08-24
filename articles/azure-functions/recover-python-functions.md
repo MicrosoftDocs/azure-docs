@@ -6,7 +6,7 @@ author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
 ms.author: hazeng
-ms.custom: tracking-python
+ms.custom: devx-track-python 
 ---
 
 # Troubleshoot Python errors in Azure Functions

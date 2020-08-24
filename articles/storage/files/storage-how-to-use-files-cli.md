@@ -1,6 +1,6 @@
 ---
 title: Quickstart for managing Azure file shares using the Azure CLI
-description: Use this quickstart to learn how to use Azure CLI to manage Azure Files.
+description: In this quickstart, learn how to use Azure CLI to manage Azure Files. Create a resource group and storage account, then create and use an Azure file share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart

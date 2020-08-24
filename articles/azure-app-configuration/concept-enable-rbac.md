@@ -21,7 +21,7 @@ The authentication step requires that an application request contains an OAuth 2
 The authorization step requires that one or more Azure roles be assigned to the security principal. Azure App Configuration provides Azure roles that encompass sets of permissions for App Configuration resources. The roles that are assigned to a security principal determine the permissions provided to the principal. For more information about Azure roles, see [Azure built-in roles for Azure App Configuration](#azure-built-in-roles-for-azure-app-configuration). 
 
 ## Assign Azure roles for access rights
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../role-based-access-control/overview.md).
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access is scoped to the App Configuration resource. An Azure AD security principal may be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 

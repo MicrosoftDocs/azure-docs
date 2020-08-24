@@ -133,6 +133,22 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
+### Query with multiple JOINs
+
+Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
+
+Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
+
+```sql
+SELECT LightBulb 
+FROM DIGITALTWINS Room 
+JOIN LightPanel RELATED Room.contains 
+JOIN LightBulb RELATED LightPanel.contains 
+WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
+AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
+AND Room.$dtId IN [‘room1’, ‘room2’] 
+```
+
 ## Run queries with an API call
 
 Once you have decided on a query string, you execute it by making a call to the **Query API**.
@@ -174,7 +190,7 @@ There may be a delay of up to 10 seconds before changes in your instance are ref
 There are additional limitations on using `JOIN` during preview.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* During public preview, graph traversal depth is restricted: only one `JOIN` is allowed per query.
+* During preview, graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
 ## Query best practices

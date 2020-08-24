@@ -42,12 +42,6 @@ This article describes how the [Azure Backup service](./backup-overview.md) rest
 | [Restore an encrypted VM](./backup-azure-vms-encryption.md) | From the portal, restore the disks and then use PowerShell to create the VM | <li> [Encrypted VM with  Azure Active Directory (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Encrypted VM  without AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Encrypted VM *with  AAD* migrated to *without AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Cross Region Restore](./backup-azure-arm-restore-vms.md#cross-region-restore) | Create a new VM or restore disks to a  secondary region (Azure paired region) | <li> **Full outage**:  With the cross region restore feature, there's no wait time to recover data in the secondary region. You can initiate restores in the secondary region even before Azure declares an outage. <li> **Partial outage**: Downtime can occur in specific storage clusters where Azure Backup stores your backed-up data or even in-network, connecting Azure Backup and storage clusters associated with your backed-up data. With Cross Region Restore, you can perform a restore in the secondary region using a replica of backed up data in the secondary region. <li> **No outage**: You can conduct business continuity and disaster recovery (BCDR) drills for audit or compliance purposes with the secondary region data. This allows you to perform a restore of backed up data in the secondary region even if there isn't a full or partial outage in the primary region for business continuity and disaster recovery drills.  |
 
-------
-
-
-
-
-
 ## Next steps
 
 - [Frequently asked questions about VM restore](./backup-azure-vm-backup-faq.md#restore)
