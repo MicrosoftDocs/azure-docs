@@ -16,7 +16,11 @@ ms.subservice: files
 You must have already created a virtual machine and a virtual network. You will need the VM's public IP address for this process.
 
 - Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
-- Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
+
+> [!IMPORTANT]
+> Since encryption-in-transit is not currently available with NFS shares, we recommend disabling your storage account's public endpoint and configuring private endpoints, to ensure your data is secure and only accessible via your network.
+
+- Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
 ## Configure networking
 
