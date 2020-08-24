@@ -63,7 +63,7 @@ This section only pertains to the ExpressRoute partner connectivity model:
 * Provide additional information needed by the connectivity provider (for example, VPN ID).
 * If the provider manages the routing configuration, provide the necessary details.
 
-You can ensure that the circuit has been provisioned successfully by verifying the ExpressRoute circuit provisioning state using PowerShell, the Azure Portal or CLI.
+You can ensure that the circuit has been provisioned successfully by verifying the ExpressRoute circuit provisioning state using PowerShell, the Azure portal or, CLI.
 
 ### 5. Configure routing domains
 
