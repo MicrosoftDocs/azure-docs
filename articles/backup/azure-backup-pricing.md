@@ -95,7 +95,7 @@ To estimate the costs of backing up SQL servers running in Azure VMs using Azure
 
   - Backup Type
 
-    - The most effective policy you can choose is **Daily differentials** with weekly/monthly/yearly full backups. Azure Backup can restore from differentials through single click as well.
+    - The most effective policy you can choose is **Daily differentials** with weekly/monthly/yearly full backups. Azure Backup can restore from differentials through single-click as well.
 
     - You can also choose to have a policy with daily/weekly/monthly/yearly full backups. This option will consume slightly more storage than the first option.
 
@@ -132,7 +132,7 @@ To estimate the costs of backing up SAP HANA servers running in Azure VMs using 
   - If you know your **churn%**, you can use the **Enter your own%** option
 - Choose the backup policy
   - Backup Type
-    - The most effective policy you can choose is **Daily differentials** with **weekly/monthly/yearly** full backups. Azure Backup can restore from differentials through single click as well.
+    - The most effective policy you can choose is **Daily differentials** with **weekly/monthly/yearly** full backups. Azure Backup can restore from differentials through single-click as well.
     - You can also choose to have a policy with **daily/weekly/monthly/yearly** full backups. This option will consume slightly more storage than the first option.
   - How long do you expect to retain “log” backups? (in days) [7-35]
   - How long do you expect to retain “Daily” backups? (in days)
@@ -155,8 +155,8 @@ To estimate the costs of backing up Azure file shares using the [snapshot-based 
 - If you want to back up file shares spread across multiple storage accounts, specify the number of storage accounts hosting the file shares with the above size.
 
 - Expected amount of data churn on the file shares that you want to back up. <br>Churn refers to the amount of change in data and it directly impacts the snapshot storage size. For example, if you have a file share with 200 GB of data to be backed up, and 10 GB of it changes every day, the daily churn is 5%.
-  - Higher churn means that the amount of data change in the file share contents every day is high, and so incremental snapshot (capturing only the data changes) size would also be more.
-  - Select Low (1%), Moderate (3%), or high (5%) based on your file share characteristics and usage.
+  - Higher churn means the amount of data change in the file share contents every day is high, and so incremental snapshot (capturing only the data changes) size would also be more.
+  - Select Low (1%), Moderate (3%), or High (5%) based on your file share characteristics and usage.
   - If you know the exact **churn%** for your file share, you can select the **Enter your own%** option from the drop-down. Specify the values (in %) for daily, weekly, monthly, and yearly churn.
 
 - Type of storage account (standard or premium) and the storage redundancy setting of the storage account hosting the backed-up file share. <br>In the current backup solution for Azure file shares, snapshots are stored in the same storage account as the backed-up file share. So the storage cost associated with snapshots is billed as part of your Azure files bill, based on the snapshot pricing for the account type and redundancy setting of the storage account hosting the backed-up file share and snapshots.

@@ -33,9 +33,9 @@ The IoT Edge module offer type is a specific type of container running on an IoT
 
 ## Publishing your IoT Edge module
 
-**Selecting the right storefront**
+**Selecting the right online store**
 
-IoT Edge Modules are only published to the Azure Marketplace, AppSource does not apply.  For more information on the differences and target audience across storefronts, see [determining the publishing option for your solution](determine-your-listing-type.md).
+IoT Edge Modules are only published to the Azure Marketplace, AppSource does not apply.  For more information on the differences and target audience across online stores, see [Determine your publishing option](determine-your-listing-type.md).
  
 **Billing options**
 
@@ -68,17 +68,8 @@ To publish an IoT Edge module to the Azure Marketplace, you need to meet the fol
 
 The primary technical requirements for an IoT Edge Module, in order for it to get certified and published in the Azure Marketplace, are detailed in the [Prepare your IoT Edge module technical assets](./partner-center-portal/create-iot-edge-module-asset.md).
 
-## Documentation and Resources
-
-[Create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) -- The steps for publishing a new IoT Edge module offer in Partner Center.
-
 ## Next steps
 
-If you haven't already done so,
-
-- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
-
-To register in Partner Center, and start creating a new offer or working on an existing one,
-
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the commercial marketplace.
 - Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) for information on how to publish an IoT Edge module offer.
+- [Create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) in Partner Center.

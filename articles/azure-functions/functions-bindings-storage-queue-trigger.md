@@ -396,7 +396,7 @@ When there are multiple queue messages waiting, the queue trigger retrieves a ba
 
 The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). 
 
-The queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent.
+The queue trigger automatically prevents a function from processing a queue message multiple times simultaneously.
 
 ## host.json properties
 
@@ -404,7 +404,7 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 ## Next steps
 
-- [Write queue storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Write blob storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

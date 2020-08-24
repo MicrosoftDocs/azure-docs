@@ -3,8 +3,8 @@
 title: Code a client app
 titleSuffix: Azure Digital Twins
 description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
@@ -49,7 +49,7 @@ Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
+dotnet add package Azure.identity --version 1.1.1
 ```
 
 The first dependency is the [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
