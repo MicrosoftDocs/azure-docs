@@ -82,19 +82,19 @@ A control for gathering tabular input. All fields within the grid are editable a
         }
       },
       {
-        "id": "colVision",
-        "header": "Vision",
+        "id": "colContactPreference",
+        "header": "Contact preference",
         "width": "1fr",
         "element": {
           "type": "Microsoft.Common.OptionsGroup",
           "constraints": {
             "allowedValues": [
               {
-                "label": "Sighted",
+                "label": "Email",
                 "value": "on"
               },
               {
-                "label": "Impaired",
+                "label": "Text",
                 "value": "off"
               }
             ],
@@ -113,14 +113,14 @@ A control for gathering tabular input. All fields within the grid are editable a
 {
   "colName": "contoso",
   "colGender": "female",
-  "colVision": "on"
+  "colContactPreference": "on"
 }
 ```
 
 ## Remarks
 
 - The only valid controls within the columns array are the [TextBox](microsoft-common-textbox.md), [OptionsGroup](microsoft-common-optionsgroup.md), and [DropDown](microsoft-common-dropdown.md).
-- The `$rowIndex` variable is only valid in expressions contained within children of the grid's columns. It's an integer that represents the element's relative row index. As shown in the schema's `"columns":` section, the `$rowIndex` is used for validations and is Base 1 (the count begins at 1, then 2, 3).
+- The `$rowIndex` variable is only valid in expressions contained within children of the grid's columns. It's an integer that represents the element's relative row index and the count begins at one and increments by one. As shown in the schema's `"columns":` section, the `$rowIndex` is used for validation.
 - When validations are performed using the `$rowIndex` variable, it's possible to get the current row's value by combining the `last()` and `take()` commands.
 
   For example:
@@ -128,7 +128,7 @@ A control for gathering tabular input. All fields within the grid are editable a
   `last(take(<reference_to_grid>, $rowIndex))`
 
 - The **label** field doesn't appear as part of the control but is displayed on the final tab summary.
-- The `ariaLabel` property is the accessibility label for the grid. Specify helpful use text for users who might have vision impairments.
+- The `ariaLabel` property is the accessibility label for the grid. Specify helpful text for users who use screen readers.
 - The `constraints.width` property is used to set the overall width of the grid. The options are _Full_, _Medium_, _Small_. The default is _Full_.
 - The `width` property on children of columns determines the column width. Widths are specified using fractional units such as _3fr_, with total space being allotted to columns proportional to their units. If no column width is specified, the default is _1fr_.
 
