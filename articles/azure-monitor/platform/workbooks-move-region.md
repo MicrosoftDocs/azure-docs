@@ -58,7 +58,7 @@ If you renamed your workbook to import it into a new region, you can rename the 
 
 ## Next Steps
 
-Need to move a workbook template instead of a workbook? See how to [move an Azure Workbook Template to another region](./workbooks-templates-move-region.md).
+Need to move a workbook template instead of a workbook? See how to [move an Azure Workbook Template to another region](./workbook-templates-move-region.md).
 
 See how to [deploy Workbooks and Workbook Templates](./workbooks-automate.md) via ARM Templates.
 
