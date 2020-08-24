@@ -15,7 +15,8 @@ ms.subservice: files
 
 You must have already created a virtual machine and a virtual network. You will need the VM's public IP address for this process.
 
-Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
+- Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
+- Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
 ## Configure networking
 
