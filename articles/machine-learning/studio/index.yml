@@ -27,7 +27,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: What is Studio (classic)?
-            url: what-is-ml-studio.md
+            url: studio-classic-overview.md
           - text: Create your first ML experiment
             url: create-experiment.md
           - text: Create a predictive solution

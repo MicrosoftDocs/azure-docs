@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 In this article, you learn about Azure Machine Learning, a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. 
 
-Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the [designer](tutorial-designer-automobile-price-train-score.md), you can build, train, and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace. 
+Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code with the SDK or work with no-code/low-code options in [the studio](#build-ml-models-in-the-studio), you can build, train, and track machine learning and deep-learning models in an Azure Machine Learning Workspace. 
 
 Start training on your local machine and then scale out to the cloud. 
 
@@ -62,9 +62,9 @@ With many available [compute targets](how-to-set-up-training-targets.md), like A
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
-## Build and manage ML experiments in the studio
+## Build ML models in the studio
 
-Use [Azure Machine Learning studio](https://www.ml.azure.com) for low-code and no-code options for model training, tracking, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience for code-first users. For more information, see [What is Azure Machine Learning studio](overview-what-is-ml-studio.md).
+[Azure Machine Learning studio](https://www.ml.azure.com) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-ml-studio.md).
 
 + **Azure Machine Learning designer (preview)**
 
@@ -81,7 +81,7 @@ Use [Azure Machine Learning studio](https://www.ml.azure.com) for low-code and n
 
 + **And much more...**
 
-  Try Azure Machine Learning studio at [ml.azure.com](https://www.ml.azure.com). 
+  Visit Azure Machine Learning studio at [ml.azure.com](https://www.ml.azure.com). 
 
 
 ## MLOps: Deploy & lifecycle management
