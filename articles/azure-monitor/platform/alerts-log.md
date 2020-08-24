@@ -32,7 +32,7 @@ Here the steps to get started writing queries for alerts:
     ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
 
 > [!NOTE]
-> It is recommended that you create alerts at scale, when using resource access mode for logs, which runs on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, please include the resource ID column in the results.
+> It is recommended that you create alerts at scale, when using resource access mode for logs, which runs on multiple resources using a resource group or subscription scope. Alerting at scale reduces rule management overhead. To be able to target the resources, please include the resource ID column in the results. [Learn more about splitting alerts by dimensions](alerts-unified-log.md#split-by-alert-dimensions).
 
 ### Log alert for Log Analytics and Application Insights
 
