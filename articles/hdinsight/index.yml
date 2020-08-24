@@ -75,6 +75,19 @@ landingContent:
           - text: Use JDBC/ODBC driver
             url: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
 
+# Card
+  - title: Enterprise readiness
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: HDInsight security overview
+            url: ./domain-joined/hdinsight-security-overview.md
+          - text: Plan virtual network
+            url: ./hdinsight-plan-virtual-network-deployment.md
+          - text: 'Hadoop on Active Directory: Enterprise Security Package'
+            url: ./domain-joined/apache-domain-joined-architecture.md
+          - text: Migrate on-premises clusters to the cloud
+            url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
 
   # Card
   - title: Apache Kafka
@@ -112,36 +125,6 @@ landingContent:
           - text: Apache Phoenix best practices
             url: ./hbase/apache-hbase-phoenix-performance.md
 
-  # Card
-  - title: Interactive query
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is Interactive Query?
-            url: ./interactive-query/apache-interactive-query-get-started.md
-          - text: Analyze flight data with Apache Hive
-            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
-      - linkListType: how-to-guide
-        links:
-          - text: Optimize Hive queries
-            url: ./hdinsight-hadoop-optimize-hive-query.md
-          - text: Connect Hive with Power BI
-            url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
-
-  # Card
-  - title: Enterprise readiness
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: HDInsight security overview
-            url: ./domain-joined/hdinsight-security-overview.md
-          - text: Plan virtual network
-            url: ./hdinsight-plan-virtual-network-deployment.md
-          - text: 'Hadoop on Active Directory: Enterprise Security Package'
-            url: ./domain-joined/apache-domain-joined-architecture.md
-          - text: Migrate on-premises clusters to the cloud
-            url: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-  
   # Card (optional)
   - title: Intergration
     linkLists:
@@ -162,8 +145,24 @@ landingContent:
           - text: Spark/HBase - Query Apache HBase with Apache Spark
             url: ./hdinsight-using-spark-query-hbase.md  
           - text: Create on-demand clusters using ADF
-            url: ./hdinsight-hadoop-create-linux-clusters-adf.md  
+            url: ./hdinsight-hadoop-create-linux-clusters-adf.md 
 
+  # Card
+  - title: Interactive query
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Interactive Query?
+            url: ./interactive-query/apache-interactive-query-get-started.md
+          - text: Analyze flight data with Apache Hive
+            url: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Optimize Hive queries
+            url: ./hdinsight-hadoop-optimize-hive-query.md
+          - text: Connect Hive with Power BI
+            url: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+ 
   # Card
   - title: ML Services
     linkLists:
