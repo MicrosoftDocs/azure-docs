@@ -32,7 +32,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
    ![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Please try vault deletion after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
+   > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Try deleting the vault after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
 
 4. To restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then select the option **Undelete**.
 
