@@ -1,6 +1,6 @@
 ---
 title: Back up Azure file shares with REST API
-description: Learn how to use REST API to back up Azure file shares in the Recovery Services Vault
+description: Learn how to use REST API to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
 ms.date: 02/16/2020
 ---
@@ -9,7 +9,7 @@ ms.date: 02/16/2020
 
 This article describes how to back up an Azure File share using Azure Backup via REST API.
 
-This article assumes you've already created a recovery services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
+This article assumes you've already created a Recovery Services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
 
 For this article, we'll use the following resources:
 
@@ -27,7 +27,7 @@ For this article, we'll use the following resources:
 
 ### Discover storage accounts with unprotected Azure file shares
 
-The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services Vault. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
+The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services vault. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -151,7 +151,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-Since we can locate the *testvault2* storage account in the response body with the friendly name, the refresh operation performed above was successful. The recovery services vault can now successfully discover storage accounts with unprotected files shares in the same subscription.
+Since we can locate the *testvault2* storage account in the response body with the friendly name, the refresh operation performed above was successful. The Recovery Services vault can now successfully discover storage accounts with unprotected files shares in the same subscription.
 
 ### Register storage account with Recovery Services vault
 
