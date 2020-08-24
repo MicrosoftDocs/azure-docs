@@ -30,7 +30,7 @@ Each number in the version indicates general compatibility with the previous ver
 
 Customers should aim to run the latest minor release of the major version they're running. For example, if your production cluster is on 4.4, and 4.5 is the latest generally available minor version for the 4 series, you should upgrade to 4.5 as soon as you can.
 
-### Upgrade Channels
+### Upgrade channels
 
 Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.4 upgrade channels will never include an upgrade to a 4.5 release. Upgrade channels control only release selection and don't impact the version of the cluster.
 
