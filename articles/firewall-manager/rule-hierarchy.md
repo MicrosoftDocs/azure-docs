@@ -16,7 +16,7 @@ Security administrators need to manage firewalls and ensure compliance across on
 Azure Firewall policy allows you to define a rule hierarchy and enforce compliance:
 
 - Provides a hierarchical structure to overlay a central base policy on top of a child application team policy. The base policy has a higher priority and runs before the child policy.
-- Use a custom role based access control (RBAC) definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group. 
+- Use a custom role-based access control (RBAC) definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group. 
 
 ## Solution overview
 
@@ -26,9 +26,9 @@ The high-level steps for this example are:
 
 1. Create separate resource groups for each application team.
 2. Create a base firewall policy in the security team resource group. 
-3. Define IT security specific rules in the base policy. This adds a common set of rules to allow/deny traffic.
+3. Define IT security-specific rules in the base policy. This adds a common set of rules to allow/deny traffic.
 4. Create application team policies that inherit the base policy. 
-5. Define application team specific rules in the policy. You can also migrate rules from pre-existing firewalls.
+5. Define application team-specific rules in the policy. You can also migrate rules from pre-existing firewalls.
 6. Create Azure Active Directory custom roles to provide fine grained access to rule collection group within a resource group.
 7. Associate the policy to the firewall. An Azure firewall can have only one assigned policy. This requires each application team to have their own firewall.
 
@@ -106,7 +106,7 @@ Use the following high-level procedure to define custom roles:
 7. Delete the **Id** property line and change the **IsCustom** property to true.
 8. Change the **Name** and **Description** properties to *<Application team name> Rule Collection Group contributor* and *Lets you edit rule groups*
 
-Your JSON file should look similar to the  the following example:
+Your JSON file should look similar to the following example:
 
 ```
 { 
@@ -155,7 +155,7 @@ On the portal in your subscription **Access control (IAM)**, **Roles**, you can 
 
 ### Associate new policies with the firewall
 
-If you have an existing Azure firewall deployment in a VNet, you can attach the newly created Firewall policy using the VNET conversion flow in Firewall Manager. This does not cause any downtime for the Azure Firewall.  
+If you have an existing Azure firewall deployment in a VNet, you can attach the newly created Firewall policy using the VNET conversion flow in Firewall Manager. This doesn't cause any downtime for the Azure Firewall.  
 
 If you have a pre-existing VNet, you can use the create hub virtual VNet workflow to deploy a new Azure Firewall and associate the newly created firewall policy to the firewall.  
 
@@ -163,7 +163,7 @@ The same approach can be used for Virtual WAN hubs.
 
 ### Summary
 
-Contoso was able to provide selective access to their application teams.  In this example, the application teams do not have permissions to:
+Contoso now provides selective access to their application teams.  In this example, the application teams don't have permissions to:
 - Delete the Azure Firewall or firewall policy.
 - Modify firewall policy hierarchy or DNS settings or threat intelligence.
 - Modify firewall policy defined in other resource groups.
