@@ -384,7 +384,7 @@ and contains:
 
 ## PowerShell versions
 
-The following table shows the PowerShell versions supported by each major version of the Functions runtime, and the .NET version required:
+The following table shows the PowerShell versions available to each major version of the Functions runtime, and the .NET version required:
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
@@ -410,7 +410,7 @@ When running locally the Azure Functions runtime defaults to using PowerShell Co
 
 ### Changing the PowerShell version
 
-Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version#view-and-update-the-current-runtime-version).
+Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
 The Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
