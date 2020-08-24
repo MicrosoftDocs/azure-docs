@@ -37,13 +37,13 @@ The Text Analytics API returns these textual elements as well, for convenience.
 
 ## Offsets in API version 3.1-preview
 
-Beginning with API version 3.1-preview.1, all Text Analytics APIs that return an offset support an additional request parameter: stringIndexType. This param adjusts the offset and length result of the APIs to match the string iteration scheme requested. Currently, we support three stringIndexTypes:
+Beginning with API version 3.1-preview.1, all Text Analytics API endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
 
-1. textElement_v8 (default): iterates over graphemes as defined by the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard
-2. unicodeCodePoint: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), the default scheme for Python 3
-3. utf16CodeUnit: iterates over [UTF-16 Code Units](https://unicode.org/faq/utf_bom.html#UTF16), the default scheme for Javascript, Java, and .NET
+1. `textElement_v8` (default): iterates over graphemes as defined by the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard
+2. `unicodeCodePoint`: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), the default scheme for Python 3
+3. `utf16CodeUnit`: iterates over [UTF-16 Code Units](https://unicode.org/faq/utf_bom.html#UTF16), the default scheme for Javascript, Java, and .NET
 
-If the stringIndexType requested matches the programming environment of choice, substring extraction can be done using standard substring or slice methods. 
+If the `stringIndexType` requested matches the programming environment of choice, substring extraction can be done using standard substring or slice methods. 
 
 ## See also
 
