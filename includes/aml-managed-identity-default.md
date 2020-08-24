@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 08/24/2020
 ---
 
-AML defines the **default-managed identity** as the system-assigned managed identity or the first user-assigned managed identity.
+Azure Machine Learning defines the **default-managed identity** as the system-assigned managed identity or the first user-assigned managed identity.
 
 During a run there are two applications of an identity:
 
