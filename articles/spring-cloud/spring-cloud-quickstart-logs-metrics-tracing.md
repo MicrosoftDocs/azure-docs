@@ -15,12 +15,12 @@ With the built-in monitoring capability in Azure Spring Cloud, you can easily de
 
 ## Prerequisites
 Complete previous steps: 
-* [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
-* [set up the config server](spring-cloud-quickstart-setup-config-server.md)
+* [Provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md)
+* [Set up the config server](spring-cloud-quickstart-setup-config-server.md)
 * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md).
 
 ## Logs
-There are two ways to see logs on Azure Spring Cloud: Log Streaming of real-time logs per app instance or Log Analytics for aggregated logs with advanced query capability.
+There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
 
 ### Log Streaming
 

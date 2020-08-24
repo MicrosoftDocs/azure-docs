@@ -38,7 +38,7 @@ Azure Spring Cloud provides integration with Azure DevOps using the Azure CLI.  
 
 Azure Spring Cloud allows you to easily scale the micro-services in your Azure Spring Cloud dashboard.  Both the number of vCPUs and the amount of memory available to your micro-services can be scaled up or down to suit your requirements.  Scaling takes effect in seconds and does not require code changes or redeployment.  To learn more, complete this [tutorial](spring-cloud-tutorial-scale-manual.md).
 
-## Application Monitoring
+## Application monitoring
 
 ### Monitor your application using distributed tracing and Azure App Insights
 
