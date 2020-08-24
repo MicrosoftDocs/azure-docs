@@ -60,9 +60,8 @@ Within the application directory, install the Form Recognizer client library for
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
 
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
-
-### Add directives to your project
+> [!TIP]
+> If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` directives:
 
