@@ -237,7 +237,7 @@ The following request body defines properties required to trigger a disk restore
 }
 ```
 
-Once you track the response as explained [above](#response), and the long running job is complete, the disks and the configuration of the backed up virtual machine ("VMConfig.json") will be present in the given storage account.
+Once you track the response as explained [above](#responses), and the long running job is complete, the disks and the configuration of the backed up virtual machine ("VMConfig.json") will be present in the given storage account.
 
 ### Replace disks in a backed-up virtual machine
 
