@@ -80,6 +80,8 @@ using System.Threading.Tasks;
 
 ## Object Model 
 
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition. 
+
 ### FormRecognizerClient
 
 `FormRecognizerClient` provides operations for:
@@ -123,7 +125,7 @@ Below `Main()`, create a new method named `AuthenticateClient`. You'll use this 
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ```csharp
-static FormRecognizerClient AuthenticateClient(){
+static private FormRecognizerClient AuthenticateClient(){
     string endpoint = "<replace-with-your-form-recognizer-endpoint-here>";
     string apiKey = "<replace-with-your-form-recognizer-key-here>";
     var credential = new AzureKeyCredential(apiKey);
@@ -382,7 +384,7 @@ This section demonstrates how to train a model with your own data. A trained mod
 Below `AuthenticateClient`, create a new method named `AuthenticateTrainingClient`. You'll use this in future tasks to train custom models. This method uses the `AzureKeyCredential` object (like `AuthenticateClient`), so that if needed, you can update the API key without creating new client objects.
 
 ```csharp
-static FormTrainingClient AuthenticateTrainingClient()
+static private FormTrainingClient AuthenticateTrainingClient()
 {
     string endpoint = "https://formre-ga-sdk-testing.cognitiveservices.azure.com/";
     string apiKey = "5435bb37ae7b415abf6112fcd5f4899e";
