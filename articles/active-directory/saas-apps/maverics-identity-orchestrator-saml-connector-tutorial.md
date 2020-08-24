@@ -37,7 +37,7 @@ For additional installation and configuration instructions, go to the [Strata we
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 - A Maverics Identity Orchestrator SAML Connector SSO-enabled
-subscription. To obtain the Maverics software, contact [Strata sales](sales@strata.io).
+subscription. To obtain the Maverics software, contact [Strata sales](mailto:sales@strata.io).
 
 ## Install Maverics Identity Orchestrator
 
