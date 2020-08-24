@@ -26,7 +26,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 ## Create a new notebook
 
-The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda enviroment. In Jupyterlab, click on the launcher and select the following kernel:
+The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda environment. In Jupyterlab, click on the launcher and select the following kernel:
 
 ![kernel selection](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -36,7 +36,7 @@ Go to the [Azure portal](https://portal.azure.com) and select the workspace you 
 
 ![Get config file](./media/how-to-track-experiments/experiment-tracking-2.png)
 
-The config contains information such as the workspace name, subscription, etc and it means that you do not need to hard code these parameters.
+The config contains information such as the workspace name, subscription, etc. and it means that you do not need to hard code these parameters.
 
 ## Track DSVM runs
 
@@ -153,7 +153,7 @@ When we registered the model in our code using `register_model` we specified the
 * Tensorflow SaveModel format
 * ONNX model format
 
-No-code deployment means that you can deploy straight from the model artefact without needing to specify any specific scoring script.
+No-code deployment means that you can deploy straight from the model artifact without needing to specify any specific scoring script.
 
 To deploy the diabetes model, go to the left-hand menu in the [Azure Machine Learning Studio](https://ml.azure.com) and select __Models__. Next, click on the registered diabetes_model:
 

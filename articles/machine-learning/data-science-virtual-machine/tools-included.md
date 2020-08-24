@@ -146,16 +146,16 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 **Switching from Windows Server 2016 to Windows Server 2019** </br> 
 
 * The conda environment is set to python37_default. We don't support python2. 
-If you were using tensorflow or pytorch in your python conda environment use py37_tensorflow or py37_pytorch respectively. 
+If you were using TensorFlow or pytorch in your python conda environment use py37_tensorflow or py37_pytorch respectively. 
 If you were using only AzureML use azureml_py36_automl </br>
 
-* If you were using tensorflow or pytorch in your AzureML conda environment use azureml_py36_tensorflow or azureml_py36_pytorch respectively. </br>
+* If you were using TensorFlow or pytorch in your AzureML conda environment use azureml_py36_tensorflow or azureml_py36_pytorch respectively. </br>
 
 **Switching from Ubuntu 16.04 to Ubuntu 18.04** </br>
 
-* If you were using tensorflow or pytorch in your azureml_py36 conda environment use azureml_py36_tensorflow or azureml_py36_pytorch respectively. </br>
+* If you were using TensorFlow or pytorch in your azureml_py36 conda environment use azureml_py36_tensorflow or azureml_py36_pytorch respectively. </br>
 
-* If you were using tensorflow or pytorch in your py37 conda environment use py37_tensorflow or py37_pytorch respectively. </br>
+* If you were using TensorFlow or pytorch in your py37 conda environment use py37_tensorflow or py37_pytorch respectively. </br>
 
 * Otherwise, use python37_default or if you were using only azureml_py36 use azureml_py36_automl </br>
 
