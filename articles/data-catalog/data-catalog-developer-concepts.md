@@ -16,7 +16,7 @@ The **Azure Data Catalog** conceptual model is based on four key concepts: The *
 ![Azure Data Catalog conceptual model illustration](./media/data-catalog-developer-concepts/concept2.png)
 
 ### Catalog
-A **Catalog** is the top-level container for all the metadata an organization stores. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
+A **Catalog** is the top-level container for all the metadata that an organization stores. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
 
 A catalog contains **Users** and **Assets**.
 
@@ -41,7 +41,7 @@ An **Asset** is made up from its name, location, and type, and annotations that 
 ### Annotations
 Annotations are items that represent metadata about Assets.
 
-Examples of annotations are description, tags, schema, documentation, etc. A full list of the asset types and annotation types are in the Asset Object model section.
+Examples of annotations are description, tags, schema, documentation, etc. See the [Asset Object model section](#asset-object-model) for a full list of the asset types and annotation types.
 
 ## Crowdsourcing annotations and user perspective (multiplicity of opinion)
 A key aspect of Azure Data Catalog is how it supports the crowdsourcing of metadata in the system. As opposed to a wiki approach – where there is only one opinion and the last writer wins – the Azure Data Catalog model allows multiple opinions to live side by side in the system.
@@ -125,7 +125,7 @@ column tags separately.  Thus there is an array of ColumnTag objects on each ass
 <tr><td></td><td>columnName</td><td>String</td><td>The name of the column this tag refers to.</td></tr>
 <tr><td></td><td>tag</td><td>String</td><td>A tag describing the column.</td></tr>
 
-<tr><td>Expert ("experts")</td><td></td><td></td><td>This property contains a user who is considered an expert in the data set. The experts’ opinions(descriptions) bubble to the top of the UX when listing descriptions. Each user can specify their own experts. Only that user can edit the experts object. (Admins and Asset owners can delete the Expert objects but not edit it).</td></tr>
+<tr><td>Expert ("experts")</td><td></td><td></td><td>This property contains a user who is considered an expert in the data set. The experts’ opinions(descriptions) bubble to the top of the UX when listing descriptions. Each user can specify their own experts. Only that user can edit the experts' object. (Admins and Asset owners can delete the Expert objects but not edit it).</td></tr>
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Preview ("previews")</td><td></td><td></td><td>The preview contains a snapshot of the top 20 rows of data for the asset. Preview only make sense for some types of assets (it makes sense for Table but not for Measure).</td></tr>
@@ -164,7 +164,7 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. For example: Table, View for SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Refer to <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Data source reference specification - DSL Structure</a> for the list of currently supported protocols.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: `tds` for SQL Server, `oracle` for Oracle, etc. Refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
 <tr><td></td><td>address</td><td>Dictionary&lt;string, object&gt;</td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dictionary&lt;string, object&gt;</td><td>Optional. Additional information on how to connect to a data source.</td></tr>
@@ -196,7 +196,7 @@ Common types can be used as the types for properties, but are not Items.
 
 ## Asset identity
 Azure Data Catalog uses "protocol" and identity properties from the "address" property bag of the DataSourceLocation "dsl" property to generate identity of the asset, which is used to address the asset inside the Catalog.
-For example, the "tds" protocol has identity properties "server", "database", "schema" and "object". The combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
+For example, the TDS protocol has identity properties "server", "database", "schema", and "object". The combinations of the protocol and the identity properties are used to generate the identity of the SQL Server Table Asset.
 Azure Data Catalog provides several built-in data source protocols, which are listed at [Data source reference specification - DSL Structure](data-catalog-dsr.md).
 The set of supported protocols can be extended programmatically (Refer to Data Catalog REST API reference). Administrators of the Catalog can register custom data source protocols. The following table describes the properties needed to register a custom protocol.
 
@@ -349,3 +349,5 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
 > [!NOTE]
 > In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
 > 
+
+## Next steps
