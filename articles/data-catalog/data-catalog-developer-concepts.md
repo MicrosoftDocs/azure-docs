@@ -10,12 +10,10 @@ ms.date: 08/01/2019
 # Azure Data Catalog developer concepts
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.
 
-## Key concepts
+## Key concepts 
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
 ![Azure Data Catalog conceptual model illustration](./media/data-catalog-developer-concepts/concept2.png)
-
-*Figure 1 - Azure Data Catalog simplified conceptual model*
 
 ### Catalog
 A **Catalog** is the top-level container for all the metadata an organization stores. There is one **Catalog** allowed per Azure Account. Catalogs are tied to an Azure subscription, but only one **Catalog** can be created for any given Azure account, even though an account can have multiple subscriptions.
@@ -194,8 +192,6 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>stdev </td><td>double</td><td>The standard deviation for the data set</td></tr>
 <tr><td></td><td>nullCount </td><td>int</td><td>The count of null values in the data set</td></tr>
 <tr><td></td><td>distinctCount  </td><td>int</td><td>The count of distinct values in the data set</td></tr>
-
-
 </table>
 
 ## Asset identity
@@ -229,7 +225,6 @@ The set of supported protocols can be extended programmatically (Refer to Data C
 ## Roles and authorization
 Microsoft Azure Data Catalog provides authorization capabilities for CRUD operations on assets and annotations.
 
-## Key concepts
 The Azure Data Catalog uses two authorization mechanisms:
 
 * Role-based authorization
@@ -261,7 +256,6 @@ Note: all the rights are revoked if the Read right on the item is revoked from t
 > 
 > **Delete** right applies to an item and any subitems or single item underneath it. For example, deleting an asset also deletes any annotations for that asset.
 > 
-> 
 
 ### Permissions
 Permission is as list of access control entries. Each access control entry assigns set of rights to a security principal. Permissions can only be specified on an asset (that is, root item) and apply to the asset and any subitems.
@@ -280,7 +274,6 @@ By default any authenticated user has **Read** right for any item in the catalog
 > 
 > By default when an item is created in the catalog its **Contributor** is set to the currently authenticated user. If item should be updatable by everyone, **Contributor** should be set to &lt;Everyone&gt; special security principal in the **roles** property when item is first published (refer to the following example). **Contributor** cannot be changed and stays the same during life-time of an item (even **Administrator** or **Owner** doesn’t have the right to change the **Contributor**). The only value supported for the explicit setting of the **Contributor** is &lt;Everyone&gt;: **Contributor** can only be a user who created an item or &lt;Everyone&gt;.
 > 
-> 
 
 ### Examples
 **Set Contributor to &lt;Everyone&gt; when publishing an item.**
@@ -289,7 +282,6 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
 
 > [!NOTE]
 > Some HTTP client implementations may automatically reissue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to Azure Data Catalog, you must ensure the Authorization header is still provided when reissuing a request to a redirect location specified by Azure Data Catalog. The following sample code demonstrates it using the .NET HttpWebRequest object.
-> 
 > 
 
 **Body**
