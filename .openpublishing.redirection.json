@@ -53064,11 +53064,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cdn/endpoint-multiorigin.md",
-      "redirect_url": "/azure/cdn/cdn-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/app/usage-workbooks.md",
       "redirect_url": "/azure/azure-monitor/platform/workbooks-overview",
       "redirect_document_id": false
