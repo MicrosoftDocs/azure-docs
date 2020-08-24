@@ -55,7 +55,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
 2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
 
-    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Connection-string":::
+    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Enter your connection string":::
 
 ## Connect to Azure Cosmos DB by using local emulator
 
@@ -98,12 +98,15 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="search from here":::
 
 ### Database and collection management
+
 #### Create a database
+
 -   Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
 
     :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Create database":::
 
 #### Delete a database
+
 - Right-click the database, click **Delete Database**, and click **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
     :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Delete database1":::
@@ -111,6 +114,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Delete database2":::
 
 #### Create a collection
+
 1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish.
 
     :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create collection1":::
@@ -124,6 +128,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
     :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Partition key":::
 
 #### Delete a collection
+
 - Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window.
 
     The collection node is deleted, and the database refreshes automatically.
@@ -133,61 +138,70 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 ### Document management
 
 #### Create and modify documents
+
 - To create a new document, open **Documents** in the left window, click **New Document**, edit the contents in the right pane, then click **Save**. You can also update an existing document, and then click **Save**. Changes can be discarded by clicking **Discard**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Document":::
+    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Create a new document":::
 
 #### Delete a document
+
 - Click the **Delete** button to delete the selected document.
 
 #### Query for documents
+
 - Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
     :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Document Filter":::
 
-
-
 ### Graph management
 
 #### Create and modify vertex
+
 1. To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.
 2. To modify an existing vertex, click the pen icon in the right pane.
 
     :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Graph":::
 
 #### Delete a graph
+
 - To delete a vertex, click the recycle bin icon beside the vertex name.
 
 #### Filter for graph
+
 - Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then click **Apply Filter**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Graph Filter":::
+    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Run a graph query":::
 
 ### Table management
 
 #### Create and modify table
+
 1. To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
 2. To modify a table, click **Edit**, modify the content, then click **Update**.
 
     :::image type="content" source="./media/storage-explorer/table.png" alt-text="Table":::
 
 #### Import and export table
+
 1. To import, click **Import** button and choose an existing table.
 2. To export, click **Export** button and choose a destination.
 
     :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Table Import and Export":::
 
 #### Delete entities
+
 - Select the entities and click button **Delete**.
 
     :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Table delete":::
 
 #### Query table
+
 - Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
 
     :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Table Query":::
 
 ### Manage stored procedures, triggers, and UDFs
+
 * To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**.
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or click **Discard** to cancel the change.
 
@@ -241,7 +255,7 @@ If you're unable to retrieve your subscriptions after you successfully signed in
   - .extaccounts
 - Watch the developer tools console (f12) while signing in for any error messages
 
-:::image type="content" source="./media/storage-explorer/console.png" alt-text="console":::
+:::image type="content" source="./media/storage-explorer/console.png" alt-text="Check the developer tools console for any errors":::
 
 #### Unable to see the authentication page
 
