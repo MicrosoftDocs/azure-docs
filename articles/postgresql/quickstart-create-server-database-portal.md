@@ -41,7 +41,7 @@ To create an Azure Database for PostgreSQL server:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the Basics tab for creating a single server.](./media/quickstart-create-database-portal/create-basics.png)
 
-   Setting|Suggested Value|Description
+   Setting|Suggested value|Description
    ---|---|---
    Subscription|Your subscription name|The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you're billed for the resource.
    Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
