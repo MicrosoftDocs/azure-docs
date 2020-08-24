@@ -403,7 +403,7 @@ The following sample creates a rule that can target any resource.
                 "criteria": {
                     "allOf": [
                         {
-                            "query": : "[parameters('query')]",
+                            "query": "[parameters('query')]",
                             "metricMeasureColumn": "[parameters('metricMeasureColumn')]",
                             "resourceIdColumn": "[parameters('resourceIdColumn')]",
                             "dimensions":[],

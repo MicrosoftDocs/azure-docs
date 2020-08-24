@@ -573,7 +573,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
                 "criteria": {
                     "allOf": [
                         {
-                            "query": : "[parameters('query')]",
+                            "query": "[parameters('query')]",
                             "metricMeasureColumn": "[parameters('metricMeasureColumn')]",
                             "resourceIdColumn": "[parameters('resourceIdColumn')]",
                             "dimensions":[],
