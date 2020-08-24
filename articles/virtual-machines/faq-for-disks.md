@@ -1,16 +1,16 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 03/31/2019
- ms.author: rogarana
- ms.custom: include file
+title: Frequently asked questions about disks
+description: Frequently asked questions about Azure IaaS Linux VM disks and premium disks (managed and unmanaged)
+author: roygara
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 06/15/2017
+ms.author: rogarana
+ms.subservice: disks
+
 ---
 
-
+# Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
@@ -18,7 +18,7 @@ This article answers some frequently asked questions about Azure Managed Disks a
 
 **What is Azure Managed Disks?**
 
-Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](../articles/virtual-machines/managed-disks-overview.md).
+Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](managed-disks-overview.md).
 
 **If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?**
 
@@ -82,7 +82,7 @@ Managed Disks supports three key default roles:
 
 **Is there a way that I can copy or export a managed disk to a private storage account?**
 
-You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or [AzCopy](../storage/common/storage-use-azcopy-v10.md)
 
 **Can I create a copy of my managed disk?**
 
@@ -139,7 +139,7 @@ Generation 1 images can only use GPT partitioning on data disks, not OS disks. O
 Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
 **What are Azure disk reservations?**
-Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
+Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../cost-management-billing/reservations/understand-disk-reservations.md).
 
 **What options does Azure disk reservation offer?**    
 Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.    
@@ -147,7 +147,7 @@ Azure disk reservation provides the option to purchase Premium SSDs in the speci
 Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
 **How is Azure disk reservation applied?**    
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](./linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
 
 **Can I use my data storage purchased through Azure disks reservation across multiple regions?**    
 Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    
@@ -167,7 +167,7 @@ No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-For regional information, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
+For regional information, see our [conceptual article](./linux/disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -175,7 +175,7 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-For supported sizes, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
+For supported sizes, see our [conceptual article](./linux/disks-shared.md).
 
 **If I have an existing disk, can I enable shared disks on it?**
 
@@ -203,13 +203,13 @@ The only supported host caching option is **None**.
 If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
 
 **I configured my disk to 40000 IOPS but I'm only seeing 12800 IOPS, why am I not seeing the performance of the disk?**
-In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
+In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for virtual machines in Azure](sizes.md).
 
 **Can I use caching levels with an ultra disk?**
 No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
 
 **Can I attach an ultra disk to my existing VM?**
-Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](../articles/virtual-machines/disks-enable-ultra-ssd.md) for details.
+Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](disks-enable-ultra-ssd.md) for details.
 
 **Can I use an ultra disk as the OS disk for my VM?**
 No, ultra Disks are only supported as data disks and are only supported as 4K native disks.
