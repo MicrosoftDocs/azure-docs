@@ -36,7 +36,7 @@ Restart your client application to reset all the session tokens. Eventually, the
 The 400 bad request occurs on query operations where the continuation token is used if the continuation token has grown too large or if different queries have different continuation token sizes.
     
 #### Solution:
-1. Follow the guidance in the [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET v2](performance-tips.md) performance tips articles. Convert the application to use the direct connection mode with the TCP. The direct connection mode with the TCP doesn't have the header size restriction like the HTTP protocol, so it avoids this issue. 
+1. Follow the guidance in the [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET v2](performance-tips.md) performance tips articles. Convert the application to use the direct connection mode with the TCP. The direct connection mode with the TCP protocol doesn't have the header size restriction like the HTTP protocol, so it avoids this issue. 
 1. If the direct connection mode with the TCP isn't an option for your workload, set the `ResponseContinuationTokenLimitInKb` option. You can find this option in `FeedOptions` in v2 or `QueryRequestOptions` in v3.
 
 ## Next steps

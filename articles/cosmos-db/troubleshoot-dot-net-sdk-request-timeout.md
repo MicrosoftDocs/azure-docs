@@ -25,13 +25,13 @@ The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` f
 All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) parameter is used throughout the entire operation, across all network requests. In between network requests, the cancellation token might be checked and an operation canceled if the related token is expired. The cancellation token should be used to define an approximate expected timeout on the operation scope.
 
 > [!NOTE]
-> The CancellationToken parameter is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up. Instead, after the time is up, it cancels when it's safe to do so.
+> The `CancellationToken` parameter is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up. Instead, after the time is up, it cancels when it's safe to do so.
 
 ## Troubleshooting steps
 The following list contains known causes and solutions for request timeout exceptions.
 
-### 1. High CPU utilization is the most common case
-For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum(not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
+### 1. High CPU utilization
+High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum(not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
