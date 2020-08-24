@@ -31,6 +31,13 @@ Before you begin this tutorial:
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * [Download the Managed Service Fabric cluster template](PLACEHOLDER.json)
 
+> [!Note]
+> This tutorial uses Azure PowerShell commands which have not yet been released. They will become released as part of the Azure PowerShell module on 9/16/2020.
+
+Follow the steps below to use the module before the official release is available:
+* [Download and load Modules](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#download-and-load-modules)
+* [Documentation and Examples](https://github.com/a-santamaria/ServiceFabricManagedClustersClients#documentation-and-examples). 
+
 ## Connect your Azure account
 
 Replace `<your-subscription>` with the subscription string for your Azure account, and connect:
