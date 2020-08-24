@@ -106,7 +106,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
     or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
     ```
 
-    When using workspaces and Application Insights, this line needs to be added when using **Metric measurement** alert logic:
+    When using workspaces and Application Insights with **Metric measurement** alert logic, this line needs to be added to the query text:
 
     ```Kusto
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
@@ -114,7 +114,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
 
 - **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules isn't available currently for workspaces and Application Insights)
 - **Dimensions / Aggregated on:**
-  - Computer = VM1, VM2 (filtering values in alert rules isn't available currently for workspaces and Application Insights)
+  - Computer = VM1, VM2 (Filtering values in alert rules definition isn't available currently for workspaces and Application Insights. Filter in the query text.)
 - **Time period:** 15 minutes
 - **Alert frequency:** 15 minutes
 - **Threshold value:** Greater than 0
