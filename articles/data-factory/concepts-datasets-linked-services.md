@@ -45,7 +45,7 @@ A dataset in Data Factory is defined in the following JSON format:
 {
     "name": "<name of dataset>",
     "properties": {
-        "type": "<type of dataset: DelimitedText, AzureSql etc...>",
+        "type": "<type of dataset: DelimitedText, AzureSqlTable etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
                 "type": "LinkedServiceReference",
