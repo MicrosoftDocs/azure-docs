@@ -82,10 +82,6 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it.
 
-Azure Digital Twins supports encryption of data at rest with customer-managed keys (CMK), also known as Bring your own key (BYOK). By default, Azure Digital Twins uses Microsoft-managed keys to encrypt the data at rest. With CMK, you can get another layer of encryption on top of default encryption, and can choose to encrypt data at rest with a key encryption key managed through your [Azure Key Vault](../key-vault/general/overview.md). This gives you the flexibility to create, rotate, disable, and revoke access controls. If BYOK is configured for your Azure Digital Twins, we also provide double encryption, which offers a second layer of protection, while allowing you to control the encryption key through your Azure Key Vault.
-
-This capability requires the creation of a new Azure Digital Twins instance. To try this capability, contact us through Microsoft support. Share your company name and subscription ID when contacting Microsoft support.
-
 ## Next steps
 
 * See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
