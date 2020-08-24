@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ---
 
 # Encryption in transit for Azure HDInsight

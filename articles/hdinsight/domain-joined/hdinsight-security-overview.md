@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
