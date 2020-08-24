@@ -61,7 +61,7 @@ NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for Azure Priv
 * Detection of network topology  from on-premises to your cloud applications
 * Capacity planning,  bandwidth utilization analysis
 * Monitoring and alerting on both primary and secondary paths
-* Monitoring connectivity to Azure services such as Office 365, Dynamics 365, ... over ExpressRoute
+* Monitoring connectivity to Azure services such as Microsoft 365, Dynamics 365, ... over ExpressRoute
 * Detect degradation of connectivity to VNets
 
 ![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -80,7 +80,7 @@ With Service Connectivity monitoring, you can now test reachability of applicati
 * Test application reachability from multiple user locations across the globe
 * Determine network latency and packet loss for your line of business and SaaS applications
 * Determine hot spots on the network, that may be causing poor application performance
-* Monitor reachability to  Office 365 applications, using built-in tests for Microsoft Office 365, Dynamics 365, Skype for Business and other Microsoft services
+* Monitor reachability to Microsoft 365 applications, using built-in tests for Microsoft 365, Dynamics 365, Skype for Business and other Microsoft services
 
 For more information, see the following articles:
 

@@ -14,7 +14,7 @@ ms.author: derekol
 
 # Register Peering Service by using the Azure portal
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
 
 In this article, you'll learn how to register a Peering Service connection by using the Azure portal.
 
