@@ -351,3 +351,4 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
 > 
 
 ## Next steps
+[Azure Data Catalog REST API reference](/rest/api/datacatalog/)
