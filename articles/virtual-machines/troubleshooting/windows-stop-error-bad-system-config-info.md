@@ -75,7 +75,7 @@ The instructions below will help you determine if the cause was due to hive corr
 
      ![An error occurs stating that Registry Editor cannot load the hive.](./media/windows-stop-error-bad-system-config-info/2.png)
 
-   1. If the hive opens normally, then the hive wasn’t previously closed properly. Continue to step 5.
+   1. If the hive opens normally, then the hive wasn’t closed properly. Continue to step 5.
 
 1. To fix a hive that wasn’t closed properly, highlight **BROKENSYSTEM** then select **File > Unload Hive…** to unlock the file.
 
