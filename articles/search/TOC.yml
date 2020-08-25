@@ -155,7 +155,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Ingest Azure data
+  - name: Ingest Azure-only data
     items:
     - name: Configure indexers
       href: search-indexer-overview.md
@@ -203,7 +203,7 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-  - name: Ingest using AI
+  - name: Use skills (AI)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +215,7 @@
         href: cognitive-search-concept-annotations-syntax.md
       - name: Map to index fields
         href: cognitive-search-output-field-mapping.md
-      - name: Extract information from images
+      - name: Process image files
         href: cognitive-search-concept-image-scenarios.md
       - name: Cache (incremental) enrichment
         href: search-howto-incremental-index.md
