@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Explore a sample scenario
 titleSuffix: Azure Digital Twins
-description: 
+description: Use the ADT Explorer sample to visualize and explore a pre-built scenario.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 8/12/2020
