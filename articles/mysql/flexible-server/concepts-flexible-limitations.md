@@ -1,6 +1,6 @@
 ---
-title: Limits - Azure Database for MySQL - Flexible Server
-description: This article describes limits in Azure Database for MySQL - Flexible Server, such as number of connection and storage engine options.
+title: Limitations - Azure Database for MySQL - Flexible Server
+description: This article describes Limitations in Azure Database for MySQL - Flexible Server, such as number of connection and storage engine options.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/24/2020
 ---
 
-# Limits in Azure Database for MySQL - Flexible Server
+# Limitations in Azure Database for MySQL - Flexible Server
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
 
-This article describes capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in Azure Database for MySQL Flexible Servers. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-flexible-compute-storage.md) article.
+This article describes storage engine support, privilege support, data manipulation statement support, and functional limitations in Azure Database for MySQL Flexible Servers. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-flexible-compute-storage.md) article.
 
 ## Server parameters
 
@@ -44,7 +44,7 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 - DEFINER: 
 Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
 - System databases:
-In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) is read-only as it is used to support various PaaS service functionality. Please note that you cannot change anything in the `mysql` system database.
+In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only as it is used to support various PaaS service functionality. Please note that you cannot change anything in the `mysql` system database.
 
 ## Data manipulation statement support
 
@@ -56,21 +56,24 @@ In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/d
 
 ## Functional limitations
 
-### Stop/start operation
+### Zone Redundant HA
+- Can only be set during server create.
+- Not supported in Burstable compute tier.
 
-- Stop/start for servers with Zone-Redundant HA is currently not supported
+### Networking
+- The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create.
+
+### Start/stop operation
+- Start/stop for servers with Zone Redundant HA is currently not supported
 
 ### Scale operations
-
 - Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
-
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a dump and restore <!--  [dump and restore](./howto-migrate-using-dump-and-restore.md)--> it to a server that was created with the new engine version.
 
 ### Restoring a server
-
-- When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
+- When using the point-in-time-restore feature, the new server is created with the same compute and storage configurations as the source server it is based on.
 - Restoring a deleted server is not supported.
 
 ## Next steps
