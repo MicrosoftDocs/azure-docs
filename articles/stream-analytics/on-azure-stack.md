@@ -41,15 +41,15 @@ In addition to having network access to the Azure Stack Hub resources, the IoT E
 
 The following guides show how to set up the IoT Edge Runtime on your device or VM:
 
-1. [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-install-iot-edge-windows.md)
-2. [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge-linux.md)
+* [Install the Azure IoT Edge runtime on Windows](../iot-edge/how-to-install-iot-edge-windows.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge-linux.md)
 
 
 ## Create an Azure Stream Analytics Edge job
 
 ASA Edge jobs run in containers deployed to Azure IoT Edge devices. They are composed of two parts:
-1. A cloud part that is responsible for job definition: users define inputs, output, query, and other settings (out of order events, etc.) in the cloud.
-2. A module running on your IoT devices. It contains the ASA engine and receives the job definition from the cloud.
+* A cloud part that is responsible for job definition: users define inputs, output, query, and other settings (out of order events, etc.) in the cloud.
+* A module running on your IoT devices. It contains the ASA engine and receives the job definition from the cloud.
 
 ### Create a storage account
 
@@ -88,7 +88,8 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
 
 1. Navigate to your Stream Analytics job in the Azure portal.
 2. Under **Configure**, select **Storage account settings** and choose the storage account you created in the previous step.
-   ![Job storage account setting](media/on-azure-stack/storage-account-settings.png)
+   > [!div class="mx-imgBorder"]
+   > [ ![Job storage account setting](media/on-azure-stack/storage-account-settings.png) ](media/on-azure-stack/storage-account-settings.png#lightbox)
 3. Under **Job Topology**, select **Inputs** then **Add stream input.**
 4. Choose **IoT Hub**, **Event Hub**, or **Edge Hub** from the drop-down list. 
 5. If the input is an Event Hub or IoT Hub in an Azure Stack Hub subscription, please provide information manually as shown below.
@@ -106,7 +107,7 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    | Partition count | Partition count is the number of partitions in an Event Hub. |
 
    > [!div class="mx-imgBorder"]
-   > ![Event Hub Input](media/on-azure-stack/event-hub-input.png)
+   > [ ![Event Hub Input](media/on-azure-stack/event-hub-input.png) ](media/on-azure-stack/event-hub-input.png#lightbox)
 
    #### IoT Hub
 
@@ -120,7 +121,7 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    | Partition count | Partition count is the number of partitions in an Event Hub. |
 
    > [!div class="mx-imgBorder"]
-   > ![IoT Hub Input](media/on-azure-stack/iot-hub-input.png)
+   > [ ![IoT Hub Input](media/on-azure-stack/iot-hub-input.png) ](media/on-azure-stack/iot-hub-input.png#lightbox)
 
 6. Keep the default values for the other fields, and select Save.
 7. Under Job Topology, open Outputs then select Add.
@@ -138,15 +139,15 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    | Event Hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
 
    > [!div class="mx-imgBorder"]
-   > ![Event Hub Output](media/on-azure-stack/event-hub-output.png)
+   > [ ![Event Hub Output](media/on-azure-stack/event-hub-output.png) ](media/on-azure-stack/event-hub-output.png#lightbox)
 
-Blob Storage: 
+   #### Blob Storage 
 
-| Field | Value |
-| --- | --- |
-| Output alias | A friendly name used in queries to direct the query output to this blob storage. |
-| Storage account | The name of the storage account where you're sending your output.(Example: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*) |
-| Storage account key | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the Blob storage settings manually. |
+   | Field | Value |
+   | --- | --- |
+   | Output alias | A friendly name used in queries to direct the query output to this blob storage. |
+   | Storage account | The name of the storage account where you're sending your output.(Example: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*) |
+   | Storage account key | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the Blob storage settings manually. |
 
 > [!NOTE]
 > Parquet format is not supported for edge jobs on Azure Stack Hub. For Minimum rows and Maximum time, please use 0 or leave them blank.
@@ -159,14 +160,15 @@ Blob Storage:
 3. Select the subscription and the Steam Analytics Edge job that you created. Click **Save** and select **Next:Routes**.
 
    > [!div class="mx-imgBorder"]
-   > ![Add Modules](media/on-azure-stack/edge-modules.png)
+   > [ ![Add Modules](media/on-azure-stack/edge-modules.png) ](media/on-azure-stack/edge-modules.png#lightbox)
 
 4. Click **Review + create >**.
 5. In the **Review + create** step, select **Create**. 
-   ![Manifest](media/on-azure-stack/module-content.png)
+   > [!div class="mx-imgBorder"]
+   > [ ![Manifest](media/on-azure-stack/module-content.png) ](media/on-azure-stack/module-content.png#lightbox)
 6. Confirm that the module is added to the list.
    > [!div class="mx-imgBorder"]
-   > ![Deployment Page](media/on-azure-stack/edge-deployment.png)
+   > [ ![Deployment Page](media/on-azure-stack/edge-deployment.png) ](media/on-azure-stack/edge-deployment.png#lightbox)
 
 ## Next steps
 - [Azure Stream Analytics on IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
