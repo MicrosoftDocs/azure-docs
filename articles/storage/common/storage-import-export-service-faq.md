@@ -30,9 +30,9 @@ Yes. The Azure Import/Export service supports import into Azure File Storage. It
 
 Yes. Azure Import/Export service supports Cloud Solution Providers (CSP) subscriptions.
 
-### Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to O365?
+### Can I use the Azure Import/Export service to copy PST mailboxes and SharePoint data to Microsoft 365?
 
-Yes. For more information, go to [Import PST files or SharePoint data to Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Yes. For more information, go to [Overview of importing your organization's PST files](/microsoft-365/compliance/importing-pst-files-to-office-365).
 
 ### Can I use the Azure Import/Export service to copy my backups offline to the Azure Backup Service?
 
