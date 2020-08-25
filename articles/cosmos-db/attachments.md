@@ -31,7 +31,7 @@ Azure Cosmos DB supports two types of attachments:
 
 Azure Cosmos DB’s managed attachments are distinct from its support for standard items – for which it offers unlimited scalability, global distribution, and integration with other Azure services.
 
-- Attachments aren't supported in all versions of Azure Cosmos DB’s SDKs.
+- Attachments aren't supported in all versions of the Azure Cosmos DB’s SDKs.
 - Managed attachments are limited to 2 GB of storage per database account.
 - Managed attachments aren't compatible with Azure Cosmos DB’s global distribution, and they aren't replicated across regions.
 
