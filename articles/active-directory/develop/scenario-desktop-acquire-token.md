@@ -35,7 +35,7 @@ The web API is defined by its `scopes`. Whatever the experience you provide in y
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -367,7 +367,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -430,7 +430,7 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
   - Or, the tenant admin must have previously consented to all users in the tenant to use the application.
   - In other words:
     - Either you as a developer selected the **Grant** button in the Azure portal for yourself.
-    - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access web APIs](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -975,7 +975,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

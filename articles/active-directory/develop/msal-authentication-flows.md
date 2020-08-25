@@ -216,7 +216,7 @@ Because IWA is a silent flow, one of the following must be true:
 This means that one of the following is true:
 
 - You as a developer have selected **Grant** in the Azure portal for yourself.
-- A tenant admin has selected **Grant/revoke admin consent for {tenant domain}** in the **API permissions** tab of the app registration in the Azure portal (see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- A tenant admin has selected **Grant/revoke admin consent for {tenant domain}** in the **API permissions** tab of the app registration in the Azure portal (see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - You've provided a way for users to consent to the application; see [Requesting individual user consent](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - You've provided a way for the tenant admin to consent for the application; see [admin consent](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

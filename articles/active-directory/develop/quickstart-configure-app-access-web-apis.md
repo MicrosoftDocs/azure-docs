@@ -29,9 +29,9 @@ By specifying a web API's scopes in your client app's registration, the client a
 * Completion of [Quickstart: Register an application](quickstart-register-app.md)
 * Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
-## Grant access to your web API
+## Add permissions to access your web API
 
-In this scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and web API registered, complete the steps in the articles specified in [Prerequisites](#prerequisites).
+In this scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and a web API registered, complete the steps in the two [Prerequisites](#prerequisites) articles.
 
 The following diagram provides a high-level overview of this scenario's configuration:
 
@@ -40,7 +40,7 @@ The following diagram provides a high-level overview of this scenario's configur
 > [!WARNING]
 > TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
 
-## Grant access to Microsoft Graph
+## Add permissions to access Microsoft Graph
 
 You can select from two types of permissions for a web API:
 
