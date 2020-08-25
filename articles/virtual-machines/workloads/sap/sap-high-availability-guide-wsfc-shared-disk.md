@@ -104,15 +104,15 @@ _SAP ASCS/SCS HA architecture with shared disk_
 
 2. Shared disk is also supported with Enqueue server replication 2 architecture, where the Enqueue Replication Server 2 (ERS2) instance:  
 
-- is clustered
-- uses dedicated virtual/network host name
-- needs the IP address of ERS virtual hostname to be configured on Azure Internal Load Balancer, in addition to the (A)SCS IP address
-- is deployed on **local disks** on each of the clustered nodes, therefore there is no need for shared disk
+   - is clustered
+   - uses dedicated virtual/network host name
+   - needs the IP address of ERS virtual hostname to be configured on Azure Internal Load Balancer, in addition to the (A)SCS IP address
+   - is deployed on **local disks** on each of the clustered nodes, therefore there is no need for shared disk
 
-> [!TIP]
-> You can find more information about Enqueue Replication Server  1 and 2 (ERS1 and ERS2) here:  
-> [Enqueue Replication Server in a Microsoft Failover Cluster](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/8abd4b52902d4b17a105c2fabdf5c0cf.html)  
-> [New Enqueue Replicator in Failover Cluster environments](https://blogs.sap.com/2019/03/19/new-enqueue-replicator-in-failover-cluster-environments/)  
+   > [!TIP]
+   > You can find more information about Enqueue Replication Server  1 and 2 (ERS1 and ERS2) here:  
+   > [Enqueue Replication Server in a Microsoft Failover Cluster](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/8abd4b52902d4b17a105c2fabdf5c0cf.html)  
+   > [New Enqueue Replicator in Failover Cluster environments](https://blogs.sap.com/2019/03/19/new-enqueue-replicator-in-failover-cluster-environments/)  
 
 #### Options for shared disk in Azure for SAP workloads
 
@@ -136,7 +136,7 @@ When selecting the technology for for shared disk, keep in mind the following co
 - Deployment in Availability zones is supported
 - Requires installing and operating third-party software, which you will need to purchase additionally
 
-### Shared Disk using Azure Shared Disk
+### Shared Disk using Azure shared disk
 
 Microsoft is offering [Azure shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared), which can be used to implement SAP ASCS/SCS High Availability with a shared disk option.
 
@@ -159,7 +159,7 @@ For further details on limitations for Azure shared disk, please review very car
 > [!TIP]
 > Review the [SAP Netweaver on Azure planning guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) and the [Azure Storage guide for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) for important considerations, when planning your SAP deployment.
 
-### Supported OS Versions
+### Supported OS versions
 
 Both Windows Server 2016 and 2019 are supported (use the latest data center images).
 

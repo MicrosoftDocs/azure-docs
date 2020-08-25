@@ -20,7 +20,7 @@ ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
-# SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and Azure shared disk
+# SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk
 
 > ![Windows OS][Logo_Windows] Windows
 >
@@ -51,7 +51,7 @@ For further details on limitations for Azure shared disk, review carefully the [
 > * A mix of Enqueue Replication Server 1 and Enqueue Replication Server 2 in the same cluster is not supported.  
 
 
-## Supported OS Versions
+## Supported OS versions
 
 Both Windows Server 2016 and Windows Server 2019 are supported (use the latest data center images).
 
@@ -98,7 +98,7 @@ We'll install a new SAP SID **PR2**, in addition to the **existing clustered** S
 
 ### Host names and IP addresses
 
-| Host name role | Host name | Static IP address | Availability Set | Proximity Placement Group |
+| Host name role | Host name | Static IP address | Availability set | Proximity placement group |
 | --- | --- | --- |---| ---|
 | 1st cluster node ASCS/SCS cluster |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | 2nd cluster node ASCS/SCS cluster |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
@@ -108,7 +108,7 @@ We'll install a new SAP SID **PR2**, in addition to the **existing clustered** S
 | **SID2** ASCS cluster network name | pr2-ascscl |10.0.0.45 | n/a | n/a |
 | **SID2** ERS cluster network name (**only** for ERS2) | pr1-erscl |10.0.0.46 | n/a | n/a |
 
-### Create Azure Internal Load Balancer
+### Create Azure internal load balancer
 
 SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is required to use a virtual IP address. 
 We strongly recommend using [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
@@ -479,6 +479,11 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 2. Restart cluster node A within the Windows guest operating system. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
 3. Restart cluster node A from the Azure portal. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
 4. Restart cluster node A by using Azure PowerShell. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.
+
+## Next steps
+
+* [Prepare the Azure infrastructure for SAP HA by using a Windows  failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk]
+* [Install SAP NetWeaver HA on a Windows failover cluster and shared disk for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk]
 
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533

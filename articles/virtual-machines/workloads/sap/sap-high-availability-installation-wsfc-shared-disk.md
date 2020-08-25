@@ -451,7 +451,7 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 
       ![Figure 8: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
-      _: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B_
+      _In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B_
 
    - After failover, verify shared disk is now mounted on cluster node B. 
    - After failover, if using SIOS, verify that SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. 
