@@ -8,7 +8,7 @@ ms.date: 07/28/2020
 # Encrypt operating system (OS) disks using customer-managed keys in Azure DevTest Labs
 Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on managed disks in Azure (OS and data disks) at rest by default when persisting it to the cloud. Learn more about [Disk Encryption](../virtual-machines/windows/disk-encryption.md) on Azure. 
 
-Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine OS disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab OS disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Also, see [restrictions with using customer-managed keys](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine OS disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab OS disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Also, see [restrictions with using customer-managed keys](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -20,7 +20,7 @@ The following section shows how a lab owner can set up encryption using a custom
 
 ## Pre-requisites
 
-1. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Note the following requirements for the disk encryption set: 
+1. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Note the following requirements for the disk encryption set: 
 
     - The disk encryption set needs to be **in same region and subscription as your lab**. 
     - Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks. 
