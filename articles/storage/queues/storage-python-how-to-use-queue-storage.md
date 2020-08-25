@@ -4,7 +4,7 @@ description: Learn to use the Azure Queue service from Python to create and dele
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/21/2020
+ms.date: 08/25/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
@@ -63,34 +63,47 @@ The [QueueClient](/azure/developer/python/sdk/storage/azure-storage-queue/azure.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ImportStatements":::
 
-The `os` package provides support to retrieve an environment variable. The `uuid` package provides support for generating a unique identifier for a queue name.
-
 # [Python v2](#tab/python2)
 
 The [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) object lets you work with queues. The following code creates a `QueueService` object. Add the following code near the top of any Python file in which you wish to programmatically access Azure Storage:
 
 ```python
 from azure.storage.queue import QueueService
+import os, uuid
 ```
 
 ---
 
+The `os` package provides support to retrieve an environment variable. The `uuid` package provides support for generating a unique identifier for a queue name.
+
 ## Create a queue
+
+The connection string is retrieved from the `AZURE_STORAGE_CONNECTION_STRING` environment variable set earlier.
 
 # [Python v12](#tab/python)
 
-The following code creates a `QueueClient` object using the storage connection string. The connection string is retrieved from the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
+The following code creates a `QueueClient` object using the storage connection string.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_CreateQueue":::
 
 # [Python v2](#tab/python2)
 
-The following code creates a `QueueService` object using the storage account name and account key. Replace *myaccount* and *my key* with your account name and key.
+The following code creates a `QueueService` object using the storage connection string.
 
 ```python
-queue_service = QueueService(account_name='myaccount', account_key='mykey')
+# Retrieve the connection string from an environment
+# variable named AZURE_STORAGE_CONNECTION_STRING
+connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
 
-queue_service.create_queue('taskqueue')
+# Create a unique name for the queue
+queue_name = "queue-" + str(uuid.uuid4())
+
+# Create a QueueService object which will
+# be used to create and manipulate the queue
+queue_service = QueueService(connection_string=connect_str)
+
+# Create the queue
+queue_service.create_queue(queue_name)
 ```
 
 ---
@@ -108,7 +121,7 @@ To insert a message into a queue, use the [send_message](/azure/developer/python
 To insert a message into a queue, use the [put_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) method to create a new message and add it to the queue.
 
 ```python
-queue_service.put_message('taskqueue', u'Hello World')
+queue_service.put_message(queue_name, u"Hello World")
 ```
 
 ---
@@ -146,7 +159,7 @@ You can peek at the message in the front of a queue without removing it from the
 You can peek at the message in the front of a queue without removing it from the queue by calling the [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) method. By default, `peek_messages` peeks at a single message.
 
 ```python
-messages = queue_service.peek_messages('taskqueue')
+messages = queue_service.peek_messages(queue_name)
 for message in messages:
     print(message.content)
 ```
@@ -168,10 +181,10 @@ The code below uses the [update_message](/azure/developer/python/sdk/storage/azu
 The code below uses the [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
 
 ```python
-messages = queue_service.get_messages('taskqueue')
+messages = queue_service.get_messages(queue_name)
 for message in messages:
     queue_service.update_message(
-        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+        queue_name, message.id, message.pop_receipt, 0, u"Hello World Again")
 ```
 
 ---
@@ -191,7 +204,7 @@ The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-que
 The [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) method asks the queue service to return metadata about the queue, including the `approximate_message_count`. The result is only approximate because messages can be added or removed after the queue service responds to your request.
 
 ```python
-metadata = queue_service.get_queue_metadata('taskqueue')
+metadata = queue_service.get_queue_metadata(queue_name)
 count = metadata.approximate_message_count
 ```
 
@@ -212,10 +225,10 @@ When you call [receive_messages](/azure/developer/python/sdk/storage/azure-stora
 When you call [get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), you get the next message in the queue by default. A message returned from `get_messages` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
 
 ```python
-messages = queue_service.get_messages('taskqueue')
+messages = queue_service.get_messages(queue_name)
 for message in messages:
     print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
+    queue_service.delete_message(queue_name, message.id, message.pop_receipt)
 ```
 
 ---
@@ -234,10 +247,10 @@ The following code example uses the [get_messages](/python/api/azure-storage-que
 
 ```python
 messages = queue_service.get_messages(
-    'taskqueue', num_messages=16, visibility_timeout=5*60)
+    queue_name, num_messages=16, visibility_timeout=5*60)
 for message in messages:
     print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
+    queue_service.delete_message(queue_name, message.id, message.pop_receipt)
 ```
 
 ---
@@ -255,7 +268,7 @@ To delete a queue and all the messages contained in it, call the [delete_queue](
 To delete a queue and all the messages contained in it, call the [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-) method.
 
 ```python
-queue_service.delete_queue('taskqueue')
+queue_service.delete_queue(queue_name)
 ```
 
 ---
