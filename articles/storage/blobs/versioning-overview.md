@@ -1,7 +1,7 @@
 ---
-title: Blob versioning (preview)
+title: Blob versioning
 titleSuffix: Azure Storage
-description: Blob storage versioning (preview) automatically maintains prior versions of an object and identifies them with timestamps. You can restore  prior versions of a blob to recover your data if it is erroneously modified or deleted.
+description: Blob storage versioning automatically maintains prior versions of an object and identifies them with timestamps. You can restore  prior versions of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
 author: tamram
 
@@ -13,9 +13,9 @@ ms.subservice: blobs
 ms.custom: devx-track-azurecli
 ---
 
-# Blob versioning (preview)
+# Blob versioning
 
-You can enable Blob storage versioning (preview) to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
+You can enable Blob storage versioning to automatically maintain previous versions of an object.  When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
 Blob versioning is enabled on the storage account and applies to all blobs in the storage account. After you enable blob versioning for a storage account, Azure Storage automatically maintains versions for every blob in the storage account.
 
@@ -228,7 +228,7 @@ To enroll in the blob versioning preview, use PowerShell or Azure CLI to submit 
 To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
 
 ```powershell
-# Register for blob versioning (preview)
+# Register for blob versioning
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
 
@@ -274,27 +274,32 @@ az feature show --namespace Microsoft.Storage --name Versioning
 
 Enabling blob versioning can result in additional data storage charges to your account. When designing your application, it is important to be aware of how these charges might accrue so that you can minimize costs.
 
-Blob versions, like blob snapshots, are billed at the same rate as active data. If a version shares blocks or pages with its base blob, then you pay only for any additional blocks or pages that are not shared between the version and the base blob.
+Blob versions, like blob snapshots, are billed at the same rate as active data. How versions are billed depends on whether you have explicitly set the tier for the base blob or for any of its versions.
+
+By default, blobs are created in the hot tier. If you have not explicitly set the tier for a blob or version, it will reside in the hot tier. For more information about blob tiers, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+
+If you have not changed a blob or version's tier, then you are billed for unique blocks across that blob and version. For more information, see [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+If you have changed a blob or version's tier, then you are billed for the complete object, regardless of whether the blob and version are eventually in the same tier. For more information, see [Billing when the blob tier has been explicitly set](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > Enabling versioning for data that is frequently overwritten may result in increased storage capacity charges and increased latency during listing operations. To mitigate these concerns, store frequently overwritten data in a separate storage account with versioning disabled.
 
-### Important billing considerations
+### Billing when the blob tier has not been explicitly set
 
-Make sure to consider the following points when enabling blob versioning:
+If you have not explicitly set the blob tier for a base blob or any of its versions, then you are charged for unique blocks or pages across the blob and its versions. Data that is shared across a blob and its versions is charged only once. When a blob is updated, then data in a base blob diverges from the data stored in its versions, and the unique data is charged per block or page.
 
-- Your storage account incurs charges for unique blocks or pages, whether they are in the blob or in a previous version of the blob. Your account does not incur additional charges for versions associated with a blob until you update the blob on which they are based. After you update the blob, it diverges from its previous versions. When this happens, you are charged for the unique blocks or pages in each blob or version.
-- When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the version. After the block is committed again, it diverges from its counterpart in any version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
-- Blob storage does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it's important to consider that updating a blob when versioning is enabled will result in additional unique blocks and additional charges.
-- When blob versioning is enabled, design update operations on block blobs so that they update the least possible number of blocks. The write operations that permit fine-grained control over blocks are [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list). The [Put Blob](/rest/api/storageservices/put-blob) operation, on the other hand, replaces the entire contents of a blob and so may lead to additional charges.
+When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the version. After the block is committed again, it diverges from its counterpart in any version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
 
-### Versioning billing scenarios
+Blob storage does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it's important to consider that updating a blob when versioning is enabled will result in additional unique blocks and additional charges.
 
-The following scenarios demonstrate how charges accrue for a block blob and its versions.
+When blob versioning is enabled, design update operations on block blobs so that they update the least possible number of blocks. The write operations that permit fine-grained control over blocks are [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list). The [Put Blob](/rest/api/storageservices/put-blob) operation, on the other hand, replaces the entire contents of a blob and so may lead to additional charges.
+
+The following scenarios demonstrate how charges accrue for a block blob and its versions when the blob tier has not been explicitly set.
 
 #### Scenario 1
 
-In scenario 1, the blob has a prior version. The blob has not been updated since the version was created, so charges are incurred only for unique blocks 1, 2, and 3.
+In scenario 1, the blob has a previous version. The blob has not been updated since the version was created, so charges are incurred only for unique blocks 1, 2, and 3.
 
 ![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-1.png)
 
@@ -312,9 +317,13 @@ In scenario 3, the blob has been updated, but the version has not. Block 3 was r
 
 #### Scenario 4
 
-In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks &mdash; four in the base blob, and four in the previous version. This scenario can occur if you are writing to a blob with the Put Blob operation, because it replaces the entire contents of the base blob.
+In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks &mdash; four in the base blob, and four in the previous version. This scenario can occur if you are writing to a blob with the [Put Blob](/rest/api/storageservices/put-blob) operation, because it replaces the entire contents of the base blob.
 
 ![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### Billing when the blob tier has been explicitly set
+
+...
 
 ## See also
 
