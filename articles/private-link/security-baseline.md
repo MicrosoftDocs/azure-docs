@@ -4,7 +4,7 @@ description: The Azure Private Link security baseline provides procedural guidan
 author: msmbaldwin
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -104,7 +104,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Instead, you may enable and on-board data to Azure Sentinel or a third party SIEM.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -123,7 +123,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Use Security Center configured with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events.
 
-Alternatively, you may enable and on-board log data to Azure Sentinel.
+Instead, you may enable and on-board log data to Azure Sentinel.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -140,8 +140,7 @@ Alternatively, you may enable and on-board log data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18981).
 
-**Guidance**: Not applicable to Private Link. 
-Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizations need.
+**Guidance**: Not applicable to Private Link. Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizational business requirements.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -274,7 +273,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/18992).
 
-**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
+**Guidance**: Azure Active Directory provides logs to help discover stale accounts. Also, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
