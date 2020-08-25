@@ -22,8 +22,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.13.0
 
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
   + **azureml-automl-core**
     + Added validated_{platform}_requirements.txt file for pinning all pip dependencies for AutoML.
     + This release supports models greater than 4Gb.
