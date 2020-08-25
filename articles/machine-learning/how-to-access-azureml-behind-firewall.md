@@ -52,6 +52,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 | **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
 | **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
+|**graph.windows.net** | Needed for Notebooks across clouds |
 
 ## Python hosts
 
@@ -73,6 +74,15 @@ The hosts in this section are used to install R packages. They are required duri
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
+
+# USGOV hosts
+
+Required USGOV Firewall URLS
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | For USGOV Arizona. |
+| **usgovvirginia.api.ml.azure.us"** | For USGOV Virginia. |
 
 ## Next steps
 
