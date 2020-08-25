@@ -116,8 +116,8 @@ When you create your ISE, you can choose to use either internal or external acce
 
   > [!IMPORTANT]
   > Make sure that you have network connectivity between the private endpoints and the computer from 
-  > where you want to access the run history. Otherwise, you get an error that says "Unexpected error. 
-  > Failed to fetch when trying to view logic app run history":
+  > where you want to access the run history. Otherwise, when you try to view your logic app's run history, 
+  > you get an error that says "Unexpected error. Failed to fetch".
   >
   > ![Azure Storage action error resulting from inability to send traffic through firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
