@@ -58,8 +58,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-runtime**
     + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
   + **azureml-train-core**
-    + Documentation and notebook changed.
-    + This is reverting changes from a previous PR.
     + Users must now provide a valid hyperparameter_sampling arg when creating a HyperDriveConfig. In addition, the documentation for HyperDriveRunConfig has been edited to inform users of the deprecation of HyperDriveRunConfig.
     + Reverting PyTorch Default Version to 1.4.
     + Adding PyTorch 1.6 & Tensorflow 2.2 images and curated environment.
