@@ -21,7 +21,7 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 Form Recognizer is made up of the following services:
 * **Custom models** - Extract key/value pairs and table data from forms. These models are trained with your own data, so they're tailored to your forms.
-* **Prebuilt receipt model** - Extract data from USA sales receipts using a prebuilt model.
+* **Prebuilt models** - Extract data from unique form types using prebuilt models. Currently available are prebuilt models for sales receipts and business cards in English.
 * **Layout API** - Extract text and table structures, along with their bounding box coordinates, from documents.
 
 <!-- add diagram -->
@@ -42,9 +42,18 @@ When you train with labeled data, the model does supervised learning to extract 
 
 Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses user-specified labels to learn the key/value associations in the documents. We recommend that you use five manually labeled forms of the same type to get started when training a new model and add more labeled data as needed to improve the model accuracy.
 
-## Prebuilt receipt model
+## Prebuilt models
 
-Form Recognizer also includes a model for reading English sales receipts from the United States&mdash;the type used by restaurants, gas stations, retail, and so on ([sample receipt](./media/contoso-receipt-small.png)). This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
+Form Recognizer also includes Prebuilt models for unique form types.
+### Prebuilt Receipt model
+The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. 
+
+![sample receipt](./media/contoso-receipt-small.png)
+
+### Prebuilt Business Cards model
+The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English. 
+
+![sample business card](./media/business-card-english.jpg)
 
 ## Layout API
 
@@ -87,7 +96,7 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### Prebuilt receipt model
+### Prebuilt
 
 The input requirements for the receipt model are slightly different.
 

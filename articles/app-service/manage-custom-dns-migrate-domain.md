@@ -26,7 +26,7 @@ To complete this how-to:
 ## Bind the domain name preemptively
 
 When you bind a custom domain preemptively, you accomplish both of the following before making any changes to
-your DNS records:
+your existing DNS records:
 
 - Verify domain ownership
 - Enable the domain name for your app
@@ -35,26 +35,24 @@ When you finally migrate your custom DNS name from the old site to the App Servi
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
+### Get domain verification ID
+
+Get the domain verification ID for you app by following the steps at [Get domain verification ID](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+
 ### Create domain verification record
 
-To verify domain ownership, Add a TXT record. The TXT record maps from _awverify.&lt;subdomain>_ to _&lt;appname>.azurewebsites.net_. 
-
-The TXT record you need depends on the DNS record you want to migrate. For examples, see the following table (`@` typically represents the root domain):
+To verify domain ownership, add a TXT record for domain verification. The hostname for the TXT record depends on the type of DNS record type you want to map. See the following table (`@` typically represents the root domain):
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| \@ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \* (wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (root) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| www (sub) | _asuid.www_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \* (wildcard) | _asuid_ | [Domain verification ID for your app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
 
 In your DNS records page, note the record type of the DNS name you want to migrate. App Service supports mappings from CNAME and A records.
 
 > [!NOTE]
-> For certain providers, such as CloudFlare, `awverify.*` is not a valid record. Use `*` only instead.
-
-> [!NOTE]
 > Wildcard `*` records won't validate subdomains with an existing CNAME's record. You may need to explicitly create a TXT record for each subdomain.
-
 
 ### Enable the domain for your app
 
@@ -66,7 +64,7 @@ In the **Custom domains** page, select the **+** icon next to **Add hostname**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Type the fully qualified domain name that you added the TXT record for, such as `www.contoso.com`. For a wildcard domain (like \*.contoso.com), you can use any DNS name that matches the wildcard domain. 
+Type the fully qualified domain name you want to migrate, that corresponds to the TXT record you create, such as `contoso.com`, `www.contoso.com`, or `*.contoso.com`.
 
 Select **Validate**.
 
@@ -118,7 +116,7 @@ Save your settings.
 
 DNS queries should start resolving to your App Service app immediately after DNS propagation happens.
 
-## Active domain in Azure
+## Migrate domain from another app
 
 You can migrate an active custom domain in Azure, between subscriptions or within the same subscription. However, such a migration without downtime requires the source app and the target app are assigned the same custom domain at a certain time. Therefore, you need to make sure that the two apps are not deployed to the same deployment unit (internally known as a webspace). A domain name can be assigned to only one app in each deployment unit.
 

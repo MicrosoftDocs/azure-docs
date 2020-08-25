@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/20/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -725,7 +725,7 @@ Here are some ways that you can help secure endpoints that receive calls or requ
 
 * Add authentication to outbound requests.
 
-  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can select these authentication types:
+  When you use an HTTP-based trigger or action that makes outbound calls, for example, HTTP, you can add authentication to the request that's sent by your logic app. For example, you can select these authentication types:
 
   * [Basic authentication](#basic-authentication)
 
@@ -793,7 +793,7 @@ This table identifies the authentication types that are available on the trigger
 | [Client Certificate](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Managed identity](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP |
 |||
 
 <a name="basic-authentication"></a>

@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/14/2020
+ ms.date: 08/21/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -25,7 +25,7 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 ### Premium SSDs
 
-- Currently only supported in the West Central US region.
+- Currently only supported in [a subset of regions](#regional-availability).
 - Currently limited to Azure Resource Manager or SDK support. 
 - Can only be enabled on data disks, not OS disks.
 - **ReadOnly** host caching is not available for premium SSDs with `maxShares>1`.
@@ -34,5 +34,22 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Azure Backup and Azure Site Recovery support is not yet available.
+
+#### Regional availability
+
+Shared premium SSDs are only supported in the following regions:
+
+- East US
+- East US 2
+- West US
+- West US 2
+- West Central US
+- South Central US
+- Central US
+- Korea Central
+- Canada Central
+- Canada East
+- US Gov Virginia
+- US Gov Arizona
 
 If you're interested in trying shared premium SSDs, [sign up for access](https://aka.ms/AzureSharedDiskGASignUp).
