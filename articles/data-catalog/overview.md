@@ -67,4 +67,4 @@ At the same time, users can contribute to the catalog by tagging, documenting, a
 ## Next steps
 
 To get started with Project Babylon:
-[Create a Babylon account](create-catalog-portal.md)
+[Create a Babylon account](data-catalog-get-started.md)
