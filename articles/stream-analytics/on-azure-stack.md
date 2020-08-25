@@ -119,7 +119,8 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    | Consumer group (optional) | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise. |
    | Partition count | Partition count is the number of partitions in an Event Hub. |
 
-   ![IoT Hub Input](media/on-azure-stack/iot-hub-input.png)
+   > [!div class="mx-imgBorder"]
+   > ![IoT Hub Input](media/on-azure-stack/iot-hub-input.png)
 
 6. Keep the default values for the other fields, and select Save.
 7. Under Job Topology, open Outputs then select Add.
