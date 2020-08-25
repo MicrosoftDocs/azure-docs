@@ -257,8 +257,8 @@
     href: https://docs.microsoft.com/answers/topics/azure-queue-storage.html
   - name: Azure Storage on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/windows-azure-storage
-  - name: Pricing for Azure storage
-    href: https://azure.microsoft.com/pricing/details/storage/
+  - name: Pricing for Queue storage
+    href: https://azure.microsoft.com/pricing/details/storage/queues/
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
