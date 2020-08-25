@@ -77,7 +77,7 @@ Azure Time Series Insights Gen2 stores copies of your data as follows:
 
   `V=1/PT=TsId/<TSI_INTERNAL_NAME>.parquet`
 
-The timestamp in the blob names in the `PT=Time` folder correspond to the arrival time of the data to Azure Time Series Insights Gen2 and not the timestamp of the events.
+The timestamp in the blob names in the `PT=Time` folder corresponds to the arrival time of the data to Azure Time Series Insights Gen2 and not the timestamp of the events.
 
 Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, some events might be present in multiple blobs. The naming of the blobs in this folder is not guaranteed to remain the same.
 
