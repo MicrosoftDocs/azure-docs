@@ -67,7 +67,8 @@ If you're interested in joining the preview program and accept these terms, then
 
 Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable Machine Learning Services for your existing or new database.
 
-Machine Learning Services in SQL Managed Instance is not recommended for production workloads during the public preview.
+> [!NOTE]
+> Machine Learning Services in SQL Managed Instance is not recommended for production workloads during the public preview.
 
 ## Next steps
 
