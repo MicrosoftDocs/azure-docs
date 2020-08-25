@@ -125,15 +125,15 @@ IoT Hub:
 8. Choose Blob Storage, Event Hub, or Edge Hub from the drop-down list.
 9. If the output is an Event Hub or Blob Storage in an Azure Stack Hub subscription, please provide information manually as shown below.
 
-Event Hub:
+   #### Event Hub
 
-| Field | Value |
-| --- | --- |
-| Output alias | A friendly name used in queries to direct the query output to this event hub. |
-| Service Bus namespace | A container for a set of messaging entities. When you created a new event hub, you also created a service bus namespace.(Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
-| Event Hub name | The name of your event hub output. |
-| Event Hub policy name | The shared access policy, which you can create on the event hub's Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
-| Event Hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
+   | Field | Value |
+   | --- | --- |
+   | Output alias | A friendly name used in queries to direct the query output to this event hub. |
+   | Service Bus namespace | A container for a set of messaging entities. When you created a new event hub, you also created a service bus namespace.(Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
+   | Event Hub name | The name of your event hub output. |
+   | Event Hub policy name | The shared access policy, which you can create on the event hub's Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
+   | Event Hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
 
    ![Event Hub Output](media/on-azure-stack/event-hub-output.png)
 
