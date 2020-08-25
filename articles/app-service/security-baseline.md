@@ -4,7 +4,7 @@ description: The App Service security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -274,10 +274,11 @@ You may also make use of built-in policy definitions for Azure App Service, such
 
 **Guidance**: If using Network Security groups (NSGs) with your Azure App Service web apps, use tags for the NSGs and other resources related to network security and traffic flow. 
 
-For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
+For individual NSG rules, use the "Description" field to specify business need and/or duration and so on for any rules that allow traffic to/from a network.
 
 Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources. 
-You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
+
+Use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
