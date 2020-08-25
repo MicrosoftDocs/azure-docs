@@ -5,7 +5,7 @@ tags: top-support-issue
 
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
 
 ---
@@ -60,7 +60,7 @@ In the [Azure portal](https://portal.azure.com), in the left navigation of the a
 
 ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-In the **Custom domains** page, select the **+** icon next to **Add hostname**.
+In the **Custom domains** page, select **Add custom domain**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -68,7 +68,7 @@ Type the fully qualified domain name you want to migrate, that corresponds to th
 
 Select **Validate**.
 
-The **Add hostname** button is activated. 
+The **Add custom domain** button is activated. 
 
 Make sure that **Hostname record type** is set to the DNS record type you want to migrate.
 
@@ -93,8 +93,6 @@ The only thing left to do is remapping your active DNS record to point to App Se
 If you are remapping a CNAME record, skip this section. 
 
 To remap an A record, you need the App Service app's external IP address, which is shown in the **Custom domains** page.
-
-Close the **Add hostname** page by selecting **X** in the upper-right corner. 
 
 In the **Custom domains** page, copy the app's IP address.
 

@@ -6,7 +6,7 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ---
 
@@ -140,7 +140,7 @@ In the left navigation of the app page in the Azure portal, select **Custom doma
 
 In the **Custom domains** page of the app, add the fully qualified custom DNS name (`www.contoso.com`) to the list.
 
-Select the **+** icon next to **Add custom domain**.
+Select **Add custom domain**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -161,7 +161,7 @@ It might take some time for the new custom domain to be reflected in the app's *
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> A **Not Secure** label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+> A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
@@ -219,7 +219,7 @@ When the records are added, the DNS records page looks like the following exampl
 
 Back in the app's **Custom domains** page in the Azure portal, add the fully qualified custom DNS name (for example, `contoso.com`) to the list.
 
-Select the **+** icon next to **Add custom domain**.
+Select **Add custom domain**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -240,7 +240,7 @@ It might take some time for the new custom domain to be reflected in the app's *
 ![A record added](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> A **Not Secure** label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+> A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 If you missed a step or made a typo somewhere earlier, you see a verification error at the bottom of the page.
 
@@ -279,7 +279,7 @@ In the left navigation of the app page in the Azure portal, select **Custom doma
 
 ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Select the **+** icon next to **Add custom domain**.
+Select **Add custom domain**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -300,7 +300,7 @@ Select the **+** icon again to add another custom domain that matches the wildca
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> A **Note Secure** label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+> A warning label for your custom domain means that it's not yet bound to a TLS/SSL certificate, and any HTTPS request from a browser to your custom domain will receive and error or warning, depending on the browser. To add a TLS binding, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Test in browser
 
