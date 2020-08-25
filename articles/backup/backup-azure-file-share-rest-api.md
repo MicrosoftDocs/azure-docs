@@ -170,7 +170,7 @@ Set the variables for the URI as follows:
    In our example, it's *StorageContainer;Storage;AzureFiles;testvault2*
 
 >[!NOTE]
-> Always take the name attribute of the response and fill it in this request. Do NOT hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
+> Always take the name attribute of the response and fill it in this request. Don't hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
 
 <br>
 
@@ -368,7 +368,7 @@ In our example, the ID of file share we want to protect is:
 Or you can refer to the **name** attribute of the protection container and protectable item responses.
 
 >[!NOTE]
->Always take the name attribute of the response and fill it in this request. Do NOT hard-code or create the container-name format or protected item name format. If you create or hard-code it, the API call will fail if the container-name format or protected item name format changes in the future.
+>Always take the name attribute of the response and fill it in this request. Don't hard-code or create the container-name format or protected item name format. If you create or hard-code it, the API call will fail if the container-name format or protected item name format changes in the future.
 
 <br>
 

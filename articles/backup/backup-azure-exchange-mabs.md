@@ -55,7 +55,7 @@ To install the MABS protection agent on the Exchange server, follow these steps:
 9. Select the database for **Copy Backup**, and then click **Next**.
 
    > [!NOTE]
-   > If you do not select "Full backup" for at least one DAG copy of a database, logs will not be truncated.
+   > If you don't select "Full backup" for at least one DAG copy of a database, logs won't be truncated.
    >
    >
 10. Configure the goals for **Short-Term backup**, and then click **Next**.
