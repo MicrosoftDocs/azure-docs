@@ -69,10 +69,10 @@ Here’s the problematic policy:
    - When you're prompted for a name, enter **BROKENSOFTWARE**.
    - To verify that **BROKENSOFTWARE** was loaded, expand **HKEY_LOCAL_MACHINE** and look for the added **BROKENSOFTWARE** key.
 
-1. Go to BROKENSOFTWARE and check if the CleanupProfiles key exists in the loaded hive.
+1. Go to **BROKENSOFTWARE** and check if the **CleanupProfiles** key exists in the loaded hive.
 
    - If the key exists, the **CleanupProfiles** policy is set. Its value represents the retention policy measured in days.
-   - If the key doesn't exist, the CleanupProfiles policy isn't set. In this situation, skip ahead to [submit a support ticket with a memory dump file](#collect-the-memory-dump-file-and-submit-a-support-ticket).
+   - If the key doesn't exist, the **CleanupProfiles** policy isn't set. In this situation, skip ahead to [submit a support ticket with a memory dump file](#collect-the-memory-dump-file-and-submit-a-support-ticket).
 
 1. Delete the **CleanupProfiles** key by using this command:
 
@@ -105,9 +105,6 @@ Here’s the problematic policy:
       - It may be helpful to launch the Disk Management console to identify the appropriate system partition labeled as **EFI System Partition**.
       - The identifier may be a unique GUID or it could be the default **bootmgr**.
 
-**Recommended**: Before you rebuild the VM, enable the Serial Console and memory dump collection by running the following script:
-
-1. Open an elevated command prompt session as an Administrator.
 1. Run the following commands:
 
    **Enable the Serial Console**:
@@ -165,7 +162,7 @@ If the issue was fixed, the policy is now disabled locally. For a permanent solu
 **Don’t use this policy:**
 *Machine\Admin Templates\System\User Profiles\Delete user profiles older than a specified number of days on system restart.*
 
-The issue should now be fixed.
+## The issue should now be fixed.
 
 Test your VM to make sure it is functioning like normal. If you are still experiencing issues, then you can continue to the next section for further assistance.
 
