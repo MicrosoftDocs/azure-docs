@@ -16,25 +16,28 @@ The IoT Plug and Play device certification program includes tools to check that 
 
 This article shows you how to:
 
-- Install the command-line tool (CLI) and run the tests
-- Use the Azure Certified Device portal to test your device
+- Install the Azure IoT command-line tool extension for the Azure CLI
+- Run the IoT Plug and Play tests to validate your device application while in-development phase  
+- Use the Azure Certified Device portal to validate the device application
 
 ## Prepare your device
 
-The application code that runs on your IoT Plug and Play must follow the [IoT Plug an Play conventions](concepts-convention.md) to implement of telemetry, properties, and commands. The application might be software that's installed separately from the operating system or be bundled with the operating system in a flashable firmware image.
+The application code that runs on your IoT Plug and Play must be able to connect to Azure IoT Hub using the [Device Provisioning Service](/azure/iot-dps/about-iot-dps), and follow the [IoT Plug an Play conventions](concepts-convention.md) to implement of telemetry, properties, and commands. The application might be software that's installed separately from the operating system or be bundled with the operating system in a firmware image that needs to be flashed into the device.
 
-The certification process ensures your device application implements the IoT Plug and Play conventions correctly and that the device model or models are defined correctly using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema.
+The certification process verifies the device as an IoT Plug and Play compatible application by validating the device implementation matches the telemetry, properties and commands defined in the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) device model, and the model is available in the [Azure IoT Public Model Repository](concepts-model-repository).
 
 To meet the certification requirements, your device must:
 
-- Implement of telemetry, properties, and commands following the IoT Plug and Play convention.
-- Support the [Device Provisioning Service (DPS)](https://docs.microsoft.com/azure/iot-dps/).
-- Model the device interactions with a [DTDL v2](https://aka.ms/dtdl) schema.
-- Make the model or models available in the [public model repository](https://devicemodels.azureiotsolutions.com/)
-- Announce the model ID during DPS registration.
-- Announce the model ID during the MQTT connection.
+- Connects to Azure IoT Hub using the [Device Provisioning Service (DPS)](/iot-dps/).
+- Implement of telemetry, properties, or commands following the IoT Plug and Play convention.
+- Describe the device interactions with a [DTDL v2](https://aka.ms/dtdl) model.
+- Publish the model, and all required interfaces, in the [Azure IoT Public Model Repository](https://devicemodels.azureiotsolutions.com/)
+- Send the model ID during [DPS registration](concepts-developer-guide#dps-payload) in the DPS provisioning payload.
+- Announce the model ID during the [MQTT connection](/concepts-developer-guide#model-id-announcement).
 
-## Test with the CLI
+## Test with the Azure IoT Extension CLI
+
+The [Azure IoT CLI extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
 
 The following steps show you how to prepare for and run the certification tests using the CLI:
 
@@ -52,18 +55,16 @@ To learn more, see [Azure CLI for Azure IoT](https://docs.microsoft.com/cli/azur
 
 ### Create a new product test
 
-The [product certification CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
+The following command creates a test using DPS with a symmetric key attestation method:
 
-The following test assumes the device supports DPS and uses the symmetric key attestation method. The command:
-
-- Creates a new product entity and generates a test configuration. The output displays the DPS scope information that the device must use for provisioning:  the primary key, registration ID, and ID Scope.
-- Specifies the device models to use by identifying the local folder that contains the DTDL files.
+- Creates a new product to test, and generates a test configuration. The output displays the DPS information that the device must use for provisioning:  the primary key, device ID, and ID Scope.
+- Specifies the folder with the DTDL files describing your model.
 
 ```azurecli
 az iot product test create --badge-type Pnp --at SymmetricKey --device-type FinishedProduct --models {local folder name}
 ```
 
-The JSON output from the command contains the `primaryKey`, `registrationID`, and `scopeID` to use when you connect your device.
+The JSON output from the command contains the `primaryKey`, `registrationId`, and `scopeID` to use when you connect your device.
 
 Expected output:
 
@@ -87,7 +88,7 @@ Use the DPS information output by the previous command to connect your device to
 
 After the device connects, generate a product test configuration file. To create the file:
 
-- Use the test ID from the output of the previous command.
+- Use the test `id` from the output of the previous command.
 - Use the `--wait` parameter to get the test case.
 
 ```azurecli
@@ -111,11 +112,43 @@ You can use the `az iot product test case update` command to modify the test con
 
 ### Run the tests
 
-After you generate the test configuration, the next step is to run the tests. Use the same test ID from the previous commands as parameter to run the tests. Check the test results to make sure that all tests have a status `Passed`.
+After you generate the test configuration, the next step is to run the tests. Use the same `devicetestId` from the previous commands as parameter to run the tests. Check the test results to make sure that all tests have a status `Passed`.
 
 ```azurecli
 az iot product test task create --type QueueTestRun --test-id d45d53d9-656d-4be7-9bbf-140bc87e98dc --wait
 ```
+
+Example test run output
+
+```json
+      "validationTasks": [
+        {
+          "componentName": "Default component",
+          "endTime": "2020-08-25T05:18:49.5224772+00:00",
+          "interfaceId": "dtmi:com:example:TemperatureController;1",
+          "logs": [
+            {
+              "message": "Waiting for telemetry from the device",
+              "time": "2020-08-25T05:18:37.3862586+00:00"
+            },
+            {
+              "message": "Validating PnP properties",
+              "time": "2020-08-25T05:18:37.3875168+00:00"
+            },
+            {
+              "message": "Validating PnP commands",
+              "time": "2020-08-25T05:18:37.3894343+00:00"
+            },
+            {
+              "message": "{\"propertyName\":\"serialNumber\",\"expectedSchemaType\":null,\"actualSchemaType\":null,\"message\":\"Property is successfully validated\",\"passed\":true,\"time\":\"2020-08-25T05:18:37.4205985+00:00\"}",
+              "time": "2020-08-25T05:18:37.4205985+00:00"
+            },
+            {
+              "message": "PnP interface properties validation passed",
+              "time": "2020-08-25T05:18:37.4206964+00:00"
+            },
+```
+
 
 ## Test using the Azure Certified Device portal
 
@@ -125,7 +158,9 @@ At the time of writing, the portal doesn't support publishing to the [Certified 
 
 ### Onboarding
 
-To sign in to the portal, you must be a member of the [Microsoft Partner Network](https://partner.microsoft.com) and use Azure Active Directory work or school account. The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
+To use the [certification portal](https://aka.ms/acdp) you must use a Azure Active Directory from your work or school tenant.
+
+To publish the models to the Azure IoT Public Model Repository your account must be a member of the [Microsoft Partner Network](https://partner.microsoft.com). The system checks that the Microsoft Partner Network ID exists and the account is fully vetted before publishing to the device catalog.
 
 ### Company profile
 
@@ -137,7 +172,7 @@ The company profile information is used in the device description showcased in t
 
 To certify a device, you must first create a new project.
 
-On the **Projects** page, select *+ Create new project*. Then enter a name for the project, the device name, and select a device class.
+Navigate to the [certification portal](https://aka.ms/acdp). On the **Projects** page, select *+ Create new project*. Then enter a name for the project, the device name, and select a device class.
 
 The product information you provide during the certification process falls into four categories:
 
@@ -158,4 +193,4 @@ There are three steps to be completed:
 
 ## Next steps
 
-Now that the device submission is completed, contact iotcert@microsoft.com for next steps to publish the device to the device catalog.
+ Now that the device submission is completed you can contact the Device Certification team [iotcert@microsoft.com](mailto:iotcert@microsoft.com) to proceed to the next steps, including Microsoft Partner Network membership validation and review the getting started guides. Once all the requirements have been satisfied you can choose to be included in the Certified Device Catalog.
