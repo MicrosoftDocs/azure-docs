@@ -43,7 +43,7 @@ This template contains several parameters that are predefined for your convenien
 | location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region           |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier)           |
 | language   | string  | ".NET"                       | Programming language stack (.NET, PHP, Node, HTML)            |
-| sample     | boolean | False                        | True = Deploy "Hello World" app             |
+| helloWorld | boolean | False                        | True = Deploy "Hello World" app             |
 | repoUrl    | string  | " "                          | External Git repo (optional)            |
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -59,7 +59,7 @@ This template contains several parameters that are predefined for your convenien
 | location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Web app region           |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier)           |
 | language   | string  | ".NET"                       | Programming language stack (.NET, PHP, Node, HTML)            |
-| sample     | boolean | False                        | True = Deploy "Hello World" app             |
+| helloWorld | boolean | False                        | True = Deploy "Hello World" app             |
 | repoUrl    | string  | " "                          | External Git repo (optional)            |
 
 ---
