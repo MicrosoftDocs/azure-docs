@@ -9,7 +9,7 @@ ms.custom: mvc,subject-armqs
 
 # Quickstart: Back up a virtual machine in Azure with an ARM template
 
-[Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with an Azure Resource Manager template (ARM template) and Azure PowerShell. This quickstart focuses on the process of deploying an ARM template to create a Recover Services vault. For more information on developing ARM templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with an Azure Resource Manager template (ARM template) and Azure PowerShell. This quickstart focuses on the process of deploying an ARM template to create a Recovery Services vault. For more information on developing ARM templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -21,9 +21,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services Vault configured with the DefaultPolicy for Protection.
+The template used in this quickstart is from [Azure quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with the DefaultPolicy for Protection.
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 
 The resources defined in the template are:
 

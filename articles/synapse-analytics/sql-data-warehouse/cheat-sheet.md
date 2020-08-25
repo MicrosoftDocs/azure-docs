@@ -32,7 +32,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or Azure Blob Storage. Next, use PolyBase to load your data into staging tables. Use the following configuration:
+First, load your data into [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or Azure Blob Storage. Next, use the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (preview) to load your data into staging tables. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -104,7 +104,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](sq
 
 ## Maintain statistics
 
- Until auto-statistics are generally available, manual maintenance of statistics is required. It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics.
+It's important to update statistics as *significant* changes happen to your data. See [update statistics](sql-data-warehouse-tables-statistics.md#update-statistics) to determine if *significant* changes have occurred. Updated statistics optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics.
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 

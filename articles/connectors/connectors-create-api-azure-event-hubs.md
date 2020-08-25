@@ -21,7 +21,7 @@ For connector-specific technical information, see the
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, 
+* An Azure account and subscription. If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * An [Azure Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md)

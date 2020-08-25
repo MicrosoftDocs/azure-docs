@@ -139,10 +139,12 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using AAD auth) OR `"/workspaces/read"` (when you are using token auth) |
+| Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 
+> [!TIP]
+> If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
 ### Q. Are we publishing Azure built-in roles for the Machine Learning service?
 
@@ -369,10 +371,14 @@ They can also be found in the list of [Resource provider operations](/azure/role
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
 - When you create a resource in Azure, say a workspace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
-- When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- To deploy your compute resources inside a VNet, you need to explicitly have permissions for "Microsoft.Network/virtualNetworks/join/action" on that VNet resource.
-- It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
+- When there are two role assignments to the same Azure Active Directory user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
+    - "Microsoft.Network/virtualNetworks/join/action" on the VNet resource.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
+    
+    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
 
+- It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
 ### Q. What permissions do I need to use a user-assigned managed identity with my Amlcompute clusters?
 

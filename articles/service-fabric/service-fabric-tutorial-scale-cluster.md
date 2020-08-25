@@ -830,7 +830,7 @@ Foreach($node in $nodes)
 ```
 
 ## Increase node resources 
-After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-node-type.md).
+After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs by replacing the original node type with a new node type (with updated VM SKU or OS image). For further details, see [Scale up an Azure Service Fabric node type](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Never attempt an in-place change of VM SKU or OS image, which is a dangerous operation and unsupported.

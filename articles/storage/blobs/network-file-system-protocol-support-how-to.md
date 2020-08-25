@@ -16,7 +16,7 @@ ms.custom: references_regions
 You can mount a container in Blob storage from a Windows or Linux-based Azure Virtual Machine (VM) or a Windows or Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, and Canada Central.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central.
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
@@ -87,7 +87,7 @@ As you configure the account, choose these values:
 
 |Setting | Value|
 |----|---|
-|Location|One of the following regions: US East, US Central, and Canada Central |
+|Location|One of the following regions: US East, US Central, US West Central, Australia Southeast, North Europe, UK West, Korea Central, Korea South, and Canada Central |
 |Performance|Premium|
 |Account kind|BlockBlobStorage|
 |Replication|Locally-redundant storage (LRS)|
@@ -148,6 +148,15 @@ Create a directory on your Windows or Linux system, and then mount a container i
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
    - Replace the `<container-name>` placeholder with the name of your container.
+
+3. If you need write permissions, you may need to change the default UID and GID that Windows uses to connect to the share. To do this, run the following PowerShell commands as an administrator:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Restart the NFS client service or reboot the server after making this change.
 
 ---
 

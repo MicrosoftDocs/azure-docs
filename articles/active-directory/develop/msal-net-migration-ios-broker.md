@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn how to migrate my iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET. 
 ---
 
@@ -35,7 +35,7 @@ They enable:
 
 - Single sign-on.
 - Device identification, which is required by some [Conditional Access policies](../conditional-access/overview.md). For more information, see [Device management](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Application identification verification, which is also required in some enterprise scenarios. For more information, see [Intune mobile application management (MAM)](https://docs.microsoft.com/intune/mam-faq).
+- Application identification verification, which is also required in some enterprise scenarios. For more information, see [Intune mobile application management (MAM)](/intune/mam-faq).
 
 ## Migrate from ADAL to MSAL
 
@@ -247,4 +247,4 @@ For more information about how to register the redirect URI in the portal, see [
 
 ## Next steps
 
-Learn about [Xamarin iOS-specific considerations with MSAL.NET](msal-net-xamarin-ios-considerations.md). 
+Learn about [Xamarin iOS-specific considerations with MSAL.NET](msal-net-xamarin-ios-considerations.md).
