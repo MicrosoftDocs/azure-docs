@@ -32,7 +32,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Deleting or modifying open files     |Supported         |Not supported         |
 |Locking     |Byte-range advisory network lock manager         |Supported         |
 
-## SMB
+## SMB shares
 
 SMB description here.
 
@@ -53,9 +53,9 @@ SMB with Azure Files is ideal for:
 - Customers that require any of the features listed in [Features](#features)
 - Production environments (NFS is currently in preview)
 
-Do not Use SMB if you need Unix style permissions (UID/GID), Case sensitivity, or POSIX delete behavior.
+Do not use SMB if you need Unix style permissions (UID/GID), case sensitivity, or POSIX delete behavior.
 
-## NFS (preview)
+## NFS shares (preview)
 
 Azure Files offers NFS v4.1 protocol which is fully managed, network-attached storage. It is highly scalable, highly durable, and highly available. This is a fully POSIX compliant offer which is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances. You can start with a file system that contains only 100 GiB data to 100 TiB per volume. Moreover, your data and metadata are protected with encryption at rest by default. NFS is currently in preview and should not be used for production data.
 
