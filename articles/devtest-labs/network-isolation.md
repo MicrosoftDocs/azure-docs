@@ -2,7 +2,7 @@
 title: Network isolation in Azure DevTest Labs
 description: Learn about  network isolation in Azure DevTest Labs.
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ---
 
 # Network isolation in DevTest Labs
@@ -71,20 +71,22 @@ You can also choose to automate these steps to configure this setting for multip
 
 [Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
 
-## Next steps
+## Things to remember while using a lab in a network isolated mode
 
-### Things to remember while using a lab in a network isolated mode
-
-#### Accessing lab's storage account outside the lab 
+### Accessing lab's storage account outside the lab 
 
 Within a network isolated lab, for actions such as uploading a VHD to the lab’s storage account to create custom images from, lab owner will need to explicitly enable accessing the storage account from an allowed endpoint. You can do so by creating a virtual machine and securely access lab’s storage account from that virtual machine. 
 
 [Learn more on accessing a storage account privately from a virtual machine](../private-link/create-private-endpoint-storage-portal.md)
 
-#### Exporting usage data from the lab 
+### Exporting usage data from the lab 
 
 Within a network isolated lab, to [export personal usage data for the lab](personal-data-delete-export.md), lab owner will explicitly need to provide storage account and generate a blob within the account to store the data. 
 
 If a storage account is not provided, this operation will fail in the network isolated mode as the lab’s storage account is not accessible for the lab to use it in case of no storage account provided by the customer. 
 
 [Learn more on exporting lab usage data in a specified storage account](personal-data-delete-export.md#azure-powershell)
+
+## Next steps
+
+[Create or modify labs automatically using Azure Resource Manager templates and PowerShell](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
