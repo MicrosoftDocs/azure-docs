@@ -190,6 +190,7 @@ Proximity Placement Groups | Supported | Virtual machines located inside a Proxi
 -- | ---
 Resize disk on replicated VM | Supported on the source VM before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.
 Add a disk to a replicated VM | Supported
+Offline changes to protected disks | Disconnecting disks and making offline modifications to them require triggering a full resync.
 
 ## Replicated machines - storage
 
