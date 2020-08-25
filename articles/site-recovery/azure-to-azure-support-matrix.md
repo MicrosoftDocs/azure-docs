@@ -249,6 +249,7 @@ The following table summarizes Site Recovery limits.
 - These limits are based on our tests, but obviously don't cover all possible application I/O combinations.
 - Actual results can vary based on you app I/O mix.
 - There are two limits to consider, per disk data churn and per virtual machine data churn.
+- The current limit for per virtual machine data churn is 54 MB/s, regardless of size.
 
 **Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
