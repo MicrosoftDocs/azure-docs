@@ -50,12 +50,12 @@ az group create --name myresourcegroup --location westus
 Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command to create a server using service defaults and values from values from your Azure CLI's [local context](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest). The server is created with an auto-generated server name, admin user name, resource group name (if not already specified in local context), and in the same location as your resource group. Additionally, service defaults will be selected for remaining server configurations such as SKU (B1MS) and backup retention period (7 days).
 
 ```azurecli
-az mysql flexible-server create --password <server_admin_password>
+az mysql flexible-server create --admin-password <server_admin_password>
 ```
 
-If you'd like to change any defaults, you can specify server configurations yourself using the following parameters:
+If you'd like to change any defaults, you can specify server configurations yourself using the following Azure CLI parameters:
 
-**Setting** | **Sample value** | **Description**
+**Azure CLI Parameter** | **Sample value** | **Description**
 ---|---|---
 name | mydemoserver | Enter a unique name for your flexible server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
