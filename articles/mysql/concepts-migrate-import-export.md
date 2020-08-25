@@ -9,6 +9,7 @@ ms.date: 9/22/2020
 ---
 
 # Migrate your MySQL database by using import and export
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
 
 ## Before you begin
@@ -17,7 +18,7 @@ To step through this how-to guide, you need:
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do the import/export.
 
 ## Create a database on the Azure Database for MySQL server
-Create an empty database on the Azure Database for MySQL server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
+Create an empty database on the Azure Database for MySQL server using MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
 
 To get connected, locate the connection information in the **Overview** of your Azure Database for MySQL.
 
@@ -27,20 +28,25 @@ Add the connection information to MySQL Workbench.
 
 ![MySQL Workbench connection string](./media/concepts-migrate-import-export/2_setup-new-connection.png)
 
-## Determine when to use import and export techniques instead of a dump and restore
-Use MySQL tools to import and export databases into Azure MySQL Database in the following scenarios. In other scenarios, you might benefit from using the [dump and restore](concepts-migrate-dump-restore.md) approach instead.
+## Determine when to use import and export techniques
+Use MySQL tools to import and export databases into Azure MySQL Database in the following scenarios.
 
 - When you need to selectively choose a few tables to import from an existing MySQL database into Azure MySQL Database, it's best to use the import and export technique.  By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - When you're moving the database objects other than tables, explicitly create those objects. Include constraints (primary key, foreign key, indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
 - When you're migrating data from external data sources other than a MySQL database, create flat files and import them by using [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
-Make sure that all tables in the database use the InnoDB storage engine when you're loading data into Azure Database for MySQL. Azure Database for MySQL supports only the InnoDB storage engine, so it doesn't support alternative storage engines. If your tables require alternative storage engines, be sure to convert them to use the InnoDB engine format before the migration to Azure Database for MySQL.
+> [!Important]
+> Both Single server and Flexible server support **only the InnoDB storage engine**. Make sure that all tables in the database use the InnoDB storage engine when you're loading data into Azure Database for MySQL.
+> If your source database uses another storage engine, please convert to InnoDB engine prior to migrating the database.
 
 For example, if you have a WordPress or web app that uses the MyISAM engine, first convert the tables by migrating the data into InnoDB tables. Then restore to Azure Database for MySQL. Use the clause `ENGINE=INNODB` to set the engine for creating a table, and then transfer the data into the compatible table before the migration.
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
+> [!TIP]
+> In other scenarios, you might benefit from using the [dump and restore](concepts-migrate-dump-restore.md) approach instead.
+
 
 ## Performance recommendations for import and export
 -	Create clustered indexes and primary keys before loading data. Load data in primary key order.
