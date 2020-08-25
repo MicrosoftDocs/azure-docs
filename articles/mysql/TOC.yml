@@ -392,6 +392,14 @@
       href: flexible-server/concepts-flexible compute-storage.md
     - name: Limitations
       href: flexible-server/concepts-flexible-limits.md
+    - name: Manage
+      items:
+      - name: Logs and Diagnostics
+        items:
+        - name: Slow query logs
+          href: flexible-server/concepts-flexible-slow-query-logs.md
+        - name: Audit logs
+          href: flexible-server/concepts-flexible-audit-logs.md
 - name: Reference
   items:
   - name: Azure CLI
