@@ -89,7 +89,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Experimentation](#microsoftexperimentation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.FootprintMonitoring](#microsoftfootprintmonitoring)
 > - [Microsoft.Gallery](#microsoftgallery)
 > - [Microsoft.Genomics](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
@@ -102,7 +101,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft.Hydra](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
-> - [Microsoft.IntelligentITDigitalTwin](#microsoftintelligentitdigitaltwin)
 > - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
@@ -112,7 +110,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
-> - [Microsoft.LensExplorer](#microsoftlensexplorer)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
@@ -175,7 +172,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft.Subscription](#microsoftsubscription)
-> - [Microsoft.Swiftlet](#microsoftswiftlet)
 > - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
@@ -1240,16 +1236,6 @@ Jump to a resource provider namespace:
 > | providers | No | No |
 > | subscriptionFeatureRegistrations | No | No |
 
-## Microsoft.FootprintMonitoring
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | profiles | Yes | Yes |
-> | profiles / experiments | No | No |
-> | profiles / measurementEndpoints | No | No |
-> | profiles / measurementEndpoints / conditions | No | No |
-
 ## Microsoft.Gallery
 
 > [!div class="mx-tableFixed"]
@@ -1367,13 +1353,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | jobs | Yes | Yes |
 
-## Microsoft.IntelligentITDigitalTwin
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | digitalTwins | Yes | Yes |
-
 ## Microsoft.Insights
 
 > [!div class="mx-tableFixed"]
@@ -1475,13 +1454,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | labaccounts | Yes | Yes |
 > | users | No | No |
-
-## Microsoft.LensExplorer
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | accounts | Yes | Yes |
 
 ## Microsoft.Logic
 
@@ -2310,13 +2282,6 @@ Jump to a resource provider namespace:
 > | SubscriptionDefinitions | No | No |
 > | SubscriptionOperations | No | No |
 > | subscriptions | No | No |
-
-## Microsoft.Swiftlet
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | virtualMachines | Yes | Yes |
 
 ## Microsoft.Synapse
 
