@@ -1550,10 +1550,6 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/azureml/howto/createdatasets.
 
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Fixed the error, raised when training and/or validation labels (y and y_valid) are provided in the form of pandas dataframe but not as numpy array.
-    + Updated interface to create a `RawDataContext` to only require the data and the `AutoMLBaseSettings` object.
-    +  Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that does not exist in the training set when forecasting.
   + **azure-cli-ml**
     + You can now update the TLS/SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-automl-core**
@@ -1690,9 +1686,6 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Fix the bug about loosing columns types after the transformation (bug linked);
-    + Allow y_query to be an object type containing None(s) at the begin (#459519).
   + **azure-cli-ml**
     + CLI commands "model deploy" and "service update" now accept parameters, config files, or a combination of the two. Parameters have precedence over attributes in files.
     + Model description can now be updated after registration
