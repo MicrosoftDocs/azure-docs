@@ -17,7 +17,7 @@ Azure Cosmos DB analytical store is a fully isolated column store for enabling l
 
 ## Challenges with large-scale analytics on operational data
 
-The multi-model operational data in an Azure Cosmos DB container is internally stored in an indexed row-based "transactional store". Row store format is designed to allow fast transactional reads and writes in the order-of-milliseconds response times, and operational queries. If your dataset grows large, complex analytical queries can be expensive in terms of provisioned throughput on the data stored in this format.High consumption of provisioned throughput in turn, impacts the performance of transactional workloads that are used by your real-time applications and services.
+The multi-model operational data in an Azure Cosmos DB container is internally stored in an indexed row-based "transactional store". Row store format is designed to allow fast transactional reads and writes in the order-of-milliseconds response times, and operational queries. If your dataset grows large, complex analytical queries can be expensive in terms of provisioned throughput on the data stored in this format. High consumption of provisioned throughput in turn, impacts the performance of transactional workloads that are used by your real-time applications and services.
 
 Traditionally, to analyze large amounts of data, operational data is extracted from Azure Cosmos DB's transactional store and stored in a separate data layer. For example, the data is stored in a data warehouse or data lake in a suitable format. This data is later used for large-scale analytics and analyzed using  compute engine such as the Apache Spark clusters. This separation of analytical storage and compute layers from operational data results in additional latency, because the ETL(Extract, Transform, Load) pipelines are run less frequently to minimize the potential impact on your transactional workloads.
 
@@ -127,7 +127,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
-* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL Serverless run times.
+* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL serverless run times.
 
 > [!NOTE]
 > Azure Cosmos DB analytical store is currently available in public preview free of any charges.
