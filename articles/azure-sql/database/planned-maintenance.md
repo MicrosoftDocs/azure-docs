@@ -24,7 +24,7 @@ For each database, Azure SQL Database and Azure SQL Managed Instance maintain a 
 
 ## What to expect during a planned maintenance event
 
-Reconfigurations/failovers generally finish within 30 seconds. The average is 8 seconds. If already connected, your application must reconnect to the healthy copy new primary replica of your database. If a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): "Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later." If your database has a long-running query, this query will be interrupted during a reconfiguration and will need to be restarted.
+On average, 1.7 planned maintenance events occur each month. Reconfigurations/failovers generally finish within 30 seconds. The average is 8 seconds. If already connected, your application must reconnect to the healthy copy new primary replica of your database. If a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): "Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later." If your database has a long-running query, this query will be interrupted during a reconfiguration and will need to be restarted.
 
 ## How to simulate a planned maintenance event
 
@@ -33,10 +33,6 @@ Ensuring that your client application is resilient to maintenance events prior t
 ## Retry logic
 
 Any client production application that connects to a cloud database service should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). This will help make failovers transparent to the end users, or at least minimize negative effects.
-
-## Frequency
-
-On average, 1.7 planned maintenance events occur each month.
 
 ## Resource health
 
