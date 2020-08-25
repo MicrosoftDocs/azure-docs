@@ -39,8 +39,7 @@ This section describes some of the common errors, and how you can troubleshoot t
 
 **Error:** “Key Vault operation failed. Operation : Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
 
-
-![image.png](/.attachments/image-a8f9661d-9279-44eb-9b14-89542015bd7e.png)
+![Key Vault](./media/troubleshoot-changed-block-tracking/key-vault.png)
 
 This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies 
 
@@ -50,7 +49,7 @@ When the portal creates the key vault it also adds a user access policy granting
 
 - The other case where this may happen is when one user (user1) attempted to setup replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to setup replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there is no user access policy corresponding to user2 in the key vault.
 
-To workaround this issue create an user access policy for user2 in the keyvault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
+**Resolution**: To workaround this issue create a user access policy for user2 in the keyvault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
 
 $userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address").Id
 
