@@ -107,7 +107,7 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 to 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
