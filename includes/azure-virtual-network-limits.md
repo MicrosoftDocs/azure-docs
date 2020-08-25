@@ -111,8 +111,8 @@ The following limits apply only for networking resources managed through Azure R
 | VNet Address Prefixes                   | 600 per VPN gateway          |
 | Aggregate BGP routes                    | 4,000 per VPN gateway        |
 | Local Network Gateway address prefixes  | 1000 per local network gateway               |
-| S2S connections                         | [Depends on the gateway SKU](../vpn-gateway-table-gwtype-aggtput-include.md)|
-| P2S connections                         | [Depends on the gateway SKU](../vpn-gateway-table-gwtype-aggtput-include.md) |
+| S2S connections                         | [Depends on the gateway SKU](../includes/vpn-gateway-table-gwtype-aggtput-include.md)|
+| P2S connections                         | [Depends on the gateway SKU](../includes/vpn-gateway-table-gwtype-aggtput-include.md) |
 | P2S route limit - IKEv2                 | 256 for non-Windows **/** 25 for Windows           |
 | P2S route limit - OpenVPN               | 1000                         |
 | Max. flows                              | 100K for VpnGw1/AZ  **/**  512K for VpnGw2-4/AZ|
