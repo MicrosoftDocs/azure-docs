@@ -40,7 +40,7 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 When connecting to the database in the next step, you will need to connect with an Azure Active Directory (Azure AD) account that has admin access to the database in order to give your search service permission to access the database.
 
-Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) to give your Azure AD account admin access to the database.
+Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) to give your Azure AD account admin access to the database.
 
 ### 3 - Assign the search service permissions
 
