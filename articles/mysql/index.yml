@@ -31,7 +31,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: concepts-servers.md
+            url: single-server-overview.md
       - linkListType: concept
         links:
           - text: Understand pricing tiers

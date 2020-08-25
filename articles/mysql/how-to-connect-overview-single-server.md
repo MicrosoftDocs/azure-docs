@@ -1,6 +1,6 @@
 ---
-title: Connect and query for Single Server MySQL
-description: Links to Azure My SQL Database quickstarts showing how to connect to and query Single Server MySQL.
+title: Connect and query - Single Server MySQL
+description: Links to Azure My SQL Database quickstarts showing how to connect to your server and run queries.
 services: mysql
 ms.service: mysql
 ms.topic: how-to
@@ -9,19 +9,19 @@ ms.author: sumuth
 ms.date: 09/22/2020
 ---
 # Connect and query overview for Azure database for MySQL- Single Server
-The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also include TLS recommendations and libraries that you can use to connect to the server in supported languages below.
+The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 
 ## Quickstarts
 
 | Quickstart | Description |
 |---|---|
-|[MySQL workbench](connect-workbench.md)|This quickstart demonstrates how to use MySQL Workbench Client to connect to a database, and then use MySQL statements to query, insert, update, and delete data in the database.|
-|[Azure Cloud Shell](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|This article shows how to run mysql.exe in Azure Cloud Shell to connect to your server and then run statements to query, insert, update, and delete data in the database.|
-|[MySQL with Visual Studio](https://www.mysql.com/why-mysql/windows/visualstudio)|You can use MySQL for Visual Studio for connecting to your MySQL server and run statement to query , create insert etc without forcing your developers to leave Visual Studio.MySQL for Visual Studio integrates directly into Server Explorer providing a seamless experience for setting up new connections and working with database objects.|
+|[MySQL workbench](connect-workbench.md)|This quickstart demonstrates how to use MySQL Workbench Client to connect to a database. You can then use MySQL statements to query, insert, update, and delete data in the database.|
+|[Azure Cloud Shell](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|This article shows how to run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to your server and then run statements to query, insert, update, and delete data in the database.|
+|[MySQL with Visual Studio](https://www.mysql.com/why-mysql/windows/visualstudio)|You can use MySQL for Visual Studio for connecting to your MySQL server. MySQL for Visual Studio integrates directly into Server Explorer making it easy to setup new connections and working with database objects.|
 |[PHP](connect-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database and use MySQL statements to query data.|
 |[Java](connect-java.md)|This quickstart demonstrates how to use Java to connect to a database and then use MySQL statements to query data.|
 |[Node.js](connect-nodejs.md)|This quickstart demonstrates how to use Node.js to create a program to connect to a database and use MySQL statements to query data.|
-|[.NET(C#)](connect-csharp.md)|This quickstart demonstrates how to use .NET (C#) to create a C# program to connect to a database and use MySQL statements to query data.|
+|[.NET(C#)](connect-csharp.md)|This quickstart demonstrates how to use.NET (C#) to create a C# program to connect to a database and use MySQL statements to query data.|
 |[Go](connect-go.md)|This quickstart demonstrates how to use Go to connect to a database. Transact-SQL statements to query and modify data are also demonstrated.|
 |[Python](connect-python.md)|This quickstart demonstrates how to use Python to connect to a database and use MySQL statements to query data. |
 |[Ruby](connect-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use MySQL statements to query data.|
@@ -30,19 +30,21 @@ The following document includes links to examples showing how to connect and que
 
 ## TLS considerations for database connectivity
 
-Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to databases in Azure Database for MySQL. No special configuration is necessary but do enforce TLS 1.2 for newly created servers. We recommend if you are using TLS 1.0 and 1.1 , then you update the TLS version for your servers. See [ How to configure TLS](howto-tls-configurations.md)
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to databases in Azure Database for MySQL. No special configuration is necessary but do enforce TLS 1.2 for newly created servers. We recommend if you are using TLS 1.0 and 1.1, then you update the TLS version for your servers. See [ How to configure TLS](howto-tls-configurations.md)
 
 
 ## Libraries
 
-Azure Database for MySQL uses the world's most popular community edition of MySQL database. Therefore, it is compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 is provided in the following table:
+Azure Database for MySQL uses the world's most popular community edition of MySQL database. Hence, it is compatible with a wide variety of programming languages and drivers. The goal is to support the three most recent versions MySQL drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MySQL drivers continue.
+
+Here is the list of drivers that have been tested and found to be compatible with Azure Database for MySQL:
 
 
 | **Programming Language** | **Driver** | **Links** | **Compatible Versions** | **Incompatible Versions** | **Notes** |
 | :----------------------- | :--------- | :-------- | :---------------------- | :------------------------ | :-------- |
 | PHP | mysqli, pdo_mysql, mysqlnd | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | For PHP 7.0 connection with SSL MySQLi, add MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT in the connection string. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` option to false.|
-| .NET | Async MySQL Connector for .NET | https://github.com/mysql-net/MySqlConnector <br> [Installation package from Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 and after | 0.26.5 and before | |
-| .NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 6.6.3 ,7.0 ,8.0 |  | An encoding bug may cause connections to fail on some non-UTF8 Windows systems. |
+|.NET | Async MySQL Connector for.NET | https://github.com/mysql-net/MySqlConnector <br> [Installation package from NuGet](https://www.nuget.org/packages/MySqlConnector/) | 0.27 and after | 0.26.5 and before | |
+|.NET | MySQL Connector/NET | https://github.com/mysql/mysql-connector-net | 6.6.3,7.0,8.0 |  | An encoding bug may cause connections to fail on some non-UTF8 Windows systems. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Installation package from NPM:<br> Run `npm install mysql` from NPM | 2.15 | 2.14.1 and before | |
 | Node.js | node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4+ | | |
 | Go | Go MySQL Driver | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 and before | Use `allowNativePasswords=true` in the connection string for version 1.3. Version 1.4 contains a fix and `allowNativePasswords=true` is no longer required. |
@@ -58,19 +60,3 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16+ | | |
 | Swift | mysql-swift | https://github.com/novi/mysql-swift | 0.7.2+ | | |
 | Swift | vapor/mysql | https://github.com/vapor/mysql-kit | 2.0.1+ | | |
-
-## Management Tools
-
-The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MySQL, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 are listed in the following table:
-
-|                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **Create, Update, Read, Write, Delete** | X | X | X |
-| **SSL Connection** | X | X | X |
-| **SQL Query Auto Completion** | X | X |  |
-| **Import and Export Data** | X | X | X |
-| **Export to Multiple Formats** | X | X | X |
-| **Backup and Restore** |  | X |  |
-| **Display Server Parameters** | X | X | X |
-| **Display Client Connections** | X | X | X |
-
