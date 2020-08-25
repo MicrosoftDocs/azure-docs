@@ -27,7 +27,7 @@ Automatic VM guest patching has the following characteristics:
 
 ## How does automatic VM guest patching work?
 
-If automatic VM guest patching has been enabled on a VM, then the available 'Critical' and 'Security' patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released through Windows Update. Patch assessment and installation is automatic, and includes rebooting the VM as required.
+If automatic VM guest patching has been enabled on a VM, then the available 'Critical' and 'Security' patches are downloaded and applied automatically on the VM. This process kicks off automatically every month when new patches are released through Windows Update. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
 If automatic VM guest patching has been enabled on a VM, the VM is assessed periodically to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
@@ -39,7 +39,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 
 **Across regions:**
 - A monthly update is orchestrated across Azure globally in a phased manner to prevent global deployment failures.
-- A phase can constitute 1 or more regions, and an update moves to the next phases only if eligible VMs in a phase are updated successfully.
+- A phase can have one or more regions, and an update moves to the next phases only if eligible VMs in a phase are updated successfully.
 - Geo-paired regions will not be updated concurrently and cannot be in the same regional phase.
 - The success of an update is measured by tracking the VM’s health post update. VM Health is tracked through platform health indicators for the VM.
 
@@ -70,7 +70,7 @@ Windows VMs on Azure now support the following patch orchestration modes:
 **AutomaticByPlatform:**
 - This mode enables automatic VM guest patching for the Windows virtual machine and subsequent patch installation will be orchestrated by Azure as detailed above.
 - Setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
-- This mode is only supported for VM that are created using the supported OS platform images above.
+- This mode is only supported for VMs that are created using the supported OS platform images above.
 - To use this mode, set the property *osProfile.windowsConfiguration.enableAutomaticUpdates=true*, and set the *osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform* in the VM template.
 
 **AutomaticByOS:**
@@ -85,9 +85,9 @@ Windows VMs on Azure now support the following patch orchestration modes:
 
 ## Requirements for enabling automatic VM guest patching
 
-- The virtual machine must have the [Azure VM Agent]((./extensions/agent-windows.md)) installed.
+- The virtual machine must have the [Azure VM Agent](../extensions/agent-windows.md) installed.
 - The Windows Update service must be running on the virtual machine.
-- The virtual machine must be able to access Windows Update endpoints. If your virtual machine is configured to use Windows Server Update Services (WSUS) then the relevant WSUS server endpoints must be accessible.
+- The virtual machine must be able to access Windows Update endpoints. If your virtual machine is configured to use Windows Server Update Services (WSUS), the relevant WSUS server endpoints must be accessible.
 - Use Compute API version 2020-06-01 or higher.
 
 Enabling the preview functionality requires a one-time opt-in for the feature *InGuestAutoPatchVMPreview* per subscription, as detailed below.
