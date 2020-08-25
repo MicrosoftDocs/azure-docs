@@ -20,7 +20,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2020-08-31
 
 ### Azure Machine Learning SDK for Python v1.13.0
-
++ **Preview features**
+  + **azureml-data-outputfiledatasetconfig**
+  
+    With the new output datasets capability, you can write back to cloud storage including Blob, ADLS Gen 1, ADLS Gen 2, and FileShare. You can configure where to output data, how to output data (via mount or upload), whether to register the output data for future reuse and sharing and pass intermediate data between pipeline steps seamlessly. This enables reproducibility, sharing, prevents duplication of data, and results in cost efficiency and productivity gains. [Learn how to use it](https://docs.microsoft.com/azure/machine-learning/how-to-create-your-first-pipeline)
+	
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     + Added validated_{platform}_requirements.txt file for pinning all pip dependencies for AutoML.
