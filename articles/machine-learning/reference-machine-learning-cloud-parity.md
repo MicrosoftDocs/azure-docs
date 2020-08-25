@@ -123,7 +123,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Batch inferencing                                                          | GA                   | YES                | YES         |
 | Data Box Edge with FPGA                                                    | Public Preview       | NO                 | NO          |
 
-| Misc. | Public cloud status  | US-Virginia | US-Arizona| 
+| Other | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Open Datasets                                                              | Public Preview       | YES                | YES         |
 | Custom Cognitive Search                                                    | Public Preview       | YES                | YES         |
@@ -166,11 +166,10 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
     * For both: `graph.windows.net` 
 
 
-<h2>Azure China 21Vianet</h2>	
+## Azure China 21Vianet	
 
-| Features                                                                   | Public cloud Status | China region| |
+| Automated machine learning                                        | Public cloud status | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
-| Automated machine learning                                        |                  | CH-East 2 | CH-North 3 |
 | Create and run experiments in notebooks                                    | GA               | YES       | N/A        |
 | Create and run experiments in studio web experience                        | Public Preview   | YES       | N/A        |
 | Industry-leading forecasting capabilities                                  | GA               | YES       | N/A        |
@@ -178,7 +177,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Large data support (up to 100 GB)                                          | Public Preview   | YES       | N/A        |
 | Azure Databricks Integration                                              | GA               | NO        | N/A        |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA               | YES       | N/A        |
-| Machine Learning pipelines                                        |                  | CH-East 2 | CH-North 3 |
+
+| Machine Learning pipelines | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
@@ -186,18 +187,26 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview   | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | NO        | N/A        |
 | Create pipeline endpoints in Azure ML designer                             | Public Preview   | YES       | N/A        |
-| Integrated notebooks                                              |                  | CH-East 2 | CH-North 3 |
+
+| Integrated notebooks | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
 | Virtual Network support                                                    | Public Preview   | NO        | N/A        |
-| Compute instance                                                  |                  | CH-East 2 | CH-North 3 |
+
+| Compute instance | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Managed compute Instances for integrated Notebooks                         | GA               | NO        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
 | Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
-| SDK support                                                       |                  | CH-East 2 | CH-North 3 |
+
+| SDK support | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | R SDK support                                                              | Public Preview   | YES       | N/A        |
 | Python SDK support                                                         | GA               | YES       | N/A        |
-| Security                                                          |                  | CH-East 2 | CH-North 3 |
+
+| Security | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
 | Virtual Network (VNet) support for inference                               | GA               | YES       | N/A        |
 | Scoring endpoint authentication                                            | Public Preview   | YES       | N/A        |
@@ -205,40 +214,54 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ACI behind Vnet                                                            | Public Preview   | NO        | N/A        |
 | ACR behind Vnet                                                            | Public Preview   | NO        | N/A        |
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
-| Compute                                                           |                  | CH-East 2 | CH-North 3 |
+
+| Compute | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | Data for machine learning                                         |                  | CH-East 2 | CH-North 3 |
 | Create, view, or edit datasets and datastores from the SDK                  | GA               | YES       | N/A        |
 | Create, view, or edit datasets and datastores from the UI                   | GA               | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview   | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview   | YES       | N/A        |
-| Machine learning lifecycle                                                      |                  | CH-East 2 | CH-North 3 |
+
+| Machine learning lifecycle | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Model profiling                                                            | GA               | PARTIAL   | N/A        |
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA               | YES       | N/A        |
 | FPGA-based Hardware Accelerated Models                                     | GA               | NO        | N/A        |
 | Visual Studio Code integration                                             | Public Preview   | NO        | N/A        |
 | Event Grid integration                                                     | Public Preview   | YES       | N/A        |
 | Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview   | NO        | N/A        |
-| Labeling                                                         |                  | CH-East 2 | CH-North 3 |
+
+| Labeling | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Labeling Project Management Portal                                        | GA               | YES       | N/A        |
 | Labeler Portal                                                            | GA               | YES       | N/A        |
 | Labeling using private workforce                                          | GA               | YES       | N/A        |
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
-| Responsible ML                                                    |                  | CH-East 2 | CH-North 3 |
+
+| Responsible ML | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
 | Differential privacy WhiteNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |
 | Fairness AzureML Integration                                               | Public Preview   | NO        | N/A        |
 | Interpretability  SDK                                                      | GA               | YES       | N/A        |
-| Training                                                          |                  | CH-East 2 | CH-North 3 |
+
+| Training | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Experimentation log streaming                                              | GA               | YES       | N/A        |
 | Reinforcement Learning                                                     | Public Preview   | NO        | N/A        |
 | Experimentation UI                                                         | GA               | YES       | N/A        |
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
-| Inference                                                         |                  | CH-East 2 | CH-North 3 |
+
+| Inference | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Batch inferencing                                                          | GA               | YES       | N/A        |
 | Data Box Edge with FPGA                                                    | Public Preview   | NO        | N/A        |
-| Other                                                             |                  | CH-East 2 | CH-North 3 |
+
+| Other | Public cloud status | CH-East-2 | CH-North-3 |
+|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Open Datasets                                                              | Public Preview   | YES       | N/A        |
 | Custom Cognitive Search                                                    | Public Preview   | YES       | N/A        |
 | Many Models                                                                | Public Preview   | NO        | N/A        |
