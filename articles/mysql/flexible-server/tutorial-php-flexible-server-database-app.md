@@ -323,7 +323,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 You’ve created an empty new web app, with git deployment enabled.
 
 > [!NOTE]
->The URL of the Git remote is shown in the deploymentLocalGitUrl property, with the format https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git. Save this URL as you need it later.
+> The URL of the Git remote is shown in the deploymentLocalGitUrl property, with the format https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git. Save this URL as you need it later.
 
 ### Configure database settings
 
@@ -370,11 +370,11 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. However, you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
-For more information, see [Change site root](configure-language-php.md#change-site-root).
+For more information, see [Change site root](../../app-service/configure-language-php?pivots=platform-linux#change-site-root).
 
 ### Push to Azure from Git
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
+[!INCLUDE [app-service-plan-no-h](../../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 <pre>
 Counting objects: 3, done.
