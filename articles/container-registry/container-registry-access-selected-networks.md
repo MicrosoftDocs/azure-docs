@@ -13,6 +13,8 @@ IP network rules are configured on the public registry endpoint. IP network rule
 
 Configuring IP access rules is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
 
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
+
 ## Access from selected public network - CLI
 
 ### Change default network access to registry
