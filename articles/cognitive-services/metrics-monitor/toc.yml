@@ -17,10 +17,12 @@
   items:
   - name: Manage data feeds
     href: how-tos/datafeeds.md
-  - name: Configure anomaly detection
+  - name: Configure metrics and anomaly detection
     href: how-tos/web-portal.md
   - name: Create and send alerts
     href: How-tos/alerts.md
+  - name: Diagnose an incident
+    href: how-tos/diagnose-incident
   - name: Connect different data feed sources
     href: data-feeds-from-different-sources.md
 - name: Reference
