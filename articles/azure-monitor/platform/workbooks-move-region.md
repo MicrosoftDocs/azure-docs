@@ -39,7 +39,7 @@ The simplest way to move an Azure Workbook is to use "Save as" in the Workbooks 
 4. In the Save form, choose a name and the desired region for the workbook. Ensure the other fields for subscription, resource group, and sharing are appropriate.
 
    > [!NOTE]
-   > you may need to use a new name for the workbook to avoid any duplicate names.
+   > You may need to use a new name for the workbook to avoid any duplicate names.
 
 5. Save. 
 
@@ -61,4 +61,3 @@ If you renamed your workbook to import it into a new region, you can rename the 
 Need to move a workbook template instead of a workbook? See how to [move an Azure Workbook Template to another region](./workbook-templates-move-region.md).
 
 See how to [deploy Workbooks and Workbook Templates](./workbooks-automate.md) via ARM Templates.
-

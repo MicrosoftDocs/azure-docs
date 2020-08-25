@@ -46,12 +46,11 @@ Use the Azure Workbooks browse UI to locate the newly deployed workbook template
 Once your workbook template has been created in the new region, delete the original workbook template in the previous region.
 1. Find the workbook template in the Azure Workbooks browse UI.
 2. Select the workbook template to delete.
-3. See the "Delete" command.
+3. Select the "Delete" command.
 
 If you renamed your workbook template to import it into a new region, you can rename the workbook template to the previous name after the original item has been deleted by using the "Rename" command in the Azure Workbook Template resource view.
 
 ## Next Steps
 
 Need to move a workbook instead of a template? See how to [move an Azure Workbook to another region](./workbooks-move-region.md).
-
 
