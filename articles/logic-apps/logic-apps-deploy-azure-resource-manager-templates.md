@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/19/2020 
+ms.date: 08/25/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -121,9 +121,11 @@ After deployment, your logic app works end-to-end with valid parameters. However
   > [!NOTE]
   > If you're considering sharing API connections, make sure that your solution can [handle potential throttling problems](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). Throttling happens at the connection level, so reusing the same connection across multiple logic apps might increase the potential for throttling problems.
 
-* To manually authorize OAuth connections, open your logic app in Logic App Designer, either in the Azure portal or in Visual Studio. In the designer, authorize any required connections.
+* Unless your scenario involves services and systems that require multi-factor authencation, you can use a PowerShell script to provide consent for each OAuth connection by running a continuous integration worker as a normal user account on a virtual machine that has active browser sessions with the authorizations and consent already provided. For example, you can repurpose the sample script provided by the [LogicAppConnectionAuth project in the Logic Apps GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
 
-If you use an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+* Manually authorize OAuth connections by opening your logic app in Logic App Designer, either in the Azure portal or in Visual Studio.
+
+* If you use an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## Next steps
 
