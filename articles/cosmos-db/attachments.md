@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB attachments
+title: Azure Cosmos DB Attachments
 description: This article presents an overview of Azure Cosmos DB Attachments. 
 author: aliuy
 ms.author: andrl
