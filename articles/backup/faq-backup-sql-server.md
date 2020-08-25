@@ -24,7 +24,7 @@ Under some circumstances, the Azure Backup service triggers remedial backups. Au
 - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
 - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
 
-Auto-heal as a capability is enabled for all user by default; However in case you choose to opt-out of it, then perform the below:
+Auto-heal as a capability is enabled for all users by default. However if you choose to opt-out of it, then perform the following steps:
 
 - On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
 - In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
@@ -50,7 +50,7 @@ The default value of DefaultBackupTasksThreshold is **20**.
 
 ## Can I run a full backup from a secondary replica?
 
-According to SQL limitations, you can run Copy Only Full backup on Secondary Replica; however Full backup is not allowed.
+According to SQL limitations, you can run Copy Only Full backup on Secondary Replica. However, Full backup isn't allowed.
 
 ## Can I protect availability groups on-premises?
 
@@ -86,7 +86,7 @@ If you do **stop backup with delete data**, no future backups will take place an
 
 ## If I change the name of the database after it has been protected, what will be the behavior?
 
-A renamed database is treated as a new database. So the service will treat this situation as if the database were not found and with fail the backups.
+A renamed database is treated as a new database. So the service will treat this situation as if the database weren't found and with fail the backups.
 
 You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
