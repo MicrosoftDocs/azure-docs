@@ -447,15 +447,15 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 4. Restart cluster node A by using Azure PowerShell. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.
 
 5. Verification
-- After failover, verify that the the SAP \<SID\> cluster group is running on cluster node B. 
+   - After failover, verify that the the SAP \<SID\> cluster group is running on cluster node B. 
 
-   ![Figure 8: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
+      ![Figure 8: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
-   _: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B_
+      _: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B_
 
-- After failover, verify shared disk is now mounted on cluster node B. 
-- After failover, if using SIOS, verify that SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. 
+   - After failover, verify shared disk is now mounted on cluster node B. 
+   - After failover, if using SIOS, verify that SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. 
 
-   ![Figure 9: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
+      ![Figure 9: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
 
-   _SIOS DataKeeper replicates the local volume from cluster node B to cluster node A_
+      _SIOS DataKeeper replicates the local volume from cluster node B to cluster node A_

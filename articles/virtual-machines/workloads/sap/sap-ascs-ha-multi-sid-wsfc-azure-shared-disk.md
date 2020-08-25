@@ -1,5 +1,5 @@
 ---
-title: SAP ASCS/SCS multi-SID HA with WSFC&Azure shared disk | Microsoft Docs
+title: SAP ASCS/SCS multi-SID HA with WSFC and Azure shared disk | Microsoft Docs
 description:  Multi-SID high availability for an SAP ASCS/SCS instance with WSFC and Azure shared disk
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -66,29 +66,29 @@ Both Enqueue replication server 1 (ERS1) and Enqueue replication server 2 (ERS2)
 
 1. The first example shows two SAP SIDs, both with ERS1 architecture where:
 
-- SAP SID1 is deployed on shared disk, with ERS1. The ERS instance is installed on local host and on local drive.
-  SAP SID1 has its own (virtual) IP address (SID1 (A)SCS IP1), which is configured on the Azure Internal Load balancer.
+   - SAP SID1 is deployed on shared disk, with ERS1. The ERS instance is installed on local host and on local drive.
+     SAP SID1 has its own (virtual) IP address (SID1 (A)SCS IP1), which is configured on the Azure Internal Load balancer.
 
-- SAP SID2 is deployed on shared disk, with ERS1. The ERS instance is installed on local host and on local drive.
-  SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP2), which is configured also on the Azure Internal Load balancer.
+   - SAP SID2 is deployed on shared disk, with ERS1. The ERS instance is installed on local host and on local drive.
+     SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP2), which is configured also on the Azure Internal Load balancer.
 
 ![High-availability SAP ASCS/SCS instance - two instances with ERS1 configuration][sap-ha-guide-figure-6007]
 
 2. The second example shows two SAP SIDs, both with ERS2 architecture where: 
 
-- SAP SID1 with ERS2, is which also clustered and is deployed on local drive.
-  SAP SID1 has own (virtual) IP address (SID1 (A)SCS IP1), which is configured on the Azure Internal Load balancer.
-  SAP ERS2, used by SAP SID1 system has its own (virtual) IP address (SID1 ERS2 IP2), which is configured on the Azure Internal Load balancer.
+   - SAP SID1 with ERS2, is which also clustered and is deployed on local drive.  
+     SAP SID1 has own (virtual) IP address (SID1 (A)SCS IP1), which is configured on the Azure Internal Load balancer.
+     SAP ERS2, used by SAP SID1 system has its own (virtual) IP address (SID1 ERS2 IP2), which is configured on the Azure Internal Load balancer.
 
-- SAP SID2 with ERS2, is which also clustered and is deployed on local drive.
-  SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP3), which is configured on the Azure Internal Load balancer.
-  SAP ERS2, used by SAP SID2 system has its own (virtual) IP address (SID2 ERS2 IP4), which is configured on the Azure Internal Load balancer.
+   - SAP SID2 with ERS2, is which also clustered and is deployed on local drive.  
+     SAP SID2 has own (virtual) IP address (SID2 (A)SCS IP3), which is configured on the Azure Internal Load balancer.
+     SAP ERS2, used by SAP SID2 system has its own (virtual) IP address (SID2 ERS2 IP4), which is configured on the Azure Internal Load balancer.
 
-Here we have a total of four virtual IP addresses:
-- SID1 (A)SCS IP1
-- SID2 ERS2   IP2
-- SID2 (A)SCS IP3
-- SID2 ERS2   IP4
+   Here we have a total of four virtual IP addresses:  
+   - SID1 (A)SCS IP1
+   - SID2 ERS2   IP2
+   - SID2 (A)SCS IP3
+   - SID2 ERS2   IP4
 
 ![High-availability SAP ASCS/SCS instance - two instances with ERS1 and ERS2 configuration][sap-ha-guide-figure-6008]
 
@@ -236,13 +236,13 @@ Run this command on one of the cluster nodes. You will need to adjust the values
    ```
 
 4. Register the disk in the cluster.  
-  ```powershell
-	# Add the disk to cluster 
+   ```powershell
+ 	# Add the disk to cluster 
 	Get-ClusterAvailableDisk -All | Add-ClusterDisk
 	# Example output	 
 	# Name           State  OwnerGroup        ResourceType 
 	# ----           -----  ----------        ------------ 
-	# Cluster Disk 2 Online Available Storage Physical Disk
+    # Cluster Disk 2 Online Available Storage Physical Disk
    ```
 
 ## Create a virtual host name for the clustered SAP ASCS/SCS instance

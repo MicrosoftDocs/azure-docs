@@ -251,7 +251,7 @@ As Enqueue Replication Server 2 (ERS2) is also clustered, ERS2 virtual IP addres
 
 
 > [!TIP]
-> With the [Azure ARM Template for WSFC for SAP ASCS/SCS instance with Azure Shared Disk](https://github.com/robotechredmond/301-shared-disk-sap), you can automate the infrastructure preparation, using Azure Shared Disk for one SAP SID with ERS1.  
+> With the [Azure Resource Manager Template for WSFC for SAP ASCS/SCS instance with Azure Shared Disk](https://github.com/robotechredmond/301-shared-disk-sap), you can automate the infrastructure preparation, using Azure Shared Disk for one SAP SID with ERS1.  
 > The Azure ARM template will create two Windows 2019 or 2016 VMs,  create Azure shared disk and attach to the VMs. Azure Internal Load Balancer will be created and configured as well. 
 > For details - see the ARM template. 
 
@@ -430,7 +430,7 @@ Run this command on one of the cluster nodes. You will need to adjust the values
 	# Partitions : {\\?\GLOBALROOT\Device\Harddisk2\Partition2\}
    ```
 4. Register the disk in the cluster.  
-  ```powershell
+   ```powershell
 	# Add the disk to cluster 
 	Get-ClusterAvailableDisk -All | Add-ClusterDisk
 	# Example output	 
