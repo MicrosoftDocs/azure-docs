@@ -1,5 +1,5 @@
 ---
-title: Virtual Machine and Disks Performance
+title: Virtual machine and disk performance
 description: Learn more about how VMs and their attached disks work in combination for performance 
 author: albecker1
 ms.author: albecker

@@ -25,6 +25,7 @@ Set up:
     - IOPS: 500
 
 ![Disk level throttling](media/vm-disk-performance/disk-level-throttling.jpg)
+
 The application running on the virtual machine makes a request that requires 10,000 IOPs to the virtual machine. All of which are allowed by the VM because the Standard_D8s_v3 virtual machine can execute up to 12,800 IOPs. Those 10,000 IOPs requests are then broken down into three different requests to the different disks. 1,000 IOPs are requested to the operating system disk and 4,500 IOPs are requested to each data disk. Since all disks attached are E30 disks and can only handle 500 IOPs, they respond back with 500 IOPs each. The application is then throttled by the attached disks and can only process 1,500 IOPs. It could be working at peak performance at 10,000 IOPS if better performing disks were used, like Premium SSD P30 disks.
 
 ## Virtual machine level throttling

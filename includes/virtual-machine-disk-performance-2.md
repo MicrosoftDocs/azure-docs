@@ -11,25 +11,50 @@
 ---
 ![Dsv3 Documentation](media/vm-disk-performance/dsv3-documentation.jpg)
 
-The max **uncached** disk throughput is the default storage maximum limit that the virtual machine can handle. The max **cached** storage throughput limit is the new limit when you enable host caching. Enabling host caching can be done when creating your virtual machine and attaching disks. You can also adjust to turn on and off host caching your disks on an existing VM:
+The max **uncached** disk throughput is the default storage maximum limit that the virtual machine is able to handle. The max **cached** storage throughput limit is a separate limit when you enable host caching. Enabling host caching can be done when creating your virtual machine and attaching disks. You can also adjust to turn on and off host caching your disks on an existing VM:
 
 ![Host Caching](media/vm-disk-performance/host-caching.jpg)
 
 The host caching can be adjusted to match your workload requirements for each disk. You can set your host caching to be Read-Only for workloads that only do reading operations and Read/Write for workloads that do a balance of read and write operations. If your workload doesn't follow either of those patterns, you unfortunately won't be able to use host caching. 
 
-Let’s continue with an example with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching and its new IOPS limit is 16,000 IOPS. Attached to the VM are three underlying P30 disks that can handle 5,000 IOPS.
+Let’s continue with an example with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching on the disks and now the VM's IOPS limit is 16,000 IOPS. Attached to the VM are three underlying P30 disks that can handle 5,000 IOPS.
 
 Set up:
 - Standard_D8s_v3 
-    - Uncached IOPS: 16,000
-- P30 OS Disk
-    - IOPS: 5,000 
-- P30 Data Disks 
+    - Cached IOPS: 16,000
+    - Uncached IOPS: 12,800
+- P30 OS Disk 
     - IOPS: 5,000
+    - Host caching enabled 
+- 2 P30 Data Disks
+    - IOPS: 5,000
+    - Host caching enabled
 
-![Virtual machine level throttling](media/vm-disk-performance/vm-level-throttling.jpg)
+![Host Caching Example](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
 Now, The application using this Standard_D8s_v3 virtual machine with caching enabled makes a request for 15,000 IOPS. Those requests are broken down as 5,000 IOPS to each underlying disk attached and no throttling occurs.
+
+## Combined uncached and cached limits
+
+A virtual machine's caching limits are separate from their uncached limits. This means you can enable host caching on disks attached to a vm while also not enabling host caching on other disks to allow your virtual machines to do get a total storage IO of the cached limit plus the uncached limit. Let's run through an example of this to help solidify how these limits work together and we'll continue with the Standard_D8s_v3 virtual machine and premium disks attached configuration.
+
+Set up:
+- Standard_D8s_v3 
+    - Cached IOPS: 16,000
+    - Uncached IOPS: 12,800
+- P30 OS Disk 
+    - IOPS: 5,000
+    - Host caching enabled 
+- 2 P30 Data Disks X 2
+    - IOPS: 5,000
+    - Host caching enabled
+- 2 P30 Data Disks X 2
+    - IOPS: 5,000
+    - Host caching disabled
+
+![Host Caching Example With Remote Storage](media/vm-disk-performance/host-caching-example-with-remote.jpg)
+
+Now, The application running on Standard_D8s_v3 virtual machine with makes a request for 25,000 IOPS. This request is broken down as 5,000 IOPS to each underlying disk attached where 3 of those disks are using host caching and 2 of the disks are not. Since the 3 using host caching are within the cached limits of 16,000, those requests are successfully completed and no throttling occurs. Also since the 2 disks not using host caching are within the uncached limits of 12,800, those requests are also successfully completed and no throttling occurs.
 
 ## Metrics for disk performance
 We have metrics on Azure that provides insight on how your virtual machines and disks are performing. These metrics can be viewed visually through the Azure portal or they can be retrieved through an API call. Metrics are calculated over one-minute intervals. The following Metrics are available to get insight on VM and Disk IO and throughput performance:
