@@ -5,9 +5,9 @@ description: Debug your Azure Machine Learning pipelines in Python. Learn common
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: likebupt
-ms.author: keli19
-ms.date: 03/18/2020
+author: lobrien
+ms.author: laobri
+ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
 ---
@@ -17,6 +17,7 @@ ms.custom: troubleshooting, devx-track-python
 
 In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information is provided on how to:
 
+* Configure, write to, and review pipeline logs
 * Debug using the Azure Machine Learning SDK
 * Debug using the Azure Machine Learning designer
 * Debug using Application Insights
