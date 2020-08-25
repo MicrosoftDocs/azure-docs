@@ -40,7 +40,6 @@ This tutorial shows you how to convert your application image to a confidential 
 1. Sign in to [Fortanix EM](https://fortanix.com)
 1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account. 
     
-[!div class="mx-imgBorder"]
 ![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications. 
