@@ -59,7 +59,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
     - **Create new**: Use this option if you want to create a new VM. You can create a VM with simple settings, or restore a disk and create a customized VM.
     - **Replace existing**: Use this option if you want to replace disks on an existing VM.
 
-        ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Restore Virtual machine configuration wizard](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Specify settings for your selected restore option.
 
@@ -73,7 +73,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 1. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription are displayed. Select the subnet. The first subnet is selected by default.
 1. In **Staging Location**, specify the storage account for the VM. [Learn more](#storage-accounts).
 
-    ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Restore configuration wizard - choose restore options](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. Select **Restore** to trigger the restore operation.
 
@@ -156,7 +156,7 @@ The secondary region restore user experience will be similar to the primary regi
 ![Restore configuration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
 >[!NOTE]
->The virtual network in the secondary region needs to be assigned uniquely, and cannot be used for any other VMs in that resource group.
+>The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
 
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
@@ -165,8 +165,8 @@ The secondary region restore user experience will be similar to the primary regi
 
 >[!NOTE]
 >
->- After the restore is triggered and in the data transfer phase, the restore job cannot be cancelled.
->- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which are not backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
+>- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
+>- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 
 ### Monitoring secondary region restore jobs

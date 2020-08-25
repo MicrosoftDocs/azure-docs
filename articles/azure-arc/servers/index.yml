@@ -1,0 +1,28 @@
+### YamlMime:Landing
+title: Azure Arc Servers (preview)
+summary: Azure Arc Servers
+
+metadata:
+  title: Azure Arc Servers
+  description: Learn about how to manage on-premises machines in Azure
+  author: mgoedtel
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 06/26/2020
+  ms.author: magoedte
+
+landingContent:
+  - title: Connect machines to Azure using Azure Arc enabled servers
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc enabled servers?
+            url: overview.md 
+      - linkListType: quickstart
+        links:
+          - text: Connect machines to Azure Arc from the Azure portal
+            url: onboard-portal.md
+          - text: Connect machines at scale using a service principal
+            url: onboard-service-principal.md
+          - text: Connect machines to Azure with PowerShell DSC
+            url: onboard-dsc.md
