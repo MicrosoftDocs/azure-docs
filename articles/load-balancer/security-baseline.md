@@ -4,7 +4,7 @@ description: The Azure Load Balancer security baseline provides procedural guida
 author: msmbaldwin
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,11 +28,11 @@ The Azure Security Baseline for Azure Load Balancer contains recommendations tha
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32349.).
 
-**Guidance**: An Microsoft Azure Load Balancer operates
+**Guidance**: Microsoft Azure Load Balancer operates
 at layer four of the Open Systems Interconnection (OSI) model, evenly distributing
 load (incoming network traffic) across a group of backend pool instances such
 as Azure Virtual Machines or instances in a virtual machine scale set.
-Based on how an Load Balancer is deployed, it can be external or internal . An Internal load balancer balances traffic within a VNET, whereas an external load balancers balances traffic to and from an internet connected
+Based on how a Load Balancer is deployed, it can be external or internal. An Internal load balancer balances traffic within a VNET, whereas an external load balancers balances traffic to and from an internet connected
 endpoint.Internal LBs are secure not
 exposed to the internet and will only allow traffic from within the VNET or peered
 VNETs of the backend resources. Public load balancers utilize Source Network
@@ -68,15 +68,14 @@ A Basic Load Balancer is open to open connections to the internet by default, wi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32350.).
 
-**Guidance**: The Azure Load Balancer is
-a pass-through service and relies on the NSG rules you apply to your backend
+**Guidance**: The Load Balancer is
+a pass-through service and relies on the network security groups (NSG) rules you apply to your backend
 resources and the outbound rules configured in your Load Balancer to control internet
 access.
-Review the outbound rules configured for your Standard LB through the Outbound Rules sub-blade of your LB and the Load Balancing Rules sub-blade where you may have Implicit outbound rules enabled.
+Review the outbound rules configured for your Standard Load Balancer through the Outbound Rules sub-blade of your Load Balancer and the Load Balancing Rules sub-blade where you may have Implicit outbound rules enabled.
 You can monitor the count of your outbound connections to track how often your resources are reaching out to the internet. 
 
-In addition use Azure
-Security Center and follow the network protection recommendations to help
+In addition use Security Center and follow the network protection recommendations to help
 secure your Azure network resources.
 
 Follow security recommendations for your backend
@@ -84,8 +83,7 @@ resources and enable network security group flow logs and send the logs to an
 Azure Storage account for auditing.
 
 You can also send the flow logs to a Log
-Analytics workspace and then
-use Traffic Analytics to provide insights into
+Analytics workspace and then use Traffic Analytics to provide insights into
 traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are
 the ability to visualize network activity, identify hot spots and security
 threats, understand traffic flow patterns, and pinpoint network
@@ -107,7 +105,7 @@ Understand network security provided by Azure
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32351.).
 
-**Guidance**: Explicitly define internet connectivity and valid source IPs through outbound rules and Network Security Groups (NSG)s with your Load Balancer to leverage Microsoft's thread intelligence to protect your web applications.
+**Guidance**: Explicitly define internet connectivity and valid source IPs through outbound rules and network security groups (NSG)s with your Load Balancer to leverage Microsoft's threat intelligence to protect your web applications.
 
 - [Integrate the Azure Firewall](../firewall/integrate-lb.md)
 
@@ -120,30 +118,28 @@ Understand network security provided by Azure
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32352.).
 
-**Guidance**: Enable distributed denial of service (DDoS) Standard protection on your Azure Virtual Network to guard against DDoS attacks. 
+**Guidance**: Enable Azure Distributed Denial of Service (DDoS) Standard protection on your Azure Virtual Network to guard against DDoS attacks. 
 
 Deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.
 
  
 
-Use Azure Security Center  threat protection to detect  communications with known malicious IP addresses. 
+Use Security Center threat protection to detect  communications with known malicious IP addresses. 
 
-The Standard Load Balancer is secure by default and part of a virtual network which is a private and isolated network. This means the Standard Load Balancer is closed to inbound flows unless opened by Network Security Groups (NSG) to explicitly permit allowed traffic, and disallow known malicious IP addresses. If there is not an NSG on a subnet or NIC of your virtual machine resource behind the Load Balancer, traffic is not allowed to reach this resource. 
+The Standard Load Balancer is secure by default and part of a virtual network which is a private and isolated network. This means the Standard Load Balancer is closed to inbound flows unless opened by network security groups (NSG) to explicitly permit allowed traffic, and disallow known malicious IP addresses. If there is not an NSG on a subnet or NIC of your virtual machine resource behind the Load Balancer, traffic is not allowed to reach this resource. 
 
-To prevent attacks from malicious IP addresses:
-
-Deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.
+To prevent attacks from malicious IP addresses, deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.
 
  
 
-Follow guidance to integrate Azure Firewall with your Azure Load Balancer.
+Follow guidance to integrate Azure Firewall with your Load Balancer.
 
-Use Azure Security Center threat protection to detect communications with known malicious IP addresses. 
+Use Security Center threat protection to detect communications with known malicious IP addresses. 
 
-Use Azure Security Center (Standard Tier) just-in-time virtual machine access, and configure allowed source IP addresses to allow access only from approved IP addresses/ranges.
+Security Center (Standard Tier) provides just-in-time virtual machine access, and configures allowed source IP addresses to allow access only from approved IP addresses/ranges.
  
 
-Use Azure Security Center Adaptive Network Hardening to recommend network security group configurations that limit ports and source IPs based on actual traffic and threat intelligence.
+Use Security Center Adaptive Network Hardening to recommend network security group configurations that limit ports and source IPs based on actual traffic and threat intelligence.
  
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos`protection)
@@ -203,7 +199,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32355.).
 
-**Guidance**: Explicitly define internet connectivity and valid source IPs through outbound rules and Network Security Groups (NSG)s with your Load Balancer to leverage Microsoft's thread intelligence to protect your web applications.
+**Guidance**: Explicitly define internet connectivity and valid source IPs through outbound rules and network security groups (NSG)s with your Load Balancer to leverage Microsoft's Threat Intelligence to protect your web applications.
 
 - [Integrate the Azure Firewall](../firewall/integrate-lb.md)
 
@@ -220,7 +216,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 By default, every network security group (NSG) includes the service tag AzureLoadBalancer to permit health probe traffic. 
 
-Refer to Azure documentation for all the service tags available for use in network security group rules: 
+Refer to Azure documentation for all the service tags available for use in network security group rules.
 
 - [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags)
 
@@ -235,7 +231,7 @@ Refer to Azure documentation for all the service tags available for use in netwo
 
 **Guidance**: Define and implement standard security configurations for network resources with Azure Policy.
 
-You can also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
+You can also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -256,7 +252,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
 
-Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" that ensure that all resources are created with tags and to notify you of existing untagged resources.
 
 You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
@@ -296,11 +292,11 @@ Create alerts in Azure Monitor to notify you when critical resources are changed
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32361.).
 
-**Guidance**: You can review changes to your outbound rules and NSGs relevant to your Load Balancers by viewing the Activity Log for your subscription and the resource types to Load Balancer and Network Security Group. View the internal host logs to ensure your backend resources are secure.
+**Guidance**: You can review changes to your outbound rules and NSGs relevant to your Load Balancers by viewing the Activity Log for your subscription and the resource types to Load Balancer and network security group. View the internal host logs to ensure your backend resources are secure.
 
 You can view and export these logs to Log Analytics or another storage platform. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
-Alternatively, you can enable and on-board this data to Azure Sentinel or a third-party SIEM.
+Also, you can enable and on-board this data to Azure Sentinel or a third-party SIEM.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -321,16 +317,15 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32362.).
 
-**Guidance**: For the Basic Azure Load Balancer, the Control and Management Plane logging and audit information can be captured with Activity logs, which are enabled by default.
+**Guidance**: For the Basic Load Balancer, the Control and Management Plane logging and audit information can be captured with Activity logs, which are enabled by default.
 
 You can use Activity logs to monitor actions on resources to view all activity and their status. Through activity logs, you can determine:
 what operations were taken on the resources in your subscriptionwho started the operationwhen the operation occurredthe status of the operationthe values of other properties that might help you research the operation
-
-You can  retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
+You can retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
 
 - [It is recommended to read through this article with step-by-step instructions for each method detailed in the Audit operations with Resource Manager article](../azure-resource-manager/management/view-activity-logs.md)
 
-With Power BI, you can use the Azure Audit Logs content pack for Power BI and analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
+With Microsoft Power BI, you can use the Azure Audit Logs content pack for Power BI and analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
 
 The Standard Load Balancer provides multi-dimensional diagnostic capabilities through Azure Monitor for standard load balancer configurations. Available metrics for security include information on Source Network Address Translation (SNAT) connections, ports. Additionally metrics on SYN (synchronize) packets and packet counters are also available. You can also retrieve multi-dimensional metrics programmatically via APIs and they can be written to a storage account via the 'All Metrics' option.
 
@@ -353,7 +348,7 @@ These logs can be streamed to an event hub or a Log Analytics workspace. They ca
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32364.).
 
-**Guidance**: The Activity log is enabled by default and is preserved for 90 days in Azure's Event Logs store. Within Azure Monitor, you set your Log Analytics workspace retention period according to your organization's compliance regulations. It is recommended to use Azure Storage accounts for long-term and archival storage.
+**Guidance**: The Activity log is enabled by default and is preserved for 90 days in Azure's Event Logs store. Within Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. It is recommended to use Azure Storage accounts for long-term and archival storage.
 
 - [View activity logs to monitor actions on resources article](/azure/azure-resource-manager/resource-group-audit)
 
@@ -370,7 +365,7 @@ These logs can be streamed to an event hub or a Log Analytics workspace. They ca
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32365.).
 
-**Guidance**: Both Standard Azure Load Balancer  public and internal, expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor.  You can monitor, manage, and troubleshoot your standard load balancer resources. The Load Balancer page in the Azure portal and the Resource Health page under  Azure Monitor expose the Resource Health section for Standard Load Balancer
+**Guidance**: Both Standard Load Balancer  public and internal, expose per endpoint and backend endpoint, health probe status as multi-dimensional metrics through Azure Monitor.  You can monitor, manage, and troubleshoot your standard load balancer resources. The Load Balancer page in the Azure portal and the Resource Health page under  Azure Monitor expose the Resource Health section for Standard Load Balancer
 
 Basic Public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs which can be used to check on the public load balancer probe health status and probe count. Azure Monitor logs are not available for internal Basic Load Balancers. 
 
@@ -382,7 +377,7 @@ You can use this log to view alerts raised by the load balancer. The status for 
 
 You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
 
-With Power BI, you can use the Azure Audit Logs content pack for Power BI and analyze your data with pre-configured dashboards, or you can customize views to suit your requirements. Logging can be used with Azure Operational Insights to provide statistics about load balancer health status. 
+With Microsoft Power BI, you can use the Azure Audit Logs content pack for Power BI and analyze your data with pre-configured dashboards, or you can customize views to suit your requirements. Logging can be used with Azure Operational Insights to provide statistics about load balancer health status. 
 
 The Standard Load Balancer provides multi-dimensional diagnostic capabilities through Azure Monitor for standard load balancer configurations. Available metrics for security include information on Source Network Address Translation (SNAT) connections, ports. Additionally metrics on SYN (synchronize) packets and packet counters are also available. You can also retrieve multi-dimensional metrics programmatically via APIs and they can be written to a storage account via the 'All Metrics' option.
 
@@ -390,7 +385,7 @@ These logs can be streamed to an event hub or a Log Analytics workspace. They ca
 
 - [Load Balancer health probes](load-balancer-custom-probe-overview.md)
 
-- [Azure Monitor REST API](/rest/api/monitor/)
+- [Azure Monitor REST API](/rest/api/monitor)
 
 - [How to retrieve metrics via REST API](/rest/api/monitor/metrics/list)
 
@@ -409,9 +404,9 @@ These logs can be streamed to an event hub or a Log Analytics workspace. They ca
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32366.).
 
-**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity related to Azure Load Balancer as found in security logs and events.
+**Guidance**: Use Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity related to Load Balancer as found in security logs and events.
 
-Alternatively, you can enable and on-board data to Azure Sentinel.
+You can also enable and on-board data to Azure Sentinel.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -428,7 +423,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32367.).
 
-**Guidance**: Not applicable to Azure Load Balancer as this recommendation applies to IaaS compute resources.
+**Guidance**: Not applicable to Azure Load Balancer as this recommendation applies to compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -451,7 +446,7 @@ Not applicable as Azure Load Balancer is a core networking service that does not
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32369.).
 
-**Guidance**: Not applicable to Azure Load Balancer as this recommendation applies to IaaS compute resources.
+**Guidance**: Not applicable to Azure Load Balancer as this recommendation applies to compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -466,11 +461,11 @@ Not applicable as Azure Load Balancer is a core networking service that does not
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32370.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources such as your Azure Load Balancer through role assignments.
+**Guidance**: Azure role-based access control (Azure RBAC) allows you to manage access to Azure resources such as your Azure Load Balancer through role assignments.
 
 You can assign these roles to users, groups service principals and managed identities. 
 
-There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
+Pre-defined built-in roles exist for certain resources and can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -599,7 +594,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
-Use Azure Resource Graph to query for and discover resources within their subscriptions.  Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query for and discover resources within their subscriptions. Ensure that all Azure resources present in the environment are approved.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -650,7 +645,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
 
-You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
+You can also use the recommendations from Security Center as a secure configuration baseline for your Azure resources.
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -669,9 +664,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32412.).
 
-**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. As the LB is secure by default this requires you to explicitly define outbound rules and NSG rules to enable internet connectivity.
-
-In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  Also, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
 - [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
 
@@ -724,9 +717,9 @@ Additionally, you can use Azure Automation to deploy configuration changes.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32418.).
 
-**Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources.  
+**Guidance**: Use Security Center to perform baseline scans for your Azure Resources.  
 
-Additionally, use Azure Policy to alert and audit Azure resource configurations.
+Also, use Azure Policy to alert and audit Azure resource configurations.
 
 - [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
