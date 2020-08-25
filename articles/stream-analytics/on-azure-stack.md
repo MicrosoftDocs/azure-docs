@@ -107,16 +107,16 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
 
    ![Event Hub Input](media/on-azure-stack/event-hub-input.png)
 
-IoT Hub:
+   #### IoT Hub
 
-| Field | Value |
-| --- | --- |
-| Input alias | A friendly name that you use in the job's query to reference this input. |
-| IoT Hub | The name of the IoT Hub to use as input. (Example:*<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*) |
-| Shared access policy name | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
-| Shared access policy key | The shared access key used to authorize access to the IoT Hub. This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
-| Consumer group (optional) | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise. |
-| Partition count | Partition count is the number of partitions in an Event Hub. |
+   | Field | Value |
+   | --- | --- |
+   | Input alias | A friendly name that you use in the job's query to reference this input. |
+   | IoT Hub | The name of the IoT Hub to use as input. (Example:*<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*) |
+   | Shared access policy name | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
+   | Shared access policy key | The shared access key used to authorize access to the IoT Hub. This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
+   | Consumer group (optional) | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise. |
+   | Partition count | Partition count is the number of partitions in an Event Hub. |
 
    ![IoT Hub Input](media/on-azure-stack/iot-hub-input.png)
 
