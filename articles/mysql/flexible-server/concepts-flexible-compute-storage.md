@@ -15,11 +15,11 @@ You can create an Azure Database for MySQL server in one of three different pric
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
-| Memory per vCore | Variable | 4 GB | 8 GB [1] |
-| Storage size | 5 GB to 16 TB | 5 GB to 16 TB | 5 GB to 16 TB |
+| Memory per vCore | Variable | 4 GiB | 8 GiB * |
+| Storage size | 5 GiB to 16 TiB | 5 GiB to 16 TiB | 5 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |
 
-_[1] Please note that the Memory Optimized 64 vCore server has a lower memory ratio (7.88 GB per vCore)_
+\* Memory Optimized 64 vCore server has a lower memory ratio (7.88 GiB per vCore)
 
 To choose a pricing tier, use the following table as a starting point.
 
@@ -64,11 +64,11 @@ The detailed specifications of the available server types are as follows:
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-| Storage attribute      | Burstable                     | General Purpose                               | Memory Optimized                               |
-|:-----------------------|:------------------------------|:----------------------------------------------|:-----------------------------------------------|
-| Storage size           | 5 GiB to 16 TiB               | 5 GiB to 16 TiB                               | 5 GiB to 16 TiB                                |
-| Storage increment size | 1 GB                          | 1 GB                                          | 1 GB                                           |
-| IOPS                   | 3 IOPS/GB<br/>Max 20,000 IOPS |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+| Storage attribute      | Burstable              | General Purpose         | Memory Optimized         |
+|:-----------------------|:-----------------------|:------------------------|:-------------------------|
+| Storage size           | 5 GiB to 16 TiB        | 5 GiB to 16 TiB         | 5 GiB to 16 TiB          |
+| Storage increment size | 1 GiB                  | 1 GiB                   | 1 GiB                    |
+| IOPS                   | 3 IOPS/GiB<br/>Max 20,000 IOPS |3 IOPS/GiB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GiB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 You can add additional storage capacity during and after the creation of the server.
 
@@ -81,11 +81,9 @@ You can monitor your I/O consumption in the Azure portal<!-- or by using Azure C
 
 ### Reaching the storage limit
 
-<!-- FIXME: Verify the exact mechanics here -->
+Servers with less than equal to 100 GiB provisioned storage are marked read-only if the free storage is less than 5% of the provisioned storage size. Servers with more than 100 GiB provisioned storage are marked read only when the free storage is less than 5 GiB.
 
-Servers with less than equal to 100 GB provisioned storage are marked read-only if the free storage is less than 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
-
-For example, if you have provisioned 110 GB of storage, and the actual utilization goes over 105 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 256 MB.
+For example, if you have provisioned 110 GiB of storage, and the actual utilization goes over 105 GiB, the server is marked read-only. Alternatively, if you have provisioned 5 GiB of storage, the server is marked read-only when the free storage reaches less than 256 MB.
 
 While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted. After you increase the provisioned storage, the server will be ready to accept write transactions again.
 
