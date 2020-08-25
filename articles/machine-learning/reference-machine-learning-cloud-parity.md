@@ -29,8 +29,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 
 ## Azure Government	
 
-| Automated machine learning | Public cloud status  | US-Virginia | US-Arizona| 
+| Feature | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Automated machine learning** | | | |
 | Create and run experiments in notebooks                                    | GA                   | YES                | YES         |
 | Create and run experiments in studio web experience                        | Public Preview       | YES                | YES         |
 | Industry-leading forecasting capabilities                                  | GA                   | YES                | YES         |
@@ -38,9 +39,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Large data support (up to 100 GB)                                          | Public Preview       | YES                | YES         |
 | Azure Databricks integration                                              | GA                   | NO                 | NO          |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA                   | YES                | YES         |
-
-| Machine Learning pipelines | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Machine Learning pipelines** |   |  | | 
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
@@ -48,26 +47,18 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview       | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
 | Create pipeline endpoints in Azure ML designer                             | Public Preview       | YES                | YES         |
-
-| Integrated notebooks | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Integrated notebooks** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
 | Virtual Network support                                                    | Public Preview       | NO                 | NO          |
-
-| Compute instance | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Compute instance** |   |  | | 
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
-
-| SDK support | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **SDK support** |  |  | | 
 | R SDK support                                                              | Public Preview       | YES                | YES         |
 | Python SDK support                                                         | GA                   | YES                | YES         |
-
-| Security | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Security** |   | | | 
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
@@ -75,56 +66,40 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ACI behind Vnet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind Vnet                                                            | Public Preview       | NO                 | NO          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
-
-| Compute | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Compute** |   | | |
 | quota management across workspaces                                         | GA                   | YES                | YES         |
-
-| Data for machine learning | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Data for machine learning** |   | | |
 | Create, view, or edit datasets and datastores from the SDK                  | GA                   | YES                | YES         |
 | Create, view, or edit datasets and datastores from the UI                   | GA                   | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview       | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
-
-| Machine learning lifecycle | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Machine learning lifecycle** |   | | |
 | Model profiling                                                            | GA                   | YES                | PARTIAL     |
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA                   | YES                | YES         |
 | FPGA-based Hardware Accelerated Models                                     | GA                   | NO                 | NO          |
 | Visual Studio Code integration                                             | Public Preview       | NO                 | NO          |
 | Event Grid integration                                                     | Public Preview       | NO                 | NO          |
 | Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview       | NO                 | NO          |
-
-| Labeling | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Labeling** |   | | |
 | Labeling Project Management Portal                                        | GA                   | YES                | YES         |
 | Labeler Portal                                                            | GA                   | YES                | YES         |
 | Labeling using private workforce                                          | GA                   | YES                | YES         |
 | ML assisted labeling (Image classification and object detection)           | Public Preview       | YES                | YES         |
-
-| Responsible ML | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Responsible ML** |   | | |
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
 | Differential privacy WhiteNoise toolkit                                    | OSS                  | NO                 | NO          |
 | custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
 | Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
-
-| Training | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Training** |   | | |
 | Experimentation log streaming                                              | GA                   | YES                | YES         |
 | Reinforcement Learning                                                     | Public Preview       | NO                 | NO          |
 | Experimentation UI                                                         | GA                   | YES                | YES         |
 | .NET integration ML.NET 1.0                                                | GA                   | YES                | YES         |
-
-| Inference | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Inference** |   | | |
 | Batch inferencing                                                          | GA                   | YES                | YES         |
 | Data Box Edge with FPGA                                                    | Public Preview       | NO                 | NO          |
-
-| Other | Public cloud status  | US-Virginia | US-Arizona| 
-|----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
+| **Other** |   | | |
 | Open Datasets                                                              | Public Preview       | YES                | YES         |
 | Custom Cognitive Search                                                    | Public Preview       | YES                | YES         |
 | Many Models                                                                | Public Preview       | NO                 | NO          |
@@ -132,8 +107,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 
 ### Azure Government scenarios
 
-|General security setup                                                     | US-Virginia | US-Arizona| Limitations  |
+| Scenario                                                    | US-Virginia | US-Arizona| Limitations  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
+| **General security setup** |   | | |
 | Private network communication between services                                     | NO | NO | No Private Link currently | 
 | Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	| ACR behind VNet is not available in Azure Government - double checking on ACI | 
 | Placement for all associated resources/services  | YES | YES |  |
@@ -143,9 +119,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Control (disable/limit/restrict) the use of ACI/AKS integration                    | PARTIAL|	PARTIAL	|ACI behind VNet and private endpoint currently not available|
 | Role-Based Access Control (RBAC) - Custom Role Creations                           | YES | YES |  |
 | Control access to ACR images used by ML Service (Azure provided/maintained versus custom)  |PARTIAL|	PARTIAL	| ACR behind private endpoint and VNet not supported in Azure Government |
-
-| General Machine Learning Service Usage                                    | US-Virginia | US-Arizona | Limitations  |
-| ----- |:-----:|:-----:| ------ |
+| **General Machine Learning Service Usage** |  | | |
 | Ability to have a development environment to build a model, train that model, host it as an endpoint, and consume it via a webapp     | YES | YES |  |
 | Ability to pull data from ADLS (Data Lake Storage)                                 |YES | YES |  |
 | Ability to pull data from Azure Blob Storage                                       |YES | YES |  |
@@ -168,8 +142,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 
 ## Azure China 21Vianet	
 
-| Automated machine learning                                        | Public cloud status | CH-East-2 | CH-North-3 |
+| Feature                                       | Public cloud status | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Automated machine learning** |    | | |
 | Create and run experiments in notebooks                                    | GA               | YES       | N/A        |
 | Create and run experiments in studio web experience                        | Public Preview   | YES       | N/A        |
 | Industry-leading forecasting capabilities                                  | GA               | YES       | N/A        |
@@ -177,9 +152,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Large data support (up to 100 GB)                                          | Public Preview   | YES       | N/A        |
 | Azure Databricks Integration                                              | GA               | NO        | N/A        |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA               | YES       | N/A        |
-
-| Machine Learning pipelines | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Machine Learning pipelines** |    | | |
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
 | Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
 | Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
@@ -187,26 +160,18 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Create, run, visualize, and publish pipelines in Azure ML designer          | Public Preview   | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | NO        | N/A        |
 | Create pipeline endpoints in Azure ML designer                             | Public Preview   | YES       | N/A        |
-
-| Integrated notebooks | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
 | Virtual Network support                                                    | Public Preview   | NO        | N/A        |
-
-| Compute instance | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Compute instance** |    | | |
 | Managed compute Instances for integrated Notebooks                         | GA               | NO        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
 | Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
-
-| SDK support | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **SDK support** |    | | |
 | R SDK support                                                              | Public Preview   | YES       | N/A        |
 | Python SDK support                                                         | GA               | YES       | N/A        |
-
-| Security | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Security** |   | | |
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
 | Virtual Network (VNet) support for inference                               | GA               | YES       | N/A        |
 | Scoring endpoint authentication                                            | Public Preview   | YES       | N/A        |
@@ -214,54 +179,40 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | ACI behind Vnet                                                            | Public Preview   | NO        | N/A        |
 | ACR behind Vnet                                                            | Public Preview   | NO        | N/A        |
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
-
-| Compute | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | Data for machine learning                                         |                  | CH-East 2 | CH-North 3 |
 | Create, view, or edit datasets and datastores from the SDK                  | GA               | YES       | N/A        |
 | Create, view, or edit datasets and datastores from the UI                   | GA               | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview   | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview   | YES       | N/A        |
-
-| Machine learning lifecycle | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Machine learning lifecycle** |    | | |
 | Model profiling                                                            | GA               | PARTIAL   | N/A        |
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA               | YES       | N/A        |
 | FPGA-based Hardware Accelerated Models                                     | GA               | NO        | N/A        |
 | Visual Studio Code integration                                             | Public Preview   | NO        | N/A        |
 | Event Grid integration                                                     | Public Preview   | YES       | N/A        |
 | Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview   | NO        | N/A        |
-
-| Labeling | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Labeling** |    | | |
 | Labeling Project Management Portal                                        | GA               | YES       | N/A        |
 | Labeler Portal                                                            | GA               | YES       | N/A        |
 | Labeling using private workforce                                          | GA               | YES       | N/A        |
 | ML assisted labeling (Image classification and object detection)           | Public Preview   | YES       | N/A        |
-
-| Responsible ML | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Responsible ML** |    | | |
 | Explainability in UI                                                       | Public Preview   | NO        | N/A        |
 | Differential privacy WhiteNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | NO        | N/A        |
 | Fairness AzureML Integration                                               | Public Preview   | NO        | N/A        |
 | Interpretability  SDK                                                      | GA               | YES       | N/A        |
-
-| Training | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Training** |    | | |
 | Experimentation log streaming                                              | GA               | YES       | N/A        |
 | Reinforcement Learning                                                     | Public Preview   | NO        | N/A        |
 | Experimentation UI                                                         | GA               | YES       | N/A        |
 | .NET integration ML.NET 1.0                                                | GA               | YES       | N/A        |
-
-| Inference | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Inference** |   | | |
 | Batch inferencing                                                          | GA               | YES       | N/A        |
 | Data Box Edge with FPGA                                                    | Public Preview   | NO        | N/A        |
-
-| Other | Public cloud status | CH-East-2 | CH-North-3 |
-|----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
+| **Other** |    | | |
 | Open Datasets                                                              | Public Preview   | YES       | N/A        |
 | Custom Cognitive Search                                                    | Public Preview   | YES       | N/A        |
 | Many Models                                                                | Public Preview   | NO        | N/A        |
@@ -275,9 +226,9 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 
     | REST endpoint                 | Global Azure                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
-    | Management plane | https://management.azure.com/              | https://management.chinacloudapi.cn/       |
-    | Data plane       | https://{location}.experiments.azureml.net | https://{location}.experiments.ml.azure.cn |
-    | Azure Active Directory              | https://login.microsoftonline.com          | https://login.chinacloudapi.cn             |
+    | Management plane | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
+    | Data plane       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
+    | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [VNet forced tunneling](how-to-enable-virtual-network.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
