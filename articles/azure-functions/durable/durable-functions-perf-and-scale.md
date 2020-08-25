@@ -221,7 +221,7 @@ As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
 
 > [!NOTE]
-> Extended sessions are currently not implemented in non-.NET languages. Do not set `extendedSessionsEnabled` to `true` in any non-supported languages, as it can lead to silently failing to execute activity and orchestration triggered functions.
+> Extended sessions are currently only supported in .NET languages, like C# or F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
 
 
 ### Orchestrator function replay
