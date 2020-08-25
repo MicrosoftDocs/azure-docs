@@ -338,13 +338,9 @@ landingContent:
             url: synapse-link.md
           - text: Azure Cosmos DB Analytical Store 
             url: analytical-store-introduction.md
-          - text: Lambda architecture
-            url: lambda-architecture.md
+          - text: Synapse Link use cases 
+            url: synapse-link-use-cases.md
       - linkListType: how-to-guide
         links:
           - text: Configure Azure Synapse Link
             url: configure-synapse-link.md
-          - text: Connect to Azure Synapse Link 
-            url: /azure/synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-          - text: Query with Azure Synapse Link 
-            url: /azure/synapse-analytics/synapse-link/how-to-query-analytical-store-spark?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
