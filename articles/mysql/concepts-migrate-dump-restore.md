@@ -22,13 +22,11 @@ To step through this how-to guide, you need to have:
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) command-line utility installed on a machine.
 - MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do dump and restore commands.
 
->[!TIP] If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+> [!TIP]
+> If you are looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
 
 ## Common use-cases for dump and restore
-You may use MySQL utilities such as **mysqldump** and **mysqlpump** to dump and load databases into an Azure MySQL Database in several common scenarios.
-
-> [!NOTE]
-> In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.
+You may use MySQL utilities such as **mysqldump** and **mysqlpump** to dump and load databases into an Azure MySQL Database in several common scenarios. In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.
 
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of MySQL data, or when you want to minimize service interruption for live sites or applications.
 -  Make sure all tables in the database use the InnoDB storage engine when loading data into Azure Database for MySQL. Azure Database for MySQL supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MySQL.

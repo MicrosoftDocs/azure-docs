@@ -10,11 +10,11 @@ ms.date: 9/22/2020
 ms.custom: mvc
 ---
 
-# Tutorial: Build a PHP and MySQL app in Azure App Service
+# Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app in Azure App Service
 
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
-![PHP app running in Azure App Service](media/tutorial-php-flexible-server-database-app/complete-checkbox-published.png)
+![PHP Web App in Azure with Flexible Server](media/tutorial-php-flexible-server-database-app/complete-checkbox-published.png)
 
 In this tutorial, you learn how to:
 
@@ -370,7 +370,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. However, you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
-For more information, see [Change site root](../../app-service/configure-language-php?pivots=platform-linux#change-site-root).
+For more information, see [Change site root](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#change-site-root).
 
 ### Push to Azure from Git
 
@@ -407,7 +407,7 @@ remote: Running deployment command...
 
 Browse to `http://<app-name>.azurewebsites.net` and add a few tasks to the list.
 
-![PHP app running in Azure App Service](media/tutorial-php-flexible-server-database-app/php-mysql-in-azure.png)
+![PHP Web App in Azure](media/tutorial-php-flexible-server-database-app/php-mysql-in-azure.png)
 
 Congratulations, you're running a data-driven PHP app in Azure App Service.
 
