@@ -14,6 +14,8 @@ ms.date: 08/30/2020
 
 This article describes how to enter technical details that help the Microsoft commercial marketplace connect to your solution.
 
+## Technical configuration
+
 On the **Technical configuration** tab, you'll define the technical details that the commercial marketplace uses to communicate to your SaaS application or solution. This connection enables us to provision your offer for the end customer if they choose to acquire and manage it.
 
 > [!NOTE]

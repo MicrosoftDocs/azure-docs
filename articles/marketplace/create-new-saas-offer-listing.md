@@ -79,9 +79,9 @@ There are multiple places in the commercial marketplace where your offer's logo 
 
 1. Under **Logos**, upload logos with the following pixel sizes in .PNG format:
  
--   **Small** (48 x 48)
--   **Medium** (90 x 90)
--   **Large** (between 216 x 216 and 350 x 350)
+   - **Small** (48 x 48)
+   - **Medium** (90 x 90)
+   - **Large** (between 216 x 216 and 350 x 350)
 
 2. You can optionally provide a wide image (255 x 115).
 
