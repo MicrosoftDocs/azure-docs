@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/28/2020
 ---
 
 # Tag support for Azure resources
@@ -317,6 +317,10 @@ Jump to a resource provider namespace:
 > | automationAccounts / runbooks | Yes | Yes |
 > | automationAccounts / softwareUpdateConfigurations | No | No |
 > | automationAccounts / webhooks | No | No |
+
+>[!NOTE]
+>Azure Automation only supports creating a maximum of 15 tag name/value pairs for each Automation resource.
+> 
 
 ## Microsoft.AVS
 

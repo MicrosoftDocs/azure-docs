@@ -40,6 +40,6 @@ This table reflects the rate limits of different APIs.
 
 ### Other limits
 
-Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
 Query latency details and other guidelines on writing queries during preview can be found in [*How-to: Query the twin graph*](../articles/digital-twins/how-to-query-graph.md).

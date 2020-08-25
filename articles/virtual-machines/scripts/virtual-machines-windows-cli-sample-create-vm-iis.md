@@ -18,7 +18,7 @@ ms.date: 02/28/2017
 ms.author: cynthn
 ---
 
-# Quick Create a virtual machine with the Azure CLI
+# Create a virtual machine with the Azure CLI with a custom script to install IIS
 
 This script creates an Azure Virtual Machine running Windows Server 2016, and uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 

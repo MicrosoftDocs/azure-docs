@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
@@ -137,34 +137,7 @@ App registrations that support work and school accounts and personal accounts ha
 
 ### Restrictions on redirect URLs
 
-Apps that are registered for Microsoft identity platform are restricted to a limited set of redirect URL values. The redirect URL for web apps and services must begin with the scheme `https`, and all redirect URL values must share a single DNS domain.  The registration system compares the whole DNS name of the existing redirect URL to the DNS name of the redirect URL that you're adding. `http://localhost` is also supported as a redirect URL.  
-
-The request to add the DNS name will fail if either of the following conditions is true:  
-
-* The whole DNS name of the new redirect URL doesn't match the DNS name of the existing redirect URL.
-* The whole DNS name of the new redirect URL isn't a subdomain of the existing redirect URL.
-
-#### Example 1
-
-If the app has a redirect URL of `https://login.contoso.com`, you can add a redirect URL where the DNS name matches exactly, as shown in the following example:
-
-`https://login.contoso.com/new`
-
-Or, you can refer to a DNS subdomain of login.contoso.com, as shown in the following example:
-
-`https://new.login.contoso.com`
-
-#### Example 2
-
-If you want to have an app that has `login-east.contoso.com` and `login-west.contoso.com` as redirect URLs, you must add those redirect URLs in the following order:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-You can add the latter two because they're subdomains of the first redirect URL, contoso.com.
-
-You can have only 20 reply URLs for a particular application - this limit applies across all app types that the registration supports (single-page application (SPA), native client, web app, and service).  
+For the most up-to-date information about restrictions on redirect URLs for apps that are registered for Microsoft identity platform, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url) in the Microsoft identity platform documentation.
 
 To learn how to register an app for use with Microsoft identity platform, see [Register an app using the new App registrations experience](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

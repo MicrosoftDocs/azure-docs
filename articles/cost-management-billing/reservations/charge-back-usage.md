@@ -3,8 +3,8 @@ title: Charge back Azure Reservation costs
 description: Learn how to view Azure Reservation costs for chargeback.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/14/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 

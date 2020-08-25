@@ -71,6 +71,30 @@ For more information about encryption in transit, see [requiring secure transfer
 ### Encryption at rest
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
+## Data protection
+Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
+
+### Soft delete
+Soft delete for file shares (preview) is a storage-account level setting that allows you to recover your file share when it is accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
+
+We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a very short retention period or not have soft delete enabled at all.
+
+For more information about soft delete, see [Prevent accidental data deletion](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+
+### Backup
+You can back up your Azure file share via [share snapshots](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+
+[Azure Backup for Azure file shares](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
+
+You can perform both item-level and share-level restores in the Azure portal using Azure Backup. All you need to do is choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish you restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
+
+For more information about backup, see [About Azure file share backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+
+### Advanced Threat Protection for Azure Files (preview)
+Advanced Threat Protection (ATP) for Azure Storage provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual attempts to access the storage account. ATP also runs malware hash reputation analysis and will alert on known malware. You can configure ATP on a subscription or storage account level via Azure Security Center. 
+
+For more information, see [Advanced Threat protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
+
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 

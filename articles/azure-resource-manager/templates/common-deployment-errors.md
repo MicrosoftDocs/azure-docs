@@ -72,7 +72,7 @@ If you're looking for information about an error code and that information isn't
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | When deploying network resources, the Microsoft.Network resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the Microsoft.Network resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross resource group deployment](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](cross-scope-deployment.md) |
 
 ## Find error code
 

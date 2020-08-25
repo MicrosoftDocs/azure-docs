@@ -77,7 +77,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
-* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. See [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md) for more information
+* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md)
 
 ## Importing configuration data into App Configuration
 

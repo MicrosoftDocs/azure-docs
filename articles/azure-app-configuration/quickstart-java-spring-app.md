@@ -9,6 +9,7 @@ editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
+ms.custom: devx-track-java
 ms.author: lcozzens
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.

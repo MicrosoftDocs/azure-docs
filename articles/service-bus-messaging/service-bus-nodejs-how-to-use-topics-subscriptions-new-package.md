@@ -6,6 +6,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
+ms.custom: devx-track-javascript
 ---
 
 # Quickstart: How to use Service Bus topics and subscriptions with Node.js and the azure/service-bus package

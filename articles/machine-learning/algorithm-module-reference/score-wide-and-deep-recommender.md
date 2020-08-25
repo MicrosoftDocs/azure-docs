@@ -1,5 +1,5 @@
 ---
-title: "Score Image Model"
+title: Use the Score Wide & Deep Recommender module
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Score Wide & Deep Recommender module in Azure Machine Learning to score recommendation predictions for a dataset.
 services: machine-learning

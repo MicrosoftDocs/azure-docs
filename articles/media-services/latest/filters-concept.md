@@ -34,8 +34,8 @@ Media Services enables you to create **Account filters** and **Asset filters** f
 
 There are two types of filters: 
 
-* [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
-* [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
+* [Account Filters](/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
+* [Asset Filters](/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
 
 **Account Filters** and **Asset Filters** types have exactly the same properties for defining/describing the filter. Except when creating the **Asset Filter**, you need to specify the asset name with which you want to associate the filter.
 
@@ -135,7 +135,7 @@ The following example defines a Live Streaming filter:
 
 ## Associating filters with Streaming Locator
 
-You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
+You can specify a list of [asset or account filters](filters-concept.md) on your [Streaming Locator](/rest/api/media/streaminglocators/create#request-body). The [Dynamic Packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [Dynamic Manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on the Streaming Locator. 
 
 See the following examples:
 
@@ -157,4 +157,3 @@ The following articles show how to create filters programmatically.
 - [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
 - [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Create filters with CLI](filters-dynamic-manifest-cli-howto.md)
-

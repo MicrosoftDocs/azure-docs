@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Azure Spring Cloud disaster recovery
 
 This article explains some strategies you can use to protect your Azure Spring Cloud applications from experiencing downtime.  Any region or data center may experience downtime caused by regional disasters, but careful planning can mitigate impact on your customers.

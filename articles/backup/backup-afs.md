@@ -7,7 +7,7 @@ ms.date: 01/20/2020
 
 # Back up Azure file shares
 
-This article explains how to use the Azure portal to back up [Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+This article explains how to use the Azure portal to back up [Azure file shares](../storage/files/storage-files-introduction.md).
 
 In this article, you'll learn how to:
 

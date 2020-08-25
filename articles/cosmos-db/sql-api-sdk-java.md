@@ -8,9 +8,9 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)

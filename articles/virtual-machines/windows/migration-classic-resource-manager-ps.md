@@ -45,7 +45,7 @@ Here are a few best practices that we recommend as you evaluate whether to migra
 ## Step 2: Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Step 3: Ensure that you're an administrator for the subscription
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).

@@ -298,6 +298,8 @@
       displayName: pre-empt, preempt
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
+    - name: Azure VM sizes naming conventions
+      href: ../vm-naming-conventions.md
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
@@ -343,19 +345,22 @@
     - name: Shared disks
       href: disks-shared.md
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md
+      href: ../ephemeral-os-disks.md
   - name: Networking
-    href: network-overview.md
+    href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Scale sets
     href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Infrastructure automation
-    href: infrastructure-automation.md
+    href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Security
     items:
     - name: Security and policy
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
     - name: Built-in security controls
@@ -429,22 +434,24 @@
       items:
       - name: Generic steps
         href: create-upload-generic.md
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
       - name: CentOS
         href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
       - name: Debian
         href: debian-create-upload-vhd.md
-      - name: SUSE
-        href: suse-create-upload-vhd.md
+      - name: Flatcar Container Linux
+        href: flatcar-create-upload-vhd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
       - name: OpenBSD
         href: create-upload-openbsd.md
-      - name: FreeBSD
-        href: freebsd-intro-on-azure.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
     - name: Use cloud-init
       items:
       - name: Cloud-init overview
@@ -728,7 +735,6 @@
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
-    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     items:
     - name: Agents
       items:
@@ -961,12 +967,16 @@
       items:
       - name: Enable encryption at host - CLI
         href: disks-enable-host-based-encryption-cli.md
+      - name: Enable encryption at host - Portal
+        href: disks-enable-host-based-encryption-portal.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal
         href: disks-enable-customer-managed-keys-portal.md
-      - name: Enable double encryption at rest
+      - name: Enable double encryption at rest - CLI
         href: disks-enable-double-encryption-at-rest-cli.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
@@ -1110,7 +1120,7 @@
   - name: Azure CLI
     href: /cli/azure/vm
   - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
+    href: /powershell/azure/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute
   - name: Java

@@ -18,7 +18,7 @@ ms.date: 02/23/2017
 ms.author: rclaus
 ---
 
-# Load balance traffic between highly available virtual machines
+# Use an Azure CLI sample script to load balance traffic between highly available virtual machines
 
 This script sample creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration. After running the script, you will have three virtual machines, joined to an Azure Availability Set, and accessible through an Azure Load Balancer.
 

@@ -1,5 +1,5 @@
 ---
-title: Using transactions
+title: Use transactions
 description: Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 

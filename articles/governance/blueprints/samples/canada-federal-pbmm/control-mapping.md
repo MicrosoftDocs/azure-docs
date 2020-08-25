@@ -9,7 +9,7 @@ ms.topic: sample
 The following article details how the Azure Blueprints Canada Federal Protected B, Medium Integrity,
 Medium Availability (PBMM) blueprint sample maps to the Canada Federal PBMM controls. For more
 information about the controls, see
-[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+[Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 The following mappings are to the **Canada Federal PBMM** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)

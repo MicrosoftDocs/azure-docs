@@ -297,7 +297,7 @@ On the **Install extension** page, select the local PowerShell file, and fill ou
 
 ### PowerShell
 
-Use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) cmdlet can be used to add the Custom Script extension to an existing virtual machine.
+Use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) cmdlet can be used to add the Custom Script extension to an existing virtual machine.
 
 ```powershell
 # define your file URI

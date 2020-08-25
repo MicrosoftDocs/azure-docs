@@ -58,11 +58,8 @@ This device template includes:
 
 ### Create device templates
 
-[IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play (preview), is a device capability model schema that describes device capabilities. In an IoT Central application, device templates use these IoT Plug and Play (preview) device capability models.
-
 As a solution builder, you have several options for creating device templates:
 
-- Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Design the device template in IoT Central and then implement its device capability model in your device code.
 - Create a device capability model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from the repository and creates a simple device template for you.
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
@@ -144,7 +141,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 - IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
 - You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
 - Device capability models must have all the interfaces defined inline in the same file.
-- Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
 ## Next steps
 
@@ -153,7 +149,6 @@ Now that you have an overview of IoT Central, here are some suggested next steps
 - Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
-- Learn more about [IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).
 - Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).
 

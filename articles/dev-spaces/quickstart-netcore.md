@@ -96,7 +96,7 @@ This command prepares your project to run in Azure Dev Spaces by generating a Do
 
 Click on the *Debug* icon on the left and click *.NET Core Launch (AZDS)* at the top.
 
-![](media/get-started-netcore/debug-configuration.png)
+![The screenshot is of the upper-left corner of the Visual Studio Code window. The debug icon is highlighted, the left panel is titled "DEBUG", and a drop-down list to the right of the title shows "dot NET Core Launch (A Z D S).](media/get-started-netcore/debug-configuration.png)
 
 This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running in Azure Dev Spaces. The *Debug Console* shows the log output.
 
@@ -149,7 +149,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![](media/common/debug-action-refresh.png)
+![The Debug toolbar is a small pane at the top center of the page (just below the page title). The Restart button displays a circular arrow, and is highlighted. The hover image for the button is "Restart (control + shift + f 5)".](media/common/debug-action-refresh.png)
 
 Open your service in a browser and notice your updated message is displayed.
 

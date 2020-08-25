@@ -14,7 +14,7 @@ manager: eliotgra
 
 
 
-When building your continuous patient monitoring solution, you can also create a dashboard for a hospital care team to visualize patient data. In this tutorial, you will learn how to create a Power BI real-time streaming dashboard from your IoT Central continuous patient monitoring application template.
+When building your continuous patient monitoring solution, you can also create a dashboard for a hospital care team to visualize patient data. In this tutorial, you will learn how to create a Power BI real-time streaming dashboard from your IoT Central continuous patient monitoring application template. If your use case does not require access to real-time data, you can use the [IoT Central Power BI dashboard](../core/howto-connect-powerbi.md), which has a simplified deployment process. 
 
 >[!div class="mx-imgBorder"]
 >![Dashboard GIF](media/dashboard-gif-3.gif)

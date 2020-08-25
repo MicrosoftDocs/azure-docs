@@ -78,7 +78,7 @@ The Azure IoT Edge Tools provide project templates for all supported IoT Edge mo
    | ----- | ----- |
    | Select a template | Select **C# Module**. |
    | Module project name | Name your module **CSharpModule**. |
-   | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/csharpmodule. |
+   | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/csharpmodule. |
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -304,9 +304,11 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
+   This process may take several minutes the first time, but is faster the next time that you run the commands.
+
 ## Deploy modules to device
 
-Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.windows-amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
 Make sure that your IoT Edge device is up and running.
 
@@ -316,7 +318,7 @@ Make sure that your IoT Edge device is up and running.
 
 3. Select **Create Deployment**.
 
-4. In the file explorer, select the **deployment.windows-amd64** file in the config folder of your solution.
+4. In the file explorer, select the **deployment.windows-amd64.json** file in the config folder of your solution.
 
 5. Refresh the cloud explorer to see the deployed modules listed under your device.
 

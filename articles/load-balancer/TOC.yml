@@ -18,17 +18,19 @@
     href: quickstart-create-standard-load-balancer-powershell.md
   - name: Create Load Balancer - ARM template
     href: quickstart-load-balancer-standard-public-template.md
-  - name: Create an internal Load Balancer - Portal
-    href: tutorial-load-balancer-standard-internal-portal.md
-  - name: Create an internal Load Balancer - Azure CLI
-    href: load-balancer-get-started-ilb-arm-cli.md
-  - name: Create an internal Load Balancer - Azure PowerShell
-    href: load-balancer-get-started-ilb-arm-ps.md
-  - name: Create an internal Load Balancer - ARM template
-    href: load-balancer-get-started-ilb-arm-template.md
   expanded: true
 - name: Tutorials
   items:
+  - name: Internal Load Balancer
+    items: 
+    - name: Create an internal Load Balancer - Portal
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Create an internal Load Balancer - Azure CLI
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Create an internal Load Balancer - Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Create an internal Load Balancer - ARM template
+      href: load-balancer-get-started-ilb-arm-template.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
@@ -73,6 +75,8 @@
     href: load-balancer-security-controls.md
   - name: Backend Pool management
     href: backend-pool-management.md
+  - name: Standard Load Balancer and Virtual Machine Scale Sets
+    href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: How to
   items:
   - name: Virtual machine scale sets
@@ -91,14 +95,6 @@
       href: upgrade-basicInternal-standard.md
     - name: Upgrade an Internal Load Balancer - Outbound Connection Required
       href: upgrade-InternalBasic-To-PublicStandard.md
-  - name: Configure outbound rules
-    items:
-    - name: Portal
-      href: configure-load-balancer-outbound-portal.md
-    - name: Azure CLI
-      href: configure-load-balancer-outbound-cli.md
-    - name: Azure PowerShell
-      href: configure-load-balancer-outbound-powershell.md
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI

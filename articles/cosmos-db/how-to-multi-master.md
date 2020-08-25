@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 ---
 
 # Configure multi-master in your applications that use Azure Cosmos DB

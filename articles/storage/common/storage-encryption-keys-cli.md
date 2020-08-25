@@ -93,7 +93,7 @@ When you configure encryption with customer-managed keys, you can choose to auto
 
 ### Configure encryption for automatic rotation of customer-managed keys
 
-To configure encryption for automatic rotation of customer-managed keys, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](/azure/install-azure-cli).
+To configure encryption for automatic rotation of customer-managed keys, install [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) or later. For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 To automatically rotate customer-managed keys, omit the key version when you configure customer-managed keys for the storage account. Call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, as shown in the following example. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account. Remember to replace the placeholder values in brackets with your own values.
 

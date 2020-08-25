@@ -2,12 +2,12 @@
 title: 'ExpressRoute: Route filters - Microsoft peering:Azure CLI'
 description: This article describes how to configure route filters for Microsoft Peering using Azure CLI
 services: expressroute
-author: anzaman
+author: kumudD
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: anzaman
+ms.author: kumud
 
 ---
 # Configure route filters for Microsoft peering: Azure CLI

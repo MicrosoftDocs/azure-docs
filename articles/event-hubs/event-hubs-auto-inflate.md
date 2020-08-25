@@ -110,5 +110,4 @@ For the complete template, see the [Create Event Hubs namespace and enable infla
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
-
+* [Event Hubs overview](./event-hubs-about.md)

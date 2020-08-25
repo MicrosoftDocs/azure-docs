@@ -164,5 +164,4 @@ landingContent:
           - text: Azure Backup service updates
             url: https://azure.microsoft.com/updates/?product=backup
           - text: Azure Backup Microsoft Q&A question page
-            url: https://docs.microsoft.com/answers/topics/azure-backup.html
-                          
+            url: /answers/topics/azure-backup.html

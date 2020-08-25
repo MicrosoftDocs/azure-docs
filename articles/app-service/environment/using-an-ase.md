@@ -251,21 +251,23 @@ To delete an ASE:
 
 There are command line capabilities to administer to an ASE.  The az cli commands are noted below.
 
-    C:\>az appservice ase --help
+```azurecli
+C:\>az appservice ase --help
 
-    Group
-        az appservice ase : Manage App Service Environments v2.
-            This command group is in preview. It may be changed/removed in a future release.
-    Commands:
-        create         : Create app service environment.
-        delete         : Delete app service environment.
-        list           : List app service environments.
-        list-addresses : List VIPs associated with an app service environment.
-        list-plans     : List app service plans associated with an app service environment.
-        show           : Show details of an app service environment.
-        update         : Update app service environment.
+Group
+    az appservice ase : Manage App Service Environments v2.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    create         : Create app service environment.
+    delete         : Delete app service environment.
+    list           : List app service environments.
+    list-addresses : List VIPs associated with an app service environment.
+    list-plans     : List app service plans associated with an app service environment.
+    show           : Show details of an app service environment.
+    update         : Update app service environment.
 
-    For more specific examples, use: az find "az appservice ase"
+For more specific examples, use: az find "az appservice ase"
+```
 
 
 

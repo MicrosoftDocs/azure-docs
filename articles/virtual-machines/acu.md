@@ -4,7 +4,7 @@ description: Overview of the concept of the Azure compute units. The ACU provide
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt

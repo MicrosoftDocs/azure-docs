@@ -5,13 +5,12 @@ description: Learn how to export or delete your workspace with the Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
 ms.date: 04/24/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 ---
 # Export or delete your Machine Learning service workspace data
 

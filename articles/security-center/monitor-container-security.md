@@ -33,13 +33,11 @@ This page explains how to use the container security features described in the [
 
 1. To trigger the scan of an image, push it to your registry. 
 
-    When the scan completes (typically after approximately 10 minutes), findings are available in Security Center recommendations.
-    
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the following recommendation:
 
     ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
-
 
 1. Select the recommendation. 
     The recommendation details page opens with additional information. This information includes the list of registries with vulnerable images ("Affected resources") and the remediation steps. 

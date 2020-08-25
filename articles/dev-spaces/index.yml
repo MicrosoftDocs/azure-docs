@@ -77,4 +77,4 @@ landingContent:
           - text: Use Local Process with Kubernetes with Visual Studio Code
             url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
           - text: Use Local Process with Kubernetes with Visual Studio
-            url: how-to/local-process-kubernetes-visual-studio.md
+            url: /visualstudio/containers/local-process-kubernetes

@@ -5,33 +5,39 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
 ---
 
+
 # Migrate servers running Windows Server 2008 to Azure
 
-This tutorial shows you how to migrate on-premises servers running Windows Server 2008 or 2008 R2 to Azure using Azure Site Recovery. In this tutorial, you learn how to:
+This tutorial shows you how to migrate on-premises servers running Windows Server 2008 or 2008 R2 to Azure, using Azure Site Recovery. 
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare your on-premises environment for migration
-> * Set up the target environment
-> * Set up a replication policy
-> * Enable replication
-> * Run a test migration to make sure everything's working as expected
-> * Failover to Azure and complete the migration
+> * Prepare your on-premises environment for migration.
+> * Set up the target environment.
+> * Set up a replication policy.
+> * Enable replication.
+> * Run a test migration to make sure everything's working as expected.
+> * Fail over to Azure and complete the migration.
 
-The limitations and known issues section, lists some of limitations and workarounds for known issues that you may encounter while migrating Windows Server 2008 machines to Azure. 
+## Migrate with Azure Migrate
 
-> [!NOTE]
-> You can now migrate from on-premises to Azure using the Azure Migrate service. [Learn more](../migrate/migrate-services-overview.md).
+We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate provides a centralized hub for assessment and migration of on-premises machines to Azure, using Azure Migrate, other Azure services, and third-party tools. Azure Site Recovery should be used for disaster recovery only, and not migration.
 
-
-## Supported Operating Systems and environments
+Azure Migrate supports migration of servers running Windows Server 2008.
 
 
-|Operating System  | On-premises environment  |
+## Migrate with Site Recovery
+
+### Supported operating systems
+
+
+|Operating System  | Environment  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32 bit and 64 bit(IA-32 and x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware VMs, Hyper-V VMs, and Physical Servers    |
 |Windows Server 2008 R2 SP1 - 64 bit</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware VMs, Hyper-V VMs, and Physical Servers|
@@ -41,9 +47,9 @@ The limitations and known issues section, lists some of limitations and workarou
 > - Ensure that you have the latest service pack and Windows updates installed before migrating.
 
 
-## Prerequisites
+### Prerequisites
 
-Before you start, it's helpful to review the Azure Site Recovery architecture for [VMware and Physical server migration](vmware-azure-architecture.md) or [Hyper-V virtual machine migration](hyper-v-azure-architecture.md) 
+Before you start, it's helpful to review the Azure Site Recovery architecture for [VMware and physical server migration](vmware-azure-architecture.md) or [Hyper-V virtual machine migration](hyper-v-azure-architecture.md) 
 
 To migrate Hyper-V virtual machines running Windows Server 2008 or Windows Server 2008 R2, follow the steps in the [migrate on-premises machines to Azure](migrate-tutorial-on-premises-azure.md) tutorial.
 
@@ -52,7 +58,7 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
 > Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
 
 
-## Limitations and known issues
+### Limitations and known issues
 
 - The Configuration Server, additional process servers, and mobility service used to migrate Windows Server 2008 SP2 servers should be running version 9.19.0.0 or later of the Azure Site Recovery software.
 
@@ -74,10 +80,10 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
   >
   >The test failover operation is non-disruptive and helps you test migrations by  creating virtual machines in an isolated network of your choice. Unlike the  failover operation, during the test failover operation, data replication  continues to progres. You can perform as many test failovers as you like before  you are ready to migrate. 
   >
-  >
+  
 
 
-## Getting started
+### Get started
 
 Perform the following tasks to prepare the Azure subscription and on-premises VMware/Physical environment:
 
@@ -85,7 +91,7 @@ Perform the following tasks to prepare the Azure subscription and on-premises VM
 2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
 
-## Create a Recovery Services vault
+### Create a Recovery Services vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
 2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
@@ -100,12 +106,12 @@ Perform the following tasks to prepare the Azure subscription and on-premises VM
 The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
 
-## Prepare your on-premises environment for migration
+### Prepare your on-premises environment for migration
 
 - To migrate Windows Server 2008 virtual machines running on VMware, [setup the on-premises Configuration Server on VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
 - If the Configuration Server cannot be setup as a VMware virtual machine, [setup the Configuration Server on an on-premises physical server or virtual machine](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
-## Set up the target environment
+### Set up the target environment
 
 Select and verify target resources.
 
@@ -114,7 +120,7 @@ Select and verify target resources.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
 
-## Set up a replication policy
+### Set up a replication policy
 
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
@@ -129,7 +135,7 @@ The policy is automatically associated with the configuration server.
 
    ![Create replication policy](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
-## Enable replication
+### Enable replication
 
 [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for the Windows Server 2008 SP2 / Windows Server 2008 R2 SP1 server to be migrated.
    
@@ -137,7 +143,7 @@ The policy is automatically associated with the configuration server.
 
    ![Enable replication](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
-## Run a test migration
+### Run a test migration
 
 You can perform a test failover of replicating servers after initial replication completes and the server status turns to **Protected**.
 
@@ -146,7 +152,7 @@ Run a [test failover](tutorial-dr-drill-azure.md) to Azure, to make sure everyth
    ![Test failover](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
-## Migrate to Azure
+### Migrate to Azure
 
 Run a failover for the machines you want to migrate.
 
@@ -164,3 +170,7 @@ Run a failover for the machines you want to migrate.
 
 > [!WARNING]
 > **Don't cancel a failover in progress**: Server replication is stopped before failover starts. If you cancel a failover in progress, failover stops, but the server won't continue to replicate.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Review common questions](../migrate/resources-faq.md) about Azure Migrate.

@@ -92,7 +92,8 @@
       href: troubleshoot-missing-data-download.md
     - name: Cannot access Graph APIs for reporting
       href: troubleshoot-graph-api.md
-
+    - name: Audit data on verified domain change
+      href: troubleshoot-audit-data-verified-domain.md
 
 - name: Reference
   expanded: true

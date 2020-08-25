@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured, and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by selecting **Save**.
+1. In the **Basic SAML Configuration** section, update both **Identifier (Entity ID)** and **Reply URL** with the same default value: `https://signin.aws.amazon.com/saml`. You must select **Save** to save the configuration changes.
 
 1. When you are configuring more than one instance, provide an identifier value. From second instance onwards, use the following format, including a **#** sign to specify a unique SPN value.
 
@@ -120,11 +120,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Role 			  | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
 	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** (Step 3) dialog box, select **Add a certificate**.
+
+    ![Create new SAML Certificate](common/add-saml-certificate.png)
+
+1. Generate a new SAML signing certificate, and then select **New Certificate**. Enter an email address for certificate notifications.
+   
+    ![New SAML Certificate](common/new-saml-certificate.png) 
+
+1. In the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
     ![The Certificate download link](common/metadataxml.png)
 
-1. On the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 

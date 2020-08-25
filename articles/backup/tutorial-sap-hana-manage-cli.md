@@ -7,7 +7,7 @@ ms.date: 12/4/2019
 
 # Tutorial: Manage SAP HANA databases in an Azure VM using Azure CLI
 
-Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This documentation details how to manage a backed-up SAP HANA database on Azure VM - all using Azure CLI. You can also perform these steps using [the Azure portal](https://docs.microsoft.com/azure/backup/sap-hana-db-manage).
+Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This documentation details how to manage a backed-up SAP HANA database on Azure VM - all using Azure CLI. You can also perform these steps using [the Azure portal](./sap-hana-db-manage.md).
 
 Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
 
@@ -33,7 +33,7 @@ Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM th
 
 ## Monitor backup and restore jobs
 
-To monitor completed or currently running jobs (backup or restore), use the [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet. CLI also allows you to [suspend a currently running job](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) or [wait until a job completes](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
+To monitor completed or currently running jobs (backup or restore), use the [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet. CLI also allows you to [suspend a currently running job](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) or [wait until a job completes](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
 
 ```azurecli-interactive
 az backup job list --resource-group saphanaResourceGroup \
@@ -54,7 +54,7 @@ F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hx
 
 ## Change policy
 
-To change the policy underlying the SAP HANA backup configuration, use the [az backup policy set](https://docs.microsoft.com/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-set) cmdlet. The name parameter in this cmdlet refers to the backup item whose policy we want to change. For this tutorial, we'll be replacing the policy of our SAP HANA database *saphanadatabase;hxe;hxe* with a new policy *newsaphanaPolicy*. New policies can be created using the [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet.
+To change the policy underlying the SAP HANA backup configuration, use the [az backup policy set](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-set) cmdlet. The name parameter in this cmdlet refers to the backup item whose policy we want to change. For this tutorial, we'll be replacing the policy of our SAP HANA database *saphanadatabase;hxe;hxe* with a new policy *newsaphanaPolicy*. New policies can be created using the [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet.
 
 ```azurecli-interactive
 az backup item set policy --resource-group saphanaResourceGroup \
@@ -76,7 +76,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 [Registering an SAP HANA instance with a recovery services vault](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatically discovers all the databases on this instance.
 
-However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize](https://docs.microsoft.com/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) cmdlet. This cmdlet discovers the new databases added.
+However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) cmdlet. This cmdlet discovers the new databases added.
 
 ```azurecli-interactive
 az backup protectable-item initialize --resource-group saphanaResourceGroup \
@@ -85,7 +85,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Then use the [az backup protectable-item list](https://docs.microsoft.com/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SAP HANA database](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Then use the [az backup protectable-item list](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SAP HANA database](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -121,7 +121,7 @@ Let's look at each of the ways to stop protection in more detail.
 
 ### Stop protection with retain data
 
-To stop protection with retain data, use the [az backup protection disable](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
+To stop protection with retain data, use the [az backup protection disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -140,11 +140,11 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-To check the status of this operation, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+To check the status of this operation, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ### Stop protection without retain data
 
-To stop protection without retain data, use the [az backup protection disable](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
+To stop protection without retain data, use the [az backup protection disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) cmdlet.
 
 ```azurecli-interactive
 az backup protection disable --resource-group saphanaResourceGroup \
@@ -164,13 +164,13 @@ Name                                  ResourceGroup
 g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 ```
 
-To check the status of this operation, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+To check the status of this operation, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Resume protection
 
 When you stop protection for the SAP HANA database with retain data, you can later resume protection. If you don't retain the backed-up data, you won't be able to resume protection.
 
-To resume protection, use the [az backup protection resume](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) cmdlet.
+To resume protection, use the [az backup protection resume](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) cmdlet.
 
 ```azurecli-interactive
 az backup protection resume --resource-group saphanaResourceGroup \
@@ -188,10 +188,10 @@ Name                                  ResourceGroup
 b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
 ```
 
-To check the status of this operation, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+To check the status of this operation, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Next steps
 
-* To learn how to back up an SAP HANA database running on Azure VM using the Azure portal, refer to [Backup SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)
+* To learn how to back up an SAP HANA database running on Azure VM using the Azure portal, refer to [Backup SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md)
 
-* To learn how to manage a backed-up SAP HANA database running on Azure VM using the Azure portal, refer to [Manage Backed up SAP HANA databases on Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* To learn how to manage a backed-up SAP HANA database running on Azure VM using the Azure portal, refer to [Manage Backed up SAP HANA databases on Azure VM](./sap-hana-db-manage.md)

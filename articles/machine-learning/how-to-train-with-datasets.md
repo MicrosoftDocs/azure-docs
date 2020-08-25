@@ -5,13 +5,13 @@ description: Learn how to use datasets in training
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/20/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 # Customer intent: As an experienced Python developer, I need to make my data available to my local or remote compute target to train my machine learning models.
 

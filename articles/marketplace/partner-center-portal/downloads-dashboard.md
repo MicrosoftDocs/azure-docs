@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
+author: shganesh-dev
+ms.author: shganesh
 ---
 
 # Downloads Dashboard in commercial marketplace analytics

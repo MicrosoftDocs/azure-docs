@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
 1. In the portal, click **Resource groups**.
 2. Select **\<resource-group-name>** where your load balancer is.
 3. Select your load balancer.
-4. Select **Monitoring** > **Diagnostic settings**.
+4. Select **Activity log** > **Diagnostic settings**.
 5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
 6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** field.
 7. You have three options for the **Diagnostics settings**.  You can choose one, two or all three and configure each for your requirements:

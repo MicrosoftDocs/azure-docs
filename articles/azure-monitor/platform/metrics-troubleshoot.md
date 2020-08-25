@@ -64,7 +64,7 @@ By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of
 
 Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Extension or enabling it using the **Diagnostic Settings** panel for your resource.
 
-**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest OS namespace and metrics](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest OS namespace and metrics](#cannot-pick-guest-os-namespace-and-metrics)
 
 ## “Error retrieving data” message on dashboard
 
@@ -104,7 +104,7 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
     > [!WARNING]
     > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
 
-1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verify that storage account isn't protected by the firewall. Azure portal needs access to storage account in order to retrieve metrics data and plot the charts.
 
@@ -116,3 +116,4 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
 * [Learn about advanced features of Metric Explorer](metrics-charts.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
 * [See examples of configured charts](metric-chart-samples.md)
+

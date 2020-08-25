@@ -180,7 +180,7 @@ The **AppMenu** has a sub menu **Model Tools** that implements a view controller
 
 1. Hold left click and drag the model to move it.
 
-You should see the remotely rendered content move along with the bounding box. You might notice some delay or lag between the bounding box the remote content. This delay will depend on your internet latency and bandwidth.
+You should see the remotely rendered content move along with the bounding box. You might notice some delay or lag between the bounding box and the remote content. This delay will depend on your internet latency and bandwidth.
 
 ## Ray cast and spatial queries of remote models
 

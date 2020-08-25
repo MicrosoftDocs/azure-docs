@@ -36,7 +36,7 @@ To complete this tutorial, make sure you have:
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 # [The Azure CLI](#tab/azure-cli)
 

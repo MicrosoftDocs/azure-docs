@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Swift - Speech service'
+title: 'Quickstart: Synthesize speech in Swift on macOS - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Swift on macOS using the Speech SDK
 services: cognitive-services

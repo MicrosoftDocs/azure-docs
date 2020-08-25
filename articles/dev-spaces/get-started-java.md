@@ -2,6 +2,7 @@
 title: "Create a Kubernetes dev space: Visual Studio Code & Java"
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial

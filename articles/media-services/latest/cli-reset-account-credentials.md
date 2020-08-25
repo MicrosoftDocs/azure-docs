@@ -22,7 +22,7 @@ The Azure CLI script in this article shows how to reset your account credentials
 
 ## Prerequisites
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

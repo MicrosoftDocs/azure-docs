@@ -469,13 +469,14 @@ For more detailed information about how to use queries and logs, see [Logs in Az
 
 ## Next steps
 
-* [Tracking incoming requests](./../../azure-monitor/app/opencensus-python-dependency.md)
-* [Tracking out-going requests](./../../azure-monitor/app/opencensus-python-request.md)
-* [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+* [Tracking incoming requests](./opencensus-python-dependency.md)
+* [Tracking out-going requests](./opencensus-python-request.md)
+* [Application map](./app-map.md)
+* [End-to-end performance monitoring](../learn/tutorial-performance.md)
 
 ### Alerts
 
-* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
-* [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Availability tests](./monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
+* [Smart diagnostics](./proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
+* [Metric alerts](../platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+

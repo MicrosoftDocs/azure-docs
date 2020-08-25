@@ -122,7 +122,7 @@ SQL Managed Instance currently supports deployment only on the following types o
 ## Regional resource limitations
 
 > [!Note]
-> For the latest information on region availability for subscriptions, first check [official COVID-19 blog post](https://aka.ms/sqlcapacity).
+> For the latest information on region availability for subscriptions, first check [select a region](https://aka.ms/sqlcapacity).
 
 Supported subscription types can contain a limited number of resources per region. SQL Managed Instance has two default limits per Azure region (that can be increased on-demand by creating a special [support request in the Azure portal](../database/quota-increase-request.md) depending on a type of subscription type:
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-
+ms.custom: devx-track-javascript
 ---
 
 # Application Insights for web pages

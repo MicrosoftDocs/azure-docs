@@ -14,7 +14,7 @@ In this guide, you will learn how to:
 - Iteratively develop code in containers using VS Code and the command line.
 - Productively develop and test your code in a team environment.
 
-> [!Note]
+> [!NOTE]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 ## Install the Azure CLI
@@ -27,7 +27,7 @@ Sign in to Azure. Type the following command in a terminal window:
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 
 #### If you have multiple Azure subscriptions...
@@ -120,7 +120,7 @@ Keep an eye on the command's output, you'll notice several things as it progress
 - Information about the container's endpoint(s) is displayed. In our case, we're expecting a public HTTP URL.
 - Assuming the above stages complete successfully, you should begin to see `stdout` (and `stderr`) output as the container starts up.
 
-> [!Note]
+> [!NOTE]
 > These steps will take longer the first time the `up` command is run, but subsequent runs should be quicker.
 
 ### Test the web app
@@ -149,10 +149,9 @@ Identify the public URL for the service in the output from the `up` command. It 
 
 To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
-![azds trace terminal window](media/get-started-netcore/azds-trace.png)
+![a z d s trace terminal window](media/get-started-netcore/azds-trace.png)
 
-
-> [!Note]
+> [!NOTE]
 > In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
 
 ### Update a content file
@@ -185,9 +184,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 In this section, you'll use VS Code to directly debug our container running in Azure. You'll also learn how to get a faster edit-run-test loop.
 
-![](media/common/edit-refresh-see.png)
+![The diagram shows a development loop with three stages: Edit Code, Refresh Container, and See Update.](media/common/edit-refresh-see.png)
 
-> [!Note]
+> [!NOTE]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
 
 ### Initialize debug assets with the VS Code extension
@@ -197,16 +196,16 @@ Open the **Command Palette** (using the **View | Command Palette** menu), and us
 
 This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. This command is not to be confused with the `azds prep` command, which configures the project for deployment.
 
-![](media/common/command-palette.png)
+![This screenshot shows selection of the command "Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces" from the Command Palette window.](media/common/command-palette.png)
 
 
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **.NET Core Launch (AZDS)** as the active debug configuration.
 
-![](media/get-started-netcore/debug-configuration.png)
+![The screenshot is of the upper-left corner of the Visual Studio Code window. The debug icon is highlighted, the left panel is titled "DEBUG", and a drop-down list to the right of the title shows "dot NET Core Launch (A Z D S).](media/get-started-netcore/debug-configuration.png)
 
-> [!Note]
+> [!NOTE]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains azds.yaml.
 
 
@@ -215,10 +214,10 @@ Hit **F5** to debug your code in Kubernetes.
 
 As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
-> [!Tip]
+> [!TIP]
 > The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to open your site.
 
-![](media/common/vscode-status-bar-url.png)
+![The screenshot shows the bottom of the Visual Studio Code window. The orange status bar is the last line. It contains a U R L to open the web site.](media/common/vscode-status-bar-url.png)
 
 Set a breakpoint in a server-side code file, for example within the `About()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
 
@@ -237,7 +236,7 @@ public IActionResult About()
 
 Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
-![](media/common/debug-action-refresh.png)
+![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button, a circular arrow, is highlighted.The hover image for the button is "Restart (control + shift + F 5)".](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
 

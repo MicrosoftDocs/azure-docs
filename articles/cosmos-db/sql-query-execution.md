@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-
+ms.custom: devx-track-javascript
 ---
 # Azure Cosmos DB SQL query execution
 

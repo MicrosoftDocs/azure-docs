@@ -127,5 +127,5 @@ The Cloud Solution Provider service provides you a way to increase your value to
 Additional Information can be found at the following links:
 
 [Azure in Cloud Solution Provider program](https://docs.microsoft.com/azure/cloud-solution-provider).  
-[Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
-[Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
+[Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
+[Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/solutions/cloud-reseller-resources).

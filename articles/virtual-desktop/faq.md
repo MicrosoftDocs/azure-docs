@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -116,7 +116,7 @@ The following table gives an example of how any resources an FSLogix profile nee
 | Resource | Requirement |
 |---|---|
 | Steady state IOPS | 10 |
-| Sign in/sign out IOPS | 5 |
+| Sign in/sign out IOPS | 50 |
 
 The example in this table is of a single user, but can be used to estimate requirements for the total number of users in your environment. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS during sign-in and sign-out.
 

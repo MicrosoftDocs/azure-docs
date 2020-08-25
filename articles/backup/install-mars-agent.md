@@ -38,10 +38,10 @@ The data that's available for backup depends on where the agent is installed.
 
 ## Modify storage replication
 
-By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md).
 
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
-* You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to reduce Azure storage costs.
+* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) to reduce Azure storage costs.
 
 To modify the storage replication type:
 
@@ -91,7 +91,7 @@ To use Microsoft peering, select the following services, regions, and relevant c
 * Azure region, according to the location of your Recovery Services vault
 * Azure Storage, according to the location of your Recovery Services vault
 
-For more information, see [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > Public peering is deprecated for new circuits.

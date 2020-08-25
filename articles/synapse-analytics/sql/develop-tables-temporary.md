@@ -1,5 +1,5 @@
 ---
-title: Use temporary tables with Synapse SQL
+title: Use temporary tables in Synapse SQL
 description: Essential guidance for using temporary tables in Synapse SQL. 
 services: synapse-analytics
 author: XiaoyuMSFT

@@ -1,5 +1,5 @@
 ---
-title: Improve columnstore index performance
+title: Improve columnstore index performance (workspaces preview)
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: synapse-analytics
 author: kevinvngo 
@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# Maximizing rowgroup quality for columnstore
+# Maximizing rowgroup quality for columnstore index performance
 
 Rowgroup quality is determined by the number of rows in a rowgroup. Increasing the available memory can maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 

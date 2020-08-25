@@ -81,6 +81,9 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
+> [!NOTE]
+> The above command uses the default location for the Kubernetes configuration file, which is `~/.kube/config`. You can specify a different location for your Kubernetes configuration file using *--file*.
+
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
 ```azurecli-interactive

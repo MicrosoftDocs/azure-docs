@@ -127,11 +127,11 @@
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Require secure transfer
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      - name: Configure Transport Layer Security (TLS)
+      - name: Manage Transport Layer Security (TLS)
         items:
-        - name: Configure minimum TLS version for a storage account
+        - name: Enforce minimum TLS version for incoming requests
           href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
-        - name: Configure TLS for a client application
+        - name: Configure TLS version for a client application
           href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Manage data redundancy
     items:

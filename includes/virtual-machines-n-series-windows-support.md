@@ -29,12 +29,14 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optiona
 
 Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV-series VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up a NVIDIA vGPU software license server.
 
+The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC, NCv2, NCv3, ND, and NDv2-series VMs.
+
 Please note that the Nvidia extension will always install the latest driver. We provide links to the previous version here for customers, who have dependency on an older version.
 
-For Windows Server 2019, Windows Server 2016, and Windows 10(up to build 1909):
-- [GRID 10.1 (442.06)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRID 10.0 (441.66)](https://download.microsoft.com/download/2/a/3/2a316e62-3be9-4ddb-ae8e-c04b6df6e22d/441.66_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
+For Windows Server 2019, Windows Server 2016, and Windows 10(up to build 2004):
+- [GRID 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 10.1 (442.06)](https://download.microsoft.com/download/b/8/f/b8f5ecec-b8f9-47de-b007-ac40adc88dc8/442.06_grid_win10_64bit_international_whql.exe) (.exe) 
 
-For Windows Server 2012 R2, Windows Server 2008 R2, Windows 8, and Windows 7: 
-- [GRID 10.1 (442.06)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)
-- [GRID 10.0 (441.66)](https://download.microsoft.com/download/d/8/0/d80091f8-0d55-47c2-958a-bacd136f432a/441.66_grid_win7_win8_server2008R2_server2012R2_64bit_international.exe) (.exe)  
+For Windows Server 2012 R2: 
+- [GRID 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)
+- [GRID 10.1 (442.66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (.exe)  

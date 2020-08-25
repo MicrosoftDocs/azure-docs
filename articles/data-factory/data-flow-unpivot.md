@@ -17,7 +17,7 @@ Use Unpivot in ADF mapping data flow as a way to turn an unnormalized dataset in
 
 ![Unpivot Transformation](media/data-flow/unpivot1.png "Unpivot options 1")
 
-[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
 
 ## Ungroup By
 

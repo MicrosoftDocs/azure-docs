@@ -4,7 +4,7 @@ description: The Payout reports show you details about the money you've earned w
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
 ---

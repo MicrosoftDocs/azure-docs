@@ -51,7 +51,7 @@ To read more about securing your Active Directory environment, see [Best Practic
 
 #### Installation prerequisites 
 
-- Azure AD Connect must be installed on a domain joined Windows Server 2012 or later. It is highly recommended that this server is a domain controller. 
+- Azure AD Connect must be installed on a domain joined Windows Server 2012 or later. 
 - Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.  
 - The Azure AD Connect server must have a full GUI installed. It is not supported to install Azure AD Connect on Windows Server Core. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. You can enable PowerShell transcription if you are using Azure AD Connect wizard to manage sync configuration. 

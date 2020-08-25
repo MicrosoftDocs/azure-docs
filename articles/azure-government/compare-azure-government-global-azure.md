@@ -30,18 +30,18 @@ Azure Government services operate the same way as the corresponding services in 
 |-----------|-----------|-------|----------|----------------------|
 |**AI + Machine Learning**|Azure Bot Service|*.botframework.com|*.botframework.azure.us||
 ||Computer Vision|See [Computer Vision docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)|Endpoint URL||
-||	Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|[Portal](https://www.customvision.azure.us/)||
+||    Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|See [Content Moderator docs](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)|Endpoint URL||
 ||Face|See [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)|Endpoint URL||
 ||Language Understanding|See [LUIS REST API docs](https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource)|[Portal](https://luis.azure.us/)||
 ||QnA Maker|See [QnA Maker docs](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)|QnA Maker endpoint||
 ||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Custom Speech Portal](https://virginia.cris.azure.us/Home/CustomSpeech)||
-||Translator Text|See [Translator API docs](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference#base-urls)|[Endpoint URL](https://api.cognitive.microsofttranslator.us/)||
+||Translator Text|See [Translator API docs](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference#base-urls)|[Endpoint URL](https://docs.microsoft.com/azure/azure-government/documentation-government-cognitiveservices#variations-2)||
 |**Analytics**|HDInsight|*.azurehdinsight.net| *.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
 |**Compute**|Batch|*.batch.azure.com| *.batch.usgovcloudapi.net||
 ||Cloud Services|*.cloudapp.net| *.usgovcloudapp.net||
-||Azure Functions| *.azurewebsites.net|	*.azurewebsites.us||
+||Azure Functions| *.azurewebsites.net|    *.azurewebsites.us||
 |**Databases**|Azure Cache for Redis|*.redis.cache.windows.net| *.redis.cache.usgovcloudapi.net|See [How to connect to other clouds](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell#how-to-connect-to-other-clouds)|
 ||Azure Cosmos DB| *.documents.azure.com| *.documents.azure.us||
 ||Azure Database for MariaDB| *.mariadb.database.azure.com| *.mariadb.database.usgovcloudapi.net||
@@ -50,7 +50,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure SQL Database| *.database.windows.net| *.database.usgovcloudapi.net||
 |**Integration**|Service Bus|*.servicebus.windows.net| *.servicebus.usgovcloudapi.net||
 |**Internet of Things**|Azure Event Hubs|*.servicebus.windows.net| *.servicebus.usgovcloudapi.net||
-||Azure IoT Hub|*.azure-devices.net| *.azure-devices.us||	
+||Azure IoT Hub|*.azure-devices.net| *.azure-devices.us||    
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|*.servicebus.windows.net| *.servicebus.usgovcloudapi.net||
 |**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
@@ -83,7 +83,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Azure Cognitive Search|*.search.windows.net| *.search.windows.us||
 
 ### Service availability
-Microsoft’s goal is to enable 100% parity in service availability between Azure and Azure Government.  To find out which services are available in Azure Government, customers should visit the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.  The **services available in Azure Government** are listed by category, as well as whether they are Generally Available or available through Preview.  If a service is available in Azure Government, that fact is not reiterated in the sections below.  Instead, customers are encouraged to visit the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard for the latest, up-to-date information on service availability.
+Microsoft's goal is to enable 100% parity in service availability between Azure and Azure Government.  To find out which services are available in Azure Government, customers should visit the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.  The **services available in Azure Government** are listed by category, as well as whether they are Generally Available or available through Preview.  If a service is available in Azure Government, that fact is not reiterated in the sections below.  Instead, customers are encouraged to visit the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard for the latest, up-to-date information on service availability.
 
 In general, service availability in Azure Government implies that all corresponding service features are available to customers.  Variations to this approach and other applicable limitations are tracked and explained in the sections below based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/).  Additional considerations for service deployment and usage in Azure Government are also provided.
 
@@ -252,7 +252,7 @@ Application Insights uses a number of IP addresses. You might need to know these
 >[!NOTE]
 >Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
 
-You need to open some **outgoing ports** in your server’s firewall to allow the Application insights SDK and/or Status Monitor to send data to the portal:
+You need to open some **outgoing ports** in your server's firewall to allow the Application insights SDK and/or Status Monitor to send data to the portal:
 
 |Purpose|URL|IP address|Ports|
 |-------|---|----------|-----|
@@ -345,7 +345,7 @@ The following Azure Site Recovery **features are not currently available** in Az
 This section outlines variations and considerations when using Networking services in the Azure Government environment.  For service availability, see the products available by region dashboard.
 
 ### [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/)
-Azure ExpressRoute is used to create private connections between Azure Government datacenters and customer’s on-premises infrastructure or a colocation facility.  ExpressRoute connections do not go over the public Internet—they offer optimized pathways (shortest hops, lowest latency, highest performance, etc.) for customers and Azure Government geo-redundant regions.
+Azure ExpressRoute is used to create private connections between Azure Government datacenters and customer's on-premises infrastructure or a colocation facility.  ExpressRoute connections do not go over the public Internet—they offer optimized pathways (shortest hops, lowest latency, highest performance, etc.) for customers and Azure Government geo-redundant regions.
 
 - By default, all Azure Government ExpressRoute connectivity is configured active-active redundant with support for bursting, and it delivers up to 10 G circuit capacity (smallest is 50 MB).
 - Microsoft owns and operates all fiber infrastructure between Azure Government regions and Azure Government ExpressRoute Meet-Me locations.

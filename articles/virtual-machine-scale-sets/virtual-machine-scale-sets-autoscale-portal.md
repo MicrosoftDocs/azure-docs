@@ -43,8 +43,8 @@ If your application demand increases, the load on the VM instances in your scale
     | *Time grain statistic* | Defines how the collected metrics in each time grain should be aggregated for analysis.                             | Average        |
     | *Operator*             | Operator used to compare the metric data against the threshold.                                                     | Greater than   |
     | *Threshold*            | The percentage that causes the autoscale rule to trigger an action.                                                 | 70             |
-    | *Duration*             | The amount of time monitored before the metric and threshold values are compared.                                   | 10 minutes     |
-    | *Operation*            | Defines if the scale set should scale up or down when the rule applies and by what increment                        | Increase percent by |
+    | *Duration*             | The amount of time monitored before the metric and threshold values are compared. Does not include cool down period.                                   | 10 minutes     |
+    | *Operation*            | Defines if the scale set should scale up or down when the rule applies and by what increment.                        | Increase percent by |
     | *Instance count*       | The percentage of VM instances should be changed when the rule triggers.                                            | 20             |
     | *Cool down (minutes)*  | The amount of time to wait before the rule is applied again so that the autoscale actions have time to take effect. | 5 minutes      |
 

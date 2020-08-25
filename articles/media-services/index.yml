@@ -57,7 +57,7 @@ conceptualContent:
           - url: ./latest/media-services-apis-overview.md
             itemType: concept
             text: Develop with Media Services v3
-          - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+          - url: /samples/browse/?products=azure-media-services
             itemType: sample
             text: Code samples
           - url: ./latest/release-notes.md
@@ -143,7 +143,4 @@ additionalContent:
         url: https://docs.microsoft.com/azure/cdn         
       - title: Event Grid
         summary: Learn how to use Azure Event Grid to react to relevant events     
-        url: https://docs.microsoft.com/azure/event-grid/
-        
-
-  
+        url: ../event-grid/index.yml

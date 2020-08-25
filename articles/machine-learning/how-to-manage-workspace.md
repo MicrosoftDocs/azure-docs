@@ -5,12 +5,11 @@ description: Learn how to create, view, and delete Azure Machine Learning worksp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 ---
 

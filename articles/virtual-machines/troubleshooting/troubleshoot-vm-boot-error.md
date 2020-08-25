@@ -31,7 +31,7 @@ Follow the mitigation steps below depending on the error you receive:
 * If you're getting the error **Unknown filesystem**, this error can result from a file system corruption on the boot partition, or an incorrect kernel configuration.
 
    * For file system issues, follow the steps in the article [Linux Recovery: Cannot SSH to Linux VM due to file system errors (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * For kernel issues, follow the steps in the article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems), or [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
+   * For kernel issues, follow the steps in the article [Linux Recovery: Manually fixing non-boot issues related to Kernel problems](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/), or [Linux Recovery: Fixing non-boot issues related to Kernel problems using chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### Error - File not found
 

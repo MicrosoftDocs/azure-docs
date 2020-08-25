@@ -46,7 +46,7 @@ If you meet the above qualifications, contact a partner from the below list to p
 
 - Zones – Contact Details: cloudsupport@zones.com
 - Wortell – Contact Details: info@wortell.nl
-- Logicalis – Contact Details: Matthew.Curtis@us.logicalis.com 
+- Logicalis – Contact Details: logicalisleads@us.logicalis.com
 
 ### Become a Partner
 

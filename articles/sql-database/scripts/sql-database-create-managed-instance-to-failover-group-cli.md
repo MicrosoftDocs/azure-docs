@@ -12,7 +12,7 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use CLI to add an Azure SQL Managed Instance to a failover group
+# Use CLI to create an Azure SQL Managed Instance to a failover group
 
 This Azure CLI example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance.
 

@@ -95,7 +95,7 @@ To see its true capabilities for scaling, especially at larger DWUs, we recommen
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
+Azure built-in roles such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
 ## View current DWU settings
 

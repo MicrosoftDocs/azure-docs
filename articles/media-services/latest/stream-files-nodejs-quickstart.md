@@ -11,7 +11,7 @@ keywords: azure media services, stream
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.date: 08/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
@@ -32,8 +32,8 @@ By the end of the tutorial you will be able to stream a video.
 ## Prerequisites
 
 - Install [Node.js](https://nodejs.org/en/download/)
-- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
+- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
 
 ## Download and configure the sample
 
@@ -45,7 +45,7 @@ Clone a GitHub repository that contains the streaming Node.js sample to your mac
 
 The sample is located in the [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample) folder.
 
-Open [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) in you downloaded project. Replace the `endpoint config` values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
+Open [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) in you downloaded project. Replace the `endpoint config` values with credentials that you got from [accessing APIs](./access-api-howto.md).
 
 The sample performs the following actions:
 
@@ -98,7 +98,7 @@ az group delete --name amsResourceGroup
 
 ## See also
 
-[Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+[Job error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Next steps
 

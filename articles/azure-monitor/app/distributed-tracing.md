@@ -51,5 +51,6 @@ The OpenCensus website maintains API reference documentation for [Python](https:
 ## Next steps
 
 * [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
-* [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)
+* [Application map](./app-map.md)
+* [End-to-end performance monitoring](../learn/tutorial-performance.md)
+

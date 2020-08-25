@@ -6,8 +6,9 @@ ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
-ms.custom: subject-policy-samples
+ms.custom: subject-policy-samples, devx-track-java
 ---
+
 # Azure Policy built-in definitions for Azure Spring Cloud
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy

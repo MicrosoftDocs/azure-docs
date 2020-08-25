@@ -201,7 +201,7 @@ Your security team needs visibility into your Azure resources in order to assess
 You can use [RBAC](/azure/role-based-access-control/overview) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 **Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.
-**Detail**: Use [built-in RBAC roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
+**Detail**: Use [Azure built-in roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
 
 > [!Note]
 > Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Azure AD.
@@ -213,7 +213,7 @@ You can use [RBAC](/azure/role-based-access-control/overview) to assign permissi
 * **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
-**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [custom roles for Azure resources](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
+**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
 **Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the RBAC [Security Admin](/azure/role-based-access-control/built-in-roles#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.

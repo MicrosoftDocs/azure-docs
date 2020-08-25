@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 ---
 
 # Manage indexing policies in Azure Cosmos DB

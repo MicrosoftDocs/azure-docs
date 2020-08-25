@@ -4,7 +4,7 @@ description: This quickstart provides a Node.js code sample you can use to conne
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019]
+ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript]
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019

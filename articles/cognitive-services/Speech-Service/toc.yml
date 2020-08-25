@@ -416,6 +416,8 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Add language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
+                - name: Use Custom Voice
+                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integrate
               items:
                 - name: Integrate with a client app using Speech SDK
@@ -452,6 +454,8 @@
               href: faq-voice-assistants.md
             - name: Speech SDK
               href: speech-sdk.md
+            - name: Custom Commands encryption of data at rest
+              href: custom-commands-encryption-of-data-at-rest.md
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?

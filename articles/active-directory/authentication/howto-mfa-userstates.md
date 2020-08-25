@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -53,7 +53,7 @@ Use the following steps to access the Azure portal page where you can view and m
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Search for and select *Azure Active Directory*, then select **Users** > **All users**.
 1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
-    [![](media/howto-mfa-userstates/selectmfa-cropped.png "Select Multi-Factor Authentication from the Users window in Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+    [![Select Multi-Factor Authentication from the Users window in Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. A new page opens that displays the user state, as shown in the following example.
    ![Screenshot that shows example user state information for Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 
@@ -77,7 +77,7 @@ After you enable users, notify them via email. Tell the users that a prompt is d
 
 ## Change state using PowerShell
 
-To change the user state by using [Azure AD PowerShell](/powershell/azure/overview), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
+To change the user state by using [Azure AD PowerShell](/powershell/azure/), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
 
 * *Enabled*
 * *Enforced*
@@ -176,12 +176,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> We recently changed the behavior and this PowerShell script. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
->
 > If MFA is re-enabled on a user object that already has registration details, such as phone or email, then administrators need to have that user re-register MFA via Azure portal or PowerShell. If the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI.
 
 ## Next steps
 
-To configure Azure Multi-Factor Authentication settings like trusted IPs, custom voice messages, and fraud alerts, see  [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md). To manage user settings for Azure Multi-Factor Authentication, see [Manage user settings with Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+To configure Azure Multi-Factor Authentication settings, see  [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
+
+To manage user settings for Azure Multi-Factor Authentication, see [Manage user settings with Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 To understand why a user was prompted or not prompted to perform MFA, see [Azure Multi-Factor Authentication reports](howto-mfa-reporting.md).

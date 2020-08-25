@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/24/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -210,6 +210,12 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
+
+        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+
+        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Click **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume. 

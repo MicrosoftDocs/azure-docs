@@ -5,16 +5,18 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # SaaS offer creation checklist in Partner Center
 
-The SaaS offer creation process will take you through multiple pages.  Here are the details you can provide on each page, with links to learn more about each item.
+The SaaS offer creation process takes you through multiple pages.  This article describes the details you can provide on each page, with links to learn more about each item.
 
-Items you are required to provide or specify are noted below.  Some areas are optional or have default values provided, that you can change as desired.  You don't have to work on these sections in the order listed here.
+> [!NOTE]
+> If you're creating a transactable SaaS offer please make sure you implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-apis.md).  Integration with the APIs is the only way for the transactability in Marketplace to work properly. You also need to make sure your app uses Azure AD authentication with single sign on (SSO). See [Azure AD and transactable SaaS offers in the commercial marketplace](../azure-ad-saas.md).
 
->[!Note]
->If you are creating transactable SaaS offer please make sure you implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-apis.md).  Integration with the APIs is the only way for the transactability in Marketplace to work properly.
+Items you're required to provide or specify are noted below.  Some areas are optional or have default values provided, that you can change as desired.  You don't have to work on these sections in the order listed here.
 
 | **Item**    | **Purpose**  |
 | :---------- | :-------------------|
@@ -23,7 +25,7 @@ Items you are required to provide or specify are noted below.  Some areas are op
 | [Properties Page](#properties-page) | Define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. |
 | [Offer Listing Page](#offer-listing-page) | Define the offer details to be displayed in the marketplace, including descriptions of your offer and marketing assets.|
 | [Preview Page](#preview-page) | Define a limited Preview Audience for releasing your offer prior to publishing your offer live to the broader marketplace audience(s).|
-| [Offer Technical Configuration Page](#technical-configuration-page)  |  Only available if you select to sell the offer through Microsoft.  Define the technical details (Landing page URL, Connection webhook URL, Azure AD tenant ID, and Azure AD app ID) used by marketplace to connect to your offer.  These parameters are required to integrate correctly with SaaS fulfillment and the Marketplace metered billing APIs.|
+| [Technical configuration Page](#technical-configuration-page)  |  Only available if you select to sell the offer through Microsoft.  Define the technical details (Landing page URL, Connection webhook URL, Azure AD tenant ID, and Azure AD app ID) used by marketplace to connect to your offer.  These parameters are required to integrate correctly with SaaS fulfillment and the Marketplace metered billing APIs.|
 | [**New Plan Modal**](#plan-identity-modal) | Collects plan identity information.  |
 | [Plan Listing Page](#plan-listing-page)  | Only available if you select to sell the offer through Microsoft. Define the details used to list the Plan in the marketplace.  |
 | [Plan Pricing & Availability Page](#plan-pricing--availability-page)  | Only available if you select to sell the offer through Microsoft.  Collects the business characteristics (pricing model), audience and market availability for each plan (version) of your offer.  |
@@ -31,10 +33,9 @@ Items you are required to provide or specify are noted below.  Some areas are op
 | Test Drive Technical Configuration Page  | Only available if you select to offer a test drive for your offer. Define the technical details for the  demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it.  |
 | [Review and Publish Page](#review-and-publish-page)  | Select the changes you want to publish, see the status of each page, and provide notes to the certification team.  |
 
+## New offer modal
 
-## New offer modal 
-
-The first pieces of information you will be asked to provide are an ID and alias for your offer. 
+The first pieces of information you will be asked to provide are an ID and alias for your offer.
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 
@@ -101,6 +102,9 @@ The preview page is where you specify the audience to have access to your offer 
 ## Technical configuration page 
 
 The technical configuration page is where you specify the technical details used by Microsoft to connect to your offer. This page is not visible to you if you decided not to sell through Microsoft.
+
+> [!NOTE]
+> For transactable offers, you must create a landing page and your app must use Azure AD authentication with single sign on (SSO). For more information, see [Azure AD and transactable SaaS offers in the commercial marketplace](../azure-ad-saas.md).
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 

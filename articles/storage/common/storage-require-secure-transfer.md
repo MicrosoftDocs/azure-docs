@@ -47,7 +47,7 @@ You can turn on the **Secure transfer required** property when you create a stor
 
 ## Require secure transfer from code
 
-To require secure transfer programmatically, set the _supportsHttpsTrafficOnly_ property on the storage account. You can set this property by using the Storage Resource Provider REST API, client libraries, or tools:
+To require secure transfer programmatically, set the _enableHttpsTrafficOnly_ property to _True_ on the storage account. You can set this property by using the Storage Resource Provider REST API, client libraries, or tools:
 
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

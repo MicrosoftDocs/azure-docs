@@ -2,7 +2,7 @@
 title: 'Azure VPN Gateway: Troubleshoot Point-to-Site connections: Mac OS X clients'
 description: Steps to troubleshoot P2S Mac OS X VPN client connections
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting

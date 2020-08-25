@@ -61,6 +61,6 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 
 ## Next steps
 
-* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
+* Learn more about HPC VM sizes for [Linux](../../sizes-hpc.md) and [Windows](../../sizes-hpc.md) in Azure.
 
-* Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+* Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) in Azure.

@@ -97,6 +97,10 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
    2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
+   
+   >[!NOTE]
+   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
    >[!IMPORTANT]

@@ -5,7 +5,7 @@ description: In this quickstart, you detect faces from an image using the Face A
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
+ms.custom: devx-track-javascript
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart

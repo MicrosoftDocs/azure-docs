@@ -13,7 +13,7 @@ ms.author: cshoe
 > [!NOTE]
 > Azure Mobile Apps bindings are only available to Azure Functions 1.x. They are not supported in Azure Functions 2.x and higher.
 
-This article explains how to work with [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
+This article explains how to work with [Azure Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) bindings in Azure Functions. Azure Functions supports input and output bindings for Mobile Apps.
 
 The Mobile Apps bindings let you read and update data tables in mobile apps.
 

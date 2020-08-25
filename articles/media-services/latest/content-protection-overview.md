@@ -240,7 +240,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` has a value of the requested key. You can use `AlternativeMediaId` if you want to map the request to an entity on your side. For example, `AlternativeMediaId` can be used to help you look up permissions.
 
-For REST examples that use custom license/key acquisition URLs, see [Streaming Policies - Create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+For REST examples that use custom license/key acquisition URLs, see [Streaming Policies - Create](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
@@ -262,4 +262,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Storage side encryption](storage-account-concept.md#storage-side-encryption)
 * [Frequently asked questions](frequently-asked-questions.md)
-* [JSON Web Token Handler](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [JSON Web Token Handler](/dotnet/framework/security/json-web-token-handler)

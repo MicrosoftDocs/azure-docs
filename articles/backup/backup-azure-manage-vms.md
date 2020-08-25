@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.reviewer: sogup
@@ -135,7 +135,7 @@ To stop protection and delete data of a VM:
     ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 > [!NOTE]
-> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](https://docs.microsoft.com/azure/backup/soft-delete-virtual-machines). <br>In addition, you can also [enable or disable soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
+> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](./soft-delete-virtual-machines.md). <br>In addition, you can also [enable or disable soft delete](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
 
 ## Resume protection of a VM
 
@@ -169,7 +169,7 @@ There are two ways to delete a VM's backup data:
 
   * To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
-To protect your data, Azure Backup includes the soft delete feature. With soft delete, even after the backup (all the recovery points) of a VM is deleted, the backup data is retained for 14 additional days. For more information, see [the soft delete documentation](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+To protect your data, Azure Backup includes the soft delete feature. With soft delete, even after the backup (all the recovery points) of a VM is deleted, the backup data is retained for 14 additional days. For more information, see [the soft delete documentation](./backup-azure-security-feature-cloud.md).
 
   > [!NOTE]
   > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
@@ -184,4 +184,4 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 
 * Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
 * Learn how to [restore VMs](backup-azure-arm-restore-vms.md).
-* Learn how to [monitor Azure VM backups](backup-azure-monitor-vms.md).
+* Learn how to [monitor Azure VM backups](./backup-azure-monitoring-built-in-monitor.md).

@@ -17,19 +17,19 @@ To create, edit, and test Stream Analytics job outputs, you can use the [Azure p
 
 Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput. The following table shows features that are supported for each output type:
 
-| Output type | Partitioning | Batching | Security | 
-|-------------|--------------|----------|------------------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Yes|Access key|
-|[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|Yes|SQL user auth|
-|[Azure Synapse Analytics (Preview)](azure-synapse-analytics-output.md)|No|Yes|SQL user auth|
-|[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Yes|MSI|
-|[Event Hubs](event-hubs-output.md)|Yes|Yes|Access key|
-|[Power BI](power-bi-output.md)|No|Yes|MSI|
-|[Table storage](table-storage-output.md)|Yes|Yes|Account key|
-|[Service Bus queues](service-bus-queues-output.md)|Yes|Yes|Access key|
-|[Service Bus topics](service-bus-topics-output.md)|Yes|Yes|Access key|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Yes|Access key|
-|[Azure Functions](azure-functions-output.md)|Yes|Yes|Access key|
+| Output type | Partitioning | Security | 
+|-------------|--------------|----------|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Access key|
+|[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|SQL user auth <\br> MSI (Preview)|
+|[Azure Synapse Analytics (Preview)](azure-synapse-analytics-output.md)|No|SQL user auth|
+|[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI|
+|[Azure Event Hubs](event-hubs-output.md)|Yes|Access key|
+|[Power BI](power-bi-output.md)|No|MSI|
+|[Azure Table storage](table-storage-output.md)|Yes|Account key|
+|[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key|
+|[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key|
+|[Azure Functions](azure-functions-output.md)|Yes|Access key|
 
 ## Partitioning
 
@@ -37,7 +37,7 @@ The number of output writers can be controlled using an `INTO <partition count>`
 
 ## Output batch size
 
-Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically the Stream Analytics engine doesn't write one message at a time, and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
+All outputs support batching, but only some support batch size explicitly. Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically the Stream Analytics engine doesn't write one message at a time, and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
 
 ## Next steps
 > [!div class="nextstepaction"]

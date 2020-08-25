@@ -247,7 +247,7 @@ Before you can authenticate your users to Office 365, you must provision Azure A
 
 Azure AD Connect can be used to provision principals to your domains in your Azure AD Directory from the on-premises Active Directory. For more detailed information, see [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md).
 
-Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure Active Directory Modules](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
+Windows PowerShell can also be used to automate adding new users to Azure AD and to synchronize changes from the on-premises directory. To use the Windows PowerShell cmdlets, you must download the [Azure Active Directory Modules](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 This procedure shows how to add a single user to Azure AD.
 

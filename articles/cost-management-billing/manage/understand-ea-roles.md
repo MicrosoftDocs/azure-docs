@@ -26,7 +26,7 @@ The first enrollment administrator that is set up during the enrollment provisio
 
 For example, if the initial authentication type is set to Mixed, the EA will be added as a Microsoft account and the Bill-to contact will have read-only EA admin privileges. If the EA admin doesn’t approve Microsoft account authorization for an existing Bill-to contact, the EA admin may delete the user in question and ask the customer to add the user back as a read-only administrator with a Work or School account Only set at enrollment level in the EA portal.
 
-These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 The following sections describe the limitations and capabilities of each role.
 
@@ -115,4 +115,4 @@ You set the Enterprise admin role and view charges policies in the Enterprise po
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
 - [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
-- [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)
+- [Azure built-in roles](../../role-based-access-control/built-in-roles.md)

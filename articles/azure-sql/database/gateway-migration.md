@@ -12,7 +12,7 @@ ms.reviewer: vanto
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 As Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. In the coming months, we plan to add gateways built on newer hardware generations, migrate traffic to them, and eventually decommission gateways built on older hardware in some regions.  
 
@@ -21,6 +21,19 @@ Customers will be notified via email and in the Azure portal well in advance of 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+### September 2020
+
+New SQL Gateways are being added to the following regions:
+
+- North Europe : 13.74.104.113 
+- West US2 : 40.78.248.10 
+- West Europe : 52.236.184.163 
+- South Central US : 20.45.121.1, 20.49.88.1 
+
+Existing SQL Gateways will start accepting traffic in the following regions:
+- Japan East : 40.79.184.8, 40.79.192.5
+
+These SQL Gateways shall start accepting customer traffic on 1 September 2020. 
 
 ### August 2020
 

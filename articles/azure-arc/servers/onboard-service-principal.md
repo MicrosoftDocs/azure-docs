@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ---
 # Connect hybrid machines to Azure at scale
@@ -70,7 +70,7 @@ The **Azure Connected Machine Onboarding** role contains only the permissions re
 
 ## Install the agent and connect to Azure
 
-The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article. The difference is in the final step where you establish the connection to Azure Arc using the `azcmagent` command using the service principal. 
+The following steps install and configure the Connected Machine agent on your hybrid machines by using the script template, which performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article. The difference is in the final step where you establish the connection to Azure Arc using the `azcmagent` command using the service principal.
 
 The following are the settings that you configure the `azcmagent` command to use for the service principal.
 
@@ -103,6 +103,10 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
   --location "{resourceLocation}" `
   --subscription-id "{subscriptionID}"
 ```
+
+>[!NOTE]
+>The script only supports running from a 64-bit version of Windows PowerShell.
+>
 
 ### Linux installation script
 

@@ -5,8 +5,8 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 06/24/2019
+ms.topic: how-to
+ms.date: 07/24/2019
 ms.author: banders
 
 ---

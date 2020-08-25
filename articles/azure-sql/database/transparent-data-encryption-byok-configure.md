@@ -27,7 +27,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 - Create an Azure Key Vault and Key to use for TDE.
   - [Instructions for using a hardware security module (HSM) and Key Vault](../../key-vault/keys/hsm-protected-keys.md)
     - The key vault must have the following property to be used for TDE:
-  - [soft-delete](../../key-vault/general/overview-soft-delete.md) and purge protection
+  - [soft-delete](../../key-vault/general/soft-delete-overview.md) and purge protection
 - The key must have the following attributes to be used for TDE:
   - No expiration date
   - Not disabled

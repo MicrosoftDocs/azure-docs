@@ -5,7 +5,7 @@ author: v-miegge
 manager: barbkess
 
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
 
@@ -34,6 +34,8 @@ A major cause of these symptoms is that the application instance is not able to 
 When applications or functions rapidly open a new connection, they can quickly exhaust their pre-allocated quota of the 128 ports. They are then blocked until a new SNAT port becomes available, either through dynamically allocating additional SNAT ports, or through reuse of a reclaimed SNAT port. Applications or functions that are blocked because of this inability to create new connections will begin experiencing one or more of the issues described in the **Symptoms** section of this article.
 
 ## Avoiding the problem
+
+If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) and service endpoints. When you use VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions.
 
 Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port.
 

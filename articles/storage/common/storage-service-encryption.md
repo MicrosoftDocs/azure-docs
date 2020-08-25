@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -35,17 +35,17 @@ For information about encryption and key management for Azure managed disks, see
 Data in a new storage account is encrypted with Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 
 - You can specify a *customer-managed key* with Azure Key Vault to use for encrypting and decrypting data in Blob storage and in Azure Files.<sup>1,2</sup> For more information about customer-managed keys, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md).
-- You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage (preview)](encryption-customer-provided-keys.md).
+- You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 The following table compares key management options for Azure Storage encryption.
 
-| Key management option | Microsoft-managed keys | Customer-managed keys | Customer-provided keys |
-| -------- | ---------------------- | --------------------- | ---------------------- |
-|    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files<sup>1,2</sup>                                                                                                               |    Blob storage                                                                  |
-|    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Customer's own key store                                                                 |
-|    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
-|    Key control                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
+| Key management parameter | Microsoft-managed keys | Customer-managed keys | Customer-provided keys |
+|--|--|--|--|
+| Encryption/decryption operations | Azure | Azure | Azure |
+| Azure Storage services supported | All | Blob storage, Azure Files<sup>1,2</sup> | Blob storage |
+| Key storage | Microsoft key store | Azure Key Vault | Customer's own key store |
+| Key rotation responsibility | Microsoft | Customer | Customer |
+| Key control | Microsoft | Customer | Customer |
 
 <sup>1</sup> For information about creating an account that supports using customer-managed keys with Queue storage, see [Create an account that supports customer-managed keys for queues](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> For information about creating an account that supports using customer-managed keys with Table storage, see [Create an account that supports customer-managed keys for tables](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
@@ -62,6 +62,11 @@ After you have created an encryption scope, you can specify that encryption scop
 
 > [!NOTE]
 > Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) accounts during preview.
+
+> [!IMPORTANT]
+> The encryption scopes preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+>
+> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ### Create a container or blob with an encryption scope
 

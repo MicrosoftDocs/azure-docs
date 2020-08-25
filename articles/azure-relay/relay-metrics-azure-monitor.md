@@ -24,7 +24,7 @@ Metrics are enabled by default, and you can access the most recent 30 days of da
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![A page titled "Monitor - Metrics (preview)" shows a line graph of memory usage for the last 30 days.][1]
 
 You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. 
 

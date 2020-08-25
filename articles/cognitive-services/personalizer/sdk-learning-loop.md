@@ -3,7 +3,7 @@ title: "Quickstart: Create and use learning loop with SDK - Personalizer"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
 ---
 

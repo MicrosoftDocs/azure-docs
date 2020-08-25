@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 03/26/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ---
 # Quickstart: Analyze a remote image using the REST API and JavaScript in Computer Vision
 

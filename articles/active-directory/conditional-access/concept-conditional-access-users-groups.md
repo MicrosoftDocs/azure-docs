@@ -37,7 +37,10 @@ The following options are available to include when creating a Conditional Acces
    - Directory roles
       - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role.
    - Users and groups
-      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
+      - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
+
+> [!WARNING]
+> If users or groups are a member of over 2048 groups their access may be blocked. This limit applies to both direct and nested group membership.
 
 ## Exclude users
 

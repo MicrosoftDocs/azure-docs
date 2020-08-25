@@ -262,7 +262,7 @@
       items:
       - name: Monitor a storage account
         href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Migrate from classic metrics
+      - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitoring (classic)
         items:
@@ -280,6 +280,8 @@
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: NFS 3.0 protocol support
+      href: network-file-system-protocol-support.md
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -403,11 +405,11 @@
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure firewalls and virtual networks
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Configure Transport Layer Security (TLS)
+        - name: Manage Transport Layer Security (TLS)
           items:
-          - name: Configure minimum TLS version for a storage account
+          - name: Enforce minimum TLS version for incoming requests
             href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json 
-          - name: Configure TLS for a client application
+          - name: Configure TLS version for a client application
             href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Set and manage immutability policies
         href: storage-blob-immutability-policies-manage.md
@@ -469,12 +471,12 @@
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Mount Blob storage as a file system on Linux
+      - name: Mount storage from Linux using NFS
+        href: network-file-system-protocol-support-how-to.md
+      - name: Mount storage from Linux using blobfuse
         href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Storage migration FAQ
-        href: ../common/storage-migration-faq.md
     - name: Develop with blobs
       items:
       - name: C++
@@ -523,6 +525,10 @@
         href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs show
         href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy load
+        href: ../common/storage-ref-azcopy-load.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy load clfs
+        href: ../common/storage-ref-azcopy-load-avere-cloud-file-system.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy list
         href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login
@@ -662,6 +668,9 @@
         href: security-recommendations.md
       - name: Access control (directories and files)
         href: data-lake-storage-access-control.md
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
     - name: Compatibility
       items:
       - name: Multi-protocol access
@@ -676,7 +685,7 @@
       items:
       - name: Monitor a storage account
         href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Migrate from classic metrics
+      - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitoring (classic)
         items:

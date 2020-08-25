@@ -82,7 +82,7 @@ Variables conform to the following JSON example:
       "label": "Good"
     },
     {
-      "values": [3],
+      "values": [4],
       "label": "Bad"
     }
   ],

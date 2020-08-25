@@ -6,7 +6,9 @@ ms.topic: quickstart
 description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a Java application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
+ms.custom: devx-track-java
 ---
+
 # Quickstart: Debug and iterate on Kubernetes with Visual Studio Code and Java - Azure Dev Spaces
 
 In this quickstart, you set up Azure Dev Spaces with a managed Kubernetes cluster, and use a Java app in Visual Studio Code to iteratively develop and debug code in containers. Azure Dev Spaces lets you debug and test all the components of your application in Azure Kubernetes Service (AKS) with minimal development machine setup. 

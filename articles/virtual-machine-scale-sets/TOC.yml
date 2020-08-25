@@ -126,7 +126,6 @@
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
         maintainContext: true
-      maintainContext: true
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
       maintainContext: true
@@ -137,7 +136,6 @@
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
         maintainContext: true
-      maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
       maintainContext: true
@@ -148,9 +146,14 @@
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
         maintainContext: true
-      maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
+      maintainContext: true
+    - name: Azure VMs with no temp disk
+      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      maintainContext: true
+    - name: Azure VM sizes naming conventions
+      href: ../virtual-machines/vm-naming-conventions.md
       maintainContext: true
     - name: Azure compute units (ACU)
       href: ../virtual-machines/acu.md
@@ -182,7 +185,7 @@
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md
+      href: ../virtual-machines/ephemeral-os-disks.md
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
@@ -201,11 +204,13 @@
       href: ../virtual-machines/windows/security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Azure security baseline
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true
   - name: Monitoring
-    href: ../virtual-machines/windows/monitor.md
+    href: ../azure-monitor/insights/monitor-vm-azure.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -384,7 +389,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: REST
     href: /rest/api/virtualmachinescalesets/
   - name: Azure templates

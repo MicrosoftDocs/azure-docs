@@ -8,8 +8,8 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
 
 ---
@@ -234,9 +234,16 @@ Limitations and known issues for data drift monitors:
 
 ## Azure Machine Learning designer
 
-Known issues:
+* **Long compute preparation time:**
 
-* **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
+It may be a few minutes or even longer when you first connect to or create a compute target. 
+
+From the Model Data Collector, it can take up to (but usually less than) 10 minutes for data to arrive in your blob storage account. Wait 10 minutes to ensure cells below will run.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## Train models
 
@@ -357,6 +364,12 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Missing user interface items in studio
+
+Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from showing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio.
+
+For more information, see [Manage users and roles](how-to-assign-roles.md).
 
 ## Next steps
 

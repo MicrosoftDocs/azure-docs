@@ -59,7 +59,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | AVI (Uncompressed 8bit/10bit) |Yes |Yes |
 | 3GPP/3GPP2 |Yes |No |
 | Smooth Streaming File Format (PIFF 1.3) |Yes |No |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) |Yes |No |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) |Yes |No |
 | Matroska/WebM |Yes |No |
 | QuickTime (.mov) |Yes |No |
 

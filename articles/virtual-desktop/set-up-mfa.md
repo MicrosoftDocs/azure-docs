@@ -13,7 +13,7 @@ manager: lizross
 # Enable Azure Multi-Factor Authentication for Windows Virtual Desktop
 
 >[!IMPORTANT]
-> If you're visiting this page from the Fall 2019 documentation, make sure to [return to the Fall 2019 documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
+> If you're visiting this page from the Windows Virtual Desktop (classic) documentation, make sure to [return to the Windows Virtual Desktop (classic) documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
@@ -45,10 +45,10 @@ Here's how to create a Conditional Access policy that requires multi-factor auth
 7. Select **Done**.
 8. Under **Cloud apps or actions** > **Include**, select **Select apps**.
 9. Select one of the following groups of apps based on which version of Windows Virtual Desktop you're using.
-   - If you're using the Fall 2019 release, choose these two apps:
+   - If you're using Windows Virtual Desktop (classic), choose these two apps:
        - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
        - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739)
-   - If you're using the Spring 2020 release, choose these two apps instead:
+   - If you're using Windows Virtual Desktop, choose these two apps instead:
        -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
        -  **Windows Virtual Desktop Client** (App ID a85cf173-4192-42f8-81fa-777a763e6e2c)
 

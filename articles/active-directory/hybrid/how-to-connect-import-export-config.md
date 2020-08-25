@@ -66,17 +66,13 @@ Migration requires running a PowerShell script that extracts the existing settin
 ### Migration Process 
 To migrate the settings, do the following:
 
-1. Open cmd as administrator on the new staging server.
-2. Extract **AzureADConnect.msi** by running the following:
-  `msiexec /a msifile/qb TARGETDIR=targetpath` where the **msifile** is the address of the msi and the **targetpath** is the directory you want to extract the files to.
-   
-   Example:
-    `msiexec /a "C:\Holding\AzureADConnect.msi" TARGETDIR="C:\extractedfiles"`
-3. Copy **MigrateSettings.ps1** from the Microsoft Azure AD Connect\Tools directory to a location on the existing server.  For example, C:\setup.  Where setup is a directory that was created on the existing server.
+1. Launch **AzureADConnect.msi** on the new staging server and stop at the Welcome page of Azure AD Connect.
+
+2. Copy **MigrateSettings.ps1** from the Microsoft Azure AD Connect\Tools directory to a location on the existing server.  For example, C:\setup.  Where setup is a directory that was created on the existing server.
 
    ![Connect directories](media/how-to-connect-import-export-config/migrate1.png)
 
-4. Run the script as shown below and save the entire down-level server configuration directory. Copy this directory to the new staging server. Please note you need to copy the entire **Exported-ServerConfiguration-*** folder to the new server.
+3. Run the script as shown below and save the entire down-level server configuration directory. Copy this directory to the new staging server. Please note you need to copy the entire **Exported-ServerConfiguration-*** folder to the new server.
 
    ![Connect directories](media/how-to-connect-import-export-config/migrate2.png)
    ![Connect directories](media/how-to-connect-import-export-config/migrate3.png)
@@ -99,6 +95,8 @@ Known limitations include the following:
 - **Custom Run Profiles** - although it is possible to modify the default set of run profiles using the Synchronization Service Manager, this feature is currently not supported via synchronization settings. After completing installation, you must manually reapply the advanced configuration. 
 - **Configuring the Provisioning Hierarchy** – this advanced feature of the Synchronization Service Manager is not supported via synchronization settings and must be manually reconfigured after completing the initial deployment. 
 - **AD FS and PingFederate Authentication** – the sign-on methods associated with these authentication features will be automatically pre-selected, however you must interactively supply all other required configuration parameters. 
+- **A disabled custom synchronization rule will be imported as enabled**
+A disabled custom synchronization rule will be imported as enabled. Make sure to disable it on the new server as well.
 
  ## Next Steps
 

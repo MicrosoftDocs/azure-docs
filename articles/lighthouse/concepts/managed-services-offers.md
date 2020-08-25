@@ -1,7 +1,7 @@
 ---
 title: Managed Service offers in Azure Marketplace
 description: Managed Service offers allow service providers to sell resource management offers to customers in Azure Marketplace.
-ms.date: 05/04/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ---
 
@@ -19,7 +19,10 @@ After that, users in your organization will be able to work on those resources f
 
 Each Managed Services offer includes one or more plans. Plans can be either private or public.
 
-If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
+If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
+
+> [!NOTE]
+> Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 Public plans let you promote your services to new customers. These are usually more appropriate when you only require limited access to the customer's tenant. Once you've established a relationship with a customer, if they decide to grant your organization additional access, you can do so either by publishing a new private plan for that customer only, or by [onboarding them for further access using Azure Resource Manager templates](../how-to/onboard-customer.md).
 

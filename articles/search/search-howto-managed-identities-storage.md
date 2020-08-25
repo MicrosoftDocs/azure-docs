@@ -49,17 +49,19 @@ In this step you will give your Azure Cognitive Search service permission to rea
     ![Add role assignment](./media/search-managed-identities/add-role-assignment-storage.png "Add role assignment")
 
 4. Select the appropriate role(s) based on the storage account type that you would like to index:
-    1. Azure Blob storage requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
-    1. Azure Data Lake Storage Gen2 requires that you add your search service to the **Reader and Data Access** and **Storage Blob Data Reader** roles.
-    1. Azure Table storage requires that you add your search service only to the **Reader and Data Access** role.
+    1. Azure Blob storage requires that you add your search service to the **Storage Blob Data Reader** role.
+    1. Azure Data Lake Storage Gen2 requires that you add your search service to the **Storage Blob Data Reader** role.
+    1. Azure Table storage requires that you add your search service to the **Reader and Data Access** role.
 5.	Leave **Assign access to** as **Azure AD user, group or service principal**
 6.	Search for your search service, select it, then select **Save**
 
+    Example for Azure Blob storage and Azure Data Lake Storage Gen2:
+
+    ![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
+
+    Example for Azure Table storage:
+
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Add reader and data access role assignment")
-
-Note that when connecting to Azure blob storage and Azure Data Lake Storage Gen2, you must also add the **Storage Blob Data Reader** role assignment.
-
-![Add Storage Blob Data Reader role assignment](./media/search-managed-identities/add-role-assignment-storage-blob-data-reader.png "Add Storage Blob Data Reader role assignment")
 
 ### 3 - Create the data source
 

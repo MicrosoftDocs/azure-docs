@@ -7,8 +7,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Connection Monitor (Preview)
-    href: connection-monitor-preview.md
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
   - name: Diagnose VM traffic filter problem - PowerShell
@@ -27,6 +25,8 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
+  - name: Connection Monitor (Preview)
+    href: connection-monitor-preview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
   - name: Diagnose VM routing problems
@@ -162,6 +162,10 @@
     href: view-relative-latencies.md
   - name: Monitor network performance
     href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+  - name: Move resources
+    items:
+    - name: Move Network Watcher Resources
+      href: resource-move.md
 - name: Reference
   items:
   - name: Azure CLI

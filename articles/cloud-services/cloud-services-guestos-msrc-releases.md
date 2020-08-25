@@ -10,16 +10,69 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/12/2020
+ms.date: 7/21/2020
 ms.author: yohaddad
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## July 2020 Guest OS
+>[!NOTE]
+>The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | 2.100, 3.87, 4.80 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565511]  |  Latest Cumulative Update (LCU) | 5.45 | Jul 14, 2020 |
+|  Rel 20-07 |  [4558998]  |  Latest Cumulative Update (LCU) | 6.21 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565524]  |  Monthly Rollup | 2.100 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565616]  |  Monthly Rollup | 2.100 | Jul 16, 2020 |
+|  Rel 20-07 |  [4565354]  |  Servicing Stack update | 2.100 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565612]  |  Monthly Rollup | 2.100 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565615]  |  Monthly Rollup | 3.87 | Jul 14, 2020 |
+|  Rel 20-07 |  [4566426]  |  Servicing Stack update | 3.87 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565537]  |  Monthly Rollup | 3.87 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565610]  |  Monthly Rollup | 3.87 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565541]  |  Monthly Rollup | 4.80 | Jul 14, 2020 |
+|  Rel 20-07 |  [4566425]  |  Servicing Stack update | 4.80 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565614]  |  Monthly Rollup | 4.80 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565613]  |  Monthly Rollup | 4.80 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565912]  |  Servicing Stack update | 5.45 | Jul 14, 2020 |
+|  Rel 20-07 |  [4565628]  |  Monthly Rollup | 5.45 | Jul 14, 2020 |
+|  Rel 20-07 |  [4494175]  |  Microcode | 5.45 | Feb 25, 2020 |
+|  Rel 20-07 |  [4565632]  |  Monthly Rollup | 6.21 | Jul 14, 2020 |
+|  Rel 20-07 |  [4558997]  |  Servicing Stack update | 6.21 | Jul 14, 2020 |
+|  Rel 20-07 |  [4494174]  |  Microcode | 6.21 | Feb 25, 2020 |
+
+
+[4565479]: https://support.microsoft.com/kb/4565479
+[4565511]: https://support.microsoft.com/kb/4565511
+[4558998]: https://support.microsoft.com/kb/4558998
+[4565524]: https://support.microsoft.com/kb/4565524
+[4565616]: https://support.microsoft.com/kb/4565616
+[4565354]: https://support.microsoft.com/kb/4565354
+[4565612]: https://support.microsoft.com/kb/4565612
+[4565615]: https://support.microsoft.com/kb/4565615
+[4566426]: https://support.microsoft.com/kb/4566426
+[4565537]: https://support.microsoft.com/kb/4565537
+[4565610]: https://support.microsoft.com/kb/4565610
+[4565541]: https://support.microsoft.com/kb/4565541
+[4566425]: https://support.microsoft.com/kb/4566425
+[4565614]: https://support.microsoft.com/kb/4565614
+[4565613]: https://support.microsoft.com/kb/4565613
+[4565912]: https://support.microsoft.com/kb/4565912
+[4565628]: https://support.microsoft.com/kb/4565628
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565632]: https://support.microsoft.com/kb/4565632
+[4558997]: https://support.microsoft.com/kb/4558997
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## June 2020 Guest OS
-">[!NOTE]
->The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change."
+>[!NOTE]
+>The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |

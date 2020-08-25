@@ -7,10 +7,10 @@ author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.date: 03/09/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 ---
 

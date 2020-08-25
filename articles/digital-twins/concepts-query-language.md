@@ -29,7 +29,7 @@ Azure Digital Twins provides extensive query capabilities against the twin graph
 > All Azure Digital Twins query operations are case-sensitive.
 
 Here are the operations available in Azure Digital Twins Query Store language:
-* Get twins by digital twins' properties.
+* Get twins by digital twins' properties (including [tags](how-to-use-tags.md)).
 * Get twins by digital twins' interfaces.
 * Get twins by relationship properties.
 * Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
