@@ -187,7 +187,7 @@ For SAP ASCS / SCS cluster deploy two VMs in Azure Availability Set. Deploy the 
 
 The host names and the IP addresses for the presented scenario are:
 
-| Host name role | Host name | Static IP address | Availability Set | Proximity Placement Group |
+| Host name role | Host name | Static IP address | Availability set | Proximity placement group |
 | --- | --- | --- |---| ---|
 | 1st cluster node ASCS/SCS cluster |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | 2nd cluster node ASCS/SCS cluster |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
@@ -196,7 +196,7 @@ The host names and the IP addresses for the presented scenario are:
 | ERS cluster network name (**only** for ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
 
 
-## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure Internal Load Balancer
+## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 
 SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is required to use a virtual IP address. 
 We strongly recommend using [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). 
@@ -274,7 +274,7 @@ To apply the changes, restart both cluster nodes.
 ## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Add the Windows VMs to the domain
 After you assign static IP addresses to the virtual machines, add the virtual machines to the domain. 
 
-## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Install and configure  Windows Failover Cluster 
+## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Install and configure  Windows failover cluster 
 
 ### Install the Windows failover cluster feature
 
@@ -293,7 +293,7 @@ Run this command on one of the cluster nodes:
 
 Once the feature installation has completed, reboot both cluster nodes.  
 
-### Test and Configure Windows Failover Cluster 
+### Test and configure Windows failover cluster 
 
 On Windows 2019, the cluster will automatically recognize that it is running in Azure, and as a default option for cluster management IP, it will use Distributed Network name. Therefore, it will use any of the cluster nodes local IP addresses. As a result, there is no need for a dedicated (virtual) network name for the cluster, and there is no need to configure this IP address on Azure Internal Load Balancer.
 
@@ -346,10 +346,10 @@ After you successfully install the Windows failover cluster, you need to adjust 
 
 These settings were tested with customers and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough for real error conditions in SAP workloads or VM failure.  
 
-## Configure Azure Shared Disk
+## Configure Azure shared disk
 This section is only applicable, if you are using Azure shared disk. 
 
-### Create and attach Azure Shared Disk with PowerShell
+### Create and attach Azure shared disk with PowerShell
 Run this command on one of the cluster nodes. You will need to adjust the values for your resource group, Azure region, SAPSID, and so on.  
 
    ```powershell

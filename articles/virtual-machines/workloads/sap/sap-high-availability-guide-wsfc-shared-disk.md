@@ -98,9 +98,9 @@ _SAP ASCS/SCS HA architecture with shared disk_
 
 1. Shared disk is supported with Enqueue server replication 1 architecture, where Enqueue Replication Server (ERS) instance:   
 
-- is not clustered
-- uses `localhost` name
-- is deployed on local disks on each of the cluster nodes
+   - is not clustered
+   - uses `localhost` name
+   - is deployed on local disks on each of the cluster nodes
 
 2. Shared disk is also supported with Enqueue server replication 2 architecture, where the Enqueue Replication Server 2 (ERS2) instance:  
 
