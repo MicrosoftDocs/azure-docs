@@ -55,7 +55,7 @@ Managed identities allow the vault to create and use private endpoints. This sec
 1. An **Object ID** is generated, which is the vault’s managed identity.
 
     >[!NOTE]
-    >Once enabled, the Managed Identity must NOT be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
+    >Once enabled, the Managed Identity must **not** be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 
 ## DNS changes
 
@@ -187,7 +187,7 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 ## Adding DNS records
 
 >[!NOTE]
-> This step is not required if you are using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
+> This step isn't required if you are using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
 
 Once you've created the optional private DNS zone and the private endpoints for your vault, you'll need to add DNS records to your DNS zone. You can do this either manually or using a PowerShell script. This needs to be done for your Backup DNS zone only, those for Blobs and Queues will automatically be updated.
 
