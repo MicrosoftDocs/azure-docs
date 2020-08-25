@@ -12,7 +12,7 @@ Use the information in the following tables to troubleshoot errors that you enco
 
 ## Basic troubleshooting
 
-We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Backup Server (MABS):
+We recommend you perform the following validation, before you start troubleshooting Microsoft Azure Backup Server (MABS):
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Ensure there's network connectivity between MARS agent and Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -78,7 +78,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The original and external DPM servers must be registered to the same vault | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Services vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
 
 ## Online recovery point creation jobs for VMware VM fail
 
@@ -114,7 +114,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Configuring protection groups | DPM could not enumerate the application component on the protected computer (protected computer name). | Select **Refresh** on the configure protection group UI screen at the relevant datasource/component level. |
 | Configuring protection groups | Unable to configure protection | If the protected server is a SQL server, verify that the sysadmin role permissions have been provided to the system account (NTAuthority\System) on the protected computer as described in [this article](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Configuring protection groups | There is insufficient free space in the storage pool for this protection group. | The disks that are added to the storage pool [should not contain a partition](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Delete any existing volumes on the disks. Then add them to the storage pool.|
-| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after some time has passed. If the issue persists, contact Microsoft support. | **Cause:**<br/>This error occurs under three conditions: when security settings are enabled, when you try to reduce retention range below the minimum values specified previously, and when you are on an unsupported  version. (Unsupported versions are those below Microsoft Azure Backup Server version 2.0.9052 and Azure Backup Server update 1.) <br/>**Recommended action:**<br/> To proceed with policy-related updates, set the retention period above the minimum retention period specified. (The minimum retention period is seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly.) <br><br>Optionally, another preferred approach is to update the backup agent and Azure Backup Server to leverage all the security updates. |
+| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after some time has passed. If the issue persists, contact Microsoft support. | **Cause:**<br/>This error occurs under three conditions: when security settings are enabled, when you try to reduce retention range below the minimum values specified previously, and when you are on an unsupported  version. (Unsupported versions are those lower than Microsoft Azure Backup Server version 2.0.9052 and Azure Backup Server update 1.) <br/>**Recommended action:**<br/> To proceed with policy-related updates, set the retention period above the minimum retention period specified. (The minimum retention period is seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly.) <br><br>Optionally, another preferred approach is to update the backup agent and Azure Backup Server to leverage all the security updates. |
 
 ## Backup
 
