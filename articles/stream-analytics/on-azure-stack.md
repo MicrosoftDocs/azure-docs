@@ -135,7 +135,8 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    | Event Hub policy name | The shared access policy, which you can create on the event hub's Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
    | Event Hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
 
-   ![Event Hub Output](media/on-azure-stack/event-hub-output.png)
+   > [!div class="mx-imgBorder"]
+   > ![Event Hub Output](media/on-azure-stack/event-hub-output.png)
 
 Blob Storage: 
 
