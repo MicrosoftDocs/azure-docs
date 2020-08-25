@@ -5,7 +5,7 @@ description: Azure SQL Database and Azure SQL Managed Instance automatically cre
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
@@ -40,7 +40,14 @@ The option to configure backup storage redundancy provides the flexibility to ch
 > [!IMPORTANT]
 > In SQL Managed Instance, the configured backup redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR).
 
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Redundancy is currently available as a limited private preview for certain customers in Southeast Asia Azure region. If you would like to be considered for enrollment in this private preview, please contact [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com). 
+
+If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
+
 ### Backup usage
+
 
 You can use these backups to:
 
