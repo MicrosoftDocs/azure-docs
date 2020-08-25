@@ -77,7 +77,7 @@ using System.IO;
 using System.Threading.Tasks;
 ```
 
-## Object Model 
+## Object model 
 
 With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition. 
 
