@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 Azure Time Series Insights Gen2 enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used by the [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
-Three primary API categories are available in Azure Time Series Insights Gen2 :
+Three primary API categories are available in Azure Time Series Insights Gen2:
 
 * **Environment APIs**: These APIs enable queries on the Azure Time Series Insights Gen2 environment itself. These can be used to gather the list of environments the caller has access to and environment metadata.
 * **Time Series Model-Query (TSM-Q) APIs**: Enables create, read, update, and delete (CRUD) operations on metadata stored in the Time Series Model of the environment. These can be used to access and edit the instances, types, and hierarchies.
