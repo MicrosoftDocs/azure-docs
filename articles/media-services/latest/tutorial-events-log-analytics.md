@@ -99,13 +99,13 @@ Now that you are subscribed to the event(s), create an action.
 
 1. Copy the *Workspace ID*.
     > [!div class="mx-imgBorder"]
-    > ![Log Analytics Agent Key](media/tutorial-events-log-analytics/copy-workspace-id.png)
+    > ![Copy Workspace ID](media/tutorial-events-log-analytics/copy-workspace-id.png)
 
 1. In the other browser tab or window, under the Azure Log Analytics Data Collector select **Send Data**, give your connection a name, then paste the *Workspace ID* in the **Workspace ID** field.
 
 1. Return to the Workspace browser tab or window and copy the *Workspace Key*.
     > [!div class="mx-imgBorder"]
-    > ![Log Analytics Agent Key](media/tutorial-events-log-analytics/agents-management-primary-key-10.png)
+    > ![Agents management primary key](media/tutorial-events-log-analytics/agents-management-primary-key-10.png)
 
 1. In the other browser tab or window, paste the *Workspace Key* in the **Workspace Key** field.
 
@@ -117,11 +117,11 @@ Now that you are subscribed to the event(s), create an action.
 
 1. Do the same for **Custom Log Name**.
     > [!div class="mx-imgBorder"]
-    > ![Add Event Topic](media/tutorial-events-log-analytics/topic-selected.png)
+    > ![Topic selected](media/tutorial-events-log-analytics/topic-selected.png)
 
 1. Select **Code View** of the Logic App. Look for the Inputs and Log-Type lines.
     > [!div class="mx-imgBorder"]
-    > ![Add Event Topic](media/tutorial-events-log-analytics/code-view-two-lines.png)
+    > ![Code view of two lines](media/tutorial-events-log-analytics/code-view-two-lines.png)
 
 1. Change the `body` value from `"@triggerBody()?['topic']"` to `"@{triggerBody()}"`. This is for parsing the entire message to Log Analytics.
 
