@@ -47,10 +47,13 @@ Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource
 az group create --name myresourcegroup --location westus
 ```
 
-Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command to create a server using service defaults and values from values from your Azure CLI's [local context](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest). The server is created with an auto-generated server name, admin user name, resource group name (if not already specified in local context), and in the same location as your resource group. Additionally, service defaults will be selected for remaining server configurations such as SKU (B1MS) and backup retention period (7 days).
+Create a flexible server with the `az mysql flexible-server create` command. A server can contain multiple databases. The following command to create a server using service defaults and values from values from your Azure CLI's [local context](https://docs.microsoft.com/cli/azure/local-context?view=azure-cli-latest). The server is created with an auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group. Additionally, service defaults will be selected for remaining server configurations such as tier (Burstable), SKU (B1MS) and backup retention period (7 days). The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet.  
+
+> [!NOTE] 
+> The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
 
 ```azurecli
-az mysql flexible-server create --admin-password <server_admin_password>
+az mysql flexible-server create
 ```
 
 If you'd like to change any defaults, you can specify server configurations yourself using the following Azure CLI parameters:
@@ -64,7 +67,8 @@ admin-user | myadmin | The username for the administrator login. It cannot be **
 admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 tier|Burstable|The compute tier of the server. Either "Burstable", "GeneralPurpose", or "MemoryOptimized".
 sku-name|Standard_B1ms|Enter the compute configuration. Follows the convention Standard_{VM name} in shorthand. See the compute and storage<!--[compute and storage](./concepts-compute-storage.md)--> for more information.
-public-access| IPv4 address | Determines the public access. Enter single or range of IP addresses to be included in the allowed list of IPs. IP address ranges must be dash-separated and not contain any spaces. Specifying 0.0.0.0 allows public access from any resources deployed within Azure to access your server. Specifying no IP address sets the server in public access mode, but does not create a firewall rule.
+
+Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. 
 
 >[!IMPORTANT]
 > The default MySQL version on your server is 5.7
@@ -81,6 +85,8 @@ az mysql flexible-server show --resource-group myresourcegroup --name mydemoserv
 ```
 
 The result is in JSON format. Make a note of the **fullyQualifiedDomainName** and **administratorLogin**.
+
+<!--FIXME-->
 ```json
 {
   "administratorLogin": "myadmin",
@@ -112,6 +118,8 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ## Connect to Azure Database for MySQL server using mysql command-line client
 
 You can connect to your server using a popular client tool, **[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool with [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Alternatively, you can use mysql command line on your local environment.
+
+<!-- need to decide how to connect based on connectivity method. If private access, requires a resource within the VNet to connect. May be more complicated for a quickstart? -->
 
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p

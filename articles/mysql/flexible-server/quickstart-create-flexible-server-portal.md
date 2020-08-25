@@ -56,7 +56,11 @@ Follow these steps to create a flexible server:
 
 1. Configure Networking options
 
-    On the Networking tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses. We recommend making the server publicly accessible and then restricting it to your own client IP address.
+    On the Networking tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two options to connect to your server via *Public access (allowed IP addresses)* and *Private access (VNet Integration)*. With *Public access (allowed IP addresses)*, access to your server is limited to allowed IP addresses added to a firewall rule. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. With *Private access (VNet Integration)*, access to your server is limited to your virtual network. In this quickstart, we show you how to enable public access to connect to the server.
+
+    > [!NOTE]
+    > The connectivity method cannot be changed after creating the server. For example, if you selected *Public access (allowed IP addresses)* during create then you cannot change to *Private access (VNet Integration)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. <!--Learn more about Private access in the [concepts article](./concepts-networking.md).-->
+
     <!--![The "Networking" pane](./media/quickstart-create-database-portal/5-networking.png) -->
 
     <!--![Select "Add current client IP address"](./media/quickstart-create-database-portal/6-add-client-ip.png)-->
@@ -75,6 +79,8 @@ By default, the following databases are created under your server: **information
 ## Connect to Azure Database for MySQL Flexible Server using mysql command-line client
 
 You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or MySQL Workbench <!-- [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to the server.
+
+<!-- need to decide how to connect based on connectivity method. If private access, requires a resource within the VNet to connect. May be more complicated for a quickstart? -->
 
 1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password, and subscription for your newly created server from the **Overview** section as shown in the image below.
 
