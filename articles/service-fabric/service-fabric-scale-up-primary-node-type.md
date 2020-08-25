@@ -247,7 +247,6 @@ The following snippet is an example of a new Virtual Machine Scale Set resource 
 
 ```
 
-
 5. Add a new node type to the cluster, which references the Virtual Machine Scale Set that was created above. The **isPrimary** property on this node type should be set to true. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
