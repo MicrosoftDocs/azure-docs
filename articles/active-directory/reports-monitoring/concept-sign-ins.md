@@ -43,7 +43,7 @@ This article gives you an overview of the sign-ins report.
 
 ### What Azure AD license do you need to access sign-in activity?
 
-- The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
 
 ## Sign-ins report
 
