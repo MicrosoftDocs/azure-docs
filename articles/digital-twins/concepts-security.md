@@ -80,7 +80,7 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Encryption of data at rest
 
-Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it.
+Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it. This encryption occurs using a Microsoft managed encryption key.
 
 ## Next steps
 
