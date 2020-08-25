@@ -27,7 +27,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sourceId": {
@@ -56,7 +56,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
         {
             "type":"Microsoft.Insights/scheduledQueryRules",
             "name":"Sample log query alert",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-04-16",
             "location": "[parameters('location')]",
             "properties":{
                 "description": "Sample log query alert",
@@ -93,7 +93,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "sourceId": {
@@ -116,7 +116,7 @@ The following sample creates a [metric measurement alert rule](../platform/alert
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sourceId": {
@@ -145,7 +145,7 @@ The following sample creates a [metric measurement alert rule](../platform/alert
         {
             "type":"Microsoft.Insights/scheduledQueryRules",
             "name":"Sample metric measurement log query alert",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-04-16",
             "location": "[parameters('location')]",
             "properties":{
                 "description": "Sample metric measurement query alert rule",
@@ -187,7 +187,7 @@ The following sample creates a [metric measurement alert rule](../platform/alert
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "sourceId": {

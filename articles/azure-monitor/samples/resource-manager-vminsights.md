@@ -23,7 +23,7 @@ The following sample enables Azure Monitor for VMs for a Log Analytics workspace
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceResourceId": {
@@ -79,7 +79,7 @@ The following sample enables Azure Monitor for VMs for a Log Analytics workspace
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceResourceId": {
@@ -101,7 +101,7 @@ The following sample adds an Azure virtual machine to Azure Monitor for VMs.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "VmResourceId": {
@@ -193,7 +193,7 @@ The following sample adds an Azure virtual machine to Azure Monitor for VMs.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmResourceId": {
@@ -222,7 +222,7 @@ The following sample adds an Azure virtual machine scale set to Azure Monitor fo
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "VmssResourceId": {
@@ -314,7 +314,7 @@ The following sample adds an Azure virtual machine scale set to Azure Monitor fo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "VmssResourceId": {

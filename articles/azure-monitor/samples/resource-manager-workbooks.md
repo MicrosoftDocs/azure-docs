@@ -24,7 +24,7 @@ The following sample creates a simple workbook.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workbookDisplayName":  {             
@@ -62,7 +62,7 @@ The following sample creates a simple workbook.
             "type": "Microsoft.Insights/workbooks",
             "location": "[resourceGroup().location]",
             "kind": "shared",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-06-17-preview",
             "dependsOn": [],
             "properties": {
                 "displayName": "[parameters('workbookDisplayName')]",
@@ -86,7 +86,7 @@ The following sample creates a simple workbook.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workbookDisplayName": {

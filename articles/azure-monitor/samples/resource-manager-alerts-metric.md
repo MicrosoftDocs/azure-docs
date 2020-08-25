@@ -32,7 +32,7 @@ The following sample creates a metric alert rule using a single criteria and a s
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -165,7 +165,7 @@ The following sample creates a metric alert rule using a single criteria and a s
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -201,7 +201,7 @@ The following sample creates a metric alert rule using a single criteria and a s
 ### Parameter file
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -247,7 +247,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -398,7 +398,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -441,7 +441,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -502,7 +502,7 @@ The following constraints apply when using dimensions in an alert rule that cont
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -607,7 +607,7 @@ The following constraints apply when using dimensions in an alert rule that cont
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -635,7 +635,7 @@ The following constraints apply when using dimensions in an alert rule that cont
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -715,7 +715,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -812,7 +812,7 @@ For example, a few of the potential time series that are monitored by this alert
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -840,7 +840,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -911,7 +911,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1003,7 +1003,7 @@ For example, a few of the potential time series that are monitored by this alert
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -1031,7 +1031,7 @@ For example, a few of the potential time series that are monitored by this alert
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1098,7 +1098,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1238,7 +1238,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -1276,7 +1276,7 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1348,7 +1348,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1541,7 +1541,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -1580,7 +1580,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1635,7 +1635,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1840,7 +1840,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -1884,7 +1884,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1944,7 +1944,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2138,7 +2138,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -2177,7 +2177,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2226,7 +2226,7 @@ This sample creates a Dynamic Thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2431,7 +2431,7 @@ This sample creates a Dynamic Thresholds metric alert rule that monitors Percent
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -2475,7 +2475,7 @@ This sample creates a Dynamic Thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2531,7 +2531,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 ### Parameter file
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2725,7 +2725,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -2764,7 +2764,7 @@ This sample creates a static threshold metric alert rule that monitors Percentag
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2818,7 +2818,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -3023,7 +3023,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/metricAlerts",
             "location": "global",
-            "apiVersion": "2020-08-01",
+            "apiVersion": "2018-03-01",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -3067,7 +3067,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -3130,7 +3130,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appName": {
@@ -3191,7 +3191,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
     {
       "name": "[variables('pingAlertRuleName')]",
       "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2020-08-01",
+      "apiVersion": "2018-03-01",
       "location": "global",
       "dependsOn": [
         "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
@@ -3234,7 +3234,7 @@ This sample creates a dynamic thresholds metric alert rule that monitors Percent
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
