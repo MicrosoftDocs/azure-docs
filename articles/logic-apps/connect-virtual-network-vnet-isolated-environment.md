@@ -162,9 +162,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
-* You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services. Otherwise, you get an error such as the following example:
-
-  ![Azure Storage action error resulting from inability to send traffic through firewall](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-error.png)
+* You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
 <a name="create-environment"></a>
 
