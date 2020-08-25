@@ -382,10 +382,10 @@
   items:
   - name: Documentation
     href: flexible-server/index.yml
-   - name: Overview
-  items:
-  - name: What is Flexible Server?
-    href: flexible-server/overview.md
+  - name: Overview
+    items:
+    - name: What is Flexible Server?
+      href: flexible-server/overview.md
 - name: Reference
   items:
   - name: Azure CLI
