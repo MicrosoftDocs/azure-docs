@@ -29,6 +29,16 @@ Azure Sentinel’s entity behavioral analytics capability eliminates the drudger
 
 As Azure Sentinel collects logs and alerts from all of its connected data sources, it analyzes them and builds baseline behavioral profiles of your organization’s entities (users, hosts, IP addresses, applications etc. across time and peer group horizon. Using a variety of techniques and machine learning capabilities, Sentinel can then identify anomalous activity and help you determine if an asset has been compromised. Not only that, but it can also figure out the relative sensitivity of particular assets, identify peer groups of assets, and evaluate the potential impact of any given compromised asset (its “blast radius”). Armed with this information, you can effectively prioritize your investigation and incident handling. 
 
+### Entity pages
+
+When you select any entity (user, host, URL, IP address…) in an alert or an investigation, you will land on an **entity page**, which is basically a portfolio of relevant information about that entity. Each type of entity has its own unique page, since information about users and about hosts will not be of the same type. On the user entity page, you will find basic information about the user, a list of recent events involving the user, summary counts of various types of alerts, and …
+
+### Scoring
+
+Each activity is scored with “Investigation Priority Score” – which determine the probability of a specific user performing a specific activity, based on behavioral learning of the user and their peers. Activities identified as the most abnormal receive the highest scores (on a scale of 0-10).
+
+See how behavior analytics is used in [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) for an example of how this works.
+
 ### Architecture overview
 
 :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/entity-behavior-analytics-architecture.png" alt-text="Entity behavior analytics architecture":::
@@ -47,7 +57,15 @@ Inspired by Gartner’s definition for User and Entity Behavior Analytics (UEBA)
 
 :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Behavior analytics top-down approach":::
 
+Anomalies provide 'evidence' that helps SecOps get a clear understanding of the context, and the profiling of the user.
 
+The evidence includes information about:
+- Context – Geo location, device information & TI
+- User behavior 
+- User Peers behavior
+- Organization behavior
+
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Entity context":::
 
 ## Data schema
 
