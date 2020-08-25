@@ -18,11 +18,17 @@ To help you manage Azure resources more easily, you can create and automate mana
 
 * Azure virtual machines
 
-* Azure storage accounts
+* Azure Storage accounts
 
-When you create automation tasks for a specific Azure resource in the Azure portal, you do so from that particular resource, for example, from the actual resource for the virtual machine and Azure portal page for that resource. Virtual Machines or Azure Storage accounts. these tasks are actually powered and run by [Azure Logic Apps](../logic-apps/logic-apps-overview.md). This underlying platform makes possible for you to examine the run history for a task and also the capability to edit or customize the task to your needs.
+When you create an automation task for a specific Azure resource, you do so from that specific resource in the Azure portal, for example, the actual virtual machine resource or storage account. However, behind the scenes, an automation task is actually run as a workflow by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. After an automation task runs, you can review the status, history, inputs, and outputs for that specific run instance. You can also open and edit the task template in the Logic App Designer so that you can customize the template.
 
-This article shows how to create automation tasks based on a specific Azure resource and 
+This article shows how to complete the following tasks:
+
+* Create an automation task for a specific Azure resource.
+
+* Review the status, history, inputs, and outputs for a specific run instance.
+
+* Open and edit the task template in the Logic App Designer.
 
 ## How do automation tasks differ from Azure Automation?
 
