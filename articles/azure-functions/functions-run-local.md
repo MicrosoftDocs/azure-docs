@@ -250,20 +250,21 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-+ Use Core Tools to download the connection string from Azure with one of the following commands:
++ Use Core Tools from the project root to download the connection string from Azure with one of the following commands:
 
   + Download all settings from an existing function app:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Get the Connection string for a specific storage account:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    When you aren't already signed in to Azure, you're prompted to do so.
+    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. 
 
 ## <a name="create-func"></a>Create a function
 
