@@ -2,10 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What's new
-    href: whats-new.md
   - name: What is Azure NetApp Files
     href: azure-netapp-files-introduction.md
+  - name: What's new
+    href: whats-new.md
   - name: Understand the storage hierarchy
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
