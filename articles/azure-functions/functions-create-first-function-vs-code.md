@@ -55,6 +55,8 @@ Before you get started, make sure you have the following requirements in place:
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) are supported by Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
+
 + Both [.NET Core 3.1](https://www.microsoft.com/net/download) and [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  

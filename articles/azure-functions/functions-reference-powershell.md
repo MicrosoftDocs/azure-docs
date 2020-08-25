@@ -429,7 +429,7 @@ Use the following steps to change the PowerShell version used by your function a
 Run the following script to change the PowerShell version: 
 
 ```powershell
-Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/$ResourceGroupName/providers/Microsoft.Web/sites/$AppName/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
 
 ```
 
