@@ -4,14 +4,12 @@ description: Select a protocol before creating an Azure file share
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/25/2020
 ms.author: rogarana
 ms.subservice: files
 ---
 
-# Select a protocol
-
-Azure Files is a serverless distributed file system that provides access to the same data from multiple Azure VMs, on-prem clients or multiple container pods. Azure Files guarantees data consistency and exclusive locks during shared access.  
+# Azure file share protocols
 
 Azure Files offers two protocols for connecting and mounting your Azure file shares. Server Message Block (SMB) and Network File System (NFS) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
 
