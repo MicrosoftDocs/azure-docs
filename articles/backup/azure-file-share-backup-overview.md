@@ -35,7 +35,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 5. Based on the policy specified, the Azure Backup scheduler triggers backups at the scheduled time. As part of that job, the file share snapshot is created using  the File share API. Only the snapshot URL is stored in the metadata store.
 
     >[!NOTE]
-    >The file share data is not transferred to the Backup service, since the Backup service creates and manages snapshots that are part of your storage account, and backups are not transferred to the vault.
+    >The file share data isn't transferred to the Backup service, since the Backup service creates and manages snapshots that are part of your storage account, and backups aren't transferred to the vault.
 
 6. You can restore the Azure file share contents (individual files or the full share) from snapshots available on the source file share. Once the operation is triggered, the snapshot URL is retrieved from the metadata store and the data is listed and transferred from the source snapshot to the target file share of your choice.
 

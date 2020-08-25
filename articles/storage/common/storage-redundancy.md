@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -20,7 +20,7 @@ Azure Storage always stores multiple copies of your data so that it is protected
 When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability and durability. The factors that help determine which redundancy option you should choose include:  
 
 - How your data is replicated in the primary region
-- Whether your data is replicated to a second location that is geographically distant to the primary region, to protect against regional disasters
+- Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
 
 ## Redundancy in the primary region
@@ -79,9 +79,9 @@ Azure Storage offers two options for copying your data to a secondary region:
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region.
 
-The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary location, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
+The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary region, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
 
-With GRS or GZRS, the data in the secondary location isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
+With GRS or GZRS, the data in the secondary region isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary region, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
 If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
