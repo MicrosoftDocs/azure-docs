@@ -91,7 +91,7 @@ To get the logs using Azure Toolkit for IntelliJ:
     
 1. Finally, click **Investigate Performance** to explore more powerful built-in performance analysis.
 
-    ![Distributed Tracing performance](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
+    [ ![Distributed Tracing performance](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png#lightbox)
 
 ## Clean up resources
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
