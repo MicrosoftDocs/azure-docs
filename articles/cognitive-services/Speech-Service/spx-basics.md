@@ -28,7 +28,7 @@ spx
 
 Notice **see:** help topics listed right of command parameters. You can enter these commands to get detailed help about sub-commands.
 
-You search help topics by keyword. For example, enter the following command to see a list of help topics about Speech CLI examples:
+You can search help topics by keyword. For example, enter the following command to see a list of Speech CLI usage examples:
 
 ```shell
 spx help find --topics "examples"
