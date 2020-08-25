@@ -170,7 +170,7 @@ Once deployment has completed, you can access the app at `https://<service insta
     az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
     ```
     
-    ![Streaming Logs](media/spring-cloud-quickstart-java/streaming-logs.png)
+    [ ![Streaming Logs](media/spring-cloud-quickstart-java/streaming-logs.png) ](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
 
 >[!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.

@@ -34,7 +34,7 @@ az spring-cloud app logs -s <service instance name> -g <resource group name> -n 
 
 You will see logs like
 
-   ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png)
+   [ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png#lightbox)
 
 >[!TIP]
 > Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
@@ -57,20 +57,20 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Click **Run** on one of the sample queries for Azure Spring Cloud. 
 
-    ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)
+    [ ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
 1. Then you will see filtered logs. See [Azure Log Analytics docs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) for more guidance on writing queries.
 
-    ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png)
+    [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 
 ## Metrics
 1. Go to the **service | Overview** page and select **Metrics** in the **Monitoring** section. Add your first metric by selecting `system.cpu.usage` for **Metric** and `Avg` for **Aggregation** to see the timeline for overall CPU usage.
 
-    ![Metrics entry](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png)
+    [ ![Metrics entry](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
     
 1. Click **Add filter** in the toolbar above, select `App=Gateway` to see CPU usage only for the **gateway** app.
 
-    ![Use filter in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png)
+    [ ![Use filter in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
 
 1. Dismiss the filter created above, click **Apply Splitting** and select `App` for **Values** to see CPU usage by different apps.
 
