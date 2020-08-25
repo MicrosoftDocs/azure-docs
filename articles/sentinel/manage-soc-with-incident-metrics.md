@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2020
+ms.date: 08/11/2020
 ms.author: yelevin
 
 ---
@@ -37,8 +37,30 @@ Every time you create or update an incident, a new log entry will be added to th
 
 For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [summarize operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) with the `arg_max()` [aggregation function](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
-`SecurityIncident` <br>
-`| summarize arg_max(LastModifiedTime, *) by IncidentNumber`
+
+```Kusto
+SecurityIncident
+| summarize arg_max(LastModifiedTime, *) by IncidentNumber
+```
+### More sample queries
+
+Mean time to closure:
+```Kusto
+SecurityIncident
+| summarize arg_max(TimeGenerated,*) by IncidentNumber 
+| extend TimeToClosure =  (ClosedTime - CreatedTime)/1h
+| summarize 5th_Percentile=percentile(TimeToClosure, 5),50th_Percentile=percentile(TimeToClosure, 50), 
+  90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
+```
+
+Mean time to triage:
+```Kusto
+SecurityIncident
+| summarize arg_max(TimeGenerated,*) by IncidentNumber 
+| extend TimeToTriage =  (FirstModifiedTime - CreatedTime)/1h
+| summarize 5th_Percentile=max_of(percentile(TimeToTriage, 5),0),50th_Percentile=percentile(TimeToTriage, 50), 
+  90th_Percentile=percentile(TimeToTriage, 90),99th_Percentile=percentile(TimeToTriage, 99) 
+```
 
 ## Security operations efficiency workbook
 

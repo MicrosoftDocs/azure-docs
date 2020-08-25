@@ -16,6 +16,8 @@
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
+  - name: Create internal load balancer - Azure CLI
+    href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Tutorials
   items:
@@ -134,8 +136,10 @@
       href: load-balancer-troubleshoot.md
     - name: Troubleshoot common deployment errors
       href: load-balancer-common-deployment-errors.md
-    - name: Resolve common outbound connection issues
+    - name: Troubleshoot common outbound connection issues
       href: troubleshoot-outbound-connection.md
+    - name: Troubleshoot resource health and inbound availability issues
+      href: troubleshoot-rhc.md
 - name: Reference
   items:
   - name: Code samples
