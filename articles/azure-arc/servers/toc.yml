@@ -49,3 +49,7 @@
     items:
     - name: Agent connection issues
       href: troubleshoot-agent-onboard.md
+  - name: Reference
+    items:
+    - name: REST
+      href: /rest/api/hybridcompute/
