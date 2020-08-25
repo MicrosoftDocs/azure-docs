@@ -33,7 +33,7 @@ Azure Cosmos DB’s managed attachments are distinct from its support for standa
 
 - Attachments aren't supported in all versions of Azure Cosmos DB’s SDKs.
 - Managed attachments are limited to 2 GB of storage per database account.
-- Managed attachments aren't compatible with Azure Cosmos DB’s global distribution, and aren't replicated across regions.
+- Managed attachments aren't compatible with Azure Cosmos DB’s global distribution, and they aren't replicated across regions.
 
 ## Next Steps
 
