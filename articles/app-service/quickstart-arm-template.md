@@ -15,11 +15,9 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
-None
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure App Service web app
 
@@ -31,6 +29,11 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 This template deploys an App Service Plan and an App Service App on Windows.
 
 [!code-json[<Azure Resource Manager template basic web app>](~/quickstart-templates/101-webapp-basic-windows/azuredeploy.json)]
+
+Two Azure resources are defined in the template:
+
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an Azure App Service Plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an Azure App Service web app.
 
 This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
 
@@ -62,10 +65,6 @@ This template contains several parameters that are predefined for your convenien
 ---
 ::: zone-end
 
-Two Azure resources are defined in the template:
-
-* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an Azure App Service Plan.
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an Azure App Service web app.
 
 ### Deploy the template
 
