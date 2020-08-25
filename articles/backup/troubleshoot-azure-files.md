@@ -246,7 +246,7 @@ Error Message: Azure file share snapshot corresponding to recovery point cannot 
 - Ensure that the file share snapshot, corresponding to the recovery point you're trying to use for recovery, still exists.
 
   >[!NOTE]
-  >If you delete a file share snapshot that was created by Azure Backup, the corresponding recovery points become unusable. We recommend to not delete snapshots to ensure guaranteed recovery.
+  >If you delete a file share snapshot that was created by Azure Backup, the corresponding recovery points become unusable. We recommend not deleting snapshots to ensure guaranteed recovery.
 
 - Try selecting another restore point to recover your data.
 
