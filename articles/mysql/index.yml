@@ -46,8 +46,21 @@ landingContent:
             url: quickstart-create-mysql-server-database-using-azure-cli.md
 
 # Card 3 - ADD Card for Flexible Server
-
-
+ # Card 2
+  - title: Flexible Server (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Flexible Server?
+            url: single-server-overview.md
+      - linkListType: concept
+        links:
+          - text: Understand pricing tiers
+            url: concepts-pricing-tiers.md
+      - linkListType: quickstart
+        links:
+          - text: Create a server using ARM Template
+            url: quickstart-create-flexible-server-arm-template.md
 # Card 4
   - title: Connect and query
     linkLists:
