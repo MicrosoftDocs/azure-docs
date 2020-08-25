@@ -52,7 +52,7 @@ The template on deployment spins up various Azure resources in your subscription
 - **PostgreSQL**: Database instance that maintains the Fabric CA identities.
 
 - **Key vault**: Instance of the Azure Key Vault service that's deployed to save the Fabric CA credentials and the root certificates provided by the customer. The vault is used in case of template deployment retry, to handle the mechanics of the template.
-- **Managed disk**: Instance of the Azure Managed Disks service that provide a persistent store for the ledger and for the peer node's world state database.
+- **Managed disk**: Instance of the Azure Managed Disks service that provides a persistent store for the ledger and for the peer node's world state database.
 - **Public IP**: Endpoint of the AKS cluster deployed for communicating with the cluster.
 
 ## Deploy the orderer and peer organization
