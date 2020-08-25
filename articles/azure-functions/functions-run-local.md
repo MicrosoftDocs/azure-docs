@@ -32,7 +32,7 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Unless otherwise noted, the examples in this article are for version 3.x.
+You can only install one version of Core Tools on a given computer. Unless otherwise noted, the examples in this article are for version 3.x.
 
 ## Prerequisites
 
