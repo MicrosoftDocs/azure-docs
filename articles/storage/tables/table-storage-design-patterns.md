@@ -309,7 +309,7 @@ Notice how the **RowKey** is now a compound key made up of the employee ID and t
 
 The following example outlines how you can retrieve all the review data for a particular employee (such as employee 000123 in the Sales department):  
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt '000123_2012')&$select=RowKey,Manager Rating,Peer Rating,Comments  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  

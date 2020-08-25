@@ -13,12 +13,12 @@ ms.date: 07/31/2020
 Azure Data Lake Analytics is updated on an aperiodic basis for certain components. To stay updated with the most recent update, this article provides you with information about:
 
 - The notification of key component beta preview
-- The important component version information, e.g.: the list of the component available versions, the current default version and so on.
+- The important component version information, for example: the list of the component available versions, the current default version and so on.
 
 
 ## Notification of key component beta preview
 
-There is no key component beta version available for preview. 
+No key component beta version available for preview. 
 
 ## U-SQL runtime
 
@@ -28,14 +28,13 @@ When you submit the Azure Data Lake analytics job from any tools, your job will 
 
 The runtime version will be updated aperiodically. And the previous runtime will be kept available for some time. When a new Beta version is ready for preview, it will be also available there.
 
-The following are the currently available runtime versions.
+> [!CAUTION]
+> - Choosing a runtime that is different from the default has the potential to break your U-SQL jobs. It is highly recommended not to use these non-default versions for production, but for testing only.
+> - The non-default runtime version has a fixed lifecycle. It will be automatically expired.
 
-- release-20200124live_adl_16283022_2 --> **the current default version**
-- release_20200124live_adl_16283022
-- release_20200124_adl_14480125
-- release_20190904_adl_10236248_1
-- release_20190904_adl_10236248
-- release_20190904_adl_9225818
+The following version is the current default runtime version.
+
+- release-20200124live_adl_16283022_2
 
 To get understanding how to troubleshoot U-SQL runtime failures, refer to [Troubleshoot U-SQL runtime failures](runtime-troubleshoot.md).
 

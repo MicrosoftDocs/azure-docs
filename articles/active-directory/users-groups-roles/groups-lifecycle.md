@@ -76,7 +76,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 3. On the **Expiration** page, you can:
 
-    - Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more).
+    - Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 30 days or more).
     - Specify an email address where the renewal and expiration notifications should be sent when a group has no owner.
     - Select which Microsoft 365 groups expire. You can set expiration for:
       - **All** Microsoft 365 groups
@@ -107,7 +107,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 
 ## How to retrieve Microsoft 365 group expiration date
 
-In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
+In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Azure Active Directory Groups General Setting.
@@ -174,11 +174,10 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy
-- Get-AzureADMSGroupLifecyclePolicy
 - Set-AzureADMSGroupLifecyclePolicy
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup

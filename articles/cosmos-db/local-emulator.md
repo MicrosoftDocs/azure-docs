@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
+ms.date: 08/19/2020
 ---
 
 # Use the Azure Cosmos Emulator for local development and testing
@@ -30,12 +30,13 @@ Because the Azure Cosmos Emulator provides an emulated environment running on th
 
 * Currently Data Explorer in the emulator supports clients for SQL API. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 * The Azure Cosmos Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos Emulator, however the default key can be changed using the command-line option.
+* The Azure Cosmos Emulator supports an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode; it currently doesn't support an Azure Cosmos account in [serverless](serverless.md) mode.
 * The Azure Cosmos Emulator is not a scalable service and will not support a large number of containers.
 * The Azure Cosmos Emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).
 * As your copy of the Azure Cosmos Emulator might not always be up-to-date with the most recent changes in the Azure Cosmos DB service, you should refer to the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
 * When using the Azure Cosmos Emulator, by default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
-* Emulator supports max id property size of 254 characters.
+* Emulator supports max ID property size of 254 characters.
 
 ## System requirements
 
