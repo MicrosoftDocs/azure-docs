@@ -11,6 +11,7 @@ ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
+ms.custom: references_regions
 ---
 
 # Azure Machine Learning sovereign cloud parity
@@ -234,6 +235,6 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 * IP address ranges: The CLI command used in the [VNet forced tunneling](how-to-enable-virtual-network.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
 
+## Next steps
 
-
-
+To learn more about the regions that Azure Machine learning is available in, see [Products by region](https://azure.microsoft.com/global-infrastructure/services/).
