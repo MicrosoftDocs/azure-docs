@@ -25,7 +25,7 @@ While Azure Machine Learning provides a default Docker base image, you can also 
 Run this code on either of these environments:
 * Azure Machine Learning compute instance - no downloads or installation necessary
     * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample       repository.
-    * In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ...** 
+    * In the sample notebooks repository, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > fastai > train-with-custom docker** 
 
 * Your own Jupyter Notebook server
     * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
@@ -47,7 +47,7 @@ ws = Workspace.from_config()
 ```
 
 ### Prepare scripts
-For this tutorial, the training script **train.py** is provided [here](). In practice, you can take any custom training script, as is, and run it with Azure Machine Learning.
+For this tutorial, the training script **train.py** is provided [here](https://github.com/Azure/AzureML-fastai/blob/main/fastai-example/train.py). In practice, you can take any custom training script, as is, and run it with Azure Machine Learning.
 
 ### Define your environment
 Create an environment object and enable Docker. 
@@ -93,6 +93,37 @@ fastai_env.docker.base_dockerfile = dockerfile
 # Alternatively, load the string from a file.
 fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
+```
+
+### Create or attach existing AmlCompute
+You will need to create a [compute target](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target) for training your model. In this tutorial, you create AmlCompute as your training compute resource.
+
+Creation of AmlCompute takes approximately 5 minutes. If the AmlCompute with that name is already in your workspace this code will skip the creation process.
+
+As with other Azure services, there are limits on certain resources (e.g. AmlCompute) associated with the Azure Machine Learning service. Please read [this article](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas) on the default limits and how to request more quota. 
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# choose a name for your cluster
+cluster_name = "gpu-cluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target.')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6',
+                                                           max_nodes=4)
+
+    # create the cluster
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True)
+
+# use get_status() to get a detailed status for the current AmlCompute
+print(compute_target.get_status().serialize())
 ```
 
 ### Create a ScriptRunConfig
