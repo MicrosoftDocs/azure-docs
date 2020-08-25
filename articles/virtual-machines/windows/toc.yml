@@ -657,7 +657,7 @@
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
-    - name: Automatic VM guest patching
+    - name: Automatic VM guest patching (preview)
       href: automatic-vm-guest-patching.md
   - name: Platform maintenance
     items:
