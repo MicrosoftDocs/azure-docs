@@ -1181,7 +1181,7 @@ It takes a few minutes to create and configure the three VMs.
 
 Use [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) to install the Custom Script Extension. 
 
-The extension runs powershell Add-WindowsFeature Web-Server to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
+The extension runs PowerShell Add-WindowsFeature Web-Server to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
 ### VM1 
 
@@ -1230,7 +1230,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ## Test the load balancer
 
-1. Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) to get the public IP address of the load balancer:
+Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) to get the public IP address of the load balancer:
 
 ```azurepowershell-interactive
   ## Variables for command. ##
@@ -1240,7 +1240,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
   Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
 ```
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
+Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
    ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
