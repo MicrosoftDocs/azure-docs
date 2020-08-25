@@ -28,7 +28,7 @@ The following roles can access usage and insights:
 - Security Administrator
 - Reports Reader
 
-No additional licensing is required to access usage and insights. Azure Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD Premium license is required to view usage and insights reports. Azure Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## How it works
 
