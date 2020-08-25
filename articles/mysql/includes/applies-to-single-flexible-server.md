@@ -1,0 +1,1 @@
+<Token>**APPLIES TO:** ![yes](../media/applies-to/yes.png)Azure Database for MySQL - Single Server ![yes](../media/applies-to/yes.png)Azure Database for MySQL - Flexible Server </Token> 
