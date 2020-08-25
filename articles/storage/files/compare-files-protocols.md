@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Select a protocol
 
-Azure Files is a serverless distributed file system that provides access to the same data from multiple Azure VMs, on prem clients or multiple container pods. Azure Files guarantees data consistency and exclusive locks during shared access.  
+Azure Files is a serverless distributed file system that provides access to the same data from multiple Azure VMs, on-prem clients or multiple container pods. Azure Files guarantees data consistency and exclusive locks during shared access.  
 
 Azure Files offers two protocols for connecting and mounting your Azure file shares. Server Message Block (SMB) and Network File System (NFS) (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. Due to this, we recommend determining which protocol best suits your needs before creating Azure file shares.
 
@@ -27,7 +27,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |Permissions     |UNIX-style permissions         |NTFS-style permissions         |
 |File system semantics     |POSIX compliant         |Not POSIX compliant         |
 |Case sensitivity     |Case sensitive         |Not case sensitive         |
-|Hardlinks support     |Supported         |Not supported         |
+|Hard link support     |Supported         |Not supported         |
 |Symbolic links support     |Supported         |Not supported         |
 |Deleting or modifying open files     |Supported         |Not supported         |
 |Locking     |Byte-range advisory network lock manager         |Supported         |
@@ -57,14 +57,14 @@ Do not use SMB if you need Unix style permissions (UID/GID), case sensitivity, o
 
 ## NFS shares (preview)
 
-Azure Files offers NFS v4.1 protocol which is fully managed, network-attached storage. It is highly scalable, highly durable, and highly available. This is a fully POSIX compliant offer which is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances. You can start with a file system that contains only 100 GiB data to 100 TiB per volume. Moreover, your data and metadata are protected with encryption at rest by default. NFS is currently in preview and should not be used for production data.
+Azure Files offers NFS v4.1 protocol that is fully managed, network-attached storage. It is highly scalable, highly durable, and highly available. This is a fully POSIX-compliant offer that is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances. You can start with a file system that contains only 100 GiB data to 100 TiB per volume. Moreover, your data and metadata are protected with encryption at rest by default. NFS is currently in preview and should not be used for production data.
 
 ### Restrictions
 
 - Currently only available in East US
 - Encryption-in-transit is not currently available
 - Must create a new storage account in order to create an NFS share.
-- Does not currently support storage explorer, Databox, or AzCopy.
+- Does not currently support storage explorer, Data Box, or AzCopy.
 
 Also, the following Azure Files features are not available with NFS shares:
 
@@ -83,7 +83,7 @@ NFS with Azure Files is ideal for:
 
 #### Container storage 
 
-Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system allows these containers to access the file system no matter which instance they run on. NFS is ideal for container storage because it provides persistent shared access to file data and has very low attach-detach latencies.
+Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system allows these containers to access the file system no matter which instance they run on. NFS is ideal for container storage because it provides persistent shared access to file data and has low attach-detach latencies.
 
 #### Enterprise Applications (Databases, CRM, LOB apps) 
 
