@@ -57,7 +57,7 @@ Determine the Active Directory tasks that are carried out by administrators and 
 Each task should be evaluated for frequency, importance, and difficulty. These criteria are vital aspects of task definition because they govern whether a permission should be delegated:
 
 * Tasks that you do routinely, have limited risk, and are trivial to complete are excellent candidates for delegation.
-* Tasks that you do rarely but have great impact across the organization and require high skill levels should be considered very carefully before delegating. Instead, you can [temporarily elevate an account to the required role](../active-directory-privileged-identity-management-configure.md) or reassign the task.
+* Tasks that you do rarely but have great impact across the organization and require high skill levels should be considered very carefully before delegating. Instead, you can [temporarily elevate an account to the required role](../privileged-identity-management/pim-configure.md) or reassign the task.
 
 ## Delegate app administration
 
@@ -107,7 +107,7 @@ Attackers who get control of privileged accounts can do tremendous damage, so pr
 
 ## Elevate privilege temporarily
 
-For most day-to-day activities, not all users need global administrator rights, and not all of them should be permanently assigned to the Global Administrator role. When users need the permissions of a Global Administrator, they should activate the role assignment in Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) on either their own account or an alternate administrative account.
+For most day-to-day activities, not all users need global administrator rights, and not all of them should be permanently assigned to the Global Administrator role. When users need the permissions of a Global Administrator, they should activate the role assignment in Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) on either their own account or an alternate administrative account.
 
 ## Next steps
 
