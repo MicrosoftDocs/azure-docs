@@ -29,7 +29,7 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 > [!Important]
 > The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
 >
->This article is intended for users trying to download and use the Microsoft Authenticator app as a security verification method. If you're an administrator looking for information about how to turn on passwordless sign-in using the Authenticator app for your employees and other uses, see the [Enable passwordless sign-in with the Microsoft Authenticator app (preview)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>This article is intended for users trying to download and use the Microsoft Authenticator app as a security verification method. If you're an administrator looking for information about how to turn on passwordless sign-in using the Authenticator app for your employees and other uses, see the [Enable passwordless sign-in with the Microsoft Authenticator app (preview)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## Terminology
 

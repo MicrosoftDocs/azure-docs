@@ -118,6 +118,10 @@ Use the following table to help you configure the certificate. When finished, cl
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
+> [!NOTE]
+> App Service Certificates purchased from Azure are issued by GoDaddy. For some top-level domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
+> 
+
 ### Store in Azure Key Vault
 
 Once the certificate purchase process is complete, there are few more steps you need to complete before you can start using this certificate. 
