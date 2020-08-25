@@ -35,13 +35,13 @@ The high-level steps for this example are:
 
 ### Create the firewall policies
 
-- A base firewall policy in the SecurityResourceGroup.
+- A base firewall policy.
 
 Create policies for each of the application teams:
 
-- A Sales firewall policy in the  SalesResourceGroup. The Sales firewall policy inherits the base firewall policy.
-- A Database firewall policy in the DatabaseResourceGroup. The Database firewall policy inherits base firewall policy.
-- An Engineering firewall policy in the EngineeringResourceGroup. The Engineering firewall policy also inherits the base firewall policy.
+- A Sales firewall policy. The Sales firewall policy inherits the base firewall policy.
+- A Database firewall policy. The Database firewall policy inherits base firewall policy.
+- An Engineering firewall policy. The Engineering firewall policy also inherits the base firewall policy.
 
 :::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Policy hierarchy" border="false":::
 
