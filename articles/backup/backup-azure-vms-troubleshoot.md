@@ -18,12 +18,12 @@ This section covers backup operation failure of Azure Virtual machine.
 
 * Ensure that the VM Agent (WA Agent) is the [latest version](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](./backup-support-matrix-iaas.md).
-* Verify that another backup service is not running.
+* Verify that another backup service isn;t running.
   * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verify that the VM has internet connectivity.
-  * Make sure another backup service is not running.
+  * Make sure another backup service isn't running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and aren't due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
   * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
   * If Azure Backup is working, then the issue is likely with another backup solution.
   * Here is an example of an event viewer error 517 where Azure backup was working fine but "Windows Server Backup" was failing:<br>
@@ -66,7 +66,7 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
-* Unmount the devices for which the file system state was not cleaned, using the **umount** command.
+* Unmount the devices for which the file system state wasn't cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
 
@@ -109,7 +109,7 @@ Another procedure that can help is to run the following command from an elevated
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Adding this registry key will cause the threads to be not created for blob-snapshots, and prevent the time-out.
+Adding this registry key will cause the threads to not be created for blob-snapshots, and prevent the time-out.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
@@ -163,12 +163,12 @@ Error message: Snapshot operation failed as snapshot limit is exceeded for some 
 
 The snapshot operation failed as the snapshot limit has exceeded for some of the disks attached. Complete the following troubleshooting steps and then retry the operation.
 
-* Delete the disk blob-snapshots that are not required. Be cautious to not delete Disk blob, only snapshot blobs should be deleted.
-* If Soft-delete is enabled on VM disk Storage-Accounts, configure soft-delete retention such that existing snapshots are less than the maximum allowed at any point of time.
+* Delete the disk blob-snapshots that aren't required. Be careful to not delete disk blobs. Only snapshot blobs should be deleted.
+* If Soft-delete is enabled on VM disk Storage-Accounts, configure soft-delete retention so existing snapshots are less than the maximum allowed at any point of time.
 * If Azure Site Recovery is enabled in the backed-up VM, then perform the steps below:
 
   * Ensure the value of **isanysnapshotfailed** is set as false in /etc/azure/vmbackup.conf
-  * Schedule Azure Site Recovery at a different time, such that it does not conflict the backup operation.
+  * Schedule Azure Site Recovery at a different time, so it doesn't conflict the backup operation.
 
 ### ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources
 
