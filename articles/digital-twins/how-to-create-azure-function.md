@@ -23,7 +23,7 @@ During preview, updating digital twins based on data is handled using [**event r
 
 This article walks you through creating an Azure function for use with Azure Digital Twins. 
 
-Here is a overview of the steps it contains:
+Here is an overview of the steps it contains:
 
 1. Create an Azure Functions app in Visual Studio
 2. Write an Azure function with an [Event Grid](../event-grid/overview.md) trigger
@@ -39,7 +39,7 @@ In Visual Studio 2019, select _File > New > Project_ and search for the _Azure F
 
 Specify a name for the function app and select "Create".
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: new project dialog":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configure new project":::
 
 Select the *Event Grid trigger* and select "Create".
 
@@ -53,11 +53,11 @@ Once your function app is created, your visual studio will have auto populated c
 
 You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
 
-In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using visual studio nutget package manager or add the packages using `dotnet` command line tool. . Choose either of these methods: 
+In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using visual studio NuGet package manager or add the packages using `dotnet` command-line tool. Choose either of these methods: 
 
 **1. Add packages using Visual Studio package manager:**
     
-You can do this by right clicking on your project and select _Manage Nuget Packages..._ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
+You can do this by right-selecting on your project and select _Manage NuGet Packages..._ from the list. Then, in the window that opens, select _Browse_ tab and search for the following packages. Select _Install_ and _accept_ the License agreement to install the packages.
 
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
 * `Azure.Identity` (version `1.1.1`)
@@ -67,9 +67,9 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 * `System.Net.Http`
 * `Azure.Core.Pipeline`
 
-:::image type="content" source="media/how-to-create-azure-function/adding-packages.png" alt-text="Visual Studio: open nuget package manager":::
+:::image type="content" source="media/how-to-create-azure-function/adding-packages.png" alt-text="Visual Studio: adding packages":::
 
-**2. Add packages using `dotnet` command line tool:**
+**2. Add packages using `dotnet` command-line tool:**
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
@@ -95,7 +95,7 @@ Add variables to your function class for these values:
 * The URL of your Azure Digital Twins instance. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
 * A static variable to hold an HttpClient instance. HttpClient is relatively expensive to create, and we want to avoid having to do this for every function invocation.
 
-Also add a local variable inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this a static variable inside your class.
+Also add a local variable inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this variable static inside your class.
 
 After these changes, your function code should be similar to the following:
 
@@ -153,11 +153,11 @@ To publish the function app to Azure, right-select the function project (not the
 > [!IMPORTANT] 
 > Publishing an Azure function will incur additional charges on your subscription, independent of Azure Digital Twins.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publish azure function ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publish Azure function ":::
 
 Select **Azure** as the publishing target and select **Next**
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publish azure function dialog, page 1 ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publish Azure function dialog, page 1 ":::
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: publish function dialog, page 2":::
 
@@ -172,11 +172,11 @@ For your Functions app to be able to access Azure Digital Twins, it needs to hav
 
 ## Set up security access for the Azure function app using CLI
 
-The Azure function skeleton from earlier examples requires that a bearer token be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
+The Azure function skeleton from earlier examples requires that a bearer token is passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
-You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable.
+You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
- Use [Azure Cloud Shell](https://shell.azure.com) to run the following commands:
+ Use [Azure Cloud Shell](https://shell.azure.com) to run the commands:
 
 Use the following command to create the system-managed identity. Take note of the principalId field in the output.
 
@@ -206,7 +206,7 @@ To assign a role, you need the **resource ID** of the Azure Digital Twins instan
 ```bash
 az dt show --name <your-instance-name> -g <your-resource-group-name>
 ```
-The resource ID will be part of the output, as a long string named "id" that begins with the letters "/subscriptions/…".
+The resource ID will be part of the output, as a long string named "ID" that begins with the letters "/subscriptions/…".
 
 Use the resource ID along with the Azure function's object ID from earlier in the command below:
 
@@ -215,7 +215,7 @@ az role assignment create --role "Azure Digital Twins Owner (Preview)" --assigne
 ```
 ## Set up security access for the Azure function app using Azure portal
 
-A system assigned managed identity enables Azure resources to authenticate to cloud services (e.g. Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (e.g. Virtual Machine) can only have one system assigned managed identity.
+A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based-access-control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource (for example, Virtual Machine) can only have one system assigned managed identity.
 
 In the [Azure portal](https://portal.azure.com/), search for _function app_ in the search bar with the function app name that you created earlier. Select the *Function App* from the list. 
 
@@ -225,20 +225,19 @@ On the function app window, select _Identity_ in the navigation bar on the left 
 Under _System assigned_ tab, toggle the _Status_ to On and _save_ it. You will see a pop-up to _Enable system assigned managed identity_.
 Select _Yes_ button. 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure portal: Function app deployment":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure portal: enable system managed identity":::
 
 You can verify in the notifications that your function is successfully registered with Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure portal: Search function app":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure portal: notifications":::
 
 Also note the **object ID** shown on this page, as it will be used in the next section.
 
-
 ### Assign access roles using Azure portal
 
-select _Azure role assignments_ button which opens up to Azure role assignments page. Then, select _+Add role assignment(Preview)_.
+select _Azure role assignments_ button, that opens up to Azure role assignments page. Then, select _+Add role assignment(Preview)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure portal: Search function app":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure portal: add role assignment":::
 
 On the _Add role assignment (Preview)_ window that opens up, select
 
@@ -249,7 +248,7 @@ On the _Add role assignment (Preview)_ window that opens up, select
 
 Save your details by selecting _Save_ button.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure portal: Add role assignment for Azure function":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure portal: add role assignment (Preview) ":::
 
 ## Next steps
 
