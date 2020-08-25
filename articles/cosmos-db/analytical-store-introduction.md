@@ -127,7 +127,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 
 * Analytical write operations: the fully managed synchronization of operational data updates to the analytical store from the transactional store (auto-sync)
 
-* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL Serverless run times.
+* Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL serverless run times.
 
 > [!NOTE]
 > Azure Cosmos DB analytical store is currently available in public preview free of any charges.
