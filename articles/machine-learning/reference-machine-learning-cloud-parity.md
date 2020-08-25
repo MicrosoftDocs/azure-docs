@@ -1,7 +1,7 @@
 ---
 title: Parity between public and sovereign regions
 titleSuffix: Azure Machine Learning
-description: Some features of Azure Machine Learning, such as public preview features, may only be available in commercial cloud regions. This article lists what features are also available in the Azure Government, Azure Germany, and Azure China 21Vianet regions.
+description: Some features of Azure Machine Learning, such as public preview features, may only be available in public cloud regions. This article lists what features are also available in the Azure Government, Azure Germany, and Azure China 21Vianet regions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,22 +15,21 @@ ms.date: 08/24/2020
 
 # Azure Machine Learning sovereign cloud parity
 
-Learn what Azure Machine Learning features are available in sovereign cloud regions. Currently Azure Machine Learning is deployed into the following sovereign cloud regions:
+Learn what Azure Machine Learning features are available in sovereign cloud regions. 
+
+In the list of global Azure regions, there are several 'sovereign' regions that serve specific markets. For example, the Azure Government and the Azure China 21Vianet regions. Currently Azure Machine Learning is deployed into the following sovereign cloud regions:
 
 * Azure Government regions **US-Arizona** and **US-Virginia**.
 * Azure China 21Vianet region **China-East-2**.
 
-We aim to provide maximum parity between our sovereign and commercial clouds. 
+> [!TIP]
+> To differentiate between sovereign and non-sovereign regions, this article will use the term __public cloud__ to refer to non-sovereign regions.
 
-All Azure Machine Learning features will be available in these regions within **30 days of GA** (general availability) in our commercial cloud. We also  enable a select number of preview features in these regions.  Below display the current parity differences between our sovereign and commercial clouds.
+We aim to provide maximum parity between our public cloud and sovereign regions. All Azure Machine Learning features will be available in these regions within **30 days of GA** (general availability) in our public cloud. We also enable a select number of preview features in these regions. Below display the current parity differences between our sovereign and public clouds.
 
+## Azure Government	
 
-
-## Azure government	
-
-
-
-| Automated machine learning | Commercial status  | US-Virginia | US-Arizona| 
+| Automated machine learning | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Create and run experiments in notebooks                                    | GA                   | YES                | YES         |
 | Create and run experiments in studio web experience                        | Public Preview       | YES                | YES         |
@@ -40,7 +39,7 @@ All Azure Machine Learning features will be available in these regions within **
 | Azure Databricks integration                                              | GA                   | NO                 | NO          |
 | SQL, CosmosDB, and HDInsight integrations                                   | GA                   | YES                | YES         |
 
-| Machine Learning pipelines | Commercial status  | US-Virginia | US-Arizona| 
+| Machine Learning pipelines | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
 | Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
@@ -50,24 +49,24 @@ All Azure Machine Learning features will be available in these regions within **
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
 | Create pipeline endpoints in Azure ML designer                             | Public Preview       | YES                | YES         |
 
-| Integrated notebooks | Commercial status  | US-Virginia | US-Arizona| 
+| Integrated notebooks | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
 | Virtual Network support                                                    | Public Preview       | NO                 | NO          |
 
-| Compute instance | Commercial status  | US-Virginia | US-Arizona| 
+| Compute instance | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Managed compute Instances for integrated Notebooks                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
 
-| SDK support | Commercial status  | US-Virginia | US-Arizona| 
+| SDK support | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | R SDK support                                                              | Public Preview       | YES                | YES         |
 | Python SDK support                                                         | GA                   | YES                | YES         |
 
-| Security | Commercial status  | US-Virginia | US-Arizona| 
+| Security | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
@@ -77,18 +76,18 @@ All Azure Machine Learning features will be available in these regions within **
 | ACR behind Vnet                                                            | Public Preview       | NO                 | NO          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
 
-| Compute | Commercial status  | US-Virginia | US-Arizona| 
+| Compute | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | quota management across workspaces                                         | GA                   | YES                | YES         |
 
-| Data for machine learning | Commercial status  | US-Virginia | US-Arizona| 
+| Data for machine learning | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Create, view, or edit datasets and datastores from the SDK                  | GA                   | YES                | YES         |
 | Create, view, or edit datasets and datastores from the UI                   | GA                   | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview       | YES                | YES         |
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 
-| Machine learning lifecycle | Commercial status  | US-Virginia | US-Arizona| 
+| Machine learning lifecycle | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Model profiling                                                            | GA                   | YES                | PARTIAL     |
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA                   | YES                | YES         |
@@ -97,14 +96,14 @@ All Azure Machine Learning features will be available in these regions within **
 | Event Grid integration                                                     | Public Preview       | NO                 | NO          |
 | Integrate Azure Stream Analytics with Azure Machine Learning               | Public Preview       | NO                 | NO          |
 
-| Labeling | Commercial status  | US-Virginia | US-Arizona| 
+| Labeling | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Labeling Project Management Portal                                        | GA                   | YES                | YES         |
 | Labeler Portal                                                            | GA                   | YES                | YES         |
 | Labeling using private workforce                                          | GA                   | YES                | YES         |
 | ML assisted labeling (Image classification and object detection)           | Public Preview       | YES                | YES         |
 
-| Responsible ML | Commercial status  | US-Virginia | US-Arizona| 
+| Responsible ML | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
 | Differential privacy WhiteNoise toolkit                                    | OSS                  | NO                 | NO          |
@@ -112,19 +111,19 @@ All Azure Machine Learning features will be available in these regions within **
 | Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
 
-| Training | Commercial status  | US-Virginia | US-Arizona| 
+| Training | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Experimentation log streaming                                              | GA                   | YES                | YES         |
 | Reinforcement Learning                                                     | Public Preview       | NO                 | NO          |
 | Experimentation UI                                                         | GA                   | YES                | YES         |
 | .NET integration ML.NET 1.0                                                | GA                   | YES                | YES         |
 
-| Inference | Commercial status  | US-Virginia | US-Arizona| 
+| Inference | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Batch inferencing                                                          | GA                   | YES                | YES         |
 | Data Box Edge with FPGA                                                    | Public Preview       | NO                 | NO          |
 
-| Misc. | Commercial status  | US-Virginia | US-Arizona| 
+| Misc. | Public cloud status  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | Open Datasets                                                              | Public Preview       | YES                | YES         |
 | Custom Cognitive Search                                                    | Public Preview       | YES                | YES         |
@@ -136,7 +135,7 @@ All Azure Machine Learning features will be available in these regions within **
 |General security setup                                                     | US-Virginia | US-Arizona| Limitations  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | Private network communication between services                                     | NO | NO | No Private Link currently | 
-| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	| ACR behind VNet is not available in Azure government - double checking on ACI | 
+| Disable/control internet access (inbound and outbound) and specific VNet | PARTIAL| PARTIAL	| ACR behind VNet is not available in Azure Government - double checking on ACI | 
 | Placement for all associated resources/services  | YES | YES |  |
 | Encryption at-rest and in-transit.                                                 | YES | YES |  |
 | Root and SSH access to compute resources.                                          | YES | YES |  |
@@ -159,7 +158,7 @@ All Azure Machine Learning features will be available in these regions within **
 * Model Profiling does not support 4 CPUs in the US-Arizona region.   
 * Sample notebooks may not work in Azure Government if it needs access to public data.
 * IP addresses: The CLI command used in the [VNet and forced tunneling](how-to-enable-virtual-network.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
-* For scheduled pipelines, we also provide a blob based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob based trigger for CMK workspaces, you have to do additional setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
+* For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do additional setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
 * Firewalls: When using an Azure Government region, add the following additional hosts to your firewall setting:
 
     * For Arizona use: `usgovarizona.api.ml.azure.us`
@@ -169,7 +168,7 @@ All Azure Machine Learning features will be available in these regions within **
 
 <h2>Azure China 21Vianet</h2>	
 
-| Features                                                                   | Commercial Status | China region| |
+| Features                                                                   | Public cloud Status | China region| |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | Automated machine learning                                        |                  | CH-East 2 | CH-North 3 |
 | Create and run experiments in notebooks                                    | GA               | YES       | N/A        |
@@ -257,8 +256,8 @@ All Azure Machine Learning features will be available in these regions within **
 
 
 
-|                  | Commercial                                 | China-Government                           |
+|                  | Global Azure                                 | China-Government                           |
 |------------------|--------------------------------------------|--------------------------------------------|
 | Management plane | https://management.azure.com/              | https://management.chinacloudapi.cn/       |
 | Data plane       | https://{location}.experiments.azureml.net | https://{location}.experiments.ml.azure.cn |
-| AAD              | https://login.microsoftonline.com          | https://login.chinacloudapi.cn             |
+| Azure Active Directory              | https://login.microsoftonline.com          | https://login.chinacloudapi.cn             |
