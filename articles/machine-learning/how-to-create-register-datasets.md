@@ -119,6 +119,7 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
              'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+To reuse and share datasets across experiment in your workspace, [register your dataset](#register-datasets). 
 
 ### Create a TabularDataset
 
@@ -168,7 +169,9 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|True|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
-### Create a dataset from pandas dataframe
+To reuse and share datasets across experiments in your workspace, [register your dataset](#register-datasets).
+
+## Create a dataset from pandas dataframe
 
 To create a TabularDataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. The following code demonstrates this workflow.
 
@@ -196,6 +199,62 @@ datastore.upload(src_dir='data', target_path='data')
 # create a dataset referencing the cloud location
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
+
+When you create a dataset with register, you create and register a Tabular dataset with your default datastore of the workspace. 
+
+Create a dataset from spark dataframe. Currently, register_spark_dataframe only support blob storage, ADLS gen1 and gen2, file share is not supported.
+    you can use spark dataframe create by yourself or use the below sample code to retrieve existing spark dataframe from dataset.
+
+upload a spark dataframe and register as a dataset with register_spark_dataframe()
+
+```python
+  register_spark_dataframe(dataframe, target, name, show_progress=True),
+```
+dataframe: In memory dataframe to be uploaded.
+    type dataframe: pyspark.sql.DataFrame,
+   target: The datastore path where the dataframe parquet data will be uploaded to.
+ A guid folder will be generated under the target path to avoid conflict.
+
+    
+```python
+    dstore = workspace.get_default_datastore()
+    datastore_path = [(dstore, 'weather-data-florida/*/*/data.parquet')]
+    dataset = Dataset.Tabular.from_parquet_files(path=datastore_path)
+    spark_df = dataset.to_spark_dataframe()
+
+    # dataset=Dataset.Tabular.register_spark_dataframe(<spark dataframe>, <datastore>, <name of regisitered dataset>, show_progress=True),
+    
+    dataset=Dataset.Tabular.register_spark_dataframe(spark_df, blob_datastore, "new_ds_from_spark", show_progress=True)
+```
+
+
+Create and register a dataset from an in memory pandas dataframe and upload it to your Azure Datalake datastore or zure blob file share. all In one method returns a tabular dataset. 
+
+Datastore type can only be azure data lake store or azure storage store.
+        dataframe is the In memory dataframe you wante to turn into a dataset register nd upload to your selected datastore
+target is The datastore path where the dataframe parquet data will be uploaded to
+ name is The name of the registered dataset.
+
+   
+```python
+    ## upload a pandas dataframe and register as a dataset with register_pandas_dataframe()
+    register_pandas_dataframe(dataframe, target, name, show_progress=True),
+```
+       
+you can use spark dataframe create by yourself or use the below sample code to retrieve existing spark dataframe from dataset. 
+    
+
+    ```python
+    dstore = workspace.get_default_datastore()
+    datastore_path = [(dstore, 'weather-data-florida/*/*/data.parquet')]
+    dataset = Dataset.Tabular.from_parquet_files(path=datastore_path)
+    pandas_df = dataset.to_pandas_dataframe(),
+   
+ 
+    # dataset=Dataset.Tabular.register_pandas_dataframe(<pandas dataframe>, <datastore>, "name of registered dataset", show_progress=True),
+   
+    dataset=Dataset.Tabular.register_pandas_dataframe(pandas_df, blob_datastore, new_ds_from_pandas", show_progress=True)
+    ```
 
 ## Register datasets
 
