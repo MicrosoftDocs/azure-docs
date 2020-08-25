@@ -105,7 +105,8 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
    | Event Hub consumer group(optional) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. |
    | Partition count | Partition count is the number of partitions in an Event Hub. |
 
-   ![Event Hub Input](media/on-azure-stack/event-hub-input.png)
+   > [!div class="mx-imgBorder"]
+   > ![Event Hub Input](media/on-azure-stack/event-hub-input.png)
 
    #### IoT Hub
 
