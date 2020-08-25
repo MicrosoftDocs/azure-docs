@@ -63,7 +63,7 @@ Memory Preserving Updates: Supported
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
 
 
 ## Next steps

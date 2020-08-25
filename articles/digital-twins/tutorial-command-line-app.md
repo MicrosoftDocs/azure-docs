@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Explore the basics with a sample client app
+title: 'Tutorial: Explore the basics with a sample client app'
 titleSuffix: Azure Digital Twins
 description: Tutorial to explore the Azure Digital Twins SDKs using a sample command-line application
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Explore Azure Digital Twins with a sample client app
+# Tutorial: Explore Azure Digital Twins with a sample client app
 
 This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [*Tutorial: Code a client app*](tutorial-code.md).
 
@@ -79,7 +79,7 @@ Make sure to save the file before moving on.
 > If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-use-parser.md).
+> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
 
 ### Get started with the command-line app
 
@@ -315,12 +315,5 @@ Finally, delete the project sample folder you downloaded to your local machine.
 In this tutorial, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You used the client app to explore Azure Digital Twins, creating models, digital twins, and relationships. You also ran some queries on the solution, to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
 
 Continue to the next tutorial to use the sample command-line app in combination with other Azure services to complete a data-driven, end-to-end scenario:
-
 > [!div class="nextstepaction"]
 > [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
-
-Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)
-
-You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)

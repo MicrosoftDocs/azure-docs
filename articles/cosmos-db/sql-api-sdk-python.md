@@ -1,14 +1,14 @@
 ---
 title: Azure Cosmos DB SQL Python API, SDK & resources
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 05/20/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
 
@@ -21,6 +21,9 @@ ms.custom: tracking-python
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -37,6 +40,20 @@ ms.custom: tracking-python
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## Release history
+
+### 4.1.0 (2020-08-10)
+
+- Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
+
+**New features**
+- Added the ability to set the analytical storage TTL when creating a new container.
+
+**Bug fixes**
+- Fixed support for dicts as inputs for get_client APIs.
+- Fixed Python 2/3 compatibility in query iterators.
+- Fixed type hint error (Issue #12570).
+- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
+- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError (Issue #11793).
 
 ### 4.0.0
 
@@ -298,10 +315,8 @@ Version 4.0.0b1 is the first preview of our efforts to create a user-friendly cl
 
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
-Any request to Azure Cosmos DB using a retired SDK are rejected by the service.
-
 > [!WARNING]
-> All versions of the Python SDK for SQL API prior to version **1.0.0** were retired on **February 29, 2016**. And, all versions 1.x and 2.x of the Python SDK for SQL API will be retired on **August 30, 2020**.
+> After 31 August 2022, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to versions 1.x or 2.x of the Azure Cosmos DB Python SDK for SQL API. If you prefer not to upgrade, requests sent from version 1.x and 2.x of the SDK will continue to be served by the Azure Cosmos DB service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

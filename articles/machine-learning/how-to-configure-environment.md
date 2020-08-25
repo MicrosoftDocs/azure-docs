@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -210,7 +210,7 @@ To enable these components in your Jupyter Notebook environment:
     conda activate myenv
     ```
 
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks) for a set of sample notebooks.
+1. Clone [the GitHub repository](https://github.com/Azure/MachineLearningNotebooks) for a set of sample notebooks.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git

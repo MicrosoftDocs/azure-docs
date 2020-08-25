@@ -24,7 +24,7 @@
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md
-  - name: Restore a disk
+  - name: Restore a VM with Azure CLI
     href: tutorial-restore-disk.md
   - name: Restore individual files
     href: tutorial-restore-files.md
@@ -123,6 +123,8 @@
         href: backup-azure-vms-encryption.md
       - name: Configure app-consistent backups of Azure VMs running Linux
         href: backup-azure-linux-app-consistent.md
+      - name: Selective disk backup
+        href: selective-disk-backup-restore.md
     - name: Restore
       items:
       - name: About Azure VM restore
@@ -144,7 +146,11 @@
     - name: Overview
       href: backup-azure-sql-database.md
     - name: Backup
-      href: backup-sql-server-database-azure-vms.md
+      items:
+      - name: Back up multiple SQL Server VMs from the vault
+        href: backup-sql-server-database-azure-vms.md
+      - name: Backup a SQL Server VM from the VM pane
+        href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
       href: restore-sql-database-azure-vm.md
     - name: Manage
@@ -285,8 +291,10 @@
     items:
     - name: Overview
       href: offline-backup-overview.md
-    - name: Offline Backup with Azure Data Box
+    - name: Offline Backup with Azure Data Box (MARS)
       href: offline-backup-azure-data-box.md
+    - name: Offline Backup with Azure Data Box (DPM/MABS)
+      href: offline-backup-azure-data-box-dpm-mabs.md
     - name: Offline Backup with Import/Export (MARS)
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)

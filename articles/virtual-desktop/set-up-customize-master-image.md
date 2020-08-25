@@ -1,10 +1,7 @@
 ---
 title: Prepare and customize a master VHD image - Azure
 description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr

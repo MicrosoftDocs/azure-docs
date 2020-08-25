@@ -9,7 +9,7 @@ ms.date: 07/07/2019
 
 This article answers common questions about the Azure Backup service.
 
-## Recovery services vault
+## Recovery Services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription?
 
@@ -192,6 +192,10 @@ When a new policy is applied, schedule and retention of the new policy is follow
 - If retention is extended, existing recovery points are marked to keep them according to new policy.
 - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
+### How long is data retained when stopping backups, but selecting the option to retain backup data?
+
+When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
+
 ## Encryption
 
 ### Is the data sent to Azure encrypted?
@@ -205,15 +209,15 @@ Yes. The data in Azure is encrypted-at-rest.
 - For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure.
 - For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE).
 
-Microsoft does not decrypt the backup data at any point.
+Microsoft doesn't decrypt the backup data at any point.
 
 ### What is the minimum length of the encryption key used to encrypt backup data?
 
-The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault.
+The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is derived from a passphrase that should be at least 16 characters long. For Azure VMs, there is no limit to the length of keys used by Azure KeyVault.
 
 ### What happens if I misplace the encryption key? Can I recover the data? Can Microsoft recover the data?
 
-The key used to encrypt the backup data is present only on your site. Microsoft does not maintain a copy in Azure and does not have any access to the key. If you misplace the key, Microsoft can't recover the backup data.
+The key used to encrypt the backup data is present only on your site. Microsoft doesn't maintain a copy in Azure and doesn't have any access to the key. If you misplace the key, Microsoft can't recover the backup data.
 
 ## Next steps
 
