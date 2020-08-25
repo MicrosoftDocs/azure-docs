@@ -38,10 +38,10 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook *t
 
 1. Open the **tutorial-1st-experiment-sdk-train.ipynb** in your folder as shown in [part one](tutorial-1st-experiment-sdk-setup.md#open).
 
+Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
+for this tutorial.
 
-> [!Warning]
-> Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
-> for this tutorial.
+## Connect workspace and create experiment
 
 <!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
 
@@ -50,7 +50,6 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook *t
 > Switch to the Jupyter notebook now if you want to read along as you run the code. 
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-## Connect workspace and create experiment
 
 Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. If you are running this notebook in a cloud notebook server in your workspace, the file is automatically in the root directory.
 
