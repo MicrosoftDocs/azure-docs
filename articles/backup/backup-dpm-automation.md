@@ -63,7 +63,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md) or [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
+4. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md) or [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
 
    > [!TIP]
    > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
@@ -105,7 +105,7 @@ To install the agent, run the following command in an elevated PowerShell consol
 MARSAgentInstaller.exe /q
 ```
 
-This installs the agent with all the default options. The installation takes a few minutes in the background. If you do not specify the */nu* option the **Windows Update** window opens at the end of the installation to check for any updates.
+This installs the agent with all the default options. The installation takes a few minutes in the background. If you don't specify the */nu* option the **Windows Update** window opens at the end of the installation to check for any updates.
 
 The agent shows up in the list of installed programs. To see the list of installed programs, go to **Control Panel** > **Programs** > **Programs and Features**.
 
@@ -171,7 +171,7 @@ Once the DPM Server is registered with the Recovery Services vault, it starts wi
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-All modifications are made to this local PowerShell object ```$setting```  and then the full object is committed to DPM and Azure Backup to save them using the [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) cmdlet. You need to use the ```–Commit``` flag to ensure that the changes are persisted. The settings will not be applied and used by Azure Backup unless committed.
+All modifications are made to this local PowerShell object ```$setting```  and then the full object is committed to DPM and Azure Backup to save them using the [Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) cmdlet. You need to use the ```–Commit``` flag to ensure that the changes are persisted. The settings won't be applied and used by Azure Backup unless committed.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -185,7 +185,7 @@ If the connectivity of the DPM machine to the Azure Backup service on the intern
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
 ```
 
-Bandwidth usage can also be controlled with options of ```-WorkHourBandwidth``` and ```-NonWorkHourBandwidth``` for a given set of days of the week. In this example, we are not setting any throttling.
+Bandwidth usage can also be controlled with options of ```-WorkHourBandwidth``` and ```-NonWorkHourBandwidth``` for a given set of days of the week. In this example, we aren't setting any throttling.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
@@ -214,7 +214,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 ```
 
 > [!IMPORTANT]
-> Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
+> Keep the passphrase information safe and secure once it is set. You won't be able to restore data from Azure without this passphrase.
 >
 >
 
@@ -256,7 +256,7 @@ Each DPM Agent knows the list of datasources on the server that it is installed 
 3. Fetch a list of all datasources on the server.
 4. Choose one or more datasources and add them to the Protection Group
 
-The list of servers on which the DPM Agent is installed and is being managed by the DPM Server is acquired with the [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) cmdlet. In this example we will filter and only configure PS with name *productionserver01* for backup.
+The list of servers on which the DPM Agent is installed and is being managed by the DPM Server is acquired with the [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) cmdlet. In this example we will filter and only configure PowerShell with the name *productionserver01* for backup.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}

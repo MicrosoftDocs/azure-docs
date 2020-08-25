@@ -44,7 +44,7 @@ Backups per day (via DPM/MABS) | Two scheduled backups per day.
 Monthly/yearly backup| Not supported when backing up with Azure VM extension. Only daily and weekly is supported.<br/><br/> You can set up the policy to retain daily/weekly backups for monthly/yearly retention period.
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
-Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM; however even if the time change is reverted, successful backup isn't guaranteed.
+Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
 Azure VMs in [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Backup and restore are supported for VMs with [orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) set to 3. <br><br>Availability sets are unsupported.
 
 ## Operating system support (Windows)
@@ -144,7 +144,7 @@ Backup with [Diagnostic Settings](../azure-monitor/platform/platform-logs-overvi
 Restore of Zone-pinned VMs | Supported (for VM that is backed-up after Jan 2019 and where [availability zone](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone that is pinned in VMs. However, if the zone is unavailable, restore fails.
 Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup of Azure VMs with locks | Unsupported for unmanaged VMs. <br><br> Supported for managed VMs.
-[Spot VMs](../virtual-machines/windows/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
+[Spot VMs](../virtual-machines/spot-vms.md) | Unsupported. Azure Backup restores Spot VMs as regular Azure VMs.
 
 ## VM storage support
 

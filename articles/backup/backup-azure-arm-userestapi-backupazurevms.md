@@ -297,7 +297,7 @@ For the complete list of definitions of the request body and other details, refe
 
 #### Example request body for on-demand backup
 
-The following request body defines properties required to trigger a backup for a protected item. If the retention is not specified, it will be retained for 30 days from the time of trigger of the backup job.
+The following request body defines properties required to trigger a backup for a protected item. If the retention isn't specified, it will be retained for 30 days from the time of trigger of the backup job.
 
 ```json
 {
@@ -440,7 +440,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |202 Accepted     |         |     Accepted    |
 
 > [!IMPORTANT]
-> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation will NOT immediately delete the data. It will be kept for 14 days and then permanently purged. Customer is not charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
+> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
 
 ### Undo the deletion
 
