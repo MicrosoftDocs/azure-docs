@@ -40,12 +40,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-pipeline-steps**
     + Deprecate azureml-contrib-pipeline-steps.
   + **azureml-core**
+    + Added list key command for workspace.
+    + Add tags parameter in Workspace SDK and CLI.
     + Fixed the bug where submitting a child run with Dataset will fail due to `TypeError: can't pickle _thread.RLock objects`.
     + Adding page_count default/documentation for Model list().
     + Modify CLI&SDK to take adbworkspace parameter and Add workspace adb lin/unlink runner.
-    + Fix bug in Dataset.update which caused newest Dataset version to be updated not the version of the Dataset update was called on. - Fix bug in Dataset.get_by_name which would show the tags for the newest Dataset version even when a specific older version was actually retrieved.
+    + Fix bug in Dataset.update which caused newest Dataset version to be updated not the version of the Dataset update was called on. 
+    + Fix bug in Dataset.get_by_name which would show the tags for the newest Dataset version even when a specific older version was actually retrieved.
   + **azureml-interpret**
-    + added probability outputs to shap scoring explainers in azureml-interpret based on shap_values_output parameter from original explainer.
+    + Added probability outputs to shap scoring explainers in azureml-interpret based on shap_values_output parameter from original explainer.
   + **azureml-parallel-run**
     + Allow users to rerun remaining tasks.
   + **azureml-pipeline-core**
