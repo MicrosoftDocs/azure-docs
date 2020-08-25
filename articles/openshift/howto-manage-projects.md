@@ -11,7 +11,7 @@ ms.service: container-service
 #Customer intent: As a developer, I need to understand how to manage Openshift projects and development resources
 ---
 
-# Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster 
+# Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster
 
 In an OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator, you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
 
