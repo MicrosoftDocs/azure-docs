@@ -17,6 +17,50 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-08-31
+
+### Azure Machine Learning SDK for Python v1.13.0
+
++ **Bug fixes and improvements**
+  + **automl-client-core-nativeclient**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-automl-core**
+    + Added validated_{platform}_requirements.txt file for pinning all pip dependencies for AutoML.
+    + This release supports models greater than 4Gb.
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-automl-runtime**
+    + Set horovod for text dnns to always use fp16 compression.
+    + This release supports models greater than 4Gb.
+    + Fixed issue where AutoML fails with ImportError: cannot import name `RollingOriginValidator`.
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-contrib-fairness**
+    + Provide a short description for azureml-contrib-fairness.
+  + **azureml-contrib-pipeline-steps**
+    + Deprecate azureml-contrib-pipeline-steps.
+  + **azureml-core**
+    + Fixed the bug where submitting a child run with Dataset will fail due to `TypeError: can't pickle _thread.RLock objects`.
+    + Adding page_count default/documentation for Model list().
+    + Modify CLI&SDK to take adbworkspace parameter and Add workspace adb lin/unlink runner.
+    + Fix bug in Dataset.update which caused newest Dataset version to be updated not the version of the Dataset update was called on. - Fix bug in Dataset.get_by_name which would show the tags for the newest Dataset version even when a specific older version was actually retrieved.
+  + **azureml-interpret**
+    + added probability outputs to shap scoring explainers in azureml-interpret based on shap_values_output parameter from original explainer.
+  + **azureml-parallel-run**
+    + Allow users to rerun remaining tasks.
+  + **azureml-pipeline-core**
+    + Improved `PipelineOutputAbstractDataset.register`'s documentation.
+  + **azureml-train-automl-client**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-train-automl-runtime**
+    + Upgraded AutoML dependencies: `scikit-learn` (now 0.22.1), `pandas` (now 0.25.1), `numpy` (now 1.18.2).
+  + **azureml-train-core**
+    + Documentation and notebook changed.
+    + This is reverting changes from a previous PR.
+    + Users must now provide a valid hyperparameter_sampling arg when creating a HyperDriveConfig. In addition, the documentation for HyperDriveRunConfig has been edited to inform users of the deprecation of HyperDriveRunConfig.
+    + Reverting PyTorch Default Version to 1.4.
+    + Adding PyTorch 1.6 & Tensorflow 2.2 images and curated environment.
+
 ## 2020-08-17
 
 ### Azure Machine Learning SDK for Python v1.12.0
