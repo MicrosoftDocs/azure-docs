@@ -54,7 +54,9 @@ Here are some of capabilities of entitlement management:
 - Select connected organizations whose users can request access.  When a user who is not yet in your directory requests access, and is approved, they are automatically invited into your directory and assigned access.  When their access expires, if they have no other access package assignments, their B2B account in your directory can be automatically removed.
 
 >[!NOTE]
->If you are ready to try Entitlement management you can get started with our [**tutorial to create your first access package**](entitlement-management-access-package-first.md). You can also read the [common scenarios](entitlement-management-scenarios.md), or watch videos, including
+>If you are ready to try Entitlement management you can get started with our [tutorial to create your first access package](entitlement-management-access-package-first.md).
+
+You can also read the [common scenarios](entitlement-management-scenarios.md), or watch videos, including
 
 - [How to deploy Azure AD entitlement management in your organization](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [How to monitor and scale your use of Azure AD entitlement management](https://www.youtube.com/watch?v=omtNJ7ySjS0)
