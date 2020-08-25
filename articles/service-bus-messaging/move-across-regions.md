@@ -3,10 +3,11 @@ title: Move a Service Bus namespace to another region | Microsoft Docs
 description: This article shows you how to move an Azure Service Bus namespace from the current region to another region. 
 ms.topic: how-to
 ms.date: 06/23/2020
+ms.custom: subject-moving-resources
 ---
 
 # Move an Azure Service Bus namespace to another region
-There are various scenarios in which you'd want to move your existing Service Bus namespace from one region to another. For example, you may want to create a namespace with the same configuration for testing. You may also want to create a secondary namespace in another region as part of [disaster recovery planning](event-hubs-geo-dr.md#setup-and-failover-flow).
+There are various scenarios in which you'd want to move your existing Service Bus namespace from one region to another. For example, you may want to create a namespace with the same configuration for testing. You may also want to create a secondary namespace in another region as part of [disaster recovery planning](service-bus-geo-dr.md).
 
 > [!NOTE]
 > - This article shows you how to export an Azure Resource Manager template for an existing Service Bus namespace and then use the template to create a namespace with same configuration settings in another region. However, this process doesn't move messages. You need to process messages from the original namespace before deleting it.
@@ -54,8 +55,8 @@ Deploy the template to create a Service Bus namespace in the target region.
         ![Deploy Resource Manager template](./media/move-across-regions/deploy-template.png)
     1. On the **Review + create** page, select **Create** at the bottom of the page. 
 
-> [!NOTE]
-> Creaet any overriden default subscription rules from the source region.
+        > [!NOTE]
+        > Create any overriden default subscription rules from the source region.
     
 ## Verify
 1. After the deployment is successful, select **Go to resource group**.
