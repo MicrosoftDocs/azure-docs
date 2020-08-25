@@ -665,7 +665,7 @@ Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actual
 
 <br>Here's an example of JSON test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
 
-![Test results in an online JSON viewer.](media/vm/test-results-json-viewer-1.png)
+![More test results in an online JSON viewer.](media/vm/test-results-json-viewer-1.png)
 
 ### On Windows OS
 
