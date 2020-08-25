@@ -26,7 +26,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
@@ -48,7 +48,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 	"resources": [
 		{
 			"type": "Microsoft.Insights/diagnosticSettings",
-			"apiVersion": "2017-05-01-preview",
+			"apiVersion": "2020-08-01",
 			"name": "[parameters('settingName')]",
 			"properties": {
 				"workspaceId": "[parameters('workspaceId')]",
@@ -99,7 +99,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -129,7 +129,7 @@ The following sample creates a diagnostic setting for an Azure Key Vault by addi
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
@@ -185,7 +185,7 @@ The following sample creates a diagnostic setting for an Azure Key Vault by addi
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -217,7 +217,7 @@ The following sample creates a diagnostic setting for an Azure SQL database by a
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
@@ -316,7 +316,7 @@ The following sample creates a diagnostic setting for an Azure SQL database by a
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
@@ -351,7 +351,7 @@ The following sample creates a diagnostic setting for an Azure Recovery Services
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "recoveryServicesName": {
@@ -454,7 +454,7 @@ The following sample creates a diagnostic setting for an Azure Recovery Services
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {

@@ -45,7 +45,7 @@ The following sample adds a log query to a Log Analytics workspace.
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2015-03-20",
+          "apiVersion": "2020-08-01",
           "name": "VMSS query",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -102,7 +102,7 @@ The following sample adds a log query as a function to a Log Analytics workspace
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
