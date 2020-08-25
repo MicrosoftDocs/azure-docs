@@ -24,10 +24,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A URL for an image of a business card. You can use a [sample image](../media/business-card-english.jpg) for this quickstart.
+- A an image of a business card. You can use a [sample image](../media/business-card-english.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a remote business card image accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> This quickstart uses a local file. To use a remote business card image accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## Create a Form Recognizer resource
 
@@ -38,7 +38,7 @@ To complete this quickstart, you must have:
 To start analyzing a business card, you call the **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API using the Python script below. Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `<your business card URL>` with the URL address of a business card image.
+1. Replace `<path to your business card>` with the path to your local form document.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
     ```python
@@ -51,7 +51,7 @@ To start analyzing a business card, you call the **[Analyze Business Card](https
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
     
     headers = {

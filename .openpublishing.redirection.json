@@ -12914,6 +12914,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/faq-for-disks.md",
+      "redirect_url": "/azure/virtual-machines/faq-for-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/faq-for-disks.md",
+      "redirect_url": "/azure/virtual-machines/faq-for-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-double-encryption-at-rest-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-double-encryption-at-rest-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-customer-managed-keys-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-customer-managed-keys-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-customer-managed-keys-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-customer-managed-keys-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-host-based-encryption-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-host-based-encryption-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-host-based-encryption-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-host-based-encryption-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/spot-vms.md",
+      "redirect_url": "/azure/virtual-machines/spot-vms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/spot-vms.md",
+      "redirect_url": "/azure/virtual-machines/spot-vms",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-panorama9-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/panorama9-tutorial",
       "redirect_document_id": true
@@ -53012,11 +53062,6 @@
       "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/cdn/endpoint-multiorigin.md",
-      "redirect_url": "/azure/cdn/cdn-overview",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/app/usage-workbooks.md",
