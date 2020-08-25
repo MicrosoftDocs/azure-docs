@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics on Azure Stack
+title: Run Azure Stream Analytics on Azure Stack (Preview)
 description: Create an Azure Stream Analytics edge job and deploy it to Azure Stack hub via the IoT Edge runtime.
 ms.service: stream-analytics
 author: raan
@@ -10,7 +10,7 @@ ms.date: 08/21/2020
 ms.custom: seodec18
 ---
 
-# Azure Stream Analytics on Azure Stack
+# Run Azure Stream Analytics on Azure Stack (Preview)
 
 > [!IMPORTANT]
 > This functionality is in preview and is not recommended for use in production.
@@ -22,6 +22,10 @@ With Stream Analytics on Azure Stack, you can build truly hybrid architectures f
 This article shows you how to stream data from IoT Hub or Event Hub to another Event Hub or Blob Storage in an Azure Stack Hub subscription and process it with Stream Analytics.
 
 ## Set up environments
+
+Azure Stream Analytics is a hybrid service on Azure Stack Hub. It is an IoT Edge module which is configured in Azure but can be run on Azure Stack Hub.  
+
+If you are new to Azure Stack Hub or IoT Edge, please follow the instructions below to set up environments.
 
 ### Prepare the Azure Stack Hub environment
 
@@ -42,6 +46,10 @@ The following guides show how to set up the IoT Edge Runtime on your device or V
 
 
 ## Create an Azure Stream Analytics Edge job
+
+ASA Edge jobs run in containers deployed to Azure IoT Edge devices. They are composed of two parts:
+1. A cloud part that is responsible for job definition: users define inputs, output, query, and other settings (out of order events, etc.) in the cloud.
+2. A module running on your IoT devices. It contains the ASA engine and receives the job definition from the cloud.
 
 ### Create a storage account
 
@@ -86,22 +94,30 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
 5. If the input is an Event Hub or IoT Hub in an Azure Stack Hub subscription, please provide information manually as shown below.
 
 Event Hub:
-- Input alias
-- Service Bus namespace (Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) 
-- Event Hub name
-- Event Hub policy name
-- Event Hub policy key
-- Event Hub consumer group(optional)
-- Partition count
+
+| Field | Value |
+| --- | --- |
+| Input alias | A friendly name that you use in the job's query to reference this input. |
+| Service Bus namespace | The namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. (Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
+| Event Hub name | The name of the event hub to use as input. |
+| Event Hub policy name | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hub settings manually. |
+| Event Hub policy key | The shared access key used to authorize access to the Event Hub. This option is automatically populated in unless you select the option to provide the Event Hub settings manually. You can find it in the Event Hub settings. |
+| Event Hub consumer group(optional) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. |
+| Partition count | Partition count is the number of partitions in an Event Hub. |
+
    ![Event Hub Input](media/on-azure-stack/event-hub-input.png)
 
 IoT Hub:
-- Input alias
-- IoT Hub (Example:*<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*)
-- Shared access policy name
-- Shared access policy key
-- Consumer group (optional)
-- Partition count
+
+| Field | Value |
+| --- | --- |
+| Input alias | A friendly name that you use in the job's query to reference this input. |
+| IoT Hub | The name of the IoT Hub to use as input. (Example:*<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*) |
+| Shared access policy name | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
+| Shared access policy key | The shared access key used to authorize access to the IoT Hub. This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
+| Consumer group (optional) | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise. |
+| Partition count | Partition count is the number of partitions in an Event Hub. |
+
    ![IoT Hub Input](media/on-azure-stack/iot-hub-input.png)
 
 6. Keep the default values for the other fields, and select Save.
@@ -110,18 +126,24 @@ IoT Hub:
 9. If the output is an Event Hub or Blob Storage in an Azure Stack Hub subscription, please provide information manually as shown below.
 
 Event Hub:
-- Output alias
-- Service Bus namespace (Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) 
-- Event Hub name
-- Event Hub policy name
-- Event Hub policy key
+
+| Field | Value |
+| --- | --- |
+| Output alias | A friendly name used in queries to direct the query output to this event hub. |
+| Service Bus namespace | A container for a set of messaging entities. When you created a new event hub, you also created a service bus namespace.(Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
+| Event Hub name | The name of your event hub output. |
+| Event Hub policy name | The shared access policy, which you can create on the event hub's Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
+| Event Hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
 
    ![Event Hub Output](media/on-azure-stack/event-hub-output.png)
 
 Blob Storage: 
-- Output alias
-- Storage account (Example: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*)
-- Storage account key
+
+| Field | Value |
+| --- | --- |
+| Output alias | A friendly name used in queries to direct the query output to this blob storage. |
+| Storage account | The name of the storage account where you're sending your output.(Example: *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*) |
+| Storage account key | The secret key associated with the storage account. This option is automatically populated in unless you select the option to provide the Blob storage settings manually. |
 
 > [!NOTE]
 > Parquet format is not supported for edge jobs on Azure Stack Hub. For Minimum rows and Maximum time, please use 0 or leave them blank.
