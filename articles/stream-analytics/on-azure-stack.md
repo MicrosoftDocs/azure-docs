@@ -161,7 +161,8 @@ Blob Storage:
 5. In the **Review + create** step, select **Create**. 
    ![Manifest](media/on-azure-stack/module-content.png)
 6. Confirm that the module is added to the list.
-   ![Deployment Page](media/on-azure-stack/edge-deployment.png)
+   > [!div class="mx-imgBorder"]
+   > ![Deployment Page](media/on-azure-stack/edge-deployment.png)
 
 ## Next steps
 - [Azure Stream Analytics on IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge)
