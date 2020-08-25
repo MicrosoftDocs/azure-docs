@@ -15,7 +15,7 @@ The "Request header too large" message is thrown with an HTTP error code 400. Th
 ## Troubleshooting steps
 The "Request header too large" message occurs if the session or the continuation token is too large. The following sections describe the cause of the issue and its solution in each category.
 
-### 1. Session token is too large
+### Session token is too large
 
 #### Cause:
 A 400 bad request most likely occurs because the session token is too large. If the following statements are true, the session token is too large:
@@ -30,7 +30,7 @@ Restart your client application to reset all the session tokens. Eventually, the
 1. Follow the guidance in the [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET v2](performance-tips.md) performance tips articles. Convert the application to use the direct connection mode with the Transmission Control Protocol (TCP). The direct connection mode with the TCP protocol doesn't have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of the SDK, which has a fix for query operations when the service interop isn't available.
 1. If the direct connection mode with the TCP protocol isn't an option for your workload, mitigate it by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default consistency level for Azure Cosmos DB. Other consistency levels don't use the session token.
 
-### 2. Continuation token is too large
+### Continuation token is too large
 
 #### Cause:
 The 400 bad request occurs on query operations where the continuation token is used if the continuation token has grown too large or if different queries have different continuation token sizes.

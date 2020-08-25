@@ -19,25 +19,25 @@ For older SDKs, the exception can appear as an invalid JSON exception instead of
 ## Troubleshooting steps
 The following list contains known causes and solutions for unauthorized exceptions.
 
-### 1. The key wasn't properly rotated is the most common scenario
+### The key wasn't properly rotated is the most common scenario
 The 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
 
 #### Solution:
 The key was rotated and didn't follow the [best practices](secure-access-to-data.md#key-rotation). The Azure Cosmos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Azure Cosmos DB account size.
 
-### 2. The key is misconfigured 
+### The key is misconfigured 
 The 401 MAC signature issue will be consistent and happens for all calls using that key.
 
 #### Solution:
 The key is misconfigured on the application and is using the wrong key for the account, or the entire key wasn't copied.
 
-### 3. The application is using the read-only keys for write operations
+### The application is using the read-only keys for write operations
 The 401 MAC signature issue only occurs for write operations like create or replace, but read requests succeed.
 
 #### Solution:
 Switch the application to use a read/write key to allow the operations to complete successfully.
 
-### 4. Race condition with create container
+### Race condition with create container
 The 401 MAC signature issue is seen shortly after a container creation. This issue occurs only until the container creation is completed.
 
 #### Solution:

@@ -18,20 +18,20 @@ There are many valid scenarios where an application expects a code 404 and corre
 ## A not found exception was returned for an item that should exist or does exist
 Here are the possible reasons for a status code 404 to be returned if the item should exist or does exist.
 
-### 1. Race condition
+### Race condition
 There are multiple SDK client instances and the read happened before the write.
 
 #### Solution:
 1. The default account consistency for Azure Cosmos DB is session consistency. When an item is created or updated, the response returns a session token that can be passed between SDK instances to guarantee that the read request is reading from a replica with that change.
 1. Change the [consistency level](consistency-levels-choosing.md) to a [stronger level](consistency-levels-tradeoffs.md).
 
-### 2. Invalid partition key and ID combination
+### Invalid partition key and ID combination
 The partition key and ID combination aren't valid.
 
 #### Solution:
 Fix the application logic that's causing the incorrect combination. 
 
-### 3. Invalid character in an item ID
+### Invalid character in an item ID
 An item is inserted into Azure Cosmos DB with an [invalid character](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet#remarks) in the item ID.
 
 #### Solution:
@@ -73,19 +73,19 @@ while (invalidItemsIterator.HasMoreResults)
 }
 ```
 
-### 4. Time to Live purge
+### Time to Live purge
 The item had the [Time to Live (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) property set. The item was purged because the TTL property expired.
 
 #### Solution:
 Change the TTL property to prevent the item from being purged.
 
-### 5. Lazy indexing
+### Lazy indexing
 The [lazy indexing](index-policy.md#indexing-mode) hasn't caught up.
 
 #### Solution:
 Wait for the indexing to catch up or change the indexing policy.
 
-### 6. Parent resource deleted
+### Parent resource deleted
 The database or container that the item exists in was deleted.
 
 #### Solution:

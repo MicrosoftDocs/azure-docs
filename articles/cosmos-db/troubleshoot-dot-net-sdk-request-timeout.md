@@ -30,13 +30,13 @@ All the async operations in the SDK have an optional CancellationToken parameter
 ## Troubleshooting steps
 The following list contains known causes and solutions for request timeout exceptions.
 
-### 1. High CPU utilization
+### High CPU utilization
 High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum(not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
 
-### 2. Socket or port availability might be low
+### Socket or port availability might be low
 When running in Azure, clients using the .NET SDK can hit Azure SNAT (PAT) port exhaustion.
 
 #### Solution 1:
@@ -51,34 +51,34 @@ If you're running on Azure Functions, verify you're following the [Azure Functio
 #### Solution 4:
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`. Otherwise, you'll face connection issues.
 
-### 3. Create multiple client instances
+### Create multiple client instances
 Creating multiple client instances might lead to connection contention and timeout issues.
 
 #### Solution:
 Follow the [performance tips](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage), and use a single CosmosClient instance across an entire process.
 
-### 4. Hot partition key
+### Hot partition key
 Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
 
 #### Solution:
 Choose a good partition key that evenly distributes request volume and storage. Learn how to [change your partition key](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).
 
-### 5. High degree of concurrency
+### High degree of concurrency
 The application is doing a high level of concurrency, which can lead to contention on the channel.
 
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
 
-### 6. Large requests or responses
+### Large requests or responses
 Large requests or responses can lead to head-of-line blocking on the channel and exacerbate contention, even with a relatively low degree of concurrency.
 
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
 
-### 7. Failure rate is within the Azure Cosmos DB SLA
+### Failure rate is within the Azure Cosmos DB SLA
 The application should be able to handle transient failures and retry when necessary. Any 408 exceptions aren't retried because on create paths it's impossible to know if the service created the item or not. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts, which would break from the ambiguity of an existing item versus conflict from a create retry.
 
-### 8. Failure rate violates the Azure Cosmos DB SLA
+### Failure rate violates the Azure Cosmos DB SLA
 Contact [Azure Support](https://aka.ms/azure-support).
 
 ## Next steps
