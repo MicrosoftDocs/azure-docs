@@ -19,7 +19,7 @@ ms.author: victorh
 A fully qualified domain name (FQDN) represents a domain name of a host or IP address(es). You can use FQDNs in network rules based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable DNS Proxy to use FQDNs in your network rules. For more information see [Azure Firewall DNS settings (preview)](dns-settings.md).
 
 > [!NOTE]
-> By design, FQDN filtering does not support wildcards.
+> By design, FQDN filtering doesn't support wildcards.
 
 ## How it works
 
