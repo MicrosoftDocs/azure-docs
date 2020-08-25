@@ -19,7 +19,7 @@ Also review the following articles:
 > [!NOTE]
 > Network isolation is currently supported for new labs creations only.
 
-## Steps to enable network isolation during lab create: 
+## Steps to enable network isolation during lab creation
 
 1. During lab creation, go to the **Networking** tab.
 1. You can either select a **Default** network that the lab will create for you or select an existing network from the drop-down. You will only be able to select networks that are in the same region and subscription as that of lab. 
