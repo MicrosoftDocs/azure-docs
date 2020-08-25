@@ -112,6 +112,8 @@
       href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
+    - name: Security overview
+      href: search-security-overview.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -153,7 +155,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Ingest Azure data
+  - name: Ingest Azure-only data
     items:
     - name: Configure indexers
       href: search-indexer-overview.md
@@ -201,7 +203,7 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-  - name: Ingest using AI
+  - name: Use skills (AI)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -213,7 +215,7 @@
         href: cognitive-search-concept-annotations-syntax.md
       - name: Map to index fields
         href: cognitive-search-output-field-mapping.md
-      - name: Extract information from images
+      - name: Process image files
         href: cognitive-search-concept-image-scenarios.md
       - name: Cache (incremental) enrichment
         href: search-howto-incremental-index.md
@@ -310,9 +312,15 @@
     - name: Preview feature list
       href: search-api-preview.md
     - name: Develop in .NET
-      href: search-howto-dotnet-sdk.md
+      items:
+      - name: Use Microsoft.Azure.Search (v10)
+        href: search-howto-dotnet-sdk.md
+      - name: Get started (v10)
+        href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 11.0
+        href: search-dotnet-sdk-migration-version-11.md
       - name: .NET SDK 10.0
         href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
@@ -329,12 +337,12 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Overview
-      href: search-security-overview.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
         href: search-security-manage-encryption-keys.md
+      - name: Get key information
+        href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
       - name: API access keys
@@ -347,7 +355,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Filter on AAD identities
+      - name: Filter on user identities
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Manage
     items:

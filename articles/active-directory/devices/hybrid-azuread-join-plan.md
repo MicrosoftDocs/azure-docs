@@ -119,6 +119,9 @@ A managed environment can be deployed either through [Password Hash Sync (PHS)](
 
 These scenarios don't require you to configure a federation server for authentication.
 
+> [!NOTE]
+> [Cloud authentication using Staged rollout](/azure/active-directory/hybrid/how-to-connect-staged-rollout) is only supported starting Windows 10 1903 update
+
 ### Federated environment
 
 A federated environment should have an identity provider that supports the following requirements. If you have a federated environment using Active Directory Federation Services (AD FS), then the below requirements are already supported.

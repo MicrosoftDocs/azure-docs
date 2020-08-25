@@ -28,7 +28,7 @@ If you don't already have a container registry, follow these steps to create a n
 
 3. Select **Create**.
 
-4. After your container registry is created, browse to it, and from the left pane select **Access keys** from the menu located under **Settings**.
+4. After your container registry is created, browse to it, and from the left pane select **Access keys** from the menu located under **Settings**. 
 
 5. Click to Enable Admin user to view the **Username** and **Password** for your container registry.
 

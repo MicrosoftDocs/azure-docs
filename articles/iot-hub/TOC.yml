@@ -25,8 +25,6 @@
           href: quickstart-send-telemetry-android.md
         - name: iOS
           href: quickstart-send-telemetry-ios.md
-        - name: Xamarin.Forms
-          href: quickstart-send-telemetry-xamarinforms.md
     - name: Control a device
       items:
         - name: Node.js
@@ -55,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Auto-route messages using an ARM template
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutorials
   items:
     - name: Routing messages

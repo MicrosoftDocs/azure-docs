@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Data Box
+description: Learn about important system requirements for your Azure Data Box and for the clients connecting to the Data Box.
 services: databox
 author: alkohli
 

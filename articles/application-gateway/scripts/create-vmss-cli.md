@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Manage web traffic using the Azure CLI

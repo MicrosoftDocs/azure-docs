@@ -12,21 +12,21 @@ ms.date: 07/14/2020
 
 # Marketplace Rewards
 
-Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the commercial marketplace, you unlock new benefits designed to help you convert customers and close deals.
+Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals.
 
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
-Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](../determine-your-listing-type.md#choose-a-publishing-option)).
+Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](../determine-your-listing-type.md#choose-a-listing-option).
 
 You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 
-For Transact partners, as you grow your billed sales through the marketplace platform, you unlock greater benefits per tier.
+For Transact partners, as you grow your billed sales through the commercial marketplace platform, you unlock greater benefits per tier.
 
-The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform.
+The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the commercial marketplace as a platform.
 
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Check your eligibility for Marketplace Rewards program [here](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
+To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center .
 
 Your steps to get started are easy:
 

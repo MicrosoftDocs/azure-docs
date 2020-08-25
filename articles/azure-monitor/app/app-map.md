@@ -3,7 +3,7 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.custom: devx-track-javascript
+
 ms.reviewer: sdash
 ---
 
@@ -77,9 +77,12 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ![Screenshot of analytics experience](media/app-map/alerts-view.png)
 
-## Set cloud role name
+## Set or override cloud role name
 
-Application Map uses the **cloud role name** property to identify the components on the map. The Application Insights SDK automatically adds the cloud role name property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the cloud role name property. However, there are cases where you may want to override the default value. To override cloud role name and change what gets displayed on the Application Map:
+Application Map uses the **cloud role name** property to identify the components on the map. To manually set or override cloud role name and change what gets displayed on the Application Map:
+
+> [!NOTE]
+> The Application Insights SDK or Agent automatically adds the cloud role name property to the telemetry emitted by components in an Azure App Service environment.
 
 # [.NET/.NetCore](#tab/net)
 
@@ -262,7 +265,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 3. If you're using Azure Functions with C#, upgrade to [Functions V2](../../azure-functions/functions-versions.md).
 
-4. Confirm [cloud role name](#set-cloud-role-name) is correctly configured.
+4. Confirm [cloud role name](#set-or-override-cloud-role-name) is correctly configured.
 
 5. If you're missing a dependency, make sure it's in the list of [auto-collected dependencies](./auto-collect-dependencies.md). If not, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
@@ -278,7 +281,7 @@ To fix this, you'll need to change your instrumentation to properly set the clou
 
 * Dependency type should represent the logical type of a dependency. For example, HTTP, SQL or Azure Blob are typical dependency types. It should not contain unique IDs.
 
-* The purpose of cloud role name is described in the [above section](#set-cloud-role-name).
+* The purpose of cloud role name is described in the [above section](#set-or-override-cloud-role-name).
 
 ## Portal feedback
 

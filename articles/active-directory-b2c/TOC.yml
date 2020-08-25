@@ -377,12 +377,18 @@
       href: partner-itsme.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Jumio
+      href: partner-jumio.md
+    - name: Onfido
+      href: partner-onfido.md
     - name: Trusona
       href: partner-trusona.md
     - name: Twilio
       href: partner-twilio.md
     - name: TypingDNA
       href: partner-typingdna.md
+    - name: WhoIAM
+      href: partner-whoiam.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
@@ -452,6 +458,8 @@
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
+  - name: Legacy user flow versions
+    href: user-flow-versions-legacy.md
 - name: Resources
   items:
   - name: Azure Roadmap

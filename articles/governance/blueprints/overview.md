@@ -148,7 +148,7 @@ To assign or unassign a blueprint, your account needs the following permissions:
 
 The following built-in roles are available:
 
-|RBAC Role | Description |
+|Azure role | Description |
 |-|-|
 |[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
 |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |

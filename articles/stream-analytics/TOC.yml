@@ -1,4 +1,4 @@
-- name: Stream Analytics Documentation
+- name: Azure Stream Analytics documentation
   href: index.yml
 - name: Overview
   items:
@@ -122,7 +122,7 @@
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
     href: stream-analytics-output-error-policy.md
-- name: How-to-guides
+- name: How-to guides
   items:
   - name: Manage
     items:
@@ -172,6 +172,8 @@
       href: stream-analytics-real-time-fraud-detection.md
     - name: Run jobs on IoT Edge
       href: stream-analytics-edge.md
+    - name: Run jobs on Azure Stack
+      href: on-azure-stack.md
     - name: Toll booth sensor data analysis
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
     - name: High-frequency trading

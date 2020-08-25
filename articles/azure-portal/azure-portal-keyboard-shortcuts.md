@@ -48,7 +48,11 @@ This article lists the keyboard shortcuts that work everywhere in the Azure port
 |Go to **Resource groups**|G+R |
 |Open the left sidebar item at this position |G+number|
 
+## Keyboard shortcuts for specific pages in the Azure portal
+
+- [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
+
 ## Next steps
 
-- [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
-- [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+- [Turn on high contrast or change theme](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Supported browsers and devices](azure-portal-supported-browsers-devices.md)

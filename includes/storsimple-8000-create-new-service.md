@@ -24,7 +24,7 @@ ms.author: alkohli
 
    2. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
 
-   3. For **Resource group**, **Use existing** or **Create new** group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. For **Resource group**, **Use existing** or **Create new** group. For more information, see [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Supply a **Location** for your service. In general, choose a location closest to the geographical region where you want to deploy your device. You may also want to factor in the following considerations:
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Security Code Analysis onboarding guide
-description: This article describes installing the Microsoft Security Code Analysis extension
+description: Learn how to onboard and install the Microsoft Security Code Analysis extension. See prerequisites and view additional resources.
 author: sukhans
 manager: sukhans
 ms.author: terrylan

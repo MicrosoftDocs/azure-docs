@@ -5,7 +5,8 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/19/2020
+ms.date: 02/19/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples

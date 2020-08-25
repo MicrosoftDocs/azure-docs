@@ -6,15 +6,15 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-
 ---
+
 # Copy data from the HDFS server by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-hdfs-connector.md)
 > * [Current version](connector-hdfs.md)
@@ -249,10 +249,10 @@ To use DistCp to copy files as is from HDFS to Azure Blob storage (including sta
 
 * The MapReduce and YARN services are enabled.  
 * YARN version is 2.5 or later.  
-* The HDFS server is integrated with your target data store: Azure Blob storage or your Azure data lake store:  
+* The HDFS server is integrated with your target data store: **Azure Blob storage** or **Azure Data Lake Store (ADLS Gen1)**: 
 
     - Azure Blob FileSystem is natively supported since Hadoop 2.7. You need only to specify the JAR path in the Hadoop environment configuration.
-    - Azure Data Lake Store FileSystem is packaged starting from Hadoop 3.0.0-alpha1. If your Hadoop cluster version is earlier than that version, you need to manually import Azure Data Lake Storage Gen2-related JAR packages (azure-datalake-store.jar) into the cluster from [here](https://hadoop.apache.org/releases.html), and specify the JAR file path in the Hadoop environment configuration.
+    - Azure Data Lake Store FileSystem is packaged starting from Hadoop 3.0.0-alpha1. If your Hadoop cluster version is earlier than that version, you need to manually import Azure Data Lake Store-related JAR packages (azure-datalake-store.jar) into the cluster from [here](https://hadoop.apache.org/releases.html), and specify the JAR file path in the Hadoop environment configuration.
 
 * Prepare a temp folder in HDFS. This temp folder is used to store a DistCp shell script, so it will occupy KB-level space.
 * Make sure that the user account that's provided in the HDFS linked service has permission to:

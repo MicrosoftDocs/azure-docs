@@ -18,19 +18,19 @@ ms.author: inhenkel
 
 # How to use Azure portal to invoke direct methods
 
-IoT Hub gives you the ability to invoke [direct methods](/azure/iot-hub/iot-hub-devguide-direct-methods#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Live Video Analytics on IoT Edge (LVA) module exposes several [direct methods](/azure/media-services/live-video-analytics-edge/direct-methods) that can be used to define, deploy, and instantiate different workflows for analyzing live video.
+IoT Hub gives you the ability to invoke [direct methods](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Live Video Analytics on IoT Edge (LVA) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and instantiate different workflows for analyzing live video.
 
 In this article, you will learn how to invoke direct method calls on Live Video Analytics for an IoT Edge module via the Azure portal.
 
 ## Prerequisites
 
-* You have the Live Video Analytics on IoT Edge module running on your edge device, using either the methods described in [Quickstart: Live Video Analytics on IoT Edge](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart) or using the [portal.](/azure/media-services/live-video-analytics-edge/deploy-iot-edge-device)
+* You have the Live Video Analytics on IoT Edge module running on your edge device, using either the methods described in [Quickstart: Live Video Analytics on IoT Edge](./get-started-detect-motion-emit-events-quickstart.md) or using the [portal.](./deploy-iot-edge-device.md)
 
-* You understand [Live Video Analytics](/azure/media-services/live-video-analytics-edge/overview) and [the media graph concept](/azure/media-services/live-video-analytics-edge/media-graph-concept).
+* You understand [Live Video Analytics](./overview.md) and [the media graph concept](./media-graph-concept.md).
 
 ## Invoking direct methods via Azure portal
 
-Each of the [direct methods](/azure/media-services/live-video-analytics-edge/direct-methods) exposed by the LVA module can be invoked via Azure portal. The steps below provide the details for one direct method. You can invoke other direct methods using similar steps. However, each direct method requires a specific JSON body.
+Each of the [direct methods](./direct-methods.md) exposed by the LVA module can be invoked via Azure portal. The steps below provide the details for one direct method. You can invoke other direct methods using similar steps. However, each direct method requires a specific JSON body.
 
 Use the `GraphTopologyList` method call to retrieve a list of all the graph topologies currently deployed on the Live Video Analytics on IoT Edge module. Use the following steps to invoke this direct method:
 
@@ -68,9 +68,9 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
 
 ## Next steps
 
-More direct methods can be found on the [Direct methods](/azure/media-services/live-video-analytics-edge/direct-methods) page.
+More direct methods can be found on the [direct methods](./direct-methods.md) page.
 
 > [!NOTE]
 > A graph instance instantiates a specific topology, so please ensure you have the right topology set before creating a graph instance.
 
-[Quickstart: Detect motion emit events](/azure/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart) is a good reference for understanding the exact sequence of direct method calls to be made.
+[Quickstart: Detect motion emit events](./get-started-detect-motion-emit-events-quickstart.md) is a good reference for understanding the exact sequence of direct method calls to be made.

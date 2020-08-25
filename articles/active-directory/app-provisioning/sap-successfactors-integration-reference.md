@@ -28,7 +28,7 @@ Azure AD provisioning service uses basic authentication to connect to Employee C
 To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allow-list using the steps described below:
 
 1. Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud 
-1. Open the file and search for tags **AzureActiveDirectory** and **AzureActiveDirectoryDomainServices** 
+1. Open the file and search for tag **AzureActiveDirectory** 
 
    >[!div class="mx-imgBorder"] 
    >![Azure AD IP range](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)

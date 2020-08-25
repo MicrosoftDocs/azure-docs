@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/03/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -62,6 +62,10 @@ The following steps will help create a Conditional Access policy to require thos
       * Security administrator
       * SharePoint administrator
       * User administrator
+   
+      > [!WARNING]
+      > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../users-groups-roles/roles-create-custom.md).
+
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**, and select **Done**.

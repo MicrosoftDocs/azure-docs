@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-javascript
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -41,10 +42,10 @@ npm install -g autorest@2.0.4413
 To run AutoRest against the Azure Digital Twins Swagger file, follow these steps:
 1. Copy the Azure Digital Twins Swagger file and its accompanying folder of examples into a working directory.
 2. Use a command prompt window to switch to that working directory.
-3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `--python`, `--java`, `--go`, and so on. (You can find the full list of options in the [AutoRest README](https://github.com/Azure/autorest).)
+3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `python`, `java`, `go`, and so on. (You can find the full list of options in the [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
 As a result, you'll see a new folder named *ADTApi* in your working directory. The generated SDK files will have the namespace *ADTApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
@@ -83,7 +84,7 @@ You can now build the project, and include it as a project reference in any Azur
 
 ## General guidelines for generated SDKs
 
-This section contains general information about and guidelines for using the generated SDK.
+This section contains general information and guidelines for using the generated SDK.
 
 ### Synchronous and asynchronous calls
 
