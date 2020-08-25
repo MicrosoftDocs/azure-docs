@@ -212,6 +212,10 @@ Enable diagnostic logging on your Azure Cosmos DB account. These logs show each 
 
 Requests from a subnet in a virtual network that has a service endpoint for Azure Cosmos DB enabled sends the virtual network and subnet identity to Azure Cosmos DB accounts. These requests don't have the public IP of the source, so IP filters reject them. To allow access from specific subnets in virtual networks, add an access control list as outlined in [How to configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md). It can take up to 15 minutes for firewall rules to apply.
 
+### Private IP addresses in list of allowed addresses
+
+Creating or updating an Azure Cosmos account with a list of allowed addresses containing private IP addresses will fail. Make sure that no private IP address is specified in the list.
+
 ## Next steps
 
 To configure a virtual network service endpoint for your Azure Cosmos DB account, see the following articles:
