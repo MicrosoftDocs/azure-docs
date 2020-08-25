@@ -43,6 +43,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 To configure the integration of ekarda into Azure AD, add ekarda from the gallery to your list of managed SaaS apps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account or a personal Microsoft account.
+
 1. On the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add the new application, select **New application**.
@@ -56,10 +57,11 @@ Configure and test Azure AD SSO with ekarda by using a test user called **B.Simo
 To configure and test Azure AD SSO with ekarda, complete the following steps:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+
     1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
     1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
 1. [Configure ekarda SSO](#configure-ekarda-sso) to configure the single sign-on settings on application side.
-    1. [Create an ekarda test user](#create-an-ekarda-test-user) to have a counterpart of B.Simon in ekarda that's linked to the Azure AD representation of the user.
+    * [Create an ekarda test user](#create-an-ekarda-test-user) to have a counterpart of B.Simon in ekarda that's linked to the Azure AD representation of the user.
 1. [Test SSO](#test-sso) to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -75,9 +77,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO:
 
 1. In the **Basic SAML Configuration** section, if you see **Service Provider metadata file**, follow these steps:
     1. Select **Upload metadata file**.
-
     1. Select the folder icon to select the metadata file, and then select **Upload**.
-
     1. When the metadata file is successfully uploaded, the values for **Identifier** and **Reply URL** appear automatically in the ekarda section text box.
 
     > [!Note]
@@ -87,17 +87,16 @@ Follow these steps in the Azure portal to enable Azure AD SSO:
 
     1. In the **Identifier** text box, type a URL that follows this pattern:
     `https://my.ekarda.com/users/saml_metadata/<COMPANY_ID>`
-
     1. In the **Reply URL** text box, type a URL that follows this pattern:
     `https://my.ekarda.com/users/saml_acs/<COMPANY_ID>`
 
-1. Select **Set additional URLs** and do this step if you want to configure the application in SP-initiated mode:
+1. If you want to configure the application in SP-initiated mode, select **Set additional URLs** and do this:
 
-    In the **Sign-on URL** text box, type a URL that follows this pattern:
+    * In the **Sign-on URL** text box, type a URL that follows this pattern:
     `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
 
     > [!NOTE]
-    > These values aren't real. Update them with the actual identifier, reply URL and sign-on URL values. Contact the [ekarda Client support team](mailto:contact@ekarda.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The values in the two preceding steps aren't real. Update them with the actual identifier, reply URL, and sign-on URL values. Contact the [ekarda Client support team](mailto:contact@ekarda.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to save **Certificate (Base64)** on your computer.
 
@@ -112,6 +111,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO:
 In this section, you'll use the Azure portal to create a test user called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
+
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
@@ -140,31 +140,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ## Configure ekarda SSO
 
 1. In a different web-browser window, sign in to your ekarda company site as an administrator.
-
 1. Select **Admin** > **My Account**.
 
     ![Screenshot of ekarda site UI with My Account highlighted on the Admin menu.](./media/ekarda-tutorial/ekarda.png)
 
 1. At the bottom of the page, locate the **SAML SETTINGS** section. This section is where you configure the SAML integration.
-1. 
 1. In the **SAML SETTINGS** section, follow these steps:
 
     ![Screenshot of ekarda SAML SETTINGS page with SAML configuration fields highlighted.](./media/ekarda-tutorial/ekarda1.png)
 
     1. Select the **Service Provider metadata** link and save it as file in your computer.
-
     1. Select the **Enable SAML** check box.
-
     1. In the **IDP Entity ID** text box, paste the **Azure AD Identifier** value that you copied earlier from the Azure portal.
-
     1. In the **IDP Login URL** text box, paste the **Login URL** value that you copied earlier from the Azure portal.
-
     1. In the **IDP Logout URL** text box, paste the **Logout URL** value that you copied earlier from the Azure portal.
-
     1. Use Notepad to open the **Certificate (Base64)** file that you downloaded from the Azure portal. Paste that content into the **IDP x509 Certificate** text box.
-
     1. Select the **Enable SLO** check box in the **OPTIONS** section.
-
     1. Select **Update**.
 
 ### Create an ekarda test user
