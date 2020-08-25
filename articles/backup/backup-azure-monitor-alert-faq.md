@@ -55,7 +55,7 @@ An alert is raised within 20 mins of the Azure backup failure.
 
 ### Is there a case where an email won’t be sent if notifications are configured?
 
-Yes. In the following situations, notifications are not sent:
+Yes. In the following situations, notifications aren't sent:
 
 * If notifications are configured hourly, and an alert is raised and resolved within the hour
 * When a job is canceled
