@@ -346,6 +346,5 @@ When you start a training run where the source directory is a local Git reposito
 - To share your pipeline with colleagues or customers, see [Publish machine learning pipelines](how-to-deploy-pipelines.md)
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further
 - See the SDK reference help for the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package
-- See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+- See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines=
+- Learn how to run notebooks by following the article [Use Jupyter notebooks to explore this service](../articles/machine-learning/samples-notebooks.md).
