@@ -46,7 +46,7 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
     ![Connect to server via remote desktop connection](./media/upgrade-mars-agent/connect-to-server.png)
 
     >[!NOTE]
-    > If the listed server does not exist or has been decommissioned, you can ignore the remaining steps below and skip to the next server.
+    > If the listed server doesn't exist or has been decommissioned, you can ignore the remaining steps below and skip to the next server.
 
 1. Enter your administrative login details and sign in.
 
