@@ -79,15 +79,15 @@ To get the logs using Azure Toolkit for IntelliJ:
 ## Distributed Tracing
 1. Go to the **service | Overview** page and select **Distributed tracing** in the **Monitoring** section. Then click the **View application map** tab on the right.
 
-    ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png)
+    [ ![Distributed Tracing entry](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
 1. You can now see the status of calls between Piggymetrics apps. 
 
-    ![Distributed Tracing overview](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png)
+    [ ![Distributed Tracing overview](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview.png#lightbox)
     
 1. Click the link between **gateway** and **account-service** to see more details like slowest calls by HTTP methods.
 
-    ![Distributed Tracing](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png)
+    [ ![Distributed Tracing](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call.png#lightbox)
     
 1. Finally, click **Investigate Performance** to explore more powerful built-in performance analysis.
 
