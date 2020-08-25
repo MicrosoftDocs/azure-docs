@@ -22,7 +22,7 @@ Batch uses three following DiskEncryption technologies offered by Azure and appl
 
 1. [Managed disk encryption at rest with platform-managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys) 
 
-1. [Encryption at Host using Platform Managed Key](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
+1. [Encryption at Host using a platform managed Key](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
 
 1. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss) 
 
@@ -30,7 +30,7 @@ Batch uses three following DiskEncryption technologies offered by Azure and appl
 > [!IMPORTANT] 
 > Encryption at Host using a platform managed key is currently a preview feature offered by Azure, and is currently only supported by Batch in the following regions: East US, West US 2, South Central US, US Gov Virginia and US Gov Arizona. 
 
-Please note that Batch customer does not have an option to choose which encryption method they want to apply to their nodes. Instead, customer will provide the target disks they want to encrypt on their nodes, so that Batch can choose the appropriate encryption method and ensure the specified disks are encrypted on server side. Once diskencryption configuration is specified while creating a pool, all nodes under the pool wil be encrypted with the same target disks.
+Please note that Batch customer does not have an option to choose which encryption method they want to apply to their nodes. Instead, customer will provide the target disks they want to encrypt on their nodes, so that Batch can choose the appropriate encryption method and ensure the specified disks are encrypted on server side. Once a disk encryption configuration is specified while creating a pool, the target disks for each node in the pool will be encrypted.
  
 ## Create a DiskEncryption Pool from the Azure Portal 
 In the Azure portal, when you create Batch pool, pick the appropriate disk under **Disk Encryption Configuration**.
