@@ -2,7 +2,7 @@
 title: Data residency
 description: Data residency and information about Azure Arc enabled servers (preview).
 ms.topic: reference
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ms.custom: references_regions
 ---
 
@@ -38,7 +38,5 @@ The following table highlights the source and target region where your data is r
 |Australia East | Australia Southeast |
 |East US2 |Central US |
 |North Europe |West Europe |
-
-Ryan will ask the Devs to weigh-in and determine if we need to be explicit here. What other data is collected that is not specified here and should be listed/described? What about geo-redundancy of the data when a regional datacenter is impacted by a disaster? How secure is the data? How does the service maintain availability in a disaster scenario or other issue that impacts service availability?
 
 ## Next steps
