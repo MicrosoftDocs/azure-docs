@@ -130,20 +130,22 @@ This error occurs when the network that the source machine resides isn't found, 
 Verify if the network shared folders on your virtual machine, are accessible from Process Server (PS) remotely using specified credentials. To confirm access: 
 
 1. Log in to your Process Server machine.
-1. Open File Explorer. In the address bar, type `\\<SOURCE-MACHINE-IP>\C$` and click Enter.
+2. Open File Explorer. In the address bar, type `\\<SOURCE-MACHINE-IP>\C$` and click Enter.
 
-    ![Open folder in PS](./media/vmware-azure-troubleshoot-push-install/open-folder-in-ps.PNG)
+    ![Open folder in PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
 
-1. File explorer will prompt for credentials. Enter the username and password and click OK. <br><br/>
-**Note:** If source machine is domain joined, provide the domain name along with user name as `<domainName>\<username>`. If source machine is in work group, provide only the user name.
+3. File explorer will prompt for credentials. Enter the username and password and click OK. <br><br/>
 
     ![Provide Credentials](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
 
-1. If connection is successful, the folders of source machine will be visible remotely from Process Server.
+    >[!NOTE]
+    > If source machine is domain joined, provide the domain name along with user name as `<domainName>\<username>`. If source machine is in work group, provide only the user name.
+
+4. If connection is successful, the folders of source machine will be visible remotely from Process Server.
 
     ![Visible folders from Source Machine](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
 
-**Note:** If connection is unsuccessful, please check whether all pre-requisites are met.
+If connection is unsuccessful, please check whether all pre-requisites are met.
 
 ## File and Printer sharing services check (ErrorID: 95105 & 95106)
 
