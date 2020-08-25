@@ -215,7 +215,23 @@ The circles (graph "nodes") represent digital twins, and the lines represent rel
 
 If you're using a mouse, you can click and drag pieces of the graph to move them around.
 
-You can also select a twin to see a list of its properties and their values in the *PROPERTY EXPLORER* box:
+### View twin properties 
+
+You can select a twin to see a list of its properties and their values in the *PROPERTY EXPLORER* box. 
+
+Here are the properties of *Room0*:
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room0, including (among others) a $dtId field of 'Room0', a Temperature field of 70, and a Humidity field of 30.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Note that *Room0* has a temperature of **70**.
+
+Here are the properties of *Room1*:
 
 :::row:::
     :::column:::
@@ -225,15 +241,43 @@ You can also select a twin to see a list of its properties and their values in t
     :::column-end:::
 :::row-end:::
 
+Note that *Room1* has a temperature of **80**.
+
 ### Query the graph
 
-Run queries
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In this section, you will run a query to answer the following question:
 
-### Edit the twin data
+**What are all the twins in my environment with a temperature above 75?** (query by property)
 
-Edit twins
+**Query:** `SELECT * FROM DigitalTwins T WHERE T.Temperature > 75`
+    
+You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. Recall from viewing the twin properties earlier that *Room0* has a temperature of **70** and *Room1* has a temperature of **80**. As a result, only *Room1* shows up in the results here.
+    
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Results of property query, showing only Room1":::
 
-Run queries again
+## Edit data in the graph
+
+You can use ADT Explorer to edit the properties of the twins represented in your graph.
+
+To do this, select *Room0*, bringing up its property list in the *PROPERTY EXPLORER* box.
+
+The properties in this list are editable. Select the temperature value of **70** to enable entering a new value. Enter **76**, and hit the *Save* icon to update the temperature to **76**.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="The 'Property Explorer' box showing properties for Room0. The temperature value is an editable box showing 76, and there is a highlight around the Save icon.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Upon successful save, you will see a *Patch Information* window displaying the patch code that was used behind the scenes with the Azure Digital Twins [APIs](how-to-use-apis-sdks.md) to make the update. Hit *Close*.
+
+### Query to see the result
+
+To verify that the twin update was successful, re-run the query from earlier to **get all the twins in the environment with a temperature above 75**. Now that the temperature of *Room0* has been changed from **70** to **76**, both twins should show up in the result.
+
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Results of property query, showing both Room0 and Room1":::
 
 ## Clean up resources
 
