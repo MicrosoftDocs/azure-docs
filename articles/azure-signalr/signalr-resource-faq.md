@@ -73,8 +73,8 @@ take the aggregation type [here](../azure-monitor/platform/metrics-supported.md#
 ## What is the meaning of service mode `Default`/`Serverless`/`Classic`? How can I choose?
 
 Modes:
-* `Default` mode **requires** hub server. When there is no server connection available for the hub, the client tries to connect to this hub fails.
-* `Serverless` mode does **NOT** allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode.
+* `Default` mode **requires** hub server. When in this mode, Azure SignalR routes the client traffic to its connected hub server connections. Azure SignalR checks if there is any hub server connected, if not, Azure SignalR rejects the incoming client connections. One thing to mention is that **Management Api** can also be used in this mode to manage the connected clients directly through Azure SignalR.
+* `Serverless` mode does **NOT** allow any server connection, i.e. it will reject all server connections, all clients must in serverless mode.	* `Serverless` mode does **NOT** allow any server connection. Clients connect to Azure SignalR, and users usually use serverless technologies such as **Azure Function** to handle hub logics. [Here](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) is a simple example using Azure SignalR's Serverless mode.
 * `Classic` mode is a mixed status. When a hub has server connection, the new client will be routed to hub server, if not, client will enter serverless mode.
 
   This may cause some problem, for example, all of server connections are lost for a moment, some clients will enter serverless mode, instead of route to hub server.
