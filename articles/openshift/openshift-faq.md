@@ -60,25 +60,9 @@ On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes are not currently 
 
 On Azure Red Hat OpenShift 3.11 clusters, infrastructure nodes are included by default.
 
-## Upgrades
+## How do I handle cluster upgrades?
 
-###  What is the general upgrade process?
-
-Patches are applied automatically to your cluster. You do not need to take any action to receive patch upgrades on your cluster.
-
-Running an upgrade is a safe process to run and should not disrupt cluster services. The joint Microsoft-Red Hat team can trigger the upgrade process when new versions are available or Common Vulnerabilities and Exposures are outstanding. Available updates are tested in a staging environment and then applied to production clusters. Following best practices helps ensure minimal to no downtime.
-
-Planned maintenance is not prescheduled with the customer. Notifications related to maintenance may be sent via email.
-
-### What is the Azure Red Hat OpenShift maintenance process?
-
-There are two types of maintenance for Azure Red Hat OpenShift: upgrades and cloud provider-initiated maintenance.
-- Upgrades include software upgrades and Common Vulnerabilities and Exposures.
-- Cloud provider-initiated maintenance includes network, storage, and regional outages. The maintenance is dependent on the cloud provider and relies on provider-supplied updates.
-
-### What about emergency vs. planned maintenance windows?
-
-We do not distinguish between the two types of maintenance. Our teams are available 24/7/365 and do not use traditional scheduled “out-of-hours” maintenance windows.
+For information on upgrades, maintenance, and supported versions, see the [support lifecycle guide](support-lifecycle.md).
 
 ### How will the host operating system and OpenShift software be updated?
 

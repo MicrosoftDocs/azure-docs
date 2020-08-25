@@ -77,6 +77,9 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
    Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
 
+    > [!NOTE]
+    > The auto-complete trigger automatically completes a message, but completion happens only at the next trigger run. This behavior can affect your logic app's design. For example, if you set the auto-complete trigger to check for messages every minute, but the lock duration is set to 30 seconds on Service Bus side, the result is a "lock expired" failure that happens when completing the message. You need to set the lock duration to a value that's longer than the polling interval.
+
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
    1. Provide a name for your connection, and select your Service Bus namespace.

@@ -194,13 +194,13 @@ Now we have all VG names with unique IDs.
 
 ###### Active volume groups
 
-Make sure that the Volume groups corresponding to script's volumes are active. The below command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
+Make sure that the Volume groups corresponding to script's volumes are active. The following command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
 
 ```bash
 vgdisplay -a
 ```  
 
-Otherwise, activate the volume group by using the below command.
+Otherwise, activate the volume group by using the following command.
 
 ```bash
 #!/bin/bash
@@ -209,7 +209,7 @@ vgchange –a y  <volume-group-name>
 
 ##### Listing logical volumes within Volume groups
 
-Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the below command.
+Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the following command.
 
 ```bash
 #!/bin/bash
