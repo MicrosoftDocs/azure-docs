@@ -32,7 +32,7 @@ You can test behavior of your client application during planned maintenance even
 
 ## Retry logic
 
-Any client production application that connects to a cloud database service should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). This will generally help make failovers transparent to the end users, or at least .
+Any client production application that connects to a cloud database service should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). This will help make failovers transparent to the end users, or at least minimize negative effects.
 
 ## Frequency
 
