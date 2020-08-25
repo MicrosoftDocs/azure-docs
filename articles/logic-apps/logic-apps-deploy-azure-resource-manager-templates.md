@@ -121,7 +121,7 @@ After deployment, your logic app works end-to-end with valid parameters. However
   > [!NOTE]
   > If you're considering sharing API connections, make sure that your solution can [handle potential throttling problems](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). Throttling happens at the connection level, so reusing the same connection across multiple logic apps might increase the potential for throttling problems.
 
-* Unless your scenario involves services and systems that require multi-factor authencation, you can use a PowerShell script to provide consent for each OAuth connection by running a continuous integration worker as a normal user account on a virtual machine that has active browser sessions with the authorizations and consent already provided. For example, you can repurpose the sample script provided by the [LogicAppConnectionAuth project in the Logic Apps GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
+* Unless your scenario involves services and systems that require multi-factor authentication, you can use a PowerShell script to provide consent for each OAuth connection by running a continuous integration worker as a normal user account on a virtual machine that has active browser sessions with the authorizations and consent already provided. For example, you can repurpose the sample script provided by the [LogicAppConnectionAuth project in the Logic Apps GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
 
 * Manually authorize OAuth connections by opening your logic app in Logic App Designer, either in the Azure portal or in Visual Studio.
 
