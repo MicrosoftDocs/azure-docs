@@ -209,7 +209,7 @@ Yes. The data in Azure is encrypted-at-rest.
 - For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure.
 - For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE).
 
-Microsoft does not decrypt the backup data at any point.
+Microsoft doesn't decrypt the backup data at any point.
 
 ### What is the minimum length of the encryption key used to encrypt backup data?
 
@@ -217,7 +217,7 @@ The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is
 
 ### What happens if I misplace the encryption key? Can I recover the data? Can Microsoft recover the data?
 
-The key used to encrypt the backup data is present only on your site. Microsoft does not maintain a copy in Azure and does not have any access to the key. If you misplace the key, Microsoft can't recover the backup data.
+The key used to encrypt the backup data is present only on your site. Microsoft doesn't maintain a copy in Azure and doesn't have any access to the key. If you misplace the key, Microsoft can't recover the backup data.
 
 ## Next steps
 

@@ -85,8 +85,6 @@ It takes a few moments to deploy your new Speech resource. Once deployment is co
 
 We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. See the following list for the quickstart for each feature.
 
-This table contains the most popular quickstarts for each feature. Use the left-hand navigation to explore additional languages and platforms.
-
 * [Speech-to-text quickstart](speech-to-text-basics.md)
 * [Text-to-speech quickstart](get-started-text-to-speech.md)
 * [Speech translation quickstart](speech-translation-basics.md)
