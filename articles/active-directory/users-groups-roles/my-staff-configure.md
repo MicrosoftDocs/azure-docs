@@ -59,7 +59,7 @@ Once you have configured AUs, you can apply this scope to your users who access 
 
 You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
 
-We strongly recommend that you protect My Staff using [Azure AD Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
+We strongly recommend that you protect My Staff using [Azure AD Conditional Access policies](../conditional-access/index.yml). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
 
 ### Apply a Conditional Access policy to My Staff
 
