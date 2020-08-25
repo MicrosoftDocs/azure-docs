@@ -74,7 +74,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 1. Dismiss the filter created above, click **Apply Splitting** and select `App` for **Values** to see CPU usage by different apps.
 
-    ![Apply splitting in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png)
+    [ ![Apply splitting in metrics](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split.png#lightbox)
 
 ## Distributed Tracing
 1. Go to the **service | Overview** page and select **Distributed tracing** in the **Monitoring** section. Then click the **View application map** tab on the right.
