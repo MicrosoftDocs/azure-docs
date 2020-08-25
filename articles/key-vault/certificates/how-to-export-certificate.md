@@ -15,7 +15,7 @@ ms.author: sebansal
 ---
 # Export certificates from Azure Key Vault
 
-Learn how to export certificates from Azure Key Vault. You can export certificates by using Azure CLI, Azure PowerShell or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
+Learn how to export certificates from Azure Key Vault. You can export certificates by using the Azure CLI, Azure PowerShell, or the Azure portal. You can also use the Azure portal to export Azure App Service certificates.
 
 ## About Azure Key Vault certificates
 
@@ -23,7 +23,7 @@ Azure Key Vault allows you to easily provision, manage, and deploy digital certi
 
 ### Composition of a certificate
 
-When a Key Vault certificate is created, an addressable *key* and *secret* are created that have the same name. The Key Vault key allows key operations. The Key Vault secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata. Go to [Composition of a Certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) for more information.
+When a Key Vault certificate is created, an addressable *key* and *secret* are created that have the same name. The Key Vault key allows key operations. The Key Vault secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata. Go to [Composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) for more information.
 
 ### Exportable and non-exportable keys
 
@@ -41,14 +41,14 @@ See [About Azure Key Vault certificates](https://docs.microsoft.com/azure/key-va
 
 ## Export stored certificates
 
-You can export stored certificates in Azure Key Vault by using Azure CLI, Azure PowerShell, or the Azure portal.
+You can export stored certificates in Azure Key Vault by using the Azure CLI, Azure PowerShell, or the Azure portal.
 
 > [!NOTE]
 > Only require a certificate password when you import the certificate in the key vault. Key Vault doesn't save the associated password. When you export the certificate, the password is blank.
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following command in Azure CLI to download the **public portion** of a Key Vault certificate.
+Use the following command in the Azure CLI to download the **public portion** of a Key Vault certificate.
 
 ```azurecli
 az keyvault certificate download --file
