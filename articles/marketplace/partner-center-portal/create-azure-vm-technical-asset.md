@@ -51,7 +51,7 @@ Additionally, consider adding the following tools to your development environmen
 
 ## Create a VM image using an approved base
 
-To create your virtual machine technical assets using an image you built on your own premises, go to Create a VM using your [own image]. <font color="red">NEED LINK, was c: drive</font>
+To create your virtual machine technical assets using an image you built on your own premises, see [#create-a-vm-using-your-own-image](Create a VM using your own image) below.
 
 This section describes various aspects of using an approved base, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.
 
@@ -120,7 +120,7 @@ Create a generation 2 (Gen2) VM in Azure portal.
 4. Select an image that supports Gen2.
 5. Select **Create**.
 6. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
-7. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** tab. <font color="red">replaced "blade" with "tab"</font>
+7. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** blade.
 8. Select a recommended size of [supported Gen 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) and size.
 9. Go through the [Azure portal creation flow](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) to finish creating the VM.
 
@@ -170,7 +170,7 @@ The following rules are for limitations on OS disk size. When you submit any req
 | Linux | 30 to 1023 GB |
 | Windows | 30 to 250 GB |
 
-As VMs allow access to the underlying operating system, ensure the VHD size is large enough for the VHD. Because disks aren't expandable without downtime, use a disk size between 30 and 50&nbsp;GB. <font color="red">Below, changed TiB to TB,</font>
+As VMs allow access to the underlying operating system, ensure the VHD size is large enough for the VHD. Because disks aren't expandable without downtime, use a disk size between 30 and 50&nbsp;GB.
 
 | VHD size | Actual occupied size | Solution |
 | --- | --- | --- |

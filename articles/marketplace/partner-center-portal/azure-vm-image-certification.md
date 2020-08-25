@@ -36,8 +36,6 @@ This section describes how to create and deploy a user-provided virtual machine 
 5. Paste the following JSON template into the editor and select **Save**.
 6. Provide the parameter values for the displayed Custom deployment property pages.
 
-#### For generation 1 VM deployment, use this template: <font color="red">added this heading</font>
-
 ```JSON
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -241,7 +239,7 @@ This section describes how to create and deploy a user-provided virtual machine 
 }
 ```
 
-<br><font color="red">if this table applies to the next JSON code too, it should probably be moved after it</font>
+<br>
 
 | ResourceGroupName | Existing Azure resource group name. Typically, use the same RG as your key vault. |
 | --- | --- |
@@ -584,7 +582,7 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 
 3. If using key file-based authentication, enter values for the VM DNS Name, User name, and Private key location. You can also include a Passphrase or change the default SSH Port number.
 
-**Connect the certification tool to a Windows-based VM image** <font color="red">delete? seems to duplicate prior heading</font>
+**Connect the certification tool to a Windows-based VM image**
 
 4. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
 5. Enter **User Name** and **Password**.
@@ -603,178 +601,7 @@ The last screen lets you provide more information, such as SSH access informatio
 
 Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. Save the results in the same container as your VHDs.
 
-### Use the self-test API
-
-#### Self-test clients
-
-How to call the self-test API:
-
-![Shows the selection of VM test information](media/vm/azure-vm-self-test-clients.png)
-
-#### Choose the Azure AD tenant where you want to create your applications
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the top bar, select your account and under the Directory list, choose the Active Directory tenant where you wish to register your application.
-3. Select **All services* in the left-hand nav and choose **Azure Active Directory**.
-
-In the next steps, you might need the tenant name (or directory name) or the tenant ID (or directory ID). These are presented in the Properties of the Azure Active Directory window respectively as Name and Directory ID.
-
-#### Register the client app of Type Web App/API
-
-1. Select App registrations and choose New application registration.
-
-2. Enter a friendly name for the application, for example `SelfTestClient` and select `Web App/Api` as the Application Type. For the redirect URI, enter `https://isvapp.azurewebsites.net/selftest-vm`. Select **Create** to create the application.
-
-3. On the next page, find and copy the **Application ID** value to the clipboard.
-
-4. Configure permissions for your application.
-    1. In the **Settings** menu, choose the Required permissions section.
-    1. Select **Add**.
-    1. Select an API.
-    1. Enter **Windows Azure Service Management API** in the textbox and press Enter.
-    1. Select **Windows Azure Service Management API** from the results and select **Select**.
-    1. Select **Select Permissions** and select **Access Windows Azure Service Management API**.
-    1. Select the **Select** button again to close this screen.
-    1. Select **Done** to finish adding the permission.
-
-1. Select **Properties**, set the check box to true, and save.
-
-1. Select **Keys** in settings, create a secret key, and copy it to the clipboard as it will disappear after some time. We will use this key in the code below.
-
-1. Create and Get the Token using PowerShell ADAL Library in below step.
-
-#### Create token of your client Azure AD app
-
-##### Get Token using POSTMAN using OAuth Rest API
-
-To ask `Auth0` for tokens for any of your authorized applications, perform a POST operation to [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) endpoint with a payload in the following format:
-
-```JSON
-Method Type : POST
-Base Url: https://login.microsoftonline.com/common/oauth2/token
-Pass below parameters in Request Body:
-Body Content-Type: x-www-form-urlencoded
-client\_id: XXX (Paste your Application ID of Web App/API Type client AD App)
-grant\_type: client\_credentials
-client\_secret: XXX (Paste your Secret Key of Web App/API Type client AD App)
-resource: [https://management.core.windows.net](https://management.core.windows.net/)
-```
-
-Pass these parameters in request headers:
-
-```JSON
-Content-Type: application/x-www-form-urlencoded
-```
-
-**Sample screen**:
-
-:::image type="content" source="media/vm/create-token-sample-screen.png" alt-text="ample screen for creating tokens for client Azure AD app.":::
-
-##### Get token using Curl in Linux using OAuth Rest API
-
-To ask Auth0 for tokens for any of your authorized applications, perform a POST operation to `https:// login.microsoftonline.com/common/oauth2/token` endpoint with a payload in the following format:
-
-**Request**:
-
-```JSON
-curl --request POST \
-    --url ‘https://login.microsoftonline.com/common/oauth2/token’ \
-    --header “Content-Type:application/x-www-form-urlencoded” \
-    --data “grant\_type=client\_credentials&amp;client\_id=XXXXX-XXXX-XXXX-XXXXXXX&amp;client\_secret=XXXXXXXXX&amp;resource=https://management.core.windows.net”
-```
-
-**Response**:
-
-```JSON
-{“token”:”UClCUUKxUlkdbhE1cHLz3kyjbIZYVh9eB34A5Q21Y3FPqKGSJs”,”expires”:”2014-02-17 18:46:08”}
-```
-
-**Sample screen**:
-
-![Sample screen for Curl results.](media/vm/curl-sample-screen.png)
-
-##### Get token using C# using OAuth Rest API
-
-To ask `Auth0` for tokens for any of your authorized applications, perform a POST operation to the `https://sonamtenant.auth0.com/oauth/token` endpoint with a payload in the following format:
-
-```JSON
-string clientId = “Your Application Id”;
-string clientSecret = “Your Application Secret”;
-string audience = “https://management.core.windows.net”;
-string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, “https://login.microsoftonline.com/common/oauth2/token”);
-string grantType = “client\_credentials”;
-var client = new RestClient(authority);
-var request = new RestRequest(Method.POST);
-request.AddHeader(“content-type”, “application/x-www-form- urlencoded”);
-
-string requestBody = “grant\_type=“ + grantType + “&amp;” + “client\_id=“ + clientId + “&amp;” + “client\_secret=“ + clientSecret + “&amp;” + “resource=“ + audience;
-
-request.AddParameter(“application/x-www-form-urlencoded”, requestBody, ParameterType.RequestBody);
-
-IRestResponse response = client.Execute(request);
-
-var content = response.Content;
-
-var token = JObject.Parse(content)[“access\_token”];
-```
-
-##### Get token using PowerShell using OAuth Rest API
-
-To ask Auth0 for tokens for any of your authorized applications, perform a POST operation to the `https://sonamtenant.auth0.com/oauth/token` endpoint with a payload in the following format:
-
-```JSON
-$clientId = “Application Id of AD Client APP”;
-$clientSecret = “Secret Key of AD Client APP “
-$audience = “https://management.core.windows.net”;
-$authority = “https://login.microsoftonline.com/common/oauth2/token”
-$grantType = “client\_credentials”;
-
-$requestBody = “grant\_type=“ + $grantType + “&amp;” + “client\_id=“ + $clientId + “&amp;” + “client\_secret=“ + $clientSecret + “&amp;” + “resource=“ + $audience;
-
-$headers = New-Object “System.Collections.Generic.Dictionary[[String],[String]]”
-$headers.Add(“ContentType”, “application/x-www-form-urlencoded”)
-resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -ContentType ‘application/x-www-form-urlencoded’ -Body $requestBody
-
-$token = $resp.Content | ConvertFrom-Json
-$token.AccessToken
-```
-
-##### Calling Self-Test API
-
-The self-test API contains a single endpoint that supports only the POST method. It uses this structure:
-
-```JSON
-Uri: https://isvapp.azurewebsites.net/selftest-vm
-Method: Post
-Request Header: Content-Type: “application/json”
-Authorization: “Bearer xxxx-xxxx-xxxx-xxxxx”
-Request body: The Request body parameters should use the following JSON format:
-    {
-“DNSName”:”XXXX.westus.cloudapp.azure.com”,
-“User”:”XXX”,
-“Password”:”XXX@1234567”,
-“OS”:”XXX”,
-“PortNo”:”22”,
-“CompanyName”:”ABCD”,
-“AppId”:” XXXX-XXXX-XXXX”,
-“TenantId”:”XXXX-XXXX-XXXX” `
-    }
-```
-
-These are the API fields:
-
-| Field | Description |
-| --- | --- |
-| Authorization | The “Bearer xxxx-xxxx-xxxx-xxxxx” string contains the Azure Active Directory (AD) client token, which can be created by using PowerShell. |
-| DNSName | DNS Name of the VM to test |
-| UserName | User name for signing into the VM |
-| Password | Password for signing into the VM or SSH public key |
-| OS | Operating system of the VM: either Linux or Windows |
-| PortNo | Open port number for connecting to the VM. The port number is typically 22 for Linux and 5986 for Windows. |
-| AppId | Application ID of the AD Client Application used to create Token |
-| TenantId | Tenant ID of the Azure subscription where AD Client App Resides. |
-
-## How to use PowerShell to consume the Self-Test API <font color="red">reset to H2 level</font>
+## How to use PowerShell to consume the Self-Test API
 
 ### On Linux OS
 
@@ -818,11 +645,11 @@ $uri = “URL”
 $res = (Invoke-WebRequest -Method “Post” -Uri $uri -Body $body -ContentType “application/json” -Headers $headers).Content
 ```
 
-Here's an example of calling the API in PowerShell:
+<br>Here's an example of calling the API in PowerShell:
 
 [![Screen example for calling the API in PowerShell.](media/vm/calling-api-in-powershell.png)](media/vm/calling-api-in-powershell.png#lightbox)
 
-Using the previous example, you can retrieve the JSON and parse it to get the following details:
+<br>Using the previous example, you can retrieve the JSON and parse it to get the following details:
 
 ```PowerShell
 $resVar=$res|ConvertFrom-Json
@@ -832,11 +659,11 @@ $actualresult =$resVar.Response |ConvertFrom-Json
 Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actualresult.OSVersion)”Write-Host”Overall Test Result: $($actualresult.TestResult)”For ($i=0; $i -lt$actualresult.Tests.Length; $i++){ Write-Host”TestID: $($actualresult.Tests[$i].TestID)”Write-Host”TestCaseName: $($actualresult.Tests[$i].TestCaseName)”Write-Host”Description: $($actualresult.Tests[$i].Description)”Write-Host”Result: $($actualresult.Tests[$i].Result)”Write-Host”ActualValue: $($actualresult.Tests[$i].ActualValue)”}
 ```
 
-This sample screen, which shows `$res.Content`, shows details of your test results in JSON format:
+<br>This sample screen, which shows `$res.Content`, shows details of your test results in JSON format:
 
 [![Screen example for calling the API in PowerShell with details of test results.](media/vm/calling-api-in-powershell-details.png)](media/vm/calling-api-in-powershell-details.png#lightbox)
 
-Here's an example of JSON test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
+<br>Here's an example of JSON test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
 
 ![Test results in an online JSON viewer.](media/vm/test-results-json-viewer-1.png)
 
@@ -848,7 +675,7 @@ Call the API in PowerShell:
 2. The method is Post and content type is JSON, as shown in the following code example and sample screen.
 3. Create the body parameters in JSON format.
 
-This code sample shows a PowerShell call to the API: <font color="red">line breaks missing?</font>
+This code sample shows a PowerShell call to the API:
 
 ```PowerShell
 $accesstoken = “Get token for your Client AAD App”$headers = New-Object”System.Collections.Generic.Dictionary[[String],[String]]”$headers.Add(“Authorization”, “Bearer $accesstoken”)$Body = @{ “DNSName” = “XXXX.westus.cloudapp.azure.com”“UserName” = “XXX”“Password” = “XXX@123456”“OS” = “Windows”“PortNo” = “5986”“CompanyName” = “ABCD” “AppID” = “XXXX-XXXX-XXXX” “TenantId” = “XXXX-XXXX-XXXX” } | ConvertTo-Json$res = Invoke-WebRequest -Method”Post” -Uri$uri -Body$Body -ContentType”application/json” –Headers $headers;$Content = $res | ConvertFrom-Json
@@ -864,7 +691,7 @@ These sample screens show example for calling the API in PowerShell:
 
  :::image type="content" source="media/vm/call-api-with-password.png" alt-text="Calling the API in PowerShell with a password.":::
 
-Using the previous example, you can retrieve the JSON and parse it to get the following details:
+<br>Using the previous example, you can retrieve the JSON and parse it to get the following details:
 
 ```Powershell
 $resVar=$res|ConvertFrom-Json
@@ -874,11 +701,11 @@ $actualresult =$resVar.Response |ConvertFrom-Json
 Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actualresult.OSVersion)”Write-Host”Overall Test Result: $($actualresult.TestResult)”For ($i=0; $i -lt$actualresult.Tests.Length; $i++){ Write-Host”TestID: $($actualresult.Tests[$i].TestID)”Write-Host”TestCaseName: $($actualresult.Tests[$i].TestCaseName)”Write-Host”Description: $($actualresult.Tests[$i].Description)”Write-Host”Result: $($actualresult.Tests[$i].Result)”Write-Host”ActualValue: $($actualresult.Tests[$i].ActualValue)”}
 ```
 
-This screen, which shows `$res.Content`, shows the details of your test results in JSON format:
+<br>This screen, which shows `$res.Content`, shows the details of your test results in JSON format:
 
  :::image type="content" source="media/vm/test-results-json-format.png" alt-text="Details of test results in JSON format.":::
 
-Here's an example of test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
+<br>Here's an example of test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
 
 ![Test results in an online JSON viewer.](media/vm/test-results-json-viewer-2.png)
 
@@ -899,10 +726,10 @@ CURL POST -H “Content-Type:application/json”
 -d ‘{ “DNSName”:”XXXX.westus.cloudapp.azure.com”, “UserName”:”XXX”, “Password”:”XXXX@123456”, “OS”:”Linux”, “PortNo”:”22”, “CompanyName”:”ABCD”, “AppId”:”XXXX-XXXX-XXXX”, “TenantId “XXXX-XXXX-XXXX”}’
 ```
 
-Here's an example of using CURL to call the API:
+<br>Here's an example of using CURL to call the API:
 
 ![Example of using CURL to call the API.](media/vm/using-curl-call-api.png)
 
-Here's the JSON results from the CURL call:
+<br>Here's the JSON results from the CURL call:
 
 ![JSON results from the CURL call.](media/vm/test-results-json-viewer-3.png)
