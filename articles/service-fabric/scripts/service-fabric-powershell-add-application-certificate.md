@@ -23,7 +23,7 @@ This sample script walks through how to create a certificate in Key Vault and th
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview) and then run `Connect-AzAccount` to create a connection with Azure. 
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/) and then run `Connect-AzAccount` to create a connection with Azure. 
 
 ## Create a certificate in Key Vault
 
@@ -106,6 +106,6 @@ This script uses the following commands: Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -48,8 +48,6 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
@@ -59,19 +57,6 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 ## File system support in SDKs, PowerShell, and Azure CLI
 
 - Get and set ACL operations are not currently recursive.
-
-
-## Lifecycle management policies
-
-The deletion of blob snapshots is not yet supported. 
-
-## Archive Tier
-
-There is currently a bug that affects the archive access tier.
-
-## Blobfuse
-
-Blobfuse is not supported.
 
 <a id="known-issues-tools"></a>
 
@@ -118,6 +103,8 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
+
+The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ### Lifecycle management policies
 

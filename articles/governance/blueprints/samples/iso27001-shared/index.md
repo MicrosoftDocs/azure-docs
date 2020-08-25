@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 Shared Services blueprint sample overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
-ms.date: 04/15/2020
+ms.date: 07/13/2020
 ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
@@ -28,7 +28,7 @@ This environment is composed of several Azure services used to provide a secure,
 enterprise-ready shared services infrastructure based on ISO 27001 standards. This environment is
 composed of:
 
-- [Role-based access control](../../../../role-based-access-control/overview.md) (RBAC) roles used
+- [Azure roles](../../../../role-based-access-control/overview.md) used
   for segregation of duties from a control plane perspective. Three roles are defined before
   deployment of any infrastructure:
   - NetOps role has the rights to manage the network environment, including firewall settings, NSG

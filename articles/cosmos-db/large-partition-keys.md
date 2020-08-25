@@ -3,7 +3,7 @@ title: Create Azure Cosmos containers with large partition key
 description: Learn how to create a container in Azure Cosmos DB with large partition key using Azure portal and different SDKs. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ---
@@ -18,7 +18,7 @@ Large partition keys are supported by using the functionality of an enhanced ver
 
 To create a large partition key, when you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs version older than 1.18.
 
-![Create large partition keys using Azure portal](./media/large-partition-keys/large-partition-key-with-portal.png)
+:::image type="content" source="./media/large-partition-keys/large-partition-key-with-portal.png" alt-text="Create large partition keys using Azure portal":::
 
 ## Create a large partition key (PowerShell)
 

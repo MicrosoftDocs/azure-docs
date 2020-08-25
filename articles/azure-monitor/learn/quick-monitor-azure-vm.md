@@ -1,6 +1,6 @@
 ---
-title: Monitor an Azure resource with Azure Monitor
-description: Learn how to collect and analyze data for an Azure resource in Azure Monitor.
+title: Monitor an Azure virtual machine with Azure Monitor
+description: Learn how to collect and analyze data for an Azure virtual machine in Azure Monitor.
 ms.service:  azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
@@ -78,7 +78,7 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 
 ## View data collected
 
-7. Click on your virtual machine and then select the **Performance** tab. This shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles at different times.
+7. Click on your virtual machine and then select the **Performance** tab that's under **Monitoring** menu **Insights** tile. This shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles at different times.
 
     ![Performance](media/quick-monitor-azure-vm/performance.png)
 
@@ -102,4 +102,4 @@ When you create a new Log Analytics workspace, it needs to be configured to coll
 In this quickstart, you enabled Azure Monitor for VMs for a virtual machine and configured the Log Analytics workspace to collect events for the guest operating system. To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics](../log-query/get-started-portal.md)

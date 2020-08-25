@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace (preview).
 
 > [!NOTE]
-> For GA, RBAC will be more developed through the introduction of Synapse-specific Azure RBAC roles
+> For GA, RBAC will be more developed through the introduction of Synapse-specific Azure roles
 
 ## Access Control for Workspace
 
@@ -164,14 +164,7 @@ To grant access to a user to a **single** SQL Database, follow these steps:
 > *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is undesired.
 > For a Spark user to read and write directly from Spark into/from a SQL pool, *db_owner* permission is required.
 
-After creating the users, validate that SQL on-demand can query the storage account:
-
-- Run the following command targeting the **master** database of SQL on-demand:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+After creating the users, validate that SQL on-demand can query the storage account.
 
 ## Access control to workspace pipeline runs
 

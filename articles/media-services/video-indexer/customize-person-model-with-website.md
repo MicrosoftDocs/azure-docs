@@ -8,8 +8,8 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: anzaman
+ms.date: 08/06/2020
+ms.author: kumud
 ---
 
 # Customize a Person model with the Video Indexer website
@@ -121,9 +121,20 @@ To look at the contents of any of your Person models, select the arrow next to t
 
 ### Manage a person
 
-If you select **Manage**, you see all the faces that this Person model is being trained from. These faces come from occurrences of that person in videos that use this Person model or from images that you've manually uploaded.
+If you select **Manage**, you see the **Person's details** window with all the faces that this Person model is being trained from. These faces come from occurrences of that person in videos that use this Person model or from images that you've manually uploaded.
+
+> [!TIP]
+> You can get to the **Person's details** window by clicking on the person's name or by clicking **Manage**, as shown above.
+
+#### Add a face
 
 You can add more faces to the person by selecting **Add images**.
+
+#### Delete a face
+
+Select the image you wish to delete and click **Delete**.
+
+#### Rename and delete the person 
 
 You can use the manage pane to rename the person and to delete the person from the Person model.
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -21,7 +21,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
-![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Easy migration from SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
 There are some PaaS limitations that are introduced in SQL Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
@@ -359,7 +359,7 @@ Some Windows-specific targets for Extended Events (XEvents) aren't supported:
 
 ### External libraries
 
-In-database R and Python, external libraries aren't yet supported. See [SQL Server Machine Learning Services](/sql/advanced-analytics/r/sql-server-r-services).
+In-database R and Python external libraries are supported in limited public preview. See [Machine Learning Services in Azure SQL Managed Instance (preview)](machine-learning-services-overview.md).
 
 ### Filestream and FileTable
 
@@ -427,7 +427,7 @@ For more information about configuring transactional replication, see the follow
   - `FROM URL` (Azure Blob storage) is the only supported option.
   - `FROM DISK`/`TAPE`/backup device isn't supported.
   - Backup sets aren't supported.
-- `WITH` options aren't supported, such as no `DIFFERENTIAL` or `STATS`.
+- `WITH` options aren't supported. Restore attempts including `WITH` like `DIFFERENTIAL`, `STATS`, `REPLACE`, etc., will fail.
 - `ASYNC RESTORE`: Restore continues even if the client connection breaks. If your connection is dropped, you can check the `sys.dm_operation_status` view for the status of a restore operation, and for a CREATE and DROP database. See [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 The following database options are set or overridden and can't be changed later: 

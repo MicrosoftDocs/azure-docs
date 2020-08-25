@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 07/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -44,9 +44,9 @@ To get a device in Azure AD, you have multiple options:
 - **Azure AD joined**
    - Devices that are Azure AD joined are owned by an organization, and are signed in with an Azure AD account belonging to that organization. They exist only in the cloud.
       - Windows 10 
-      - Windows Server 2019 (Server core is not supported)
+      - [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core is not supported)
 - **Hybrid Azure AD joined**
-   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in with an Azure AD account belonging to that organization. They exist in the cloud and on-premises.
+   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in with an Active Directory Domain Services account belonging to that organization. They exist in the cloud and on-premises.
       - Windows 7, 8.1, or 10
       - Windows Server 2008 or newer
 

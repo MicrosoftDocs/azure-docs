@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -137,6 +137,9 @@ GROUP BY
 ,       t.[name]
 ;
 ```
+
+>[!TIP]
+> For improved performance in Synapse SQL, consider using **sys.pdw_permanent_table_mappings** instead of **sys.pdw_table_mappings** on permanent user tables. See **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** for more information.
 
 Now that you have created the view, run this query to identify tables with row groups with less than 100K rows. Of course, you may want to increase the threshold of 100K if you are looking for more optimal segment quality.
 

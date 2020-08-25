@@ -9,9 +9,9 @@ editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim  
 ms.collection: M365-identity-device-management
@@ -33,9 +33,7 @@ For more information, see [License requirements to use Privileged Identity Manag
 
 ## Prepare PIM for Azure AD roles
 
-Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure AD roles.
-
-Here are the tasks we recommend for you to prepare for Azure AD roles, in order:
+Here are the tasks we recommend for you to prepare Privileged Identity Management to manage Azure AD roles:
 
 1. [Configure Azure AD role settings](pim-how-to-change-default-settings.md).
 1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
@@ -43,9 +41,7 @@ Here are the tasks we recommend for you to prepare for Azure AD roles, in order:
 
 ## Prepare PIM for Azure roles
 
-Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure roles for Azure resource access on a subscription.
-
-Here are the tasks we recommend for you to prepare for Azure roles, in order:
+Here are the tasks we recommend for you to prepare Privileged Identity Management to manage Azure roles for a subscription:
 
 1. [Discover Azure resources](pim-resource-roles-discover-resources.md)
 1. [Configure Azure role settings](pim-resource-roles-configure-role-settings.md).
@@ -77,15 +73,15 @@ To make it easier to open Privileged Identity Management, add a PIM tile to your
 
     ![Azure AD Privileged Identity Management in All services](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Select the Privileged Identity Management Quickstart.
+1. Select the Privileged Identity Management **Quick start**.
 
-1. Check **Pin blade to dashboard** to pin the Privileged Identity Management Quickstart blade to the dashboard.
+1. Select **Pin blade to dashboard** to pin the Privileged Identity Management **Quick start** page to the dashboard.
 
-    ![Pushpin icon to pin Privileged Identity Management blade to dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Pushpin icon to pin Privileged Identity Management page to dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     On the Azure dashboard, you'll see a tile like this:
 
-    ![Privileged Identity Management Quickstart tile on dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Privileged Identity Management Quick start tile on dashboard](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## Next steps
 

@@ -37,10 +37,10 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 | Details|Additional details on the matched request |
 || matchVariableName:   http parameter name of the request matched, for example, header names|
 || matchVariableValue:  values that triggered the match|
-| Hostname | Hostname of the request matched |
+| Host | The host header of the matched request |
 | Policy | The name of the WAF policy that the request matched. |
 | PolicyMode | Operations mode of the WAF policy. Possible values are "Prevention" and "Detection" |
-| RequestUri | URI of the received request. |
+| RequestUri | Full URI of the matched request. |
 | RuleName | The name of the WAF rule that the request matched. |
 | SocketIp | The source IP address seen by WAF. This IP address is based on TCP session, independent of any request headers.|
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |

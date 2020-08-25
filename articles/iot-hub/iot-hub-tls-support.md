@@ -2,11 +2,11 @@
  title: Azure IoT Hub TLS support
  description: Best practices in using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
- author: rezasherafat
+ author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 01/10/2020
- ms.author: rezas
+ ms.date: 06/18/2020
+ ms.author: jlian
 ---
 
 # TLS support in IoT Hub
@@ -15,11 +15,17 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](iot-hub-tls-deprecating-1-0-and-1-1.md). It is strongly recommended that you use TLS 1.2 as the preferred TLS version when connecting to IoT Hub.
 
-## Restrict connections to TLS 1.2 in your IoT Hub resource
+## TLS 1.2 enforcement available in select regions
 
-For added security, it is advised to configure your IoT Hubs to *only* allow client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers).
+For added security, configure your IoT Hubs to *only* allow client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers). This feature is only supported in these regions:
 
-For this purpose, provision a new IoT Hub in any of the [supported regions](#supported-regions) and set the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's IoT hub resource specification:
+* East US
+* South Central US
+* West US 2
+* US Gov Arizona
+* US Gov Virginia
+
+For this purpose, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's IoT hub resource specification:
 
 ```json
 {
@@ -48,18 +54,7 @@ The created IoT Hub resource using this configuration will refuse device and ser
 
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your IoT Hub resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
-
-## Supported regions
-
-IoT Hubs that require the use of TLS 1.2 can be created in the following regions:
-
-* East US
-* South Central US
-* West US 2
-* US Gov Arizona
-* US Gov Virginia
-
-> [!NOTE]
+> 
 > Upon failovers, the `minTlsVersion` property of your IoT Hub will remain effective in the geo-paired region post-failover.
 
 ## Recommended ciphers

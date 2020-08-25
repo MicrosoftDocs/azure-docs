@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -42,8 +42,8 @@ In this case, you can configure two connected organizations. You create one conn
 How users from the Azure AD directory or domain authenticate depends on the authentication type. The authentication types for connected organizations are:
 
 - Azure AD
-- [Direct federation](../b2b/direct-federation.md)
-- [One-time passcode](../b2b/one-time-passcode.md) (domain)
+- [Direct federation](../external-identities/direct-federation.md)
+- [One-time passcode](../external-identities/one-time-passcode.md) (domain)
 
 For a demonstration of how to add a connected organization, watch the following video:
 
@@ -53,7 +53,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -78,7 +78,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 1. Select **Add** to add the Azure AD directory or domain. Currently, you can add only one Azure AD directory or domain per connected organization.
 
     > [!NOTE]
-    > All users from the Azure AD directory or domain will be able to request this access package. This includes users in Azure AD from all subdomains associated with the directory, unless those domains are blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md).
+    > All users from the Azure AD directory or domain will be able to request this access package. This includes users in Azure AD from all subdomains associated with the directory, unless those domains are blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
 1. After you've added the Azure AD directory or domain, select **Select**.
 
@@ -88,7 +88,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 1. Select the **Sponsors** tab, and then add optional sponsors for this connected organization.
 
-    Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md).
+    Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
     When you select **Add/Remove**, a pane opens in which you can choose internal or external sponsors. The pane displays an unfiltered list of users and groups in your directory.
 
@@ -102,7 +102,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 If the connected organization changes to a different domain, the organization's name changes, or you want to change the sponsors, you can update the connected organization by following the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -119,7 +119,7 @@ If the connected organization changes to a different domain, the organization's 
 
 If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -131,7 +131,11 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 
+## Managing a connected organization programmatically
+
+You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+
 ## Next steps
 
-- [Govern access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Govern access for external users](./entitlement-management-external-users.md)
 - [Govern access for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

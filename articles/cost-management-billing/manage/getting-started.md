@@ -5,10 +5,12 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.subservice: common
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
+
 # Prevent unexpected charges with Azure billing and cost management
 
 When you sign up for Azure, there are several things you can do to get a better idea of your spending:

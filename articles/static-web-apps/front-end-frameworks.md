@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 06/10/2020
+ms.date: 07/18/2020
 ms.author: cshoe
 ---
 
@@ -32,6 +32,7 @@ The intent of the table columns is explained by the following items:
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
+| [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
 | [Hyperapp](https://hyperapp.dev/) | `/` | n/a |
@@ -49,7 +50,7 @@ The intent of the table columns is explained by the following items:
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | n/a |
-| [Vue](http://vuejs.com/) | `dist` | n/a |
+| [Vue.js](https://vuejs.org/) | `dist` | n/a |
 
 <sup>1</sup> The above table is not meant to be an exhaustive list of frameworks and libraries that work with Azure Static Web Apps.
 

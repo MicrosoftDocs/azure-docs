@@ -1,11 +1,11 @@
 ---
 title: What is Azure Cosmos DB Analytical Store (Preview)?
 description: Learn about Azure Cosmos DB transactional (row-based) and analytical(column-based) store. Benefits of analytical store, performance impact for large-scale workloads, and auto sync of data from transactional store to analytical store  
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
+ms.author: rosouz
 ---
 
 # What is Azure Cosmos DB Analytical Store (Preview)?
@@ -39,7 +39,7 @@ Analytical workloads typically involve aggregations and sequential scans of sele
 
 For example, if your operational tables are in the following format:
 
-![Example operational table](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Example operational table" border="false":::
 
 The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and operational queries, such as, "Return information about Product1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named 'Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
 
@@ -47,7 +47,7 @@ Analytical store, which is a column store, is better suited for such queries bec
 
 The following image shows transactional row store vs. analytical column store in Azure Cosmos DB:
 
-![Transactional row store Vs analytical column store in Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Transactional row store Vs analytical column store in Azure Cosmos DB" border="false":::
 
 ### Decoupled performance for analytical workloads
 
@@ -130,7 +130,7 @@ Analytical store follows a consumption-based pricing model where you are charged
 * Analytical read operations: the read operations performed against the analytical store from Synapse Analytics Spark and SQL Serverless run times.
 
 > [!NOTE]
-> Azure Cosmos DB analytical store is available in public preview free of any charges until August 30, 2020.
+> Azure Cosmos DB analytical store is currently available in public preview free of any charges.
 
 Analytical store pricing is separate from the transaction store pricing model. There is no concept of provisioned RUs in the analytical store. See [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/), for full details on the pricing model for analytical store.
 
@@ -140,7 +140,7 @@ In order to get a high-level cost estimate to enable analytical store on an Azur
 
 Analytical TTL indicates how long data should be retained in your analytical store, for a container. 
 
-The inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store, irrespective of the transactional TTL configuration. The retention of this operational data in the analytical store can be controlled by the Analytical TTL value at the container level, as specified below:
+If analytical store is enabled, inserts, updates, deletes to operational data are automatically synced from transactional store to analytical store, irrespective of the transactional TTL configuration. The retention of this operational data in the analytical store can be controlled by the Analytical TTL value at the container level, as specified below:
 
 Analytical TTL on a container is set using the `AnalyticalStoreTimeToLiveInSeconds` property:
 
@@ -148,7 +148,7 @@ Analytical TTL on a container is set using the `AnalyticalStoreTimeToLiveInSecon
 
 * If present and the value is set to "-1": the analytical store retains all historical data, irrespective of the retention of the data in the transactional store. This setting indicates that the analytical store has infinite retention of your operational data
 
-* If present and the value is set to some positive number "n": items will expire from the analytical store "n" seconds after their last modified time in the transactional store. This setting can be leveraged if you want to retain your operational data for a limited period of time in the analytical store, irrespective of the retention of the data in the transactional store.
+* If present and the value is set to some positive number "n": items will expire from the analytical store "n" seconds after their last modified time in the transactional store. This setting can be leveraged if you want to retain your operational data for a limited period of time in the analytical store, irrespective of the retention of the data in the transactional store
 
 Some points to consider:
 *	After the analytical store is enabled with an analytical TTL value, it can be updated to a different valid value later. 

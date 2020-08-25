@@ -36,7 +36,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Back up a VM with the Azure Portal
+          - text: Back up a VM with the Azure portal
             url: quick-backup-vm-portal.md
           - text: Back up a VM with PowerShell
             url: quick-backup-vm-powershell.md
@@ -128,7 +128,7 @@ landingContent:
             url: backup-azure-manage-mars.md
           - text: MARS agent support matrix
             url: backup-support-matrix-mars-agent.md
-          - text: FAQ - Mars agent
+          - text: FAQ - MARS agent
             url: backup-azure-file-folder-backup-faq.md 
 # Card
   - title: Back up with Microsoft Azure Backup Server (MABS) and DPM
@@ -159,10 +159,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Backup pricing calculator
-            url: https://azure.microsoft.com/pricing/details/backup/
+          - text: Azure Backup pricing 
+            url: azure-backup-pricing.md
           - text: Azure Backup service updates
             url: https://azure.microsoft.com/updates/?product=backup
           - text: Azure Backup Microsoft Q&A question page
-            url: https://docs.microsoft.com/answers/topics/azure-backup.html
-                          
+            url: /answers/topics/azure-backup.html

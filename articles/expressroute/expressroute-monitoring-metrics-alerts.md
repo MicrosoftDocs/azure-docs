@@ -1,11 +1,11 @@
 ---
 title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
-description: This page provides information about ExpressRoute monitoring
+description: Learn about Azure ExpressRoute monitoring, metrics, and alerts using Azure Monitor, the one stop shop for all metrics, alerting, diagnostic logs across Azure.
 services: expressroute
 author: mialdrid
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
 
@@ -30,8 +30,10 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 | --- | --- | --- | --- |
 |ARP Availability|Availability|<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|ExpressRoute|
 |Bgp Availability|Availability|<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|CPU Utilization|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Packets per Second|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
@@ -99,6 +101,14 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 to 0 dBm
 
 ![er direct line Rx Light Level](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
+## ExpressRoute Virtual Network Gateway Metrics
+
+### CPU Utilization - Split Instance
+You can view CPU utilization of the gateway instances.
+
+### Packets Per Second - Split by Instance
+You can view packets per second traversing the gateway.
 
 ## ExpressRoute gateway connections in bits/seconds
 

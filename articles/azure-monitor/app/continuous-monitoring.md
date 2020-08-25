@@ -97,4 +97,4 @@ You can see deployment gate behavior and other release steps in the release logs
 
 ## Next steps
 
-For more information about Azure Pipelines, see the [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines).
+For more information about Azure Pipelines, see the [Azure Pipelines documentation](/azure/devops/pipelines).

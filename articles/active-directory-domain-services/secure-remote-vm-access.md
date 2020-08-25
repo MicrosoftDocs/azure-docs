@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/09/2020
 ms.author: iainfou
 
 ---
@@ -116,6 +116,6 @@ For more information about securing user sign-in, see [How it works: Azure Multi
 [concepts-mfa]: ../active-directory/authentication/concept-mfa-howitworks.md
 
 <!-- EXTERNAL LINKS -->
-[deploy-remote-desktop]: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure
-[rd-web-client]: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin
-[rds-high-availability]: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-plan-high-availability
+[deploy-remote-desktop]: /windows-server/remote/remote-desktop-services/rds-deploy-infrastructure
+[rd-web-client]: /windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin
+[rds-high-availability]: /windows-server/remote/remote-desktop-services/rds-plan-high-availability

@@ -5,7 +5,7 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 ---
 
 # Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
@@ -405,3 +405,13 @@ Advance to the next tutorial to learn how to easily improve the security of your
 
 > [!div class="nextstepaction"]
 > [Access SQL Database securely using managed identities for Azure resources](app-service-web-tutorial-connect-msi.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET app](configure-language-dotnet-framework.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

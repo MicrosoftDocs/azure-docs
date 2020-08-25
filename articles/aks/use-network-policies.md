@@ -154,13 +154,13 @@ kubectl label namespace/development purpose=development
 Create an example back-end pod that runs NGINX. This back-end pod can be used to simulate a sample back-end web-based application. Create this pod in the *development* namespace, and open port *80* to serve web traffic. Label the pod with *app=webapp,role=backend* so that we can target it with a network policy in the next section:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
+kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Create another pod and attach a terminal session to test that you can successfully reach the default NGINX webpage:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -216,7 +216,7 @@ kubectl apply -f backend-policy.yaml
 Let's see if you can use the NGINX webpage on the back-end pod again. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -273,7 +273,7 @@ kubectl apply -f backend-policy.yaml
 Schedule a pod that is labeled as *app=webapp,role=frontend* and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage:
@@ -303,7 +303,7 @@ exit
 The network policy allows traffic from pods labeled *app: webapp,role: frontend*, but should deny all other traffic. Let's test to see whether another pod without those labels can access the back-end NGINX pod. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
+kubectl run --rm -it --image=alpine network-policy --namespace development
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -336,7 +336,7 @@ kubectl label namespace/production purpose=production
 Schedule a test pod in the *production* namespace that is labeled as *app=webapp,role=frontend*. Attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -400,7 +400,7 @@ kubectl apply -f backend-policy.yaml
 Schedule another pod in the *production* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
 ```
 
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
@@ -422,7 +422,7 @@ exit
 With traffic denied from the *production* namespace, schedule a test pod back in the *development* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
+kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
 ```
 
 At the shell prompt, use `wget` to see that the network policy allows the traffic:

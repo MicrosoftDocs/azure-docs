@@ -221,9 +221,9 @@ You might notice the following "UserErrorFailedToConnectToSqlserver" failure aft
 This can happen for different reasons, and mitigation varies accordingly.
 
 #### Resolution
-Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to an SQL database.
+Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to a SQL database.
 
-If the target database is an Azure SQL database, check SQL Server firewall settings for Azure as well.
+If the target database is in Azure SQL Database, check SQL Server firewall settings for Azure as well.
 
 See the following section to test the connection to the on-premises data store.
 

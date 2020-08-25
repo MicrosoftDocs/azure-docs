@@ -4,10 +4,10 @@ description: Learn how to create an application gateway and add a certificate fo
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create an application gateway with TLS termination using the Azure CLI

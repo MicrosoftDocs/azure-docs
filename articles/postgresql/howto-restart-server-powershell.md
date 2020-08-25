@@ -4,8 +4,9 @@ description: This article describes how you can restart an Azure Database for Po
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 06/08/2020
+ms.topic: how-to
+ms.date: 06/08/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Restart Azure Database for PostgreSQL server using PowerShell

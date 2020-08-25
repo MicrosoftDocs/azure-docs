@@ -5,7 +5,7 @@ services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
@@ -139,6 +139,22 @@ To remove the User Access Administrator role assignment for yourself or another 
     ```
 
 ## Azure CLI
+
+### Elevate access for a Global Administrator
+
+Use the following basic steps to elevate access for a Global Administrator using the Azure CLI.
+
+1. Use the [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Make the changes you need to make at elevated access.
+
+    For information about assigning roles, see [Add or remove Azure role assignments using the Azure CLI](role-assignments-cli.md).
+
+1. Perform the steps in a later section to remove your elevated access.
 
 ### List role assignment at root scope (/)
 

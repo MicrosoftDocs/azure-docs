@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -39,7 +39,7 @@ Enterprise organizations often face challenges when managing employee access to 
 These problems are compounded for users who need access from another organization, such as external users that are from supply chain organizations or other business partners. For example:
 
 - No one person may know all of the specific individuals in other organization's directories to be able to invite them
-- Even if they were able to invite these users, no one in that organization may remember to manage all of the user's access consistently
+- Even if they were able to invite these users, no one in that organization may remember to manage all of the users' access consistently
 
 Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) and the [Centrica case study](https://customers.microsoft.com/story/757467-centrica-energy-azure).  This video provides an overview of entitlement management and its value:
 
@@ -65,13 +65,13 @@ Entitlement management introduces to Azure AD the concept of an *access package*
  Here are the types of resources you can manage user's access to with entitlement management:
 
 - Membership of Azure AD security groups
-- Membership of Office 365 Groups and Teams
+- Membership of Microsoft 365 Groups and Teams
 - Assignment to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign on and/or provisioning
 - Membership of SharePoint Online sites
 
-You can also control access to other resources that rely upon Azure AD security groups or Office 365 Groups.  For example:
+You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
 - You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
 ## How do I control who gets access?
@@ -147,7 +147,7 @@ Azure AD Premium P2 licenses are **not** required for the following tasks:
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
 - No licenses are required for guests who **can** request access packages, but do **not** request an access package.
 
-For each paid Azure AD Premium P2 license that you purchase for your member users (employees), you can use Azure AD B2B to invite up to 5 guest users. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+For each paid Azure AD Premium P2 license that you purchase for your member users (employees), you can use Azure AD B2B to invite up to 5 guest users. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../external-identities/licensing-guidance.md).
 
 For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 

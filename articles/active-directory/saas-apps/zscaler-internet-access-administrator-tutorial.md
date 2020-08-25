@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Internet Access Administrator.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: ea555097-bf62-45dd-9b45-b75c50324a69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator
 
@@ -37,6 +30,9 @@ To configure Azure AD integration with Zscaler Internet Access Administrator, yo
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Zscaler Internet Access Administrator subscription
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -104,8 +100,8 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     a. In the **Identifier** text box, type a URL as per your requirement:
 
-	| |
-	|--|
+	| Identifier |
+	|------------|
 	| `https://admin.zscaler.net` |
 	| `https://admin.zscalerone.net` |
 	| `https://admin.zscalertwo.net` |
@@ -115,8 +111,8 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
 
-	| |
-	|--|
+	| Reply URL |
+	|-----------|
 	| `https://admin.zscaler.net/adminsso.do` |
 	| `https://admin.zscalerone.net/adminsso.do` |
 	| `https://admin.zscalertwo.net/adminsso.do` |

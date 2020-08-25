@@ -3,16 +3,16 @@ title: Change resource roles for an access package in Azure AD entitlement manag
 description: Learn how to change the resource roles for an existing access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -76,7 +76,7 @@ You can select any [Azure AD security group or Office 365 Group](../fundamentals
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
-For more information, see [Compare groups](https://docs.microsoft.com/office365/admin/create-groups/compare-groups) and [Office 365 Groups and Microsoft Teams](https://docs.microsoft.com/microsoftteams/office-365-groups).
+For more information, see [Compare groups](/office365/admin/create-groups/compare-groups) and [Office 365 Groups and Microsoft Teams](/microsoftteams/office-365-groups).
 
 1. On the **Add resource roles to access package** page, click **Groups and Teams** to open the Select groups pane.
 
@@ -88,7 +88,7 @@ For more information, see [Compare groups](https://docs.microsoft.com/office365/
 
     Once you select the group or team, the **Sub type** column will list one of the following subtypes:
 
-    |  |  |
+    | Sub type | Description |
     | --- | --- |
     | Security | Used for granting access to resources. |
     | Distribution | Used for sending notifications to a group of people. |
@@ -176,7 +176,7 @@ Azure AD can automatically assign users access to a SharePoint Online site or Sh
 
 In entitlement management, Azure AD will process bulk changes for assignment and resources in your access packages several times a day. So, if you make an assignment, or change the resource roles of your access package, it can take up to 24 hours for that change to be made in Azure AD, plus the amount of time it takes to propagate those changes to other Microsoft Online Services or connected SaaS applications. If your change affects just a few objects, the change will likely only take a few minutes to apply in Azure AD, after which other Azure AD components will then detect that change and update the SaaS applications. If your change affects thousands of objects, the change will take longer. For example, if you have an access package with 2 applications and 100 user assignments, and you decide to add a SharePoint site role to the access package, there may be a delay until all the users are part of that SharePoint site role. You can monitor the progress through the Azure AD audit log, the Azure AD provisioning log, and the SharePoint site audit logs.
 
-When you remove a member of a team, they are removed from the Office 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+When you remove a member of a team, they are removed from the Office 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](/microsoftteams/office-365-groups#group-membership).
 
 ## Next steps
 

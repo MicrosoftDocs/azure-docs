@@ -1,5 +1,5 @@
 ---
-title: Example designer pipelines & datasets
+title: Example pipelines & datasets for the designer (preview)
 titleSuffix: Azure Machine Learning
 description: Use samples in Azure Machine Learning designer to jumps-start your machine learning pipelines.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
 ---
-# Example pipelines & datasets for Azure Machine Learning Designer
+# Example pipelines & datasets for Azure Machine Learning designer (preview)
 
 Use the built-in examples in Azure Machine Learning designer to quickly get started building your own machine learning pipelines. The Azure Machine Learning designer [GitHub repository](https://github.com/Azure/MachineLearningDesigner) contains detailed documentation to help you understand some common  machine learning scenarios.
 
@@ -20,6 +20,8 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 * An Azure Machine Learning workspace with the Enterprise SKU.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Use sample pipelines
 
@@ -48,9 +50,9 @@ Here's how to use a designer sample:
 
 1. After the pipeline finishes running, you can review the pipeline and view the output for each module to learn more. Use the following steps to view module outputs:
 
-   1. Select a module in the canvas.
+   1. Right-click the module in the canvas whose output you'd like to see.
+   1. Select **Visualize**.
 
-   1. In the module details pane to the right of the canvas, select **Outputs + logs**. Select the graph icon ![visualize icon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) to see the results of each module. 
 
    Use the samples as starting points for some of the most common machine learning scenarios.
 

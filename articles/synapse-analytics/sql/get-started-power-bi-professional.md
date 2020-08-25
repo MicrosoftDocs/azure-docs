@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
@@ -86,7 +86,7 @@ SECRET = '';
 GO
 ```
 
-## Creating Power BI desktop report
+## Create a Power BI desktop report
 
 Open the Power BI desktop application and select the **Get data** option.
 

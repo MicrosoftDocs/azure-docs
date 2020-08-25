@@ -191,6 +191,4 @@ Depending on the decisions you have made earlier using the design guidance above
 
 Consider implementing [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-Consider implementing [Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
-
- 
+Consider implementing [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)

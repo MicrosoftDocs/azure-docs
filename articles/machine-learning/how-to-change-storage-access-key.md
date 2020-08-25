@@ -5,11 +5,12 @@ description: Learn how to change the access keys for the Azure Storage account u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
+ms.date: 06/19/2020
 
 
 ---
@@ -20,6 +21,9 @@ ms.date: 03/06/2020
 Learn how to change the access keys for Azure Storage accounts used by Azure Machine Learning. Azure Machine Learning can use storage accounts to store data or trained models.
 
 For security purposes, you may need to change the access keys for an Azure Storage account. When you regenerate the access key, Azure Machine Learning must be updated to use the new key. Azure Machine Learning may be using the storage account for both model storage and as a datastore.
+
+> [!IMPORTANT]
+> Credentials registred with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) enabled for your Key Vault, make sure to follow this article for updating credentials. Unregistering the datastore and re-registering it under the same name will fail.
 
 ## Prerequisites
 
@@ -82,7 +86,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
 
 1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). Save the new key.
 
-1. To update the workspace to use the new key, use the following steps:
+1. The Azure Machine Learning workspace will automatically synchronize the new key and begin using it after an hour. To force the workspace to synch to the new key immediately, use the following steps:
 
     1. To sign in to the Azure subscription that contains your workspace by using the following Azure CLI command:
 
