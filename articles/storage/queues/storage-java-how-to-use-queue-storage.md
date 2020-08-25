@@ -14,6 +14,10 @@ ms.reviewer: dineshm
 
 # How to use Queue storage from Java
 
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+
+## Overview
+
 This guide will show you how to code for common scenarios using the Azure Queue storage service. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. Scenarios include **inserting**, **peeking**, **getting**, and **deleting** queue messages. Code for **creating** and **deleting** queues is also covered. For more information on queues, see the [Next steps](#next-steps) section.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
