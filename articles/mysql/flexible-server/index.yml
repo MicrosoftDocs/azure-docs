@@ -12,7 +12,11 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 # Add Cards for Flexible Server Contentn
-
+- name: Overview
+  items:
+  - name: What is Azure DB for MySQL?
+    href: overview.md
+  
 landingContent: 
   # Card 1
   - title: About Flexible Server (Preview)
