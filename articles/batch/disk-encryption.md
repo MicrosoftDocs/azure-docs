@@ -1,50 +1,52 @@
 ---
-title: Use DiskEncriptionConfiguration to encrypt nodes with a platform managed key 
-description: Learn how to use DiskEncriptionConfiguration to encrypt nodes with a platform managed key 
+title: Create a pool with disk encryption enabled 
+description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
 author: pkshultz
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: peshultz
-
+ms.custom: references_regions
 ---
 
-# Use DiskEncriptionConfiguration to encrypt nodes with a platform managed key 
+# Create a pool with disk encryption enabled
 
-When you create an Azure Batch pool using virtual machine configuration, you can encrypt compute nodes in the pool with a platform managed key (PMK) by specifying diskencryption configuration. 
+When you create an Azure Batch pool using virtual machine configuration, you can encrypt compute nodes in the pool with a platform-managed key by specifying the disk encryption configuration. 
 
-This article explains how to set up Batch pool with disk encryption enabled. 
+This article explains how to create a Batch pool with disk encryption enabled. 
 
-## Why use a pool with DiskEncryptionConfiguration?
+## Why use a pool with disk encryption configuration?
 
-When customer use nodes in a Batch pool, they can access and store data on OsDisk and TemporaryDisk of the compute node. Encrypting the server-side disk with PMK will safeguard the customer data with low overhead convenience on customer side.  
+With a Batch pool, you can access and store data on the OS and temporary disks of the compute node. Encrypting the server-side disk with a platform-managed key will safeguard this data with low overhead and convenience.  
 
-Batch uses three following DiskEncryption technologies offered by Azure and applies the appropriate technology on the customer compute nodes based on the customer pool configuration and regional supportability. 
+Batch will apply one of these disk encryption technologies on compute nodes, based on pool configuration and regional supportability. 
 
-1. [Managed disk encryption at rest with platform-managed keys](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys) 
+1. [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys) 
 
-1. [Encryption at Host using a platform managed Key](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
+1. [Encryption at host using a platform-managed Key](../virtual-machines/windows/disk-encryption/md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
 
-1. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss) 
+1. [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) 
 
+> [!IMPORTANT]
+> Support for encryption at host using a platform-managed key in Azure Batch is currently in public preview for the East US, West US 2, South Central US, US Gov Virginia, and US Gov Arizona regions.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!IMPORTANT] 
-> Encryption at Host using a platform managed key is currently a preview feature offered by Azure, and is currently only supported by Batch in the following regions: East US, West US 2, South Central US, US Gov Virginia and US Gov Arizona. 
-
-Please note that Batch customer does not have an option to choose which encryption method they want to apply to their nodes. Instead, customer will provide the target disks they want to encrypt on their nodes, so that Batch can choose the appropriate encryption method and ensure the specified disks are encrypted on server side. Once a disk encryption configuration is specified while creating a pool, the target disks for each node in the pool will be encrypted.
+You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the server side. After the disk encryption configuration is specified, the target disks for each node in the pool will be encrypted when the pool is created.
  
-## Create a DiskEncryption Pool from the Azure Portal 
-In the Azure portal, when you create Batch pool, pick the appropriate disk under **Disk Encryption Configuration**.
+## Azure portal 
 
-![Portal view](./media/disk-encryption/portal-view.png)
+When creating a Batch pool in the the Azure portal, select either **TemporaryDisk** or **OsAndTemporaryDisk** under **Disk Encryption Configuration**.
+
+!Screenshot of the Disk Encryption Configuration option in the Azure portal.](./media/disk-encryption/portal-view.png)
 
 
-After the pool is created, you can find disk encryption configuration targets under pool Properties section.
+After the pool is created, you can see the disk encryption configuration targets in the pool's **Properties** section.
 
-![Disk encryption configuration target](./media/disk-encryption/disk-encryption-configuration-target.png)
+![Screenshot showing the disk encryption configuration targets in the Azure portal.](./media/disk-encryption/disk-encryption-configuration-target.png)
 
-## Create a DiskEncryption pool with Batch .NET SDK 
+## Batch .NET SDK 
 
-The following code example shows how to encrypt the OS and temporary disks using Batch's .NET SDK.
+This example shows how to encrypt the OS and temporary disks using the Batch .NET SDK.
 
 ```csharp
 pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptionConfiguration(
@@ -52,9 +54,9 @@ pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptio
     );
 ```
 
-## Create a DiskEncryption pool using Batch REST API
+## Batch REST API
 
-Similar to the .NET example, the following REST API call shows how to encrypt the OS and temporary disks as well: 
+This example shows how to encrypt the OS and temporary disks using the Batch REST API.
 
 REST API URL:
 ```
