@@ -75,9 +75,6 @@ The following architecture diagram shows the implementation.
 
 For more information about WhoIAM's BRIMS, see [product documentation](https://www.whoiam.ai/brims/)
 
->[!NOTE]
-> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
-
 ## Test the user flow
 
 1. Open the Azure AD B2C tenant and under Policies select **Identity Experience Framework**.
