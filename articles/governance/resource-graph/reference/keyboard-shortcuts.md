@@ -60,7 +60,7 @@ other pages, visit
 |Switch to bar chart  |<kbd>ALT</kbd>+<kbd>B</kbd> | <kbd>Option</kbd>+<kbd>B</kbd> |
 |Switch to map chart  |<kbd>ALT</kbd>+<kbd>N</kbd> | <kbd>Option</kbd>+<kbd>M</kbd> |
 
-Next steps
+## Next steps
 
 - [Keyboard shortcuts in the Azure portal](../../../azure-portal/azure-portal-keyboard-shortcuts.md)
 - [Query language for Resource Graph](../concepts/query-language.md)
