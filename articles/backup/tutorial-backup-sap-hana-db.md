@@ -224,7 +224,7 @@ Specify the policy settings as follows:
 
 7. Click **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
-   * **Log Backup** is by default set to **Enable**. This cannot be disabled as SAP HANA manages all log backups.
+   * **Log Backup** is by default set to **Enable**. This can't be disabled as SAP HANA manages all log backups.
    * We have set **2 hours** as the Backup schedule and **15 days** of retention period.
 
     ![Log backup policy](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)

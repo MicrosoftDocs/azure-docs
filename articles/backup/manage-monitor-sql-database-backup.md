@@ -48,7 +48,7 @@ You can stop backing up a SQL Server database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-- All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+- All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
 - You'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
 - If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
 

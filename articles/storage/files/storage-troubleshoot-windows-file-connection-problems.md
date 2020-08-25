@@ -363,7 +363,7 @@ We recommend you to use [icacls tool](https://docs.microsoft.com/windows-server/
 
 ### Error: "The directory service was unable to allocate a relative identifier"
 
-This errror may occur if a domain controller that holds the RID Master FSMO role is unavailable or was removed from the domain and restored from backup.  Confirm that all Domain Controllers are running and available.
+This error may occur if a domain controller that holds the RID Master FSMO role is unavailable or was removed from the domain and restored from backup.  Confirm that all Domain Controllers are running and available.
 
 ### Error: "Cannot bind positional parameters because no names were given"
 
