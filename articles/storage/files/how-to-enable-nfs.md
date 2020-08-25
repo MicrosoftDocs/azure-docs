@@ -22,31 +22,11 @@ You must have already created a virtual machine and a virtual network. You will 
 
 - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
-## Configure networking
-
-Since encryption-in-transit is not currently available with NFS shares, we recommend configuring your storage account's public endpoint so that only your networks can access it.
-
-1. Navigate to your newly created FileStorage account, select **Firewalls and virtual networks**
-1. Select Allow access from **Selected networks**.
-1. Select **+ Add existing virtual network**. 
-
-    :::image type="content" source="media/how-to-enable-nfs/adding-existing-vm-network-nfs.png" alt-text="example text":::
-
-1. Select your virtual network and subnet, then select add.
-
-    :::image type="content" source="media/how-to-enable-nfs/add-nfs-vm-network.png" alt-text="example text":::
-
-1. Select **Add your client IP address**
-1. Enter your VM's IP in the address range.
-1. Select **Save**.
-
-    :::image type="content" source="media/how-to-enable-nfs/add-vm-ip-to-account-nfs.png" alt-text="example text":::
-
 ## Create an NFS share
 
-Now that your storage account's networking has been reconfigured, create an NFS file share. The process is similar to creating an SMB share, you just select NFS instead of SMB when creating the share.
+Now that you have created a FileStorage account and configured the networking, you can create an NFS file share. The process is similar to creating an SMB share, you select **NFS** instead of **SMB** when creating the share.
 
-1. Create a file share, when creating a file share select the nfs protocol
+1. Create a file share, when creating a file share select the **NFS** protocol
 1. Once the file share is created, select the share to get the connection details
 1. Remote into your VM and use the provided mounting script
 
