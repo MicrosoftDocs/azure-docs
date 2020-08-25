@@ -15,7 +15,7 @@ ms.custom: references_regions
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
+> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery Services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
 >
 >- If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
 >- If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
@@ -32,7 +32,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
 
 >[!NOTE]
->The Storage Replication settings for the vault are not relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
+>The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
 
 ## Set Cross Region Restore
 
@@ -52,8 +52,8 @@ For this process, there are pricing implications as it is at the storage level.
 >- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
->- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
->- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time.
+>- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM won't be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
+>- Cross Region Restore currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
 
 ### Configure Cross Region Restore
 

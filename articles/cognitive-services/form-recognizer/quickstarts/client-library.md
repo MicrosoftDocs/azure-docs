@@ -25,10 +25,6 @@ Use the Form Recognizer client library to:
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
 
-> [!NOTE]
-> The client libraries support the latest version of Form Recognizer in general availability, v2.0. 
-
-
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# SDK quickstart](../includes/quickstarts/csharp-sdk.md)]
