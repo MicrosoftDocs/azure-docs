@@ -154,38 +154,38 @@ Here are some commonly used Standard connectors that Logic Apps provides for acc
 
 :::row:::
     :::column:::
-        [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
+        [![BizTalk Server connector][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+        [![File System connector][file-system-icon]<br>**File <br>System**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+        [![DB2 connector][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![API icon][mysql-icon]<br>**MySQL**][mysql-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+        [![Informix connector][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+        [![MySQL connector][mysql-icon]<br>**MySQL**][mysql-doc]
     :::column-end:::
     :::column:::
-        [![API icon][teradata-icon]<br>**Teradata**][teradata-doc]
+        [![Oracle DB connector][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![PostgreSQL connector][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![SharePoint Server connector][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![SQL Server connector][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Teradata connector][teradata-icon]<br>**Teradata**][teradata-doc]
     :::column-end:::
     :::column:::
         
@@ -203,44 +203,44 @@ Logic Apps provides Standard connectors for building business-to-business (B2B) 
 
 :::row:::
     :::column:::
-        [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc]
+        [![AS2 decoding action][as2-icon]<br>**AS2 <br>decoding**][as2-doc]
     :::column-end:::
     :::column:::
-        [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc]
+        [![AS2 encoding action][as2-icon]<br>**AS2 <br>encoding**][as2-doc]
     :::column-end:::
     :::column:::
-        [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc]
+        [![EDIFACT decoding action][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc]
+        [![EDIFACT encoding action][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc]
+        [![Flat file decoding action][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc]
+        [![Flat file encoding action][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc]
+        [![Integration account action][integration-account-icon]<br>**Integration <br>account**][integration-account-doc]
     :::column-end:::
     :::column:::
-        [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc]
+        [![Liquid transforms action][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![X12 decoding action][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![X12 encoding action][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![XML transforms action][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![XML validation action][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -252,13 +252,13 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 :::row:::
     :::column:::
-        [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+        [![IBM 3270 connector][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+        [![MQ connector][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+        [![SAP connector][sap-icon]<br>**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
         
@@ -273,86 +273,86 @@ For logic apps that you create and run in a dedicated [integration service envir
 
 :::row:::
     :::column:::
-        [![API icon][as2-icon]<br>**AS2**][as2-doc]
+        [![AS2 ISE connector][as2-icon]<br>**AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
+        [![Azure Automation ISE connector][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
+        [![Azure Blob Storage ISE connector][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
-        [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
+        [![Azure Cosmos DB ISE connector][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc]
+        [![Azure Event Hubs ISE connector][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
+        [![Azure Event Grid ISE connector][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+        [![Azure File Storage ISE connector][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
-    :::column-end:::
-    :::column:::
-        [![API icon][ftp-icon]<br>**FTP**][ftp-doc]
+        [![Azure Key Vault ISE connector][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+        [![Azure Monitor Logs ISE connector][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+        [![Azure Service Bus ISE connector][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+        [![Azure SQL Data Warehouse ISE connector][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+        [![Azure Table Storage ISE connector][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+        [![Azure Queues ISE connector][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc]
     :::column-end:::
     :::column:::
-        [![API icon][smtp-icon]<br>**SMTP**][smtp-doc]
+        [![EDIFACT ISE connector][edifact-icon]<br>**EDIFACT**][edifact-doc]
     :::column-end:::
     :::column:::
-        [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+        [![File System ISE connector][file-system-icon]<br>**File <br>System**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![API icon][x12-icon]<br>**X12**][x12-doc]
+        [![FTP ISE connector][ftp-icon]<br>**FTP**][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![IBM 3270 ISE connector][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![DB2 ISE connector][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![MQ ISE connector][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![SAP ISE connector][sap-icon]<br>**SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![SFTP-SSH ISE connector][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![SMTP ISE connector][smtp-icon]<br>**SMTP**][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![SQL Server ISE connector][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![X12 ISE connector][x12-icon]<br>**X12**][x12-doc]
     :::column-end:::
 :::row-end:::
 
