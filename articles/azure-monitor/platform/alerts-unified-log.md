@@ -10,16 +10,23 @@ ms.subservice: alerts
 
 # Log alerts in Azure Monitor
 
-Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). 
+Log alerts are one of the alert types that are supported in [Azure Alerts](./alerts-overview.md). Log alerts allow users to use a [Log Analytics](../log-query/get-started-portal.md) query to evaluated resources logs every set frequency, and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md).
+
+## Prerequisites
+
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](../log-query/log-query-overview.md#what-data-is-available-to-log-queries) and query the log data for issues. You can use examples provided in Log Analytics to understand what you can discover or [get started on writing queries](../log-query/get-started-portal.md).
 
 [Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
-## Condition parameters definition
+> [!NOTE]
+> Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
 
-Log search rules are defined by the following parameters:
+## Query evaluation definition
+
+Log search rules definition starts from the evaluation logic of; query to run and evaluation of the results. The following sections describe the different parameters you can use:
 
 ### Log Query
 The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate the rule. The results returned by this query are used to determine whether an alert is to be triggered. The query can be scoped to:
@@ -34,9 +41,17 @@ The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate t
 > [!IMPORTANT]
 > Resource centric and [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) are only supported using the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md)
 
+#### Query time Range
+
+Time range is set in the rule condition definition. In workspaces and Application Insights, it's called **Period**. In all other resource types, it's called **Override query time range**.
+
+Like in log analytics, the time range limits query data to the specified range. Even if **ago** command is used in the query, the time range will apply.
+
+For example, a query scans 60 minutes, when time range is 60 minutes, even if the text contains **ago(1d)**. The time range and query time filtering need to match. In the example case, changing the **Period** / **Override query time range** to one day, would work as expected.
+
 ### Measure
 
-Log alerts turn log into metric values that can be evaluated. You can measure two different things:
+Log alerts turn log into numeric values that can be evaluated. You can measure two different things:
 
 #### Count of the results table rows
 
@@ -124,21 +139,19 @@ This rule monitors if any virtual machine had error events in the last 15 minute
 > [!NOTE]
 > Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale at scale is only supported in the API version `2020-05-01-preview` and above.
 
+## Alert logic definition
+
+Once you define the query to run and evaluation of the results, you need to define the alerting logic and when to fire actions. The following sections describe the different parameters you can use:
+
 ### Threshold and operator
 
 The query results are transformed into a number that is compared against the threshold and operator.
 
 ### Frequency
 
-The interval in which the query is run. Can be set from 5 minutes to one day. Must be equal to or less than the time period to not miss data records. For example, if you set the time period to 30 minutes and frequency to 1 hour.  If the query is run at 00:00, it returns records between 23:30 and 00:00. The next time the query would run is 01:00 that would return records between 00:30 and 01:00. Any records created between 00:00 and 00:30 would never be evaluated.
+The interval in which the query is run. Can be set from 5 minutes to one day. Must be equal to or less than the [query time range](#query-time-range) to not miss log records.
 
-### Time Range
-
-Query time range is set in the rule condition definition. In workspaces and Application Insights, it's called **Period**. In all other resource types, it's called **Override query time range**. 
-
-Like in log analytics, the time range limits query data to the specified range. Even if **ago** command is used in the query, the time range will apply. 
-
-For example, a query scans 60 minutes, when time range is 60 minutes, even if the text contains **ago(1d)**. The time range and query time filtering need to match. In the example case, changing the **Period** / **Override query time range** to one day, would work as expected.
+For example, if you set the time period to 30 minutes and frequency to 1 hour.  If the query is run at 00:00, it returns records between 23:30 and 00:00. The next time the query would run is 01:00 that would return records between 00:30 and 01:00. Any records created between 00:00 and 00:30 would never be evaluated.
 
 ### Number of violations to trigger alert
 

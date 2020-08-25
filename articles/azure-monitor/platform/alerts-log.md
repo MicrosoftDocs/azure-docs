@@ -42,7 +42,7 @@ Here the steps to get started writing queries for alerts:
 
     ![Configure alert rule](media/alerts-log/AlertsPreviewAlertLog.png)
 
-1. Choose the time range over which to assess the specified condition, using [**Period**](alerts-unified-log.md#time-range) option. 
+1. Choose the time range over which to assess the specified condition, using [**Period**](alerts-unified-log.md#query-time-range) option.
 
 1. Log Alerts can be based on two types of [**Measures**](alerts-unified-log.md#measure):
     1. **Number of results** - Count of records returned by the query.
