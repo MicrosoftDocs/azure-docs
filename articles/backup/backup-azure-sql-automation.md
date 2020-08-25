@@ -49,7 +49,7 @@ Set up PowerShell as follows:
 
 3. Review the aliases and cmdlets for Azure Backup and the Recovery Services vault. Here's an example of what you might see. It's not a complete list of cmdlets.
 
-    ![List of Recovery Services cmdlets](./media/backup-azure-afs-automation/list-of-recoveryservices-PowerShell-az.png)
+    ![List of Recovery Services cmdlets](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
 4. Sign in to your Azure account with **Connect-AzAccount**.
 5. On the web page that appears, you're prompted to input your account credentials.
