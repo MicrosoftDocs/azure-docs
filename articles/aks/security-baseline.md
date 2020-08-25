@@ -4,7 +4,7 @@ description: The Azure Kubernetes Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -221,8 +221,9 @@ However, to ‘limit network traffic’ between pods in your cluster, AKS offers
 
 **Guidance**: Use virtual network service tags to define network access controls on network security groups associated with your Azure Kubernetes Service (AKS) instances. 
 
-You can use service tags in place of specific IP addresses when creating security rules within an Network Security Group (NSG). By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. 
-Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+You can use service tags in place of specific IP addresses when creating security rules within an Network Security Group (NSG). 
+
+By specifying the service tag name (for example, ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 You can apply an Azure tag to node pools in your AKS cluster. Tags applied to a node pool are different than the virtual network service tags, and are applied to each node within the node pool and are persisted through upgrades. Tags are also applied to new nodes added to a node pool during scale-out operations. Adding a tag can help with tasks such as policy tracking or cost estimation.
 
@@ -282,7 +283,7 @@ The add-on enacts the following functions:
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32886.).
 
 **Guidance**: Use tags for network security groups (NSG) and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
+Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" that ensure that all resources are created with Tags and to notify you of existing untagged resources.
 
 The Network Policy feature in Kubernetes lets you define rules for ingress and egress traffic between pods in a cluster. With network policies, you can choose to allow or deny specific network paths within the cluster based on namespaces and label selectors. These namespaces and labels can be used as descriptors for traffic configuration rules.
 
@@ -708,7 +709,7 @@ For additional reference, AKS uses several managed identities for built-in servi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32907.).
 
-**Guidance**: Integrate authentication for Azure Kubernetes Service (AKS) with Azure Active Directory (AAD) and use Azure AD logs to help discover stale accounts. In addition, you may use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Remediate Identity and Access recommendations from Azure Security Center.
+**Guidance**: Integrate authentication for Azure Kubernetes Service (AKS) with Azure Active Directory and use Azure AD logs to help discover stale accounts. Also, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. Remediate Identity and Access recommendations from Azure Security Center.
 
 Any cluster actions taken by Microsoft support are made with user consent under a built-in Kubernetes "edit" role of the name aks-support-rolebinding . With this role AKS support is enabled to edit cluster configuration and resources to troubleshoot and diagnose cluster issues, but the role can not modify permissions nor create roles or role bindings. 
 Role access is only enabled under active support tickets with just-in-time (JIT) access.
@@ -1045,11 +1046,11 @@ Use the PowerShell cmdlet "Get-AzSecurityTask" to automate the retrieval of secu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32925.).
 
-**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, etc.) within your subscription(s). 
+**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, and so on) within your subscriptions. 
 
 Ensure that you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager based resources going forward.
 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
@@ -1188,18 +1189,15 @@ to use Azure Security Center Adaptive Application
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32933.).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in your subscription(s) using built-in policy definitions.
-Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
-Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. The add-on enacts the following functions:
+- Not allowed resource types
 
-•	Checks with Azure Policy service for policy assignments to the cluster.
+- Allowed resource types
 
-•	Deploys policy definitions into the cluster as constraint template and constraint custom resources.
+Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
 
-•	Reports auditing and compliance details back to Azure Policy service.
-
-- [Understand Azure Policy for Kubernetes clusters (preview)](../governance/policy/concepts/policy-for-kubernetes.md)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -1309,28 +1307,7 @@ Additionally, you may implement separate subscriptions and/or management groups 
 
 **Guidance**: You may use Azure Policy aliases in the "Microsoft.ContainerService" namespace to create custom policies to audit or enforce the configuration of your AKS instances. 
 
-You may also use built-in policies. Examples of built-in policy definitions for AKS include:
-•	Enforce HTTPS ingress in Kubernetes cluster
-
-•	Authorized IP ranges should be defined on Kubernetes Services
-
-•	Based Access Control (RBAC) should be used on Kubernetes Services
-
-•	Ensure only allowed container images in Kubernetes cluster
-
 Use Azure policy to put restrictions on the type of resources that can be created in your subscription(s) using built-in policy definitions.
-
-Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. 
-
-The add-on enacts the following functions:
-
-•	Checks with Azure Policy service for policy assignments to the cluster.
-
-•	Deploys policy definitions into the cluster as constraint template and constraint custom resources.
-
-•	Reports auditing and compliance details back to Azure Policy service.
-
-- [Understand Azure Policy for Kubernetes clusters (preview)](../governance/policy/concepts/policy-for-kubernetes.md)
 
 - [How to configure and manage AKS pod security policies](use-pod-security-policies.md)
 
@@ -1367,9 +1344,9 @@ Security hardening for AKS agent node host OSAKS clusters are deployed on host v
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32940.).
 
-**Guidance**: Secure your Azure Kubernetes Service (AKS) cluster using pod security policies. To improve the security of your cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies.
+**Guidance**: Secure your Azure Kubernetes Service (AKS) cluster using pod security policies. To improve the security of your cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow cannot run in the AKS cluster. You define this access using pod security policies.
 
-In addition, you may use Azure policy [deny] and [deploy if not exist] to enforce secure settings for the Azure resources related to your AKS deployments (such as Virtual Networks, Subnets, Azure Firewalls, Storage Accounts, etc.). 
+In addition, you may use Azure Policy [deny] and [deploy if not exist] to enforce secure settings for the Azure resources related to your AKS deployments (such as Virtual Networks, Subnets, Azure Firewalls, Storage Accounts, and so on). 
 
 You may use Azure Policy Aliases from the following namespaces to create custom policies:
 
@@ -1377,29 +1354,7 @@ You may use Azure Policy Aliases from the following namespaces to create custom 
 
 •	Microsoft.Network
 
-Use Azure Policy aliases in the "Microsoft.ContainerService" namespace to create custom policies to audit or enforce the configuration of your AKS instances. 
-
-Implement built-in policies. Examples of built-in policy definitions for AKS include:
-
-•	Enforce HTTPS ingress in Kubernetes cluster
-
-•	Authorized IP ranges should be defined on Kubernetes Services
-
-•	Based Access Control (RBAC) should be used on Kubernetes Services
-
-•	Ensure only allowed container images in Kubernetes cluster
-
-Use Azure policy to put restrictions on the type of resources that can be created in your subscription(s) using the following built-in policy definitions.
-
-Azure Policy extends Gatekeeper v3, an admission controller webhook for Open Policy Agent (OPA), to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. Azure Policy makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place. 
-
-The add-on enacts the following functions:
-
-•	Checks with Azure Policy service for policy assignments to the cluster.
-
-•	Deploys policy definitions into the cluster as constraint template and constraint custom resources.
-
-•	Reports auditing and compliance details back to Azure Policy service.
+Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s) using the following built-in policy definitions.
 
 - [Understand Azure Policy for Kubernetes clusters (preview)](../governance/policy/concepts/policy-for-kubernetes.md)
 
@@ -1465,7 +1420,7 @@ security-hardened-vm-host-image.md
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s) using built-in policy definitions as well as Azure Policy aliases in the "Microsoft.ContainerService" namespace. Create custom policies to alert, audit, and enforce system configurations. 
 
-Additionally, develop a process and pipeline for managing policy exceptions.
+Also, develop a process and pipeline for managing policy exceptions.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
