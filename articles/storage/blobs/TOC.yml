@@ -572,7 +572,7 @@
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Storage forum
+    - name: Azure Storage on Microsoft Q&A
       href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage

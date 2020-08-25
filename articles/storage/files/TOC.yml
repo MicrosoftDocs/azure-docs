@@ -296,7 +296,7 @@
     href: https://azure.microsoft.com/updates/?category=storage
   - name: Azure File Sync release notes
     href: storage-files-release-notes.md
-  - name: Azure Storage forum
+  - name: Azure Storage on Microsoft Q&A
     href: https://docs.microsoft.com/answers/products/azure?product=storage
   - name: Azure Storage on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/windows-azure-storage
