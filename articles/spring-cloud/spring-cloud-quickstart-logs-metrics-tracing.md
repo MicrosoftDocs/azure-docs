@@ -93,6 +93,11 @@ To get the logs using Azure Toolkit for IntelliJ:
 
     ![Distributed Tracing performance](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png)
 
+## Clean up resources
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
+```azurecli
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
 ## Next steps
 
 To explore more on the out of box monitoring capability for Azure Spring Cloud, see:
