@@ -14,7 +14,7 @@ services: iot-central
 
 IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509.  X.509 certificates are recommended in production environments. For more information, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
 
-This article shows two ways of using X.509 - [group enrollments](how-to-connect-devices-x509.md#Use-a-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#Use-an-individual-enrollment) useful for testing.
+This article shows two ways of using X.509 - [group enrollments](how-to-connect-devices-x509.md#use-a-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-an-individual-enrollment) useful for testing.
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ filename | contents
 
 6. Upload the signed verification certificate _verification_cert.pem_ to complete the verification.
 
-    ![Certificate Upload](./media/how-to-connect-devices-x509/verified.png)
+    ![Verified Certificate](./media/how-to-connect-devices-x509/verified.png)
 
 
 You can now connect devices that have an X.509 certificate derived from this primary root certificate. After you save the enrollment group, make a note of the ID Scope.
@@ -153,7 +153,7 @@ You can now connect devices that have an X.509 certificate derived from this pri
 
     You can also verify that telemetry appears on the dashboard.
 
-    ![Telemetry](./media/how-to-connect-devices-x509/telemetry.png)
+    ![Verify Device Telemetry](./media/how-to-connect-devices-x509/telemetry.png)
 
 ## Use an individual enrollment
 
