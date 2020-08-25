@@ -17,7 +17,7 @@ ACL inheritance is already available for new child items that are created under 
 > [!NOTE]
 > The ability to set access lists recursively is in public preview and is available in all regions.  
 
-[Libraries](need link) | [Samples](need link) | [Best practices](need link) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Give feedback](#next-steps)
+[Libraries](#libraries) | [Samples](#code-samples) | [Best practices](#best-practice-guidelines) | [Give feedback](#provide-feedback)
 
 ## Prerequisites
 
@@ -591,7 +591,7 @@ def resume_set_acl_recursive(continuation_token):
 
 ## Best practice guidelines
 
-Review these best practice guidelines before you begin. 
+This section provides you some best practice guidelines for setting ACLs recursively. 
 
 #### Handling runtime errors
 
@@ -631,10 +631,15 @@ This section contains links to libraries and code samples.
 
 - Python: [Readme](Need link) | [Sample](https://recursiveaclpr.blob.core.windows.net/privatedrop/datalake_samples_access_control_async.py?sv=2019-02-02&st=2020-08-24T07%3A48%3A10Z&se=2021-08-25T07%3A48%3A00Z&sr=b&sp=r&sig=%2F1c540%2BpXYyNcuTmWPWHg2m9SyClXLIMw7ChLZGsyD0%3D)
 
-## Next steps
+<a id="provide-feedback"></a>
 
-- You can provide your feedback or report an issue by using any of these pages: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=).
+### Provide feedback or report issues
 
-- Learn more about ACLs in Data Lake Storage Gen2. See [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+You can provide your feedback or report an issue by using any of these pages: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=)
+
+## See also
+
+- [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+- [Known issues](data-lake-storage-known-issues.md)
 
 
