@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Create an Azure DB for PostgresSQL Flexible Server - ARM template'
-description: In this Quickstart, learn how to create an Azure Database for PostgresSQL Flexible server using ARM template.
+title: 'Quickstart: Create an Azure DB for MySQL Flexible Server - ARM template'
+description: In this Quickstart, learn how to create an Azure Database for MySQL Flexible server using ARM template.
 author: mksuni
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
-ms.date: 09/20/2020
+ms.date: 09/22/2020
 ---
 
-# Quickstart: Use an ARM template to create an Azure Database for MySQL server
+# Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible server
 
-Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a MySQL Flexible server to deploy multiple servers or multiple databases on a server.
+Azure Database for MySQL Flexible server is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a MySQL Flexible server to deploy multiple servers or multiple databases on a server.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it.
 
 ## Prerequisites
 
@@ -21,13 +21,13 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-An Azure Database for PostgresSQL server is the parent resource for one or more databases  within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
+An Azure Database for MySQL Flexible server is the parent resource for one or more databases  within a region. It provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
 
 These resources are defined in the template:
 
 - Microsoft.DBforMySQL/flexibleServers
 
-Create a ```postgres-flexible-server-template.json``` file and copy this ```json``` script into it.
+Create a ```mysql-flexible-server-template.json``` file and copy this ```json``` script into it.
 
 ```json
 {
@@ -151,7 +151,7 @@ Create a ```postgres-flexible-server-template.json``` file and copy this ```json
 
 ## Deploy the template
 
-Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
+Select **Try it** from the following PowerShell code block to open [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
@@ -169,10 +169,40 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
+---
+## View the deployed resources
 
-## Validate the deployment
+Follow these steps to verify if your server was created in Azure.
 
-To query the database, see [Query the database](single-database-create-quickstart.md#query-the-database).
+# [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
+
+2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
+
+# [PowerShell](#tab/PowerShell)
+
+You'll have to enter the name of the new server to view the details of your Azure Database for MySQL Flexible server.
+
+```azurepowershell-interactive
+$serverName = Read-Host -Prompt "Enter the name of your Azure Database for MySQL server"
+Get-AzResource -ResourceType "Microsoft.DBforMySQL/servers" -Name $serverName | ft
+Write-Host "Press [ENTER] to continue..."
+```
+
+# [CLI](#tab/CLI)
+
+You'll have to enter the name and the resource group of the new server to view details about your Azure Database for MySQL Flexible server.
+
+```azurecli-interactive
+echo "Enter your Azure Database for MySQL server name:" &&
+read serverName &&
+echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
+read resourcegroupName &&
+az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/servers"
+```
+
+---
 
 ## Clean up resources
 
@@ -180,8 +210,35 @@ Keep this resource group, server, and single database if you want to go to the [
 
 To delete the resource group:
 
+# [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
+
+2. In the resource group list, choose the name of your resource group.
+
+3. In the **Overview** page of your resource group, select **Delete resource group**.
+
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
+
+# [PowerShell](#tab/PowerShell)
+
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
 ```
 
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+## Next steps
+
+For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
+
+> [!div class="nextstepaction"]
+> [ Tutorial: Create and deploy your first ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

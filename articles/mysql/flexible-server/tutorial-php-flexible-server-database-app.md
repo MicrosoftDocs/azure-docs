@@ -145,16 +145,15 @@ In this step, you create a MySQL database in [Azure Database for MySQL](/azure/m
 
 ### Create a MySQL server
 
-In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) command.
+In the Cloud Shell, create a server in Azure Database for MySQL with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
 
-In the following command, substitute a unique server name for the *\<mysql-server-name>* placeholder, a user name for the *\<admin-user>*, and a password for the *\<admin-password>*  placeholder. The server name is used as part of your MySQL endpoint (`https://<mysql-server-name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure. 
-
-**[THIS NEEDS TO BE EDITED]**
+Running this command you can create a flexible server and give access to your client machine to connect to it. This comand will create a resource group
 
 ```azurecli-interactive
-az mysql flexible-server create --public-access <IP-Address>
+az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
 ```
-JSON output will show you all the server properties being configured. Note that certain features like High availability and Virtual networks are configured only during create at this time. In the near future , we will enable these features to be configured after creating a server. 
+
+JSON output will show you all the server properties being configured. Make a noteof your servername and connection string property from the output. You will need this to connect to the server from your client machine
 
 ### Connect to production MySQL server locally
 
@@ -218,7 +217,7 @@ Save the changes.
 
 ### Configure TLS/SSL certificate
 
-By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+By default, MySQL Flexible Server enforces TLS connections from clients. To connect to your MySQL database in Azure, you must use the [_.pem_ certificate supplied by Azure Database for MySQL Flexible Server](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem). Download [this certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)) and place it in the **ssl** folder in the local copy of the sample app repository.
 
 Open _config/database.php_ and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 
@@ -227,12 +226,10 @@ Open _config/database.php_ and add the `sslmode` and `options` parameters to `co
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/DigiCertGlobalRootCA.crt.pem',
     ] : []
 ],
 ```
-
-The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository for convenience in this tutorial.
 
 ### Test the application locally
 
@@ -338,7 +335,7 @@ In App Service, you set environment variables as _app settings_ by using the [`a
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;app-name>_ and _&lt;mysql-server-name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
 You can use the PHP [getenv](https://www.php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
@@ -555,7 +552,7 @@ az webapp log config --resource-group <resource-group-name> --name <app-name> --
 
 Possible values for --level are: Error, Warning, Info, and Verbose. Each subsequent level includes the previous level. For example: Error includes only error messages, and Verbose includes all messages. Once diagnostic logging is turned on, run the following command to see the log stream:
 
-```bash 
+```bash
 az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
