@@ -60,7 +60,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a server using ARM Template
-            url: quickstart-create-flexible-server-arm-template.md
+            url: flexible-server/quickstart-create-flexible-server-arm-template.md
 # Card 4
   - title: Connect and query
     linkLists:
