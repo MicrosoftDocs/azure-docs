@@ -7,4 +7,4 @@ ms.date: 08/24/2020
 ---
 
 > [!NOTE]
-> Starting August 26th, The Ink Recognizer service will be ending it's public preview.
+> The Ink Recognizer API will be ending it's public preview starting August 26th 2020. If you have existing Ink Recognizer resources, they will be available until the service is fully retired on January 31st 2021.
