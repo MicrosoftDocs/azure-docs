@@ -147,14 +147,14 @@ In this step, you create a MySQL database in [Azure Database for MySQL](/azure/m
 
 In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) command.
 
-In the following command, substitute a unique server name for the *\<mysql-server-name>* placeholder, a user name for the *\<admin-user>*, and a password for the *\<admin-password>*  placeholder. The server name is used as part of your MySQL endpoint (`https://<mysql-server-name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure. 
+In the following command, substitute a unique server name for the *\<mysql-server-name>* placeholder, a user name for the *\<admin-user>*, and a password for the *\<admin-password>*  placeholder. The server name is used as part of your MySQL endpoint (`https://<mysql-server-name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure.
 
 **[THIS NEEDS TO BE EDITED]**
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <IP-Address>
 ```
-JSON output will show you all the server properties being configured. Note that certain features like High availability and Virtual networks are configured only during create at this time. In the near future , we will enable these features to be configured after creating a server. 
+JSON output will show you all the server properties being configured. Note that certain features like High availability and Virtual networks are configured only during create at this time. In the near future , we will enable these features to be configured after creating a server.
 
 ### Connect to production MySQL server locally
 
@@ -555,7 +555,7 @@ az webapp log config --resource-group <resource-group-name> --name <app-name> --
 
 Possible values for --level are: Error, Warning, Info, and Verbose. Each subsequent level includes the previous level. For example: Error includes only error messages, and Verbose includes all messages. Once diagnostic logging is turned on, run the following command to see the log stream:
 
-```bash 
+```bash
 az webapp log tail --resource-group <resource-group-name> --name <app-name>
 ```
 
