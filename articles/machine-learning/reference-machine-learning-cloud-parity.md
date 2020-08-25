@@ -271,16 +271,18 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 ### Additional Azure China limitations
 
 * Azure China has limited VM SKU, especially for GPU SKU. It only has NCv3 family (V100).
-* REST API Endpoint is different from global Azure.
-* Sample notebook may not work, if it needs access to public data in USGOV.
+* REST API Endpoints are different from global Azure. Use the following table to find the REST API endpoint for Azure China regions:
+
+    | REST endpoint                 | Global Azure                                 | China-Government                           |
+    |------------------|--------------------------------------------|--------------------------------------------|
+    | Management plane | https://management.azure.com/              | https://management.chinacloudapi.cn/       |
+    | Data plane       | https://{location}.experiments.azureml.net | https://{location}.experiments.ml.azure.cn |
+    | Azure Active Directory              | https://login.microsoftonline.com          | https://login.chinacloudapi.cn             |
+
+* Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [VNet forced tunneling](how-to-enable-virtual-network.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
 
 
 
 
-|                  | Global Azure                                 | China-Government                           |
-|------------------|--------------------------------------------|--------------------------------------------|
-| Management plane | https://management.azure.com/              | https://management.chinacloudapi.cn/       |
-| Data plane       | https://{location}.experiments.azureml.net | https://{location}.experiments.ml.azure.cn |
-| Azure Active Directory              | https://login.microsoftonline.com          | https://login.chinacloudapi.cn             |
