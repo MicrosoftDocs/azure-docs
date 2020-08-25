@@ -92,7 +92,7 @@ The changes you make by using PowerShell are reflected in the Backup Server Admi
 
 ## Migrate legacy storage to Modern Backup Storage
 
-After you upgrade to or install Backup Server V2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups are not changed. They continue to function as they were initially set up.
+After you upgrade to or install Backup Server V2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups aren't changed. They continue to function as they were initially set up.
 
 Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources by using the retain data option. Then, add the data sources to a new protection group.
 
