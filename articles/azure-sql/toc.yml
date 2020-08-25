@@ -740,8 +740,10 @@
 
   - name: Migration guides
     items: 
+    - name: Overview
+      href: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
     - name: From SQL Server 
-      href: migration-guides/managed-instance/sql-server-to-managed-instance.md
+      href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
   - name: Concepts
     items:
     - name: Resource limits
