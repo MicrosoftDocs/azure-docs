@@ -220,7 +220,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 We already discussed loading datasets in [Load the dataset](#loading). Once you have created and tested the R script shown in the previous section, do the following:
 
-1. Save the R script into a .R file. I call my script file "simpleplot.R". Here're the contents.
+1. Save the R script into a .R file. I call my script file "simpleplot.R". Here's what's in the file:
 
    ```r
    ## Only one of the following two lines should be used
