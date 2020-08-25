@@ -12,7 +12,7 @@ ms.reviewer: carlrab
 ms.date: 08/25/2020
 ---
 # Migration guide: SQL Server to SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 ## Prerequisites 
 
