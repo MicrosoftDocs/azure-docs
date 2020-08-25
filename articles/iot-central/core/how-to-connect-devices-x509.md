@@ -14,7 +14,7 @@ services: iot-central
 
 IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509.  X.509 certificates are recommended in production environments. For more information, see [Get connected to Azure IoT Central](./concepts-get-connected.md).
 
-This article shows two ways of using X.509 - group enrollments typically used in a production environment, and individual enrollments useful for testing.
+This article shows two ways of using X.509 - [group enrollments](how-to-connect-devices-x509.md#Use-a-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#Use-an-individual-enrollment) useful for testing.
 
 ## Prerequisites
 
@@ -22,11 +22,14 @@ This article shows two ways of using X.509 - group enrollments typically used in
 - [Git](https://git-scm.com/download/).
 - Download and install [OpenSSL](https://www.openssl.org/). If you're using Windows, you can use the binaries from the [OpenSSL page on SourceForge](https://sourceforge.net/projects/openssl/).
 
+## Use a group enrollment
+
+Use X.509 certificates with a group enrollment in a production environment. In a group enrollment, you add a root or intermediate X.509 certificate to your IoT Central application. Devices with leaf certificates derived from the root or intermediate certificate can connect to your application.
 
 
-## Generate root and device key
+## Generate root and device cert
 
-In this section, you will use an X.509 certificate to connect a device with a key derived from the enrollment group's key, which can connect to your IoT Central application.
+In this section, you will use an X.509 certificate to connect a device with a cert derived from the enrollment group's cert, which can connect to your IoT Central application.
 
 > [!WARNING]
 > This way of generating X.509 certs is just for testing. For a production environment you should use your official, secure mechanism for certificate generation.
@@ -91,7 +94,7 @@ filename | contents
 You can now connect devices that have an X.509 certificate derived from this primary root certificate. After you save the enrollment group, make a note of the ID Scope.
 
 
-## Simulate the device
+## Run sample device code
 
 
 1. In the Azure IoT Central application, Click **Devices**, and create a new device with _mytestdevice_ as the **Device ID** from the Environmental Sensor device template.
@@ -152,7 +155,11 @@ You can now connect devices that have an X.509 certificate derived from this pri
 
     ![Telemetry](./media/how-to-connect-devices-x509/telemetry.png)
 
-## Generate self-signed device key
+## Use an individual enrollment
+
+Use X.509 certificates with an individual enrollment to test your device and solution. In an individual enrollment, there's no root or intermediate X.509 certificate in your IoT Central application. Devices use a self-signed X.509 certificate to connect to your application.
+
+## Generate self-signed device cert
 
 
 In this section, you will use a self-signed X.509 certificate to connect devices for individual enrollment, which are used to enroll a single device. Self-signed certificates are for testing only.
@@ -186,7 +193,7 @@ The device is now provisioned with X.509 certificate.
 
 
 
-## Simulate the Device for individual enrollment
+## Run a sample individual enrollment device
 
 1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_, to the folder that contains the environmentalSensor.js application when you completed the [Connect a device (Node.js) tutorial](./tutorial-connect-device-nodejs.md).
 
