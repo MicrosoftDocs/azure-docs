@@ -34,7 +34,7 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  - name: Create a Synapse workspace using Azure Portal
+  - name: Create a Synapse workspace using the Azure portal
     href: quickstart-create-workspace.md
   - name: Create a Synapse workspace using Azure CLI
     href: quickstart-create-workspace-cli.md

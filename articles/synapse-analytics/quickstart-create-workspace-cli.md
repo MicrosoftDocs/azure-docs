@@ -6,7 +6,7 @@ author: alehall
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: 
-ms.date: 08/19/2020
+ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick, carlrab
 ---
