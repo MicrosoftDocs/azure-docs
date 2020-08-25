@@ -67,40 +67,40 @@ For more information about competencies, go to the [Microsoft Partner Network Co
 
 System-integrator partners can submit consulting-service offers for the following 20 countries/regions:
 
-| Countries  | (continued..)   | (continued..)  | (continued..)  |
+| Countries | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Australia | Belgium | Canada | Denmark |
 | Finland  | France | Germany  | India   |
 | Italy    | Japan  |  Mexico  |  Netherlands  |
 |  New Zealand  |  Norway  |  Poland  | South Africa |
 |  Sweden  | Switzerland  |  United States  | United Kingdom  |
-||
+|
 
 ## Register for consulting services in the commercial marketplace
 
-Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](become-publisher.md). 
+Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. For a complete checklist of registration requirements, see [Become a publisher in the marketplace](become-publisher.md).
 
 ## Prepare your publishing artifacts
 Before you register, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
 
 |Setup for new publishers  |
-|---------|
-|MPN ID     |
-|Company logos (48 x 48, 216 x 216 pixels)     |
-|Lead destination     |
-||
+| - |
+| MPN ID |
+| Company logos (48 x 48, 216 x 216 pixels) |
+| Lead destination |
+|
 
 |Setup for new offers  |
-|---------|
-|Offer name (200 characters) and description (2,000 characters)    |
-|Competencies     |
-|Country/region availability     |
-|Duration of engagement     |
-|Applicable industries, categories, and search keywords     |
-|Product overview video    |
-|Screenshots (maximum of 5, 1280 x 720 pixels)     |
-|Marketing documents (maximum of 3)     |
-||
+| - |
+| Offer name (200 characters) and description (2,000 characters) |
+| Competencies  |
+| Country/region availability |
+| Duration of engagement  |
+| Applicable industries, categories, and search keywords |
+| Product overview video |
+| Screenshots (maximum of 5, 1280 x 720 pixels) |
+| Marketing documents (maximum of 3) |
+|
 
 ## The publishing process
 

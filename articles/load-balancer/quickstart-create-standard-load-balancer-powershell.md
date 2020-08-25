@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
 ---
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 ```
 ---
 
-# [Option 1 (default): Create a public load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# [**Standard SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -214,7 +214,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
-### Create a virtual network and Azure Bastion host
+### Create a virtual network
 
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
@@ -223,16 +223,13 @@ Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.netwo
 * Subnet named **myBackendSubnet**.
 * Virtual network **10.0.0.0/16**.
 * Subnet **10.0.0.0/24**.
-* Bastion Subnet **10.0.1.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$bsub = 'AzureBastionSubnet'
 $spfx = '10.0.0.0/24'
-$bpfx = '10.0.1.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -241,35 +238,10 @@ $vpfx = '10.0.0.0/16'
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
-## Create Bastion subnet config ##
-$bassubnetConfig =
-New-AzVirtualNetworkSubnetConfig -name $bsub -AddressPrefix $bpfx
-
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubnetConfig
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
 ```
-Create the bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion):
-
-* Named **myBastionHost**.
-* Public IP of **myBastionIP**.
-
-```azurepowershell-interactive
-$rg = 'myResourceGroupLB'
-$loc = 'eastus'
-$bas = 'myBastionHost'
-$basip = 'myBastionIP'
-$all = 'Static'
-$sku 'Standard'
-
-## Create public IP address for Bastion host ##
-$baspubip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Name $basip -Location $loc -AllocationMethod $all -Sku $sku
-
-## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $baspubip -VirtualNetwork $vnet
-```
-It will take a few minutes for the bastion host to be deployed to the virtual network.
 
 ### Create network security group
 Create network security group to define inbound connections to your virtual network.
@@ -280,7 +252,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 * Named **myNSGRuleHTTP**.
 * Description of **Allow HTTP**.
 * Access of **Allow**.
-* Protocol **TCP**.
+* Protocol **(*)**.
 * Direction **Inbound**.
 * Priority **2000**.
 * Source of the **Internet**.
@@ -293,7 +265,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -591,6 +563,7 @@ Create a new frontend IP configuration with [Add-AzLoadBalancerFrontendIpConfig]
 ```azurepowershell-interactive
 ## Variables for the command ##
 $fen = 'myFrontEndOutbound'
+$lbn = 'myLoadBalancer'
 
 ## Get the load balancer configuration  and apply the frontend config##
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFrontendIPConfig -Name $fen -PublicIpAddress $publicIP | Set-AzLoadBalancer
@@ -729,7 +702,7 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 
 ```
 
-# [Option 2: Create a public load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+# [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads. For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -880,7 +853,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
-### Create a virtual network and Azure Bastion host
+### Create a virtual network
 
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
@@ -889,16 +862,13 @@ Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.netwo
 * Subnet named **myBackendSubnet**.
 * Virtual network **10.0.0.0/16**.
 * Subnet **10.0.0.0/24**.
-* Bastion Subnet **10.0.1.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$bsub = 'AzureBastionSubnet'
 $spfx = '10.0.0.0/24'
-$bpfx = '10.0.1.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -907,31 +877,9 @@ $vpfx = '10.0.0.0/16'
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
-## Create Bastion subnet config ##
-$bassubnetConfig =
-New-AzVirtualNetworkSubnetConfig -name $bsub -AddressPrefix $bpfx
-
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubnetConfig
-```
-Create the bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion):
-
-* Named **myBastionHost**.
-* Public IP of **myBastionIP**.
-
-```azurepowershell-interactive
-$rg = 'myResourceGroupLB'
-$loc = 'eastus'
-$bas = 'myBastionHost'
-$basip = 'myBastionIP'
-
-## Create public IP address for Bastion host ##
-$basip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Location $loc
-
-## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $basip -VirtualNetwork $vnet
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
 ```
 
 ### Create network security group
@@ -943,7 +891,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 * Named **myNSGRuleHTTP**.
 * Description of **Allow HTTP**.
 * Access of **Allow**.
-* Protocol **TCP**.
+* Protocol **(*)**.
 * Direction **Inbound**.
 * Priority **2000**.
 * Source of the **Internet**.
@@ -956,7 +904,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -1231,49 +1179,72 @@ It takes a few minutes to create and configure the three VMs.
 
 ## Install IIS
 
-1. [Sign in](https://portal.azure.com) to the Azure portal.
+Use [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) to install the Custom Script Extension. 
 
-2. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
+The extension runs PowerShell Add-WindowsFeature Web-Server to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
-3. On the **Overview** page, select **Connect**, then **Bastion**.
+### VM1 
 
-4. Enter the username and password entered during VM creation.
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM1'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
 
-5. Select **Connect**.
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
-6. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+### VM2 
 
-7. In the PowerShell Window, run the following commands to:
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM2'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
 
-    * Install the IIS server
-    * Remove the default iisstart.htm file
-    * Add a new iisstart.htm file that displays the name of the VM:
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
-   ```powershell
-    
-    # install IIS server role
-     Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # remove default htm file
-     Remove-Item  C:\inetpub\wwwroot\iisstart.htm
-    
-    # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
-   ```
-8. Close the Bastion session with **myVM1**.
+### VM3
 
-9. Repeat steps 1 to 8 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM3'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
+
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
 ## Test the load balancer
 
-1. In the Azure portal, find the public IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
+Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) to get the public IP address of the load balancer:
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
+```azurepowershell-interactive
+  ## Variables for command. ##
+  $rg = 'myResourceGroupLB'
+  $ipn = 'myPublicIP'
+    
+  Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
+```
+
+Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
    ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
-
 
 ## Clean up resources
 
@@ -1298,5 +1269,5 @@ In this quickstart
 To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
 * Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
-* For more information on Azure Bastion, see [What is Azure Bastion?](https://docs.microsoft.com/azure/bastion/bastion-overview).
+
 
