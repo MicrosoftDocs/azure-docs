@@ -36,7 +36,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-fairness**
     + Provide a short description for azureml-contrib-fairness.
   + **azureml-contrib-pipeline-steps**
-    + Deprecate azureml-contrib-pipeline-steps.
+    + Added message indicating this package is deprecated and user should use azureml-pipeline-steps instead.
   + **azureml-core**
     + Added list key command for workspace.
     + Add tags parameter in Workspace SDK and CLI.
@@ -47,8 +47,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fix bug in Dataset.get_by_name which would show the tags for the newest Dataset version even when a specific older version was actually retrieved.
   + **azureml-interpret**
     + Added probability outputs to shap scoring explainers in azureml-interpret based on shap_values_output parameter from original explainer.
-  + **azureml-parallel-run**
-    + Allow users to rerun remaining tasks.
   + **azureml-pipeline-core**
     + Improved `PipelineOutputAbstractDataset.register`'s documentation.
   + **azureml-train-automl-client**
