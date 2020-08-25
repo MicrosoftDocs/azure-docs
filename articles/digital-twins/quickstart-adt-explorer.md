@@ -21,11 +21,12 @@ With Azure Digital Twins, you can create and interact with live models of your r
 
 In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a scenario, view visual representations of your twins and graph, and perform other management activities through a browser-based, visual experience.
 
-The quickstart contains the following steps:
+The quickstart contains the following major steps:
 
 1. Set up an Azure Digital Twins instance and ADT Explorer
 1. Upload pre-built models and graph data to construct the sample scenario
-1. Use queries to explore the scenario graph that is created
+1. Explore the scenario graph that is created
+1. Make changes to the graph
 
 ## Prerequisites
 
@@ -90,11 +91,11 @@ Then, start the app by running `npm run start`.
 
 After a few seconds, a browser window will open and the app will appear in the browser.
 
-:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains boxes for a Query Explorer, Model View, Graph View, and Property Explorer. There is no onscreen data yet.":::
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains boxes for a Query Explorer, Model View, Graph View, and Property Explorer. There is no onscreen data yet." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
 Hit the *Sign in* button at the top of the window to configure ADT Explorer to work with the instance you've set up. 
 
-:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key.":::
+:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer highlighting the Sign In icon near the top of the window. The icon shows a simple silhouette of a person overlaid with a silhouette of a key." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
 Enter the important information you gathered earlier in the [Prerequisites](#prerequisites) section:
 * Application (client) ID
@@ -124,7 +125,7 @@ Typically when creating a model, you will complete three steps:
 2. Validate it to make sure the syntax is accurate (in the quickstart, already done as part of the sample solution)
 3. Upload it to your Azure Digital Twins instance
  
-For this quickstart, the model files have already been written and validated for you and are included with the solution you downloaded. In this section, you will upload two pre-written models to your instance to define these components of a building environment:
+For this quickstart, the model files have already been written and validated for you, and are included with the solution you downloaded. In this section, you will upload two pre-written models to your instance to define these components of a building environment:
 * Floor
 * Room
 
@@ -132,7 +133,7 @@ For this quickstart, the model files have already been written and validated for
 
 In the *MODEL VIEW* box, hit the *Upload a Model* icon.
 
-:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud.":::
+:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 * In the file selector box that appears, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* folder in the downloaded repository.
 * Select *Room.json* and *Floor.json*, and hit OK. (You can upload the other models if you'd like, but they won't be used in this quickstart.)
@@ -147,7 +148,7 @@ ADT Explorer will now upload these model files to your Azure Digital Twins insta
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="A view of the 'Model View' box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The 'View model' icon showing a letter 'i' in a circle is highlighted for each model.":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="A view of the 'Model View' box with two model definitions listed inside, Floor (dtmi:example:Floor;1) and Room (dtmi:example:Room;1). The 'View model' icon showing a letter 'i' in a circle is highlighted for each model." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -171,7 +172,7 @@ In this section, you will upload pre-created twins that are connected into a pre
 
 In the *GRAPH VIEW* box, hit the *Import Graph* icon.
 
-:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud.":::
+:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
 In the file selector box, navigate again to the *client/examples* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
 
@@ -181,7 +182,7 @@ To confirm the graph upload, hit the *Save* icon in the upper right corner of th
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Highlighting the Save icon in the Graph Preview pane":::
+        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Highlighting the Save icon in the Graph Preview pane" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -191,7 +192,7 @@ ADT Explorer will now use the uploaded file to create the requested twins and re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 49 twins imported. 50 relationships imported.'":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 49 twins imported. 50 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,9 +200,9 @@ ADT Explorer will now use the uploaded file to create the requested twins and re
     :::column-end:::
 :::row-end:::
 
-The graph has now been uploaded to ADT Explorer. To see see the graph, hit the *Run Query* button near the top of the ADT Explorer window. 
+The graph has now been uploaded to ADT Explorer. To see see the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box, near the top of the ADT Explorer window. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="A button reading 'Run Query' near the top of the window is highlighted":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="A button reading 'Run Query' near the top of the window is highlighted" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 This will run the default query to select and display all digital twins. ADT Explorer will retrieve all twins and relationships from the service, and draw the graph defined by them in the *GRAPH VIEW* box.
 
@@ -223,7 +224,7 @@ Here are the properties of *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room0, including (among others) a $dtId field of 'Room0', a Temperature field of 70, and a Humidity field of 30.":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room0, including (among others) a $dtId field of 'Room0', a Temperature field of 70, and a Humidity field of 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -235,7 +236,7 @@ Here are the properties of *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room1, including (among others) a $dtId field of 'Room1', a Temperature field of 80, and a Humidity field of 60.":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room1, including (among others) a $dtId field of 'Room1', a Temperature field of 80, and a Humidity field of 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -259,14 +260,14 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Recall from viewing the twin properties earlier that *Room0* has a temperature of **70** and *Room1* has a temperature of **80**. As a result, only _**Room1**_ shows up in the results here.
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Results of property query, showing only Room1":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Results of property query, showing only Room1" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported within the query above. You can try plugging these, different values, or different twin properties into the query to try out answering your own questions.
 
 ## Edit data in the graph
 
-You can use ADT Explorer to edit the properties of the twins represented in your graph. In this section, we will **_raise the temperature of_ Room0**.
+You can use ADT Explorer to edit the properties of the twins represented in your graph. In this section, we will **_raise the temperature of_ Room0 to 76**.
 
 To do this, select *Room0*, bringing up its property list in the *PROPERTY EXPLORER* box.
 
@@ -274,7 +275,7 @@ The properties in this list are editable. Select the temperature value of **70**
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="The 'Property Explorer' box showing properties for Room0. The temperature value is an editable box showing 76, and there is a highlight around the Save icon.":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="The 'Property Explorer' box showing properties for Room0. The temperature value is an editable box showing 76, and there is a highlight around the Save icon." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -284,18 +285,24 @@ Upon successful save, you will see a *Patch Information* window displaying the p
 
 ### Query to see the result
 
-To verify that the graph successfully registered your update to *Room0*'s temperature, re-run the query from earlier to **get all the twins in the environment with a temperature above 75**. Now that the temperature of *Room0* has been changed from **70** to **76**, both twins should show up in the result.
+To verify that the graph successfully registered your update to *Room0*'s temperature, re-run the query from earlier to **get all the twins in the environment with a temperature above 75**:
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Results of property query, showing both Room0 and Room1":::
+```SQL
+SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
+```
+
+Now that the temperature of *Room0* has been changed from **70** to **76**, both twins should show up in the result.
+
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Results of property query, showing both Room0 and Room1" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
 ## Review and contextualize learnings
 
 In this quickstart, you created an Azure Digital Twins instance, connected it to ADT Explorer, and populated it with a sample scenario. 
 
-You then...
-1. Used a query to answer a question about the scenario.
-2. Edited a property on a digital twin.
-3. Ran the query again to see how the answer changed as a result of your update.
+You then explored the graph, by...
+1. Using a query to answer a question about the scenario.
+2. Editing a property on a digital twin.
+    * Running the query again to see how the answer changed as a result of your update.
 
 The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, even as the environment continues to change. 
 
@@ -309,7 +316,7 @@ If you plan to continue to the Azure Digital Twins tutorials, the instance used 
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Finally, delete the project sample folders you downloaded to your local machine (_**ADT_Explorer.zip**_ and _**Azure_Digital_Twins_samples.zip**_.).
+Finally, delete the project sample folders you downloaded to your local machine (_**ADT_Explorer.zip**_ and _**Azure_Digital_Twins_samples.zip**_).
 
 ## Next steps 
 
