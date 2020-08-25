@@ -65,7 +65,7 @@ The [QueueClient](/azure/developer/python/sdk/storage/azure-storage-queue/azure.
 
 # [Python v2](#tab/python2)
 
-The [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) object lets you work with queues. The following code creates a `QueueService` object. Add the following code near the top of any Python file in which you wish to programmatically access Azure Storage:
+The [QueueService](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) object lets you work with queues. The following code creates a `QueueService` object. Add the following code near the top of any Python file in which you wish to programmatically access Azure Storage:
 
 ```python
 from azure.storage.queue import (QueueService, QueueMessageFormat)
@@ -119,7 +119,7 @@ To insert a message into a queue, use the [send_message](/azure/developer/python
 
 # [Python v2](#tab/python2)
 
-To insert a message into a queue, use the [put_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) method to create a new message and add it to the queue.
+To insert a message into a queue, use the [put_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) method to create a new message and add it to the queue.
 
 ```python
 # Add a message to the queue
@@ -154,13 +154,13 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 # [Python v12](#tab/python)
 
-You can peek at messages in the queue without removing it from the queue by calling the [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. By default, `peek_messages` peeks at a single message.
+You can peek at messages without removing them from the queue by calling the [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) method. By default, `peek_messages` peeks at a single message.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_PeekMessage":::
 
 # [Python v2](#tab/python2)
 
-You can peek at messages in the queue without removing it from the queue by calling the [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) method. By default, `peek_messages` peeks at a single message.
+You can peek at messages without removing them from the queue by calling the [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-) method. By default, `peek_messages` peeks at a single message.
 
 ```python
 # Peek at the messages in the queue
@@ -183,7 +183,7 @@ The code below uses the [update_message](/azure/developer/python/sdk/storage/azu
 
 # [Python v2](#tab/python2)
 
-The code below uses the [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
+The code below uses the [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) method to update a message. The visibility timeout is set to 0, meaning the message appears immediately and the content is updated.
 
 ```python
 # Change the contents of a message
@@ -207,7 +207,7 @@ The [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-que
 
 # [Python v2](#tab/python2)
 
-The [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) method asks the queue service to return metadata about the queue, including the `approximate_message_count`. The result is only approximate because messages can be added or removed after the queue service responds to your request.
+The [get_queue_metadata](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) method asks the queue service to return metadata about the queue, including the `approximate_message_count`. The result is only approximate because messages can be added or removed after the queue service responds to your request.
 
 ```python
 # Get the queue length
@@ -230,7 +230,7 @@ When you call [receive_messages](/azure/developer/python/sdk/storage/azure-stora
 
 # [Python v2](#tab/python2)
 
-When you call [get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), you get the next message in the queue by default. A message returned from `get_messages` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
+When you call [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), you get the next message in the queue by default. A message returned from `get_messages` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
 
 ```python
 # Dequeue a single message
@@ -252,7 +252,7 @@ The following code example uses the [receive_messages](/azure/developer/python/s
 
 # [Python v2](#tab/python2)
 
-The following code example uses the [get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) method to get 16 messages in one call. Then it processes each message using a for loop. It also sets the invisibility timeout to five minutes for each message.
+The following code example uses the [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) method to get 16 messages in one call. Then it processes each message using a for loop. It also sets the invisibility timeout to five minutes for each message.
 
 ```python
 # Dequeue multiple messages
@@ -275,7 +275,7 @@ To delete a queue and all the messages contained in it, call the [delete_queue](
 
 # [Python v2](#tab/python2)
 
-To delete a queue and all the messages contained in it, call the [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-) method.
+To delete a queue and all the messages contained in it, call the [delete_queue](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-) method.
 
 ```python
 # Delete the queue
