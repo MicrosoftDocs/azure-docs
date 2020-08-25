@@ -119,7 +119,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
 > [!NOTE]
-> App Service Certificates purchased from Azure are issued by [Wild West Domains](https://www.wildwestdomains.com/about-us), a subsidiary of GoDaddy. For some top-level domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
+> App Service Certificates purchased from Azure are issued by GoDaddy. For some top-level domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
 > 
 
 ### Store in Azure Key Vault
