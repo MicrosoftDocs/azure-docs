@@ -17,18 +17,11 @@ Microsoft Azure Storage Explorer provides easy access and management of blob ver
 
 This section will introduce a few terms used in this documentation to help you understand the following sections.
 
-- Soft Delete: The automatic data protection feature prior to Blob Versioning.
-- Active/Soft deleted: The state a blob version or a non-version blob is in.
-- Blob version: Blobs associated with a version ID.
+- Soft Delete: An alternative automatic data protection feature. You can learn more about Soft Delete [here](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Blob version: A blob created with Blob Versioning enabled. Each blob version is associated with a version ID.
 - Current version: A blob version marked as the current version.
-- Previous version: A blob version not marked as the current version.
-- Non-version blob: A blob without a version ID.
-
-Soft Delete is the automatic data protection feature prior to Blob Versioning. Blobs are created as active blobs. With Soft Delete enabled, deleting an active blob will mark it as soft deleted. The contents of that blob will be retained for a retention period. Once the retention period expires, it will be permanently deleted.
-
-Blob Versioning is a new automatic data protection feature. Blobs created with Blob Versioning enabled will be associated with a version ID, making them blob versions. A blob version may be marked as the current version to reflect the current contents of the blob. When you change the contents of the blob, the previous contents of the blob will be stored as a previous version and the new contents will become the current version. A blob version can also be soft deleted except for the current version.
-
-Blobs created before Blob Versioning enabled won't be converted to blob versions. They will remain as is and they won't have version IDs associated with them.
+- Previous version: A blob version that is not the current version.
+- Non-version blob: A blob created with Blob Versioning disabled. A non-version blob won't have a version ID.
 
 ## View blob versions
 
