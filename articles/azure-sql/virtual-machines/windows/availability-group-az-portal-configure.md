@@ -23,7 +23,8 @@ This article describes how to use the [Azure portal](https://portal.azure.com) t
 
 Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
 
-This feature is currently in preview. 
+   > [!NOTE]
+   > This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. 
 
 
 ## Prerequisites
