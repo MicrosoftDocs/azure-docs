@@ -24,15 +24,21 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
 
 - An Azure virtual machine (VM) with Windows 10 Enterprise multi-session, version 1903 or later
 
-- The Language ISO and Feature on Demand (FOD) Disk 1 of the OS version the image uses. You can download them here:
+- The Language ISO, Inbox Apps and Feature on Demand (FOD) Disk 1 of the OS version the image uses. You can download them here:
      
      - Language ISO:
         - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
         - [Windows 10, version 2004 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
+     - Inbox Apps language ISO:
+       -  [Windows 10, version 1903 or 1909 Inbox Apps Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+       -  [Windows 10, version 2004 Inbox Apps Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)        
+
      - FOD Disk 1 ISO:
         - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Windows 10, version 2004 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+
+     
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
