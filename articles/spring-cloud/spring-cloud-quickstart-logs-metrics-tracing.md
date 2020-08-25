@@ -98,6 +98,10 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 ```azurecli
 az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
 ```
+In the preceding steps, you also set the default resource group name. To clear out that default, run the following command in the Cloud Shell:
+```azurecli
+az configure --defaults group=
+```
 ## Next steps
 
 To explore more on the out of box monitoring capability for Azure Spring Cloud, see:
