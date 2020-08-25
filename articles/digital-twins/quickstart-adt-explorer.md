@@ -288,6 +288,19 @@ To verify that the graph successfully registered your update to *Room0*'s temper
 
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Results of property query, showing both Room0 and Room1":::
 
+## Review and contextualize learnings
+
+In this quickstart, you created an Azure Digital Twins instance, connected it to ADT Explorer, and populated it with a sample scenario. 
+
+You then...
+1. Used a query to answer a question about the scenario.
+2. Edited a property on a digital twin.
+3. Ran the query again to see how the answer changed as a result of your update.
+
+The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, even as the environment continues to change. 
+
+Although in this quickstart, you made the temperature update manually, it is common in Azure Digital Twins to connect digital twins to real IoT devices so that they receive updates automatically, based on telemetry data. This allows you to build a live graph that always reflects the real state of your environment, and use queries to get information about what's happening in your environment in real time.
+
 ## Clean up resources
 
 To wrap up the work for this quickstart, first end the running console app. This will shut off the connection to the ADT Explorer app in the browser, and you will no longer be able to view live data in the browser. You can close the browser tab.
@@ -299,8 +312,6 @@ If you plan to continue to the Azure Digital Twins tutorials, the instance used 
 Finally, delete the project sample folders you downloaded to your local machine (_**ADT_Explorer.zip**_ and _**Azure_Digital_Twins_samples.zip**_.).
 
 ## Next steps 
-
-In this quickstart, you created an Azure Digital Twins instance, connected it to ADT Explorer, populated it with a sample scenario, and used queries to explore the scenario.
 
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
 
