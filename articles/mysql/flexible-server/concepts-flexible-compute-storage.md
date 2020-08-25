@@ -100,7 +100,7 @@ Storage auto-grow is not yet available for Flexible Server.
 
 ## Backup
 
-The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. Learn more about backups in the backups article <!-- [concepts article](concepts-backup.md)-->.
+The service automatically takes backups of your server. You can select a retention period from a range of 1 to 35 days. Learn more about backups in the backups article <!-- [concepts article](concepts-backup.md)-->.
 
 ## Scale resources
 
@@ -115,7 +115,7 @@ Changing the backup retention period is an online operation.
 
 ## Pricing
 
-For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/MySQL/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) shows the monthly cost on the **Compute + storage** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, choose **Azure Database for MySQL**, and **Flexible Server** to customize the options.
+For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/MySQL/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) shows the monthly cost on the **Compute + storage** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, choose **Azure Database for MySQL**, and **Flexible Server** as the deployment type to customize the options.
 
 ## Next steps
 
