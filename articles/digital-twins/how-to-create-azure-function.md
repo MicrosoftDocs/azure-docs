@@ -98,7 +98,7 @@ Add variables to your function class for these values:
 
 Also add a local variable inside of your function to hold your Azure Digital Twins client instance to the function project. Do *not* make this variable static inside your class.
 
-After these changes, your function code should be similar to the following:
+After these changes, your function code will be similar to the following:
 
 ```csharp
 // Default URL for triggering event grid function in the local environment.
