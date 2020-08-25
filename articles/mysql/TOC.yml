@@ -15,7 +15,7 @@
   - name: Overview
     items:
     - name: What is Single Server?
-      href: concepts-servers.md
+      href: single-server-overview.md
   - name: Quickstarts
     expanded: true
     items:
@@ -382,15 +382,19 @@
   items:
   - name: Documentation
     href: flexible-server/index.yml
+  - name: Overview
+    items:
+    - name: What is Flexible Server?
+      href: flexible-server/overview.md
   - name: Quickstarts
     expanded: true
     items:
       - name: Create Server
         items:
         - name: Azure portal
-          href: flexible-server/quickstart-create-flexible-server-portal.md
+          href: quickstart-create-flexible-server-portal.md
         - name: Azure CLI
-          href: flexible-server/quickstart-create-flexible-server-cli.md
+          href: quickstart-create-flexible-server-cli.md
 - name: Reference
   items:
   - name: Azure CLI
