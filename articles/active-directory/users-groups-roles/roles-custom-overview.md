@@ -42,7 +42,7 @@ The following are the high-level steps that Azure AD uses to determine if you ha
 
 1. Depending on the circumstance, Azure AD takes one of the following actions:
 
-    - Evaluates the user’s role memberships based on the [wids claim](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) in the user’s access token.
+    - Evaluates the user’s role memberships based on the [wids claim](../develop/access-tokens.md) in the user’s access token.
     - Retrieves all the role assignments that apply for the user, either directly or via group membership, to the resource on which the action is being taken.
 
 1. Azure AD determines if the action in the API call is included in the roles the user has for this resource.
