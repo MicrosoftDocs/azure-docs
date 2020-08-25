@@ -172,8 +172,6 @@
       href: conditional-access-identity-protection-setup.md
     - name: Add Conditional Access to user flows
       href: conditional-access-user-flow.md
-    - name: Add Conditional Access to custom policies
-      href: conditional-access-custom-policy.md
     - name: Review audit reports
       href: conditional-access-audit-reports.md
   - name: Custom policy
@@ -345,6 +343,9 @@
             href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
+          - name: Conditional Access technical profile
+            href: conditional-access-technical-profile.md
+            displayName: ca
           - name: JWT token issuer
             href: jwt-issuer-technical-profile.md
           - name: OAuth1

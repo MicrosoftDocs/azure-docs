@@ -23,7 +23,7 @@ Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD 
 > [!NOTE]
 > To use sign-in and user risk-based Conditional access, Azure AD Premium P2 is required.
   
-If you're already familiar with Identity Protection and Conditional Access in Azure AD, using these capabilities with Azure AD B2C will be a familiar experience, with the minor differences discussed in this article.
+If you're already familiar with [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) and [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) in Azure AD, using these capabilities with Azure AD B2C will be a familiar experience, with the minor differences discussed in this article.
 
 ![Conditional Access in a B2C tenant](media/conditional-access-overview/conditional-access-b2c.png)
 
@@ -42,22 +42,18 @@ Identity Protection and Conditional Access in Azure AD B2C generally work the sa
 
 - The Security Center is not available in Azure AD B2C.
 
-- In Azure AD B2C tenants, Identity Protection and Conditional Access are not supported in ROPC server-to-server flows.
+- Identity Protection and Conditional Access are not supported in ROPC server-to-server flows in Azure AD B2C tenants.
 
 - In Azure AD B2C tenants, Identity Protection risk detections are available for local B2C accounts only, and not for social identities (Google, Facebook, etc). 
 
-- The following Identity Protection detections are not yet available for Azure AD B2C:
+- In Azure AD B2C tenants, a subset of the Identity Protection risk detections are available, listed in [Set up Identity Protection](conditional-access-identity-protection-setup.md#set-up-identity-protection).
 
-  - TBD
+- The device compliance feature of Conditional Access is not available in Azure AD B2C tenants.
 
-- The following features of Conditional Access are not available in Azure AD B2C:
 
-  - Device compliance
-  - TBD
- 
 ## Integrate Conditional Access with user flows and custom policies
 
-Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized according to the organization’s voice, brand, and mitigation alternatives.
+Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized according to the organization’s voice, brand, and mitigation alternatives. See [Define a Conditional Access technical profile](conditional-access-technical-profile.md).
 
 ## Custom policies and Conditional Access
 

@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+> [!NOTE]
+> You can also use Microsoft Graph API for Conditional Access.
+
 ## Prerequisites
 
 - Your Azure AD B2C tenant must be [linked to an Azure AD subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
@@ -62,21 +65,32 @@ To add a conditional access policy, follow these steps.
    ![Disable the security defaults](media/conditional-access-identity-protection-setup/disable-security-defaults.png)
 
 
-1. Create an new conditional access policy.
+1. Create a new Conditional Access policy.
 
-1. Select users. (Don't select **All users** or you could block yourself from signing in.)
+1. Select the users you want to apply the policy to. 
+
+   > [!IMPORTANT]
+   > Don't select **All users** or you could block yourself from signing in.
 
    ![Select users](media/conditional-access-identity-protection-setup/select-users.png)
 
-1. For the clouds app or action, select your relying party application 
+1. For the clouds app or action, select your relying party application.
+
+    ![Select relying party application for cloud apps](media/conditional-access-identity-protection-setup/cloud-apps.png)
+
 
 1. Select the condition
 
-1. Under Access controls, For the grant select block - MUST be block
+1. Under **Access controls**, For the grant select block - MUST be block
 
-1. Enable your conditional access policy by clicking “Create.” 
+    ![Set the condition to block](media/conditional-access-identity-protection-setup/grant-or-block.png)
 
-> [!NOTE]
-> You can also use Microsoft Graph API for Conditional Access.
+1. Enable your conditional access policy by clicking “Create.”
+
+## Simulate a risky sign-in
+
+Use the [Tor browser](https://www.torproject.org/download/) 
+
+![Test a blocked sign-in](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
 
 ## Next steps 
