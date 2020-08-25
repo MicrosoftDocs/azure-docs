@@ -42,7 +42,7 @@ Azure Media Services v3 emits events on [Azure Event Grid](media-services-event-
 ## Set up
 
 1. In the Azure portal, navigate to your Azure Media Services account and select "Events". This will show all the methods for subscribing to Azure Media Services events.
-1. 
+
     ![Azure Media Services Portal](media/tutorial-events-log-analytics/01a.png)
 
 1. Select the "Logic Apps" icon to create a Logic App. This will open the Logic App Designer where you can create the flow to capture the events and push them to Log Analytics. 
@@ -114,15 +114,18 @@ Azure Media Services v3 emits events on [Azure Event Grid](media-services-event-
 
     ![Verify Body and Function steps](media/tutorial-events-log-analytics/16.png)
 
-1. When you examine all the resources in the resource group, there will be a Logic App and two Logic App API connectors listed, one for the Events and one for Log Analytics. There is also an [Event Grid System Topic](https://docs.microsoft.com/azure/event-grid/system-topics).
+1. When you examine all the resources in the resource group, there will be a Logic App and two Logic App API connectors listed, one for the Events and one for Log Analytics. For more information about Event Grid system topics, read [Event Grid System Topics](https://docs.microsoft.com/azure/event-grid/system-topics).
 
-    ![See all new resources in Resource Group](media/tutorial-events-log-analytics/26.png).
+    ![See all new resources in Resource Group](media/tutorial-events-log-analytics/26.png)
 
-    ![Create an Azure Media Services Live Event](media/tutorial-events-log-analytics/17.png)
 
 ## Test
 
-To test how it actually works, create a Live Event in Azure Media Services. Create an RTMP Live Event and use ffmpeg to push a "live" stream based on a .mp4 sample file. After the event is created, get the RTMP ingest URL. Copy this url over to the ffmpeg command line below and add a unique name at the end, for example, "mystream". Adjust the command line to reflect your test source file and any other system variables.
+To test how it actually works, create a Live Event in Azure Media Services. Create an RTMP Live Event and use ffmpeg to push a "live" stream based on a .mp4 sample file. After the event is created, get the RTMP ingest URL. 
+
+ ![Create an Azure Media Services Live Event](media/tutorial-events-log-analytics/17.png)
+
+Copy this url over to the ffmpeg command line below and add a unique name at the end, for example, "mystream". Adjust the command line to reflect your test source file and any other system variables.
 
 ```AzureCLI
 ffmpeg -i bbb_sunflower_720p_25fps_encoded.mp4 -map 0 -c:v libx264 -c:a copy -f flv rtmp://amsevent-amseventdemo-euwe.channel.media.azure.net:1935/live/4b968cd6ac3e4ad68b539c2a38c6f8f3/mystream
