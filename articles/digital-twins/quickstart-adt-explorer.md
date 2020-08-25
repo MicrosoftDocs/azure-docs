@@ -162,10 +162,10 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 Digital twins represent the actual entities within your business environment: things like sensors on a farm, lights in a car, or—in this quickstart—rooms on a building floor. You can create many twins of any given model type (like multiple rooms that all use the *Room* model), and connect them with relationships into a **twin graph** that represents the full environment.
 
 In this section, you will upload pre-created twins that are connected into a pre-created graph. The graph contains two floors and two rooms, connected in the following layout:
-* Floor0
-    - contains Room0
-* Floor1
-    - contains Room1
+* *Floor0*
+    - contains *Room0*
+* *Floor1*
+    - contains *Room1*
 
 #### Import the graph
 
@@ -223,7 +223,7 @@ Here are the properties of *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room0, including (among others) a $dtId field of 'Room0', a Temperature field of 70, and a Humidity field of 30.":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Highlight around the 'Property Explorer' box showing properties for Room0, including (among others) a $dtId field of 'Room0', a Temperature field of 70, and a Humidity field of 30.":::
     :::column-end:::
     :::column:::
     :::column-end:::
