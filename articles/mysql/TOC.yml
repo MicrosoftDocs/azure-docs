@@ -382,6 +382,12 @@
   items:
   - name: Documentation
     href: flexible-server/index.yml
+  - name: Concepts
+    items:
+    - name: Limitations
+      href: concepts-flexible-limits.md
+    - name: Compute and storage
+      href: concepts-flexible compute-storage.md
 - name: Reference
   items:
   - name: Azure CLI
