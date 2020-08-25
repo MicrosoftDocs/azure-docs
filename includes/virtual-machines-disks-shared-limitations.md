@@ -43,6 +43,7 @@ Shared premium SSDs are only supported in the following regions:
 - East US 2
 - West US
 - West US 2
+- West Central US
 - South Central US
 - Central US
 - Korea Central
