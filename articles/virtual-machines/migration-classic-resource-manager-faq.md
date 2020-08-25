@@ -18,11 +18,11 @@ ms.author: tagore
 
 ## What is Azure Service Manager and what does it mean by classic?
 
-The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is Azure Resource Manager?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is the latest control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is the latest control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is the time required for migration?
 
