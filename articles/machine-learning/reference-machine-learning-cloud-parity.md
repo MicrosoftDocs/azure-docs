@@ -181,7 +181,7 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
-| Data for machine learning                                         |                  | CH-East 2 | CH-North 3 |
+| **Data for machine learning** | | | |
 | Create, view, or edit datasets and datastores from the SDK                  | GA               | YES       | N/A        |
 | Create, view, or edit datasets and datastores from the UI                   | GA               | YES       | N/A        |
 | View, edit, or delete dataset drift monitors from the SDK                   | Public Preview   | YES       | N/A        |
