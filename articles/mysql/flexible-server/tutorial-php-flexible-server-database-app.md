@@ -374,7 +374,19 @@ For more information, see [Change site root](../../app-service/configure-languag
 
 ### Push to Azure from Git
 
-[!INCLUDE [app-service-plan-no-h](../../../../includes/app-service-web-git-push-to-azure-no-h.md)]
+Back in the local terminal window, add an Azure remote to your local Git repository. Replace *\<deploymentLocalGitUrl-from-create-step>* with the URL of the Git remote that you saved from [Create a web app](#create-a-web-app).
+
+```bash
+git remote add azure <deploymentLocalGitUrl-from-create-step>
+```
+
+Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
+
+```bash
+git push azure master
+```
+
+This command may take a few minutes to run. While running, it displays information similar to the following example:
 
 <pre>
 Counting objects: 3, done.
@@ -555,7 +567,8 @@ az webapp log tail --resource-group <resource-group-name> --name <app-name>
 
 If you don't see console logs immediately, check again in 30 seconds.
 
-> [!NOTE] You can also inspect the log files from the browser at ```https://<app-name>.scm.azurewebsites.net/api/logs/docker```.
+> [!NOTE]
+> You can also inspect the log files from the browser at ```https://<app-name>.scm.azurewebsites.net/api/logs/docker```.
 
 To stop log streaming at any time, type Ctrl+C.
 > [!TIP]
