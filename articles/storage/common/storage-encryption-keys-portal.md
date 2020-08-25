@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/31/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -41,11 +41,11 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 ## Specify a key
 
-After you enable customer-managed keys, you'll have the opportunity to specify a key to associate with the storage account. You can also indicate whether Azure Storage should automatically rotate the customer-managed key, or whether you will rotate the key manually.
+After you enable customer-managed keys, you'll have the opportunity to specify a key to associate with the storage account. You can also indicate whether Azure Storage should automatically update the customer-managed key to the latest version, or whether you will update the key version manually.
 
 ### Specify a key from a key vault
 
-When you select a customer-managed key from a key vault, auto-rotation of the key is automatically enabled. To manually manage the key version, specify the key URI instead, and include the key version. For more information, see [Specify a key as a URI](#specify-a-key-as-a-uri).
+When you select a customer-managed key from a key vault, automatic updating of the key version is enabled. To manually manage the key version, specify the key URI instead, and include the key version. For more information, see [Specify a key as a URI](#specify-a-key-as-a-uri).
 
 To specify a key from a key vault, follow these steps:
 
@@ -60,7 +60,12 @@ To specify a key from a key vault, follow these steps:
 
 ### Specify a key as a URI
 
-When you specify the key URI, omit the key version to enable auto-rotation of the customer-managed key. If you include the key version in the key URI, then auto-rotation is not enabled, and you must manage the key version yourself. For more information about updating the key version, see [Manually update the key version](#manually-update-the-key-version).
+Azure Storage can automatically update the customer-managed key that is used for encryption to use the latest key version. When the customer-managed key is rotated in Azure Key Vault, Azure Storage will automatically begin using the latest version of the key for encryption.
+
+> [!NOTE]
+> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle the rotation of the key in Azure Key Vault, so you will need to rotate your key manually or create a function to rotate it on a schedule.
+
+When you specify the key URI, omit the key version from the URI to enable automatic updating to the latest key version. If you include the key version in the key URI, then automatic updating is not enabled, and you must manage the key version yourself. For more information about updating the key version, see [Manually update the key version](#manually-update-the-key-version).
 
 To specify a key as a URI, follow these steps:
 
@@ -70,25 +75,25 @@ To specify a key as a URI, follow these steps:
     ![Screenshot showing key vault key URI](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. In the **Encryption key** settings for your storage account, choose the **Enter key URI** option.
-1. Paste the URI that you copied into the **Key URI** field. Omit the key version from the URI to enable auto-rotation.
+1. Paste the URI that you copied into the **Key URI** field. Omit the key version from the URI to enable automatic updating of the key version.
 
    ![Screenshot showing how to enter key URI](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Specify the subscription that contains the key vault.
 1. Save your changes.
 
-After you've specified the key, the Azure portal indicates whether automatic key rotation is enabled and displays the key version currently in use for encryption.
+After you've specified the key, the Azure portal indicates whether automatic updating of the key version is enabled and displays the key version currently in use for encryption.
 
-:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot showing auto-rotation of customer-managed keys enabled":::
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot showing automatic updating of the key version enabled":::
 
 ## Manually update the key version
 
-By default, Azure Storage automatically rotates customer-managed keys for you, as described in the previous sections. If you choose to manage the key version yourself, then you must update the key version specified for the storage account each time you create a new version of the key.
+By default, when you create a new version of a customer-managed key in Key Vault, Azure Storage automatically uses the new version for encryption with customer-managed keys, as described in the previous sections. If you choose to manage the key version yourself, then you must update the key version that is associated with the storage account each time you create a new version of the key.
 
 To update the storage account to use the new key version, follow these steps:
 
 1. Navigate to your storage account and display the **Encryption** settings.
-1. Enter the URI for the new key version. Alternately, you can select the key vault and the key again to update the version.
+1. Enter the URI for the new version of the key. Alternately, you can select the key vault and the key again to update the version.
 1. Save your changes.
 
 ## Switch to a different key
