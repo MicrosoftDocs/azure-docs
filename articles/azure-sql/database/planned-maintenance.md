@@ -26,7 +26,7 @@ For each database, Azure SQL Database and Azure SQL Managed Instance maintain a 
 
 Reconfigurations/failovers generally finish within 30 seconds. The average is 8 seconds. If already connected, your application must reconnect to the healthy copy new primary replica of your database. If a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): "Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later." If your database has a long-running query, this query will be interrupted during a reconfiguration and will need to be restarted.
 
-## How to simulate planned maintenance event
+## How to simulate a planned maintenance event
 
 Ensuring that your client application is resilient to maintenance events prior to deploying to production will help mitigate the risk of application faults and will contribute to application availability for your end users. You can test behavior of your client application during planned maintenance events by [initiating manual failover](https://aka.ms/mifailover-techblog) via PowerShell, CLI, or REST API. It will produce identical behavior as maintenance event bringing primary replica offline. Note though that single maintenance event can produce multiple failovers, depending on the constellation of the primary and secondary replicas at the beginning of the maintenance event.
 
