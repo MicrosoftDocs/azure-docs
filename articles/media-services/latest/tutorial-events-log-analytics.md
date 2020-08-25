@@ -16,7 +16,14 @@ ms.author: inhenkel
 
 # Tutorial: Store Azure Media Services events in Azure Log Analytics
 
-In this tutorial, you will learn how to:
+## Azure Media Services Events
+
+Azure Media Services v3 emits events on [Azure Event Grid](media-services-event-schemas.md). You can subscribe to events in many ways and store them in data stores. In this tutorial, you will subscribe to Media Services events using a [Log App Flow](https://azure.microsoft.com/services/logic-apps/). The Logic App will be triggered for each event and store the body of the event in Azure Log Analytics. Once the events are in Azure Log Analytics, you can use other Azure services to create a dashboard, monitor, and alert on these events, though we won't be covering that in this tutorial.
+
+> [!NOTE]
+> It would be helpful if you are already familiar with using FFmpeg as your on-premises encoder.  If not, that's okay. The command line and instructions for streaming a video is included below.
+
+You will learn how to:
 
 > [!div class="checklist"]
 > * Create a no code Logic App Flow
@@ -28,142 +35,191 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-> * An Azure subscription
-> * An Azure Media Services account.
+> * An [Azure subscription](how-to-set-azure-subscription.md)
+> * A [Media Services](create-account-howto.md) account and resource group.
+> * An installation of [FFmpeg](https://ffmpeg.org/download.html) for your OS.
 > * A [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) workspace
 
-> [!NOTE]
-> The screenshots in this tutorial were captured in the Azure portal dark mode.
+## Subscribe to a Media Services event with Logic App
 
-## Azure Media Services Events
+1. In the Azure portal, if you haven't done so already, create a [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) workspace. You'll need the Workspace ID and one of the keys, so keep that browser window open. Then, open the portal in another tab or window.
 
-Azure Media Services v3 emits events on [Azure Event Grid](media-services-event-schemas.md). You can subscribe to these events in many ways and store them in various data stores. In this tutorial, you will subscribe to these events using a [Log App Flow](https://azure.microsoft.com/services/logic-apps/). The Logic App will be triggered for each event and store the body of the event in Azure Log Analytics. Once the events are in Azure Log Analytics, you can use other Azure services to create a dashboard, monitor, and alert on these events.
+1. Navigate to your Azure Media Services account and select **Events**. This will show all the methods for subscribing to Azure Media Services events.
+    > [!div class="mx-imgBorder"]
+    > ![Azure Media Services Portal](media/tutorial-events-log-analytics/select-events-01a.png)
 
-## Set up
+1. Select the **Logic Apps icon** to create a Logic App. This will open the Logic App Designer where you can create the flow to capture the events and push them to Log Analytics. 
+    > [!div class="mx-imgBorder"]
+    > ![Create Logic App](media/tutorial-events-log-analytics/select-logic-app-02.png)
 
-1. In the Azure portal, navigate to your Azure Media Services account and select "Events". This will show all the methods for subscribing to Azure Media Services events.
+1. Select the **+ icon**, select the tenant you want to use, then select Sign in. You will see a Microsoft sign-in prompt.
+    > [!div class="mx-imgBorder"]
+    > ![Connect to Azure Event Grid](media/tutorial-events-log-analytics/select-event-add-grid-03.png)
+![Select the tenant](media/tutorial-events-log-analytics/select-tenant-03a.png)
 
-    ![Azure Media Services Portal](media/tutorial-events-log-analytics/01a.png)
+1. Select **Continue** to subscribe to the Media Services Events.
+    > [!div class="mx-imgBorder"]
+    > ![Connected to Azure Event Grid](media/tutorial-events-log-analytics/select-continue-04.png)
 
-1. Select the "Logic Apps" icon to create a Logic App. This will open the Logic App Designer where you can create the flow to capture the events and push them to Log Analytics. 
+1. In the **Resource Type** list, locate "Microsoft.Media.MediaServices".
+    > [!div class="mx-imgBorder"]
+    >![Azure Media Services Resource Events](media/tutorial-events-log-analytics/locate-ams-events-05.png)
 
-    ![Create Logic App](media/tutorial-events-log-analytics/02.png)
+1. Select the **Event Type item**. There will be a list of all the events Azure Media Services emits. You can select the events you would like to track. You can add multiple event types. (Later, you will make a small change to the Logic App flow to store each event type in a separate Log Analytics Log and propagate the Event Type name to the Log Analytics Log name dynamically.)
+    > [!div class="mx-imgBorder"]
+    > ![Azure Media Services Event Type](media/tutorial-events-log-analytics/select-ams-event-type-06.png)
 
-1. Select the + icon. This will allow you to authenticate and subscribe to the Event Grid. Once the authentication is complete, you should see the user email and a green checkmark.
+1. Select **Save As**.
 
-    ![Connect to Azure Event Grid](media/tutorial-events-log-analytics/03.png)
+1. Give your Logic App a name.  The resource group is selected by default. Leave the other settings the way they are, then select **Create**.  You will be returned to the Azure home screen.
+    > [!div class="mx-imgBorder"]
+    > ![Logic app naming interface](media/tutorial-events-log-analytics/give-logic-app-name-06a.png)
 
-1. Select "Continue" to subscribe to the Media Services Events.
+## Create an action
 
-    ![Connected to Azure Event Grid](media/tutorial-events-log-analytics/04.png)
+Now that you are subscribed to the event(s), create an action.
 
-1. In the "Resource Type" list, locate "Microsoft.Media.MediaServices".
+1. If the portal has taken you back to the home screen, navigate back to the Logic App you just created by searching All resources for the app name.
 
-    ![Azure Media Services Resource Events](media/tutorial-events-log-analytics/05.png)
+1. Select your app, then select **Logic app designer**. The designer pane will open.
 
-1. In the "Event Type Item", there will be a list of all the events Azure Media Services emits. You can select the events you would like to track. You can add multiple event types. Later, you will make a small change to the Logic App flow to store each event type in a separate Log Analytics Log and propagate the Event Type name to the Log Analytics Log name dynamically.
+1. Select **+ New Step**.
 
-    ![Azure Media Services Event Type](media/tutorial-events-log-analytics/06.png)
+1. Since you want to push the events to the Azure Log Analytics service, search for "Azure Log Analytics" and select the "Azure Log Analytics Data Collector".
+    > [!div class="mx-imgBorder"]
+    > ![Azure Log Analytics Data Collector](media/tutorial-events-log-analytics/select-azure-log-analytics-data-collector-07.png)
 
-1. Now that you are subscribed to the event(s), create an action. Since you want to push the events to the Azure Log Analytics service, search for "Azure Log Analytics" and select the "Azure Log Analytics Data Collector".
+1. To connect to the Log Analytics Workspace, you need the Workspace ID and an Agent Key. Open the Azure portal in a new tab or window, navigate to the Log Analytics Workspace you created before the start of this tutorial.
+    > [!div class="mx-imgBorder"]
+    > ![Azure Log Analytics Workspace ID](media/tutorial-events-log-analytics/log-analytics-workspace-id-08.png)
 
-    ![Azure Log Analytics Data Collector](media/tutorial-events-log-analytics/07.png)
+1. On the left menu, locate **Agents Management** and select it. This will show you the agent keys that have been generated.
+    > [!div class="mx-imgBorder"]
+    > ![Azure Log Analytics Agents management](media/tutorial-events-log-analytics/select-agents-management-09.png)
 
-1. To connect to the Log Analytics Workspace, you need the Workspace ID and an Agent Key. In the Azure portal, navigate to your Log Analytics Workspace you created before the start of this tutorial. (To keep the Logic App designer open, you can do this in a separate browser tab.) In the Azure portal, in the Log Analytics workspace you can find the Workspace ID at the top.
+1. Copy the *Workspace ID*.
+    > [!div class="mx-imgBorder"]
+    > ![Log Analytics Agent Key](media/tutorial-events-log-analytics/copy-workspace-id.png)
 
-    ![Azure Log Analytics Workspace ID](media/tutorial-events-log-analytics/08.png)
+1. In the other browser tab or window, under the Azure Log Analytics Data Collector select **Send Data**, give your connection a name, then paste the *Workspace ID* in the **Workspace ID** field.
 
-1. On the left menu, locate "Agents Management" and select it. This will show you the agent keys that have been generated.
+1. Return to the Workspace browser tab or window and copy the *Workspace Key*.
+    > [!div class="mx-imgBorder"]
+    > ![Log Analytics Agent Key](media/tutorial-events-log-analytics/agents-management-primary-key-10.png)
 
-    ![Azure Log Analytics Agents management](media/tutorial-events-log-analytics/09.png)
+1. In the other browser tab or window, paste the *Workspace Key* in the **Workspace Key** field.
 
-1. Copy one of the keys over to your Logic App.
+1. Select **Create**. Now you will create the JSON request body and the Custom Log Name.
 
-    ![Log Analytics Agent Key](media/tutorial-events-log-analytics/10.png)
+1. Select the **JSON Request body** field.  A link to **Add dynamic content** will appear.
 
-1. Select "Create".
+1. Select **Add Dynamic content** and then select **Topic**.
 
-    ![Create Azure Logic App Connector](media/tutorial-events-log-analytics/11.png)
+1. Do the same for **Custom Log Name**.
+    > [!div class="mx-imgBorder"]
+    > ![Add Event Topic](media/tutorial-events-log-analytics/topic-selected.png)
 
-1. Select "Add Dynamic content" and then select "Topic".
-1. Do the same for "Custom Log Name".
+1. Select **Code View** of the Logic App. Look for the Inputs and Log-Type lines.
+    > [!div class="mx-imgBorder"]
+    > ![Add Event Topic](media/tutorial-events-log-analytics/code-view-two-lines.png)
 
-    ![Add Event Topic](media/tutorial-events-log-analytics/11b.png)
+1. Change the `body` value from `"@triggerBody()?['topic']"` to `"@{triggerBody()}"`. This is for parsing the entire message to Log Analytics.
 
-1. Go into the "Code View" of the Logic App. Look for the Inputs and Log-Type lines.
+1. Change the `Log-Type` from `"@triggerBody()?['topic']"` to `"@replace(triggerBody()?['eventType'],'.','')"`. (This will replace "." as these are not allowed in Log Analytics Log Names.)
+    > [!div class="mx-imgBorder"]
+    > ![Logic App json after change](media/tutorial-events-log-analytics/changed-lines.png)
 
-    ![Change json of the Logic App](media/tutorial-events-log-analytics/12.png)
+1. Select **Save**.
 
-1. Replace `"@triggerBody()?['topic']"` with `"@{triggerBody()}"`. This is for parsing the entire message to Log Analytics.
-
-1. Change the "Log-Type" from `"@triggerBody()?['topic']"` to `"@replace(triggerBody()?['eventType'],'.','')"`. (This will replace "." as these are not allowed in Log Analytics Log Names.)
-
-    ![Logic App json after change](media/tutorial-events-log-analytics/25.png)
-
-1. Select "Save As" at the top.
-
-    ![Save Logic App](media/tutorial-events-log-analytics/13.png)
-
-1. Give the Logic App a name and add it to a resource group.
-
-    ![Create new Logic App](media/tutorial-events-log-analytics/14.png)
-
-1. To verify, go the Logic App and then select "Logic app designer".
-
-    ![Verify config in Logic App Designer](media/tutorial-events-log-analytics/15.png)
-
-    ![Verify Body and Function steps](media/tutorial-events-log-analytics/16.png)
+1. To verify, select **Logic app designer**.
+    > [!div class="mx-imgBorder"]
+    > ![Verify Body and Function steps](media/tutorial-events-log-analytics/verify-changes-to-json.png)
 
 1. When you examine all the resources in the resource group, there will be a Logic App and two Logic App API connectors listed, one for the Events and one for Log Analytics. For more information about Event Grid system topics, read [Event Grid System Topics](https://docs.microsoft.com/azure/event-grid/system-topics).
-
-    ![See all new resources in Resource Group](media/tutorial-events-log-analytics/26.png)
-
+    > [!div class="mx-imgBorder"]
+    > ![See all new resources in Resource Group](media/tutorial-events-log-analytics/contosorg-listing.png)
 
 ## Test
 
-To test how it actually works, create a Live Event in Azure Media Services. Create an RTMP Live Event and use ffmpeg to push a "live" stream based on a .mp4 sample file. After the event is created, get the RTMP ingest URL. 
+To test how it actually works, create a Live Event in Azure Media Services. Create an RTMP Live Event and use ffmpeg to push a "live" stream based on a .mp4 sample file. After the event is created, get the RTMP ingest URL.
 
- ![Create an Azure Media Services Live Event](media/tutorial-events-log-analytics/17.png)
+1. From your Media Services account, select **Live streaming**.
+    > [!div class="mx-imgBorder"]
+    > ![Create an Azure Media Services Live Event](media/tutorial-events-log-analytics/live-event.png)
 
-Copy this url over to the ffmpeg command line below and add a unique name at the end, for example, "mystream". Adjust the command line to reflect your test source file and any other system variables.
+1. Select **Add live event**.
 
-```AzureCLI
-ffmpeg -i bbb_sunflower_720p_25fps_encoded.mp4 -map 0 -c:v libx264 -c:a copy -f flv rtmp://amsevent-amseventdemo-euwe.channel.media.azure.net:1935/live/4b968cd6ac3e4ad68b539c2a38c6f8f3/mystream
-```
+1. Enter a name into the **Live event name** field. (The **Description** field is optional.)
 
-After a couple seconds, the "Producer view" player should start streaming. (Refresh the player if the video doesn't show up automatically.)
+1. Select **Standard** cloud encoding.
 
-![Verify proper video ingest in Producer Preview Player](media/tutorial-events-log-analytics/18.png)
+1. Select **Default 720p** for the encoding preset.
+
+1. Select **RTMP** input protocol.
+
+1. Select **Yes** for the persistent input URL.
+
+1. Select **Yes** to start the event when the event is created.
+
+    > [!WARNING]
+    > Billing will start if you select Yes.  If you want to wait to start the stream until *just before* you start streaming with FFmpeg, select **No** and remember to start your live event then.
+
+    > [!div class="mx-imgBorder"]
+    > ![Live event settings](media/tutorial-events-log-analytics/live-event-settings.png)
+
+1. Select **I have all the rights to use the content/file...** checkbox.
+
+1. Select **Review + create**.
+
+1. Review your settings, then select **Create**.  The live event listing will appear and the live event Ingest URL will be shown.
+
+1. Copy the **Ingest URL** to your clipboard.
+
+1. Select the **live event** in the listing to see the Producer view.
+
+### Stream with FFmpeg CLI
+
+1. Use the following command line.
+
+    ```AzureCLI
+    ffmpeg -i <localpathtovideo> -map 0 -c:v libx264 -c:a copy -f flv <ingestURL>/mystream
+    ```
+
+1. Change `<ingestURL>` to the Ingest URL you copied to your clipboard.
+1. Change `<localpathtovideo>` to the local path of file you want to stream from FFmpeg.
+1. Add a unique name at the end, for example, `mystream`.
+1. Adjust the command line to reflect your test source file and any other system variables.
+1. Run the command. After a couple seconds, the "Producer view" player should start streaming. (Refresh the player if the video doesn't show up automatically.)
+
+    > [!div class="mx-imgBorder"]
+    > ![Verify proper video ingest in Producer Preview Player](media/tutorial-events-log-analytics/live-event-producer-view.png)
+
+## Verify the events
 
 With the live stream, Azure Media Services is emitting various events that are triggering the Logic App flow. To verify, navigate to the Logic App and determine if there are any triggers being fired by the events from Media Services.
 
-![Verify successful job execution in Logic App](media/tutorial-events-log-analytics/19.png)
+1. Navigate to the Logic App Overview page, you should see "Run History" listing jobs that have completed successfully.
+    > [!div class="mx-imgBorder"]
+    > ![Verify successful job execution in Logic App](media/tutorial-events-log-analytics/run-history.png)
 
-In the Logic App Overview page, you should see "Run History" listing jobs that have completed successfully.
+1. Select a successful job. The details of the job during runtime are shown.
+1. Select **Send Data** to expand it. In this case, the `MicrosoftMediaLiveEventEncoderConnected` event shows that it was captured as well as the parsed body. This is what is pushed to the Azure Log Analytics Workspace.
+    > [!div class="mx-imgBorder"]
+    > ![See send data](media/tutorial-events-log-analytics/verify-send-data.png)
 
-![See Job Details during Runtime](media/tutorial-events-log-analytics/20.png)
+## Verify the logs
 
-When you select a successful job, the details of the job during runtime are shown. In this case, the `MicrosoftMediaLiveEventEncoderConnected` event shows that it was captured as well as the parsed body. This is what is pushed to the Azure Log Analytics Workspace. Go the Log Analytics Workspace to verify. Navigate to Log Analytics Workspace you created earlier.
+1. Navigate to Log Analytics Workspace you created earlier.
 
-![See Events in Log Analytics](media/tutorial-events-log-analytics/21.png)
+1. Select **Logs**.
+1. Close the Example queries popup.
+1. There will be a Custom Logs listing. Select the down arrow to expand it. There you will see the event name `MicrosoftMediaLiveEventEncoderConnected`.
+1. Select the event name to expand it.
+1. When you select the "eye" icon, it will show a preview of the query result.
+1. Select **See in query editor** and then select the item under **TimeGenerated UTC** listing to expand it and view the raw data.
 
-In Log Analytics, select "Logs". This will open the Log Query. There will be a "Custom Logs" with the event name `MicrosoftMediaLiveEventEncoderConnected`.
+![See detailed Event output in Log Analytics](media/tutorial-events-log-analytics/raw-data.png)
 
-> [!NOTE]
-> You may need to refresh the page. The first time it can take a couple minutes to create the custom log and the data to populate.
-
-You can expand it to view all the fields for this event. When you select the "eye" icon, it will show a preview of the query result.
-
-![Preview Query](media/tutorial-events-log-analytics/22.png)
-
-You can select "See in query editor" to view the raw data of all fields.
-
-![Run Query in Query editor](media/tutorial-events-log-analytics/23.png)
-
-This is the output from the query showing all the data of the event `MicrosoftMediaLiveEventEncoderConnected`.
-
-![See detailed Event output in Log Analytics](media/tutorial-events-log-analytics/24.png)
-
-## Next steps:
+## Next steps
 
 You can create different queries and save them. These can be added to [Azure Dashboard](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards).
