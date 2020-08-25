@@ -111,6 +111,9 @@ In an account-resource forest topology, you have one or more *account* forests w
 
 In this scenario, one (or more) resource forest trusts all account forests. The resource forest typically has an extended Active Directory schema with Exchange and Lync. All Exchange and Lync services, along with other shared services, are located in this forest. Users have a disabled user account in this forest, and the mailbox is linked to the account forest.
 
+>[!NOTE]
+>If you have a multiple forest environment and do not have a forest trust between the environments, you can utilize the service [Azure AD Connect Cloud Provisioning](https://docs.microsoft.com/en-us/azure/active-directory/cloud-provisioning/what-is-cloud-provisioning).
+
 ## Office 365 and topology considerations
 Some Office 365 workloads have certain restrictions on supported topologies:
 
