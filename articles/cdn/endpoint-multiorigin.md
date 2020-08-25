@@ -110,6 +110,13 @@ Once you have several origins and an origin group, you can add or remove the ori
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Update origin group delete origin" border="true":::
 
+## Supersede origin group with rule engine
+
+Customize how traffic is distributed to different origin groups by utilizing the standard rules engine.
+
+Distribute the traffic to different group based on the request URL is one of these scenarios. Rule engine provides rich set of condition to meet you possible need.
+
+
 ## Next Steps
 In this article, you enabled Azure CDN endpoint multi-origin.
 
