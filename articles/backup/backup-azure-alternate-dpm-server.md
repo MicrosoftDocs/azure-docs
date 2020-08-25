@@ -48,8 +48,8 @@ To recover data from an Azure Backup Server:
 8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
 
    * **Create copy** - creates a copy of the file if there is a name collision.
-   * **Skip** - if there is a name collision, does not recover the file, which leaves the original file.
-   * **Overwrite** - if there is a name collision, overwrites the existing copy of the file.
+   * **Skip** - if there is a name collision, it doesn't recover the file, which leaves the original file.
+   * **Overwrite** - if there is a name collision, it overwrites the existing copy of the file.
 
      Choose the appropriate option to **Restore security**. You can apply the security settings of the destination computer where the data is being recovered or the security settings that were applicable to product at the time the recovery point was created.
 
