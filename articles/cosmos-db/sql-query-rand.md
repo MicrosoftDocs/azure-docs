@@ -23,7 +23,8 @@ RAND ()
 
 ## Remarks
 
-  `RAND` is a nondeterministic function. Repetitive calls of `RAND` do not return the same results.
+  `RAND` is a nondeterministic function. Repetitive calls of `RAND` do not return the same results. This system function will not utilize the index.
+
 
 ## Examples
   
@@ -38,10 +39,6 @@ SELECT RAND() AS rand
 ```json
 [{"rand": 0.87860053195618093}]  
 ``` 
-
-## Remarks
-
-This system function will not utilize the index.
 
 ## Next steps
 

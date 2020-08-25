@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -109,7 +109,7 @@ Create a web application that has an HTML sign-in page to configure [password-ba
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
-* If you want to add your application to list in the gallery by using password SSO, select **Password SSO** as shown.
+* If you want to add your application to list in the gallery by using password SSO, select **Password SSO(UserName & Password)** as shown.
 * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Request for user provisioning
