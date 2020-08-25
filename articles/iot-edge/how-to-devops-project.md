@@ -3,7 +3,7 @@ title: CI/CD pipeline with Azure DevOps Projects - Azure IoT Edge | Microsoft Do
 description: Azure DevOps Projects makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
 author: shizn
 ms.author: xshi
-ms.date: 10/09/2019
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects
 
-Configure continuous integration (CI) and continuous delivery (CD) for your IoT Edge application with DevOps Projects. DevOps Projects simplifies the initial configuration of a build and release pipeline in Azure Pipelines.
+Configure continuous integration (CI) and continuous delivery (CD) for your IoT Edge application with DevOps Projects. DevOps Starter simplifies the initial configuration of a build and release pipeline in Azure Pipelines.
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -21,7 +21,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
-1. In the left pane, select **Create a resource**, and then search for **DevOps Projects**.  
+1. In the left pane, select **Create a resource**, and then search for **DevOps Starter**.  
 
 1. Select **Create**.
 
@@ -65,17 +65,18 @@ After a few minutes, the DevOps Projects dashboard is displayed in the Azure por
 
 DevOps Projects created a Git repository for your project in Azure Repos. In this section, you view the repository and make code changes to your application.
 
-1. To navigate to the repo created for your project, select **Repositories** in the menu of your project dashboard.  
+1. To navigate to the repo created for your project, select **Repositories** in the menu of your project dashboard. This link opens a browser tab and the Azure DevOps repository for your new project.
 
    ![View repository generated in Azure Repos](./media/how-to-devops-project/view-repositories.png)
 
-2. The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
+> [!NOTE]
+> The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
 
-3. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
+2. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
 
    ![Open module.json file in Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-4. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
+3. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
 
 ## Examine the CI/CD pipeline
 
@@ -85,7 +86,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
    ![View build pipelines in Azure Pipelines](./media/how-to-devops-project/view-build-pipelines.png)
 
-2. Select **Edit**.
+2. Open the automatically generated build pipeline and select **Edit** in the top right.
 
     ![Edit build pipeline](media/how-to-devops-project/click-edit-button.png)
 
@@ -95,11 +96,11 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
    ![Edit the pipeline details](./media/how-to-devops-project/edit-build-pipeline.png)
 
-5. Select **Save & queue**, and then select **Save**.
+5. Select **Save & queue**, and then select **Save**. It is optional to comment.
 
 6. Select **Triggers** from the build pipeline menu. DevOps Projects automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
-7. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
+7. Select **Retention**. Follow the link to redirect you to the project settings, where the retention policies are located. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 8. Select **History**. The history panel contains an audit trail of recent changes to the build. Azure Pipelines keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 

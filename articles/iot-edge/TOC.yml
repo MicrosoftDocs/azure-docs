@@ -210,7 +210,11 @@
     - name: Azure DevOps Projects
       href: how-to-devops-project.md
     - name: Azure DevOps
-      href: how-to-ci-cd.md
+      items:
+      - name: YAML
+        href: how-to-ci-cd.md
+      - name: Classic editor
+        href: how-to-ci-cd-classic.md
   - name: Troubleshoot
     items:
     - name: Standard diagnostic steps
