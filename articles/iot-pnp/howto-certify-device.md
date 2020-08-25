@@ -201,4 +201,4 @@ There are three steps to be completed:
 
 ## Next steps
 
-Now the device submission is completed, you can contact the device certification team at[iotcert@microsoft.com](mailto:iotcert@microsoft.com) to continue to the next steps, which include Microsoft Partner Network membership validation and a review of the getting started guides. When all the requirements are satisfied, you can choose to have your device included in the [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
+Now the device submission is completed, you can contact the device certification team at [iotcert@microsoft.com](mailto:iotcert@microsoft.com) to continue to the next steps, which include Microsoft Partner Network membership validation and a review of the getting started guides. When all the requirements are satisfied, you can choose to have your device included in the [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).

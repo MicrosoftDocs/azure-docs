@@ -50,7 +50,7 @@ The model ID announcement has been added to the next versions of the SDKs
 |Node|1.17.0|
 |Python|2.1.4|
 
-## DPS Payload
+## DPS payload
 
 Devices using the [Device Provisioning Service (DPS)](/iot-dps/) can include the `modelId` to be used during the provisioning process using the following JSON payload.
 
