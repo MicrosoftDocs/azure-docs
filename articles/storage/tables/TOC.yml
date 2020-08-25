@@ -155,6 +155,18 @@
     items:
     - name: Latency issues
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Azure Storage on Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-table-storage.html
+  - name: Azure Storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Pricing for Table storage
+    href: https://azure.microsoft.com/en-us/pricing/details/storage/tables/
+  - name: Azure pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference
   items:
   - name: Scalability and performance targets

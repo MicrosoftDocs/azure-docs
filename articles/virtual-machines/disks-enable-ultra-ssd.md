@@ -123,7 +123,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ## Deploy an ultra disk using the Azure portal
 
-This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](~/articles/virtual-machines/windows/quick-create-portal.md).
+This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, see our [Quickstart: Create a Windows virtual machine in the Azure portal](./windows/quick-create-portal.md).
 
 - Sign in to the [Azure portal](https://portal.azure.com/) and navigate to deploy a virtual machine (VM).
 - Make sure to choose a [supported VM size and region](#ga-scope-and-limitations).
