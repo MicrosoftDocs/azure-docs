@@ -39,7 +39,7 @@ This section describes some of the common errors, and how you can troubleshoot t
 
 **Error:** “Key Vault operation failed. Operation : Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
 
-![Key Vault](./media/troubleshoot-changed-block-tracking/key-vault.png)
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
 
 This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies 
 
