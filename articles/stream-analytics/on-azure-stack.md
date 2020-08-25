@@ -155,7 +155,8 @@ Blob Storage:
 2. Select **Set modules**. Then, select **+ Add** and choose **Azure Stream Analytics Module**. 
 3. Select the subscription and the Steam Analytics Edge job that you created. Click **Save** and select **Next:Routes**.
 
-   ![Add Modules](media/on-azure-stack/edge-modules.png)
+   > [!div class="mx-imgBorder"]
+   > ![Add Modules](media/on-azure-stack/edge-modules.png)
 
 4. Click **Review + create >**.
 5. In the **Review + create** step, select **Create**. 
