@@ -19,6 +19,11 @@ ms.reviewer: lenalepa, aragra, sureshja
 
 # Quickstart: Configure a client application to access a web API
 
+> [!WARNING]
+> NOT READY FOR REVIEW<br/>
+> WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS <br/>
+> NOT READY FOR REVIEW
+
 In this quickstart, you provide a client app registered with the Microsoft identity platform with scoped, permissions-based access to your own web API. You also provide the client app with access to Microsoft Graph.
 
 By specifying a web API's scopes in your client app's registration, the client app can obtain an access token containing those scopes from the Microsoft identity platform. Within its code, the web API can then provide permission-based access to its resources based on the scopes found in the access token.
@@ -35,22 +40,17 @@ In this scenario, you grant a client app access to your own web API, both of whi
 
 The following diagram provides a high-level overview of this scenario's configuration:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left showing those scopes selected as permissions" border="true":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left showing those scopes selected as permissions" border="false":::
 
-> [!WARNING]
-> TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO TODO
+There are two types of permissions for a web API:
 
-## Add permissions to access Microsoft Graph
-
-You can select from two types of permissions for a web API:
-
-* **Application permissions**. Your client application needs to access the web API directly as itself, without user context. This type of permission requires administrator consent. This permission isn't available for desktop and mobile client applications.
+* **Application permissions**. Select application permissions if your client application needs to access the web API directly as itself, without user interaction. This type of permission requires administrator consent. This permission isn't available for desktop and mobile client applications.
 * **Delegated permissions**. Your client application needs to access the web API as the signed-in user, but with access restricted to the selected permissions. This type of permission can be consented to (granted) by a user unless the permission requires administrator consent. Adding a delegated permission to an application does *not* automatically grant consent for the users in a tenant. Users must still manually consent to the delegated permission at runtime unless an administrator grants consent on behalf of all users.
 
 To add permissions to access resource APIs from your client:
 
-1. From the app **Overview** page, select **API permissions**.
-1. Under **Configured permissions**, select **Add a permission**.
+1. Select your client application in **App registrations** in the Azure portal.
+1. Select **API permissions** > **Add a permission**.
 1. By default, the view allows you to select from **Microsoft APIs**. Select the section of APIs that you're interested in:
 
     * **Microsoft APIs**. Lets you select permissions for Microsoft APIs such as Microsoft Graph.
@@ -61,6 +61,8 @@ To add permissions to access resource APIs from your client:
 1. When finished, select **Add permissions**.
 
 You return to the **API permissions** page. The permissions have been saved and added to the table.
+
+## Add permissions to access Microsoft Graph
 
 ## Understanding API permissions and admin consent UI
 
