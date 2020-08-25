@@ -14,7 +14,7 @@ ms.topic: overview
 
 # What are Azure Arc enabled data services?
 
-Azure Arc enables running Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.  
+Azure Arc enables running Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 
 ## Azure Arc enabled data services are in preview
 
@@ -24,10 +24,11 @@ Currently, the following Azure Arc enabled data services are available in previe
 - PostgreSQL Hyperscale
 
 ## Always current
-Azure Arc enabled data services such as Azure SQL managed instance and Postgres Hyperscale receive updates on a frequent basis including servicing patches and new features similar to the experience in Azure.  Updates from the Microsoft Container Registry are provided to customers and deployment cadences are set by customers in accordance with their policies. This way, on-premises databases can stay up to date while ensuring customers maintain control.  Because Azure Arc enabled data services are a subscription service, customers will no longer face end-of-support situations for their databases.
+
+Azure Arc enabled data services such as Azure SQL managed instance and PostgreSQL Hyperscale receive updates on a frequent basis including servicing patches and new features similar to the experience in Azure.  Updates from the Microsoft Container Registry are provided to customers and deployment cadences are set by customers in accordance with their policies. This way, on-premises databases can stay up to date while ensuring customers maintain control.  Because Azure Arc enabled data services are a subscription service, customers will no longer face end-of-support situations for their databases.
 
 ## Elastic scale
-Cloud-like elasticity on-premises enables customers to scale their databases up or down dynamically in much the same way as they do in Azure, based on the available capacity of their infrastructure. This capability can satisfy burst scenarios that have volatile needs, including scenarios that require ingesting and querying data in real time, at any scale, with subsecond response time. In addition, customers can also scale out database instances using Postgres Hyperscale's unique hyper-scale deployment option of Azure Database for PostgreSQL. This capability gives data workloads an additional boost on capacity optimization, using unique scale-*out* reads and writes.
+Cloud-like elasticity on-premises enables customers to scale their databases up or down dynamically in much the same way as they do in Azure, based on the available capacity of their infrastructure. This capability can satisfy burst scenarios that have volatile needs, including scenarios that require ingesting and querying data in real time, at any scale, with subsecond response time. In addition, customers can also scale out database instances using PostgreSQL Hyperscale's unique hyper-scale deployment option of Azure Database for PostgreSQL. This capability gives data workloads an additional boost on capacity optimization, using unique scale-*out* reads and writes.
 
 ## Self-service provisioning
 Azure Arc also provides other cloud benefits such as fast deployment and automation at scale. Thanks to Kubernetes-based orchestration, customers can deploy a database in seconds using either GUI or CLI tools.
