@@ -195,7 +195,7 @@ Once deployment has completed, you can access the app at `https://<service insta
 ## Clean up resources
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
 ```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
 ```
 
 For advanced logs analytics features, visit **Logs** tab in the menu on [Azure portal](https://portal.azure.com/). Logs here have a latency of a few minutes.

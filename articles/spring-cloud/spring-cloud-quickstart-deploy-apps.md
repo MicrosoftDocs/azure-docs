@@ -184,6 +184,11 @@ You can also navigate the Azure portal to find the URL.
 
     ![Navigate app second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
+## Clean up resources
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
+```azurecli
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
 ## Next steps
 > [!div class="nextstepaction"]
 > [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
