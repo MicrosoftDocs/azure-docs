@@ -63,8 +63,8 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
 | Workplace Private link                                                     | Public Preview       | NO                 | NO          |
-| ACI behind Vnet                                                            | Public Preview       | NO                 | NO          |
-| ACR behind Vnet                                                            | Public Preview       | NO                 | NO          |
+| ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
+| ACR behind VNet                                                            | Public Preview       | NO                 | NO          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA                   | YES                | YES         |
@@ -176,8 +176,8 @@ We aim to provide maximum parity between our public cloud and sovereign regions.
 | Virtual Network (VNet) support for inference                               | GA               | YES       | N/A        |
 | Scoring endpoint authentication                                            | Public Preview   | YES       | N/A        |
 | Workplace Private link                                                     | Public Preview   | NO        | N/A        |
-| ACI behind Vnet                                                            | Public Preview   | NO        | N/A        |
-| ACR behind Vnet                                                            | Public Preview   | NO        | N/A        |
+| ACI behind VNet                                                            | Public Preview   | NO        | N/A        |
+| ACR behind VNet                                                            | Public Preview   | NO        | N/A        |
 | Private IP of AKS cluster                                                  | Public Preview   | NO        | N/A        |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
