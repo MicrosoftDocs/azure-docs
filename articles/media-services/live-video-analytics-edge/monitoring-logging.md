@@ -105,6 +105,7 @@ https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,star
 The URL above would return a so-called [master playlist](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), containing URLs for media playlists. The media playlist would contain entries like the following:
 
 ```
+...
 #EXTINF:3.103011,no-desc
 Fragments(video=143039375031270,format=m3u8-aapl)
 ...
