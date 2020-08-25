@@ -1840,6 +1840,8 @@
         href: yuhu-property-management-platform-tutorial.md
       - name: Zendesk
         href: zendesk-tutorial.md
+      - name: Zengine
+        href: zengine-tutorial.md
       - name: ZenQMS
         href: zenqms-tutorial.md
       - name: ZephyrSSO
