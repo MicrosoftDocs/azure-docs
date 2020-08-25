@@ -75,15 +75,15 @@ landingContent:
           - text: Azure Data migration guide
             url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
           - text: Migrate using dump and restore
-            url: ../concepts-migrate-dump-restore.md
+            url: concepts-migrate-dump-restore.md
           - text: Migrate using import and export
-            url: ../concepts-migrate-import-export.md
+            url: concepts-migrate-import-export.md
           - text : Monitoring
-            url: ../concepts-monitoring.md
+            url: concepts-monitoring.md
       - linkListType: how-to-guide
         links:
           - text: Migrate using Data Migration Service
-            url: ../howto-migrate-online.md
+            url: howto-migrate-online.md
 # Card 5
   - title: Application Development
     linkLists:

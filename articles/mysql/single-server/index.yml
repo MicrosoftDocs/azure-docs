@@ -128,7 +128,6 @@ landingContent:
       - linkListType: download
         links:
           - text: MySQL workbench
-          - text: MySQL workbench
             url: https://www.mysql.com/products/workbench
           - text: MySQL .NET Connector
             url: https://dev.mysql.com/doc/connector-net/en/
