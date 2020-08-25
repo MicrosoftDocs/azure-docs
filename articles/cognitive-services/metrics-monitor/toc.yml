@@ -11,6 +11,8 @@
     href: quickstarts/build-first-monitor.md
   - name: Use the Client library or REST API
     href: quickstarts/rest-api-and-client-library.md
+  - name: Explore the demo site
+    href: quickstarts/explore-the-demo.md
 - name: How-tos
   items:
   - name: Manage data feeds
@@ -19,7 +21,9 @@
     href: how-tos/web-portal.md
   - name: Create and send alerts
     href: How-tos/alerts.md
+  - name: Connect different data feed sources
+    href: data-feeds-from-different-sources.md
 - name: Reference
   items:
-  - name: Data feed configurations
-    href: data-feeds-from-different-sources.md
+  - name: Glossary
+    href: glossary.md

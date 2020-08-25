@@ -26,6 +26,8 @@ You can also select time ranges, and change the layout of the page. Note the fol
 - The start time is inclusive.
 - The end time is exclusive. 
 
+You can click the **Incidents** tab to view anomalies, and find a link to the [Incident hub](diagnose-an-incident.md).
+
 ## Tune the anomaly detection configuration
 
 A metric can apply one or more anomaly detection configurations. There is a default configuration for each metric, which you can edit or add to, according to your data needs.
