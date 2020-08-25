@@ -339,6 +339,11 @@ Yes, you can use the alternate location recovery to failback to a different host
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [For Hyper-V virtual machines](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
+## Reprotect
+
+### Is there a specific SLA for the time required to reprotect virtual machines?
+No, there is no defined SLA for the time required to reprotect virtual machines. You can learn more about the Azure Site Recovery SLA [here](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/).
+
 ## Automation
 
 ### Can I automate Site Recovery scenarios with an SDK?
