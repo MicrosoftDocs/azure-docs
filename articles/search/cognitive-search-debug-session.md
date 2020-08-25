@@ -91,4 +91,4 @@ Debug sesisons work with all generally available data sources amd most preview d
 Now that you understand the elements of Debug sessions try the tutorial for a hands-on experience.
 
 > [!div class="nextstepaction"]
-> [Explore Debug sessions feature tutorial](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Explore Debug sessions feature tutorial](./cognitive-search-tutorial-debug-sessions.md)
