@@ -51,5 +51,7 @@
       href: troubleshoot-agent-onboard.md
   - name: Reference
     items:
+    - name: Region availability and data residency
+      href: data-residency.md
     - name: REST
       href: /rest/api/hybridcompute
