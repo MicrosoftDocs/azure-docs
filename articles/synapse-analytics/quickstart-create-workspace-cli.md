@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: create a Synapse workspace using Azure CLI'  
+title: 'Quickstart: Create a Synapse workspace using Azure CLI'  
 description: Create an Azure Synapse workspace using Azure CLI by following the steps in this guide. 
 services: synapse-analytics
 author: alehall
@@ -50,7 +50,7 @@ az extension add --name synapse
 > [!WARNING]
 > The Azure Synapse extension for Azure CLI is in preview.
 
-## Create an Azure ynapse workspace using the Azure CLI
+## Create an Azure Synapse workspace using the Azure CLI
 
 1. Define necessary environment variables to create resources for Azure Synapse workspace.
 
@@ -124,8 +124,9 @@ az extension add --name synapse
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"
     ```
+    
+    [ ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png) ](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png#lightbox)
 
-    ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png)
 
 ## Clean up resources
 
