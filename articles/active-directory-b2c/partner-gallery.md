@@ -35,7 +35,7 @@ Our ISV partner network extends our solution capabilities to help you build seam
 | ![logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, multi-factor authentication, and digital license scanning.|
 | ![logo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) provides multiple solutions to enable multi-factor authentication (MFA) through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for Payment Services Directive 2 (PSD2).|
 | ![logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) is an Identity verification and proofing provider based on user typing pattern, provides ID verification solutions forcing multi-factor authentication and helps to comply with SCA requirements for Payment Services Directive 2 (PSD2). |
-| ![logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, hardware token, and email. 
+| ![logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. 
 
 ## Next steps
 
