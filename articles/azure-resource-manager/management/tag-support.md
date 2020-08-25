@@ -334,6 +334,9 @@ Jump to a resource provider namespace:
 > | automationAccounts / softwareUpdateConfigurations | No | No |
 > | automationAccounts / webhooks | No | No |
 
+> [!NOTE]
+> Azure Automation only supports creating a maximum of 15 tag name/value pairs for each Automation resource.
+
 ## Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
