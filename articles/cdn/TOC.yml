@@ -68,6 +68,8 @@
       href: cdn-restrict-access-by-country.md
     - name: Improve performance by compressing files
       href: cdn-improve-performance.md
+    - name: Endpoint multi-origin
+      href: endpoint-multiorigin.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules

@@ -1,17 +1,26 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: roygara
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 07/08/2020
- ms.author: rogarana
- ms.custom: include file
+title: Enable double encryption at rest - Azure portal - managed disks
+description: Enable double encryption at rest for your managed disk data using the Azure portal.
+author: roygara
+
+ms.date: 08/24/2020
+ms.topic: how-to
+ms.author: rogarana
+ms.service: virtual-machines-linux
+ms.subservice: disks
+ms.custom: references_regions
 ---
+
+# Use the Azure portal to enable double encryption at rest for managed disks
+
+Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the **Double encryption at rest** section of our disk encryption article:
+
+- For Linux: [Double encryption at rest](./linux/disk-encryption.md#double-encryption-at-rest)
+- For Windows: [Double encryption at rest](./windows/disk-encryption.md#double-encryption-at-rest)
+
 ## Supported regions
 
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](virtual-machines-disks-double-encryption-at-rest-regions.md)]
+[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
 ## Getting started
 
@@ -52,7 +61,7 @@
 
     A notification should pop up and succeed. Doing this will allow you to use the disk encryption set with your key vault.
     
-    ![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+    ![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disks-double-encryption-at-rest-portal/disk-encryption-notification-success.png)
 
 1. Navigate to your disk.
 1. Select **Encryption**.
@@ -63,3 +72,10 @@
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Screenshot of the encryption blade for your managed disk, the aforementioned encryption type is highlighted.":::
 
 You have now enabled double encryption at rest on your managed disk.
+
+
+## Next steps
+
+- [Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks](./windows/disks-enable-customer-managed-keys-powershell.md)
+- [Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Enable customer-managed keys with server-side encryption - Examples](./linux/disks-enable-customer-managed-keys-cli.md#examples)

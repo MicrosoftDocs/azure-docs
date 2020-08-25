@@ -15,8 +15,6 @@ In this quickstart, you create an event hub using the [Azure portal](https://por
 To complete this quickstart, make sure that you have:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2019](https://www.visualstudio.com/vs) or later.
-- [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a resource group
 
