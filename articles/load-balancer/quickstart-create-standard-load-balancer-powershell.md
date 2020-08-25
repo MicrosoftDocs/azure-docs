@@ -252,7 +252,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 * Named **myNSGRuleHTTP**.
 * Description of **Allow HTTP**.
 * Access of **Allow**.
-* Protocol **TCP**.
+* Protocol **(*)**.
 * Direction **Inbound**.
 * Priority **2000**.
 * Source of the **Internet**.
@@ -265,7 +265,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -891,7 +891,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 * Named **myNSGRuleHTTP**.
 * Description of **Allow HTTP**.
 * Access of **Allow**.
-* Protocol **TCP**.
+* Protocol **(*)**.
 * Direction **Inbound**.
 * Priority **2000**.
 * Source of the **Internet**.
@@ -904,7 +904,7 @@ Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/pow
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -1194,9 +1194,8 @@ $loc = 'eastus'
 $pub = 'Microsoft.Compute'
 $ext = 'CustomScriptExtension'
 $typ = '1.8'
-$str = "'{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'"
 
-Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString $str
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 ### VM2 
@@ -1210,9 +1209,8 @@ $loc = 'eastus'
 $pub = 'Microsoft.Compute'
 $ext = 'CustomScriptExtension'
 $typ = '1.8'
-$str = "'{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'"
 
-Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString $str
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 ### VM3
@@ -1226,9 +1224,8 @@ $loc = 'eastus'
 $pub = 'Microsoft.Compute'
 $ext = 'CustomScriptExtension'
 $typ = '1.8'
-$str = "'{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'"
 
-Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString $str
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 ```
 
 ## Test the load balancer
@@ -1236,11 +1233,11 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 1. Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) to get the public IP address of the load balancer:
 
 ```azurepowershell-interactive
-## Variables for command. ##
-$rg = 'myResourceGroupLB'
-$ipn = 'myPublicIP'
-
-Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn
+  ## Variables for command. ##
+  $rg = 'myResourceGroupLB'
+  $ipn = 'myPublicIP'
+    
+  Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
 ```
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
