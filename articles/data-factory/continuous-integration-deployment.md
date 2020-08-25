@@ -108,7 +108,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
     h. Select **Incremental** for the **Deployment mode**.
 
     > [!WARNING]
-    > If you select **Complete** for the **Deployment mode**, existing resources might be deleted, including all resources in the target resource group that aren't defined in the Resource Manager template.
+    > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Data Factory Prod Deployment](media/continuous-integration-deployment/continuous-integration-image9.png)
 
