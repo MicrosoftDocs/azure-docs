@@ -15,7 +15,7 @@
   - name: Overview
     items:
     - name: What is Single Server?
-      href: concepts-servers.md
+      href: single-server-overview.md
   - name: Quickstarts
     expanded: true
     items:
@@ -382,12 +382,16 @@
   items:
   - name: Documentation
     href: flexible-server/index.yml
+  - name: Overview
+    items:
+    - name: What is Flexible Server?
+      href: flexible-server/overview.md
   - name: Concepts
     items:
-    - name: Limitations
-      href: concepts-flexible-limits.md
     - name: Compute and storage
-      href: concepts-flexible compute-storage.md
+      href: flexible-server/concepts-flexible compute-storage.md
+    - name: Limitations
+      href: flexible-server/concepts-flexible-limits.md
 - name: Reference
   items:
   - name: Azure CLI
