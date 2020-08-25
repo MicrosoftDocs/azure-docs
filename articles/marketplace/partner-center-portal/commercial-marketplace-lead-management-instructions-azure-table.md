@@ -23,17 +23,17 @@ If your customer relationship management (CRM) system isn't explicitly supported
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
     1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-        ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+        :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steps to create an Azure storage account.":::
 
         For more information about storage accounts, see [Quickstart tutorial](../../storage/index.yml). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Wait until your storage account is provisioned. This process typically takes a few minutes. 
+1. Wait until your storage account is provisioned. This process typically takes a few minutes.
 
 ## Create a table in your storage account
 
-1. From the **Home** page of the Azure portal, selecting **See all your resources** to access your storage account. You can also select **All resources** from the left menu bar of the Azure portal.
+1. From the **Home** page of the Azure portal, select **See all your resources** to access your storage account. You can also select **All resources** from the left menu bar of the Azure portal.
 
-    ![Access your Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Access your Azure storage account.":::
 
 1. From your storage account pane, select **Access keys** and copy the **Connection string** value for the key. Save this value because it's the **Storage Account Connection String** value that you'll need to provide in the publishing portal to receive leads for your Azure Marketplace offer.
 
@@ -43,7 +43,8 @@ If your customer relationship management (CRM) system isn't explicitly supported
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage key.":::
+
 
 1. From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table, and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
 
