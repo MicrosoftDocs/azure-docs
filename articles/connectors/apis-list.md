@@ -44,7 +44,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](/connectors).
 
-  You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
+  You can also identify connectors by using these categories, although some connectors can exist in multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 
   | Category | Description |
   |----------|-------------|
@@ -57,7 +57,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
 ### Connect from an integration service environment (ISE)
 
-For logic apps that need direct access to resources in an Azure virtual network, you can create an dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors.
+For logic apps that need direct access to resources in an Azure virtual network, you can create a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors.
 
 > [!NOTE]
 > Logic apps that run in an ISE and their connectors, regardless where those connectors run, 
@@ -577,7 +577,7 @@ Although you create connections from within a logic app, connections are separat
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
 [azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
 [azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
-[biztalk-server-doc]: /connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
+[biztalk-server-doc]: /connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side by side with Azure Logic Apps"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [github-doc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
