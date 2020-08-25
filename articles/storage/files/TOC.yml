@@ -297,7 +297,7 @@
   - name: Azure File Sync release notes
     href: storage-files-release-notes.md
   - name: Azure Storage on Microsoft Q&A
-    href: https://docs.microsoft.com/answers/products/azure?product=storage
+    href: https://docs.microsoft.com/answers/topics/azure-files.html
   - name: Azure Storage on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Pricing for Azure Files
