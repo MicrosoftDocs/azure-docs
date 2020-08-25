@@ -10,7 +10,7 @@ ms.date: 08/07/2020
 ms.reviewer: sngun
 ---
 
-# Attachments
+# Azure Cosmos DB attachments
 
 Azure Cosmos DB attachments are special items that contain references to an associated metadata with an external blob or media file.
 
