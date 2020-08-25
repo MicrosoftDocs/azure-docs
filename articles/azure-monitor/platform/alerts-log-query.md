@@ -10,32 +10,19 @@ ms.subservice: alerts
 # Optimizing log alert queries
 This article describes how to write and convert [Log Alert](alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
-## Types of log queries
-[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table or a [search](/azure/kusto/query/searchoperator) or [union](/azure/kusto/query/unionoperator) operator.
+## Log query constraints
+[Log queries in Azure Monitor](../log-query/log-query-overview.md) start with either a table, [search](/azure/kusto/query/searchoperator), or [union](/azure/kusto/query/unionoperator) operator.
 
-For example, the following query is scoped to the _SecurityEvent_ table and searches for specific event ID. It's the only table that the query must process.
+Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results. Queries in alert rules run frequently, so using `search` and `union` can result in excessive overhead adding latency to the alert, as it requires scanning across multiple tables. These operators also reduce the ability of the alerting service to optimize the query.
+
+We don't support creating or modifying log alert rules that use `search` or `union` operators, expect for cross-resource queries.
+
+For example, the following alerting query is scoped to the _SecurityEvent_ table and searches for specific event ID. It's the only table that the query must process.
 
 ``` Kusto
 SecurityEvent
 | where EventID == 4624
 ```
-
-Queries that start with `search` or `union` allow you to search across multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
-
-```Kusto
-search "Memory"
-search * | where == "Memory"
-search ObjectName: "Memory"
-search ObjectName == "Memory"
-union * | where ObjectName == "Memory"
-```
-
-Although `search` and `union` are useful during data exploration, searching terms over the entire data model is less efficient than using an explicit table, since it requires scanning across multiple tables. Not using an explicit table also reduces the alerting system ability to optimize the alert rule to minimize firing latency.
-
-Since queries in alert rules run frequently, using `search` and `union` can result in excessive overhead adding latency to the alert. Queries for log alert rules should always start with a table to define a clear scope, which improves both query performance and the relevance of the results.
-
-## Unsupported queries
-We no longer support creating or modifying log alert rules that use `search` or `union` operators. Using these operators in an alert rule will return an error message. We recommend changing any alert rules that use these operators to improve their efficiency.
 
 Log alert rules using [cross-resource queries](../log-query/cross-workspace-query.md) are not affected by this change since cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be valid log alert query:
 
@@ -61,7 +48,6 @@ search *
 | where CounterValue < 30
 | summarize count()
 ```
-  
 
 To modify this query, start by using the following query to identify the table that the properties belong to:
 
@@ -70,7 +56,6 @@ search *
 | where CounterName == '% Free Space'
 | summarize by $table
 ```
- 
 
 The result of this query would show that the _CounterName_ property came from the _Perf_ table. 
 
@@ -83,7 +68,6 @@ Perf
 | summarize count()
 ```
 
-
 ### Example 2
 You want to create a log alert rule using the following query that retrieves performance information using `search`: 
 
@@ -93,7 +77,6 @@ search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 | where Avg_Memory_Usage between(90 .. 95)  
 | count
 ```
-  
 
 To modify this query, start by using the following query to identify the table that the properties belong to:
 
@@ -101,7 +84,6 @@ To modify this query, start by using the following query to identify the table t
 search ObjectName=="Memory" and CounterName=="% Committed Bytes In Use"
 | summarize by $table
 ```
- 
 
 The result of this query would show that the _ObjectName_ and _CounterName_ property came from the _Perf_ table. 
 
@@ -114,7 +96,6 @@ Perf
 | where Avg_Memory_Usage between(90 .. 95)
 | count
 ```
- 
 
 ### Example 3
 
@@ -129,7 +110,6 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 | summarize Avg_Idle_Time = avg(CounterValue) by Computer
 | count
 ```
- 
 
 To modify this query, start by using the following query to identify the table that the properties in the first part of the query belong to: 
 
@@ -147,7 +127,6 @@ union withsource=table *
 | where CounterName == "% Processor Utility"
 | summarize by table
 ```
-
 
 The result of this query would show that these properties also came from the _Perf_ table. 
 
@@ -177,7 +156,6 @@ search Type == 'SecurityEvent' and EventID == '4625'
 ) on Hour
 | count
 ```
- 
 
 To modify the query, start by using the following query to identify the table that contains the properties in the left side of the join: 
 
@@ -185,23 +163,19 @@ To modify the query, start by using the following query to identify the table th
 search Type == 'SecurityEvent' and EventID == '4625'
 | summarize by $table
 ```
- 
 
 The result indicates that the properties in the left side of the join belong to _SecurityEvent_ table. 
 
 Now use the following query to identify the table that contains the properties in the right side of the join: 
-
  
 ``` Kusto
 search in (Heartbeat) OSType == 'Windows'
 | summarize by $table
 ```
-
  
 The result indicates that the properties in the right side of the join belong to Heartbeat table. 
 
 You can use these results to create the following query that you would use for the alert rule: 
-
 
 ``` Kusto
 SecurityEvent

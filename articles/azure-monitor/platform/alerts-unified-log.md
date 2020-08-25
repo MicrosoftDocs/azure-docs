@@ -29,7 +29,7 @@ The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate t
 - Multiple resources using [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
-> Some queries are not allowed in log alerts. Learn more [here](./alerts-log-query.md#unsupported-queries).
+> Alert queries have constricts to ensure optimal performance and the relevance of the results. [Learn more here](./alerts-log-query.md).
 
 > [!IMPORTANT]
 > Resource centric and [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) are only supported using the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md)
