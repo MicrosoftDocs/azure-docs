@@ -21,7 +21,7 @@ Azure Cosmos DB supports two types of attachments:
 
 
 > [!NOTE]
-> Attachment is a legacy feature. Support is scoped to continued functionality for customers already using this feature.
+> Attachment is a legacy feature. Their support is scoped to offer continued functionality if you are already using this feature.
 > 
 > We recommend customers to use Azure Blob Storage, as a purpose-built blob storage service, for storing blob data instead of using attachments. Users can continue to store metadata related to blobs, along with reference URI links, in Azure Cosmos DB as item properties to provide the ability to query metadata and link to blobs stored in Azure Blob Storage.
 > 
