@@ -15,9 +15,9 @@ ms.subservice: B2C
 
 # Tutorial for configuring WhoIAM with Azure Active Directory B2C
 
-In this sample tutorial, we provide guidance on how to install  [WhoIAM](https://www.whoiam.ai/brims/) Branded Identity Management System (BRIMS) in your environment and integrate it with Azure AD B2C.
+In this sample tutorial, we provide guidance on how to configure [WhoIAM](https://www.whoiam.ai/brims/) Branded Identity Management System (BRIMS) in your environment and integrate it with Azure AD B2C.
 
-WhoIAM's BRIMS is a set of apps and services that gets deployed in your environment. It provides voice, SMS, hardware token, and email verification of your user base. BRIMS works in conjunction with your existing identity and access management solution and is platform agnostic.
+WhoIAM's BRIMS is a set of apps and services that gets deployed in your environment. It provides voice, SMS, and email verification of your user base. BRIMS works in conjunction with your existing identity and access management solution and is platform agnostic.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ The following architecture diagram shows the implementation.
 |:-----| :-----------|
 | 1. | User arrives at a login page. The user starts a sign-up or sign-in request to an app that uses Azure AD B2C as its identity provider.
 | 2. | As part of authentication, the user requests to either verify ownership of their email or phone or use their voice as a biometric verification factor.  
-| 3. | Azure AD B2C makes a call to the BRIMS API service passing on the user’s email address, phone number and their voice recording
+| 3. | Azure AD B2C makes a call to the BRIMS API service passing on the user’s email address, phone number, and their voice recording
 | 4. | BRIMS uses pre-defined configurations such as fully customizable email and SMS templates to interact with the user in their respective language that is consistent with the app's look and feel.
 | 5. | Once a user’s identity verification is complete, BRIMS returns a token to Azure AD B2C indicating the outcome of the verification. Azure AD B2C then either grants the user access to the app or fails their authentication attempt.  
 
@@ -59,15 +59,15 @@ The following architecture diagram shows the implementation.
 
 2. Once an account is created, use the onboarding guidelines made available to you and configure the following Azure services:
 
-    - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+    - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) - Used for secure storage of password such as, mail service passwords.
 
-    - [Azure App Service](https://azure.microsoft.com/services/app-service/)
+    - [Azure App Service](https://azure.microsoft.com/services/app-service/) - Used to host the BRIMS API and admin portal services
 
-    - [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+    - [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) - Used to authenticate administrative users for the admin portal
 
-    - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+    - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) - Used to store and retrieve settings
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications.) (Optional)
+    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications.) (Optional) - Used to log into both API and admin portal
 
 3. Deploy the BRIMS API and the BRIMS administration portal in your Azure environment.
 
