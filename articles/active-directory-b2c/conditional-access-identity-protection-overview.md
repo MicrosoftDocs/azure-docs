@@ -18,18 +18,18 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The risk-detection features of , including risky users and risky sign-ins, are automatically detected an displayed in your Azure AD B2C tenant. You can create [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give application owners significantly greater control over risky authentications and access policies.
-
-> [!NOTE]
-> To use sign-in and user risk-based Conditional access, Azure AD Premium P2 is required.
+Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected an displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give Azure AD B2C application owners significantly greater control over risky authentications and access policies.
   
 If you're already familiar with [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) and [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) in Azure AD, using these capabilities with Azure AD B2C will be a familiar experience, with the minor differences discussed in this article.
 
-![Conditional Access in a B2C tenant](media/conditional-access-overview/conditional-access-b2c.png)
+![Conditional Access in a B2C tenant](media/conditional-access-identity-protection-overview/conditional-access-b2c.png)
+
+> [!NOTE]
+> To use sign-in and user risk-based Conditional access, Azure AD Premium P2 is required.
 
 ## Benefits of Identity Protection and Conditional Access for Azure AD B2C  
 
-By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure and stay out of your user's way when not needed.
+By pairing Conditional Access policies with Identity Protection risk detection, you can respond to risky authentications with the appropriate policy action.
 
 - **Gain a new level of visibility into the authentication risks for your apps and your customer base**. With signal from billions of monthly authentications across Azure AD and Microsoft Account, the risk detections algorithms will now flag authentications as low, medium or high risk for your local consumer/citizen authentications.
 - **Automatically address risks by configuring your own adaptive authentication**. When active, a specific set of users, using specified applications, will be required to provide a second factor (MFA) or may be blocked from access depending on the risk level detected. The resulting end user experiences can be 100% customized, like the rest of B2C, to present your organization’s voice, style, brand, and to present mitigation alternatives if access is lost. 
@@ -46,20 +46,18 @@ Identity Protection and Conditional Access in Azure AD B2C generally work the sa
 
 - In Azure AD B2C tenants, Identity Protection risk detections are available for local B2C accounts only, and not for social identities (Google, Facebook, etc). 
 
-- In Azure AD B2C tenants, a subset of the Identity Protection risk detections are available, listed in [Set up Identity Protection](conditional-access-identity-protection-setup.md#set-up-identity-protection).
+- In Azure AD B2C tenants, a subset of the Identity Protection risk detections are available; see [Set up Identity Protection](conditional-access-identity-protection-setup.md#set-up-identity-protection).
 
-- The device compliance feature of Conditional Access is not available in Azure AD B2C tenants.
+- The Conditional Access device compliance feature is not available for Azure AD B2C tenants.
 
 
 ## Integrate Conditional Access with user flows and custom policies
 
-Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized according to the organization’s voice, brand, and mitigation alternatives. See [Define a Conditional Access technical profile](conditional-access-technical-profile.md).
-
-## Custom policies and Conditional Access
+In Azure AD B2C, you can trigger Conditional Access conditions from built-in user flows, or you can incorporate Conditional Access into custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized according to the organization’s voice, brand, and mitigation alternatives. See [Define a Conditional Access technical profile](conditional-access-technical-profile.md).
 
 ## Microsoft Graph API
 
-By pairing Conditional Access policies with risk detection through Identity Protection risk detection, admins can respond to risky authentications detections with the appropriate policy action.You can also manage Conditional Access policies with Microsoft Graph API. For details, see the [Conditional Access documentation](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/) and the [Microsoft Graph reference](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
+You can also manage Conditional Access policies in Azure AD B2C with Microsoft Graph API. For details, see the [Conditional Access documentation](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/) and the [Microsoft Graph reference](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md).
 
 ## Next steps
 
