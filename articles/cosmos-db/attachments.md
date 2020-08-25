@@ -44,7 +44,7 @@ We recommend migrating Azure Cosmos DB attachments to Azure Blob Storage by foll
 3. If applicable, add URI references to the blobs contained in Azure Blob Storage as string properties within your Azure Cosmos DB dataset.
 4. Refactor your application code to read and write blobs from the new Azure Blob Storage container.
 
-The following dotnet code sample shows how to copy attachments from Azure Cosmos DB to Azure Blob storage as part of a migration flow by using Azure Cosmos DB's .NET SDK v2 and Azure Storage Blobs .NET SDK v12. Make sure to replace the `<placeholder values>` for the source Azure Cosmos DB account and target Azure Storage Blobs container.
+The following dotnet code sample shows how to copy attachments from Azure Cosmos DB to Azure Blob storage as part of a migration flow by using Azure Cosmos DB's .NET SDK v2 and Azure Blob Storage .NET SDK v12. Make sure to replace the `<placeholder values>` for the source Azure Cosmos DB account and target Azure Blob storage container.
 
 ```csharp
 
@@ -77,7 +77,7 @@ namespace attachments
 
         private async static Task CopyAttachmentsToBlobsAsync()
         {
-            Console.WriteLine("Copying Azure Cosmos DB Attachments to Azure Storage Blobs ...");
+            Console.WriteLine("Copying Azure Cosmos DB Attachments to Azure Blob Storage ...");
 
             int totalCount = 0;
             string docContinuation = null;
