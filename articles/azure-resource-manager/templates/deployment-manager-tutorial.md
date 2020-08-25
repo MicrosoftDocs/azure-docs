@@ -57,7 +57,7 @@ To complete this article, you need:
 
 ## Understand the scenario
 
-The service topology template describes the Azure resources the make up your service and where to deploy them. The service topology definition has the following hierarchy:
+The service topology template describes the Azure resources that make up your service and where to deploy them. The service topology definition has the following hierarchy:
 
 * Service topology
   * Services
