@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/25/2020
 ms.author: pafarley
 ---
 
