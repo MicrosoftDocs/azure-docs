@@ -123,7 +123,7 @@ The policy says:
 ```
 
 > [!IMPORTANT]
-> The time formats for schedule and retention support only DateTime. They do not support Time format alone.
+> The time formats for schedule and retention support only DateTime. They don't support Time format alone.
 
 ## Responses
 

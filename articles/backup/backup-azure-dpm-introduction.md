@@ -154,8 +154,8 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
     ![Encryption](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > You own the encryption passphrase and Microsoft does not have visibility into it.
-    > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data.
+    > You own the encryption passphrase and Microsoft doesn't have visibility into it.
+    > If the passphrase is lost or forgotten, Microsoft can't help in recovering the backup data.
 
 7. Select **Register** to register the DPM server to the vault.
 

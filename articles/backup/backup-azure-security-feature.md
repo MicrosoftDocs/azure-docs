@@ -14,14 +14,14 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 - **Recovery**. Deleted backup data is retained for an additional 14 days from the date of the deletion. This ensures recoverability of the data within a given time period, so there's no data loss even if an attack happens. Also, a greater number of minimum recovery points are maintained to guard against corrupt data.
 
 > [!NOTE]
-> Security features should not be enabled if you are using infrastructure as a service (IaaS) VM backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact. Security features should be enabled only if you are using: <br/>
+> Security features shouldn't be enabled if you are using infrastructure as a service (IaaS) VM backup. These features aren't yet available for IaaS VM backup, so enabling them won't have any impact. Security features should be enabled only if you are using: <br/>
 >
 > - **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
 > - **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
 > - **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
-> These features are available only for Recovery Services vault. All the newly created Recovery Services vaults have these features enabled by default. For existing Recovery Services vaults, users enable these features by using the steps mentioned in the following section. After the features are enabled, they apply to all the Recovery Services agent computers, Azure Backup Server instances, and Data Protection Manager servers registered with the vault. Enabling this setting is a one-time action, and you cannot disable these features after enabling them.
+> These features are available only for Recovery Services vault. All the newly created Recovery Services vaults have these features enabled by default. For existing Recovery Services vaults, users enable these features by using the steps mentioned in the following section. After the features are enabled, they apply to all the Recovery Services agent computers, Azure Backup Server instances, and Data Protection Manager servers registered with the vault. Enabling this setting is a one-time action, and you can't disable these features after enabling them.
 >
 
 ## Enable security features
@@ -78,7 +78,7 @@ As part of adding an extra layer of authentication for critical operations, you'
 
 > [!NOTE]
 >
-> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS.
+> Currently, security pin isn't supported for **Stop Protection with Delete data** for DPM and MABS.
 
 To receive this PIN:
 

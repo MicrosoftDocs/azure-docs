@@ -71,7 +71,7 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
 
 >[!NOTE]
->Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
+>Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
 ## Management support
 
