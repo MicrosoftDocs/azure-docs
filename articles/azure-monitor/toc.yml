@@ -383,6 +383,24 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: platform/data-collection-rule-azure-monitor-agent.md
+    - name: Log Analytics agent
+      items:
+      - name: Overview
+        href: platform/log-analytics-agent.md
+      - name: Windows agents
+        href: platform/agent-windows.md
+      - name: Linux agents
+        href: platform/agent-linux.md
+      - name: VM Extension for Windows
+        href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+      - name: VM Extension for Linux
+        href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+      - name: Log Analytics gateway
+        href: platform/gateway.md
+      - name: Agent management
+        href: platform/agent-manage.md
+      - name: Agent Health
+        href: insights/solution-agenthealth.md
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -425,24 +443,6 @@
           href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
           href: platform/collect-custom-metrics-linux-telegraf.md   
-    - name: Log Analytics agent
-      items:
-      - name: Overview
-        href: platform/log-analytics-agent.md
-      - name: Windows agents
-        href: platform/agent-windows.md
-      - name: Linux agents
-        href: platform/agent-linux.md
-      - name: VM Extension for Windows
-        href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-      - name: VM Extension for Linux
-        href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-      - name: Log Analytics gateway
-        href: platform/gateway.md
-      - name: Agent management
-        href: platform/agent-manage.md
-      - name: Agent Health
-        href: insights/solution-agenthealth.md
     - name: Troubleshoot
       items:
       - name: Log Analytics VM Extension
