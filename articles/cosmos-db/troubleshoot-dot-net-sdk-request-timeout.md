@@ -31,7 +31,7 @@ All the async operations in the SDK have an optional CancellationToken parameter
 The following list contains known causes and solutions for request timeout exceptions.
 
 ### High CPU utilization
-High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum(not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
+High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 
 #### Solution:
 The client application that uses the SDK should be scaled up or out.
