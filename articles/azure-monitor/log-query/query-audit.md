@@ -1,27 +1,39 @@
 ---
-title: Audit queries in Azure Monitor Logs
+title: Audit queries in Azure Monitor log queries
 description: Details of log query audit logs which provide telemetry about log queries run in Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/29/2020
+ms.date: 08/25/2020
 
 ---
 
 # Audit queries in Azure Monitor Logs (preview)
-Log query audit logs provide telemetry about log queries run in Azure Monitor. They provide information such as when a query was run, who ran it, what tool was used, the query text, and performance statistics describing the query's execution.
+Log query audit logs provide telemetry about log queries run in Azure Monitor. This includes information such as when a query was run, who ran it, what tool was used, the query text, and performance statistics describing the query's execution.
 
 ## Current limitations
 The following limitations apply during public preview:
 
--	Only workspace-centric queries will be logged. Queries run in resource-centric mode or run against an Application Insights not configured as workspace-based will not be logged.
+- Only workspace-centric queries will be logged. Queries run in resource-centric mode or run against an Application Insights not configured as workspace-based will not be logged.
 
 
 ## Configure query auditing
-Query auditing is enabled with a [diagnostic setting](../platform/diagnostic-settings.md) on the Log Analytics workspace. This allows you to send audit data to the current or any other workspace in your subscription, to Azure Event Hubs to send outside of Azure, or to Azure Storage for archiving. 
+Query auditing is enabled with a [diagnostic setting](../platform/diagnostic-settings.md) on the Log Analytics workspace. This allows you to send audit data to the current workspace or any other workspace in your subscription, to Azure Event Hubs to send outside of Azure, or to Azure Storage for archiving. 
 
-Access the diagnostic setting for a Log Analytics workspace in the Azure portal from [TBD]. You can get an example Resource Manager template from [Diagnostic setting for Log Analytics workspace](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-log-analytics-workspace)
+### Azure portal
+Access the diagnostic setting for a Log Analytics workspace in the Azure portal in either of the following locations:
+
+- From the **Azure Monitor** menu, select **Diagnostic settings**, and then locate and select the workspace.
+
+    [![Diagnostic settings](media/log-query-audit/diagnostic-setting-monitor.png) ](media/log-query-audit/diagnostic-setting-monitor.png#lightbox) 
+
+- From the **Log Analytics workspaces** menu, select the workspace, and then select **Diagnostic settings**.
+
+    [![Diagnostic settings](media/log-query-audit/diagnostic-setting-workspace.png) ](media/log-query-audit/diagnostic-setting-workspace.png#lightbox) 
+
+### Resource Manager template
+You can get an example Resource Manager template from [Diagnostic setting for Log Analytics workspace](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-log-analytics-workspace).
 
 ## Audit data
 An audit record is created each time a query is run. If you send the data to a Log Analytics workspace, it's stored in a table called *LAQueryLogs*. The following table describes the properties in each record of the audit data.
@@ -51,13 +63,8 @@ An audit record is created each time a query is run. If you send the data to a L
 | StatsRegionCount | Number of regions accessed by the query. Only populated if query returns with status code 200. |
 
 
-## Log query alerts
-Audit data will be created for test queries performed during the initial creation of an alert rule. Audit data will be created for queries run regularly during normal operation of the alert rule.
-
-## Sample queries
-
-To be completed.
 
 ## Next steps
 
-To be completed.
+- Learn more about [diagnostic settings](../platform/diagnostic-settings.md).
+- Learn more about [optimizing log queries](query-optimization.md).
