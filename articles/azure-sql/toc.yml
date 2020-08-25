@@ -738,6 +738,10 @@
       - name: MI pub, MI dist, SQL sub
         href: managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md
 
+  - name: Migration guides
+    items: 
+    - name: From SQL Server 
+      href: migration-guides/managed-instance/sql-server-to-managed-instance.md
   - name: Concepts
     items:
     - name: Resource limits
