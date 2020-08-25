@@ -57,12 +57,12 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
 1. In the Azure portal, go to **Create a resource > Storage > Storage account - blob, file, table, queue**.
 2. Provide the following values to create your storage account:
 
-| Field | Value |
-| --- | --- |
-| Name | Provide a unique name for your storage account. |
-| Location | Choose a location close to you.|
-| Subscription | Choose the same subscription as your IoT hub.|
-| Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](https://docs.microsoft.com/azure/iot-edge/quickstart) and tutorials. For example, **IoTEdgeResources**. |
+   | Field | Value |
+   | --- | --- |
+   | Name | Provide a unique name for your storage account. |
+   | Location | Choose a location close to you.|
+   | Subscription | Choose the same subscription as your IoT hub.|
+   | Resource Group | We recommend that you use the same resource group for all of the test resources that you create during the [IoT Edge quickstarts](https://docs.microsoft.com/azure/iot-edge/quickstart) and tutorials. For example, **IoTEdgeResources**. |
 
 3. Keep the default values for the other fields and select **Create**.
 
