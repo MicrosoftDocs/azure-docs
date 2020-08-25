@@ -478,7 +478,7 @@ Navigate to the MABS server where the VMware VM is configured for protection to 
   4. To exclude the disk, navigate to the `Bin` folder and run the *ExcludeDisk.ps1* script with the following parameters:
 
         > [!NOTE]
-        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but does not update the exclusion list. Ensure there are no jobs in progress before stopping the service.
+        > Before running this command, stop the DPMRA service on the MABS server. Otherwise, the script returns success, but doesn't update the exclusion list. Ensure there are no jobs in progress before stopping the service.
 
      **To add/remove the disk from exclusion, run the following command:**
 

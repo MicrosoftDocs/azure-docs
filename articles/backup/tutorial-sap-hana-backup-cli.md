@@ -78,7 +78,7 @@ az backup container register --resource-group saphanaResourceGroup \
 ```
 
 >[!NOTE]
->If the VM is not in the same resource group as the vault, then *saphanaResourceGroup* refers to the resource group where the vault was created.
+>If the VM isn't in the same resource group as the vault, then *saphanaResourceGroup* refers to the resource group where the vault was created.
 
 Registering the SAP HANA instance automatically discovers all its current databases. However, to discover any new databases that may be added in the future refer to the [Discovering new databases added to the registered SAP HANA](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) instance section.
 
@@ -173,7 +173,7 @@ The response will give you the job name. This job name can be used to track the 
 >[!NOTE]
 >In addition to scheduling a full or differential backup, they can also be currently triggered manually. Log backups are automatically triggered and managed by SAP HANA internally.
 >
-> Incremental backups are not currently supported by Azure Backup.
+> Incremental backups aren't currently supported by Azure Backup.
 
 ## Next steps
 
