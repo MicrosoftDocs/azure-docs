@@ -15,15 +15,15 @@ ms.custom: references_regions
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
+> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery Services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
 >
 >- If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
 >- If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
-1. In **Properties**, under **Backup Configuration**, click **Update**.
+1. From the **Recovery Services vaults** pane, select the new vault. Under the **Settings** section, select  **Properties**.
+1. In **Properties**, under **Backup Configuration**, select **Update**.
 
-1. Select the storage replication type, and click **Save**.
+1. Select the storage replication type, and select **Save**.
 
      ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -41,7 +41,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 - conduct drills when there's an audit or compliance requirement
 - restore the VM or its disk if there's a disaster in the primary region.
 
-To choose this feature, select **Enable Cross Region Restore** from the **Backup Configuration** blade.
+To choose this feature, select **Enable Cross Region Restore** from the **Backup Configuration** pane.
 
 For this process, there are pricing implications as it is at the storage level.
 
@@ -57,22 +57,40 @@ For this process, there are pricing implications as it is at the storage level.
 
 ### Configure Cross Region Restore
 
-A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault will have a banner, which will link to the documentation. To configure CRR for the vault, go to the Backup Configuration blade, which contains the option to enable this feature.
+A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault will have a banner, which will link to the documentation. To configure CRR for the vault, go to the Backup Configuration pane, which contains the option to enable this feature.
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
 
 1. From the portal, go to Recovery Services vault > Settings > Properties.
-2. Click **Enable Cross Region Restore in this vault** to enable the functionality.
+2. Select **Enable Cross Region Restore in this vault** to enable the functionality.
 
-   ![Before you click Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Before you select Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![After you click Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![After you select Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 Learn how to [view backup items in the secondary region](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
 Learn how to [restore in the secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
 
 Learn how to [monitor secondary region restore jobs](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
+## Set encryption settings
+
+By default, the data in the Recovery Services vault is encrypted using platform-managed keys. No explicit actions are required from your end to enable this encryption, and it applies to all workloads being backed up to your Recovery Services vault.  You may choose to bring your own key to encrypt the backup data in this vault. This is referred to as customer-managed keys. If you wish to encrypt backup data using your own key, the encryption key must be specified before any item is protected to this vault. Once you enable encryption with your key, it can't be reversed.
+
+### Configuring a vault to encrypt using customer-managed keys
+
+To configure your vault to encrypt with customer-managed keys, these steps must be followed in this order:
+
+1. Enable managed identity for your Recovery Services vault
+
+1. Assign permissions to the vault to access the encryption key in the Azure Key Vault
+
+1. Enable soft-delete and purge protection on the Azure Key Vault
+
+1. Assign the encryption key to the Recovery Services vault
+
+Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## Modifying default settings
 
@@ -127,7 +145,6 @@ If you need to keep the current protected data in the GRS vault and continue the
   - You'll need to pay to keep the recovery points in the GRS vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
   - You'll be able to restore the VM, if needed, from the GRS vault.
   - The first backup on the LRS vault of the VM in the new resource will be an initial replica.
-
 
 ## Next steps
 

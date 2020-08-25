@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ---
 
 # Supported data types
@@ -26,7 +26,7 @@ The following table lists the data types supported by Azure Time Series Insights
 
 ## Sending mixed data types
 
-Your Azure Time Series Insights Gen2 environment is strongly typed. If devices or tags send data of different types for a device property, values will be stored in two separated columns and the [coalesce() function](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) should be used when defining your Time Series Model Variable expressions in API calls.
+Your Azure Time Series Insights Gen2 environment is strongly typed. If devices or tags send data of different types for a device property, values will be stored in two separated columns and the [coalesce() function](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions) should be used when defining your Time Series Model Variable expressions in API calls.
 
 The Azure Time Series Insights Explorer offers a way to auto-coalesce the separate columns of the same device property. In the example below, the sensor sends a `PresentValue` property that can be both a Long or Double. To query against all stored values (regardless of data type) of the `PresentValue` property, choose `PresentValue (Double | Long)` and the columns will be coalesced for you.
 

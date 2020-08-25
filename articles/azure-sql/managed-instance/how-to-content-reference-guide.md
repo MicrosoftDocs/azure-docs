@@ -77,6 +77,14 @@ In this article you can find a content reference to various guides, scripts, and
 - [Store extended events into an event file](../database/xevent-code-event-file.md)
 - [Store extended events into a ring buffer](../database/xevent-code-ring-buffer.md)
 
+### Alerting
+
+- [Create alerts on managed instance](alerts-create.md)
+
+## Operations
+
+- [User-initiated manual failover on SQL Managed Instance](user-initiated-failover.md)
+
 ## Develop applications
 
 - [Connectivity](../database/connect-query-content-reference-guide.md#libraries)
@@ -101,8 +109,6 @@ In this article you can find a content reference to various guides, scripts, and
 - [SaaS design patterns](../database/saas-tenancy-app-design-patterns.md)
 - [SaaS video indexer](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS app security](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## Next steps
 

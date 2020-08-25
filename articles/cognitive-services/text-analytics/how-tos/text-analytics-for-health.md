@@ -269,7 +269,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 11,
                     "text": "itchy sores",
                     "category": "SymptomOrSign",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,7 +283,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 4,
                     "text": "50mg",
                     "category": "Dosage",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,7 +292,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 8,
                     "text": "benadryl",
                     "category": "MedicationName",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,7 +339,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 11,
                     "text": "twice daily",
                     "category": "Frequency",
-                    "ConfidenceScore": 1.0,
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],

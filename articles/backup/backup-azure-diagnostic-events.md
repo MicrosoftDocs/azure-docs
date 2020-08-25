@@ -24,7 +24,7 @@ Azure Backup provides the following diagnostics events. Each event provides deta
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-If you are using the [legacy event](#legacy-event) AzureBackupReport, you are recommended to switch to using the above events at the earliest.
+If you are still using the [legacy event](#legacy-event) AzureBackupReport, we recommend switching to using the events above.
 
 For more information, see [Data model for Azure Backup diagnostics events](./backup-azure-reports-data-model.md).
 
@@ -77,7 +77,7 @@ Currently, we continue to support the AzureBackupReport event for backward compa
         | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
-        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+        // Some Workspaces will not have AzureDiagnostics Table, so you need to use isFuzzy
     let CombinedVaultTable = (){
         union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
