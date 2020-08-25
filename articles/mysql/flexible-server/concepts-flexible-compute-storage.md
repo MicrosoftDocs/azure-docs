@@ -10,6 +10,9 @@ ms.date: 8/24/2020
 
 # Compute and Storage options in Azure Database for MySQL - Flexible Server
 
+> [!IMPORTANT] 
+> Azure Database for MySQL Flexible Server is currently in public preview
+
 You can create an Azure Database for MySQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
@@ -31,7 +34,7 @@ To choose a pricing tier, use the following table as a starting point.
 
 After you create a server, the compute tier, number of vCores and storage size can be changed up or down within seconds. You also can independently adjust the backup retention period up or down. For more information, see the [Scale resources](#scale-resources) section.
 
-## Compute tiers, vCores and server types
+## Compute tiers, vCores, and server types
 
 Compute resources can be selected based on the tier, as well as the vCores and memory size. vCores represent the logical CPU of the underlying hardware.
 
@@ -112,9 +115,7 @@ Changing the backup retention period is an online operation.
 
 ## Pricing
 
-Pricing information is not yet available.
-
-<!--For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/MySQL/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer) shows the monthly cost on the **Pricing tier** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, and choose **Azure Database for MySQL** to customize the options.-->
+For the most up-to-date pricing information, see the service [pricing page](https://azure.microsoft.com/pricing/details/MySQL/). To see the cost for the configuration you want, the [Azure portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) shows the monthly cost on the **Compute + storage** tab based on the options you select. If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, choose **Azure Database for MySQL**, and **Flexible Server** to customize the options.
 
 ## Next steps
 

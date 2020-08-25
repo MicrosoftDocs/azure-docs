@@ -10,6 +10,9 @@ ms.date: 8/24/2020
 
 # Limits in Azure Database for MySQL - Flexible Server
 
+> [!IMPORTANT] 
+> Azure Database for MySQL Flexible Server is currently in public preview
+
 This article describes capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in Azure Database for MySQL Flexible Servers. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-flexible-compute-storage.md) article.
 
 ## Server parameters
