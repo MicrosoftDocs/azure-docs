@@ -55,7 +55,7 @@ Also review the following articles:
 1. On the storage account, go to Firewalls and virtual networks and ensure ‘Allow trusted Microsoft Services to access this storage account’ check box is checked. As [DevTest Labs is a trusted Microsoft service](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), this option will enable the lab to operate normally in a network isolated mode. 
 
    > [!div class="mx-imgBorder"]
-   > ![Contoso lab](./media/network-isolation/contoso-lab-firewalls-vnets.png)
+   > ![Contoso lab firewalls](./media/network-isolation/contoso-lab-firewalls-vnets.png)
 1. Next, click on **+Add existing virtual network**, select the virtual network and subnet you picked while creating the lab and click on **Enable**. 
 
    > [!div class="mx-imgBorder"]
