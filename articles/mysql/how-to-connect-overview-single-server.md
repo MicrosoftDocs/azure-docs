@@ -1,6 +1,7 @@
 ---
-title: Connect and query - Single Server MySQL
-description: Links to Azure My SQL Database quickstarts showing how to connect to your server and run queries.
+
+title: Connect and query for Single Server MySQL
+description: Links to Azure My SQL Database quickstarts showing how to connect to and query Single Server MySQL.
 services: mysql
 ms.service: mysql
 ms.topic: how-to
@@ -9,7 +10,7 @@ ms.author: sumuth
 ms.date: 09/22/2020
 ---
 # Connect and query overview for Azure database for MySQL- Single Server
-The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
+The following document includes links to examples showing how to connect and query with Azure Database for MySQL Single Server. This guide also include TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 
 ## Quickstarts
 
