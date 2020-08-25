@@ -127,7 +127,7 @@ A control for gathering tabular input. All fields within the grid are editable a
 
   `last(take(<reference_to_grid>, $rowIndex))`
 
-- The **label** field doesn't appear as part of the control but is displayed on the final tab summary.
+- The `label` property doesn't appear as part of the control but is displayed on the final tab summary.
 - The `ariaLabel` property is the accessibility label for the grid. Specify helpful text for users who use screen readers.
 - The `constraints.width` property is used to set the overall width of the grid. The options are _Full_, _Medium_, _Small_. The default is _Full_.
 - The `width` property on children of columns determines the column width. Widths are specified using fractional units such as _3fr_, with total space being allotted to columns proportional to their units. If no column width is specified, the default is _1fr_.
