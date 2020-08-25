@@ -33,6 +33,30 @@ Use the following steps to monitor the replication status for your virtual machi
 
 This section describes some of the common errors, and how you can troubleshoot them.
 
+## Key Vault operation failed error when trying to replicate VMs
+
+**Error:** “Key Vault operation failed. Operation : Configure managed storage account, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
+
+**Error:** “Key Vault operation failed. Operation : Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
+
+
+![image.png](/.attachments/image-a8f9661d-9279-44eb-9b14-89542015bd7e.png)
+
+This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies 
+
+When the portal creates the key vault it also adds a user access policy granting the currently logged in user permissions to configure storage accounts to be Key Vault managed. This can fail for two reasons
+
+- The logged in user is a remote principal on the customers Azure tenant (CSP subscription - and the logged in user is the partner admin). The workaround in this case is to delete the key vault, log out from the portal, and then log in with a user account from the customers tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers AAD tenant that they can use. If not they can create a new user account for themselves in the customers AAD tenant, log in to the portal as the new user and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group)
+
+- The other case where this may happen is when one user (user1) attempted to setup replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to setup replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there is no user access policy corresponding to user2 in the key vault.
+
+To workaround this issue create an user access policy for user2 in the keyvault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
+
+$userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address").Id
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
+
+
 ## DisposeArtefactsTimedOut
 
 **Error ID:** 181008
