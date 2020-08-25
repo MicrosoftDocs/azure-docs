@@ -93,17 +93,17 @@ Once your Stream Analytics job is created in the Azure portal, you can configure
 4. Choose **IoT Hub**, **Event Hub**, or **Edge Hub** from the drop-down list. 
 5. If the input is an Event Hub or IoT Hub in an Azure Stack Hub subscription, please provide information manually as shown below.
 
-Event Hub:
+   #### Event Hub
 
-| Field | Value |
-| --- | --- |
-| Input alias | A friendly name that you use in the job's query to reference this input. |
-| Service Bus namespace | The namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. (Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
-| Event Hub name | The name of the event hub to use as input. |
-| Event Hub policy name | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hub settings manually. |
-| Event Hub policy key | The shared access key used to authorize access to the Event Hub. This option is automatically populated in unless you select the option to provide the Event Hub settings manually. You can find it in the Event Hub settings. |
-| Event Hub consumer group(optional) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. |
-| Partition count | Partition count is the number of partitions in an Event Hub. |
+   | Field | Value |
+   | --- | --- |
+   | Input alias | A friendly name that you use in the job's query to reference this input. |
+   | Service Bus namespace | The namespace is a container for a set of messaging entities. When you create a new event hub, you also create the namespace. (Example: *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
+   | Event Hub name | The name of the event hub to use as input. |
+   | Event Hub policy name | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hub settings manually. |
+   | Event Hub policy key | The shared access key used to authorize access to the Event Hub. This option is automatically populated in unless you select the option to provide the Event Hub settings manually. You can find it in the Event Hub settings. |
+   | Event Hub consumer group(optional) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group. |
+   | Partition count | Partition count is the number of partitions in an Event Hub. |
 
    ![Event Hub Input](media/on-azure-stack/event-hub-input.png)
 
