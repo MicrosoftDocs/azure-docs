@@ -510,6 +510,8 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
+      - name: Attachments
+        href: attachments.md
     - name: Change feed
       items:
       - name: Change feed overview

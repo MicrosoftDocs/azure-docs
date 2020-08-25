@@ -66,7 +66,7 @@ The second step is to call the [Get Analyze Business Card Result](https://westce
 
 When the **status** field has the **succeeded** value, the JSON response will include the business card understanding and text recognition results. The business card understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
-![Contoso smample results](./media/business-card-results.png)
+![sample business card output](./media/business-card-results.png)
 
 ### Sample JSON output
 
@@ -87,8 +87,8 @@ The "readResults" node contains all of the recognized text. Text is organized by
 				"width": 4032,
 				"height": 3024,
 				"unit": "pixel",
-    "lines": 
-         {
+   				"lines": 
+       					  {
 						"text": "Dr. Avery Smith",
 						"boundingBox": [
 							419.3,
@@ -388,9 +388,8 @@ The Business Card API also powers the [AIBuilder Business Card Processing featur
 
 ## Next steps
 
-- Follow the quickstart to get started 
-- [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
-- Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+- Follow the quickstart to get started [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
+- Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Learn more about [Form Recognizer](overview.md)
 
 

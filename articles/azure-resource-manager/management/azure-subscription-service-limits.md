@@ -271,6 +271,10 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
 
+### Virtual Network Gateway limits
+
+[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
 ### Virtual WAN limits
 
 [!INCLUDE [virtual-wan-limits](../../../includes/virtual-wan-limits.md)]

@@ -11,7 +11,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 [Soft delete](backup-azure-security-feature-cloud.md) is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
 
 >[!NOTE]
->Once preview is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
+>Once preview is enabled for a subscription it's not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 
 ## Steps to enroll in preview
 
@@ -56,7 +56,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 >[!NOTE]
 >These instructions also apply to SAP HANA in Azure VM.
 
-1. To delete the backup data of a database in a SQL server, the backup must be stopped. In the Azure portal, go to your recovery services vault, go to the backup item, and choose **Stop backup**.
+1. To delete the backup data of a database in a SQL server, the backup must be stopped. In the Azure portal, go to your Recovery Services vault, go to the backup item, and choose **Stop backup**.
 
    ![Stop backup](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
@@ -64,7 +64,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
    ![Delete backup data](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 
-3. During those 14 days, in the Recovery Services Vault, the soft deleted item will appear with a red “soft-delete” icon next to it.
+3. During those 14 days, in the Recovery Services vault, the soft deleted item will appear with a red “soft-delete” icon next to it.
 
    ![Soft deleted items](./media/soft-delete-sql-saphana-in-azure-vm/soft-deleted-items.png)
 
@@ -93,7 +93,7 @@ The sequence of steps for using  Azure PowerShell is the same as in the Azure po
 
 ### Delete the backup item using Azure PowerShell
 
-Delete the backup item using the [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS cmdlet.
+Delete the backup item using the [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell cmdlet.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -111,7 +111,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Then, perform the undo-deletion operation using the [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS cmdlet.
+Then, perform the undo-deletion operation using the [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PowerShell cmdlet.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
