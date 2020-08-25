@@ -245,19 +245,28 @@ Note that *Room1* has a temperature of **80**.
 
 ### Query the graph
 
-A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In this section, you will run a query to answer the following question:
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. 
 
-**What are all the twins in my environment with a temperature above 75?** (query by property)
+One way to query the twins in your graph is by their *properties*. Querying based on properties can help answer a variety of questions, including finding outliers in your environment that might need attention.
 
-**Query:** `SELECT * FROM DigitalTwins T WHERE T.Temperature > 75`
-    
-You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. Recall from viewing the twin properties earlier that *Room0* has a temperature of **70** and *Room1* has a temperature of **80**. As a result, only *Room1* shows up in the results here.
+In this section, you will run a query to answer the following question: _**What are all the twins in my environment with a temperature above 75?**_
+
+To see the answer, run the following query in the *QUERY EXPLORER* box:
+
+```SQL
+SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
+```
+
+Recall from viewing the twin properties earlier that *Room0* has a temperature of **70** and *Room1* has a temperature of **80**. As a result, only _**Room1**_ shows up in the results here.
     
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Results of property query, showing only Room1":::
 
+>[!TIP]
+> Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported within the query above. You can try plugging these, different values, or different twin properties into the query to try out answering your own questions.
+
 ## Edit data in the graph
 
-You can use ADT Explorer to edit the properties of the twins represented in your graph.
+You can use ADT Explorer to edit the properties of the twins represented in your graph. In this section, we will **_raise the temperature of_ Room0**.
 
 To do this, select *Room0*, bringing up its property list in the *PROPERTY EXPLORER* box.
 
@@ -275,7 +284,7 @@ Upon successful save, you will see a *Patch Information* window displaying the p
 
 ### Query to see the result
 
-To verify that the twin update was successful, re-run the query from earlier to **get all the twins in the environment with a temperature above 75**. Now that the temperature of *Room0* has been changed from **70** to **76**, both twins should show up in the result.
+To verify that the graph successfully registered your update to *Room0*'s temperature, re-run the query from earlier to **get all the twins in the environment with a temperature above 75**. Now that the temperature of *Room0* has been changed from **70** to **76**, both twins should show up in the result.
 
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Results of property query, showing both Room0 and Room1":::
 
