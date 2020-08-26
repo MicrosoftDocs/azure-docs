@@ -164,12 +164,14 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 ## Data integration in Azure Data Factory Managed VNET
 In this scenario, you want to delete original files on Azure Blob Storage and copy data from Azure SQL Database to Azure Blob Storage. You will do this execution twice on different pipelines. The execution time of these two pipelines is overlapping.
-![Scenario4](media/pricing-concepts/scenario4.png)
+![Scenario4](media/pricing-concepts/scenario-4.png)
 To accomplish the scenario, you need to create two pipelines with the following items:
-1.	A pipeline activity – Delete Activity.
-2.	A copy activity with an input dataset for the data to be copied from Azure Blob storage.
-3.	An output dataset for the data on Azure SQL Database.
-4.	A schedule triggers to execute the pipeline.
+  - A pipeline activity – Delete Activity.
+  - A copy activity with an input dataset for the data to be copied from Azure Blob storage.
+  - An output dataset for the data on Azure SQL Database.
+  - A schedule triggers to execute the pipeline.
+> [!NOTE]
+> These prices are for example purposes only
 
 | **Operations** | **Types and Units** |
 | --- | --- |
