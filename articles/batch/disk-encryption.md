@@ -22,7 +22,7 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 
 1. [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys) 
 
-1. [Encryption at host using a platform-managed Key](../virtual-machines/windows/disk-encryption/md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
+1. [Encryption at host using a platform-managed Key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
 
 1. [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) 
 
@@ -44,9 +44,11 @@ After the pool is created, you can see the disk encryption configuration targets
 
 ![Screenshot showing the disk encryption configuration targets in the Azure portal.](./media/disk-encryption/disk-encryption-configuration-target.png)
 
-## Batch .NET SDK 
+## Examples
 
-This example shows how to encrypt the OS and temporary disks using the Batch .NET SDK.
+The following examples show how to encrypt the OS and temporary disks on a Batch pool using the Batch .NET SDK, the Batch REST API, and the Azure CLI.
+
+### Batch .NET SDK 
 
 ```csharp
 pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptionConfiguration(
@@ -54,9 +56,8 @@ pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptio
     );
 ```
 
-## Batch REST API
+### Batch REST API
 
-This example shows how to encrypt the OS and temporary disks using the Batch REST API.
 
 REST API URL:
 ```
@@ -89,4 +90,16 @@ Request body:
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }
+```
+
+### CLI
+
+```azurecli-interactive
+az batch pool create \
+    --id diskencryptionPool \
+    --vm-size Standard_DS1_V2 \
+    --target-dedicated-nodes 2 \
+    --image canonical:ubuntuserver:18.04-LTS \
+    --node-agent-sku-id "batch.node.ubuntu 18.04" \
+    --disk-encryption-targets OsDisk TemporaryDisk
 ```
