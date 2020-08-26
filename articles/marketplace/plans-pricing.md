@@ -50,12 +50,14 @@ There are a few common details to complete for a new plan:
 
 -  **Plan ID**: Create a unique ID for each plan in this offer. Use a maximum of 50 characters: only lowercase, alphanumeric characters, dashes, and underscores. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). You can’t change this ID after you publish the offer.
 -  **Plan Name**: (Callout 1 in the image above.) Create a unique name for each plan in this offer. Use a maximum of 50 characters. The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Standard plan, Enterprise plan). Customers will see this name when deciding which plan to select within your offer.
--  **Plan summary**: (Callout 2 in the image above.) Add a summary that helps customers decide which plan to select within your offer. 
+-  **Plan summary**: (Callout 2 in the image above.) This summary appears in Azure Marketplace search results and can contain up to 100 characters.
+   > [!NOTE]
+   > This field doesn't apply to SaaS offers.
 -  **Plan description**: (Callout 3 in the image above.) Add a plan description that explains what makes this plan unique from other plans for your offer. Use a maximum of 500 characters. This content will appear to your customers on the offer listing page(s) and they browse through and select a plan for your offer. 
 
 The plan name and description appear on the offer listing page in the commercial marketplace online store(s). The following screenshot shows three plans for a SaaS offer listing in Azure Marketplace.
 
-![Illustrates an Offer listing page in Partner Center. Three plans are shown.](../media/commercial-marketplace-plans/offer-listing-page.png)
+![Illustrates an Offer listing page in Partner Center. Three plans are shown.](./media/commercial-marketplace-plans/offer-listing-page.png)
 
 Once you create your plans, the **Plan overview** page shows a list of your plans’ name, ID, other details, current publishing status, and any available actions. The available actions will depend on the status of your plan and might include:
 
@@ -75,7 +77,7 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 -  **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from the Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
 
 > [!TIP]
-> We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users from frequently switching plans based on their changes in usage. For an example of a SaaS offer with three metered billing plans, see [Sample offer](saas-metered-billing.md#sample-offer).
+> We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users from frequently switching plans based on their changes in usage. For an example of a SaaS offer with three metered billing plans, see [Sample offer](./partner-center-portal/saas-metered-billing.md#sample-offer).
 
 ### Pricing models
 

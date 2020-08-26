@@ -63,7 +63,7 @@ To sell your SaaS offer through Microsoft, you must meet these additional requir
 
 | Requirement | Details |
 | ------------ | ------------- |
-| You must create at least one plan | You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. If you choose the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. We call this [metering](partner-center-portal/saas-metered-billing.md). More details about plans is provided later in this article. |
+| You must create at least one plan | You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. If you choose the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. We call this [metering](partner-center-portal/saas-metered-billing.md). More details about [plans](#plans) is provided later in this article. |
 | Cancellation | Your offer is cancelable by the customer at any time. |
 |||
 
@@ -213,62 +213,22 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (AAD) 
 
 ## Plans
 
-Offers sold through Microsoft (transactable offers) require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and pricing options. If you choose to process transactions independently instead of creating a transactable offer, the **Plans** page is not visible. If so, skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
+Transactable offers require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and pricing options. If you choose to process transactions independently instead of creating a transactable offer, the **Plans** page is not visible. If so, skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
-The following screenshot shows three plans in an offer listing in Azure Marketplace.
+See [Plans and pricing for commercial marketplace offers](plans-pricing.md) for general guidance about plans, including pricing models, free trials, and private plans. The following sections discuss additional information specific to SaaS offers.
 
-***Figure 4: Example offer listing in the commercial marketplace showing three plans***
+### Saas pricing models
 
-![Illustrates a marketplace listing of an offer with three plans.](./partner-center-portal/media/marketplace-plan.png)
+SaaS offers can use one of two pricing models with each plan: either _flat rate_ or _per user_. All plans in the same offer must be associated with the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user.
 
-**Call-out descriptions**
-1. Software plan
-1. Description
+**Flat rate** – Enable access to your offer with a single monthly or annual flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. For more information on metered billing, see [Metered billing using the marketplace metering service](./partner-center-portal/saas-metered-billing.md#sample-offer). You should also use this option if usage behavior for your SaaS service is in bursts.
 
-The **Plan overview** page of Partner Center has tabs where you complete all details for one or more plans.
-
-The first pieces of information you are asked to provide are a name and an ID for your plan:
-
-- **Plan ID**: Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, and underscores. You can’t change this ID after you publish the offer.
-
-- **Plan Name**: The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Windows Server 2016, Windows Server 2019). This name must be unique across all the plans in the offer. Max 50 characters. Customers will see this name when deciding which plan to select within your offer.
-
-On the **Plan listing** tab, add a plan description as it will appear to your customers in the commercial marketplace. Explain what makes this software plan unique and any differences from other software plans within your offer. This description may contain up to 500 characters.
-
-### Pricing models
-
-You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must be associated with the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user.
-
-> [!TIP]
-> We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users frequently switching plans based on their changes in usage. For an example of an offer with three metered billing plans, see [Sample offer](./partner-center-portal/saas-metered-billing.md#sample-offer).
-
-**Flat rate** – Enable access to your offer with a single monthly or annual flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers for usage that isn't covered by the flat rate. For more information on metered billing, see [Metered billing using the marketplace metering service](./partner-center-portal/saas-metered-billing.md#sample-offer). You should also use this option if the usage behavior is in bursts for your SaaS service.
-
-**Per user** – Enable access to your offer with the price based on the number of users who can access the offer or occupy seats. With this user-based model, you can set the minimum and maximum number of users supported by the plan. This way, different price points can be configured based on the number of users by configuring multiple plans. These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields may be edited as part of an update to your plan.
+**Per user** – Enable access to your offer with a price based on the number of users who can access the offer or occupy seats. With this user-based model, you can set the minimum and maximum number of users supported by the plan. You can create multiple plans to configure different price points based on the number of users. These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as your service can support). These fields may be edited as part of an update to your plan.
 
 > [!IMPORTANT]
 > After your offer is published, the pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
-The **Pricing and availability** tab is where you will define the plan’s markets, pricing, and availability:
-
-- **Markets**: Every plan must be available in at least one market.
-
-- **Pricing**: For detailed pricing guidance, see [Pricing and billing](#pricing-and-billing). If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. After saving your changes, you will see an **Export prices (xlsx)** link that you can use to review and change the price for each market before publishing.
-
-### Free trials
-
-When selling your offer through Microsoft, you can enable a one-month free trial, which will automatically convert to a paid offer at the end of the trial. Free trials are supported for all billing models except metered plans. When configuring a plan, you can enable a free trial by checking the **Allow a one-month free trial** box. For more information about free trials, see [Free trials in the Microsoft commercial marketplace](free-trial-offer.md).
-
-### Plan visibility
-
-You can make your plan private, which means it will be available only to a specific audience. This audience is defined by Azure tenant IDs with the option to include a description of each tenant you assign. You can enter up to 10 tenant IDs manually, or import up to 20,000 tenant IDs with a .csv file that you can download from the **Pricing and availability** tab in Partner Center.
-
-After your offer is published with a private plan, you can update the audience or choose to make the plan available to everyone. After a plan is published as visible to everyone it must remain visible to everyone and cannot be configured as a private plan again.
-
-> [!NOTE]
-> The private audience differs from a preview audience. On the **Preview audience** page, you can define an audience who can preview your offer prior to the offer being published live in the marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is being tested and validated.
-
-### Pricing and billing
+### SaaS billing
 
 For SaaS apps that run in your (the publisher’s) Azure subscription, infrastructure usage is billed to you directly; customers do not see actual infrastructure usage fees. You should bundle Azure infrastructure usage fees into your software license pricing to compensate for the cost of the infrastructure you deployed to run the solution.
 
