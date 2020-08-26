@@ -4,6 +4,7 @@ description: An overview of using Azure SignalR service to scale ASP.NET Core Si
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 03/01/2019
 ms.author: zhshang
 ---
