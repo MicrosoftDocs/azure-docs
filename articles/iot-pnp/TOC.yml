@@ -9,6 +9,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Set up your environment
+    href: set-up-services.md
   - name: Connect a device to IoT Hub
     items:
       - name: C
