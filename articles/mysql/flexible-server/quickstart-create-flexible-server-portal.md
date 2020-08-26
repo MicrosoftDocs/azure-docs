@@ -11,7 +11,7 @@ ms.date: 8/20/2020
 
 # Quickstart: Use the Azure portal to create an Azure Database for MySQL Flexible Server
 
-Azure Database for MySQL Flexible Server is a managed service that you use to run, manage, and scale highly available MySQL servers in the cloud. This Quickstart shows you how to create a flexible server in several using the Azure portal.
+Azure Database for MySQL Flexible Server is a managed service that you use to run, manage, and scale highly available MySQL servers in the cloud. This quickstart shows you how to create a flexible server in several using the Azure portal.
 
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
@@ -111,7 +111,7 @@ You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 64796
-    Server version: 5.7.27.0 Source distribution
+    Server version: 5.7.29.0 Source distribution
     
     Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
     
