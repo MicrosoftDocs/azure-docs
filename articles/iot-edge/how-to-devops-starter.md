@@ -1,6 +1,6 @@
 ---
-title: CI/CD pipeline with Azure DevOps Projects - Azure IoT Edge | Microsoft Docs
-description: Azure DevOps Projects makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
+title: CI/CD pipeline with Azure DevOps Starter - Azure IoT Edge | Microsoft Docs
+description: Azure DevOps Starter makes it easy to get started on Azure. It helps you launch an Azure IoT Edge app of your choice in few quick steps.
 author: shizn
 ms.author: xshi
 ms.date: 08/25/2020
@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects
+# Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter
 
 Configure continuous integration (CI) and continuous delivery (CD) for your IoT Edge application with DevOps Projects. DevOps Starter simplifies the initial configuration of a build and release pipeline in Azure Pipelines.
 
@@ -17,7 +17,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 ## Sign in to the Azure portal
 
-DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+DevOps Starter creates a CI/CD pipeline in Azure DevOps. You can create a new Azure DevOps organization or use an existing organization. DevOps Starter also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -29,15 +29,15 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 1. Your Azure IoT Edge module(s) can be written in [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) and [Java](tutorial-java-module.md). Select your preferred language to start a new application: **.NET**, **Node.js**, **Python**, **C**, or **Java**. Select **Next** to continue.
 
-   ![Select language to create a new application](./media/how-to-devops-project/select-language.png)
+   ![Select language to create a new application](./media/how-to-devops-starter/select-language.png)
 
 2. Select **Simple IoT** as your application framework, and then select **Next**.
 
-   ![Select Simple IoT framework](media/how-to-devops-project/select-iot.png)
+   ![Select Simple IoT framework](media/how-to-devops-starter/select-iot.png)
 
 3. Select **IoT Edge** as the Azure service that deploys your application, and then select **Next**.
 
-   ![Select IoT Edge service](media/how-to-devops-project/select-iot-edge.png)
+   ![Select IoT Edge service](media/how-to-devops-starter/select-iot-edge.png)
 
 4. Create a new free Azure DevOps organization or choose an existing organization.
 
@@ -51,54 +51,54 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
    5. Accept the default location, or choose one close to you.
 
-   6. Select **Additional settings** to configure the Azure resources that DevOps Projects creates on your behalf.
+   6. Select **Additional settings** to configure the Azure resources that DevOps Starter creates on your behalf.
 
    7. Select **Done** to finish creating your project.
 
-   ![Name and create application](media/how-to-devops-project/select-devops.png)
+   ![Name and create application](media/how-to-devops-starter/select-devops.png)
 
 After a few minutes, the DevOps Projects dashboard is displayed in the Azure portal. Select your project name to see the progress. You may need to refresh the page. A sample IoT Edge application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to the IoT Edge device. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
 
-   ![View application in Azure portal](./media/how-to-devops-project/devops-portal.png)
+   ![View application in Azure portal](./media/how-to-devops-starter/devops-portal.png)
 
 ## Commit code changes and execute CI/CD
 
-DevOps Projects created a Git repository for your project in Azure Repos. In this section, you view the repository and make code changes to your application.
+DevOps Starter created a Git repository for your project in Azure Repos. In this section, you view the repository and make code changes to your application.
 
 1. To navigate to the repo created for your project, select **Repositories** in the menu of your project dashboard. This link opens a browser tab and the Azure DevOps repository for your new project.
 
-   ![View repository generated in Azure Repos](./media/how-to-devops-project/view-repositories.png)
+   ![View repository generated in Azure Repos](./media/how-to-devops-starter/view-repositories.png)
 
 > [!NOTE]
 > The following steps walk through using the web browser to make code changes. If you want to clone your repository locally instead, select **Clone** from the top right of the window. Use the provided URL to clone your Git repository in Visual Studio Code or your preferred development tool.
 
 2. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
 
-   ![Open module.json file in Azure Repos](./media/how-to-devops-project/open-module-json.png)
+   ![Open module.json file in Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
 3. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs.
 
 ## Examine the CI/CD pipeline
 
-In the previous sections, Azure DevOps Projects automatically configured a full CI/CD pipeline for your IoT Edge application. Now, explore and customize the pipeline as needed. Use the following steps to familiarize yourself with the Azure DevOps build and release pipelines.
+In the previous sections, Azure DevOps Starter automatically configured a full CI/CD pipeline for your IoT Edge application. Now, explore and customize the pipeline as needed. Use the following steps to familiarize yourself with the Azure DevOps build and release pipelines.
 
 1. To view the build pipelines in your DevOps project, select **Build Pipelines** in the menu of your project dashboard. This link opens a browser tab and the Azure DevOps build pipeline for your new project.
 
-   ![View build pipelines in Azure Pipelines](./media/how-to-devops-project/view-build-pipelines.png)
+   ![View build pipelines in Azure Pipelines](./media/how-to-devops-starter/view-build-pipelines.png)
 
 2. Open the automatically generated build pipeline and select **Edit** in the top right.
 
-    ![Edit build pipeline](media/how-to-devops-project/click-edit-button.png)
+    ![Edit build pipeline](media/how-to-devops-starter/click-edit-button.png)
 
 3. In the panel that opens, you can examine the tasks that occur when your build pipeline runs. The build pipeline performs various tasks, such as fetching sources from the Git repository, building IoT Edge module images, pushing IoT Edge modules to a container registry, and publishing outputs that are used for deployments. To learn more about Azure IoT Edge tasks in Azure DevOps, see [Configure Azure Pipelines for continuous integration](how-to-ci-cd.md#configure-continuous-integration).
 
 4. Select the **Pipeline** header at the top of the build pipeline to open the pipeline details. Change the name of your build pipeline to something more descriptive.
 
-   ![Edit the pipeline details](./media/how-to-devops-project/edit-build-pipeline.png)
+   ![Edit the pipeline details](./media/how-to-devops-starter/edit-build-pipeline.png)
 
 5. Select **Save & queue**, and then select **Save**. It is optional to comment.
 
-6. Select **Triggers** from the build pipeline menu. DevOps Projects automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
+6. Select **Triggers** from the build pipeline menu. DevOps Starter automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 7. Select **Retention**. Follow the link to redirect you to the project settings, where the retention policies are located. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
@@ -106,7 +106,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
 9. When you're done exploring the build pipeline, navigate to the corresponding release pipeline. Select **Releases** under **Pipelines**, then select **Edit** to view the pipeline details.
 
-    ![View release pipeline](media/how-to-devops-project/release-pipeline.png)
+    ![View release pipeline](media/how-to-devops-starter/release-pipeline.png)
 
 10. Under **Artifacts**, select **Drop**. The source that this artifact watches is the output of the build pipeline you examined in the previous steps.
 
@@ -114,7 +114,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
 12. In the menu for your release pipeline, select **Tasks** then choose the **dev** stage from the dropdown list. DevOps Projects created a release stage for you that creates an IoT hub, creates an IoT Edge device in that hub, deploys the sample module from the build pipeline, and provisions a virtual machine to run as your IoT Edge device. To learn more about Azure IoT Edge tasks for CD, see [Configure Azure Pipelines for continuous deployment](how-to-ci-cd.md#configure-continuous-deployment).
 
-    ![View continuous deployment tasks](media/how-to-devops-project/dev-release.png)
+    ![View continuous deployment tasks](media/how-to-devops-starter/dev-release.png)
 
 13. On the right, select **View releases**. This view shows a history of releases.
 
@@ -122,7 +122,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
 ## Clean up resources
 
-You can delete Azure App Service and other related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
+You can delete Azure App Service and other related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Starter dashboard.
 
 ## Next steps
 
