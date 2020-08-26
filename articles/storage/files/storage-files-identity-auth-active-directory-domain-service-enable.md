@@ -71,7 +71,7 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 ![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## 1. Enable Azure AD DS authentication for your account
+## Enable Azure AD DS authentication for your account
 
 To enable Azure AD DS authentication over SMB for Azure Files, you can set a property on storage accounts by using the Azure portal, Azure PowerShell, or Azure CLI. Setting this property implicitly "domain joins" the storage account with the associated Azure AD DS deployment. Azure AD DS authentication over SMB is then enabled for all new and existing file shares in the storage account.
 
