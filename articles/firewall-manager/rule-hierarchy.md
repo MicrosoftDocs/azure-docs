@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 08/26/2020
 ms.author: victorh
 ---
 
@@ -26,7 +26,7 @@ The high-level steps for this example are:
 3. Define IT security-specific rules in the base policy. This adds a common set of rules to allow/deny traffic.
 4. Create application team policies that inherit the base policy. 
 5. Define application team-specific rules in the policy. You can also migrate rules from pre-existing firewalls.
-6. Create Azure Active Directory custom roles to provide fine grained access to rule collection group and add roles at a Firewall Policy scope.In the following example, Sales team members will be able to edit rule collection group for Sales teams Firewall Policy. The same applies to the Database and Engineering teams.
+6. Create Azure Active Directory custom roles to provide fine grained access to rule collection group and add roles at a Firewall Policy scope. In the following example, Sales team members can edit rule collection groups for the Sales teams Firewall Policy. The same applies to the Database and Engineering teams.
 7. Associate the policy to the corresponding firewall. An Azure firewall can have only one assigned policy. This requires each application team to have their own firewall.
 
 
@@ -137,7 +137,7 @@ For more information, see [Tutorial: Create an Azure custom role using Azure Pow
 
 ### Add users to the custom role
 
-On the portal you can add users to the AZFM Rule Collection Group Authors role.
+On the portal, you can add users to the AZFM Rule Collection Group Authors role and provide access to the firewall policies.
 
 1. From the portal, select the Application team firewall policy (for example, SalesAppPolicy).
 2. Select **Access Control**.
@@ -146,22 +146,16 @@ On the portal you can add users to the AZFM Rule Collection Group Authors role.
 
 Repeat this procedure for the other firewall policies.
 
-### Associate new policies with the firewall
-
-If you have an existing Azure firewall deployment in a VNet, you can attach the newly created Firewall policy using the VNET conversion flow in Firewall Manager. This doesn't cause any downtime for the Azure Firewall.  
-
-If you have a pre-existing VNet, you can use the create hub virtual VNet workflow to deploy a new Azure Firewall and associate the newly created firewall policy to the firewall.  
-
-The same approach can be used for Virtual WAN hubs.
-
 ### Summary
 
-Contoso now provides selective access to their application teams.  In this example, the application teams don't have permissions to:
-- Delete the Azure Firewall or firewall policy.
-- Modify firewall policy hierarchy or DNS settings or threat intelligence.
-- Modify firewall policy defined in other resource groups.
+Firewall Policy with custom RBAC now provides selective access to firewall policy rule collection groups.
 
-Developers have permission to update rule collection groups for their applications and integrate automatic updates using the CI/CD pipeline.
+Users don’t have permissions to:
+- Delete the Azure Firewall or firewall policy.
+- Update firewall policy hierarchy or DNS settings or threat intelligence.
+- Update firewall policy where they are not members of AZFM Rule Collection Group Author group.
+
+Security administrators can use base policy to enforce guardrails and block certain types of traffic (for example  ICMP) as required by their enterprise. 
 
 ## Next steps
 
