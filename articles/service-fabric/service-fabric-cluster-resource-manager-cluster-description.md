@@ -585,7 +585,7 @@ Here's an example of how to specify node buffer or overbooking capacities in *Cl
 
 Here's an example of how to specify node buffer or overbooking capacities via *ClusterConfig.json* for standalone deployments or *Template.json* for Azure-hosted clusters:
 
-```xml
+```json
 "fabricSettings": [
   {
     "name": "NodeBufferPercentage",
@@ -604,7 +604,7 @@ Here's an example of how to specify node buffer or overbooking capacities via *C
           "value": "0.20"
       },
       {
-          "name": "MetricWithInfiniteOverbooking ",
+          "name": "MetricWithInfiniteOverbooking",
           "value": "-1.0"
       }
     ]
