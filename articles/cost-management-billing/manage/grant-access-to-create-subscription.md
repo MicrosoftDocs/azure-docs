@@ -1,11 +1,13 @@
 ---
 title: Grant access to create Azure Enterprise subscriptions
 description: Learn how to give a user or service principal the ability to programmatically create Azure Enterprise subscriptions.
-author: jureid
-manager: jureid
+author: bandersmsft
+ms.service: cost-management-billing
+ms.subservice: billing
+ms.reviewer: amberb
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: jureid
+ms.date: 08/26/2020
+ms.author: banders
 ---
 
 # Grant access to create Azure Enterprise subscriptions (preview)
@@ -55,7 +57,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     }
     ```
 
-    Use the `principalName` property to identify the account that you want to grant RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account that you want to grant RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
     # [PowerShell](#tab/azure-powershell)
 
@@ -104,14 +106,14 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     ---
 
-    Use the `principalName` property to identify the account that you want to grant RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+    Use the `principalName` property to identify the account that you want to grant RBAC Owner access to. Copy the `name` of that account. For example, if you wanted to grant RBAC Owner access to the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. It's the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
 1. <a id="userObjectId"></a>Get object ID of the user or group you want to give the RBAC Owner role to
 
     1. In the Azure portal, search on **Azure Active Directory**.
-    1. If you want to grant a user access, click on **Users** in the menu on the left. If you want to grant access to a group, click **Groups**.
+    1. If you want to grant a user access, select **Users** in the menu on the left. To give access to a group, select **Groups**.
     1. Select the User or Group you want to give the RBAC Owner role to.
-    1. If you selected a User, you'll find the object ID in the Profile page. If you selected a Group, the object ID will be in the Overview page. Copy the **ObjectID** by clicking the icon to the right of the text box. Paste this somewhere so that you can use it in the next step as `userObjectId`.
+    1. If you selected a User, you'll find the object ID in the Profile page. If you selected a Group, the object ID will be in the Overview page. Copy the **ObjectID** by selecting the icon to the right of the text box. Paste it somewhere so that you can use it in the next step as `userObjectId`.
 
 1. Grant the user or group the RBAC Owner role on the enrollment account
 
@@ -188,6 +190,6 @@ To conveniently call this API from the command line, try [ARMClient](https://git
 
 * Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](overview.md).
+* To learn more about Azure Resource Manager and its APIs, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 * To learn more about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md)
 * To see a comprehensive best practice guidance for large organizations on subscription governance, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance)
