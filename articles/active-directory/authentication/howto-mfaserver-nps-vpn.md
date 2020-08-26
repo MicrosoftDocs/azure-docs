@@ -24,6 +24,8 @@ Azure Multi-Factor Authentication Server (Azure MFA Server) can be used to seaml
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
+> If you use cloud-based MFA, see [Integrate your VPN infrastructure with Azure MFA](howto-mfa-nps-extension-vpn.md).
+>
 > Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Cisco ASA VPN appliance and Azure MFA Server

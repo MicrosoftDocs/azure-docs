@@ -26,6 +26,8 @@ This documentation covers using the Azure Multi-Factor Authentication Server wit
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
+> If you use cloud-based MFA, see [Securing cloud resources with Azure Multi-Factor Authentication and AD FS](howto-mfa-adfs.md).
+>
 > Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Secure AD FS 2.0 with a proxy

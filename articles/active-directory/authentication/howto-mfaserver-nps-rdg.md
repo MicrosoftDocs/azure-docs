@@ -28,6 +28,8 @@ Install the Azure Multi-Factor Authentication Server on a separate server, which
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
+> If you use cloud-based MFA, see how to [integrate with RADIUS authentication for Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
+>
 > Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Prerequisites
