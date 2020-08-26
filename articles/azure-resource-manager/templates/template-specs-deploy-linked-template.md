@@ -127,6 +127,7 @@ id = $(az template-specs show --name $templateSpecName --resource-group $resourc
 
 > [!NOTE]
 > There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell. The command hangs.
+
 ---
 
 The syntax for passing parameters to the template spec is:
