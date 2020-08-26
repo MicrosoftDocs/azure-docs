@@ -13,7 +13,7 @@ ms.subservice: files
 
 ## Prerequisites
 
-You must have already created a virtual machine and a virtual network. You will need the VM's public IP address for this process.
+You must have already created a virtual machine and a virtual network.
 
 - Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
 
