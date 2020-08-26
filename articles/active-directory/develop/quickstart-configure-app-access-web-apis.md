@@ -44,26 +44,29 @@ Once you've registered both your client app and web API and you've exposed the A
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **My APIs**
 1. Select the web API you registered as part of the prerequisites.
-    **Delegated permissions** is selected by default. Delegated permissions are appropriate for client apps that access a web API as the signed-in user, and whose access should be restricted to the permissions you select in the next step. Leave delegated permissions selected.
+
+    **Delegated permissions** is selected by default. Delegated permissions are appropriate for client apps that access a web API as the signed-in user, and whose access should be restricted to the permissions you select in the next step. Leave **Delegated permissions** selected.
 
     **Application permissions** are for service- or daemon-type applications that need to access a web API as themselves, without user interaction for sign-in or consent. Unless you've defined application roles for your web API, this option is disabled.
-1. Under **Select permissions**, expand the resource whose scopes you defined for your web API, and select the permissions the client app should have on behalf of the signed-in user. If you used the example scope names specified in the previous quickstart, you should see **Employees.Read.All** and **Employees.Write.All**.
-    Select **Employees.Read.All** if shown, or another permission you might have created when completing the prerequisites.
+1. Under **Select permissions**, expand the resource whose scopes you defined for your web API, and select the permissions the client app should have on behalf of the signed-in user.
+
+    If you used the example scope names specified in the previous quickstart, you should see **Employees.Read.All** and **Employees.Write.All**.
+    Select **Employees.Read.All** or another permission you might have created when completing the prerequisites.
 1. Select **Add permissions** to complete the process.
 
-Upon successfully adding permissions to your API, you should see the selected permissions shown in the **Configured permissions** pane. The following image shows the example *Employees.Read.All* delegated permission added to the client app's registration.
-
-You might also notice the *User.Read* permission for the Microsoft Graph API. This permission is added automatically when you register an app in the Azure portal.
+After adding permissions to your API, you should see the selected permissions under **Configured permissions**. The following image shows the example *Employees.Read.All* delegated permission added to the client app's registration.
 
 :::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Configured permissions pane in the Azure portal showing the newly added permission":::
 
+You might also notice the *User.Read* permission for the Microsoft Graph API. This permission is added automatically when you register an app in the Azure portal.
+
 ## Add permissions to access Microsoft Graph
 
-In addition to accessing your own web API on behalf of the signed-in user, your application might also need to access or modify the user's data stored in Microsoft Graph. Or you might have service or daemon app that needs to access Microsoft Graph as itself, performing operations without any user interaction.
+In addition to accessing your own web API on behalf of the signed-in user, your application might also need to access or modify the user's (or other) data stored in Microsoft Graph. Or you might have service or daemon app that needs to access Microsoft Graph as itself, performing operations without any user interaction.
 
 ### Delegated permission to Microsoft Graph
 
-Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you configure for it.
+Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the logged-in user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you've configured for it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
@@ -80,30 +83,32 @@ Configure delegated permission to Microsoft Graph to enable your client applicat
     | `profile`        | View users' basic profile                           |
 1. Select **Add permissions** to complete the process.
 
-Whenever you configure permissions, users of your app are asked for their consent to allow your app to access the resource API on their behalf. As an admin, you can also grant consent on behalf of all users so they're not prompted to do so. Admin consent is discussed later in the [Understanding API permissions and admin consent UI](#understanding-api-permissions-and-admin-consent-ui) section of this article.
+Whenever you configure permissions, users of your app are asked at sign-in for their consent to allow your app to access the resource API on their behalf.
+
+As an admin, you can also grant consent on behalf of *all* users so they're not prompted to do so. Admin consent is discussed later in the [Understanding API permissions and admin consent UI](#understanding-api-permissions-and-admin-consent-ui) section of this article.
 
 ### Application permission to Microsoft Graph
 
-Configure application permissions for an application that needs to authenticate as itself without user interaction or consent. Application permissions are typically used by background services or daemon apps that access an API in a "headless" manner, and by web APIs that access another API (often called a *downstream* API).
+Configure application permissions for an application that needs to authenticate as itself without user interaction or consent. Application permissions are typically used by background services or daemon apps that access an API in a "headless" manner, and by web APIs that access another (downstream) API.
 
-In the following steps, you grant permission to Microsoft Graph's *Files.Read.All*
+In the following steps, you grant permission to Microsoft Graph's *Files.Read.All* permission as an example.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
-1. All permissions exposed by Microsoft Graph are shown under **Select permission**.
+1. All permissions exposed by Microsoft Graph are shown under **Select permissions**.
 1. Select the permission or permissions you want to grant your application. As an example, you might have a daemon app that scans files in your organization, alerting on a specific file type or name.
     Under **Select permissions**, expand **Files**, and then select the *Files.Read.All* permission.
 1. Select **Add permissions**.
 
-Some permissions, like the *Files.Read.All* permission you might have added in a previous step, require admin consent. You grant admin consent by selecting the **Grant admin consent** button, discussed in the [Admin consent button](#admin-consent-button) section later in this article.
+Some permissions, like Microsoft Graph's *Files.Read.All* permission, require admin consent. You grant admin consent by selecting the **Grant admin consent** button, discussed later in the [Admin consent button](#admin-consent-button) section.
 
 ### Configure client credentials
 
-Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or another API by using application permissions, you need to configure that client app's credentials.
+Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or any another API by using application permissions, you need to configure that client app's credentials.
 
-For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).Microsoft Graph, your own web API, or
 
 ## Understanding API permissions and admin consent UI
 
@@ -111,19 +116,21 @@ For more information about configuring an app's credentials, see the [Add creden
 
 The **Configured permissions** section shows the permissions that have been explicitly configured on the application object. These permissions are part of the app's required resource access list.
 
-You can add or remove the permissions that appear in this table. As an admin, you can also grant or revoke admin consent for a set of an API's permissions or individual permissions.
+You can add or remove the permissions that appear in this table. As an admin, you can also grant or revoke admin consent for a set of an API's permissions or for individual permissions.
 
 ### Other permissions granted
 
-You might also see the **Other permissions granted for {your tenant}** section in addition to **Configured permissions**. The **Other permissions granted for {your tenant}** section shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented. This section only appears if there is at least one permission that applies.
+You might also see the **Other permissions granted for {your tenant}** section in addition to **Configured permissions**. The **Other permissions granted for {your tenant}** section shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to. This section appears only if there is at least one permission that applies.
 
 You can add a set of an API's permissions or individual permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
 
 ### Admin consent button
 
+The **Grant admin consent for {your tenant}** button allows an admin to grant admin consent to the permissions configured for the application. When you select the button, a dialog is shown requesting that you confirm the consent action.
+
 :::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Grant admin consent button highlighted in the Configured permissions pane in the Azure portal":::
 
-The **Grant admin consent for {your tenant}** button allows an admin to grant admin consent to the permissions configured for the application. When you select the button, a dialog is shown requesting that you confirm the consent action. After granting consent, the permissions that required admin consent are shown as having consent granted:
+After granting consent, the permissions that required admin consent are shown as having consent granted:
 
 :::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configure permissions table in Azure portal showing admin consent granted for the Files.Read.All permission":::
 
