@@ -90,7 +90,7 @@ Once the key has been uploaded, you can choose to use it when you create a VM.
 
 SSH keys created in the portal are stored as resources, so you can filter your resources view to see all of them.
 
-1. In the portal, select :::image type="icon" source="./media/ssh-keys/all-resources.png"::: **All resource**.
+1. In the portal, select **All resource**.
 1. In the filters, select **Type**, unselect the **Select all** option to clear the list.
 1. Type **SSH** in the filter and select **SSH key**.
 
