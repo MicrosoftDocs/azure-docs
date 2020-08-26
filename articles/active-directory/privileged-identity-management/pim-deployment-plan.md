@@ -392,8 +392,4 @@ You can access these audit logs if you are a Global Administrator or a privilege
 If you want to automatically store your audit events for a longer period of time, Privileged Identity Management’s audit log is automatically synced into the [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md).
 
 > [!TIP]
-<<<<<<< HEAD
 > :heavy_check_mark: **Microsoft recommends** you to set up [Azure log monitoring](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive audit events in an Azure storage account for greater security and compliance.
-=======
-> :heavy_check_mark: **Microsoft recommends** you to set up [Azure log monitoring](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive audit events in an Azure storage account for the need of security and compliance.
->>>>>>> 53db725d9e9c4c1cdd6fb067fb11cc277f087a3a
