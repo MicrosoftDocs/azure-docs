@@ -61,7 +61,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment creates a profile with two external endpoints. Endpoint1 has target endpoint of www.microsoft.com with the location in **North Europe** and endpoint2 has a target endpoint of docs.microsoft.com with the location in **South Central US**. 
+    The template deployment creates a profile with two external endpoints. **Endpoint1** has target endpoint of *w<span>ww.microsoft</span>.com* with the location in **North Europe** and **endpoint2** has a target endpoint of *d<span>ocs.microsoft</span>.com* with the location in **South Central US**. 
 
     The resource group name is the project name with **rg** appended.
 
@@ -89,9 +89,9 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    You should get a NameHost of either www.microsoft.com or docs.microsoft.com depending on which region is closer to you.
+    You should get a NameHost of either *w<span>ww.microsoft</span>.com* or *d<span>ocs.microsoft</span>.com* depending on which region is closer to you.
 
-1. To check if you can resolve to the other endpoint. Disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for www.microsoft.com or docs.microsoft.com respectively.
+1. To check if you can resolve to the other endpoint. Disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for *w<span>ww.microsoft</span>.com* or *d<span>ocs.microsoft</span>.com* respectively.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
@@ -100,9 +100,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the Azure Traffic Manager profile. To delete the resource group by using Azure CLI or Azure PowerShell:
-
-# [PowerShell](#tab/PowerShell)
+When you're done, delete the resource groups, web applications, and all related resources using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
