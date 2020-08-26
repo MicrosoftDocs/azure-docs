@@ -9,7 +9,7 @@ ms.date: 2/23/2018
 # Import a certificate file into a container running on Service Fabric
 
 > [!NOTE]
-> For Service Fabric clusters running on Azure, it is recommended to use [Service Fabric Application Managed Identity](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) to provision certificates from within a container, instead of the mechanism described below. Managed Identity gives better isolation for apps and most certificate provisioning mechanisms today do not mark the certificate private key as exportable on Windows, which is needed for this feature. This feature will be deprecated in a future release.
+> For Service Fabric clusters running on Azure, it is recommended to use [Service Fabric Application Managed Identity](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) to provision application certificates from within a container. Managed Identity gives isolation of secrets and certificates at the app level, and allows app certificate provisioning to be part of the app workflow, rather than the infrastructure workflow. The CertificateRef mechanism will be deprecated in a future release.
 
 You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in a certificate store under LocalMachine on all nodes of the cluster. The private key corresponding to the certificate must be available, accessible and - on Windows - exportable. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
