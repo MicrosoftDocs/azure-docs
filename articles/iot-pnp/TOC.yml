@@ -49,6 +49,8 @@
     href: concepts-components.md
   - name: IoT Plug and Play conventions
     href: concepts-convention.md
+  - name: IoT Plug and Play bridge
+    href: concepts-iot-pnp-bridge.md
   - name: Digital twins
     href: concepts-digital-twin.md
   - name: Model repository
