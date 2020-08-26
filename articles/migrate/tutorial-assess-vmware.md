@@ -83,7 +83,7 @@ In **2: Download Azure Migrate appliance**, select the .OVA file and click on **
    ![Selections for Discover machines](./media/tutorial-assess-vmware/servers-discover.png)
 
 
-   ![Selections for Generate Key](./media/tutorial-assess-vmware/generate-key.png)
+   ![Selections for Generate Key](./media/tutorial-assess-vmware/generate-key-vmware.png)
 
 
 ### Verify security
@@ -147,10 +147,10 @@ Set up the appliance for the first time.
 1. Accept the **license terms**, and read the third-party information.
 1. In the web app > **Set up prerequisites**, do the following:
    - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
-     - Select **Proxy settings**, and specify the proxy address and listening port in the form http://ProxyIPAddress or http://ProxyFQDN.
+     - Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
      - Specify credentials if the proxy needs authentication.
      - Only HTTP proxy is supported.
-     - You need to click on 'Save', if you enable or disable the proxy and/or authentication.
+     - Click on **Save** to trigger connectivity check, if you have provided the proxy details or disabled the proxy and/or authentication.
    - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
    - **Install updates**: The appliance ensures that the latest updates are installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
    - **Install VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance, as provided in the **Installation instructions**.
@@ -161,7 +161,7 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
-1. Click on **Log In**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. Click on **Log in**. It will open an Azure login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, sign in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
@@ -174,7 +174,6 @@ Set up the appliance for the first time.
 
 The appliance needs to connect to vCenter Server to discover the configuration and performance data of the VMs.
 
-### Specify vCenter Server details
 1. In **Step 1: Provide vCenter Server credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for the vCenter Server account that the appliance will use to discover VMs on the vCenter Server instance.
     - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
@@ -187,7 +186,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
     - If you do not want to use these features, you can click on the slider to skip the step. You can reverse the intent any time later.
     - Review the credentials needed for [application discovery](migrate-support-matrix-vmware.md#application-discovery-requirements), or for [agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
-5. Click on **Start discovery**, to kick off VM discovery. After the discovery has been initiated, you can check the discovery status against the vCenter Server IP address/FQDN in the table.
+5. Click on **Start discovery**, to kick off VM discovery. After the discovery has been successfully initiated, you can check the discovery status against the vCenter Server IP address/FQDN in the table.
 
 Discovery works as follows:
 - It takes around 15 minutes for discovered VM metadata to appear in the portal.
