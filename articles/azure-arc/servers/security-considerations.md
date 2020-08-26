@@ -1,8 +1,8 @@
 ---
 title: Security overview
 description: Security information about Azure Arc enabled servers (preview).
-ms.topic: reference
-ms.date: 08/25/2020
+ms.topic: conceptual
+ms.date: 08/26/2020
 ---
 
 # Azure Arc for servers (preview) security overview
@@ -33,7 +33,7 @@ The Azure Connected Machine agent is composed of 3 services which run on your ma
 
 The guest configuration and extension services run as Local System on Windows and as root on Linux.
 
-## Use a managed identity with Arc enabled servers
+## Using a managed identity with Arc enabled servers
 
 While the Hybrid Instance Metadata Service (himds) can be accessed by any application running on the machine, only authorized applications can request an Azure Active Directory token for the system assigned identity. On the first attempt to access the token URI, the service will generate a randomly generated cryptographic blob in a location on the file system that only trusted callers can read. The caller must then read the file (proving it has appropriate permission) and retry the request with the file contents in the authorization header to successfully retrieve an AAD token.
 
