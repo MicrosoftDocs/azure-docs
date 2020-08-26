@@ -33610,7 +33610,7 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords-troubleshoot.md",
-      "redirect_url": "/azure/active-directory/authentication/active-directory-passwords-troubleshoot",
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
       "redirect_document_id": true
     },
     {
@@ -56182,6 +56182,11 @@
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-macos.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/text-to-speech",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/aks/windows-node-limitations.md",
