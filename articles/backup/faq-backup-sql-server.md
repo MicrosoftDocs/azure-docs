@@ -62,7 +62,7 @@ The Azure Backup Recovery Services vault can detect and protect all nodes that a
 
 ## Do successful backup jobs create alerts?
 
-No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](backup-azure-monitoring-built-in-monitor.md). However, in case you are interested do have alerts even for successful jobs, you can use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](backup-azure-monitoring-built-in-monitor.md). However, if you're interested in having alerts even for successful jobs, you can use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Can I see scheduled backup jobs in the Backup Jobs menu?
 
@@ -88,7 +88,7 @@ If you do **stop backup with delete data**, no future backups will take place an
 
 A renamed database is treated as a new database. So the service will treat this situation as if the database weren't found and with fail the backups.
 
-You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
+You can select the database, which is now renamed and configure protection on it. If the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
 ## Why can’t I see an added database for an autoprotected instance?
 
