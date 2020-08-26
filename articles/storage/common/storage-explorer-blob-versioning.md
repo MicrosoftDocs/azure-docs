@@ -50,12 +50,10 @@ In this view, Storage Explorer displays the active non-version blobs, the curren
 
 In this view, Storage Explorer displays the active non-version blobs, the soft deleted non-version blobs, the current versions, and the latest previous versions. For blobs that don't have a current version, Storage Explorer displays their latest previous version as a representation of that blob, no matter it's active or soft deleted.
 
-![Note]
-
-Due to service limitation, Storage Explorer needs some additional processing to get a hierarchical view of your virtual directories when listing blob versions. It will take longer to list blobs in the following views:
-
-- Active blobs and blobs without current version
-- All blobs and blobs without current version
+> [!Note]
+> Due to service limitation, Storage Explorer needs some additional processing to get a hierarchical view of your virtual directories when listing blob versions. It will take longer to list blobs in the following views:
+> - Active blobs and blobs without current version
+> - All blobs and blobs without current version
 
 ## Manage blob versions
 
