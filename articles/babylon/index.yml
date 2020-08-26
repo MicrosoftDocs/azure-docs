@@ -1,11 +1,11 @@
 ### YamlMime:Landing
-title: Azure Data Catalog documentation
-summary: "Learn how to set up a data catalog so your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts."
+title: Azure Babylon documentation
+summary: "Learn how to set up a Azure Babylon so your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts."
 metadata: 
   author: jasonwhowell
-  description: "Learn how to set up a data catalog where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation."
+  description: "Learn how to set up Azure Babylon where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation."
   ms.author: jasonh
-  ms.date: 08/30/2019
+  ms.date: 08/26/2020
   ms.service: data-catalog
   ms.topic: landing-page
 
@@ -13,51 +13,34 @@ metadata:
 
 landingContent: 
   # Card
-  - title: About Azure Data Catalog
+  - title: Get started with Azure Babylon
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Data Catalog?
             url: overview.md
+          - text: Product limitations
+            url: product-limitations.md
       - linkListType: quickstart
         links:
-          - text: Learn how to deploy your first Data Catalog
-            url: data-catalog-get-started.md
-      - linkListType: concept
-        links:
-          - text: Frequently asked questions
-            url: data-catalog-frequently-asked-questions.md
+          - text: Create a Babylon account
+            url: create-catalog-portal.md
+          - text: Adding Babylon admins
+            url: catalog-permissions.md
+
   # Card
-  - title: Register data assets
+  - title: Top scenarios
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Learn how to register, search, annotate, manage, and delete assets
-            url: register-data-assets-tutorial.md
-      - linkListType: concept
-        links:
-          - text: Supported data sources
-            url: data-catalog-dsr.md
-      - linkListType: how-to-guide
-        links:
-          - text: Register data sources
-            url: data-catalog-how-to-register.md
-  # Card
-  - title: Data Catalog REST API programming
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Create a Data Catalog app using REST
-            url: /rest/api/datacatalog/get-started-creating-a-data-catalog-app
-      - linkListType: reference
-        links:
-          - text: REST API reference
-            url: /rest/api/datacatalog/
-      - linkListType: how-to-guide
-        links:
-          - text: How to create a Data Catalog app
-            url: /rest/api/datacatalog/register-a-client-app
-      - linkListType: reference
-        links:
-          - text: Search syntax reference
-            url: /rest/api/datacatalog/data-catalog-search-syntax-reference
+          - text: Tutorial on scanning data
+            url: starter-kit-tutorial-1.md
+          - text: Tutorial on Home page and search
+            url: starter-kit-tutorial-2.md
+          - text: Tutorial on Browse and Lineage
+            url: starter-kit-tutorial-3.md
+          - text: Tutorial on Resource set, asset details, schema and classification
+            url: starter-kit-tutorial-4.md
+          - text: Tutorial on Glossary, terms and import
+            url: starter-kit-tutorial-5.md
+
