@@ -132,6 +132,8 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
+  - name: Azure Advisor recommendations
+    href: troubleshoot-azure-advisor.md
   - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
