@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Auto-route messages using an ARM template
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutorials
   items:
     - name: Routing messages

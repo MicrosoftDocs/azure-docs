@@ -3,10 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: Speech service overview
     href: overview.md
-  - name: Try the Speech service for free
-    href: get-started.md
   - name: Language and voice support
     displayName: languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice
     href: language-support.md
@@ -20,10 +18,8 @@
       href: index-speech-to-text.yml
     - name: Overview
       items:
-        - name: What is real-time speech-to-text?
+        - name: What is speech-to-text?
           href: speech-to-text.md
-        - name: What is batch speech-to-text?
-          href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md
     - name: Quickstarts
@@ -53,6 +49,8 @@
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
           href: how-to-automatic-language-detection.md
+        - name: Use the batch transcription API
+          href: batch-transcription.md
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
@@ -522,17 +520,11 @@
         href: speech-container-faq.md
 - name: Speech SDK
   items:
-    - name: Overview
-      items:
-        - name: About the Speech SDK
-          href: speech-sdk.md
-        - name: Scenario availability
-          href: scenario-availability.md
-    - name: Quickstart
-      items:
-        - name: Setup Speech SDK
-          displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
-          href: quickstarts/setup-platform.md
+    - name: Speech SDK overview
+      href: speech-sdk.md
+    - name: Setup Speech SDK
+      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
+      href: quickstarts/setup-platform.md
     - name: How-to guides
       items:
         - name: Enable logging
@@ -638,10 +630,12 @@
     - name: Sovereign Clouds
       displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
       href: sovereign-clouds.md
-    - name: Pricing and limits
+    - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+    - name: Quotas and Limits
+      href: speech-services-quotas-and-limits.md
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption

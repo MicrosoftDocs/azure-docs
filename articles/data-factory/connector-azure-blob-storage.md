@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
+ms.date: 08/18/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -62,7 +62,7 @@ This Blob storage connector supports the following authentication types. See the
 - [Managed identities for Azure resource authentication](#managed-identity)
 
 >[!NOTE]
->When you're using PolyBase to load data into Azure SQL Data Warehouse, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. You must also use the self-hosted integration runtime with version 3.18 or later. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
+>When you're using PolyBase to load data into Azure Synapse Analytics (formerly SQL Data Warehouse), if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. You must also use the self-hosted integration runtime with version 3.18 or later. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
@@ -160,7 +160,7 @@ Data Factory supports the following properties for using shared access signature
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.windows.net/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
             }
         },
         "connectVia": {
@@ -189,7 +189,7 @@ Data Factory supports the following properties for using shared access signature
                     "referenceName": "<Azure Key Vault linked service name>", 
                     "type": "LinkedServiceReference" 
                 }, 
-                "secretName": "<secretName>" 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             }
         },
         "connectVia": {
@@ -232,7 +232,7 @@ These properties are supported for an Azure Blob storage linked service:
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!NOTE]
@@ -276,7 +276,7 @@ For general information about Azure Storage authentication, see [Authenticate ac
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
 
 >[!IMPORTANT]
->If you use PolyBase to load data from Blob storage (as a source or as staging) into SQL Data Warehouse, when you're using managed identity authentication for Blob storage, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configured Blob storage with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+>If you use PolyBase to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics (formerly SQL Data Warehouse), when you're using managed identity authentication for Blob storage, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configured Blob storage with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for an Azure Blob storage linked service:
 
@@ -421,7 +421,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 
 ### Blob storage as a sink type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy sink:
 

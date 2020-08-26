@@ -10,9 +10,10 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
+metadata ms.custom: contperfq1
 ---
 
 # Common problems with two-factor verification and your work or school account
@@ -27,14 +28,10 @@ When 2FV is on, your account sign-in requires a combination of the following dat
 
 2FV is more secure than just a password, because 2FV requires something you _know_ plus something you _have_. No hacker has your physical phone.
 
-<center>
-
-![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)</center>
-
 >[!Important]
->If you're an administrator, you can find more information about how to set up and manage your Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
->
->This content is also intended only for use with your work or school account, which is the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal Microsoft account, which is an account that you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>If you're an administrator, you can find more information about how to set up and manage your Azure AD environment in the [Azure AD documentation](../index.yml).
+
+This content is intended to assist you with your work or school account, which is the account provided to you by your organization (for example, dritan@contoso.com). If you're having problems with two-factor verification on a personal Microsoft account, which is an account that you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## I don't have my mobile device with me
 

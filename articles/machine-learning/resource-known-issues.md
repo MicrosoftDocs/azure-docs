@@ -3,14 +3,14 @@ title: Known issues & troubleshooting
 titleSuffix: Azure Machine Learning
 description: Get help finding and correcting errors or failures in Azure Machine Learning. Learn about known issues, troubleshooting, and workarounds. 
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
+ms.date: 08/13/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -116,6 +116,18 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Azure Machine Learning SDK installation failing with an exception: ModuleNotFoundError: No module named 'ruamel' or 'ImportError: No module named ruamel.yaml'**
+   
+   This issue is getting encountered with the installation of Azure Machine Learning SDK for Python on the latest pip (>20.1.1) in the conda base environment for all released versions of Azure Machine Learning SDK for Python. Refer to the following workarounds:
+
+    * Avoid installing Python SDK on the conda base environment, rather create your conda environment and install SDK on that newly created user environment. The latest pip should work on that new conda environment.
+
+    * For creating images in docker, where you cannot switch away from conda base environment, please pin pip<=20.1.1 in the docker file.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Databricks failure when installing packages**
 
     Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
@@ -243,6 +255,27 @@ From the Model Data Collector, it can take up to (but usually less than) 10 minu
 ```python
 import time
 time.sleep(600)
+```
+
+* **Log for real-time endpoints:**
+
+Logs of real-time endpoints are customer data. For real-time endpoint troubleshooting, you can use following code to enable logs. 
+
+See more details about monitoring web service endpoints in [this article](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+If you have multiple Tenant, you may need to add the following authenticate code before `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## Train models

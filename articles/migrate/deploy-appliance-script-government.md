@@ -30,7 +30,7 @@ To set up the appliance for VMware you download a zipped file from the Azure por
 ### Download the script
 
 1.	In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2.	In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMWare vSphere hypervisor**.
+2.	In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3.	Click **Download**, to download the zipped file. 
 
 

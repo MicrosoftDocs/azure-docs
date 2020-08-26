@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -48,6 +48,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not yet supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Not yet supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
+|Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes (preview)](encryption-scope-manage.md)|
 
 <div id="diagnostic-logging"><sup>1</sup> For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div><br>
 

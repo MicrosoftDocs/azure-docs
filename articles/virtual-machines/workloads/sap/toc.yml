@@ -108,6 +108,8 @@
       href: sap-hana-high-availability.md
     - name: Set up SAP HANA System Replication on RHEL
       href: sap-hana-high-availability-rhel.md
+    - name: Set up SAP HANA System Replication with ANF on RHEL
+      href: sap-hana-high-availability-netapp-files-red-hat.md
     - name: Troubleshoot SAP HANA scale-out and Pacemaker on SLES
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
@@ -225,6 +227,8 @@
         href: high-availability-guide-rhel-netapp-files.md
     - name: SAP Multi-SID
       items:
+      - name: Windows with Azure Shared Disk for (A)SCS Instance
+        href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
       - name: Windows with Shared Disk for (A)SCS Instance
         href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
@@ -289,6 +293,8 @@
     href: azure-monitor-overview.md
   - name: Azure Monitor for SAP Solutions Providers
     href: azure-monitor-providers.md
+  - name: Configure Azure Monitor for SAP Solutions
+    href: azure-monitor-sap-quickstart.md
   - name: Azure Monitor for SAP Solutions FAQ
     href: azure-monitor-faq.md
 - name: Reference

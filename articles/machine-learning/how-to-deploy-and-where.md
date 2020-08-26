@@ -34,13 +34,13 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
-- The [Azure Command Line Interface (CLI) extension for the Machine Learning service](reference-azure-machine-learning-cli.md)
+- The [Azure Command Line Interface (CLI) extension for the Machine Learning service](reference-azure-machine-learning-cli.md).
 
 # [Python](#tab/python)
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
-- The [Azure Machine Learning software development kit (SDK) for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- The [Azure Machine Learning software development kit (SDK) for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ---
 
@@ -213,12 +213,12 @@ Inference configuration uses Azure Machine Learning environments to define the s
 
 name: project_environment
 dependencies:
-    - python=3.6.2
-    - scikit-learn=0.20.0
-    - pip:
-        # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
+- python=3.6.2
+- scikit-learn=0.22.1
+- pip:
+ # You must list azureml-defaults as a pip dependency
+ - azureml-defaults>=1.0.45
+ - inference-schema[numpy-support]
 ```
 
 > [!IMPORTANT]
@@ -237,7 +237,7 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md)
+For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -368,7 +368,7 @@ To delete a deployed webservice, use `az ml service <name of webservice>`.
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 
 # [Python](#tab/python)
 
