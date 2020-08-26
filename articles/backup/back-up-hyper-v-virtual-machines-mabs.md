@@ -144,7 +144,7 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
     - Select **Enable SAN based recovery using hardware snapshots** if you have configured your network.
     - Select **Send an e-mail when the recovery completes** and then provide the email addresses, if you want email notifications sent once the recovery process completes.
 
-6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, click **Back**. If you are satisfied with the settings, click **Recover** to start the recovery process.
+6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, click **Back**. If you're satisfied with the settings, click **Recover** to start the recovery process.
 
 7. The **Recovery Status** screen provides information about the recovery job.
 

@@ -43,7 +43,7 @@
         href: plan-an-application-integration.md
       - name: Plan for apps not listed in the gallery
         href: non-gallery-apps.md
-      - name: Plan an access panel deployment
+      - name: Plan a My Apps deployment
         href: access-panel-deployment-plan.md
       - name: Guidance for developers
         href: developer-guidance-for-integrating-applications.md

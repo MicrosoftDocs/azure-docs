@@ -11,7 +11,7 @@ ms.date: 02/24/2020
 ---
 
 # Visualize Azure Cognitive Search Logs and Metrics with Power BI
-[Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-what-is-azure-search) allows you to store operation logs and service metrics about your search service in an Azure Storage account. This page provides instructions for how you can visualize that information through a Power BI Template App. The app provides detailed insights about your search service, including information about Search, Indexing, Operations, and Service metrics.
+[Azure Cognitive Search](./search-what-is-azure-search.md) allows you to store operation logs and service metrics about your search service in an Azure Storage account. This page provides instructions for how you can visualize that information through a Power BI Template App. The app provides detailed insights about your search service, including information about Search, Indexing, Operations, and Service metrics.
 
 You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs and Metrics** in the [Power BI Apps marketplace](https://appsource.microsoft.com/marketplace/apps).
 
@@ -19,7 +19,7 @@ You can find the Power BI Template App **Azure Cognitive Search: Analyze Logs an
 
 1. Enable metric and resource logging for your search service:
 
-    1. Create or identify an existing [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) where you can archive the logs
+    1. Create or identify an existing [Azure Storage account](../storage/common/storage-account-create.md) where you can archive the logs
     1. Navigate to your Azure Cognitive Search service in the Azure portal
     1. Under the Monitoring section on the left column, select **Diagnostic settings**
 
@@ -94,8 +94,8 @@ If you find that you cannot see your data follow these troubleshooting steps:
 1. Check to see if the dataset is still refreshing. The refresh status indicator is shown in step 8 above. If it is still refreshing, wait until the refresh is complete to open and refresh the report.
 
 ## Next steps
-[Learn more about Azure Cognitive Search](https://docs.microsoft.com/azure/search/)
+[Learn more about Azure Cognitive Search](./index.yml)
 
-[What is Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 
-[Basic concepts for designers in the Power BI service](https://docs.microsoft.com/power-bi/service-basic-concepts)
+[Basic concepts for designers in the Power BI service](/power-bi/service-basic-concepts)

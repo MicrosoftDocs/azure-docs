@@ -35,6 +35,7 @@ Set up Azure to work with Azure Migrate.
 **Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to create a project. 
 **Register resource providers (assessment only)** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess machines with Azure Migrate:Server Assessment.<br/><br/> During appliance registration, resource providers are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> To register the resource providers, you need a Contributor or Owner role on the subscription.
 **Create Azure AD app (assessment only)** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication between the agents running on the appliance with their respective services running on Azure. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
+**Create a Key Vault** | The Key Vault is created as a part of appliance registration and is used for management of the certificate downloaded on the appliance during its configuration.<br/><br/>To allow Azure Migrate to create the Key Vault, your Azure account needs Contributor permissions on the resource group in which the Azure Migrate project resides.
 
 
 ### Assign permissions to create project 

@@ -66,14 +66,14 @@ The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is o
 > [!NOTE]
 > For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the **Azure.Identity** package (version 1.1.1).
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the latest version of the **Azure.Identity** package.
 
 * In Visual Studio, you can add packages with the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). 
 * Using the .NET command-line tool, you can run:
 
     ```cmd/sh
     dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-    dotnet add package Azure.identity --version 1.1.1
+    dotnet add package Azure.identity
     ```
 
 For a detailed walk-through of using the APIs in practice, see the [*Tutorial: Code a client app*](tutorial-code.md). 
