@@ -22,6 +22,8 @@ To access Azure resources including premium Azure file shares, you'll need an Az
 
 ## Create a FileStorage storage account
 
+Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. Premium file shares require a FileStorage account.
+
 # [Portal](#tab/azure-portal)
 
 ### Sign in to Azure
@@ -29,8 +31,6 @@ To access Azure resources including premium Azure file shares, you'll need an Az
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 Now you're ready to create your storage account.
-
-Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
 1. In the Azure portal, select **Storage Accounts** on the left menu.
 
@@ -145,7 +145,6 @@ STORAGEKEY=$(az storage account keys list \
     --account-name $STORAGEACCT \
     --query "[0].value" | tr -d '"')
 ```
-
 ---
 
 ## Create a premium file share
@@ -161,10 +160,6 @@ STORAGEKEY=$(az storage account keys list \
 
    ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-## Clean up resources
-
-If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
-
 # [PowerShell](#tab/azure-powershell)
 
 Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
@@ -176,14 +171,6 @@ Now that you have a FileStorage account, you can create a premium file share. Us
 New-AzStorageShare `
    -Name myshare `
    -Context $storageAcct.Context
-```
-
-### Clean up resources
-
-To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
-
-```powershell
-Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -203,11 +190,27 @@ az storage share create \
 
 ## Clean up resources
 
+
+# [Portal](#tab/azure-portal)
+
+If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
+
+# [PowerShell](#tab/azure-powershell)
+
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
+
+```powershell
+Remove-AzResourceGroup -Name $resourceGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
 To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
+---
 
 ## Next steps
 
