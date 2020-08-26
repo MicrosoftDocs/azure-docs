@@ -65,7 +65,7 @@ The evidence includes information about:
 
 ### Identity info table
 
-
+*(to be added later)*
 
 ### Behavior analytics table
 
@@ -78,17 +78,17 @@ The evidence includes information about:
 | TimeProcessed         | timestamp of when the activity was processed by the EBA engine      |
 | ActivityType          | high-level category of the activity                                 |
 | ActionType            | normalized *("friendly"?)* name of the activity                     |
-| UserName              | name of the user that initiated the activity ***(person's name or username?)*** |
+| UserName              | username of the user that initiated the activity                    |
 | UserPrincipalName     | FQDN of the user that initiated the activity                        |
 | EventSource           | data source that provided the original event                        |
 | SourceIPAddress       | IP address from which activity was initiated                        |
 | SourceIPLocation      | country from which activity was initiated, enriched from IP address |
-| SourceDevice          | name of the device that initiated the activity ***(what kind of name?)*** |
+| SourceDevice          | hostname of the device that initiated the activity                  |
 | DestinationIPAddress  | IP address of the target of the activity                            |
 | DestinationIPLocation | country of the target of the activity, enriched from IP address     |
 | DestinationDevice     | name of the target device                                           |
 | UsersInsights         | contextual enrichments of involved users                            |
-| DevicesInsights       | contextual enrichments ***(and anomalous activity evidence regarding?)*** involved devices |
+| DevicesInsights       | contextual enrichments of involved devices                          |
 | ActivityInsights      | collection of insights about the activity based on our profiling    |
 | InvestigationPriority | anomaly score, between 0-10: 0 - benign, 10 – highly anomalous)     |
 |
