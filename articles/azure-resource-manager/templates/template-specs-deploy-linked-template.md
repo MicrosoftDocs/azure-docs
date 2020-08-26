@@ -2,7 +2,7 @@
 title: Deploy a template spec as a linked template
 description: Learn how to deploy an existing template spec in a linked deployment.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/26/2020
 
 ---
 
@@ -123,9 +123,11 @@ $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateS
 
 ```azurecli-interactive
 id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
----
-
 ```
+
+> [!NOTE]
+> There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell. The command hangs.
+---
 
 The syntax for passing parameters to the template spec is:
 
