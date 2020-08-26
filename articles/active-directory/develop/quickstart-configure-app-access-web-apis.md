@@ -38,13 +38,14 @@ By specifying a web API's scopes in your client app's registration, the client a
 
 In this scenario, you grant a client app access to your own web API, both of which you should have registered as part of the prerequisites. If you don't yet have both a client app and a web API registered, complete the steps in the two [Prerequisites](#prerequisites) articles.
 
-This diagram shows how the two app registrations relate to one another:
+This diagram shows how the two app registrations relate to one another. In this section, you add permissions to the client app's registration.
 
 :::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left showing those scopes selected as permissions" border="false":::
 
 Once you have both your client app and web API registered and the API exposed with scopes, you can configure the client app's permissions to the API:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
 1. Select **API permissions** > **Add a permission** > **My APIs**
 1. Select the web API you registered as part of the prerequisites.
