@@ -16,7 +16,7 @@ ms.date: 06/22/2020
 
 In some cases, like with a free text field, simply selecting the correct [language analyzer](index-add-language-analyzers.md) will improve search results. However, some scenarios such as accurately searching phone numbers, URLs, or emails may require the use of custom analyzers.
 
-This tutorial uses Postman and Azure Cognitive Search's [REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to:
+This tutorial uses Postman and Azure Cognitive Search's [REST APIs](/rest/api/searchservice/) to:
 
 > [!div class="checklist"]
 > * Explain how analyzers work
@@ -220,7 +220,7 @@ If you find these results confusing, you're not alone. In the next section, we'l
 
 ## 4 - Debug search results
 
-To understand these search results, it's important to first understand how analyzers work. From there, we can test the default analyzer using the [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) and then create an analyzer that meets our needs.
+To understand these search results, it's important to first understand how analyzers work. From there, we can test the default analyzer using the [Analyze Text API](/rest/api/searchservice/test-analyzer) and then create an analyzer that meets our needs.
 
 ### How analyzers work
 
@@ -255,7 +255,7 @@ If the query terms don't match the terms in your inverted index, results won't b
 
 ### Test analyzer using the Analyze Text API
 
-Azure Cognitive Search provides an [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they process text.
+Azure Cognitive Search provides an [Analyze Text API](/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they process text.
 
 The Analyze Text API is called using the following request:
 

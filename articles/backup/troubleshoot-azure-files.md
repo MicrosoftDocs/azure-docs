@@ -20,7 +20,7 @@ This article provides troubleshooting information to address any issues you come
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the Recovery Services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
-- Ensure that the combined length of the storage account name and the resource group name don't exceed 84 characters in case of new Storage accounts and 77 characters in case of classic storage accounts.
+- Ensure that the combined length of the storage account name and the resource group name don't exceed 84 characters in the case of new Storage accounts and 77 characters in the case of classic storage accounts.
 - Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
 
 ### Error in portal states discovery of storage accounts failed
@@ -295,7 +295,7 @@ Error Message: Listed restore points are not available as the associated file sh
 Check if the backed-up file share is deleted. If it was in soft deleted state, check if the soft delete retention period is over and it wasn't recovered back. In either of these cases, you'll lose all your snapshots permanently and won’t be able to recover the data.
 
 >[!NOTE]
-> We recommend you don't delete the backed up file share, or if it is in soft deleted state, undelete before the soft delete retention period ends, to avoid lose all your restore points.
+> We recommend you don't delete the backed up file share, or if it's in soft deleted state, undelete before the soft delete retention period ends, to avoid losing all your restore points.
 
 ### UserErrorBackupAFSInSoftDeleteState - Backup failed as the Azure File Share is in soft-deleted state
 

@@ -9,7 +9,7 @@ ms.date: 04/23/2019
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
+> Based on feedback from users, we've renamed **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 > All the Azure backup users have now been upgraded to **Instant Restore**.
 
 The new model for Instant Restore provides the following feature enhancements:
@@ -71,7 +71,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-The default snapshot retention for each policy is set to two days. User can change the value to a minimum of 1 and a maximum of five days. For weekly policies, the snapshot retention is fixed to five days.
+The default snapshot retention for each policy is set to two days. You can change the value to a minimum of 1 and a maximum of five days. For weekly policies, the snapshot retention is fixed to five days.
 
 ## Frequently asked questions
 

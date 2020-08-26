@@ -56,7 +56,7 @@ Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 The first dependency is the [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
@@ -429,7 +429,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -542,24 +541,7 @@ namespace minimal
  
 The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
  
-If you no longer need the resources created in this tutorial, follow these steps to delete them.
-
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
-
-Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Finally, delete the project folder you created on your local machine.
 

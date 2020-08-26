@@ -58,7 +58,15 @@
       - name: Authenticate and authorize with Azure AD
         href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Authorize with Shared Key
-        href: /rest/api/storageservices/authorize-with-shared-key
+        items:
+        - name: View and manage account keys
+          href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Configure connection strings
+          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Prevent authorization with Shared Key
+          href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Use the Azure Storage REST API
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Authorize with SAS
         href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authorizing management operations
@@ -150,6 +158,8 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Use the Azure Storage REST API
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Prevent authorization with Shared Key
+          href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Manage Azure Storage encryption
       items:
       - name: Create an account that supports customer-managed keys
@@ -210,14 +220,14 @@
       href: storage-dotnet-how-to-use-queues.md
     - name: Java
       href: storage-java-how-to-use-queue-storage.md
+    - name: Python
+      href: storage-python-how-to-use-queue-storage.md
     - name: Node.js
       href: storage-nodejs-how-to-use-queues.md
     - name: C++
       href: storage-c-plus-plus-how-to-use-queues.md
     - name: PHP
       href: storage-php-how-to-use-queues.md
-    - name: Python
-      href: storage-python-how-to-use-queue-storage.md
     - name: Ruby
       href: storage-ruby-how-to-use-queue-storage.md
   - name: Manage queues
