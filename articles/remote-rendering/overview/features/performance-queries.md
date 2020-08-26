@@ -105,7 +105,8 @@ void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
     assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
     {
         // do something with the result:
-        PerformanceAssessment result = *res->Result();
+        PerformanceAssessment result = res->GetResult();
+
         // ...
 
     });
