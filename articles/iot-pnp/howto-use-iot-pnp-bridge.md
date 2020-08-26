@@ -4,7 +4,7 @@ description: Build and run IoT Plug and Play bridge on Linux or Windows that con
 author: usivagna
 ms.author: ugans
 ms.date: 08/23/2020
-ms.topic: howto
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
@@ -148,11 +148,11 @@ Similarly on Linux run the following:
 ## Start the IoT Plug and Play bridge (Environmental Sensor)
  Start the IoT Plug and Play bridge sample for Environmental sensors by running it in a command prompt:
 
-    ```
+```
     %REPO_DIR%\pnpbridge\> cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
 
     %REPO_DIR%\pnpbridge\cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor>  Debug\pnpbridge_environmentalsensor.exe
-    ```
+```
 
 ## Use Azure IoT explorer to validate the code
 

@@ -47,7 +47,7 @@ The following OS platforms and versions are supported:
 ### Hardware
 
 - Any hardware platform capable of supporting the above OS SKUs and versions.
-- Serial, USB, Bluetooth, and Camera peripherals and sensors are supported natively. The IoT Plug and Play Bridge can be extended to support any custom peripheral or sensor ([see peripherals section above](#IoT-Plug-and-Play-bridge)).
+- Serial, USB, Bluetooth, and Camera peripherals and sensors are supported natively. The IoT Plug and Play Bridge can be extended to support any custom peripheral or sensor ([see peripherals section above](#iot-plug-and-play-bridge)).
 
 ### Development Environment
 
@@ -66,7 +66,7 @@ To build, extend, and develop the IoT Plug and Play
 
 ## IoT Plug and Play bridge Architecture
 
-:::image type="content" source="media/concepts-iot-pnp-bridge/AzurePnPBridge.png" alt-text="On the left hand side there are several boxes indicating various peripherals attached to a Windows or Linux PC containing IoT Plug and Play bridge. From the top, a box labelled configuration points toward the bridge. The bridge ":::
+:::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-components.png" alt-text="On the left hand side there are several boxes indicating various peripherals attached to a Windows or Linux PC containing IoT Plug and Play bridge. From the top, a box labelled configuration points toward the bridge. The bridge ":::
 
 ## Download IoT Plug and Play bridge
 
@@ -78,6 +78,6 @@ You can also download and view the source code of [IoT Plug and Play bridge on G
 
 Now that you have an overview of the architecture of IoT Plug and Play bridge, the next steps are to learn more about:
 
-- [Connect a device to IoT Hub with IoT Plug and Play bridge](./quickstart-connect-device-iot-pnp-bridge.md)
+- [How to use IoT Plug and Play bridge](./howto-use-iot-pnp-bridge.md)
 - [See the GitHub Developer reference for IoT Plug and Play bridge](https://aka.ms/iot-pnp-bridge-dev-doc)
 - [IoT Plug and Play bridge on GitHub](https://aka.ms/bridge)
