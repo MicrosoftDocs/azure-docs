@@ -32,7 +32,7 @@ We recommend you perform the following validation steps, before you start troubl
 
 ### Limitation
 
-- Recovering to different hardware using System State recovery is not recommended by Microsoft
+- Recovering to different hardware using System State recovery isn't recommended by Microsoft
 - System State backup currently supports "on-premises" Windows servers. This functionality isn't available for Azure VMs.
 
 ## Prerequisites
@@ -81,7 +81,7 @@ To install Windows Server Backup using Server Manager, perform the following ste
 
 ### System Volume information permission
 
-Ensure that the Local SYSTEM has full control on the **System Volume Information** folder located in the volume where Windows is installed. Usually this is **C:\System Volume Information**. Windows Server backup can fail if the permissions above are not set correctly.
+Ensure that the Local SYSTEM has full control on the **System Volume Information** folder located in the volume where Windows is installed. Usually this is **C:\System Volume Information**. Windows Server backup can fail if the permissions above aren't set correctly.
 
 ### Dependent services
 

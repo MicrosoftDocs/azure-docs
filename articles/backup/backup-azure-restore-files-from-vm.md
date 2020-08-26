@@ -11,7 +11,7 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 
 > [!NOTE]
 > This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
-> File recovery from an encrypted VM backup is not supported.
+> File recovery from an encrypted VM backup isn't supported.
 >
 
 ## Mount the volume and copy files
@@ -81,7 +81,7 @@ Once the disks have been unmounted, you receive a message. It may take a few min
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
 
 > [!NOTE]
-> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. In case the connection is still open, the subsequent backup might fail with an error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage i.e., the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and so they will not be available during backup.
+> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. If the connection is still open, the subsequent backup might fail with the error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage, that is, the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and so they won't be available during backup.
 
 ## Selecting the right machine to run the script
 
@@ -163,7 +163,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 ###### Duplicate Volume groups
 
-There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are the same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -228,7 +228,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and so might result in data loss.
+> Don't use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by a script, which don't persist the data, and so might result in data loss.
 
 #### For RAID arrays
 
@@ -279,7 +279,7 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | openSUSE | 42.2 and above |
 
 > [!NOTE]
-> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we are investigating with the SLES team.
+> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
 > Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
 >
 
@@ -349,7 +349,7 @@ If you have problems while recovering files from the virtual machines, check the
 | Error Message / Scenario | Probable Cause | Recommended action |
 | ------------------------ | -------------- | ------------------ |
 | Exe output: *Exception caught while connecting to target* | The script isn't able to access the recovery point    | Check whether the machine fulfills the [previous access requirements](#access-requirements). |  
-| Exe output: *The target has already been logged in via an iSCSI session.* | The script was already executed on the same machine and the drives have been attached | The volumes of the recovery point have already been attached. They may NOT be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file. |
+| Exe output: *The target has already been logged in via an iSCSI session.* | The script was already executed on the same machine and the drives have been attached | The volumes of the recovery point have already been attached. They may not be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file. |
 | Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal.* |    The disks have been dismounted from the portal or the 12-hour limit was exceeded | This particular exe is now invalid and can't be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe.|
 | On the machine where the exe is run: The new volumes aren't dismounted after the dismount button is clicked | The iSCSI initiator on the machine isn't responding/refreshing its connection to the target and maintaining the cache. |  After clicking **Dismount**, wait a few minutes. If the new volumes aren't dismounted, browse through all volumes. Browsing all volumes forces the initiator to refresh the connection, and the volume is dismounted with an error message that the disk isn't available.|
 | Exe output: The script is run successfully but "New volumes attached" is not displayed on the script output |    This is a transient error    | The volumes will have been already attached. Open Explorer to browse. If you're using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
