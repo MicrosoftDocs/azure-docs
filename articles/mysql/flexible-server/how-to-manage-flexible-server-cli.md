@@ -1,8 +1,8 @@
 ---
 title: Manage server - Azure CLI - Azure Database for MySQL Flexible Server
 description: Learn how to manage an Azure Database for MySQL Flexible server from the Azure CLI.
-author: ajlam
-ms.author: andrela
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
@@ -32,7 +32,7 @@ az account set --subscription <subscription id>
 
 If you have not already created a sever , refer to this [quickstart](quickstart-create-mysql-server-database-using-azure-cli.md) to create one.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 ## Scale compute and storage
 You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server?view=azure-cli-latest)
@@ -47,7 +47,7 @@ Here are the details for arguments above :
 ---|---|---
 name | mydemoserver | Enter a unique name for your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
-sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](./concepts-pricing-tiers.md) for more information.
+sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See the [pricing tiers](../concepts-pricing-tiers.md) for more information.
 storage-size | 6144 | The storage capacity of the server (unit is megabytes). Minimum 5120 and increases in 1024 increments.
 
 > [!Important]
@@ -76,13 +76,8 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
-If you would just like to delete the MySQL Single server, you can run [az mysql flexible-server server delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) command.
+If you would just like to delete the MySQL Flexible server, you can run [az mysql flexible-server server delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) command.
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver
 ```
-
-## Next steps
-- [Restart a server](howto-restart-server-cli)
-- [Restore a server in a bad state](howto-restore-server-cli)
-- [Monitor and tune the server](concepts-monitoring.md)

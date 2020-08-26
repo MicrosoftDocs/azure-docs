@@ -83,6 +83,6 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## Next steps
-- [Restart a server](howto-restart-server-cli)
-- [Restore a server in a bad state](howto-restore-server-cli)
+- [Restart a server](howto-restart-server-cli.md)
+- [Restore a server in a bad state](howto-restore-server-cli.md)
 - [Monitor and tune the server](concepts-monitoring.md)
