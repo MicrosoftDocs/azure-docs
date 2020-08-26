@@ -443,7 +443,7 @@ Revoking the key effectively blocks access to all registry data, since the regis
 If your Azure key vault is deployed in a virtual network with a Key Vault firewall, perform the following additional steps after enabling customer-managed key encryption in your registry.
 
 1. Configure registry encryption to use the registry's system-assigned identity
-2. Enabe the registry to bypass the Key Vault firewall
+1. Enable the registry to bypass the Key Vault firewall
 
 ### Configure system-assigned identity
 
@@ -472,7 +472,7 @@ To update the registry's encryption settings to use the identity:
 
 ### Enable key vault access
 
-To enable your registry to access a key vault using a Key Vault firewall, the registry must bypass the firewall. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
+To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
 
 1. In the portal, navigate to your key vault.
 1. Select **Settings** > **Networking**.
