@@ -218,7 +218,7 @@ This table provides details about policy associations with various entities.
 | Field | Data Type | Versions Applicable | Description |
 | --- | --- | --- | --- |
 | EventName_s |Text ||This field represents name of this event. It's always AzureBackupCentralReport |
-| SchemaVersion_s |Text ||This field denotes current version of the schema. It iss **V2** |
+| SchemaVersion_s |Text ||This field denotes current version of the schema. It is **V2** |
 | State_s |Text ||Current state of the policy object, for example, Active, Deleted |
 | BackupManagementType_s |Text ||Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text ||This field represents name of the current operation - PolicyAssociation |
