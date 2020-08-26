@@ -54,7 +54,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Failure to open the following ports or whitelisting the IP/URL will prevent proper operation of the cluster and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), otherwise additional ports will need to be opened.
+The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Failure to open the following ports or whitelisting the IP/URL will prevent proper operation of the cluster and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), otherwise additional ports will need to be opened.
 
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
@@ -107,7 +107,7 @@ More information about the outbound security rules:
 
 * **Upgrade**. The upgrade service using the address download.microsoft.com to get the bits, this is needed for setup, re-image and runtime upgrades. The service operates with dynamic IP addresses. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
 
-Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-flow-logging-overview) and [traffic analytics](../network-watcher/traffic-analytics) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
+Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](../network-watcher/traffic-analytics.md) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
 
 
 ## Application Networking
