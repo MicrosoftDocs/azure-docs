@@ -6,6 +6,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 ### Speech-to-text or Custom Speech-to-text
