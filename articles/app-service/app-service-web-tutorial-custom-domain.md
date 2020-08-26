@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-* [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+* [Create an App Service app](./index.yml), or use an app that you created for another tutorial.
 * Purchase a domain name and make sure you have access to the DNS registry for your domain provider (such as GoDaddy).
 
   For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
