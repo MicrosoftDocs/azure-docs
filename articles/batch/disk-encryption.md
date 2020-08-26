@@ -91,7 +91,7 @@ Request body:
 }
 ```
 
-### CLI
+### Azure CLI
 
 ```azurecli-interactive
 az batch pool create \
