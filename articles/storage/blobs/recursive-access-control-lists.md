@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -62,7 +62,7 @@ Install the necessary libraries.
 5. Install **Az.Storage** preview module.
 
    ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.1-preview -AllowClobber -AllowPrerelease -Force  
+   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
@@ -445,11 +445,10 @@ You can remove one or more ACL entries recursively.
 
 Remove ACL entries by using the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
 
-This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
+This example removes an ACL entry from the root directory of the container.  
 
 ```powershell
 $filesystemName = "my-container"
-$dirname = "my-parent-directory/"
 $userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 
 $acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
@@ -595,7 +594,7 @@ This section contains links to libraries and code samples.
 
 #### Libraries
 
-- [PowerShell](need link)
+- [PowerShell](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.powershellgallery.com%2Fpackages%2FAz.Storage%2F2.5.2-preview&data=02%7C01%7Cnormesta%40microsoft.com%7Ccdabce06132c42132b4008d849a2dfb1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637340311173215017&sdata=FWynO9UKTt7ESMCFgkWaL7J%2F%2BjODaRo5BD6G6yCx9os%3D&reserved=0)
 - [.NET](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
 
