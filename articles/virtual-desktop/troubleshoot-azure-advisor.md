@@ -64,18 +64,16 @@ This won't make the warning go away immediately, but it should stop appearing wi
 
 ![](media/e5b44420a46caa0e862bc842d52b22cd.png)
 
-## “Not enough links are whitelisted for successful implementation of a VM”
+## “Not enough links are unblocked to successfully implement your VM”
 
 This issue appears under Operational Excellence.
 
-There is a list of certain URLs that need to be unblocked for a user to be able to effectively use Windows Virtual Desktop. There needs to be a declaration that these links are unblocked for the virtual machine to function optimally. To see an minimum list of the required links for the virtual machines to function, plus additional best practices, visit the following link: <https://docs.microsoft.com/en-us/azure/virtual-desktop/safe-url-list>
+You need to unblock specific URLs to make sure that your virtual machine (VM) functions properly. You can see the list at [Safe URL list](safe-url-list.md). If the URLs aren't unblocked, then your VM won't work properly.
 
 ### How to resolve the warning
 
-To resolve this, you have to whitelist the URLs found at this link. <https://docs.microsoft.com/en-us/azure/virtual-desktop/safe-url-list>. You can use Service Tag or FQDN Tags to do the same.
+To solve this issue, make sure you unblock all the URLs on the [Safe URL list](safe-url-list.md). You can use Service Tag or FQDN tags to unblock URLs, too.
 
-**Feedback**
+## Propose new recommendations
 
-Do you have an idea for a recommendation that you wish already existed? Let us know! Chances are, if you’re experiencing an issue, many other users are too. By submitting a proposal for a future recommendation, you can help us help many more people in the future. Click the following link to share your idea with us. Be as detailed as possible, that way we can have the best opportunity to make your submission into a recommendation.
-
-<https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations>
+You can help us improve Azure Advisor by submitting ideas for recommendations based on issues you've encountered. Chances are, other users may be encountering the same issue and could benefit from your guidance. To submit a suggestion, go to [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) and fill out the form with as much detail as possible.
