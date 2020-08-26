@@ -5,13 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 08/27/2020
 tags: connectors
 ---
 
 # Receive and respond to inbound HTTPS requests in Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger and Response action, you can create automated tasks and workflows that receive and respond to incoming HTTPS requests. For example, you can have your logic app:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in Request trigger and Response action, you can create automated tasks and workflows that can receive inbound requests over HTTPS. To send outbound requests instead, use the built-in [HTTP trigger or HTTP action](../connectors/connectors-native-http.md).
+
+For example, you can have your logic app:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 
@@ -19,37 +21,15 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 * Receive and respond to an HTTPS call from another logic app.
 
-The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+This article shows how to use the Request trigger and Response action so that your logic app can receive and respond to inbound calls.
+
+For information about encryption, security, and authorization for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), or [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="tls-support"></a>
-
-## Transport Layer Security (TLS)
-
-* Inbound calls support *only* Transport Layer Security (TLS) 1.2. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](/security/solving-tls1-problem). Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability.
-
-* Inbound calls support these cipher suites:
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
 <a name="add-request"></a>
 
@@ -206,11 +186,9 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
 1. To trigger your logic app, send an HTTP POST to the generated URL.
 
-   For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP POST. If you [enabled Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) for authorizing inbound calls to the Request trigger, either call the trigger by using a [Shared Access Signature (SAS) URL](../logic-apps/logic-apps-securing-a-logic-app.md#sas) or by using an authentication token, but you can't use both. The authentication token must specify the `Bearer` type in the authorization header. For more information, see [Secure access and data in Azure Logic Apps - Access to request-based-triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP POST. For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
-### Trigger outputs
+## Trigger outputs
 
 Here's more information about the outputs from the Request trigger:
 
@@ -284,5 +262,5 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 
 ## Next steps
 
+* [Secure access and data in Azure Logic Apps - Access - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Connectors for Logic Apps](../connectors/apis-list.md)
-

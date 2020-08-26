@@ -609,7 +609,7 @@ The Request trigger supports only Transport Layer Security (TLS) 1.2 for inbound
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-* [Secure access and data in Azure Logic Apps](./logic-apps-securing-a-logic-app.md)
+* [Secure access and data in Azure Logic Apps - Access for inbound calls to request-based triggers](./logic-apps-securing-a-logic-app.md)
 
 * [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md#tls-support)
 
