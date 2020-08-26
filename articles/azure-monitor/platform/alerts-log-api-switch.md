@@ -29,7 +29,7 @@ In the past, users used the [legacy Log Analytics Alert API](api-alerts.md) base
 
 ## Impact
 
-- All new rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [sample use via PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
+- All new rules must be created/edited with the current API. See [sample use via Azure Resource Template](alerts-log-create-templates.md) and [sample use via PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 - As rules become Azure Resource Manager tracked resources in the current API and must be unique, rules resource ID will change to this structure: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Display names of the alert rule will remain unchanged.
 
 ## Process
@@ -99,6 +99,6 @@ If the Log Analytics workspace wasn't switched, the response is:
 ## Next steps
 
 - Learn about the [Azure Monitor - Log Alerts](alerts-unified-log.md).
-- Learn how to [manage your log alerts using the API](alerts-log.md#managing-log-alerts-using-azure-resource-template).
+- Learn how to [manage your log alerts using the API](alerts-log-create-templates.md).
 - Learn how to [manage log alerts using PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 - Learn more about the [Azure Alerts experience](./alerts-overview.md).
