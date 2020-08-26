@@ -11,7 +11,7 @@ This article describes the security configuration and considerations you should 
 
 ## Identity and access control
 
-Each Azure Arc enabled server has a managed identity as part of a resource group inside an Azure subscription that represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) page in the Azure portal, you can verify who has access to your Azure Arc enabled server.
+Each Azure Arc enabled server has a managed identity as part of a resource group inside an Azure subscription that represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) page in the Azure portal, you can verify who has access to your Azure Arc enabled server.
 
 :::image type="content" source="./media/security-considerations/access-control-page.png" alt-text="Azure Arc enabled server access control" border="false":::
 
@@ -39,7 +39,7 @@ While the Hybrid Instance Metadata Service (himds) can be accessed by any applic
 
 * On Windows, the caller must be a member of the local **Administrators** group or the **Hybrid Agent Extension Applications** group to read the blob.
 
-* On Linux, the caller must be a member of the **himds** group to read the blob. 
+* On Linux, the caller must be a member of the **himds** group to read the blob.
 
 ## What the Azure Active Directory system assigned identity can manage
 
@@ -48,3 +48,5 @@ By default, the Azure Active Directory system assigned identity used by Arc can 
 ## Using disk encryption
 
 The Azure Connected Machine agent (azcmagent) uses public key authentication to communicate with the Azure service. After you onboard a server to Azure Arc, a private key is saved to the disk and used whenever the agent communicates with Azure. If stolen, the private key can be used on another server to communicate with the service and act as if it were the original server. This includes getting access to the system assigned identity and any resources that identity has access to. The private key file is protected to only allow the **himds** account access to read it. To prevent offline attacks, we strongly recommend the use of full disk encryption (for example, BitLocker, dm-crypt, etc.) on the operating system volume of your server.
+
+## Next steps
