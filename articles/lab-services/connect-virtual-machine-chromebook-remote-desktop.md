@@ -14,21 +14,22 @@ This section shows how a student can connect to a classroom lab VM from a Chrome
 ## Install Microsoft Remote Desktop on a Chromebook
 1. Open the App Store on your Chromebook, and search for **Microsoft Remote Desktop**.
 
-    ![Microsoft Remote Desktop](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
+    <img src="./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png" alt="Microsoft Remote Desktop" width="50%"/>
+    
 1. Install the latest version of Microsoft Remote Desktop. 
 
 ## Access the VM from your Chromebook using RDP
 1. Open the **RDP** file that's downloaded on your computer with **Microsoft Remote Desktop** installed. It should start connecting to the VM. 
 
-    ![Connect to VM](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
+    <img src="./media/how-to-use-classroom-lab/connect-vm-chromebook.png" alt="Connect to VM" width="50%"/>
 
 1. When prompted, enter your password.
-    ![Connect to VM](./media/how-to-use-classroom-lab/password-chromebook.png)
 
+    <img src="./media/how-to-use-classroom-lab/password-chromebook.png" alt="Connect to VM" width="50%"/>
 
 1. Select **Continue** if you receive the following warning. 
 
-    ![Certificate warning](./media/how-to-use-classroom-lab/certificate-error-chromebook.png)
+    <img src="./media/how-to-use-classroom-lab/certificate-error-chromebook.png" alt="Certificate warning" width="50%"/>
 
 1. You should see the desktop of the VM that you are connecting to.
 
