@@ -30,11 +30,13 @@ Select the specific subscription under your account using [az account set](/cli/
 az account set --subscription <subscription id>
 ```
 
-If you have not already created a sever , refer to this [quickstart](quickstart-create-mysql-server-database-using-azure-cli.md) to create one.
-
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
+> [!Important]
+> If you have not already created a flexible server yet, please create one to get started with this how to guide.
+
 ## Scale compute and storage
+
 You can scale up your pricing tier , compute and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server?view=azure-cli-latest)
 
 ```azurecli-interactive
