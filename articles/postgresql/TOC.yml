@@ -361,10 +361,12 @@
 - name: Flexible server
 - name: Hyperscale (Citus)
   items:
+  - name: Documentation
+    href: hyperscale/index.yml
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create DB - Portal
+    - name: Create Server Group - Portal
       href: quickstart-create-hyperscale-portal.md
       displayName: portal, create hyperscale
   - name: Tutorials
