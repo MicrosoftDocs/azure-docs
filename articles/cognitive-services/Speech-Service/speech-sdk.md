@@ -35,6 +35,7 @@ The Speech SDK exposes many features from the Speech service, but not all of the
   - Python
   - Swift
   - Objective-C  
+  - Go (SR only)
 
 ### Text-to-speech
 
@@ -103,7 +104,7 @@ The Speech SDK can be used for transcribing call center scenarios, where telepho
 
 [Call Center Transcription](call-center-transcription.md) is common scenario for speech-to-text for transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The latest speech recognition models from the Speech service excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand.
 
-**Call Center Transcription** is available through the REST API and can be used in any situation
+**Call Center Transcription** is available through the Batch Speech Service via its REST API and can be used in any situation.
 
 ### Codec compressed audio input
 
