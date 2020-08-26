@@ -74,7 +74,7 @@ You can add exclusion rules to skip files and folders that you don't want to be 
     ![Select the items to remove](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it is recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
+    > Proceed with caution when you completely remove a volume from the policy.  If you need to add it again, then it will be treated as a new volume. The next scheduled backup will perform an Initial Backup (full backup) instead of Incremental Backup. If you need to temporarily remove and add items later, then it's recommended to use **Exclusions Settings** instead of **Remove Items** to ensure incremental backup instead of full backup.
 
 2. Complete the next steps and select **Finish** to complete the operation.
 

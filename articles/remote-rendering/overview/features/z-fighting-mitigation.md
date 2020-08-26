@@ -37,13 +37,13 @@ void EnableZFightingMitigation(AzureSession session, bool highlight)
 ```cpp
 void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 {
-    ApiHandle<ZFightingMitigationSettings> settings = *session->Actions()->ZFightingMitigationSettings();
+    ApiHandle<ZFightingMitigationSettings> settings = session->Actions()->GetZFightingMitigationSettings();
 
     // enabling z-fighting mitigation
-    settings->Enabled(true);
+    settings->SetEnabled(true);
 
     // enabling checkerboard highlighting of z-fighting potential
-    settings->Highlighting(highlight);
+    settings->SetHighlighting(highlight);
 }
 ```
 

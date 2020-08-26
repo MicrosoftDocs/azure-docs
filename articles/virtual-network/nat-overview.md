@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
 ---
 
@@ -119,31 +119,17 @@ You can monitor the operation of your NAT through multi-dimensional metrics expo
 
 At general availability, NAT data path is at least 99.9% available.
 
-
 ## Pricing
 
-NAT gateway is billed with two separate meters:
-
-| Meter | Rate |
-| --- | --- |
-| Resource hours | $0.045/hour |
-| Data processed | $0.045/GB |
-
-Resource hours accounts for the duration during which a NAT gateway resource exists.
-Data processed accounts for all traffic processed by a NAT gateway resource.
+For pricing details, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## Availability
 
-Virtual Network NAT and the NAT gateway resource are available in all Azure public cloud [regions](https://azure.microsoft.com/global-infrastructure/regions/).
-
-## Support
-
-NAT is supported through normal support channels.
+Virtual Network NAT and the NAT gateway resource are available in all regions of all Azure clouds [regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## Suggestions
 
 We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
-
 
 ## Limitations
 
