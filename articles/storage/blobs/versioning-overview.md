@@ -225,25 +225,25 @@ The following scenarios demonstrate how charges accrue for a block blob and its 
 
 In scenario 1, the blob has a previous version. The blob has not been updated since the version was created, so charges are incurred only for unique blocks 1, 2, and 3.
 
-![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagram 1 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### Scenario 2
 
 In scenario 2, one block (block 3 in the diagram) in the blob has been updated. Even though the updated block contains the same data and the same ID, it is not the same as block 3 in the previous version. As a result, the account is charged for four blocks.
 
-![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagram 2 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### Scenario 3
 
 In scenario 3, the blob has been updated, but the version has not. Block 3 was replaced with block 4 in the base blob, but the previous version still reflects block 3. As a result, the account is charged for four blocks.
 
-![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagram 3 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### Scenario 4
 
 In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks &mdash; four in the base blob, and four in the previous version. This scenario can occur if you are writing to a blob with the [Put Blob](/rest/api/storageservices/put-blob) operation, because it replaces the entire contents of the base blob.
 
-![Azure Storage resources](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagram 4 showing billing for unique blocks in base blob and previous version](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ### Billing when the blob tier has been explicitly set
 
