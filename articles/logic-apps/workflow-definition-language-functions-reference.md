@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/26/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1182,7 +1182,7 @@ If you're using `bool()` with an object, the value of the object must be a strin
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| **true** or **false** | Boolean | The Boolean version of the specified value. |
+| `true` or `false` | Boolean | The Boolean version of the specified value. |
 ||||
 
 *Outputs*
@@ -1191,11 +1191,11 @@ These examples show the different supported types of input for `bool()`:
 
 | Input value | Type | Return value |
 | ----------- | ---------- | ---------------------- |
-| `bool(1)` | integer | `true` |
-| `bool(0)` | integer    | `false` |
-| `bool(-1)` | integer | `true` |
-| `bool('true')` | string | `true` |
-| `bool('false')` | string | `false` |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
