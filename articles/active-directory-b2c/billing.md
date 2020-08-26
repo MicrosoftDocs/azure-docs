@@ -73,13 +73,19 @@ A tenant must be linked to the appropriate Azure pricing tier based on the featu
 
 To change your pricing tier, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the Azure portal.
 
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription you'd like to use (*not* the directory containing the Azure AD B2C tenant).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription your Azure B2C tenant is linked to (*don't* select the Azure AD B2C tenant itself).
 
-1. In the left menu, select **All resources**. Or, select **All services** and search for and select **All resources**.
+1. In the search box at the top of the portal, enter the name of your Azure AD B2C tenant. Then select the tenant in the search results under **Resources**.
 
-1. Select the name of your Azure AD B2C tenant.
+1. On the resource **Overview** page, under **Pricing tier**, select **change**.
+
+   ![Change pricing tier](media/conditional-access-identity-protection-setup/change-pricing-tier.png)
+ 
+1. Select **Azure AD Premium P2**.
+
+   ![Change pricing tier](media/conditional-access-identity-protection-setup/select-tier.png)
 
     ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/change-pricing-tier.png)
 
