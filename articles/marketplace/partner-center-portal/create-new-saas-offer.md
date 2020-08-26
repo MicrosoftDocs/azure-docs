@@ -229,7 +229,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 
 #### Terms and conditions
 
-If you want to provide your own custom terms and conditions, you can elect to enter them in the terms and conditions field. You can enter up to 10,000 characters of text in this field. If your terms and conditions require a longer description, enter a single URL link into this field where your terms and conditions can be found. It will display to customers as an active link.
+If you want to provide your own custom terms and conditions, you can elect to enter them in the terms and conditions field. You can enter up to 10,000 characters of text in this field. If your terms and conditions require a longer description, enter a single URL link into this field where your terms and conditions can be found.
 
 Customers are required to accept these terms before they can try your offer.
 

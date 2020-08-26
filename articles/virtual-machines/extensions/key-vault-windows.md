@@ -126,6 +126,8 @@ The JSON configuration for a virtual machine extension must be nested inside the
 
 
 ## Azure PowerShell deployment
+> [!WARNING]
+> PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
 
