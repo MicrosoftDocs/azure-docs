@@ -111,7 +111,7 @@ Once you have several origins and an origin group, you can add or remove the ori
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Update origin group delete origin" border="true":::
 
-## Override origin group with rule engine
+## Override origin group with rules engine
 
 Customize how traffic is distributed to different origin groups by using the standard rules engine.
 
