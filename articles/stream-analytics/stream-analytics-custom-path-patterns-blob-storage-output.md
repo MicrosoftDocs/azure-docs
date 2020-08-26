@@ -39,7 +39,7 @@ Once the job starts running, the *clients* container may look like the following
 
 ![Clients container](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Each folder may contain multiple blobs where each blob contains one or more records. In the above example, there is a single blob in a folder labelled "06000000" with the following contents:
+Each folder may contain multiple blobs where each blob contains one or more records. In the above example, there is a single blob in a folder labeled "06000000" with the following contents:
 
 ![Blob contents](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -108,7 +108,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### Example
 
-Create a storage account, a resource group, a Stream Analytics job, and an input source according to the [Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) quickstart guide. Use the same sample data used in the quickstart guide, also available on [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
+Create a storage account, a resource group, a Stream Analytics job, and an input source according to the [Azure Stream Analytics Azure portal](stream-analytics-quick-create-portal.md) quickstart guide. Use the same sample data used in the quickstart guide, also available on [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 
 Create a blob output sink with the following configuration:
 
