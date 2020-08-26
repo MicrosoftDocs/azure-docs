@@ -50,7 +50,7 @@ This authentication flow does not include application scenarios that use cross-p
 
 To enable this scenario for your application, you need:
 
-* Application registration with Azure Active Directory (Azure AD). The registrations step differ between the implicit grant flow and authorization code flow.
+* Application registration with Azure Active Directory (Azure AD). The registration steps differ between the implicit grant flow and authorization code flow.
 * Application configuration with the registered application properties, such as the application ID.
 * Using Microsoft Authentication Library for JavaScript (MSAL.js) to do the authentication flow to sign in and acquire tokens.
 
