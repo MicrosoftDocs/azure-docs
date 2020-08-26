@@ -54,7 +54,7 @@ az set account --subscription <your-subscription-id>
 To monitor the telemetry your device is sending, use the following command:
 
 ```cmd/bash
-az iot central app monitor-events -n <app-id> -d <device-name>
+az iot central app monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 If the device has connected successfully to IoT Central, you see output similar to the following:
@@ -79,7 +79,7 @@ Filtering on device: device-001
 To monitor the property updates your device is exchanging with IoT Central, use the following preview command:
 
 ```cmd/bash
-az iot central app monitor-properties -n <app-id> -d <device-name>
+az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 If the device successfully sends property updates, you see output similar to the following:
@@ -105,7 +105,7 @@ If you're still not seeing any data appear on your terminal, it's likely that yo
 If your data is not appearing on the monitor, check the provisioning status of your device by running the following command:
 
 ```cmd/bash
-az iot central app device registration-info -n <app-id> -d <device-id>
+az iot central app device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 The following output shows an example of a device that's blocked from connecting:
@@ -175,13 +175,13 @@ To detect which categories your issue is in, run the most appropriate command fo
 - To validate telemetry, use the preview command:
 
     ```cmd/bash
-    az iot central app validate-messages -n <app-id> -d <device-name>
+    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - To validate property updates, use the preview command
 
     ```cmd/bash
-    az iot central app validate-properties -n <app-id> -d <device-name>
+    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 - If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
