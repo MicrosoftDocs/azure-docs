@@ -21,7 +21,7 @@ While the information in this document is based on using [Azure Firewall](../fir
 
 ## Application rules
 
-On your firewall, create an _application rule__ allowing traffic to and from the addresses in this article.
+On your firewall, create an _application rule_ allowing traffic to and from the addresses in this article.
 
 > [!TIP]
 > When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
