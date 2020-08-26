@@ -68,9 +68,9 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
     > [!NOTE]
     > **uniqueDNSname** needs to be a globally unique name in order for the template to deploy successfully. If deployment fails, start over with Step 1.
 
-It takes a few minutes to deploy the template. When completed, the output is similar to:
+    It takes a few minutes to deploy the template. When completed, the output is similar to:
 
-:::image type="content" source="./media/quickstart-create-traffic-manager-profile/tm-arm-psoutput.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/tm-arm-psoutput.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
