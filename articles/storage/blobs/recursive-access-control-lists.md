@@ -1,6 +1,6 @@
 ---
 title: Set ACLs recursively for Azure Data Lake Storage Gen2 | Microsoft Docs
-description: You can add, update, and remove ACLs recursively for existing child items of a parent directory without having to make these changes individually for each child item.
+description: You can add, update, and remove access control lists recursively for existing child items of a parent directory.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -194,7 +194,7 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 #### Connect by using an account key
 
-This is the easiest way to connect to an account. 
+This approach is the easiest way to connect to an account. 
 
 This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using an account key.
 
@@ -279,7 +279,7 @@ You can set the ACLs recursively.
 
 Set an ACL recursively by using the `Set-AzDataLakeGen2AclRecursive` cmdlet.
 
-This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
 ```powershell
 $filesystemName = "my-container"
@@ -299,7 +299,7 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 
 Set an ACL recursively by calling the **DataLakeDirectoryClient.SetAccessControlRecursiveAsync** method. Pass this method a [List](/dotnet/api/system.collections.generic.list-1) of [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Each [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) defines an ACL entry.
 
-This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
 ```cs
 public async void SetACLRecursively(DataLakeServiceClient serviceClient)
@@ -339,7 +339,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 Set an ACL recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
 
-This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
 ```python
 def set_permission_recursively():
@@ -508,7 +508,7 @@ def remove_permission_recursively():
 
 ## Recover from failures
 
-You might encounter runtime or permission errors. For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can re-apply ACL entries without any negative impact.
+You might encounter runtime or permission errors. For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can reapply ACL entries without any negative impact.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -612,15 +612,15 @@ This section provides you some best practice guidelines for setting ACLs recursi
 
 #### Handling runtime errors
 
-A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be re-applied to items without causing a negative impact. 
+A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be reapplied to items without causing a negative impact. 
 
 #### Handling permission errors (403)
 
-If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed won't have to be processed again. You can also choose to restart the recursive ACL process. ACLs can be re-applied to items without causing a negative impact. 
+If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed won't have to be processed again. You can also choose to restart the recursive ACL process. ACLs can be reapplied to items without causing a negative impact. 
 
 #### Credentials 
 
-We recommend that you provision an AAD security principal that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
+We recommend that you provision an Azure AD security principal that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
 
 #### Performance 
 
