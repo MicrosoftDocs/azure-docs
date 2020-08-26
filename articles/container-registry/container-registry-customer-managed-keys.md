@@ -470,7 +470,7 @@ To update the registry's encryption settings to use the identity:
 1. Under **Settings**, select  **Encryption** > **Change key**.
 1. In **Identity**, select **System assigned**, and select **Save**.
 
-### Enable key vault access
+### Enable key vault bypass
 
 To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall. Configure the key vault to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
 
