@@ -52,14 +52,13 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 #### Step: 1 Check the RDP port
 
-1. In a PowerShell instance, use the [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-) to check whether port 8080 is used by other applications:
+1. In a PowerShell instance, use the [NETSTAT](/windows-server/administration/windows-commands/netstat) to check whether port 3389 is used by other applications:
 
     ```powershell
     Netstat -anob |more
     ```
 
-2. If Termservice.exe is using 8080 port, go to step 2. If another service or application other than Termservice.exe is using 8080 port, follow these steps:
+2. If Termservice.exe is using 3389 port, go to step 2. If another service or application other than Termservice.exe is using 3389 port, follow these steps:
 
     1. Stop the service for the application that is using the 3389 service:
 
@@ -183,7 +182,7 @@ The RDP client uses TLS 1.0 as the default protocol. However, this can be change
 
 #### Attach the OS disk to a recovery VM
 
-1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Attach the OS disk to a recovery VM](./troubleshoot-recovery-disks-portal-windows.md).
 2. After the OS disk is attached to the recovery VM, make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 3. Start a Remote Desktop connection to the recovery VM.
 
@@ -296,4 +295,4 @@ To enable dump log and Serial Console, run the following script.
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
     ```
 
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md), and then check whether the issue is resolved.
+5. [Detach the OS disk and recreate the VM](./troubleshoot-recovery-disks-portal-windows.md), and then check whether the issue is resolved.

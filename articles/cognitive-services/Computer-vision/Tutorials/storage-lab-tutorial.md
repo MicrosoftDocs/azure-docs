@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
 
@@ -28,7 +29,7 @@ This tutorial shows you how to:
 > * Attach metadata to Azure Storage images
 > * Check image metadata using Azure Storage Explorer
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin. 
 
 ## Prerequisites
 
@@ -56,7 +57,7 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
 ## Add Computer Vision credentials
 
-Next, you'll add the required credentials to your app so that it can access Computer Vision resources
+Next, you'll add the required credentials to your app so that it can access Computer Vision resources.
 
 Open your ASP.NET web application in Visual Studio and navigate to the **Web.config** file at the root of the project. Add the following statements to the `<appSettings>` section of the file, replacing `VISION_KEY` with the key you copied in the previous step, and `VISION_ENDPOINT` with the URL you saved in the step before.
 

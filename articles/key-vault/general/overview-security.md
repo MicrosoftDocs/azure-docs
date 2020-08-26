@@ -42,11 +42,11 @@ The model of a single mechanism for authentication to both planes has several be
 
 ### Managing administrative access to Key Vault
 
-When you create a key vault in a resource group, you manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You can grant access at a specific scope level by assigning the appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
+When you create a key vault in a resource group, you manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You can grant access at a specific scope level by assigning the appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
 
-- **Subscription**: An RBAC role assigned at the subscription level applies to all resource groups and resources within that subscription.
-- **Resource group**: An RBAC role assigned at the resource group level applies to all resources in that resource group.
-- **Specific resource**: An RBAC role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
+- **Subscription**: An Azure role assigned at the subscription level applies to all resource groups and resources within that subscription.
+- **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
+- **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
 
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -61,7 +61,7 @@ Key Vault access policies grant permissions separately to keys, secrets, or cert
 > [!IMPORTANT]
 > Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
 
-To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
+To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
 
 You can restrict data plane access by using [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)). You can configure [firewalls and virtual network rules](network-security.md) for an additional layer of security.
 
@@ -95,4 +95,4 @@ For recommendation on securely managing storage accounts review the [Azure Stora
 
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
+

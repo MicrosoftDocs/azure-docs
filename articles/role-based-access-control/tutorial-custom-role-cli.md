@@ -13,7 +13,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurecli
 
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
 

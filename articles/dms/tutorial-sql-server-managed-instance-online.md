@@ -3,15 +3,15 @@ title: "Tutorial: Migrate SQL Server online to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 08/04/2020
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS
@@ -83,6 +83,9 @@ To complete this tutorial, you need to:
   > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. Alternatively, you can create custom roles that grant the specific permissions that Azure Database Migration Service requires. For step-by-step guidance about using custom roles, see the article [Custom roles for SQL Server to SQL Managed Instance online migrations](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
+
+  > [!NOTE]
+  > When you migrate a database that's protected by [Transparent Data Encryption](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance by using online migration, the corresponding certificate from the on-premises or Azure VM SQL Server instance must be migrated before the database restore. For detailed steps, see [Migrate a TDE cert to a managed instance](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
 ## Register the Microsoft.DataMigration resource provider
 
@@ -254,6 +257,9 @@ After the full database backup is restored on the target instance of SQL Managed
 4. Select **Confirm**, and then select **Apply**.
 
     ![Preparing to complete cutover](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information see [Management operations duration](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
 
 5. When the database migration status shows **Completed**, connect your applications to the new target instance of SQL Managed Instance.
 

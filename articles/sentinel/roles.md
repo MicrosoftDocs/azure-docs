@@ -21,10 +21,10 @@ ms.author: yelevin
 
 # Permissions in Azure Sentinel
 
-Azure Sentinel uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md)
+Azure Sentinel uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md)
 to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
-Use RBAC to create and assign roles within your security operations team to grant appropriate access to Azure Sentinel. The different roles give you fine-grained control over what users of Azure Sentinel can see and do. RBAC roles can be assigned in the Azure Sentinel workspace directly (see note below), or in a subscription or resource group that the workspace belongs to, which Azure Sentinel will inherit.
+Use RBAC to create and assign roles within your security operations team to grant appropriate access to Azure Sentinel. The different roles give you fine-grained control over what users of Azure Sentinel can see and do. Azure roles can be assigned in the Azure Sentinel workspace directly (see note below), or in a subscription or resource group that the workspace belongs to, which Azure Sentinel will inherit.
 
 ## Roles for working in Azure Sentinel
 
@@ -58,11 +58,15 @@ Users with particular job requirements may need to be assigned additional roles 
 
     For a user to add **data connectors**, you must assign the user write permissions on the Azure Sentinel workspace. Also, note the required additional permissions for each connector, as listed on the relevant connector page.
 
+- Guest users assigning incidents
+
+    If a guest user needs to be able to assign incidents, then in addition to the Azure Sentinel Responder role, the user will also need to be assigned the role of [Directory Reader](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Note that this role is *not* an Azure RBAC role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default. 
+
 For a side-by-side comparison, see the [table below](#roles-and-allowed-actions).
 
 ### Other roles you might see assigned
 
-In assigning Azure Sentinel-specific RBAC roles, you may come across other Azure and Log Analytics RBAC roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
+In assigning Azure Sentinel-specific Azure roles, you may come across other Azure and Log Analytics Azure roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
 
 - **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 
@@ -83,7 +87,7 @@ The following table summarizes the roles and allowed actions in Azure Sentinel.
 
 ## Custom roles and advanced RBAC
 
-- In addition to, or instead of, using built-in RBAC roles, you can create custom RBAC roles for Azure Sentinel. Custom RBAC roles for Azure Sentinel are created the same way you create other [custom Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) roles, based on [specific permissions to Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) and to [Azure Log Analytics resources](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- In addition to, or instead of, using Azure built-in roles, you can create Azure custom roles for Azure Sentinel. Azure custom roles for Azure Sentinel are created the same way you create other [custom Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) roles, based on [specific permissions to Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) and to [Azure Log Analytics resources](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
 - You can use the Log Analytics advanced role-based access control across the data in your Azure Sentinel workspace. This includes both data type-based RBAC and resource-centric RBAC. For more information on Log Analytics roles, see [Manage log data and workspaces in Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 

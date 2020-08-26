@@ -109,7 +109,7 @@ If you deploy multiple Azure AD Application Proxy connectors, you must configure
 
 ## Next steps
 
-With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

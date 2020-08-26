@@ -4,13 +4,13 @@ description: How to enable end-to-end encryption for your Azure VMs using encryp
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Enable end-to-end encryption using encryption at host - Azure PowerShell
+# Use the Azure PowerShell module to enable end-to-end encryption using encryption at host
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
@@ -81,7 +81,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <yourResourceGroupName> `
 
 Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either:
 
-Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/resourceskus/list) and checking that the `EncryptionAtHostSupported` capability is set to **True**.
+Calling the [Resource Skus API](/rest/api/compute/resourceskus/list) and checking that the `EncryptionAtHostSupported` capability is set to **True**.
 
 ```json
     {
@@ -102,7 +102,7 @@ Calling the [Resource Skus API](https://docs.microsoft.com/rest/api/compute/reso
     }
 ```
 
-Or, calling the [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet.
+Or, calling the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku?view=azps-3.8.0) PowerShell cmdlet.
 
 ```powershell
 $vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 

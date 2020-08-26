@@ -84,13 +84,13 @@ The Recovery Services vault is a Resource Manager resource, so you must place it
 
 Follow these steps to create a Recovery Services vault:
 
-1. If you don't have an existing resource group, create a new one by using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) cmdlet. In this example, we create a resource group in the West US region:
+1. If you don't have an existing resource group, create a new one by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. In this example, we create a resource group in the West US region:
 
    ```powershell
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-1. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet to create the vault. Specify the same location for the vault that you used for the resource group.
+1. Use the [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) cmdlet to create the vault. Specify the same location for the vault that you used for the resource group.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -98,7 +98,7 @@ Follow these steps to create a Recovery Services vault:
 
 ### View the vaults in a subscription
 
-To view all vaults in the subscription, use [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0):
+To view all vaults in the subscription, use [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault):
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -122,7 +122,7 @@ Store the vault object in a variable, and set the vault context.
 
 Many Azure Backup cmdlets require the Recovery Services vault object as an input, so it's convenient to store the vault object in a variable.
 
-The vault context is the type of data protected in the vault. Set it by using [Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0). After the context is set, it applies to all subsequent cmdlets.
+The vault context is the type of data protected in the vault. Set it by using [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). After the context is set, it applies to all subsequent cmdlets.
 
 The following example sets the vault context for **testvault**:
 
@@ -147,9 +147,9 @@ A backup policy is associated with at least one retention policy. A retention po
 
 Here are some cmdlets for backup policies:
 
-* View the default backup policy retention by using [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0).
-* View the default backup policy schedule by using [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
-* Create a new backup policy by using [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). You enter the schedule and retention policy objects as input.
+* View the default backup policy retention by using [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject).
+* View the default backup policy schedule by using [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
+* Create a new backup policy by using [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy). You enter the schedule and retention policy objects as input.
 
 By default, a start time is defined in the schedule policy object. Use the following example to change the start time to the desired start time. The desired start time should be in Universal Coordinated Time (UTC). The example assumes that the desired start time is 01:00 AM UTC for daily backups.
 
@@ -185,7 +185,7 @@ After you define the backup policy, you can enable protection for the Azure file
 
 ### Retrieve a backup policy
 
-You fetch the relevant policy object by using [Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0). Use this cmdlet to view the policies associated with a workload type, or to get a specific policy.
+You fetch the relevant policy object by using [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy). Use this cmdlet to view the policies associated with a workload type, or to get a specific policy.
 
 #### Retrieve a policy for a workload type
 
@@ -216,7 +216,7 @@ $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 
 ### Enable protection and apply the policy
 
-Enable protection by using [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). After the policy is associated with the vault, backups are triggered in accordance with the policy schedule.
+Enable protection by using [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection). After the policy is associated with the vault, backups are triggered in accordance with the policy schedule.
 
 The following example enables protection for the Azure file share **testAzureFileShare** in storage account **testStorageAcct**, with the policy **dailyafs**:
 
@@ -232,7 +232,7 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-For more information on how to get a list of file shares for a storage account, see [this article](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+For more information on how to get a list of file shares for a storage account, see [this article](/powershell/module/az.storage/get-azstorageshare).
 
 ## Important notice: Backup item identification
 
@@ -257,7 +257,7 @@ We recommend that you list items and then retrieve their unique name from the na
 
 ## Trigger an on-demand backup
 
-Use [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) to run an on-demand backup for a protected Azure file share:
+Use [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) to run an on-demand backup for a protected Azure file share:
 
 1. Retrieve the storage account from the container in the vault that holds your backup data by using [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. To start a backup job, obtain information about the Azure file share by using [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).

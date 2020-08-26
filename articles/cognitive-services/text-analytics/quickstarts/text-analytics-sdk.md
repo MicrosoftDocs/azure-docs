@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 07/27/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-text-analytics
 ---
 

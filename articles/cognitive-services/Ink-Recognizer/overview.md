@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/06/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # What is the Ink Recognizer API?
@@ -38,7 +39,7 @@ The Ink Recognizer API is a RESTful web service, making it easy to call from any
 
 After signing up:
 
-1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON.
+1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON. The API accepts up to 1500 ink strokes per request. 
 1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 

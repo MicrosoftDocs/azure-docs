@@ -1,5 +1,5 @@
 ---
-title: Connect to an Azure Synapse workspace using private links
+title: Connect to a Synapse workspace using private links
 description: This article will teach you how to connect to your Azure Synapse workspace using private links
 author: RonyMSFT 
 ms.service: synapse-analytics 
@@ -42,7 +42,7 @@ Select **Next: Configuration>** to advance to the next part of the setup.
 
 In the **Configuration** tab, select the **Virtual network** and the **Subnet** in which the private endpoint should be created. You also need to create a DNS record that maps to the private endpoint.
 
-Select **Yes** for **Integrate with private DNS zone** to integrate your private endpoint with a private DNS zone. If you don't have a private DNS zone associated with your VNet, then a new private DNS zone is created. Select **Review + create** when done.
+Select **Yes** for **Integrate with private DNS zone** to integrate your private endpoint with a private DNS zone. If you don't have a private DNS zone associated with your Microsoft Azure Virtual Network, then a new private DNS zone is created. Select **Review + create** when done.
 
 ![Select subscription and region details](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -52,7 +52,7 @@ When the deployment is complete, open your Azure Synapse workspace in Azure port
 
 ## Next steps
 
-Learn more about [Managed workspace VNet](./synapse-workspace-managed-vnet.md)
+Learn more about [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)
 
 Learn more about [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md)
 

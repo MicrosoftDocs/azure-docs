@@ -52,7 +52,7 @@ To enable the user risk and sign-in risk policies complete the following steps.
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **Configure user risk policy**.
+1. Select **User risk policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
          1. Optionally you can choose to exclude users from the policy.
@@ -61,7 +61,7 @@ To enable the user risk and sign-in risk policies complete the following steps.
       1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
    1. **Enforce Policy** - **On**
    1. **Save** - This action will return you to the **Overview** page.
-1. Select **Configure sign-in risk policy**.
+1. Select **Sign-in risk policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
          1. Optionally you can choose to exclude users from the policy.

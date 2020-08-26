@@ -3,6 +3,7 @@ title: "Quickstart: Azure Queue storage library v12 - Java"
 description: Learn how to use the Azure Queue Java v12 library to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: mhopkins-msft
 
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 12/4/2019
 ms.service: storage
@@ -23,7 +24,12 @@ Use the Azure Queue storage client library v12 for Java to:
 * Receive and delete messages from a queue
 * Delete a queue
 
-[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Additional resources:
+
+* [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+* [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## Prerequisites
 

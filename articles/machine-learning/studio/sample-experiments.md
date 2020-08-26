@@ -1,6 +1,5 @@
 ---
-title: Kickstart experiments from examples
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): start experiments from examples - Azure'
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
@@ -14,7 +13,10 @@ ms.date: 01/05/2018
 ---
 # Create Azure Machine Learning Studio (classic) experiments from working examples in Azure AI Gallery
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
+
 
 Learn how to start with example experiments from [Azure AI Gallery](https://gallery.azure.ai/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 

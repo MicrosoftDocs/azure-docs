@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # How to use Notification Hubs from Python
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN article [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx).
+You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN article [Notification Hubs REST APIs](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 > [!NOTE]
 > This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK. The sample was created using Python 3.4.
@@ -64,7 +64,7 @@ hub.send_windows_notification(wns_payload)
 
 If you did not already, follow the [Get started tutorial] up to the last section where you have to implement the back-end.
 
-All the details to implement a full REST wrapper can be found on [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). This section describes the Python implementation of the main steps required to access Notification Hubs REST endpoints and send notifications
+All the details to implement a full REST wrapper can be found on [MSDN](/previous-versions/azure/reference/dn530746(v=azure.100)). This section describes the Python implementation of the main steps required to access Notification Hubs REST endpoints and send notifications
 
 1. Parse the connection string
 2. Generate the authorization token
@@ -99,7 +99,7 @@ class NotificationHub:
 
 ### Create security token
 
-The details of the security token creation are available [here](https://msdn.microsoft.com/library/dn495627.aspx).
+The details of the security token creation are available [here](/previous-versions/azure/reference/dn495627(v=azure.100)).
 Add following methods to the `NotificationHub` class to create the token based on the URI of the current request and the credentials extracted from the connection string.
 
 ```python
@@ -160,7 +160,7 @@ class Notification:
 
 This class is a container for a native notification body or a set of properties of a template notification, a set of headers, which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).
 
-Refer to the [Notification Hubs REST APIs documentation](https://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.
+Refer to the [Notification Hubs REST APIs documentation](/previous-versions/azure/reference/dn495827(v=azure.100)) and the specific notification platforms' formats for all the options available.
 
 Now with this class, write the send notification methods inside of the `NotificationHub` class.
 
@@ -289,7 +289,7 @@ These methods send an HTTP POST request to the /messages endpoint of your notifi
 ### Using debug property to enable detailed logging
 
 Enabling debug property while initializing the Notification Hub writes out detailed logging information about the HTTP request and response dump as well as detailed Notification message send outcome.
-The [Notification Hubs TestSend property](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) returns detailed information about the notification send outcome.
+The [Notification Hubs TestSend property](/previous-versions/azure/reference/dn495827(v=azure.100)) returns detailed information about the notification send outcome.
 To use it - initialize using the following code:
 
 ```python
@@ -452,9 +452,9 @@ This article showed how to create a Python REST client for Notification Hubs. Fr
 
 <!-- URLs -->
 [Python REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Get started tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Breaking News tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Localizing News tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Breaking News tutorial]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Localizing News tutorial]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

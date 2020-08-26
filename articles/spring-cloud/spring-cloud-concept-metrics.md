@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Understand metrics for Azure Spring Cloud

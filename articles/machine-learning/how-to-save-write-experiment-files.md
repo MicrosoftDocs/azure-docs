@@ -9,8 +9,8 @@ manager: danielsc
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 03/10/2020
 
 ---

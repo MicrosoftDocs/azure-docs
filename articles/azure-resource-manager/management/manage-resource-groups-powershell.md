@@ -73,7 +73,7 @@ To validate a resource group deployment, see [Test-AzResourceGroupDeployment](/p
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups).
 
 ## Redeploy when deployment fails
 
@@ -212,7 +212,7 @@ For more information, see [Single and multi-resource export to template in Azure
 
 ## Manage access to resource groups
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 06/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects

@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
 ---
 
@@ -10,6 +10,9 @@ ms.topic: how-to
 As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
 This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) in a scalable way across the customer tenants you're managing.
+
+> [!TIP]
+> Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 ## Create Log Analytics workspaces
 
@@ -29,10 +32,11 @@ When you've determined which policies to deploy, you can [deploy them to your de
 
 ## Analyze the gathered data
 
-After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) to gather and analyze information from multiple data sources.
+After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md) to gather and analyze information from multiple data sources. 
 
 ## Next steps
 
+- Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/update-mgmt-query-logs.md) across multiple Log Analytics workspaces. 
 - Learn about [Azure Monitor](../../azure-monitor/index.yml).
 - Learn about [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md).
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).

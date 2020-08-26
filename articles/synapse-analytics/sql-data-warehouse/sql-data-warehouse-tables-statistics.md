@@ -1,5 +1,5 @@
 ---
-title: Creating, updating statistics
+title: Create and update statistics on tables using Azure Synapse SQL
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -144,6 +144,9 @@ left join
 on objIdsWithStats.object_id = actualRowCounts.object_id
 
 ```
+
+>[!TIP]
+> For improved performance in Synapse SQL, consider using **sys.pdw_permanent_table_mappings** instead of **sys.pdw_table_mappings** on permanent user tables. See **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** for more information.
 
 **Query 2:** Find out the age of your statistics by checking the last time your statistics were updated on each table. 
 

@@ -9,7 +9,7 @@ ms.date: 11/7/2019
 
 This article describes how to restore SAP HANA databases running on an Azure Virtual Machine (VM), which the Azure Backup service has backed up to a Recovery Services vault. Restores can be used to create copies of the data for dev / test scenarios or to return to a previous state.
 
-For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md).
 
 ## Restore to a point in time or to a recovery point
 
@@ -168,7 +168,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
         ```
 
-        In the above command:
+        In the command above:
 
         * `<DataFileDir>` - the folder that contains the full backups
         * `<LogFilesDir>` - the folder that contains the log backups

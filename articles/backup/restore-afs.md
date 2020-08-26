@@ -7,7 +7,7 @@ ms.date: 01/12/2020
 
 # Restore Azure file shares
 
-This article explains how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+This article explains how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
 
 In this article, you'll learn how to:
 
@@ -54,14 +54,14 @@ You can use this restore option to restore the complete file share in the origin
     ![Select restore point](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, please specify the range by selecting the appropriate **Start Time** and **End Time** and click the **Refresh** button.
+    >By default, the **Select Restore Point** pane lists restore points from the last 30 days. If you want to look at the restore points created during a specific duration, specify the range by selecting the appropriate **Start Time** and **End Time** and click the **Refresh** button.
 
 1. The next step is to choose the **Restore Location**. In the **Recovery Destination** section, specify where or how to restore the data. Select one of the following two options by using the toggle button:
 
     * **Original Location**: Restore the complete file share to the same location as the original source.
     * **Alternate Location**: Restore the complete file share to an alternate location and keep the original file share as is.
 
-#### Restore to the original location
+#### Restore to the original location (full share recovery)
 
 1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts, by choosing the appropriate option from the **In case of Conflicts** drop-down list.
 
@@ -69,7 +69,7 @@ You can use this restore option to restore the complete file share in the origin
 
     ![Select Restore to start](./media/restore-afs/click-restore.png)
 
-#### Restore to an alternate location
+#### Restore to an alternate location (full share recovery)
 
 1. Select **Alternate Location** as the **Recovery Destination**.
 1. Select the destination storage account where you want to restore the backed-up content from the **Storage Account** drop-down list.
@@ -101,7 +101,7 @@ You can use this restore option to restore individual files or folders in the or
     * **Original Location**: Restore selected files or folders to the same file share as the original source.
     * **Alternate Location**: Restore selected files or folders to an alternate location and keep the original file share contents as is.
 
-#### Restore to the original location
+#### Restore to the original location (item-level recovery)
 
 1. Select **Original Location** as the **Recovery Destination**, and select whether to skip or overwrite if there are conflicts by choosing the appropriate option from the **In case of conflicts** drop-down list.
 
@@ -120,7 +120,7 @@ You can use this restore option to restore individual files or folders in the or
 
     ![Select Restore to start](./media/restore-afs/click-restore.png)
 
-#### Restore to an alternate location
+#### Restore to an alternate location (item-level recovery)
 
 1. Select **Alternate Location** as the **Recovery Destination**.
 1. Select the destination storage account where you want to restore the backed-up content from the **Storage Account** drop-down list.

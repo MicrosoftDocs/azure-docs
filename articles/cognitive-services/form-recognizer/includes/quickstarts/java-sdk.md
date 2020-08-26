@@ -8,14 +8,19 @@ ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/15/2020
+ms.custom: devx-track-java
 ms.author: pafarley
 ---
 
-[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+> [!IMPORTANT]
+> * The Form Recognizer SDK currently targets v2.0 of the From Recognizer service.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below. 
+
+[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
@@ -68,7 +73,7 @@ In the application's `main` method, create variables for your resource's Azure e
 
 
 ```java
-public static void Main(string[] args)
+public static void main(String[] args)
 {
     String key = System.getenv("FORM_RECOGNIZER_KEY");
     String endpoint = System.getenv("FORM_RECOGNIZER_ENDPOINT");
@@ -83,7 +88,7 @@ In your project's *build.gradle.kts* file, be sure to include the client library
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
 }
 ```
 
@@ -125,12 +130,12 @@ You'll also need to add references to the URLs for your training and testing dat
 * Use the above method to get the URL of a receipt image as well.
 
 > [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/java/api/overview/azure/formrecognizer).
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview).
 
 ```java
-    string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
+    String trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
+    String formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
+    String receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
     + "/contoso-allinone.jpg";
 
     // Call Form Recognizer scenarios:
@@ -174,7 +179,7 @@ The returned value is a collection of **FormPage** objects: one for each page in
     contentResult.forEach(formPage -> {
         // Table information
         System.out.println("----Recognizing content ----");
-        System.out.printf("Has width: %d and height: %d, measured with unit: %s.%n", formPage.getWidth(),
+        System.out.printf("Has width: %f and height: %f, measured with unit: %s.%n", formPage.getWidth(),
             formPage.getHeight(),
             formPage.getUnit());
         formPage.getTables().forEach(formTable -> {
@@ -197,7 +202,7 @@ To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** meth
 
 ```java
 private static void AnalyzeReceipt(
-    FormRecognizerClient recognizerClient, string receiptUri)
+    FormRecognizerClient recognizerClient, String receiptUri)
 {
     SyncPoller<OperationResult, List<RecognizedReceipt>> syncPoller =
         formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
@@ -298,7 +303,7 @@ The following method trains a model on a given set of documents and prints the m
 
 ```java
 private static String TrainModel(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
+    FormRecognizerClient trainingClient, String trainingDataUrl)
 {
     String trainingSetSource = "{unlabeled_training_set_SAS_URL}";
     SyncPoller<OperationResult, CustomFormModel> trainingPoller =

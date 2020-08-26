@@ -118,4 +118,4 @@ Assign your Azure AD application a [role](../role-based-access-control/built-in-
 
 * [Create an Azure Active Directory application and service principal in the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 * Learn how to [authenticate a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
-* Learn about [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+* Learn about [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).

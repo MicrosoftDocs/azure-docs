@@ -27,7 +27,7 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Storage Gen1 acco
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Authentication
 

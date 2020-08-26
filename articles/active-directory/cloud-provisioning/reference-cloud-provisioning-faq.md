@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Connect FAQ
+# Azure Active Directory Connect cloud provisioning FAQ
 
 Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud provisioning.
 

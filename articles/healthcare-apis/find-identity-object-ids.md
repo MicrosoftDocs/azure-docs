@@ -2,12 +2,12 @@
 title: Find identity object IDs for authentication - Azure API for FHIR
 description: This article explains how to locate the identity object IDs needed to configure authentication for Azure API for FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Find identity object IDs for authentication configuration

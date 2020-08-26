@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET"
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
 
@@ -77,15 +77,16 @@ If you want to register your apps manually, as a first step you'll need to:
 1. Open the solution in Visual Studio and then open the **Web.config** file under the root of **TodoListService** project.
 1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application ID)** from the application you just registered in the Application Registration Portal.
 
-### Add the new scope to the *TodoListClient*`s app.config
+### Add the new scope to the *TodoListClient*'s app.config
 
-1. Open the **app.config** file located in **TodoListClient** project's root folder and then paste **Application ID** from the application you just registered for your *TodoListService* under `TodoListServiceScope` parameter, replacing the string `{Enter the Application ID of your TodoListService from the app registration portal}`.
+* Open the **app.config** file located in **TodoListClient** project's root folder and then paste **Application ID** from the application you just registered for your *TodoListService* under `TodoListServiceScope` parameter, replacing the string `{Enter the Application ID of your TodoListService from the app registration portal}`.
 
-   > Note: Make sure it uses the following format:
-   >
-   > `api://{TodoListService-Application-ID}/access_as_user`
-   >
-   >(where {TodoListService-Application-ID} is the GUID representing the Application ID for your TodoListService).
+  > [!NOTE]
+  > Make sure it uses the following format:
+  >
+  > `api://{TodoListService-Application-ID}/access_as_user`
+  >
+  >(where {TodoListService-Application-ID} is the GUID representing the Application ID for your TodoListService).
 
 ## Register the client app (TodoListClient)
 
@@ -99,15 +100,28 @@ In this step, you configure your *TodoListClient* project by registering a new a
    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `NativeClient-DotNet-TodoListClient`.
    - Change **Supported account types** to **Accounts in any organizational directory**.
    - Select **Register** to create the application.
-1. From the app's Overview page, select the **Authentication** section.
-   - In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**
-   - Select **Save**.
+   
+   > [!NOTE]
+   > In the *TodoListClient* project's **app.config**, the default value of `ida:Tenant` is set to `common`.
+   >
+   > `common` means you can sign in by using a Work or School account or a Microsoft personal account (because you selected **Accounts in any organizational directory**).
+   >
+   > `organizations` means you can sign in by using a Work or School account.
+   >
+   > `consumers` means you can sign in only by using a Microsoft personal account.
+   >
+   
+1. On the app's Overview page, select the **Authentication** section.
+   1. Under **Platform configurations**, select the **Add a platform** button.
+   1. For **Mobile and desktop applications**, select the **Mobile and desktop applications**.
+   1. For **Redirect URIs**, select the **https://login.microsoftonline.com/common/oauth2/nativeclient** check box.
+   1. Select **Configure**.   
 1. Select the **API permissions** section
-   - Click the **Add a permission** button and then,
-   - Select the **My APIs** tab.
-   - In the list of APIs, select the `AppModelv2-NativeClient-DotNet-TodoListService API`, or the name you entered for the web API.
-   - Check the **access_as_user** permission if it's not already checked. Use the search box if necessary.
-   - Select the **Add permissions** button
+   1. Select the **Add a permission** button.
+   1. Select the **My APIs** tab.
+   1. In the list of APIs, select the `AppModelv2-NativeClient-DotNet-TodoListService API`, or the name you entered for the web API.
+   1. Check the **access_as_user** permission if it's not already checked. Use the search box if necessary.
+   1. Select the **Add permissions** button.
 
 ### Configure your *TodoListClient* project
 

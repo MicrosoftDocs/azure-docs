@@ -71,13 +71,13 @@
   - name: Azure Blockchain dev kit
     href: https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki
   - name: Blockchain REST API
-    href: https://docs.microsoft.com/rest/api/blockchain/
+    href: /rest/api/blockchain/
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-blockchain-service.html
+    href: /answers/topics/azure-blockchain-service.html
   - name: Community support
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Stack Overflow support

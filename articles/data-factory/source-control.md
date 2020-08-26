@@ -88,7 +88,7 @@ The configuration pane shows the following Azure Repos code repository settings:
 
 ### Use a different Azure Active Directory tenant
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using.
+The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator)
 
 ### Use your personal Microsoft account
 
@@ -206,11 +206,11 @@ A side pane will open where you confirm that the publish branch and pending chan
 
 ### Permissions
 
-Typically you don't want every team member to have permissions to update the factory. The following permissions settings are recommended:
+Typically you don't want every team member to have permissions to update the Data Factory. The following permissions settings are recommended:
 
-*   All team members should have read permissions to the data factory.
-*   Only a select set of people should be allowed to publish to the factory. To do so, they must have the **Data Factory contributor** role on the resource group the factory is in. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
-   
+*   All team members should have read permissions to the Data Factory.
+*   Only a select set of people should be allowed to publish to the Data Factory. To do so, they must have the **Data Factory contributor** role on the **Resource Group** which contains the Data Factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
+
 It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
 ### Using passwords from Azure Key Vault

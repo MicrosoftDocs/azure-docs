@@ -92,7 +92,7 @@ or more **samples**.
 ### 1.2.1 Normative References 
 
 >  [MS-SSTR] Smooth Streaming Protocol *v20140502*
->   [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>   [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] International Organization for Standardization,
 >   "Information technology -- Coding of audio-visual objects -- Part 12: ISO

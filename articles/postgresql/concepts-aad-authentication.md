@@ -5,7 +5,7 @@ author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/23/2020
 ---
 
 # Use Azure Active Directory for authenticating with PostgreSQL

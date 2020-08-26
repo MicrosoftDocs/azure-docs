@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Studio (preview): Connect and query Synapse SQL" 
+title: Connect to Synapse SQL with Azure Data Studio (preview)
 description: Use Azure Data Studio (preview) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 

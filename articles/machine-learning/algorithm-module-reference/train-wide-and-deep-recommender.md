@@ -1,5 +1,5 @@
 ---
-title: "Score Image Model"
+title: Use the Train Wide & Deep Recommender module
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Wide & Deep Recommender module to train a recommendation model.
 services: machine-learning
@@ -100,7 +100,7 @@ For an example, a typical set of item features might look like this:
 
     This hyperparameter determines the step size at each training step while moving toward a minimum of loss function. A too big learning rate may cause learning jump over the minima, while a too small learning rate may cause convergence problem.
 
-7.  **Crossed feature dimension**: type the dimension of crossed user ids and item ids feature. 
+7.  **Crossed feature dimension**: type the dimension by entering the desired user ids and item id features. 
 
     The Wide & Deep recommender performs cross-product transformation over user id and item id features by default. The crossed result will be hashed according to this number to ensure the dimension.
 

@@ -5,7 +5,7 @@ description: Get started learning how to configure and manage the backend pool o
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
 
@@ -15,11 +15,11 @@ The backend pool is a critical component of the load balancer. The backend pool 
 
 There are two ways of configuring a backend pool:
 * Network Interface Card (NIC)
-* Combination IP address and Virtual Network (VNET) Resource ID
+* Combination of IP address and Virtual Network (VNET) Resource ID
 
-Configure your backend pool by NIC when using virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
+Configure your backend pool by NIC when using existing virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
 
-In scenarios where a NIC is unavailable, such as containers or Kubernetes Pods, configure your backend pool by IP address and VNET ID combination.
+When preallocating your backend pool with an IP address range which you plan to later create virtual machines and virtual machine scale sets, configure your backend pool by IP address and VNET ID combination.
 
 The configuration sections of this article will focus on:
 
@@ -244,16 +244,18 @@ JSON request body:
 Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via network interface.
 
 ## Configure backend pool by IP address and virtual network
-In scenarios with containers or a pre-populated backend pool with IPs, use IP and virtual network.
+In scenarios with pre-populated backend pools, use IP and virtual network.
 
 All backend pool management is done directly on the backend pool object as highlighted in the examples below.
 
   >[!IMPORTANT] 
   >This feature is currently in preview and has the following limitations:
-  >* Limit of 100 IP addresses being added
+  >* Standard load balancer only
+  >* Limit of 100 IP addresses in the backend pool
   >* The backend resources must be in the same virtual network as the load balancer
   >* This feature is not currently supported in the Azure portal
-  >* Standard load balancer only
+  >* ACI containers are not currently supported by this feature
+  >* Load balancers or services fronted by load balancers cannot be placed in the backend pool of the load balancer
   
 ### PowerShell
 Create new backend pool:
@@ -266,8 +268,7 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Update backend pool with a new IP from existing virtual network:
@@ -276,18 +277,17 @@ Update backend pool with a new IP from existing virtual network:
 $virtualNetwork = 
 Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
  
-$ip1 = 
-New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
 
 Retrieve the backend pool information for the load balancer to confirm that the backend addresses are added to the backend pool:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 Create a network interface and add it to the backend pool. Set the IP address to one of the backend addresses:
 

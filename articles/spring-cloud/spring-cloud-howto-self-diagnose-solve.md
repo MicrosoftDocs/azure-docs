@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
+ms.custom: devx-track-java
 ---
 
 # How to self-diagnose and solve problems in Azure Spring Cloud

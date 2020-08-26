@@ -24,8 +24,8 @@ Before you start developing, review [Developing with Media Services v3 APIs](med
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
-- Get information needed to [access APIs](access-api-cli-how-to.md)
+- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name. 
+- Get information needed to [access APIs](./access-api-howto.md)
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in some of the AMS REST tutorials. 
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
@@ -95,7 +95,6 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
 
 ## See also
 
-- [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
 - [Create filters with Media Services - REST](filters-dynamic-manifest-rest-howto.md)
 - [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 

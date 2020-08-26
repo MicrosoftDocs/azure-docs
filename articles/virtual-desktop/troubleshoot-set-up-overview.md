@@ -1,28 +1,22 @@
 ---
 title: Windows Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop environment.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshooting overview, feedback, and support
+# Troubleshooting overview, feedback, and support for Windows Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 This article provides an overview of the issues you may encounter when setting up a Windows Virtual Desktop environment and provides ways to resolve the issues.
 
-## Report issues during public preview
+## Report issues
 
-To report issues or suggest features during public preview for the Spring 2020 release, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features. When you report an issue related to the public preview release, make sure to label the problem type as **Spring 2020 Update (Preview)**.
+To report issues or suggest features for Windows Virtual Desktop with Azure Resource Manager integration, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features.
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
 

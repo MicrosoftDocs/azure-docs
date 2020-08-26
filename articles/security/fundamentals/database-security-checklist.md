@@ -1,6 +1,6 @@
 ---
 title: Azure database security checklist| Microsoft Docs
-description: This article provides a set of checklist for Azure database security.
+description: Use the Azure database security checklist to make sure that you address important cloud computing security issues.
 services: security
 documentationcenter: na
 author: unifycloud

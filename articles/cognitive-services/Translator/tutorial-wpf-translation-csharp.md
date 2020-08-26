@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Create a translation app with WPF
@@ -35,7 +36,7 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 | Service | Feature | Description |
 |---------|---------|-------------|
 | Translator | [Get Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Retrieve a complete list of supported languages for text translation. |
-| Translator | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Translate text into more than 60 languages. |
+| Translator | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Translate text into more than 70 languages. |
 | Translator | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detect the language of the input text. Includes confidence score for detection. |
 | Bing Spell Check | [Spell Check](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
 
@@ -258,7 +259,7 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 ## Get supported languages
 
-The Translator currently supports more than 60 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
+The Translator currently supports more than 70 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
 
 In this section, we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 

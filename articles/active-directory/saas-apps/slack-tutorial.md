@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Slack | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Slack.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Slack
@@ -39,6 +33,9 @@ To get started, you need the following items:
 > [!NOTE]
 > If you need to integrate with more than one Slack instance in one tenant, the identifier for each application can be a variable.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
@@ -46,7 +43,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Slack supports **SP** initiated SSO
 * Slack supports **Just In Time** user provisioning
 * Slack supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
-* Once you configure Slack you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Slack you can enforce Session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Slack from the gallery
 
@@ -155,15 +152,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Navigate to **Microsoft Azure AD** then go to **Team Settings**.
 
-     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-001.png)
+     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
 
-    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-002.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. On the **SAML Authentication Settings** dialog, perform the following steps:
 
-    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-003.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -173,7 +170,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Configure the above three settings as appropriate for your Slack team. For more information about the settings, please find the **Slack's SSO configuration guide** here. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-004.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Click on **expand** and enter `https://slack.com` in the **Service provider issuer** textbox.
 

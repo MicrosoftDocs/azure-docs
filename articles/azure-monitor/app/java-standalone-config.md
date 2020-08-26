@@ -3,7 +3,7 @@ title: Monitor Java applications anywhere - Azure Monitor Application Insights
 description: Codeless application performance monitoring for Java applications running in any environment without instrumenting the app. Find the root cause of the issues d using distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
-
+ms.custom: devx-track-java
 ---
 
 # Configuration options - Java standalone agent for Azure Monitor Application Insights
@@ -212,7 +212,7 @@ Here is an example how to set the sampling to **10% of all transactions** - plea
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
 ```json
 {

@@ -12,7 +12,7 @@ ms.date: 10/24/2019
 # Get started with log queries in Azure Monitor
 
 > [!NOTE]
-> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](saved-queries.md).
+> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](saved-queries.md).
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 

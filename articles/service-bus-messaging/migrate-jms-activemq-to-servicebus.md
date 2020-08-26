@@ -1,6 +1,6 @@
 ---
-title: Migrate Java Message Service (JMS) applications from ActiveMQ to Azure Service Bus | Microsoft Docs
-description: This article explains how to migrate existing JMS applications that interact with Active MQ to interact with Azure Service Bus.
+title: Migrate Java Message Service (JMS) applications from Apache ActiveMQ to Azure Service Bus | Microsoft Docs
+description: This article explains how to migrate existing JMS applications that interact with Apache ActiveMQ to interact with Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,116 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-
+ms.custom: devx-track-java
 ---
 
-# Migrate existing Java Message Service (JMS) 2.0 applications from Active MQ to Azure Service Bus
+# Migrate existing Java Message Service (JMS) 2.0 applications from Apache ActiveMQ to Azure Service Bus
 
-Azure Service Bus supports Java/J2EE and Spring workloads that utilize the Java Message Service (JMS) 2.0 API over the Advanced Message Queueing Protocol (AMQP) protocol.
+This article discusses how to modify an existing Java Message Service (JMS) 2.0 application that interacts with a JMS Broker to interact with Azure Service Bus instead. In particular, the article covers migrating from Apache ActiveMQ or Amazon MQ.
 
-This guide describes what you should be aware of when you want to modify an existing Java Message Service (JMS) 2.0 application that interacts with a JMS Broker (specifically Apache ActiveMQ or Amazon MQ) to interact with Azure Service Bus.
+Azure Service Bus supports Java 2 Platform, Enterprise Edition and Spring workloads that use the JMS 2.0 API over Advanced Message Queueing Protocol (AMQP).
 
 ## Before you start
 
 ### Differences between Azure Service Bus and Apache ActiveMQ
 
-Azure Service Bus and Apache ActiveMQ are both message brokers that are functioning as JMS providers for client applications to send messages to and receive messages from. They both enable the point-to-point semantics with **Queues** and publish-subscribe semantics with **Topics** and **Subscriptions**. 
+Azure Service Bus and Apache ActiveMQ are both message brokers, functioning as JMS providers for client applications to send messages to and receive messages from. They both enable the point-to-point semantics with queues, and publish-subscribe semantics with topics and subscriptions. 
 
-Even so, there are some differences in the two.
+Even so, there are some differences between the two, as the following table shows:
 
-| Category | Active MQ | Azure Service Bus |
+| Category | ActiveMQ | Azure Service Bus |
 | --- | --- | --- |
-| Application tiering | Clustered monolith | Two-tier <br> (Gateway + Backend) |
+| Application tiering | Clustered monolith | Two-tier <br> (gateway + back end) |
 | Protocol support | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
-| Provisioning mode | <ul> <li> IaaS (on-premises) </li> <li> Amazon MQ (managed PaaS) </li> | Managed PaaS |
+| Provisioning mode | <ul> <li> Infrastructure as a service (IaaS), on-premises </li> <li> Amazon MQ (managed platform as a service) </li> | Managed platform as a service (PaaS) |
 | Message size | Customer configurable | 1 MB (Premium tier) |
-| High Availability | Customer managed | Platform managed |
-| Disaster Recovery | Customer managed | Platform managed | 
+| High availability | Customer managed | Platform managed |
+| Disaster recovery | Customer managed | Platform managed | 
 
 ### Current supported and unsupported features
 
 [!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
 
-### Caveats
+### Considerations
 
-The two-tiered nature of Azure Service Bus affords various business continuity capabilities (high availability and disaster recovery). However, there are some considerations when utilizing JMS features.
+The two-tiered nature of Azure Service Bus affords various business continuity capabilities (high availability and disaster recovery). However, there are some considerations when you're using JMS features.
 
 #### Service upgrades
 
-In case of service bus upgrades and restarts, temporary Queues or Topics will be deleted.
-
-If the application is sensitive to data loss on temporary Queues or Topics, it is recommended to **not** use Temporary Queues or Topics and use durable Queues, Topics and Subscriptions instead.
+In case of service bus upgrades and restarts, temporary queues or topics are deleted. If your application is sensitive to data loss on temporary queues or topics, don't use temporary queues or topics. Use durable queues, topics, and subscriptions instead.
 
 #### Data migration
 
-As part of migrating/modifying your client applications to interact with Azure Service Bus, the data held in ActiveMQ will not be migrated to Service Bus.
-
-A custom application may be needed to drain the ActiveMQ queues, topics and subscriptions and replay the messages to Service Bus' queues, topics and subscriptions.
+As part of migrating and modifying your client applications to interact with Azure Service Bus, the data held in ActiveMQ isn't migrated to Service Bus. You might need a custom application to drain the ActiveMQ queues, topics, and subscriptions, and then replay the messages to the queues, topics, and subscriptions of Service Bus.
 
 #### Authentication and authorization
 
-Role Based Access Control (RBAC) backed by Azure ActiveDirectory is the preferred authentication mechanism for Azure Service Bus.
-
-However, since RBAC is not currently supported due to lack of claim based authentication support by Apache QPID JMS.
-
-For now, authentication is supported only with SAS keys.
+Role-based access control (RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. Because RBAC, or claim-based authentication, isn't currently supported by Apache QPID JMS, however, you should use SAS keys for authentication.
 
 ## Pre-migration
 
 ### Version check
 
-Below are the components utilized while writing the JMS applications and the specific versions that are supported. 
+You use the following components and versions while you're writing the JMS applications: 
 
-| Components | Version |
+| Component | Version |
 |---|---|
 | Java Message Service (JMS) API | 1.1 or greater |
 | AMQP protocol | 1.0 |
 
 ### Ensure that AMQP ports are open
 
-Azure Service Bus supports communication over the AMQP protocol. For this purpose, communication over ports 5671 (AMQP) and 443 (TCP) needs to be enabled. Depending on where the client applications are hosted, you may need a support ticket to allow communication over these ports.
+Service Bus supports communication over the AMQP protocol. For this purpose, enable communication over ports 5671 (AMQP) and 443 (TCP). Depending on where the client applications are hosted, you might need a support ticket to allow communication over these ports.
 
 > [!IMPORTANT]
-> Azure Service Bus supports **only** AMQP 1.0 protocol.
+> Service Bus supports only AMQP 1.0 protocol.
 
-### Set up enterprise configurations (VNET, Firewall, private endpoint, etc.)
+### Set up enterprise configurations
 
-Azure Service Bus enables various enterprise security and high availability features. To learn more about them, follow the below documentation links.
+Service Bus enables various enterprise security and high availability features. For more information, see: 
 
-  * [Virtual Network Service Endpoints](service-bus-service-endpoints.md)
+  * [Virtual network service endpoints](service-bus-service-endpoints.md)
   * [Firewall](service-bus-ip-filtering.md)
   * [Service side encryption with customer managed key (BYOK)](configure-customer-managed-key.md)
   * [Private endpoints](private-link-service.md)
-  * [Authentication and Authorization](service-bus-authentication-and-authorization.md)
+  * [Authentication and authorization](service-bus-authentication-and-authorization.md)
 
 ### Monitoring, alerts and tracing
 
-Metrics are published for each Service Bus namespace onto Azure Monitor and can be leveraged for alerting and dynamic scaling of resources allocated to the namespace.
+For each Service Bus namespace, you publish metrics onto Azure Monitor. You can use these metrics for alerting and dynamic scaling of resources allocated to the namespace.
 
-Read more about the different metrics and how to setup alerts on them at [Service Bus metrics in Azure Monitor](service-bus-metrics-azure-monitor.md).
+For more information about the different metrics and how to set up alerts on them, see [Service Bus metrics in Azure Monitor](service-bus-metrics-azure-monitor.md). You can also find out more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md).
 
-Also, read more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md)
+### Metrics - New Relic
 
-### Metrics - NewRelic
+You can correlate which metrics from ActiveMQ map to which metrics in Azure Service Bus. See the following from the New Relic website:
 
-Below is a handy guide on which metrics from ActiveMQ map to which metrics in Azure Service Bus. The below are referenced from NewRelic.
-
-  * [ActiveMQ/Amazon MQ NewRelic Metrics](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
-  * [Azure Service Bus NewRelic Metrics](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
+  * [ActiveMQ/Amazon MQ New Relic Metrics](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
+  * [Azure Service Bus New Relic Metrics](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
 
 > [!NOTE]
-> Currently, NewRelic doesn't have a seamless integration with ActiveMQ directly, but they do have metrics available for Amazon MQ.
-> Since Amazon MQ is derived from ActiveMQ,the below guide maps the NewRelic metrics from AmazonMQ to Azure Service Bus.
+> Currently, New Relic doesn't have direct, seamless integration with ActiveMQ, but they do have metrics available for Amazon MQ. Because Amazon MQ is derived from ActiveMQ, the following table maps the New Relic metrics from Amazon MQ to Azure Service Bus.
 >
 
-|Metric Grouping| AmazonMQ/Active MQ metric | Azure Service Bus metric |
+|Metric grouping| Amazon MQ/ActiveMQ metric | Azure Service Bus metric |
 |------------|---------------------------|--------------------------|
 |Broker|`CpuUtilization`|`CPUXNS`|
 |Broker|`MemoryUsage`|`WSXNS`|
 |Broker|`CurrentConnectionsCount`|`activeConnections`|
 |Broker|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
-|Broker|`InactiveDurableTopicSubscribersCount`|Leverage Subscription metrics|
-|Broker|`TotalMessageCount`|Leverage Queue/Topic/Subscription level `activeMessages`|
+|Broker|`InactiveDurableTopicSubscribersCount`|Use subscription metrics|
+|Broker|`TotalMessageCount`|Use queue/topic/subscription level `activeMessages`|
 |Queue/Topic|`EnqueueCount`|`incomingMessages`|
 |Queue/Topic|`DequeueCount`|`outgoingMessages`|
 |Queue|`QueueSize`|`sizeBytes`|
@@ -132,28 +121,25 @@ Below is a handy guide on which metrics from ActiveMQ map to which metrics in Az
 
 ## Migration
 
-To migrate your existing JMS 2.0 application to interact with Azure Service Bus, the below steps need to be performed.
+To migrate your existing JMS 2.0 application to interact with Service Bus, follow the steps in the next several sections.
 
-### Export topology from ActiveMQ and create the entities in Azure Service Bus (optional)
+### Export the topology from ActiveMQ and create the entities in Service Bus (optional)
 
-To ensure that the client applications can seamlessly connect with Azure Service Bus, the topology - which includes Queues, Topics and Subscriptions - need to be migrated from **Apache ActiveMQ** to **Azure Service Bus**.
+To ensure that client applications can seamlessly connect with Service Bus, migrate the topology (including queues, topics, and subscriptions) from Apache ActiveMQ to Service Bus.
 
 > [!NOTE]
-> For Java Message Service (JMS) applications, creation of Queues, Topics and Subscriptions is a runtime operation. Most Java Message Service (JMS) providers (message brokers) offer the functionality to create *Queues*, *Topics* and *Subscriptions* at runtime.
->
-> Hence, the above step is optional.
->
-> To ensure that your application has the permissions to create the topology at runtime, please ensure that the connection string with ***SAS 'Manage'*** permissions is used.
+> For JMS applications, you create queues, topics, and subscriptions as a runtime operation. Most JMS providers (message brokers) give you the ability to create these at runtime. That's why this export step is considered optional. To ensure that your application has the permissions to create the topology at runtime, use the connection string with SAS `Manage` permissions.
 
-To do this 
-  * Leverage the [ActiveMQ Command Line tools](https://activemq.apache.org/activemq-command-line-tools-reference) to export the topology
-  * Recreate the same topology using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-  * Execute the Azure Resource Manager template.
+To do this:
+
+1. Use the [ActiveMQ command line tools](https://activemq.apache.org/activemq-command-line-tools-reference) to export the topology.
+1. Re-create the same topology by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+1. Run the Azure Resource Manager template.
 
 
 ### Import the maven dependency for Service Bus JMS implementation
 
-To ensure seamless connectivity with Azure Service Bus, the ***azure-servicebus-jms*** package needs to be added as a dependency to the Maven `pom.xml` file as below.
+To ensure seamless connectivity with Service Bus, add the `azure-servicebus-jms` package as a dependency to the Maven `pom.xml` file, as follows:
 
 ```xml
 <dependencies>
@@ -168,11 +154,11 @@ To ensure seamless connectivity with Azure Service Bus, the ***azure-servicebus-
 
 ### Application server configuration changes
 
-This part is custom to the application server that is hosting your client applications connecting to Active MQ.
+This part is customized to the application server that is hosting your client applications connecting to ActiveMQ.
 
 #### Tomcat
 
-Here, we start with the configuration specific to Active MQ as shown in the `/META-INF/context.xml` file.
+Here, you start with the configuration specific to ActiveMQ, as shown in the `/META-INF/context.xml` file.
 
 ```XML
 <Context antiJARLocking="true">
@@ -199,7 +185,7 @@ Here, we start with the configuration specific to Active MQ as shown in the `/ME
 </Context>
 ```
 
-which can be adapted as below to point to Azure Service Bus
+You adapt this to point to Service Bus, as follows:
 
 ```xml
 <Context antiJARLocking="true">
@@ -226,11 +212,9 @@ which can be adapted as below to point to Azure Service Bus
 
 #### Spring applications
 
-##### Update `application.properties` file
+##### Update the `application.properties` file
 
-If using a Spring boot application to connect to ActiveMQ.
-
-Here, the goal is to ***remove*** the ActiveMQ specific properties from the `application.properties` file.
+If you're using a Spring boot application to connect to ActiveMQ, you want to remove the ActiveMQ-specific properties from the `application.properties` file.
 
 ```properties
 spring.activemq.broker-url=<ACTIVEMQ BROKER URL>
@@ -238,21 +222,21 @@ spring.activemq.user=<ACTIVEMQ USERNAME>
 spring.activemq.password=<ACTIVEMQ PASSWORD>
 ```
 
-Then ***add*** the Service Bus specific properties to the `application.properties` file.
+Then, add the Service Bus-specific properties to the `application.properties` file.
 
 ```properties
 azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
 ```
 
-##### Replace the ActiveMQConnectionFactory with ServiceBusJmsConnectionFactory
+##### Replace `ActiveMQConnectionFactory` with `ServiceBusJmsConnectionFactory`
 
-The next step is to replace the instance of ActiveMQConnectionFactory with the ServiceBusJmsConnectionFactory.
+The next step is to replace the instance of `ActiveMQConnectionFactory` with the `ServiceBusJmsConnectionFactory`.
 
 > [!NOTE] 
-> The actual code changes are specific to the application and how dependencies are managed, but the below sample provides the guidance on ***what*** should be changed.
+> The actual code changes are specific to the application and how dependencies are managed, but the following sample provides the guidance on what should be changed.
 >
 
-Previously you may be instantiating an object of the the ActiveMQConnectionFactory as below.
+Previously, you might have been instantiating an object of `ActiveMQConnectionFactory`, as follows:
 
 ```java
 
@@ -264,7 +248,7 @@ connection.start();
 
 ```
 
-This would be changed to the instantiate an object of the ServiceBusJmsConnectionFactory
+Now, you're changing this to instantiate an object of `ServiceBusJmsConnectionFactory`, as follows:
 
 ```java
 
@@ -280,13 +264,13 @@ connection.start();
 
 ## Post-migration
 
-Now that you have modified the application to starting sending and receiving messages from Azure Service Bus, you should verify that it works as you expect. Once that is done, you can proceed to further refine and modernize your application stack.
+Now that you have modified the application to start sending and receiving messages from Service Bus, you should verify that it works as you expect. When that's done, you can proceed to further refine and modernize your application stack.
 
 ## Next steps
 
-Leverage the [Spring Boot Starter for Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Azure Service Bus.
+Use the [Spring Boot Starter for Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
 
-To learn more about Service Bus messaging and Java Message Service(JMS), see the following topics:
+To learn more about Service Bus messaging and JMS, see:
 
 * [Service Bus JMS](service-bus-java-how-to-use-jms-api-amqp.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)

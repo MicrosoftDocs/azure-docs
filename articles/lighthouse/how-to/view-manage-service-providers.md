@@ -1,19 +1,22 @@
 ---
 title: View and manage service providers
 description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
 ---
 # View and manage service providers
 
-Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view details about service providers and service provider offers, delegate specific resources to [Azure Lighthouse](../overview.md), and shop for new service provider offers. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view details about service providers and service provider offers, delegate specific resources to [Azure Lighthouse](../overview.md), and shop for new service provider offers.
+
+> [!TIP]
+> While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
 To access the **Service providers** page in the Azure portal, the customer can select **All services**, then search for **Service providers** and select it. They can also find it by entering "Service providers" or "Azure Lighthouse" in the search box near the top of the Azure portal.
 
 > [!NOTE]
 > To view the **Service providers** page, a user in the customer's tenant must have the [Reader built-in role](../../role-based-access-control/built-in-roles.md#reader) (or another built-in role which includes Reader access).
 >
-> To add offers, delegate resources, and remove offers, the user must have the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription.
+> To add or update offers, delegate resources, and remove offers, the user must have the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for the subscription.
 
 Keep in mind that the **Service providers** page only shows information about the service providers that have access to the customer's subscriptions or resource groups through Azure Lighthouse. If a customer works with additional service providers who don't use Azure Lighthouse to access the customer's resources, information about those service providers isn't shown here.
 

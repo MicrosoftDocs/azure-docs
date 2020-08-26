@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ms.custom: fasttrack-edit
 ---
 
@@ -34,7 +34,7 @@ Initially, a new indexer is announced as a preview feature. Preview features are
 
 ## Permissions
 
-All operations related to indexers, including GET requests for status or definitions, require an [admin api-key](search-security-api-keys.md). 
+All operations related to indexers, including GET requests for status or definitions, require an [admin api-key](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
@@ -50,7 +50,44 @@ Indexers crawl data stores on Azure.
 * [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## Indexer Stages
+
+On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
+
+For each of the document it ingests, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer is also instrumental in driving skillset execution and outputs, assuming a skillset is defined.
+
+![Indexer Stages](./media/search-indexer-overview/indexer-stages.png "indexer stages")
+
+### Stage 1: Document cracking
+
+Document cracking is the process of opening files and extracting content. Depending on the type of data source, the indexer will try performing different operations to extract potentially indexable content.  
+
+Examples:  
+
+* When the document is a record in an [Azure SQL data source](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract each of the fields for the record.
+* When the document is a PDF file in an [Azure Blob Storage data source](search-howto-indexing-azure-blob-storage.md), the indexer will extract the text, images and metadata for the file.
+* When the document is a  record in a [Cosmos DB data source](search-howto-index-cosmosdb.md), the indexer will extract the fields and subfields from the Cosmos DB document.
+
+### Stage 2: Field mappings 
+
+An indexer extracts text from a source field and sends it to a destination field in an index or knowledge store. When field names and types coincide, the path is clear. However, you might want different names or types in the output, in which case you need to tell the indexer how to map the field. This step occurs after document cracking, but before transformations, when the indexer is reading from the source documents. When you define a [field mapping](search-indexer-field-mappings.md), the value of the source field is sent as-is to the destination field with no modifications. Field mappings are optional.
+
+### Stage 3: Skillset execution
+
+Skillset execution is an optional step that invokes built-in or custom AI processing. You might need it for optical character recognition (OCR) in the form of image analysis, or you might need language translation. Whatever the transformation, skillset execution is where enrichment occurs. If an indexer is a pipeline, you can think of a [skillset](cognitive-search-defining-skillset.md) as a "pipeline within the pipeline". A skillset has its own sequence of steps called skills.
+
+### Stage 4: Output field mappings
+
+The output of a skillset is really a tree of information called the enriched document. Output field mappings allow you to select which parts of this tree to map into fields in your index. Learn how to [define output field mappings](cognitive-search-output-field-mapping.md).
+
+Just like field mappings that associate verbatim values from source to destination fields, output field mappings tell the indexer how to associate the transformed values in the enriched document to destination fields in the index. Unlike field mappings, which are considered optional, you will always need to define an output field mapping for any transformed content that needs to reside in an index.
+
+The next image shows a sample indexer [debug session](cognitive-search-debug-session.md) representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug session" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+
 ## Basic configuration steps
+
 Indexers can offer features that are unique to the data source. In this respect, some aspects of indexer or data source configuration will vary by indexer type. However, all indexers share the same basic composition and requirements. Steps that are common to all indexers are covered below.
 
 ### Step 1: Create a data source

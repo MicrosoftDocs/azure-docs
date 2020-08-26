@@ -27,25 +27,23 @@ If you prefer, you can do these steps using the [Azure CLI](load-balancer-get-st
 
 To do the steps using this tutorial, sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Create a VNet, back-end servers, and a test VM
+## Virtual network and parameters
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-First, create a virtual network (VNet). In the VNet, create two VMs to use for the backend pool of your Standard load balancer, and a third VM to use for testing the load balancer. 
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
-### Create a virtual network
-
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Virtual network**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
    
-1. In the **Create virtual network** pane, type or select these values:
-   
-   - **Name**: Type **MyVNet**.
-   - **ResourceGroup**: Select **Create new**, then enter **MyResourceGroupLB**, and select **OK**. 
-   - **Subnet** > **Name**: Type **MyBackendSubnet**.
-   
-1. Select **Create**.
 
-   ![Create a virtual network](./media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
-### Create virtual machines
+## Create virtual machines
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    

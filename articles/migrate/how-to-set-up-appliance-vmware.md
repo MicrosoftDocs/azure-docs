@@ -30,7 +30,7 @@ To set up the appliance using an OVA template you:
 ## Download the OVA template
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
+2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMware vSphere hypervisor**.
 3. Click **Download** to download the .OVA template file.
 
   ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
@@ -86,7 +86,7 @@ Set up the appliance for the first time. If you deploy the appliance using a scr
         - Only HTTP proxy is supported.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for discovery to work properly.
     - **Install updates**: Azure Migrate checks that the latest appliance updates are installed.
-    - **Install VDDK**: Azure Migrate checks that the VMWare vSphere Virtual Disk Development Kit (VDDK) is installed.
+    - **Install VDDK**: Azure Migrate checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed.
         - Azure Migrates uses the VDDK to replicate machines during migration to Azure.
         - Download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance.
 

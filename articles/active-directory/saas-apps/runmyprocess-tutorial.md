@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with RunMyProcess | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RunMyProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate RunMyProcess with Azure Active Directory

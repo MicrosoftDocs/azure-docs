@@ -1,6 +1,6 @@
 ---
 title: Best Practices to use Key Vault - Azure Key Vault | Microsoft Docs
-description: This document explains some of the best practices to use Key Vault
+description: Learn about best practices for Azure Key Vault, including controlling access, when to use separate key vaults, backing up, logging, and recovery options.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -52,5 +52,5 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 ## Turn on recovery options
 
-1. Turn on [Soft Delete](overview-soft-delete.md).
+1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.

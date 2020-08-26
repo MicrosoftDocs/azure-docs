@@ -31,13 +31,13 @@ Each Application Insights resource comes with metrics that are available out-of-
 
 ### Other things to keep in mind
 
--	You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
+-	You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
 - For Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these. For all other types of apps, you will likely need to set this explicitly.
 -	Live Metrics experience does not support splitting by role name.
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To make it easier to change the ikey as the code moves between stages of production, set it in code instead of in the configuration file.
+To make it easier to change the ikey as the code moves between stages of production, reference the key dynamically in code instead of using a hardcoded/static value.
 
 Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
@@ -72,7 +72,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## Create additional Application Insights resources
 
-To create an Applications Insights resource follow the [resource creation guide](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+To create an Applications Insights resource follow the [resource creation guide](./create-new-resource.md).
 
 ### Getting the instrumentation key
 The instrumentation key identifies the resource that you created.

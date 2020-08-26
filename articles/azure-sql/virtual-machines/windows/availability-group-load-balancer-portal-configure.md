@@ -3,7 +3,7 @@ title: Configure availability group listeners & load balancer (Azure portal)
 description: Step-by-step instructions for creating a listener for an Always On availability group for SQL Server in Azure virtual machines
 services: virtual-machines
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
-ms.author: mikeray 
+ms.author: mathoma 
 ms.custom: "seo-lt-2019"
 
 ---
@@ -68,6 +68,7 @@ First, create the load balancer.
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
+   | **SKU** |**Standard**: Required if your SQL instances are in a different availability set than the load balancer. </br> **Basic**: Default option. |
    | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |

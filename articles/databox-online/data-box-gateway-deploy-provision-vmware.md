@@ -89,7 +89,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
   
 3. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
 
@@ -196,7 +196,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 8. Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
-    `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
+    `Set-HcsIpAddress –Name Ethernet0 –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
 9. After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and activation.
 

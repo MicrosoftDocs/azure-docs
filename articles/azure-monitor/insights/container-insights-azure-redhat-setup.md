@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ---
 
-# Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers
+# Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers 
 
 Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3 and latest supported version of version 3, to achieve a similar monitoring experience.
 
@@ -16,7 +16,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
 
 - For an existing cluster from the Azure portal or using Azure Resource Manager template.
-- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## Supported and unsupported features
 
@@ -101,7 +101,7 @@ If you are unfamiliar with the concept of deploying resources by using a templat
 
 - [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Download and save to a local folder, the Azure Resource Manager template and parameter file, to create a cluster with the monitoring add-on using the following commands:
 
@@ -168,7 +168,7 @@ Perform the following steps to enable monitoring of an Azure Red Hat OpenShift c
     ![Enable monitoring for non-monitored clusters](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the RedHat OpenShift cluster is deployed to.
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the RedHat OpenShift cluster is deployed to.
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
@@ -188,7 +188,7 @@ If you are unfamiliar with the concept of deploying resources by using a templat
 
 - [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Download the template and parameter file to update your cluster with the monitoring add-on using the following commands:
 
@@ -238,4 +238,5 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
-- To learn how to stop monitoring your cluster with Azure Monitor for containers, see [How to Stop Monitoring Your Azure Red Hat OpenShift cluster](container-insights-optout-openshift.md).
+- To learn how to stop monitoring your cluster with Azure Monitor for containers, see [How to Stop Monitoring Your Azure Red Hat OpenShift cluster](./container-insights-optout-openshift-v3.md).
+

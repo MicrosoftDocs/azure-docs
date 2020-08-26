@@ -22,11 +22,11 @@ ms.author: juergent
 
 The backup guide for SAP HANA running on Azure virtual Machines will only describe Azure-specific topics. For general SAP HANA backup related items, check the SAP HANA documentation. We expect you to be familiar with principle database backup strategies, the reasons, and motivations to have a sound and valid backup strategy, and are aware of the requirements your company has for the backup procedure, retention period of backups and restore procedure.
 
-SAP HANA is officially supported on various Azure VM types, like Azure M-Series. For a complete list of SAP HANA certified Azure VMs and HANA Large Instance units, check out [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Microsoft Azure offers a number of units where SAP HANA runs non-virtualized on physical servers. This service is called [HANA Large Instances](hana-overview-architecture.md). This guide will not cover backup processes and tools for HANA Large Instances. But is going to be limited to Azure virtual machines. For details about backup/restore processes with HANA Large Instances, read the article [HLI Backup and Restore](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore).
+SAP HANA is officially supported on various Azure VM types, like Azure M-Series. For a complete list of SAP HANA certified Azure VMs and HANA Large Instance units, check out [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Microsoft Azure offers a number of units where SAP HANA runs non-virtualized on physical servers. This service is called [HANA Large Instances](hana-overview-architecture.md). This guide will not cover backup processes and tools for HANA Large Instances. But is going to be limited to Azure virtual machines. For details about backup/restore processes with HANA Large Instances, read the article [HLI Backup and Restore](./hana-backup-restore.md).
 
 The focus of this article is on three backup possibilities for SAP HANA on Azure virtual machines:
 
-- HANA backup through [Azure Backup Services](https://docs.microsoft.com/azure/backup/backup-overview) 
+- HANA backup through [Azure Backup Services](../../../backup/backup-overview.md) 
 - HANA backup to the file system in an Azure Linux Virtual Machine (see [SAP HANA Azure Backup on file level](sap-hana-backup-file-level.md))
 - HANA backup based on storage snapshots using the Azure storage blob snapshot feature manually or Azure Backup service
 
@@ -34,18 +34,18 @@ The focus of this article is on three backup possibilities for SAP HANA on Azure
 SAP HANA offers a backup API, which allows third-party backup tools to integrate directly with SAP HANA. Products like Azure Backup service, or [Commvault](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/) are using this proprietary interface to trigger SAP HANA database or redo log backups. 
 
 
-Information on how you can find what SAP software is supported on Azure can be found in the article [What SAP software is supported for Azure deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure).
+Information on how you can find what SAP software is supported on Azure can be found in the article [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md).
 
 ## Azure Backup Service
 
 The first scenario shown is a scenario where Azure Backup Service is either using the SAP HANA `backint` interface to perform a streaming backup with from an SAP HANA database. Or you use a more generic capability of Azure Backup service to create an application consistent disk snapshot and have that one transferred to the Azure Backup service.
 
-Azure Backup integrates and is certified as backup solution for SAP HANA using the proprietary SAP HANA interface called [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). For more details of the solution, its capabilities and the Azure regions where it is available, read the article [Support matrix for backup of SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). For details and principles about Azure Backup service for HANA, read the article [About SAP HANA database backup in Azure VMs](https://docs.microsoft.com/azure/backup/sap-hana-db-about). 
+Azure Backup integrates and is certified as backup solution for SAP HANA using the proprietary SAP HANA interface called [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). For more details of the solution, its capabilities and the Azure regions where it is available, read the article [Support matrix for backup of SAP HANA databases on Azure VMs](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). For details and principles about Azure Backup service for HANA, read the article [About SAP HANA database backup in Azure VMs](../../../backup/sap-hana-db-about.md). 
 
-The second possibility to leverage Azure Backup service is to create an application consistent backup using disk snapshots of Azure Premium Storage. Other HANA certified Azure storages, like [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-ultra-ssd) and [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) are not supporting this kind of snapshot through Azure Backup service. Reading these articles:
+The second possibility to leverage Azure Backup service is to create an application consistent backup using disk snapshots of Azure Premium Storage. Other HANA certified Azure storages, like [Azure Ultra disk](../../disks-enable-ultra-ssd.md) and [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) are not supporting this kind of snapshot through Azure Backup service. Reading these articles:
 
-- [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
-- [Application-consistent backup of Azure Linux VMs](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) 
+- [Plan your VM backup infrastructure in Azure](../../../backup/backup-azure-vms-introduction.md)
+- [Application-consistent backup of Azure Linux VMs](../../../backup/backup-azure-linux-app-consistent.md) 
 
 this sequence of activity emerges:
 
@@ -101,7 +101,7 @@ Information about the table consistency check can also be found on the SAP websi
 
 SAP doesn&#39;t give preference to either HANA backup versus storage snapshot. It lists their pros and cons, so one can determine which to use depending on the situation and available storage technology (see [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)).
 
-On Azure, be aware of the fact that the Azure blob snapshot feature doesn&#39;t provide file system consistency across multiple disks (see [Using blob snapshots with PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). 
+On Azure, be aware of the fact that the Azure blob snapshot feature doesn&#39;t provide file system consistency across multiple disks (see [Using blob snapshots with PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 
 In addition, one has to understand the billing implications when working frequently with blob snapshots as described in this article: [Understanding How Snapshots Accrue Charges](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)—it isn&#39;t as obvious as using Azure virtual disks.
 

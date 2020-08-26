@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall rule processing logic
+title: Azure Firewall Manager rule processing logic
 description: Learn about Azure Firewall rule processing logic
 services: firewall-manager
 author: vhorne

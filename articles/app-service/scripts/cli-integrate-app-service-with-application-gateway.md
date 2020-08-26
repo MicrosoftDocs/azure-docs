@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Integrate App Service with Application Gateway using CLI

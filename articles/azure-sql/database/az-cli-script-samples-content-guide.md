@@ -5,7 +5,7 @@ description: Azure CLI script examples to create and manage Azure SQL Database a
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: overview-samples, mvc, sqldbrb=2
+ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein

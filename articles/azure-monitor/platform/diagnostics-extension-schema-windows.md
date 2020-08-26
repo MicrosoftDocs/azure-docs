@@ -153,7 +153,7 @@ The top-level element of the diagnostics configuration file.
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Required attribute:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1). Required attribute:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Required attribute:<br /><br /> **provider** - The GUID of the event provider<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> - **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. The value is an [XML “Duration Data Type.”](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
@@ -161,7 +161,7 @@ The top-level element of the diagnostics configuration file.
 ## EtwEventSourceProviderConfiguration Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
- Configures collection of events generated from [EventSource Class](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
+ Configures collection of events generated from [EventSource Class](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1).  
 
 |Child Elements|Description|  
 |--------------------|-----------------|  
@@ -204,7 +204,7 @@ The top-level element of the diagnostics configuration file.
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter. Values are available at [UnitType Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
+|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter. Values are available at [UnitType Class](/dotnet/api/microsoft.azure.management.sql.models.unittype?view=azure-dotnet) |
 |**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Azure Monitor or Event Hubs. Note you need to add the *resourceId* property under the *Metrics* element if you want events uploaded to Event Hubs to have a resource ID.|    
 
 

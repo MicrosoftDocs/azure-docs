@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/26/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Marketplace metered billing APIs
