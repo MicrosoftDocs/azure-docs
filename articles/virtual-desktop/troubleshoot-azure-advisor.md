@@ -13,10 +13,10 @@ This article describes how you can fix common issues that appear in Azure Adviso
 
 ## “No validation environment enabled”
 
-> [!div class="mx-imgBorder"]
-> ![](media/no-validation-environment.png)
+>[!div class="mx-imgBorder"]
+>![A screenshot of the Azure Advisor Operational Excellence page. The "no validation environment enabled" recommendation is highlighted in red.](media/no-validation-environment.png)
 
-This issue appears under Operational Excellence. Usually, when you encounter this issue, you get a warning message like this:
+This issue appears under Operational Excellence. Usually, when you come across this issue, you get a warning message like this:
 
 "You don't have a validation environment enabled in this subscription. When you made your host pools, you selected **No** for "Validation environment" in the Properties tab. To ensure business continuity through Windows Virtual Desktop service deployments, make sure you have at least one host pool with a validation environment where you can test for potential issues.”
 
@@ -28,12 +28,12 @@ To create a validation environment:
 
 2. Next, select the host pool you want to change from a production environment to a validation environment.
 
-3. In your host pool, select the **Properties** tab in the column on the right side of the screen, then scroll down until you see “Validation environment.” Select **Yes**, then select **Apply**.
+3. In your host pool, select the **Properties** tab in the column on the right side of the screen. Next, scroll down until you see “Validation environment.” Select **Yes**, then select **Apply**.
 
-> [!div class="mx-imgBorder"]
-> !![](media/validation-yes.png)
+>[!div class="mx-imgBorder"]
+>!![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "Yes" bubble is selected.](media/validation-yes.png)
 
-This won't make the warning go away immediately, but it should stop appearing within a day of making these changes. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own so that Azure Advisor can let you know if it encounters any problems as the settings change.
+These changes won't make the warning go away immediately, but it should disappear eventually. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own. That way, Azure Advisor can let you know if it comes across any problems as the settings change.
 
 ## “Not enough production (non-validation) environments enabled”
 
@@ -42,20 +42,22 @@ This issue appears under Operational Excellence.
 For this issue, the warning message appears for one of these reasons:
 
 - You have too many host pools in your validation environment.
-- You don't have any production host pools. 
+- You don't have any production host pools.
 
 We recommend users have fewer than half of their host pools in a validation environment.
 
 To resolve this warning:
 
 1. Go to your Azure portal home page.
+
 2. Select the host pools you want either want to change from validation to production.
-3. In your host pool, select the **Properties** tab in the column on the right side of the screen, then scroll down until you see “Validation environment.” Select **No**, then select **Apply**.
 
-This won't make the warning go away immediately, but it should stop appearing within a day of making these changes. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own so that Azure Advisor can let you know if it encounters any problems as the settings change.
+3. In your host pool, select the **Properties** tab in the column on the right side of the screen. Next, scroll down until you see “Validation environment.” Select **No**, then select **Apply**.
 
-> [!div class="mx-imgBorder"]
-> !![](media/validation-no.png)
+>[!div class="mx-imgBorder"]
+>!![A screenshot of the Properties menu. "Validation environment" is highlighted in red, and the "No" bubble is selected.](media/validation-no.png)
+
+These changes won't make the warning go away immediately, but it should disappear eventually. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own. That way, Azure Advisor can let you know if it comes across any problems as the settings change.
 
 ## “Not enough links are unblocked to successfully implement your VM”
 
@@ -67,4 +69,4 @@ To solve this issue, make sure you unblock all the URLs on the [Safe URL list](s
 
 ## Propose new recommendations
 
-You can help us improve Azure Advisor by submitting ideas for recommendations based on issues you've encountered. Chances are, other users may be encountering the same issue and could benefit from your guidance. To submit a suggestion, go to [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) and fill out the form with as much detail as possible.
+You can help us improve Azure Advisor by submitting ideas for recommendations. Your recommendation could help another user out of a tough spot. To submit a suggestion, go to [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) and fill out the submission form. When you fill out the form, make sure to give us as much detail as possible.
