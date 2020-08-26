@@ -371,7 +371,7 @@ After enabling a customer-managed key in a registry, you can perform the same re
 
 ## Rotate key
 
-Rotate a customer-managed key used for registry encryption to your compliance policies. Create a new key, or update a key version, and then update the registry to encrypt data using the key. You can perform these steps using the Azure CLI or in the portal.
+Rotate a customer-managed key used for registry encryption according to your compliance policies. Create a new key, or update a key version, and then update the registry to encrypt data using the key. You can perform these steps using the Azure CLI or in the portal.
 
 When rotating a key, typically you specify the same identity used when creating the registry. Optionally, configure a new user-assigned identity for key access, or enable and specify the registry's system-assigned identity.
 
@@ -444,6 +444,7 @@ If your Azure key vault is deployed in a virtual network with a Key Vault firewa
 
 1. Configure registry encryption to use the registry's system-assigned identity
 1. Enable the registry to bypass the Key Vault firewall
+1. Rotate the customer-managed key
 
 ### Configure system-assigned identity
 
@@ -478,6 +479,10 @@ To access a key vault configured with a Key Vault firewall, the registry must by
 1. Select **Settings** > **Networking**.
 1. Confirm, update, or add virtual network settings. For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
 1. In **Allow Microsoft Trusted Services to bypass this firewall**, select **Yes**. 
+
+### Rotate the customer-managed key
+
+After completing the preceding steps, rotate the key to a new key in the key vault behind a firewall. For steps, see [Rotate key](#rotate-key) in this article.
 
 ## Next steps
 
