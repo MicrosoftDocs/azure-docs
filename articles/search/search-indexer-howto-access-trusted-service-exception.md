@@ -26,7 +26,7 @@ Follow the details outlined in [the managed identity access guide](search-howto-
 
 In the Azure portal, navigate to the "Firewalls and Virtual Networks" tab of the storage account. Ensure that the option "Allow trusted Microsoft services to access this storage account" is checked. This option will only permit the specific search service instance with appropriate role-based access to the storage account (strong authentication) to access data in the storage account, even if it's secured by IP firewall rules.
 
-![Exception](media\search-indexer-howto-secure-access\exception.png "Trusted service exception")
+![Trusted service exception](media\search-indexer-howto-secure-access\exception.png "Trusted service exception")
 
 Indexers will now be able to access data in the storage account, even if the account is secured via IP firewall rules.
 
