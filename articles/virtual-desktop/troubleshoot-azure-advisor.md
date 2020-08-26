@@ -13,7 +13,8 @@ This article describes how you can fix common issues that appear in Azure Adviso
 
 ## “No validation environment enabled”
 
-![](media/9323ec62a7f32354b624841e9ab10e44.png)
+> [!div class="mx-imgBorder"]
+> ![](media/no-validation-environment.png)
 
 This issue appears under Operational Excellence. Usually, when you encounter this issue, you get a warning message like this:
 
@@ -23,15 +24,14 @@ You can make this warning message go away by creating a validation environment i
 
 To create a validation environment:
 
-1. Go to your Azure portal home page and select any host pool you want to use.
-
-![](media/deaf7c239c73ce764adaec25aee4e952.png)
+1. Go to your Azure portal home page and select the host pool you want to change.
 
 2. Next, select the host pool you want to change from a production environment to a validation environment.
 
 3. In your host pool, select the **Properties** tab in the column on the right side of the screen, then scroll down until you see “Validation environment.” Select **Yes**, then select **Apply**.
 
-![](media/aeaecaf70ba28db278d511eaa9d2eb2c.png)
+> [!div class="mx-imgBorder"]
+> !![](media/validation-yes.png)
 
 This won't make the warning go away immediately, but it should stop appearing within a day of making these changes. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own so that Azure Advisor can let you know if it encounters any problems as the settings change.
 
@@ -54,7 +54,8 @@ To resolve this warning:
 
 This won't make the warning go away immediately, but it should stop appearing within a day of making these changes. Azure Advisor updates twice a day. Until then, you can postpone or dismiss the recommendation manually. We recommend you let the recommendation go away on its own so that Azure Advisor can let you know if it encounters any problems as the settings change.
 
-![](media/e5b44420a46caa0e862bc842d52b22cd.png)
+> [!div class="mx-imgBorder"]
+> !![](media/validation-no.png)
 
 ## “Not enough links are unblocked to successfully implement your VM”
 
