@@ -215,7 +215,7 @@ training_results = OutputFileDatasetConfig(name = "training_results",
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
-    arguments=["--prepped_data", output_data1, "--training_results", training_results],
+    arguments=["--prepped_data", output_data1.as_input(), "--training_results", training_results],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
