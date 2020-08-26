@@ -4,7 +4,7 @@ description: Learn about SQL system function RIGHT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -42,6 +42,10 @@ SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2
 ```json
 [{"r1": "c", "r2": "bc"}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

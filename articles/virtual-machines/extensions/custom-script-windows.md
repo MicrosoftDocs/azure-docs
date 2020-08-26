@@ -4,7 +4,6 @@ description: Automate Windows VM configuration tasks by using the Custom Script 
 services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
-manager: carmonm
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
@@ -26,7 +25,17 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ### Operating System
 
-The Custom Script Extension for Windows will run on the extension supported extension OSs, for more information, see this [Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+The Custom Script Extension for Windows will run on the extension supported extension OSs;
+### Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### Script Location
 
@@ -52,6 +61,7 @@ If your script is on a local server, then you may still need additional firewall
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
 * Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
 * Custom Script Extension will run under the LocalSystem Account
+* If you plan to use the *storageAccountName* and *storageAccountKey* properties, these properties must be collocated in *protectedSettings*.
 
 ## Extension schema
 
@@ -102,7 +112,7 @@ These items should be treated as sensitive data and specified in the extensions 
 > Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
 
 > [!NOTE]
-> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template. 
+> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template.
 
 ### Property values
 
@@ -130,7 +140,7 @@ These items should be treated as sensitive data and specified in the extensions 
 script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
-* `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
+* `managedIdentity`: (optional, json object) the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading file(s)
   * `clientId`: (optional, string) the client ID of the managed identity
   * `objectId`: (optional, string) the object ID of the managed identity
 
@@ -143,10 +153,12 @@ Using public settings maybe useful for debugging, but it's recommended that you 
 Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, that is, if the settings were encrypted they're saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
 
 ####  Property: managedIdentity
+> [!NOTE]
+> This property **must** be specified in protected settings only.
 
-CustomScript (version 1.10 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
+CustomScript (version 1.10 onwards) supports [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 
@@ -267,9 +279,11 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## Virtual Machine Scale Sets
 
-To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## Classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 To deploy the Custom Script Extension on classic VMs, you can use the Azure portal or the Classic Azure PowerShell cmdlets.
 
@@ -283,7 +297,7 @@ On the **Install extension** page, select the local PowerShell file, and fill ou
 
 ### PowerShell
 
-Use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) cmdlet can be used to add the Custom Script extension to an existing virtual machine.
+Use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) cmdlet can be used to add the Custom Script extension to an existing virtual machine.
 
 ```powershell
 # define your file URI

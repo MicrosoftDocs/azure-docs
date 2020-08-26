@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Exception Telemetry Data model
 description: Application Insights data model for exception telemetry
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 
 ms.reviewer: sergkanz
@@ -13,7 +9,7 @@ ms.reviewer: sergkanz
 
 # Exception telemetry: Application Insights data model
 
-In [Application Insights](../../azure-monitor/app/app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
+In [Application Insights](./app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 
 ## Problem Id
 
@@ -40,5 +36,6 @@ Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`,
 ## Next steps
 
 - See [data model](data-model.md) for Application Insights types and data model.
-- Learn how to [diagnose exceptions in your web apps with Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.
+- Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
+- Check out [platforms](./platforms.md) supported by Application Insights.
+

@@ -1,20 +1,20 @@
 ---
-title: Deploy an IPv6 dual stack application in Azure virtual network - Resource Manger template (preview)
+title: Deploy an IPv6 dual stack application in Azure virtual network - Resource Manger template
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure Resource Manager VM templates.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application in Azure virtual network - Template (Preview)
+# Deploy an IPv6 dual stack application in Azure virtual network - Template
 
 This article provides a list of IPv6 configuration tasks with the portion of the Azure Resource Manager VM template that applies to. Use the template described in this article to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network with IPv4 and IPv6 subnets, a Standard Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs. 
 
@@ -53,7 +53,7 @@ Template section to add:
             "name": "ipconfig-v6",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
-	      "privateIPAddressVersion":"IPv6",
+          "privateIPAddressVersion":"IPv6",
               "subnet": {
                 "id": "[variables('v6-subnet-id')]"
               },
@@ -118,7 +118,7 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
 ### IPv6 Public IP addresses
 
 ```JSON
-	{
+    {
       "apiVersion": "[variables('ApiVersion')]",
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "lbpublicip-v6",
@@ -128,14 +128,14 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
       },
       "properties": {
         "publicIPAllocationMethod": "Static",
-		"publicIPAddressVersion": "IPv6"
+        "publicIPAddressVersion": "IPv6"
       }
 ```
 
 ### IPv6 Front end for Load Balancer
 
 ```JSON
-		  {
+          {
             "name": "LBFE-v6",
             "properties": {
               "publicIPAddress": {
@@ -163,7 +163,7 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
             "name": "ipconfig-v6",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
-	      "privateIPAddressVersion":"IPv6",
+          "privateIPAddressVersion":"IPv6",
               "subnet": {
                 "id": "[variables('v6-subnet-id')]"
               },

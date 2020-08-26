@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2020
 ms.author: aahi
+ms.custom: devx-track-javascript
 ---
 
 # Tutorial: Create a single-page app using the Bing Web Search API
@@ -25,16 +26,16 @@ This sample app can:
 > * Manage subscription keys
 > * Handle errors
 
-To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) to get a subscription key.
+To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required.
 
 ## Prerequisites
 
 Here are a few things that you'll need to run the app:
 
-* Node.js 8 or later
-* A subscription key
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
-## Get the source code and install dependencies
+* Node.js 8 or later
 
 The first step is to clone the repository with the sample app's source code.
 

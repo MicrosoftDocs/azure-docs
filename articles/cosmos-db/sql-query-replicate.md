@@ -4,7 +4,7 @@ description: Learn about SQL system function REPLICATE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -30,7 +30,8 @@ REPLICATE(<str_expr>, <num_expr>)
   Returns a string expression.
   
 ## Remarks
-  The maximum length of the result is 10,000 characters i.e. (length(*str_expr*)  *  *num_expr*) <= 10,000.
+
+  The maximum length of the result is 10,000 characters i.e. (length(*str_expr*)  *  *num_expr*) <= 10,000. This system function will not utilize the index.
 
 ## Examples
   

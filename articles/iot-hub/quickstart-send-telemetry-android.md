@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: [mvc, mqtt, devx-track-java]
 ms.date: 03/15/2019
 ms.author: wesmc
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from an Android device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
@@ -36,8 +36,10 @@ In this quickstart, you send telemetry to an Azure IoT Hub from an Android appli
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
@@ -73,9 +75,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Send simulated telemetry
 
-1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
-
-        \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
+1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository: *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
 
 2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with the device connection string you made a note of earlier.
 
@@ -100,7 +100,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to monitor the device messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

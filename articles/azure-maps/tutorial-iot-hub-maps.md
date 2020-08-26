@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
 description: Integrate IoT Hub with Microsoft Azure Maps service APIs.
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
@@ -33,7 +33,7 @@ In this tutorial you will:
 
 This solution demonstrates a scenario where a car rental company plans to monitor and log events for its rental cars. Car rental companies usually rent cars to a specific geographic region. They need to track the cars whereabouts while they are rented. Instances of a car leaving the chosen geographic region must be logged. Logging data ensures policies, fees, and other business aspects would be handled properly.
 
-In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). The rental car's device telemetry schema looks like:
+In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). The rental car's device telemetry schema looks like:
 
 ```JSON
 {
@@ -107,7 +107,7 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
 ### Create an Azure Maps account 
 
-To implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to obtain your primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+To implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription with S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to obtain your primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 
 

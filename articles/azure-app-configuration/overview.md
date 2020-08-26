@@ -1,6 +1,6 @@
 ---
 title: What is Azure App Configuration?
-description: An overview of the Azure App Configuration service.
+description: Read an overview of the Azure App Configuration service. Understand why you would want to use App Configuration, and learn how you can use it.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration

@@ -1,23 +1,19 @@
-﻿---
+---
 title: Install Trend Micro Deep Security on a VM 
 description: This article describes how to install and configure Trend Micro security on a VM created with the Classic deployment model in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
 
 ---
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
 This article shows you how to install and configure Trend Micro Deep Security as a Service on a new or existing virtual machine (VM) running Windows Server. Deep Security as a Service includes anti-malware protection, a firewall, an intrusion prevention system, and integrity monitoring.
 
@@ -31,7 +27,7 @@ If you have a current subscription from Trend Micro for an on-premises solution,
 
 The [Azure portal](https://portal.azure.com) lets you install the Trend Micro security extension when you use an image from the **Marketplace** to create the virtual machine. If you're creating a single virtual machine, using the portal is an easy way to add protection from Trend Micro.
 
-Using an entry from the **Marketplace** opens a wizard that helps you set up the virtual machine. You use the **Settings** blade, the third panel of the wizard, to install the Trend Micro security extension.  For general instructions, see [Create a virtual machine running Windows in the Azure portal](../windows/classic/tutorial.md).
+Using an entry from the **Marketplace** opens a wizard that helps you set up the virtual machine. You use the **Settings** blade, the third panel of the wizard, to install the Trend Micro security extension.  For general instructions, see [Create a virtual machine running Windows in the Azure portal](../windows/quick-create-portal.md).
 
 When you get to the **Settings** blade of the wizard, do the following steps:
 
@@ -50,15 +46,17 @@ When you get to the **Settings** blade of the wizard, do the following steps:
 ## Install the Deep Security Agent on an existing VM
 To install the agent on an existing VM, you need the following items:
 
-* The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](/powershell/azure/overview). Log in to your Azure subscription using `Add-AzureAccount`.
+* The Azure PowerShell module, version 0.8.2 or newer, installed on your local computer. You can check the version of Azure PowerShell that you have installed by using the **Get-Module azure | format-table version** command. For instructions and a link to the latest version, see [How to install and configure Azure PowerShell](/powershell/azure/). Log in to your Azure subscription using `Add-AzureAccount`.
 * The VM Agent installed on the target virtual machine.
 
 First, verify that the VM Agent is already installed. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
-    $CSName = "<cloud service name>"
-    $VMName = "<virtual machine name>"
-    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-    write-host $vm.VM.ProvisionGuestAgent
+```azurepowershell
+$CSName = "<cloud service name>"
+$VMName = "<virtual machine name>"
+$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+write-host $vm.VM.ProvisionGuestAgent
+```
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the virtual machines in your current subscription.
 
@@ -66,9 +64,11 @@ If the **write-host** command returns **True**, the VM Agent is installed. If it
 
 If the VM Agent is installed, run these commands.
 
-    $Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
+```azurepowershell
+$Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
 
-    Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+```
 
 ## Next steps
 It takes a few minutes for the agent to start running when it is installed. After that, you need to activate Deep Security on the virtual machine so it can be managed by a Deep Security Manager. See the following articles for additional instructions:
@@ -89,4 +89,4 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 
 <!-- Link references -->
 [How to log on to a virtual machine running Windows Server]:../windows/classic/connect-logon.md
-[Azure VM Extensions and features]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM Extensions and features]: features-windows.md

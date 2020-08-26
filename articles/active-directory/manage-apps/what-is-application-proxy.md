@@ -2,17 +2,15 @@
 title: Publish on-premises apps with Azure AD Application Proxy 
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-
-ms.collection: M365-identity-device-management
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
@@ -73,7 +71,7 @@ Application Proxy is an Azure AD service you configure in the Azure portal. It e
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
-After signing in, external users can access on-premises web applications by using a familiar URL or the [MyApps access panel](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
+After signing in, external users can access on-premises web applications by using a familiar URL or [My Apps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
 
 ![Azure AD Application Proxy architecture](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -84,7 +82,7 @@ There are several ways to configure an application for single sign-on and the me
 * Web applications
 * Web APIs that you want to expose to rich applications on different devices
 * Applications hosted behind a Remote Desktop Gateway
-* Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
+* Rich client apps that are integrated with the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 App Proxy works with apps that use the following native authentication protocol:
 
@@ -96,7 +94,7 @@ App Proxy also supports the following authentication protocols with third-party 
 * [**Forms- or password-based authentication**](application-proxy-configure-single-sign-on-password-vaulting.md). With this authentication method, users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. In this scenario, authentication is handled by Azure AD.
 * [**SAML authentication**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-based single sign-on is supported for applications that use either SAML 2.0 or WS-Federation protocols. With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account.
 
-For more information on supported methods, see [Choosing a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+For more information on supported methods, see [Choosing a single sign-on method](sso-options.md#choosing-a-single-sign-on-method).
 
 ### Security benefits
 
@@ -141,7 +139,7 @@ The following diagram illustrates in general how Azure AD authentication service
 |Active Directory (AD)|Active Directory runs on-premises to perform authentication for domain accounts. When single sign-on is configured, the connector communicates with AD to perform any additional authentication required.|
 |On-premises application|Finally, the user is able to access an on-premises application.|
 
-Azure AD Application Proxy consists of the cloud-based Application Proxy service and an on-premises connector. The connector listens for requests from the Application Proxy service and handles connections to the internal applications. It's important to note that all communications occur over SSL, and always originate at the connector to the Application Proxy service. That is, communications are outbound only. The connector uses a client certificate to authenticate to the Application Proxy service for all calls. The only exception to the connection security is the initial setup step where the client certificate is established. See the Application Proxy [Under the hood](application-proxy-security.md#under-the-hood) for more details.
+Azure AD Application Proxy consists of the cloud-based Application Proxy service and an on-premises connector. The connector listens for requests from the Application Proxy service and handles connections to the internal applications. It's important to note that all communications occur over TLS, and always originate at the connector to the Application Proxy service. That is, communications are outbound only. The connector uses a client certificate to authenticate to the Application Proxy service for all calls. The only exception to the connection security is the initial setup step where the client certificate is established. See the Application Proxy [Under the hood](application-proxy-security.md#under-the-hood) for more details.
 
 ### Application Proxy Connectors
 

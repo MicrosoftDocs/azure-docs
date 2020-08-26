@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Tableau Server.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Tableau Server
@@ -158,7 +152,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	h. Click **Save**
 
 	> [!NOTE]
-	> Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow. If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm).
+	> Customer have to upload A PEM-encoded x509 Certificate file with a .crt extension and a RSA or DSA private key file that has the .key extension, as a Certificate Key file. For more information on Certificate file and Certificate Key file, please refer to [this](https://help.tableau.com/current/server/en-us/saml_requ.htm) document. If you need help configuring SAML on Tableau Server then please refer to this article [Configure Server Wide SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
 
 ### Create Tableau Server test user
 

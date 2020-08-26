@@ -1,12 +1,13 @@
 ---
- title: NVv3-series - Azure Virtual Machines
- description: Specifications for the NVv3-series VMs.
- services: virtual-machines
- author: jonbeck7
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NVv3-series - Azure Virtual Machines
+description: Specifications for the NVv3-series VMs.
+services: virtual-machines
+ms.subservice: sizes
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # NVv3-series
@@ -17,13 +18,19 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 
 Premium Storage caching:  Supported
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs | Virtual Workstations | Virtual Applications |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 | 1 | 25  |
-| Standard_NV24s_v3 |24 | 224 | 640  | 2 | 16 | 24 | 40000/400 | 8 | 2 | 50  |
-| Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 | 4 | 100 |
+Live Migration: Not Supported
 
-1 GPU = one-half M60 card.
+Memory Preserving Updates: Not Supported
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs / Expected network bandwidth (Mbps) | Virtual Workstations | Virtual Applications |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 / 6000 | 1 | 25  |
+| Standard_NV24s_v3 |24 | 224 | 640  | 2 | 16 | 24 | 40000/400 | 8 / 12000 | 2 | 50  |
+| Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 / 24000 | 4 | 100 |
+
+<sup>1</sup> 1 GPU = one-half M60 card.
+
+<sup>2</sup> At this time Accelerated Networking is not supported on this VM family, so real-world network performance may be lower than peak theoretical numbers captured here.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -31,9 +38,9 @@ Premium Storage caching:  Supported
 
 To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed.
 
-The [NVIDIA GPU Driver Extension](/extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](/extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](/extensions/overview.md).
+The [NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](./extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps. For general information about VM extensions, see [Azure virtual machine extensions and features](./extensions/overview.md).
 
-If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](/windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](/linux/n-series-driver-setup) for supported operating systems, drivers, installation, and verification steps.
+If you choose to install NVIDIA GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](./linux/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 
 ## Other sizes
 

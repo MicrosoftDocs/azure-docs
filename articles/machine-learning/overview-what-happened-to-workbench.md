@@ -5,12 +5,12 @@ description: Learn about what's possible without Workbench application and what 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: overview
+ms.topic: conceptual
+ms.custom: how-to
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 11/05/2019
-ms.custom: seodec18
+ms.date: 03/05/2020
 ---
 # What happened to Azure Machine Learning Workbench?
 
@@ -36,13 +36,13 @@ The latest release of Azure Machine Learning includes the following features:
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
-Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
+Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 <a name="timeline"></a>
 
 ## Support timeline
 
-On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI has ended.
+On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI ended.
 
 All the latest capabilities are available by using this <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
 

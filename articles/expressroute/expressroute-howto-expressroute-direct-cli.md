@@ -1,14 +1,15 @@
 ---
 
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct: CLI'
-description: This article helps you configure ExpressRoute Direct by using the Azure CLI
+description: Learn how use Azure CLI to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations across the world.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2019
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurecli
 
 ---
 
@@ -49,7 +50,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -116,7 +117,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -154,7 +155,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
 
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -222,7 +223,7 @@ Use this process to conduct a layer 1 test. Ensure that each cross-connection is
    ```
    **Example output**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -295,7 +296,7 @@ Create a circuit on the ExpressRoute Direct resource:
 
   **Example output**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

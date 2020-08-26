@@ -24,21 +24,23 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Retail solutions for Azure IoT Central
-            url: overview-iot-central-retail-pnp.md
+            url: overview-iot-central-retail.md
       - linkListType: tutorial
         links:
           - text: 1- Create a retail application
-            url: tutorial-in-store-analytics-create-app-pnp.md
+            url: tutorial-in-store-analytics-create-app.md
           - text: 2 - Customize the operator dashboard
-            url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+            url: tutorial-in-store-analytics-customize-dashboard.md
           - text: 3 - Export data and visualize insights
-            url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+            url: tutorial-in-store-analytics-export-data-visualize-insights.md
           - text: Create a smart inventory management application
-            url: tutorial-iot-central-smart-inventory-management-pnp.md
+            url: tutorial-iot-central-smart-inventory-management.md
           - text: Create a connected logistics application
-            url: tutorial-iot-central-connected-logistics-pnp.md
+            url: tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
-            url: tutorial-iot-central-digital-distribution-center-pnp.md 
+            url: tutorial-iot-central-digital-distribution-center.md 
+          - text: Create a video analytics application
+            url: tutorial-video-analytics-create-app.md 
       - linkListType: how-to-guide
         links:
           - text: Connect a Rigado Cascade 500
@@ -51,12 +53,10 @@ landingContent:
         links:
           - text: Set up a device template
             url: ../core/howto-set-up-template.md
-          - text: Connect an IoT Plug and Play (preview) device
-            url: ../core/tutorial-connect-pnp-device.md
+          - text: Connect a device
+            url: ../core/tutorial-connect-device.md
       - linkListType: how-to-guide
         links:
-          - text: Prepare and connect an MXChip IoT DevKit
-            url: ../core/howto-connect-devkit.md
           - text: Connect other IoT clouds
             url: ../core/howto-build-iotc-device-bridge.md
   - title: Stay connected

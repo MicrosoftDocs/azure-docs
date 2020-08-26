@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
 

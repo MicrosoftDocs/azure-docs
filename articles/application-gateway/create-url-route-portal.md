@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
@@ -29,9 +29,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Sign in to Azure
+## Prerequisites
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create virtual machines
 
@@ -200,7 +200,11 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
    The listener on port 8080 routes this request to the *Video* backend pool.
 
+## Clean up resources
+
+When no longer needed, delete the resource group and all related resources. To do so, select the resource group and select **Delete resource group**.
 
 ## Next steps
 
-- [Enabling end to end SSL on Azure Application Gateway](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Enable end to end TLS on Azure Application Gateway](application-gateway-backend-ssl.md)

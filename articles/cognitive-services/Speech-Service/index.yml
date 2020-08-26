@@ -9,12 +9,12 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 02/11/2020
-  ms.author: dapine
+  ms.date: 03/24/2020
+  ms.author: trbye
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -22,45 +22,45 @@ highlightedContent:
     - title: What is the Speech service?
       itemType: overview
       url: overview.md
+    - title: About the Speech SDK
+      itemType: overview
+      url: speech-sdk.md
     - title: Speech SDK release notes
       itemType: whats-new
       url: releasenotes.md
-    - title: Language support in Speech services
+    - title: Language support in the Speech service
       itemType: reference
       url: language-support.md
-    - title: Create a Speech services resource
-      itemType: how-to-guide
-      url: get-started.md
 
 conceptualContent:
   items:
     - title: Speech-to-text
       links:
         - itemType: quickstart
-          text: Recognize speech with microphone input
+          text: Recognize speech from a microphone
           url: quickstarts/speech-to-text-from-microphone.md
         - itemType: quickstart
           text: Recognize speech from an audio file
           url: quickstarts/speech-to-text-from-file.md
-        - itemType: quickstart
-          text: Recognize speech stored in blob storage
-          url: quickstarts/from-blob.md
+        - itemType: how-to-guide
+          text: Speech recognition basics
+          url: speech-to-text-basics.md          
       footerLink:
-        text: See more
+        text: More
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
+        - itemType: overview
+          text: About text-to-speech
+          url: text-to-speech.md
         - itemType: quickstart
-          text: Synthesize speech to a speaker
-          url: quickstarts/text-to-speech.md
-        - itemType: quickstart
-          text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
-        - itemType: quickstart
-          text: Synthesize speech with long-form audio
-          url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+          text: Get started with text-to-speech
+          url: get-started-text-to-speech.md
+        - itemType: how-to-guide
+          text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md  
       footerLink:
-        text: See more
+        text: More
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
@@ -68,13 +68,13 @@ conceptualContent:
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
-        text: Translate speech into multiple target languages
+        text: Translate speech to multiple languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: quickstart
-        text: Translate speech-to-speech
-        url: quickstarts/translate-speech-to-speech.md
+      - itemType: how-to-guide
+        text: Speech translation basics
+        url: speech-translation-basics.md        
       footerLink:
-        text: See more
+        text: More
         url: index-speech-translation.yml
     - title: Intent recognition
       links:
@@ -88,21 +88,21 @@ conceptualContent:
           text: Language Understanding (LUIS) portal
           url: https://www.luis.ai
       footerLink:
-        text: See more
+        text: More
         url: index-intent-recognition.yml
     - title: Conversation scenarios
       links:
         - itemType: overview
-          text: About Conversation Transcription
+          text: About Conversation Transcription (meetings)
           url: conversation-transcription.md
         - itemType: overview
-          text: About multi-device conversations
+          text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
         - itemType: how-to-guide
           text: Call center transcription
           url: call-center-transcription.md
       footerLink:
-        text: See more
+        text: More
         url: index-conversation-scenarios.yml
     - title: Voice assistants
       links:
@@ -116,8 +116,30 @@ conceptualContent:
           text: Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
       footerLink:
-        text: See more
+        text: More
         url: index-voice-assistants.yml
+    - title: Speaker Recognition
+      links:
+        - itemType: how-to-guide
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: how-to-guide
+          text: Speaker Recognition basics          
+          url: speaker-recognition-basics.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: https://docs.microsoft.com/rest/api/speakerrecognition/
+    - title: Tools
+      links:
+        - itemType: overview
+          text: About Speech CLI (no code command line tool)
+          url: spx-overview.md
+        - itemType: how-to-guide
+          text: Speech CLI basics (installation and examples)
+          url: spx-basics.md
+        - itemType: overview
+          text: About Speech Studio (customizations)
+          url: https://speech.microsoft.com
     - title: Hosting
       links:
         - itemType: how-to-guide
@@ -130,7 +152,7 @@ conceptualContent:
           text: Speech service containers on Azure Container Instances
           url: deploy-speech-on-container-instances.md
       footerLink:
-        text: See more
+        text: More
         url: index-hosting.yml
     - title: Devices
       links:
@@ -144,16 +166,13 @@ conceptualContent:
         text: Use Speech Devices SDK
         url: speech-devices-sdk-quickstart.md
       footerLink:
-        text: See more
+        text: More
         url: index-devices.yml
     - title: Migration
       links:
         - itemType: how-to-guide
           text: Migrate from Bing Speech
           url: how-to-migrate-from-bing-speech.md
-        - itemType: how-to-guide
-          text: Migrate from the Custom Speech service
-          url: how-to-migrate-from-custom-speech-service.md
         - itemType: how-to-guide
           text: Migrate from the Translator Speech API
           url: how-to-migrate-from-translator-speech-api.md
@@ -196,6 +215,8 @@ additionalContent:
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - title: Resources
         links:
+        - text: What's new in docs?
+          url: whats-new.md
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Regions
@@ -210,3 +231,5 @@ additionalContent:
           url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
         - text: Stack Overflow
           url: https://aka.ms/SOspeechquestions
+        - text: UserVoice
+          url: https://cognitive.uservoice.com/forums/912208-speech-service

@@ -7,14 +7,15 @@ ms.service: data-factory
 ms.workload: data-services
 
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 08/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ---
 # Parameterize linked services in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You can now parameterize a linked service and pass dynamic values at run time. For example, if you want to connect to different databases on the same Azure SQL Database server, you can now parameterize the database name in the linked service definition. This prevents you from having to create a linked service for each database on the Azure SQL database server. You can parameterize other properties in the linked service definition as well - for example, *User name.*
+You can now parameterize a linked service and pass dynamic values at run time. For example, if you want to connect to different databases on the same logical SQL server, you can now parameterize the database name in the linked service definition. This prevents you from having to create a linked service for each database on the logical SQL server. You can parameterize other properties in the linked service definition as well - for example, *User name.*
 
 You can use the Data Factory UI in the Azure portal or a programming interface to parameterize linked services.
 
@@ -27,15 +28,18 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 ## Supported data stores
 
-At this time, linked service parameterization is supported in the Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the **Connections** tab and using the JSON editor.
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- SQL Server
-- Oracle
-- Cosmos DB
+At this time, linked service parameterization is supported in the Data Factory UI for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the **Connections** tab and using the JSON editor.
+
 - Amazon Redshift
-- MySQL
+- Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
+- Azure SQL Database
+- Azure Synapse Analytics (formerly SQL DW)
+- MySQL
+- Oracle
+- SQL Server
+- Generic HTTP
+- Generic REST
 
 ## Data Factory UI
 

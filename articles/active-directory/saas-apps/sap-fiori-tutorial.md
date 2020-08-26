@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori
@@ -170,7 +163,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. In the **Transformation** list, select **ExtractMailPrefix()**.
 
-	1. In the **Parameter 1** list, select **user.userprinicipalname**.
+	1. In the **Parameter 1** list, select **user.userprincipalname**.
 
 	1. Select **Save**.
 

@@ -88,9 +88,7 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
 
 Visual Studio Code will now upload your files to your web endpoint, and show the success status bar. Launch the website to view it in Azure.
 
-![View static website deployment in Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
-
-You’ve successfully completed the tutorial and deployed a static website to Azure.
+You've successfully completed the tutorial and deployed a static website to Azure.
 
 ## Next steps
 

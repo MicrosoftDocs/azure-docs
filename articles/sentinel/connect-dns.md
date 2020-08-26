@@ -1,9 +1,9 @@
 ---
 title: Connect DNS data in Azure Sentinel| Microsoft Docs
-description: Learn how to connect DNS data in Azure Sentinel.
+description: Learn to connect any domain name server (DNS) running on Windows to Azure Sentinel by installing an agent on the DNS machine.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect your domain name server

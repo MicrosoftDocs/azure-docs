@@ -4,6 +4,7 @@ description: Learn to manage return values for Azure Functions
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 01/14/2019
 ms.author: cshoe
 ---

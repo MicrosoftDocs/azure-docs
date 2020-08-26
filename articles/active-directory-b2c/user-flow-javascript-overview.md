@@ -3,14 +3,15 @@ title: JavaScript and page layout versions
 titleSuffix: Azure AD B2C
 description: Learn how to enable JavaScript and use page layout versions in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/10/2020
-ms.author: marsma
+ms.topic: how-to
+ms.date: 07/30/2020
+ms.custom: project-no-code, devx-track-javascript
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -36,7 +37,7 @@ In the user flow **Properties**, you can enable JavaScript. Enabling JavaScript 
 
 ## Select a page layout version
 
-Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **LAYOUT NAME**, select a user flow page and choose the **Page Layout Version**.
+Whether or not you enable JavaScript in your user flow's properties, you can specify a page layout version for your user flow pages. Open the user flow and select **Page layouts**. Under **Layout name**, select a user flow page and choose the **Page Layout Version (Preview)**.
 
 For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 

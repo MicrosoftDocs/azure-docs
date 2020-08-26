@@ -7,9 +7,11 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
+ms.date: 08/16/2020
 ---
 # Troubleshoot data flows in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
@@ -36,7 +38,7 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
 - **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. Stream chosen for broadcast seems to large to produce data within this limit.
-- **Recommendation**: Avoid broadcasting large data streams where the processing can take more than 60 secs. Choose a smaller stream to broadcast instead. Large SQL/DW tables and source files are typically bad candidates.
+- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If this is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
 
 ### Error code: DF-Executor-Conversion
 
@@ -50,6 +52,25 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 - **Causes**: No column name was specified
 - **Recommendation**: Set an alias if using a SQL function such as min()/max(), etc.
 
+### Error code: GetCommand OutputAsync failed
+
+- **Message**: During Data Flow debug and data preview: GetCommand OutputAsync failed with ...
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
+
+### Error code: Hit unexpected exception and execution failed
+
+- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
+
+### Error code: Debug data preview No Output Data on Join
+
+- **Message**: There are a high number of null values or missing values which may be caused by having too few rows sampled. Try updating the debug row limit and refreshing the data.
+- **Causes**: Join condition did not match any rows or resulted in high number of NULLs during data preview.
+- **Recommendation**: Go to Debug Settings and increase the number of rows in the source row limit. Make sure that you have select and Azure IR with a large enough data flow cluster to handle more data.
+
+
 ## General troubleshooting guidance
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
@@ -59,10 +80,10 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 ## Next steps
 
 For more troubleshooting help, try these resources:
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Azure videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
+*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)

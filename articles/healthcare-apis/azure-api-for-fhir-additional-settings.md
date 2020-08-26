@@ -4,7 +4,7 @@ description: Overview of the additional settings you can set for Azure API for F
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
@@ -22,10 +22,12 @@ Throughput must be provisioned to ensure that sufficient system resources are av
 
 For more information on how to change the default settings, see [configure database settings](configure-database.md).
 
-## Find identity object IDs
-The fully managed Azure API for FHIR service is configured to allow access for only a pre-defined list of identity object IDs. When an application or user is trying to access the FHIR API, a bearer token must be presented. This bearer token will have certain claims (fields). In order to grant access to the FHIR API, the token must contain the right issuer (`iss`), audience (`aud`), and an object ID (`oid`) from a list of allowed object IDs. An identity object ID is either the object ID of a user or a service principal in Azure Active Directory.
+## Access control
 
-When you create a new Azure API for FHIR instance, you can configure a list of allowed object IDs. To configure this list, see our how-to-guide to [find identity object IDs](find-identity-object-ids.md).
+The Azure API for FHIR will only allow authorized users to access the FHIR API. You can configure authorized users through two different mechanisms. The primary and recommended way to configure access control is using [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/), which is accessible through the **Access control (IAM)** blade. Azure RBAC only works if you want to secure data plane access using the Azure Active Directory tenant associated with your subscription. If you wish to use a different tenant, the Azure API for FHIR offers a local FHIR data plane access control mechanism. The configuration options are not as rich when using the local RBAC mechanism. For details, choose one of the following options:
+
+* [Azure RBAC for FHIR data plane](configure-azure-rbac.md). This is the preferred option when you are using the Azure Active Directory tenant associated with your subscription.
+* [Local FHIR data plane access control](configure-local-rbac.md). Use this option only when you need to use an external Azure Active Directory tenant for data plane access control. 
 
 ## Enable diagnostic logging
 You may want to enable diagnostic logging as part of your setup to be able to monitor your service and have accurate reporting for compliance purposes. For details on how to set up diagnostic logging, see our [how-to-guide](enable-diagnostic-logging.md) on how to set up diagnostic logging, along with some sample queries. 
@@ -49,4 +51,4 @@ In this how-to guide, you set up additional settings for the Azure API for FHIR.
 Next check out the series of tutorials to create a web application that reads FHIR data.
 
 >[!div class="nextstepaction"]
->[Deploy javascript application](tutorial-web-app-fhir-server.md)
+>[Deploy JavaScript application](tutorial-web-app-fhir-server.md)

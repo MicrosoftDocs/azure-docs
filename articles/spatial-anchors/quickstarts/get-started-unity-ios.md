@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -30,7 +30,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
@@ -44,13 +44,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## Configure account identifier and key
-
-In the **Project** pane, navigate to `Assets/AzureSpatialAnchors.Examples/Scenes` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Save the scene by selecting **File** -> **Save**.
 
 ## Export the Xcode project
 
@@ -86,3 +80,6 @@ brew link --overwrite cocoapods
 
 > [!div class="nextstepaction"]
 > [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [How To: Configure Azure Spatial Anchors in a Unity project](../how-tos/setup-unity-project.md)

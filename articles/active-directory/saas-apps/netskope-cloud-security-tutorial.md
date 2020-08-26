@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Netskope Administrator Console | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Netskope Administrator Console.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e286adec-8d19-4d41-9afa-a2e39d7a5983
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Netskope Administrator Console
@@ -80,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `Netskope_<OrgKey>`
+    `<OrgKey>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<tenant_host_name>/saml/acs`

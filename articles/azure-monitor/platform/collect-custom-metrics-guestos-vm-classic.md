@@ -3,7 +3,7 @@ title: Send classic Windows VM metrics to Azure Monitor metrics database
 description: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
 author: anirudhcavale            
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
@@ -14,7 +14,7 @@ ms.subservice: ""
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-The Azure Monitor [Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
+The Azure Monitor [Diagnostics extension](./diagnostics-extension-overview.md) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](./data-platform.md?toc=/azure/azure-monitor/toc.json)
 
 This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric database. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -26,9 +26,9 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You must be a [service administrator or co-administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- Your subscription must be registered with [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+- You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
 - Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
@@ -44,7 +44,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 ## Create a service principal
 
-Create a service principle in your Azure Active Directory tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
+Create a service principal in your Azure Active Directory tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app.
 - Save the key and the client ID for use in later steps.
 
@@ -200,4 +200,3 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
-

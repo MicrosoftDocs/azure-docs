@@ -4,7 +4,7 @@ description: Learn how Analysis Services use Azure Metrics Explorer, a free tool
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 

@@ -1,21 +1,21 @@
 ---
 title: Access data sources on premises
-description: Connect to on-premises data sources from Azure Logic Apps by creating an Azure on-premises data gateway resource
+description: Connect to on-premises data sources from Azure Logic Apps by creating an data gateway resource in Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 08/18/2020
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-Before you can access data sources on premises from your logic apps, you need to create an Azure resource after you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps then use this Azure gateway resource in the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) that are available for Azure Logic Apps.
+After you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md) and before you can access data sources on premises from your logic apps, you need to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you want to use for the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) available in Azure Logic Apps. Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
 This article shows how to create your Azure gateway resource for a previously [installed gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
-> To connect to Azure virtual networks, consider creating an 
+> To directly access on-premises resources in Azure virtual networks without having to use the gateway, consider creating an 
 > [*integration service environment*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) instead. 
 
 For information about how to use the gateway with other services, see these articles:
@@ -44,17 +44,17 @@ In Azure Logic Apps, the on-premises data gateway supports the [on-premises conn
 * SQL Server
 * Teradata
 
-Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
+You can also create [custom connectors](../logic-apps/custom-connector-overview.md) that connect to data sources over HTTP or HTTPS by using REST or SOAP. Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 ## Prerequisites
 
-* You already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
+* You already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). This gateway installation must exist before you can create a gateway resource that links to this installation.
 
-* You're using the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that was used when installing that data gateway. This Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology).
+* You have the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
 
-* Your gateway installation isn't already registered and claimed by another Azure gateway resource.
-
-  When you create a gateway resource in the Azure portal, you select a gateway installation, which links to your gateway resource and only that gateway resource. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources. In these triggers and actions, you select your Azure subscription and the associated gateway resource that you want to use. Each gateway resource links to only one gateway installation, which links to only one Azure account.
+  * When you create a gateway resource in Azure, you select a gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
+  
+  * Your logic app and gateway resource don't have to exist in the same Azure subscription. Provided that you have subscription access, in triggers and actions that can access on-premises data sources, you can select other Azure subscriptions that have gateway resources.
 
 <a name="create-gateway-resource"></a>
 
@@ -80,7 +80,7 @@ After you install the gateway on a local computer, create the Azure resource for
    | **Subscription** | Select the Azure subscription for the Azure account that was used for the gateway installation. The default subscription is based on the Azure account that you used to sign in. |
    | **Resource group** | The [Azure resource group](../azure-resource-manager/management/overview.md) that you want to use |
    | **Location** | The same region or location that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list. Your logic app location can differ from your gateway resource location. |
-   | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- The gateway installation uses the same region as the gateway resource that you want to create. <br>- The gateway installation isn't linked to another Azure gateway resource. <br>- The gateway installation is linked to the same Azure account that you're using to create the gateway resource. <br>- Your Azure account belongs to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is the same account that was used for the gateway installation. <p><p>For more information, see the [Frequently asked questions](#faq) section. |
+   | **Installation Name** | Select a gateway installation, which appears in the list only when these conditions are met: <p><p>- The gateway installation uses the same region as the gateway resource that you want to create. <br>- The gateway installation isn't linked to another Azure gateway resource. <br>- The gateway installation is linked to the same Azure account that you're using to create the gateway resource. <br>- Your Azure account belongs to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is the same account that you used for the gateway installation. <p><p>For more information, see the [Frequently asked questions](#faq) section. |
    |||
 
    Here is an example that shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
@@ -100,6 +100,8 @@ After you create your gateway resource and associate your Azure subscription wit
 1. Select **Connect via on-premises data gateway**.
 
 1. Under **Gateways**, from the **Subscriptions** list, select your Azure subscription that has the gateway resource you want.
+
+   Provided that you have subscription access, you can select from different Azure subscriptions that are each associated with a different gateway resource. Your logic app and gateway resource don't have to exist in the same Azure subscription.
 
 1. From the **Connection Gateway** list, which shows the available gateway resources in your selected subscription, select the gateway resource that you want. Each gateway resource is linked to a single gateway installation.
 
@@ -159,11 +161,15 @@ To create a different gateway resource, link your gateway installation to a diff
 **Q**: Why doesn't my gateway installation appear when I create my gateway resource in Azure? <br/>
 **A**: This issue can happen for these reasons:
 
-* Your Azure account must be the same account that's linked to the gateway installation on the local computer. Check that you're signed in to the Azure portal with the same identity that's linked to the gateway installation. Also, make sure that your Azure account belongs to a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology) and is set to the same Azure AD tenant or directory that was used during gateway installation.
+* Your Azure account isn't the same account that you used for the gateway installation on your local computer. Check that you signed in to the Azure portal with the same identity that you used for the gateway installation. Only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
 
-* Your gateway resource and gateway installation have to use the same region. However, your logic app location can differ from your gateway resource location.
+* Your Azure account doesn't belong to only a single [Azure AD tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). Check that you're using the same Azure AD tenant or directory that you used during gateway installation.
 
-* Your gateway installation is already registered and claimed by another gateway resource. These installations won't appear in the **Installation Name** list. To review your gateway registrations in the Azure portal, find all your Azure resources that have the **On-premises Data Gateways** type across *all* your Azure subscriptions. To unlink the gateway installation from the other gateway resource, see [Delete gateway resource](#change-delete-gateway-resource).
+* Your gateway resource and gateway installation don't exist in the same region. However, your logic app's location can differ from your gateway resource location.
+
+* Your gateway installation is already associated with another gateway resource. Each gateway resource can link to only one gateway installation, which can link to only one Azure account and subscription. So, you can't select a gateway installation that's already associated with another gateway resource. These installations won't appear in the **Installation Name** list.
+
+  To review your gateway registrations in the Azure portal, find all your Azure resources that have the **On-premises Data Gateways** resource type across *all* your Azure subscriptions. To unlink the gateway installation from the other gateway resource, see [Delete gateway resource](#change-delete-gateway-resource).
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

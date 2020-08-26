@@ -5,7 +5,7 @@ services: azure-portal
 documentationcenter: ''
 author: adamabmsft
 manager: mtillman
-editor: tysonn
+
 
 ms.service: azure-portal
 ms.devlang: NA

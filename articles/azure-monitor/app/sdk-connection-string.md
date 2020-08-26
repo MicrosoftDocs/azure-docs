@@ -1,13 +1,11 @@
 ---
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
-
+ms.custom: "devx-track-javascript, devx-track-csharp"
 ms.reviewer: mbullwin
 ---
 
@@ -29,12 +27,12 @@ Customer scenarios where we visualize this having the most impact:
 
 - Firewall exceptions or proxy redirects 
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.md#can-i-monitor-an-intranet-web-server). 
     Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
 
 - Sovereign or Hybrid cloud environments
 
-    Users can send data to a defined [Azure Government Region](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+    Users can send data to a defined [Azure Government Region](../../azure-government/compare-azure-government-global-azure.md#application-insights).
     Connection strings allow you to define endpoint settings for your intranet servers or hybrid cloud settings. 
 
 ## Getting started
@@ -65,10 +63,10 @@ Connection string consists of a list of settings represented as key-value pairs 
    Setting the endpoint suffix will instruct the SDK which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
 - Explicit Endpoints.
   Any service can be explicitly overridden in the connection string.
-   - `IngestionEndpoint` (ex: https://dc.applicationinsights.azure.com)
-   - `LiveEndpoint` (ex: https://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint` (ex: https://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint` (ex: https://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint` (ex: `https://dc.applicationinsights.azure.com`)
+   - `LiveEndpoint` (ex: `https://live.applicationinsights.azure.com`)
+   - `ProfilerEndpoint` (ex: `https://profiler.applicationinsights.azure.com`)
+   - `SnapshotEndpoint` (ex: `https://snapshot.applicationinsights.azure.com`)
 
 #### Endpoint schema
 
@@ -104,13 +102,13 @@ See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#re
 
 In this example, only the Instrumentation Key has been set.
 
-- Authorization scheme defaults to “ikey” 
+- Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) and will connect to the public global Azure:
-   - Ingestion: https://dc.services.visualstudio.com/
-   - Live metrics: https://rt.services.visualstudio.com/
-   - Profiler: https://agent.azureserviceprofiler.net/
-   - Debugger: https://agent.azureserviceprofiler.net/  
+   - Ingestion: `https://dc.services.visualstudio.com/`
+   - Live metrics: `https://rt.services.visualstudio.com/`
+   - Profiler: `https://agent.azureserviceprofiler.net/`
+   - Debugger: `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -120,13 +118,13 @@ In this example, only the Instrumentation Key has been set.
 
 In this example, this connection string specifies the endpoint suffix and the SDK will construct service endpoints.
 
-- Authorization scheme defaults to “ikey” 
+- Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on provided endpoint suffix: 
-   - Ingestion: https://dc.ai.contoso.com
-   - Live metrics: https://live.ai.contoso.com
-   - Profiler: https://profiler.ai.contoso.com 
-   - Debugger: https://snapshot.ai.contoso.com   
+   - Ingestion: `https://dc.ai.contoso.com`
+   - Live metrics: `https://live.ai.contoso.com`
+   - Profiler: `https://profiler.ai.contoso.com`
+   - Debugger: `https://snapshot.ai.contoso.com`  
 
 
 
@@ -136,21 +134,21 @@ In this example, this connection string specifies the endpoint suffix and the SD
 
 In this example, this connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
 
-- Authorization scheme defaults to “ikey” 
+- Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
 - The regional service URIs are based on the explicit override values: 
-   - Ingestion: https:\//custom.com:111/
-   - Live metrics: https:\//custom.com:222/
-   - Profiler: https:\//custom.com:333/ 
-   - Debugger: https:\//custom.com:444/   
+   - Ingestion: `https://custom.com:111/`
+   - Live metrics: `https://custom.com:222/`
+   - Profiler: `https://custom.com:333/`
+   - Debugger: `https://custom.com:444/`  
 
 
 ## How to set a connection string
 
 Connection Strings are supported in the following SDK versions:
 - .NET and .NET Core v2.12.0
-- Java v2.5.1
-- Javascript v2.3.0
+- Java v2.5.1 and Java 3.0
+- JavaScript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
 
@@ -162,11 +160,11 @@ A connection string can be set by either in code, environment variable, or confi
 
 - Connection String: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### .Net SDK example
+# [.NET/.NetCore](#tab/net)
 
 TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net Explicitly Set:
+.NET Explicitly Set:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -174,7 +172,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.Net Config File:
+.NET Config File:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -183,6 +181,14 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
+NetCore Explicitly Set:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
 NetCore config.json: 
 
@@ -195,10 +201,10 @@ NetCore config.json:
 ```
 
 
-### Java SDK example
+# [Java](#tab/java)
 
 
-Java Explicitly Set:
+Java (v2.5.x) Explicitly Set:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -211,9 +217,9 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### Javascript SDK example
+# [JavaScript](#tab/js)
 
-Important: Javascript doesn't support the use of Environment Variables.
+Important: JavaScript doesn't support the use of Environment Variables.
 
 Using the snippet:
 
@@ -240,7 +246,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### Node SDK example
+# [Node.js](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -248,7 +254,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### Python SDK example
+# [Python](#tab/python)
 
 We recommend users set the environment variable.
 
@@ -267,14 +273,15 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Get started at runtime with:
 
-* [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Azure VM and Azure virtual machine scale set IIS-hosted apps](./azure-vm-vmss-apps.md)
+* [IIS server](./monitor-performance-live-website-now.md)
+* [Azure Web Apps](./azure-web-apps.md)
 
 Get started at development time with:
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python (preview)](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+

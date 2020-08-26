@@ -24,11 +24,11 @@ This article includes frequently asked questions about configuration and managem
 
 **Certificates**
 
-- [Why is the certificate chain of my Cloud Service SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoring and logging**
@@ -69,7 +69,7 @@ This article includes frequently asked questions about configuration and managem
 
 ## Certificates
 
-### Why is the certificate chain of my Cloud Service SSL certificate incomplete?
+### Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?
     
 We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) shows how to do this.
 
@@ -91,13 +91,15 @@ The CSR is just a text file. It does not have to be created from the machine whe
 
 You can use following PowerShell commands to renew your Management Certificates:
 
-    Add-AzureAccount
-    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
-    Get-AzurePublishSettingsFile
+```powershell
+Add-AzureAccount
+Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+Get-AzurePublishSettingsFile
+```
 
 The **Get-AzurePublishSettingsFile** will create a new management certificate in **Subscription** > **Management Certificates** in the Azure portal. The name of the new certificate looks like "YourSubscriptionNam]-[CurrentDate]-credentials".
 
-### How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?
+### How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?
 
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
@@ -120,7 +122,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
 
 Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
@@ -131,7 +133,7 @@ You haveâ€¯exhausted the local storage quota for writing to the log directory.â€
 * Increase quota limit for local resources.
 
 For more information, see the following documents:
-* [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+* [Store and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### How do I enable WAD logging for Cloud Services?
@@ -289,7 +291,7 @@ The journal settings are non-configurable, so you can't turn it off.
 You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
  
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
@@ -300,9 +302,11 @@ You can enable SNI in Cloud Services by using one of the following methods:
 **Method 1: Use PowerShell**
 
 The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding** in a startup task for a Cloud Service role instance as below:
-    
-    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
-    
+
+```powershell
+New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
+```
+
 As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
 
 |Value|Meaning|
@@ -316,14 +320,15 @@ As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $s
 
 The SNI binding could also be configured via code in the role startup as described on this [blog post](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
-    
-    //<code snip> 
-                    var serverManager = new ServerManager(); 
-                    var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
-                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
-                    serverManager.CommitChanges(); 
-    //</code snip> 
+```csharp
+//<code snip> 
+                var serverManager = new ServerManager(); 
+                var site = serverManager.Sites[0]; 
+                var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
+                serverManager.CommitChanges(); 
+    //</code snip>
+```
     
 Using any of the approaches above, the respective certificates (*.pfx) for the specific hostnames have to be first installed on the role instances using a startup task or via code in order for the SNI binding to be effective.
 
@@ -335,7 +340,9 @@ Cloud Service is a Classic resource. Only resources created through Azure Resour
 
 We are working on bringing this feature on the Azure portal. Meanwhile, you can use following PowerShell commands to get the SDK version:
 
-    Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```powershell
+Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+```
 
 ### I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?
 

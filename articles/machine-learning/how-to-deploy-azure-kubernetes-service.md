@@ -1,15 +1,16 @@
 ---
-title: How to deploy models to Azure Kubernetes Service
+title: Deploy ML models to Kubernetes Service
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 01/16/2020
+ms.date: 06/23/2020
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -22,15 +23,24 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
-> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../aks/scale-cluster.md).
+> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see 
+- [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
+- [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
 * Create the AKS cluster using the Azure Machine Learning SDK, the Machine Learning CLI, or [Azure Machine Learning studio](https://ml.azure.com). This process automatically connects the cluster to the workspace.
 * Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or Azure Machine Learning studio.
 
+The AKS cluster and the AML workspace can be in different resource groups.
+
 > [!IMPORTANT]
 > The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detached or deleted, you will no longer be able to deploy to the cluster.
+
+> [!IMPORTANT]
+> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## Prerequisites
 
@@ -50,11 +60,35 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
+- If you need a Standard Load Balancer(SLB) deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then attach it to the AML workspace.
+
+- If you have an Azure Policy that restricts the creation of Public IP's, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](https://docs.microsoft.com/azure/aks/limit-egress-traffic). This article also provides guidance to lockdown egress traffic from the cluster through the Public IP except for a few FQDN's. There are 2 ways to enable a Public IP:
+  - The cluster can use the Public IP created by default with the BLB or SLB, Or
+  - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route as documented [here](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  The AML control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
+
+- If you attach an AKS cluster, which has an [authorized IP range enabled to access the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), enable the AML contol plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inferencing pods on the AKS cluster. Without access to the API server, the inferencing pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) for both the [paired regions]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
+
+
+  Authroized IP ranges only works with Standard Load Balancer.
+ 
+ - Compute name MUST be unique within a workspace
+   - Name is required and must be between 3 to 24 characters long.
+   - Valid characters are upper and lower case letters, digits, and the - character.
+   - Name must start with a letter
+   - Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique
+   
+ - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
+
 ## Create a new AKS cluster
 
-**Time estimate**: Approximately 20 minutes.
+**Time estimate**: Approximately 10 minutes.
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
+ 
+Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled.
+To create a private AKS cluster, follow docs [here](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
@@ -75,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -126,12 +167,13 @@ If you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, then the clus
 > [!WARNING]
 > Do not create multiple, simultaneous attachments to the same AKS cluster from your workspace. For example, attaching one AKS cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
 >
-> If you want to re-attach an AKS cluster, for example to change SSL or other cluster configuration setting, you must first remove the existing attachment by using [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
+> If you want to re-attach an AKS cluster, for example to change TLS or other cluster configuration setting, you must first remove the existing attachment by using [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
 * [Create an AKS cluster (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 The following examples demonstrate how to attach an existing AKS cluster to your workspace:
 
@@ -150,6 +192,9 @@ cluster_name = 'myexistingcluster'
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
+
+# Wait for the attach process to complete
+aks_target.wait_for_completion(show_output = True)
 ```
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
@@ -183,6 +228,10 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 ## Deploy to AKS
 
 To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
+
+> [!NOTE]
+> The number of models to be deployed is limited to 1,000 models per deployment (per container).
+
 
 ### Using the SDK
 
@@ -227,11 +276,53 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 > [!IMPORTANT]
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
 
+### Understand the deployment processes
+
+The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
+
+In Azure Machine Learning, "deployment" is used in the more general sense of making available and cleaning up your project resources. The steps that Azure Machine Learning considers part of deployment are:
+
+1. Zipping the files in your project folder, ignoring those specified in .amlignore or .gitignore
+1. Scaling up your compute cluster (Relates to Kubernetes)
+1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
+    1. The system calculates a hash of: 
+        - The base image 
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
+    1. If it is not found, it looks for a match in the global ACR
+    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+1. Downloading your zipped project file to temporary storage on the compute node
+1. Unzipping the project file
+1. The compute node executing `python <entry script> <arguments>`
+1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
+1. Scaling down compute, including removing temporary storage (Relates to Kubernetes)
+
+When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
+
 ## Deploy models to AKS using controlled rollout (preview)
-Analyze and promote model versions in a controlled fashion using endpoints. Deploy up to 6 versions behind a single endpoint and configure the % of scoring traffic to each deployed version. You can enable app insights to view operational metrics of endpoints and deployed versions.
+
+Analyze and promote model versions in a controlled fashion using endpoints. You can deploy up to six versions behind a single endpoint. Endpoints provide the following capabilities:
+
+* Configure the __percentage of scoring traffic sent to each endpoint__. For example, route 20% of the traffic to endpoint 'test' and 80% to 'production'.
+
+    > [!NOTE]
+    > If you do not account for 100% of the traffic, any remaining percentage is routed to the __default__ endpoint version. For example, if you configure endpoint version 'test' to get 10% of the traffic, and 'prod' for 30%, the remaining 60% is sent to the default endpoint version.
+    >
+    > The first endpoint version created is automatically configured as the default. You can change this by setting `is_default=True` when creating or updating an endpoint version.
+     
+* Tag an endpoint version as either __control__ or __treatment__. For example, the current production endpoint version might be the control, while potential new models are deployed as treatment versions. After evaluating performance of the treatment versions, if one outperforms the current control, it might be promoted to the new production/control.
+
+    > [!NOTE]
+    > You can only have __one__ control. You can have multiple treatments.
+
+You can enable app insights to view operational metrics of endpoints and deployed versions.
 
 ### Create an endpoint
-Once you are ready to deploy your models, create a scoring endpoint and deploy your first version. The step below shows you how to deploy and create the endpoint using the SDK. The first deployment will be defined as the default version which means that unspecified traffic percentile across all versions will go to the default version.  
+Once you are ready to deploy your models, create a scoring endpoint and deploy your first version. The following example shows how to deploy and create the endpoint using the SDK. The first deployment will be defined as the default version, which means that unspecified traffic percentile across all versions will go to the default version.  
+
+> [!TIP]
+> In the following example, the configuration sets the initial endpoint version to handle 20% of the traffic. Since this is the first endpoint, it's also the default version. And since we don't have any other versions for the other 80% of traffic, it is routed to the default as well. Until other versions that take a percentage of traffic are deployed, this one effectively receives 100% of the traffic.
 
 ```python
 import azureml.core,
@@ -242,8 +333,8 @@ from azureml.core.compute import ComputeTarget
 compute = ComputeTarget(ws, 'myaks')
 namespace_name= endpointnamespace
 # define the endpoint and version name
-endpoint_name = "mynewendpoint",
-version_name= "versiona",
+endpoint_name = "mynewendpoint"
+version_name= "versiona"
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
                                                               enable_app_insights = True,
@@ -253,11 +344,16 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
                                                               traffic_percentile = 20)
  # deploy the model and endpoint
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ # Wait for he process to complete
+ endpoint.wait_for_deployment(True)
  ```
 
 ### Update and add versions to an endpoint
 
-Add another version to your endpoint and configure the scoring traffic percentile going to the version. There are two types of versions, a control and a treatment version. There can be multiple treatment version to help compare against a single control version.
+Add another version to your endpoint and configure the scoring traffic percentile going to the version. There are two types of versions, a control and a treatment version. There can be multiple treatment versions to help compare against a single control version.
+
+> [!TIP]
+> The second version, created by the following code snippet, accepts 10% of traffic. The first version is configured for 20%, so only 30% of the traffic is configured for specific versions. The remaining 70% is sent to the first endpoint version, because it is also the default version.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -270,9 +366,13 @@ endpoint.create_version(version_name = version_name_add,
                         tags = {'modelVersion':'b'},
                         description = "my second version",
                         traffic_percentile = 10)
+endpoint.wait_for_deployment(True)
 ```
 
-Update existing versions or delete them in an endpoint. You can change the version's default type, control type, and the traffic percentile.
+Update existing versions or delete them in an endpoint. You can change the version's default type, control type, and the traffic percentile. In the following example, the second version increases its traffic to 40% and is now the default.
+
+> [!TIP]
+> After the following code snippet, the second version is now default. It is now configured for 40%, while the original version is still configured for 20%. This means that 40% of traffic is not accounted for by version configurations. The leftover traffic will be routed to the second version, because it is now default. It effectively receives 80% of the traffic.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -283,7 +383,8 @@ endpoint.update_version(version_name=endpoint.versions["versionb"].name,
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
-
+# Wait for the process to complete before deleting
+endpoint.wait_for_deployment(true)
 # delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
@@ -333,17 +434,16 @@ print(token)
 > You will need to request a new token after the token's `refresh_by` time.
 >
 > Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Token-based Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
-
-## Update the web service
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
+>
+> To retrieve a token, you must use the Azure Machine Learning SDK or the [az ml service get-access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) command.
 
 ## Next steps
 
 * [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md)
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Update web service](how-to-deploy-update-web-service.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

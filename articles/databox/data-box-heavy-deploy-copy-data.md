@@ -1,6 +1,6 @@
 ---
 title: Tutorial to copy data via SMB on Azure Data Box Heavy | Microsoft Docs
-description: Learn how to copy data to your Azure Data Box Heavy via SMB
+description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box Heavy by using SMB with the local web UI.
 services: databox
 author: alkohli
 
@@ -20,7 +20,7 @@ ms.localizationpriority: high
 
 ::: zone target = "chromeless"
 
-# Copy data to Azure Data Box Heavy
+## Copy data to Azure Data Box Heavy
 
 ::: zone-end
 
@@ -76,7 +76,7 @@ Under shares for Azure Files:
 
 The following table shows the UNC path to the shares on your Data Box Heavy and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-|                   |                                                            |
+| Storage           | UNC path                                                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  

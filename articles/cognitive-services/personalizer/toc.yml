@@ -15,6 +15,10 @@
     href: sdk-learning-loop.md
 - name: Tutorials
   items:
+  - name: Use Web app
+    href: tutorial-use-personalizer-web-app.md
+  - name: Use Chat bot
+    href: tutorial-use-personalizer-chat-bot.md
   - name: Use Azure Notebook
     href: tutorial-use-azure-notebook-generate-loop-data.md
     displayName: jupyter, notebook, python, cell, graph, chart, aggregate, model update frequency
@@ -23,9 +27,11 @@
   - name: How Personalizer works
     href: how-personalizer-works.md
     displayName: rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model
-  - name: Where can you use Personalizer?
+  - name: Where to use Personalizer
     href: where-can-you-use-personalizer.md
     displayName: checklist, considerations, effectiveness, recommendation engine
+  - name: Terminology
+    href: terminology.md
   - name: Ethics & responsible use
     href: ethics-responsible-use.md
     displayName: best practice, design
@@ -34,9 +40,13 @@
     - name: "Features Action and Context"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,
-    - name: Active and inactive events
+    - name: Learning policy
       href: concept-active-learning.md
       displayName: active, inactive
+    - name: Apprentice mode
+      href: concept-apprentice-mode.md
+    - name: Active and inactive events
+      href: concept-active-inactive-events.md
     - name: Rewards
       href: concept-rewards.md
       displayName: reward, wait time, default reward
@@ -56,15 +66,17 @@
     href: concepts-scalability-performance.md
 - name: How-to guides
   items:
-  - name: Create and configure Personalizer
+  - name: Create Personalizer Resource
+    href: how-to-create-resource.md
+  - name: Configure Personalizer
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy, export, model, configure
-  - name: Manage your learning policy
-    href: how-to-learning-policy.md
-  - name: Analyze
-    items:
-    - name: Offline evaluation
-      href: how-to-offline-evaluation.md
+  - name: Use Apprentice mode
+    href: how-to-learning-behavior.md
+  - name: Manage model and learning settings
+    href: how-to-manage-model.md
+  - name: Analyze with an offline evaluation
+    href: how-to-offline-evaluation.md
 - name: Reference
   items:
   - name: Samples
@@ -103,6 +115,8 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: personalizer-encryption-of-data-at-rest.md
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing

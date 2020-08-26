@@ -5,7 +5,7 @@ services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags:
 
 ms.assetid:
@@ -15,10 +15,11 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 ---
 
-# Quick Create a virtual machine with the Azure CLI
+# Create a virtual machine with the Azure CLI with a custom script to install IIS
 
 This script creates an Azure Virtual Machine running Windows Server 2016, and uses the Azure Virtual Machine Custom Script Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
@@ -44,14 +45,14 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also specifies the virtual machine image to be used and administrative credentials.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install IIS.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az vm create](/cli/azure/vm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also specifies the virtual machine image to be used and administrative credentials.  |
+| [az vm open-port](/cli/azure/network/nsg/rule) | Creates a network security group rule to allow inbound traffic. In this sample, port 80 is opened for HTTP traffic. |
+| [azure vm extension set](/cli/azure/vm/extension) | Adds and runs a virtual machine extension to a VM. In this sample, the custom script extension is used to install IIS.|
+| [az group delete](/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

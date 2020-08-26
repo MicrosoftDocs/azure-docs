@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -122,6 +122,10 @@ We are limited to using pre-shared keys (PSK) for authentication.
 
 Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
+### Can I use NAT-T on my VPN connections?
+
+Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels.  In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
+
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You need to configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
@@ -163,6 +167,10 @@ This is expected behavior for policy-based (also known as static routing) VPN ga
 We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site-to-Site cross-premises configuration.
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
+
+## How do I change the authentication type for my point-to-site connections?
+
+You can change the authentication method for your point-to-site connections by going to the **Point-to-site configuration** section under the VPN Gateway and checking the desired radio button. Current options are **Azure certificate, RADIUS authentication and Azure Active Directory**. Please note that current clients **may not be able to connect** after the change until the new profile has been downloaded and configured on the client.
 
 ## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
 

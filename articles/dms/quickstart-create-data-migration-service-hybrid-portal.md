@@ -3,15 +3,15 @@ title: "Quickstart: Create a hybrid mode instance with Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 01/21/2019
+ms.date: 03/13/2020
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
@@ -21,7 +21,7 @@ Azure Database Migration Service hybrid mode manages database migrations by usin
 >[!NOTE]
 >Currently, Azure Database Migration Service running in hybrid mode supports SQL Server migrations to:
 >
->- Azure SQL Database managed instance with near zero downtime (online).
+>- Azure SQL Managed Instance with near zero downtime (online).
 >- Azure SQL Database single database with some downtime (offline).
 >- MongoDb to Azure CosmosDB with near zero downtime (online).
 >- MongoDb to Azure CosmosDB with some downtime (offline).
@@ -141,7 +141,7 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 7. Install the Azure Database Migration Service hybrid worker on your on-premises server by running the following command:
 
     ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
+    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms -d
     ```
 
     > [!NOTE]
@@ -186,5 +186,5 @@ Fill in the parameters at the top of the script, and then run the script from an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate SQL Server to an Azure SQL Database managed instance online](tutorial-sql-server-managed-instance-online.md)
-> [Migrate SQL Server to a single database or pooled database in Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrate SQL Server to an Azure SQL Managed Instance online](tutorial-sql-server-managed-instance-online.md)
+> [Migrate SQL Server to Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)

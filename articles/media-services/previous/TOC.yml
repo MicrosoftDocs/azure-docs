@@ -257,8 +257,6 @@
       items:
       - name: Haivision KB encoder
         href: media-services-configure-kb-live-encoder.md
-      - name: NewTek TriCaster encoder
-        href: media-services-configure-tricaster-live-encoder.md
       - name: Wirecast encoder
         href: media-services-configure-wirecast-live-encoder.md
     - name: Handle long-running operations
@@ -393,12 +391,11 @@
       href: media-services-deliver-asset-download.md
     - name: Failover streaming scenario
       href: media-services-implement-failover.md
+      displayName: HA, high availability
   - name: Consume
     items:
     - name: Playback media with existing players
       href: media-services-playback-content-with-existing-players.md
-    - name: Playback media with Media Player
-      href: media-services-develop-video-players.md
     - name: Other playback options
       items:
       - name: Smooth streaming Windows Store application
@@ -448,11 +445,11 @@
   - name: Azure PowerShell (Resource Manager)
     href: /powershell/module/az.media
   - name: Azure PowerShell 
-    href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
+    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client
   - name: REST
-    href: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+    href: /rest/api/media/operations/azure-media-services-rest-api-reference
   - name: Specifications
     items:
     - name: Live Ingest - Fragmented MP4 live ingest specification

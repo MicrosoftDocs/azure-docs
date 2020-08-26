@@ -3,14 +3,14 @@ title: JavaScript samples
 titleSuffix: Azure AD B2C
 description: Learn about using JavaScript in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-
+ms.custom: devx-track-javascript
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -46,7 +46,7 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
 2. Add the **ScriptExecution** element to the **UserJourneyBehaviors** element of **RelyingParty**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>

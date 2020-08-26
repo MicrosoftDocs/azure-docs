@@ -61,13 +61,13 @@ Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Se
 
 ## My drivers are missing for my Linux N-Series VM
 
-Drivers for Linux-based VMs are located [here](../linux/n-series-driver-setup.md). 
+Instructions to install drivers for Linux-based VMs are located [here](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## I can’t find a GPU instance within my N-Series VM
 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](../windows/n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
+To take advantage of the GPU capabilities of Azure N-series VMs, you must install graphics drivers on each VM after deployment. Driver setup information is available [here](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## Is N-Series VMs available in my region?
+## Are N-Series VMs available in my region?
 
 You can check the availability from the [Products available by region table](https://azure.microsoft.com/regions/services), and pricing [here](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
@@ -91,6 +91,7 @@ You can find the list at Linux on [Azure-Endorsed Distributions](../linux/endors
 
 Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## Next steps
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).

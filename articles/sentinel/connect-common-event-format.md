@@ -1,9 +1,9 @@
 ---
 title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
-description: Learn how to connect CEF data to Azure Sentinel.
+description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel by using a Linux machine as a proxy.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect your external solution using Common Event Format
@@ -31,7 +31,7 @@ This article describes how the connection works, provides prerequisites and give
 > [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-In order to make this connection, you need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
+In order to make this connection, you need to deploy an agent on a dedicated Linux machine (VM or on-premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -42,7 +42,7 @@ Alternatively, this setup will exist if you use a VM in another cloud, or an on-
 
 ## Security considerations
 
-Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](../virtual-machines/linux/security-policy.md), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
+Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](../virtual-machines/security-policy.md), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
 
 To use TLS communication between the security solution and the Syslog machine, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS: [Encrypting Syslog Traffic with TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Encrypting log messages with TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 

@@ -1,24 +1,24 @@
-﻿---
+---
 title: Template with dependent resources
 description: Learn how to create an Azure Resource Manager template with multiple resources, and how to deploy it using the Azure portal
 author: mumian
-ms.date: 03/04/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Create Azure Resource Manager templates with dependent resources
+# Tutorial: Create ARM templates with dependent resources
 
-Learn how to create an Azure Resource Manager template to deploy multiple resources and configure the deployment order. After you create the template, you deploy the template using the Cloud shell from the Azure portal.
+Learn how to create an Azure Resource Manager (ARM) template to deploy multiple resources and configure the deployment order. After you create the template, you deploy the template using the Cloud Shell from the Azure portal.
 
-In this tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./define-resource-dependency.md).
+In this tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in ARM templates](./define-resource-dependency.md).
 
 ![Resource Manager template dependent resources deployment order diagram](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Open a QuickStart template
+> * Open a Quickstart template
 > * Explore the template
 > * Deploy the template
 
@@ -28,17 +28,18 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
+
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Open a Quickstart template
 
-Azure QuickStart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. From Visual Studio Code, select **File**>**Open File**.
 2. In **File name**, paste the following URL:
@@ -46,6 +47,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
@@ -62,33 +64,43 @@ When you explore the template in this section, try to answer these questions:
 
     ![Visual Studio Code Azure Resource Manager templates](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    There are five resources defined by the template:
+    There are six resources defined by the template:
 
-   * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     It is helpful to get some basic understanding of the template before customizing it.
+     It is helpful to review the template reference before customizing a template.
 
-2. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+1. Expand the first resource. It is a storage account. Compare the resource definition to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Visual Studio Code Azure Resource Manager templates storage account definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expand the second resource. The resource type is `Microsoft.Network/publicIPAddresses`. Compare the resource definition to the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+1. Expand the second resource. The resource type is `Microsoft.Network/publicIPAddresses`. Compare the resource definition to the [template reference](/azure/templates/microsoft.network/publicipaddresses).
 
     ![Visual Studio Code Azure Resource Manager templates public IP address definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expand the fourth resource. The resource type is `Microsoft.Network/networkInterfaces`:
 
-    ![Visual Studio Code Azure Resource Manager templates dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+1. Expand the third resource. The resource type is `Microsoft.Network/networkSecurityGroups`. Compare the resource definition to the [template reference](/azure/templates/microsoft.network/networksecuritygroups).
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. The resource depends on two other resources:
+    ![Visual Studio Code Azure Resource Manager templates network security group definition](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+
+1. Expand the fourth resource. The resource type is `Microsoft.Network/virtualNetworks`:
+
+    ![Visual Studio Code Azure Resource Manager templates virtual network dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+
+    The dependsOn element enables you to define one resource as a dependent on one or more resources. This resource depends on one other resource:
+
+    * `Microsoft.Network/networkSecurityGroups`
+
+1. Expand the fifth resource. The resource type is `Microsoft.Network/networkInterfaces`. The resource depends on two other resources:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
 
-5. Expand the fifth resource. This resource is a virtual machine. It depends on two other resources:
+1. Expand the sixth resource. This resource is a virtual machine. It depends on two other resources:
 
     * `Microsoft.Storage/storageAccounts`
     * `Microsoft.Network/networkInterfaces`
@@ -101,27 +113,41 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 ## Deploy the template
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
 
-There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
 
-1. Sign in to the [Cloud Shell](https://shell.azure.com).
-1. Select **PowerShell** from the upper left corner of the Cloud shell, and then select **Confirm**.  You use PowerShell in this tutorial.
-1. Select **Upload file** from the Cloud shell:
+    ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-    ![Azure portal Cloud shell upload file](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-1. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved earlier. After uploading the file, you can use the **ls** command and the **cat** command to verify the file is uploaded successfully.
 
-    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files are uploaded successfully.
+1. Run the following PowerShell script to deploy the template.
 
-1. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $resourceGroupName = "${projectName}rg"
 
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
@@ -130,18 +156,11 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Run the following PowerShell command to list the newly created virtual machine:
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    The virtual machine name is hard-coded as **SimpleWinVM** inside the template.
+    ---
 
 1. RDP to the virtual machine to verify the virtual machine has been created successfully.
 
@@ -151,7 +170,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
+3. Select the resource group name. You'll see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps

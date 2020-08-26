@@ -2,20 +2,14 @@
 title: 'Tutorial: User provisioning - LinkedIn Sales Navigator, Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LinkedIn Sales Navigator.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure LinkedIn Sales Navigator for automatic user provisioning
@@ -96,7 +90,7 @@ The first step is to retrieve your LinkedIn access token. If you are an Enterpri
 
 11. Fill in the following fields under **Admin Credentials** :
 
-    * In the **Tenant URL** field, enter https://api.linkedin.com.
+    * In the **Tenant URL** field, enter https://developer.linkedin.com.
 
     * In the **Secret Token** field, enter the access token you generated in step 1 and click **Test Connection** .
 

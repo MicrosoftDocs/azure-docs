@@ -6,7 +6,7 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 
 ---
@@ -81,7 +81,7 @@ DESCRIBE keyspaces;
 **Considerations:**  
 
 - Throughput can be assigned at the table level by using the create table statement.  
-- One partition key can store 10 GB of data.  
+- One partition key can store 20 GB of data.  
 - One record can store a maximum of 2 MB of data.  
 - One partition key range can store multiple partition keys.
 

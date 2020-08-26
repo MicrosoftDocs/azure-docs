@@ -37,14 +37,16 @@ Check whether there is `certs` subdirectory under OPENSSLDIR. In the example abo
 - OPENSSLDIR is `/opt/ssl`. There is `certs` subdirectory with many `.crt` or `.pem` files.
 Set environment variable `SSL_CERT_DIR` to point at `/opt/ssl/certs` before running a program that uses the Speech SDK. For example:
 ```bash
-SSL_CERT_DIR=/opt/ssl/certs ./helloworld
+export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR is `/etc/pki/tls`. There is a certificate bundle file, for example `ca-bundle.pem` or `ca-bundle.crt`.
-Set environment variable `SSL_CERT_FILE` to point at `/etc/pki/tls/ca-bundle.pem` before running a program that uses the Speech SDK. For example:
+- OPENSSLDIR is `/etc/pki/tls` (like on RHEL/CentOS based systems). There is `certs` subdirectory with a certificate bundle file, for example `ca-bundle.crt`.
+Set environment variable `SSL_CERT_FILE` to point at that file before running a program that uses the Speech SDK. For example:
 ```bash
-SSL_CERT_FILE=/etc/pki/tls/ca-bundle.pem ./helloworld
+export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> It is also worth noting that some distributions of Linux do not have a TMP or TMPDIR environment variable defined. This will cause the Speech SDK to download the Certificate Revocation List (CRL) every time, rather than caching the CRL to disk for reuse until they expire. To improve initial connection performance you can [create an environment variable named TMPDIR and set it to the path of your chosen temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## Next steps
 

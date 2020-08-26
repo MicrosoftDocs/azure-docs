@@ -4,7 +4,7 @@ description: Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''

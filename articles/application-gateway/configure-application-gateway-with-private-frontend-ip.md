@@ -5,8 +5,8 @@ description: This article provides information on how to configure Application G
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 01/30/2020
+ms.topic: how-to
+ms.date: 04/16/2020
 ms.author: victorh
 ---
 
@@ -14,7 +14,7 @@ ms.author: victorh
 
 Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that isn't exposed to the Internet. An internal endpoint uses a private IP address for the frontend, which is also known as an *internal load balancer (ILB) endpoint*.
 
-Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
+Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
 
 This article guides you through the steps to configure an application gateway with a frontend private IP address using the Azure portal.
 
@@ -90,8 +90,8 @@ To do this, you:
    - select *myResourceGroupAG* for **Resource group**.
    - *myVM* - for **Virtual machine name**.
    - Select **Windows Server 2019 Datacenter** for **Image**.
-   - *azureadmin* - for the **Username**.
-   - *Azure123456!* for the **Password**.
+   - a valid **Username**.
+   - a valid **Password**.
 5. Accept the remaining defaults and select **Next : Disks**.
 6. Accept the defaults and select **Next : Networking**.
 7. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.

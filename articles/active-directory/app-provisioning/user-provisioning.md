@@ -1,23 +1,19 @@
 ---
-title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
+title: What is automated SaaS app user provisioning in Azure AD
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: overview
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: mimart
-ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
+ms.author: kenwith
+ms.reviewer: arvinh, celested
 ---
-# Automate user provisioning and deprovisioning to applications with Azure Active Directory
+
+# What is automated SaaS app user provisioning in Azure AD?
 
 In Azure Active Directory (Azure AD), the term **app provisioning** refers to automatically creating user identities and roles in the cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into applications like [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), and more.
 
@@ -58,7 +54,7 @@ Azure AD features pre-integrated support for many popular SaaS apps and human re
 
    ![Salesforce logo](./media/user-provisioning/gallery-app-logos.png)
 
-   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../develop/howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Please request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
+   If you want to request a new application for provisioning, you can [request that your application be integrated with our app gallery](../azuread-dev/howto-app-gallery-listing.md). For a user provisioning request, we require the application to have a SCIM-compliant endpoint. Please request that the application vendor follow the SCIM standard so we can onboard the app to our platform quickly.
 
 * **Applications that support SCIM 2.0**. For information on how to generically connect applications that implement SCIM 2.0-based user management APIs, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
@@ -68,7 +64,7 @@ To help automate provisioning and deprovisioning, apps expose proprietary user a
 
 To address these challenges, the SCIM specification provides a common user schema to help users move into, out of, and around apps. SCIM is becoming the de facto standard for provisioning and, when used in conjunction with federation standards like SAML or OpenID Connect, provides administrators an end-to-end standards-based solution for access management.
 
-For detailed guidance on using SCIM to automate the provisioning and deprovisioning of users and groups to an application, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
+For detailed guidance on developing a SCIM endpoint to automate the provisioning and deprovisioning of users and groups to an application, see [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md). For pre-integrated applications in the gallery (Slack, Azure Databricks, Snowflake, etc.), you can skip the developer documentation and use the tutorials provided [here](../saas-apps/tutorial-list.md).
 
 ## Manual vs. automatic provisioning
 
@@ -93,11 +89,8 @@ For pre-integrated applications listed in the gallery, step-by-step guidance is 
 For other applications that support SCIM 2.0, follow the steps in the article [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md).
 
 
-## Related articles
+## Next steps
 
 - [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
 - [Customizing attribute mappings for user provisioning](customize-application-attributes.md)
-- [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
-- [Scoping filters for user provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Build a SCIM endpoint and configure user provisioning](use-scim-to-provision-users-and-groups.md)
-- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Scoping filters for user provisioning](define-conditional-rules-for-provisioning-user-accounts.md)

@@ -5,7 +5,7 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure TLS mutual authentication for Azure App Service
@@ -16,9 +16,11 @@ You can restrict access to your Azure App Service app by enabling different type
 > If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.
 >
 
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
+
 ## Enable client certificates
 
-To set up your app to require client certificates, you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
+To set up your app to require client certificates, you can switch **On** the Require incoming certificate by selecting **Configuration** > **General Settings** from the Azure Portal or you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
@@ -35,7 +37,7 @@ Exclusion paths can be configured by selecting **Configuration** > **General Set
 
 ## Access client certificate
 
-In App Service, SSL termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+In App Service, TLS termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
 
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 

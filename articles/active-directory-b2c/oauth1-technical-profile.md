@@ -3,14 +3,14 @@ title: Define an OAuth1 technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth 1.0 technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the [OAuth 1.0 pr
 
 The **Name** attribute of the **Protocol** element needs to be set to `OAuth1`. For example, the protocol for the **Twitter-OAUTH1** technical profile is `OAuth1`.
 
-```XML
+```xml
 <TechnicalProfile Id="Twitter-OAUTH1">
   <DisplayName>Twitter</DisplayName>
   <Protocol Name="OAuth1" />

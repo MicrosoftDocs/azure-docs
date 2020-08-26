@@ -1,17 +1,18 @@
 ---
 title: Connect to Windows Virtual Desktop from macOS - Azure
 description: How to connect to Windows Virtual Desktop using the macOS client.
-services: virtual-desktop
-author: heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 12/13/2019
+author: Heidilohr
+ms.topic: how-to
+ms.date: 04/08/2020
 ms.author: helohr
+manager: lizross
 ---
-# Connect with the macOS client
+# Connect to Windows Virtual Desktop with the macOS client
 
 > Applies to: macOS 10.12 or later
+
+>[!IMPORTANT]
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-macos-2019.md).
 
 You can access Windows Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
 
@@ -25,11 +26,11 @@ Subscribe to the feed your admin gave you to get the list of managed resources a
 
 To subscribe to a feed:
 
-1. Select **Add Feed** on the main page to connect to the service and retrieve your resources.
+1. Select **Add Workspace** on the main page to connect to the service and retrieve your resources.
 2. Enter the Feed URL. This can be a URL or email address:
-   - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com>.
+   - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
-3. Select **Subscribe**.
+3. Select **Add**.
 4. Sign in with your user account when prompted.
 
 After you've signed in, you should see a list of available resources.

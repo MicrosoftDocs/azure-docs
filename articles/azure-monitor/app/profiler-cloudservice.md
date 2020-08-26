@@ -1,9 +1,8 @@
 ---
 title: Profile live Azure Cloud Services with Application Insights | Microsoft Docs
 description: Enable Application Insights Profiler for Azure Cloud Services.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
@@ -21,9 +20,9 @@ You can also deploy Application Insights Profiler on these services:
 Application Insights Profiler is installed with the Azure Diagnostics extension. You just need to configure Azure Diagnostics to install Profiler and send profiles to your Application Insights resource.
 
 ## Enable Profiler for Azure Cloud Services
-1. Check to make sure that you're using [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. If you are using OS family 4, you'll need to install .NET Framework 4.6.1 or newer with a [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). OS Family 5 includes a compatible version of .NET Framework by default. 
+1. Check to make sure that you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. If you are using OS family 4, you'll need to install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). OS Family 5 includes a compatible version of .NET Framework by default. 
 
-1. Add [Application Insights SDK to Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Add [Application Insights SDK to Azure Cloud Services](./cloudservices.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
     **The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
 
@@ -35,11 +34,11 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
 1. Configure the Azure Diagnostics extension to enable Profiler:
 
-    a. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
+    a. Locate the [Azure Diagnostics](../platform/diagnostics-extension-overview.md) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
       ![Location of the diagnostics config file](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
+      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?view=vs-2019).
 
     b. Add the following `SinksConfig` section as a child element of `WadCfg`:  
 
@@ -71,3 +70,4 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 * Generate traffic to your application (for example, launch an [availability test](monitor-web-app-availability.md)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
 * See [Profiler traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
 * To troubleshoot Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+

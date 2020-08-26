@@ -25,11 +25,11 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
 1. Go to the **Notebooks** tab, select `…` next to **My Notebooks** and create a **New Notebook**. Select **Python 3** as the default Kernel.
 
-   ![Create a new notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Create a new notebook":::
 
 1. After a new notebook is created, you can rename it to something like **VisualizeRetailData.ipynb.**
 
-1. Next you will create a database named “RetailDemo” and a container named “WebsiteData” to store the retail data. You can use /CardID as the partition key. Copy and paste the following code to a new cell in your notebook and run it:
+1. Next you will create a database named "RetailDemo" and a container named "WebsiteData" to store the retail data. You can use /CartID as the partition key. Copy and paste the following code to a new cell in your notebook and run it:
 
    ```python
    import azure.cosmos
@@ -44,18 +44,18 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    To run a cell, select `Shift + Enter` Or select the cell and choose **Run Active Cell** option at the data explorer navigation bar.
 
-   ![Run the active cell](./media/create-notebook-visualize-data/run-active-cell.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Run the active cell":::
 
    The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created. 
 
    ```console
-	Database RetailDemo created
-	Container WebsiteData created
+    Database RetailDemo created
+    Container WebsiteData created
    ```
 
    You can also refresh the **Data** tab and see the newly created resources:
 
-   ![Refresh the data tab to see the new container](media/create-notebook-visualize-data/refresh-data-tab.png)
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Refresh the data tab to see the new container":::
 
 1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
 
@@ -116,7 +116,7 @@ Before running queries to analyze the data, you can read the data from container
 {Query text}
 ```
 
-To learn more, see the [built-in notebook commands and features in Azure Cosmos DB](use-notebook-features-and-commands.md) article. You will run the query- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. The results will be saved into a Pandas DataFrame named df_cosmos. Paste the following command in a new notebook cell and run it:
+To learn more, see the [built-in notebook commands and features in Azure Cosmos DB](use-python-notebook-features-and-commands.md) article. You will run the query- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. The results will be saved into a Pandas DataFrame named df_cosmos. Paste the following command in a new notebook cell and run it:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -130,20 +130,20 @@ In a new notebook cell, run the following code to read the first 10 items from t
 df_cosmos.head(10)
 ```
 
-![Run query to get top 10 items](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Run query to get top 10 items":::
 
 ## Run queries and analyze your data
 
 In this section, you will run some queries on the data retrieved.
 
-* **Query1:** Run a Group by query on the DataFrame to get the sum of total sales revenue for each country and display 5 items from the results. In a new notebook cell, run the following code:
+* **Query1:** Run a Group by query on the DataFrame to get the sum of total sales revenue for each country/region and display 5 items from the results. In a new notebook cell, run the following code:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
    display(df_revenue.head(5))
    ```
 
-   ![Total sales revenue output](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Total sales revenue output":::
 
 * **Query2:** To get a list of top five purchased items, open a new notebook cell and run the following code:
 
@@ -154,7 +154,7 @@ In this section, you will run some queries on the data retrieved.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Top five purchased items](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Top five purchased items":::
 
 ## Visualize your data  
 
@@ -165,16 +165,16 @@ In this section, you will run some queries on the data retrieved.
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Next prepare to plot the data on a map. Join the data in Azure Cosmos DB with country information located in Azure Blob storage and convert the result to GeoJSON format. Copy the following code to a new notebook cell and run it.
+1. Next prepare to plot the data on a map. Join the data in Azure Cosmos DB with country/region information located in Azure Blob storage and convert the result to GeoJSON format. Copy the following code to a new notebook cell and run it.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -182,7 +182,7 @@ In this section, you will run some queries on the data retrieved.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualize the sales revenue of different countries on a world map by running the following code in a new notebook cell:
+1. Visualize the sales revenue of different countries/regions on a world map by running the following code in a new notebook cell:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -228,11 +228,11 @@ In this section, you will run some queries on the data retrieved.
    show(p)
    ```
 
-   The output displays the world map with different colors. The colors darker to lighter represent the countries with highest revenue to lowest revenue.
+   The output displays the world map with different colors. The colors darker to lighter represent the countries/regions with highest revenue to lowest revenue.
 
-   ![Countries revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Countries/regions revenue map visualization":::
 
-1. Let’s see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let’s plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
+1. Let's see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let's plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 
    ```python
    from bokeh.io import show, output_notebook
@@ -281,8 +281,8 @@ In this section, you will run some queries on the data retrieved.
    show(p)
    ```
 
-   ![Visualize purchase conversion rate](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualize purchase conversion rate":::
 
 ## Next steps
 
-* To learn more about notebook commands, see [how to use built-in notebook commands and features in Azure Cosmos DB](use-notebook-features-and-commands.md) article.
+* To learn more about Python notebook commands, see [how to use built-in notebook commands and features in Azure Cosmos DB](use-python-notebook-features-and-commands.md) article.

@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: What is the Bing Custom Search API?
-      href: overview.md  
+      href: overview.md
     - name: Compare the Bing Search APIs
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
@@ -27,12 +27,8 @@
             href: call-endpoint-python.md
       - name: SDK
         items:
-          - name: Using C#
-            href: sdk-csharp-quick-start.md
-          - name: Using Python
-            href: sdk-python-quickstart.md
-          - name: Using Java
-            href: sdk-java-quickstart.md
+          - name: Bing Custom Search client libraries
+            href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -107,12 +103,12 @@
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://aka.ms/bingcustomsearchtryit
   - name: Bing Custom Search endpoint
     href: endpoint-custom.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

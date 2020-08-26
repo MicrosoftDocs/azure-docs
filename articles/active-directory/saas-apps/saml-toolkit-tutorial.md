@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Azure AD SAML Toolkit | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Azure AD SAML Toolkit.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3f4348e7-c34e-43c7-926e-f1b26ffacf6d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/24/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Azure AD SAML Toolkit
@@ -89,6 +82,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	c. In the **Reply URL** text box, type a URL:
     `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
+    > [!NOTE]
+    > These values are not real values. Update these values with the actual Sign on URL, Identifier and Reply URL values, which is explained later in the tutorial.
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificateraw.png)
@@ -155,9 +151,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Click **Create**.
 
+    1. Copy Sign-on URL, Identifier and ACS URL values on SAML Toolkit SSO configuration page and paste into respected textboxes in the **Basic SAML Configuration section** in the Azure portal.
+
 ### Create Azure AD SAML Toolkit test user
 
-In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Azure AD SAML Toolkit supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Azure AD SAML Toolkit, a new one is created after authentication.
+In this section, a user called B.Simon is created in Azure AD SAML Toolkit. Please create a test user in the tool by registering a new user and provide all the user details. 
 
 ## Test SSO 
 

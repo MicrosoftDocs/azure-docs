@@ -70,7 +70,7 @@ Path rules are case insensitive.
 |v1 path pattern  |Is supported?  |
 |---------|---------|
 |`/images/*`     |yes|
-|`/images*`     |no|
+|`/images*`     |yes|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|
@@ -108,8 +108,8 @@ Snippet of PathBasedRouting rule:
         "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/httpListeners/<listenerName>"
     },
     "urlPathMap": {
-        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/ urlPathMaps/{urlpathMapName}"
-    },
+        "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/urlPathMaps/{urlpathMapName}"
+    }
 
 }
     }

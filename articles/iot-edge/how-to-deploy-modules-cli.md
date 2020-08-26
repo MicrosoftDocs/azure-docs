@@ -7,7 +7,8 @@ ms.author: kgremban
 ms.date: 08/16/2019
 ms.topic: conceptual
 ms.reviewer: menchi
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 
@@ -17,13 +18,13 @@ Once you create IoT Edge modules with your business logic, you want to deploy th
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
-This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor-cli.md)
+This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-cli-at-scale.md)
 
 ## Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
 * An [IoT Edge device](how-to-register-device.md#register-with-the-azure-cli) with the IoT Edge runtime installed.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Configure a deployment manifest
@@ -111,7 +112,7 @@ Change directories into the folder where your deployment manifest is saved. If y
 
 Use the following command to apply the configuration to an IoT Edge device:
 
-   ```cli
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
@@ -125,7 +126,7 @@ Once you've deployed modules to your device, you can view all of them with the f
 
 View the modules on your IoT Edge device:
 
-   ```cli
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
@@ -135,4 +136,4 @@ The device ID parameter is case-sensitive.
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md)

@@ -2,12 +2,9 @@
 title: View Azure Kubernetes Service (AKS) controller logs
 description: Learn how to enable and view the logs for the Kubernetes master node in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: mlearned
+
 ---
 
 # Enable and review Kubernetes master node logs in Azure Kubernetes Service (AKS)
@@ -18,9 +15,9 @@ With Azure Kubernetes Service (AKS), the master components such as the *kube-api
 
 This article requires an existing AKS cluster running in your Azure account. If you do not already have an AKS cluster, create one using the [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. Azure Monitor logs works with both RBAC and non-RBAC enabled AKS clusters.
 
-## Enable diagnostics logs
+## Enable resource logs
 
-To help collect and review data from multiple sources, Azure Monitor logs provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. To use a different platform to analyze the logs, you can instead choose to send diagnostic logs to an Azure storage account or event hub. For more information, see [What is Azure Monitor logs?][log-analytics-overview].
+To help collect and review data from multiple sources, Azure Monitor logs provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. To use a different platform to analyze the logs, you can instead choose to send resource logs to an Azure storage account or event hub. For more information, see [What is Azure Monitor logs?][log-analytics-overview].
 
 Azure Monitor logs are enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, open the Azure portal in a web browser and complete the following steps:
 
@@ -132,8 +129,8 @@ In this article, you learned how to enable and review the logs for the Kubernete
 <!-- LINKS - internal -->
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
-[log-analytics-overview]: ../log-analytics/log-analytics-overview.md
-[analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
+[log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
+[analyze-log-analytics]: ../azure-monitor/log-query/get-started-portal.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

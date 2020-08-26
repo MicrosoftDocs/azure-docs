@@ -1,35 +1,37 @@
 ---
-title: Policy template samples | Microsoft Docs
-description: Azure policy template samples for Virtual Network.
-services: virtual-network
-documentationcenter:
-author: KumudD
-manager: twooley
-editor:
-tags:
-ms.assetid:
-ms.service: virtual-network
-ms.devlang: na
+title: Built-in policy definitions for Azure Virtual Network
+description: Lists Azure Policy built-in policy definitions for Azure Virtual Network. These built-in policy definitions provide common approaches to managing your Azure resources.
+ms.date: 07/10/2020
 ms.topic: sample
-ms.tgt_pltfrm:
-ms.workload:
-ms.date: 05/02/2018
+author: KumudD
 ms.author: kumud
-ms.custom: mvc
-
+ms.service: virtual-network
+ms.custom: subject-policy-samples
 ---
-# Azure policy sample built-ins for virtual network
+# Azure Policy built-in definitions for Azure Virtual Network
 
-The following table includes links to [Azure Policy](../governance/policy/overview.md) samples. The samples are found in the [Azure Policy samples repository](https://github.com/Azure/azure-policy).
+This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
+definitions for Azure Virtual Network. For additional Azure Policy built-ins for other services,
+see [Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
 
-## Network
+The name of each built-in policy definition links to the policy definition in the Azure portal. Use
+the link in the **Version** column to view the source on the
+[Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-[!INCLUDE [azure-policy-samples-policies-network](../../includes/azure-policy-samples-policies-network.md)]
+## Azure Virtual Network
+
+[!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
 ## Tags
 
-[!INCLUDE [azure-policy-samples-policies-tags](../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [azure-policy-samples-policies-tags](../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## General
 
-[!INCLUDE [azure-policy-samples-policies-general](../../includes/azure-policy-samples-policies-general.md)]
+[!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]
+
+## Next steps
+
+- See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
+- Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
+- Review [Understanding policy effects](../governance/policy/concepts/effects.md).

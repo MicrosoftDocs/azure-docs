@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Concepts
   items:
+  - name: Evolution of Microsoft identity platform
+    href: about-microsoft-identity-platform.md
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
   - name: Application types
@@ -147,7 +149,7 @@
     - name: Publish to Azure AD App Gallery
       href: howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
   - name: Azure Access Control Service
     displayName: ACS
     items:
@@ -155,17 +157,17 @@
       href: active-directory-acs-migration.md
     - name: Reactivate disabled Access Control Service namespaces
       href: howto-reactivate-disabled-acs-namespaces.md
-  - name: Use the Azure AD Graph API
-    href: ../develop/active-directory-graph-api-quickstart.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+  - name: Use the Microsoft Graph API
+    href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: AD FS for developers
-    href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+    href: /windows-server/identity/ad-fs/ad-fs-overview
 - name: References
   items:
   - name: Authentication libraries
     displayName: ADAL
     href: active-directory-authentication-libraries.md
-  - name: Azure AD Graph API
-    href: ../develop/active-directory-graph-api.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+  - name: Microsoft Graph API
+    href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Application manifest
     href: ../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Authentication and authorization error codes
@@ -190,4 +192,4 @@
     displayName: support, help options
     href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Managed identities for Azure resources
-    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
+    href: ../managed-identities-azure-resources/overview.md

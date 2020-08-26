@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ---
 
 # Number prebuilt entity for a LUIS app
-There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. Because this entity is already trained, you do not need to add example utterances containing number to the application intents. 
+There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. Because this entity is already trained, you do not need to add example utterances containing number to the application intents.
 
 ## Types of number
 Number is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub repository
@@ -23,7 +23,7 @@ Number is managed from the [Recognizers-text](https://github.com/Microsoft/Recog
 
 | Utterance        | Entity   | Resolution |
 | ------------- |:----------------:| --------------:|
-| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      | 
+| ```one thousand times```  | ```"one thousand"``` |   ```"1000"```      |
 | ```1,000 people```        | ```"1,000"```    |   ```"1000"```      |
 | ```1/2 cup```         | ```"1 / 2"```    |    ```"0.5"```      |
 |  ```one half the amount```     | ```"one half"```     |    ```"0.5"```      |
@@ -96,10 +96,10 @@ The following example shows a JSON response from LUIS, that includes the resolut
   }
 ]
 ```
-* * * 
+* * *
 
 ## Next steps
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Learn about the [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 
+Learn about the [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md).

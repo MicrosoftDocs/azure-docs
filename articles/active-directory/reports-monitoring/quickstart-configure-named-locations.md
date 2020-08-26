@@ -60,6 +60,5 @@ To complete this quickstart, you need:
 
 For more information, see:
 
-- [Azure AD Conditional Access](../active-directory-conditional-access-azure-portal.md).
-- [Location conditions in Azure AD Conditional Access](../conditional-access/location-condition.md)
+- [Location as a condition in Conditional Access](../conditional-access/concept-conditional-access-conditions.md#locations).
 - [Risky sign-ins report](concept-risky-sign-ins.md).  

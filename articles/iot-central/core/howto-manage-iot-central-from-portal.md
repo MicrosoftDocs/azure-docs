@@ -6,7 +6,7 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 manager: philmea
 ---
 
@@ -36,8 +36,7 @@ Fill in all the fields in the form. This form is similar to the form you fill ou
 
 ![Create IoT Central form](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **United States**, **Australia**, **Asia Pacific**, or in **Europe**.  Once you choose a location, you can't move your application to a different location later.
-
+**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. Once you choose a location, you can't move your application to a different location later.
 
 After filling out all fields, select **Create**.
 

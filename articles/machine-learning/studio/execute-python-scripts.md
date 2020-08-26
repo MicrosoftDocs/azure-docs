@@ -1,18 +1,20 @@
----
-title: Execute Python scripts
-titleSuffix: ML Studio (classic) - Azure
+--- 
+title: 'ML Studio (classic): Execute Python scripts - Azure'
 description: Learn how to use the Execute Python Script module to use Python code in Machine Learning Studio (classic) experiments and web services.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio (classic)
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Python is a valuable tool in the tool chest of many data scientists. It's used in every stage of typical machine learning workflows including data exploration, feature extraction, model training and validation, and deployment.
 
@@ -66,7 +68,7 @@ The backend used to execute Python is based on [Anaconda](https://www.anaconda.c
 
 A common use-case is to incorporate existing Python scripts into Studio (classic) experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
 
-As an example, consider the file Hello.py containing a simple “Hello, World” function.
+As an example, consider the file Hello.py containing a simple "Hello, World" function.
 
 ![User-defined function in Hello.py file](./media/execute-python-scripts/figure4.png)
 
@@ -123,7 +125,7 @@ Plots created using MatplotLib can be returned by the [Execute Python Script][ex
 
 To generate images from MatplotLib, you must take the following steps:
 
-1. Switch the backend to “AGG” from the default Qt-based renderer.
+1. Switch the backend to "AGG" from the default Qt-based renderer.
 1. Create a new figure object.
 1. Get the axis and generate all plots into it.
 1. Save the figure to a PNG file.
@@ -148,7 +150,7 @@ Here is the Python function used to compute the importance scores and order the 
 
 ![Function to rank features by scores](./media/execute-python-scripts/figure8.png)
 
-The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in Azure Machine Learning Studio (classic):
+The following experiment then computes and returns the importance scores of features in the "Pima Indian Diabetes" dataset in Azure Machine Learning Studio (classic):
 
 ![Experiment to rank features in the Pima Indian Diabetes dataset using Python](./media/execute-python-scripts/figure9a.png)
 

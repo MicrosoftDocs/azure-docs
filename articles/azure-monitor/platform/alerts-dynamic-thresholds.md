@@ -2,12 +2,9 @@
 title: Creating Alerts with Dynamic Thresholds in Azure Monitor
 description: Create Alerts with machine learning based Dynamic Thresholds
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.author: yalavi
-ms.reviewer: mbullwin
 ---
 
 # Metric Alerts with Dynamic Thresholds in Azure Monitor
@@ -91,7 +88,8 @@ When an alert rule is first created, the thresholds appearing in the chart are c
 
 ## How much data is needed to trigger an alert?
 
-If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days or 30 samples of metric data are available to ensure accurate thresholds.
+If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
+For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
 
 ## Dynamic Thresholds best practices
 

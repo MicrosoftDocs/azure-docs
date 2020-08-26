@@ -1,10 +1,11 @@
 ---
 title: Monitoring Azure Functions with Azure Monitor Logs
 description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.author: aelnably
+ms.date: 04/15/2020
+ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
@@ -12,7 +13,7 @@ ms.author: aelnably
 
 Azure Functions offers an integration with [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated and user-generated logs to Azure Monitor Logs.
 
-Azure Monitor Logs gives you the ability to consolidate logs from different resources in the same workspace, where it can be analyzed with [queries](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](../azure-monitor/log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](../azure-monitor/visualizations.md) or [alert rules](../azure-monitor/platform/alerts-overview.md).
+Azure Monitor Logs gives you the ability to consolidate logs from different resources in the same workspace, where it can be analyzed with [queries](../azure-monitor/log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](../azure-monitor/log-query/log-query-overview.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](../azure-monitor/visualizations.md) or [alert rules](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../azure-monitor/log-query/get-started-queries.md).
 
@@ -21,17 +22,23 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-From the **Monitoring** section, select **Diagnostic settings** and then click **Add diagnostic setting**.
+1. From the **Monitoring** section of your function app in the [Azure portal](https://portal.azure.com), select **Diagnostic settings**, and then select **Add diagnostic setting**.
 
-![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Select diagnostic settings":::
 
-In the **Diagnostics settings** page, choose **Send to Log Analytics**, and then select your Log Analytics workspace. Under **log** choose **FunctionAppLogs**, this table contains the desired logs.
+1. In the **Diagnostics settings** page, under **Category details** and **log**, choose **FunctionAppLogs**.
 
-![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
+   The **FunctionAppLogs** table contains the desired logs.
+
+1. Under **Destination details**, choose **Send to Log Analytics**.and then select your **Log Analytics workspace**. 
+
+1. Enter a **Diagnostic settings name**, and then select **Save**.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Add a diagnostic setting":::
 
 ## User-generated logs
 
-To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
+To generate custom logs, use the logging statement specific to your language. Here are sample code snippets:
 
 
 # [C#](#tab/csharp)
@@ -68,11 +75,19 @@ logging.info('My app logs here.')
 
 ## Querying the logs
 
-To query the generated logs, go to the Log Analytics workspace that you configured to send the function logs to and click **Logs**.
+To query the generated logs:
+ 
+1. From your function app, select **Diagnostic settings**. 
 
-![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
+1. From the **Diagnostic settings** list, select the Log Analytics workspace that you configured to send the function logs to. 
 
-Azure Functions writes all logs to **FunctionAppLogs** table, here are some sample queries.
+1. From the **Log Analytics workspace** page, select **Logs**.
+
+   Azure Functions writes all logs to the **FunctionAppLogs** table under **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Query window in Log Analytics workspace":::
+
+Here are some sample queries:
 
 ### All logs
 
@@ -83,7 +98,7 @@ FunctionAppLogs
 
 ```
 
-### A specific function logs
+### Specific function logs
 
 ```
 
@@ -104,6 +119,6 @@ FunctionAppLogs
 
 ## Next steps
 
-- Review the [Azure Functions overview](functions-overview.md)
-- Learn more about [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md)
+- Review the [Azure Functions overview](functions-overview.md).
+- Learn more about [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md).
 - Learn more about the [query language](../azure-monitor/log-query/get-started-queries.md).

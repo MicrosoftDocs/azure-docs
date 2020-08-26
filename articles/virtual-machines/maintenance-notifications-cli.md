@@ -4,7 +4,7 @@ description: View maintenance notifications for virtual machines running in Azur
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 #pmcontact: shants
@@ -14,7 +14,7 @@ ms.author: shants
 
 **This article applies to virtual machines running both Linux and Windows.**
 
-You can use the CLI to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from [az vm get-instance-view](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
+You can use the CLI to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from [az vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
  
 Maintenance information is returned only if there is maintenance planned. 
 
@@ -32,6 +32,7 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 
 ## Classic deployments
 
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 

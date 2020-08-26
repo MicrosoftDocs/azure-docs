@@ -2,14 +2,14 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
-ms.author: marsma
+ms.date: 03/05/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of **ClaimType** elements. The **ClaimType** element contains the **Id** attribute, which is the claim name.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -52,15 +52,18 @@ The **ClaimType** element contains the following elements:
 | Mask | 0:1 | An optional string of masking characters that can be applied when displaying the claim. For example, the phone number 324-232-4343 can be masked as XXX-XXX-4343. |
 | UserHelpText | 0:1 | A description of the claim type that can be helpful for users to understand its purpose. The value can be [localized](localization.md). |
 | UserInputType | 0:1 | The type of input control that should be available to the user when manually entering the claim data for the claim type. See the user input types defined later in this page. |
+| AdminHelpText | 0:1 | A description of the claim type that can be helpful for administrators to understand its purpose. |
 | Restriction | 0:1 | The value restrictions for this claim, such as a regular expression (Regex) or a list of acceptable values. The value can be [localized](localization.md). |
 PredicateValidationReference| 0:1 | A reference to a **PredicateValidationsInput** element. The **PredicateValidationReference** elements enable you to perform a validation process to ensure that only properly formed data is entered. For more information, see [Predicates](predicates.md). |
+
+
 
 ### DataType
 
 The **DataType** element supports the following values:
 
 | Type | Description |
-| ------- | ----------- | 
+| ------- | ----------- |
 |boolean|Represents a Boolean (`true` or `false`) value.|
 |date| Represents an instant in time, typically expressed as a date of a day. The value of the date follows ISO 8601 convention.|
 |dateTime|Represents an instant in time, typically expressed as a date and time of day. The value of the date follows ISO 8601 convention.|
@@ -90,7 +93,7 @@ The **Protocol** element contains the following attributes:
 
 In the following example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the **surname** claim is mapped to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, with OpenIdConnect and OAuth2, the claim is mapped to `family_name`.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -104,7 +107,7 @@ In the following example, when the Identity Experience Framework interacts with 
 
 As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -125,7 +128,7 @@ The **Mask** element contains the following attributes:
 
 The following example configures a **PhoneNumber** claim with the `Simple` mask:
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -140,7 +143,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 The following example configures a **AlternateEmail** claim with the `Regex` mask:
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -171,6 +174,8 @@ The **Restriction** element contains the following elements:
 
 #### Enumeration
 
+The **Enumeration** element defines available options for the user to select for a claim in the user interface, such as a value in a `CheckboxMultiSelect`, `DropdownSingleSelect`, or `RadioSingleSelect`. Alternatively, you can define and localize available options with [LocalizedCollections](localization.md#localizedcollections) element. To look up an item from a claim **Enumeration** collection, use [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) claims transformation.
+
 The **Enumeration** element contains the following attributes:
 
 | Attribute | Required | Description |
@@ -181,7 +186,7 @@ The **Enumeration** element contains the following attributes:
 
 The following example configures a **city** dropdown list claim with a default value set to `New York`:
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -205,11 +210,11 @@ The **Pattern** element can contain the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Yes | The regular expression that claims of this type must match in order to be valid. |
-| HelpText | No | The pattern or regular expression for this claim. |
+| HelpText | No | An error message for users if the regular expression check fails. |
 
 The following example configures an **email** claim with regular expression input validation and help text:
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -243,7 +248,7 @@ The **UserInputType** element available user input types:
 |Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|A field that shows text only in a paragraph tag. |
 |Password | `string` |Password text box.|
 |RadioSingleSelect |`string` | Collection of radio buttons. The claim value is the selected value.|
-|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read only text box. |
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Read-only text box. |
 |TextBox |`boolean`, `int`, `string` |Single-line text box. |
 
 
@@ -253,7 +258,7 @@ The **TextBox** user input type is used to provide a single-line text box.
 
 ![TextBox showing properties specified in claim type](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -268,7 +273,7 @@ The **EmailBox** user input type is used to provide a basic email input field.
 
 ![EmailBox showing properties specified in claim type](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -286,7 +291,7 @@ The **Password** user input type is used to record a password entered by the use
 
 ![Using claim type with password](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -301,7 +306,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 ![Using claim type with datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -316,7 +321,7 @@ The **RadioSingleSelect** user input type is used to provide a collection of rad
 
 ![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -335,7 +340,7 @@ The **DropdownSingleSelect** user input type is used to provide a drop-down box 
 
 ![Using claim type with dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -354,7 +359,7 @@ The **CheckboxMultiSelect** user input type is used to provide a collection of c
 
 ![Using claim type with checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -373,7 +378,7 @@ The **Readonly** user input type is used to provide a readonly field to display 
 
 ![Using claim type with readonly](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -389,7 +394,7 @@ The **Paragraph** user input type is used to provide a field that shows text onl
 
 ![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>
@@ -403,5 +408,3 @@ The **Paragraph** user input type is used to provide a field that shows text onl
   </Restriction>
 </ClaimType>
 ```
-
-To display one of the **Enumeration** values in a **responseMsg** claim, use `GetMappedValueFromLocalizedCollection` or `CreateStringClaim` claims transformation. For more information, see [String Claims Transformations](string-transformations.md)

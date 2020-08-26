@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Telemetry Data Model - Telemetry Context | Microsoft Docs
 description: Application Insights telemetry context data model
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/15/2017
 
 ms.reviewer: sergkanz
@@ -39,14 +35,14 @@ Max length: 64
 
 ## Operation id
 
-A unique identifier of the root operation. This identifier allows to group telemetry across multiple components. See [telemetry correlation](../../azure-monitor/app/correlation.md) for details. The operation id is created by either a request or a page view. All other telemetry sets this field to the value for the containing request or page view. 
+A unique identifier of the root operation. This identifier allows to group telemetry across multiple components. See [telemetry correlation](./correlation.md) for details. The operation id is created by either a request or a page view. All other telemetry sets this field to the value for the containing request or page view. 
 
 Max length: 128
 
 
 ## Parent operation ID
 
-The unique identifier of the telemetry item's immediate parent. See [telemetry correlation](../../azure-monitor/app/correlation.md) for details.
+The unique identifier of the telemetry item's immediate parent. See [telemetry correlation](./correlation.md) for details.
 
 Max length: 128
 
@@ -76,7 +72,7 @@ Max length: 64
 
 Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service.
 
-[Sampling](../../azure-monitor/app/sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user id is used for sampling score generation. So anonymous user id should be a random enough value. 
+[Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. Sampling algorithm attempts to either sample in or out all the correlated telemetry. Anonymous user id is used for sampling score generation. So anonymous user id should be a random enough value. 
 
 Using anonymous user id to store user name is a misuse of the field. Use Authenticated user id.
 
@@ -127,6 +123,7 @@ Max length: 256
 
 ## Next steps
 
-- Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
+- Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out standard context properties collection [configuration](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+- Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+

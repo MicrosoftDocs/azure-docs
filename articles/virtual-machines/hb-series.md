@@ -1,12 +1,13 @@
 ---
- title: HB-series - Azure Virtual Machines
- description: Specifications for the HB-series VMs.
- services: virtual-machines
- author: jonbeck7
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: HB-series 
+description: Specifications for the HB-series VMs.
+author: ju-shim
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 08/06/2020
+ms.author: amverma
+ms.reviewer: jushiman
 ---
 
 # HB-series
@@ -18,6 +19,10 @@ ACU: 199-216
 Premium Storage: Supported
 
 Premium Storage Caching: Supported
+
+Live Migration: Not Supported
+
+Memory Preserving Updates: Not Supported
 
 | Size | vCPU | Processor | Memory (GB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GB) | Max data disks | Max Ethernet NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -35,5 +40,7 @@ Premium Storage Caching: Supported
 - [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
-
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+- Learn more about [configuring your VMs](./workloads/hpc/configure.md), [enabling InfiniBand](./workloads/hpc/enable-infiniband.md), [setting up MPI](./workloads/hpc/setup-mpi.md), and optimizing HPC applications for Azure at [HPC Workloads](./workloads/hpc/overview.md).
+- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

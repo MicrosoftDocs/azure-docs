@@ -1,11 +1,12 @@
 ---
 title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Docs
-description: A quickstart for using Azure App Configuration with .NET Framework apps
+description: In this article, create a .NET Framework app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
 
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
@@ -26,13 +27,15 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
     Leave **Label** and **Content Type** empty for now.
+
+7. Select **Apply**.
 
 ## Create a .NET console app
 
@@ -44,11 +47,11 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Connect to an App Configuration store
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
 
     ```
-    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
-    Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 or later
+    Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 or later
     System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
@@ -89,7 +92,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

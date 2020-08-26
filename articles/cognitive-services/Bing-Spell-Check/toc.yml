@@ -9,7 +9,7 @@
     maintainContext: true
 - name: Quickstarts
   items:
-  - name: REST API 
+  - name: REST API
     expanded: true
     items:
     - name: Using C#
@@ -72,7 +72,7 @@
   - name: Analytics for Bing Spell Check API
     maintainContext: true
     href: ../bing-web-search/bing-web-stats.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
@@ -81,7 +81,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-api
   - name: Subscription key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: UserVoice

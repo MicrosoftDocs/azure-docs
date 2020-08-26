@@ -1,12 +1,13 @@
 ---
-title: Azure spending limit | Microsoft Docs
+title: Azure spending limit
 description: This article describes how an Azure spending limit works and how to remove it.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

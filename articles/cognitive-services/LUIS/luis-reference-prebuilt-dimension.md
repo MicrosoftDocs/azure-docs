@@ -8,13 +8,13 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ---
 
 # Dimension prebuilt entity for a LUIS app
-The prebuilt dimension entity detects various types of dimensions, regardless of the LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing dimensions to the application intents. Dimension entity is supported in [many cultures](luis-reference-prebuilt-entities.md). 
+The prebuilt dimension entity detects various types of dimensions, regardless of the LUIS app culture. Because this entity is already trained, you do not need to add example utterances containing dimensions to the application intents. Dimension entity is supported in [many cultures](luis-reference-prebuilt-entities.md).
 
 ## Types of dimension
 
@@ -85,10 +85,10 @@ The following example shows the resolution of the **builtin.dimension** entity.
     }
 }
 ```
-* * * 
+* * *
 
 ## Next steps
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities. 
+Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities.

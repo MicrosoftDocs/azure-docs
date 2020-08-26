@@ -3,14 +3,14 @@ title: String claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
-ms.author: marsma
+ms.date: 04/21/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -30,14 +30,14 @@ Compare two claims, and throw an exception if they are not equal according to th
 | InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user.
+The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
 You can use this claims transformation to make sure, two ClaimTypes have the same value. If not, an error message is thrown. The following example checks that the **strongAuthenticationEmailAddress** ClaimType is equal to **email** ClaimType. Otherwise an error message is thrown.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim1" />
@@ -51,7 +51,7 @@ You can use this claims transformation to make sure, two ClaimTypes have the sam
 
 
 The **login-NonInteractive** validation technical profile calls the **AssertEmailAndStrongAuthenticationEmailAddressAreEqual** claims transformation.
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -62,7 +62,7 @@ The **login-NonInteractive** validation technical profile calls the **AssertEmai
 
 The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">Custom error message the email addresses you provided are not the same.</Item>
@@ -94,7 +94,7 @@ Changes the case of the provided claim to lower or upper case depending on the o
 
 Use this claim transformation to change any string ClaimType to lower or upper case.
 
-```XML
+```xml
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim1" />
@@ -123,12 +123,12 @@ Creates a string claim from the provided input parameter in the transformation.
 
 | Item | TransformationClaimType | Data Type | Notes |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | The string to be set |
+| InputParameter | value | string | The string to be set. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
 
 Use this claims transformation to set a string ClaimType value.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateTermsOfService" TransformationMethod="CreateStringClaim">
   <InputParameters>
     <InputParameter Id="value" DataType="string" Value="Contoso terms of service..." />
@@ -160,7 +160,7 @@ Determine whether one string claim is equal to another. The result is a new bool
 
 Use this claims transformation to check if a claim is equal to another claim. For example, the following claims transformation checks if the value of the **email** claim is equal to the **Verified.Email** claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="Email" TransformationClaimType="inputClaim1" />
@@ -201,7 +201,7 @@ Determines whether a claim value is equal to the input parameter value.
 
 You can use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`.
 
-```XML
+```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim1" />
@@ -242,7 +242,7 @@ Creates a random string using the random number generator. If the random number 
 
 Following example generates a global unique ID. This claims transformation is used to create the random UPN (user principle name).
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="GUID" />
@@ -261,7 +261,7 @@ Following example generates a global unique ID. This claims transformation is us
 
 Following example generates an integer random value between 0 and 1000. The value is formatted to OTP_{random value}.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
   <InputParameters>
     <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
@@ -293,12 +293,12 @@ Format a claim according to the provided format string. This transformation uses
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |The ClaimType that acts as string format {0} parameter. |
-| InputParameter | stringFormat | string | The string format, including the {0}  parameter. |
+| InputParameter | stringFormat | string | The string format, including the {0}  parameter. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
 Use this claims transformation to format any string with one parameter {0}. The following example creates a **userPrincipalName**. All social identity provider technical profiles, such as `Facebook-OAUTH` calls the **CreateUserPrincipalName** to generate a **userPrincipalName**.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="upnUserName" TransformationClaimType="inputClaim" />
@@ -329,12 +329,12 @@ Format two claims according to the provided format string. This transformation u
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | The ClaimType that acts as string format {0} parameter. |
 | InputClaim | inputClaim | string | The ClaimType that acts as string format {1} parameter. |
-| InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. |
+| InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
 Use this claims transformation to format any string with two parameters, {0} and {1}. The following example creates a **displayName** with the specified format:
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputClaim1" />
@@ -359,18 +359,18 @@ Use this claims transformation to format any string with two parameters, {0} and
 - Output claims:
     - **outputClaim**: Joe Fernando
 
-## GetLocalizedStringsTransformation 
+## GetLocalizedStringsTransformation
 
 Copies localized strings into claims.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | The name of the localized string | string | List of claim types that is produced after this claims transformation has been invoked. |
+| OutputClaim | The name of the localized string | string | List of claim types that are produced after this claims transformation has been invoked. |
 
 To use the GetLocalizedStringsTransformation claims transformation:
 
 1. Define a [localization string](localization.md) and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
-1. The `ElementType` of the `LocalizedString` element must set to `GetLocalizedStringsTransformationClaimType`.
+1. The `ElementType` of the `LocalizedString` element must be set to `GetLocalizedStringsTransformationClaimType`.
 1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
 1. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a ClaimType already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
 1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
@@ -381,7 +381,7 @@ The following example looks up the email subject, body, your code message, and t
 
 Define localized strings for English (default) and Spanish.
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
     <SupportedLanguage>en</SupportedLanguage>
@@ -409,7 +409,7 @@ Define localized strings for English (default) and Spanish.
 
 The claims transformation sets the value of the claim type *subject* with the value of the `StringId` *email_subject*.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -424,9 +424,9 @@ The claims transformation sets the value of the claim type *subject* with the va
 
 - Output claims:
   - **subject**: Contoso account email verification code
-  - **message**: Thanks for verifying your account! 
-  - **codeIntro**: Your code is 
-  - **signature**: Sincerely  
+  - **message**: Thanks for verifying your account!
+  - **codeIntro**: Your code is
+  - **signature**: Sincerely
 
 
 ## GetMappedValueFromLocalizedCollection
@@ -440,7 +440,7 @@ Looking up an item from a claim **Restriction** collection.
 
 The following example looks up the error message description based on the error key. The **responseMsg** claim contains a collection of error messages to present to the end user or to be sent to the relying party.
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>
@@ -454,7 +454,7 @@ The following example looks up the error message description based on the error 
 ```
 The claims transformation looks up the text of the item and returns its value. If the restriction is localized using `<LocalizedCollection>`, the claims transformation returns the localized value.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
@@ -485,7 +485,7 @@ Look up a claim value from a list of values based on the value of another claim.
 
 The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -512,7 +512,7 @@ The following example looks up the domain name in one of the inputParameters col
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: false
 - Output claims:
-    - **outputClaim**:	c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
 
 When `errorOnFailedLookup` input parameter is set to `true`, the **LookupValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `LookupNotFound` metadata of a self-asserted technical profile controls the error message that is presented to the user.
 
@@ -520,7 +520,7 @@ When `errorOnFailedLookup` input parameter is set to `true`, the **LookupValue**
 
 The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID), or raises an error message.
 
-```XML
+```xml
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
@@ -560,7 +560,7 @@ Clean the value of a given claim.
 
 Use this claim transformation to remove unnecessary data from the claims property bag so the session cookie will be smaller. The following example removes the value of the `TermsOfService` claim type.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
   <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="TermsOfService" TransformationClaimType="claim_to_null" />
@@ -584,7 +584,7 @@ Gets the domain portion of an email address.
 
 Use this claims transformation to parse the domain name after the @ symbol of the user. The following claims transformation demonstrates how to parse the domain name from an **email** claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="emailAddress" />
@@ -611,13 +611,17 @@ Checks that a string claim `claimToMatch` and `matchTo` input parameter are equa
 | inputClaim | claimToMatch | string | The claim type, which is to be compared. |
 | InputParameter | matchTo | string | The regular expression to match. |
 | InputParameter | outputClaimIfMatched | string | The value to be set if strings are equal. |
+| InputParameter | extractGroups | boolean | [Optional] Specifies whether the Regex match should extract groups values. Possible values: `true`, or `false` (default). | 
 | OutputClaim | outputClaim | string | If regular expression is match, this output claim contains the value of `outputClaimIfMatched` input parameter. Or null, if no match. |
 | OutputClaim | regexCompareResultClaim | boolean | The regular expression match result output claim type, which is to be set as `true` or `false` based on the result of matching. |
+| OutputClaim| The name of the claim| string | If the extractGroups input parameter set to true, list of claim types that are produced after this claims transformation has been invoked. The name of the claimType must match the Regex group name. | 
 
-For example, checks whether the provided phone number is valid, based on phone number regular expression pattern.  
+### Example 1
 
-```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+Checks whether the provided phone number is valid, based on phone number regular expression pattern.
+
+```xml
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -632,8 +636,6 @@ For example, checks whether the provided phone number is valid, based on phone n
 </ClaimsTransformation>
 ```
 
-### Example
-
 - Input claims:
     - **claimToMatch**: "64854114520"
 - Input parameters:
@@ -643,6 +645,39 @@ For example, checks whether the provided phone number is valid, based on phone n
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: true
 
+### Example 2
+
+Checks whether the provided email address is valid, and return the email alias.
+
+```xml
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+    - **claimToMatch**: "emily@contoso.com"
+- Input parameters:
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**:  "isEmail"
+    - **extractGroups**: true
+- Output claims:
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: true
+    - **mailAlias**: emily
+    
 ## SetClaimsIfStringsAreEqual
 
 Checks that a string claim and `matchTo` input parameter are equal, and sets the output claims with the value present in `stringMatchMsg` and `stringMatchMsgCode` input parameters, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
@@ -660,7 +695,7 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 
 You can use this claims transformation to check if a claim is equal to value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`. If yes, change the value to `v2`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim" />
@@ -707,7 +742,7 @@ Checks that a string claim and `matchTo` input parameter are equal, and sets the
 
 For example, the following claims transformation checks if the value of **ageGroup** claim is equal to `Minor`. If yes, return the value to `B2C_V1_90001`.
 
-```XML
+```xml
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="claimToMatch" />
@@ -750,8 +785,8 @@ Determine whether a specified substring occurs within the input claim. The resul
 
 Use this claims transformation to check if a string claim type contains a substring. Following example, checks whether the `roles` string claim type contains the value of **admin**.
 
-```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+```xml
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -761,7 +796,7 @@ Use this claims transformation to check if a string claim type contains a substr
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -773,7 +808,7 @@ Use this claims transformation to check if a string claim type contains a substr
     - **contains**: "admin,"
     - **ignoreCase**: true
 - Output claims:
-    - **outputClaim**: true 
+    - **outputClaim**: true
 
 ## StringSubstring
 
@@ -786,10 +821,10 @@ Extracts parts of a string claim type, beginning at the character at the specifi
 | InputParameter | length | int | The number of characters in the substring. |
 | OutputClaim | outputClaim | boolean | A string that is equivalent to the substring of length that begins at startIndex in this instance, or Empty if startIndex is equal to the length of this instance and length is zero. |
 
-For example, get the phone number country prefix.  
+For example, get the phone number country/region prefix.
 
 
-```XML
+```xml
 <ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -824,10 +859,10 @@ Searches a claim type string for a specified value, and returns a new claim type
 | InputParameter | newValue | string | The string to replace all occurrences of `oldValue` |
 | OutputClaim | outputClaim | boolean | A string that is equivalent to the current string except that all instances of oldValue are replaced with newValue. If oldValue is not found in the current instance, the method returns the current instance unchanged. |
 
-For example, normalize a phone number, by removing the `-` characters  
+For example, normalize a phone number, by removing the `-` characters
 
 
-```XML
+```xml
 <ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
@@ -860,10 +895,10 @@ Concatenates the elements of a specified string collection claim type, using the
 | InputClaim | inputClaim | stringCollection | A collection that contains the strings to concatenate. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | string | A string that consists of the members of the `inputClaim` string collection, delimited by the `delimiter` input parameter. |
-  
+
 The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
   <InputClaims>
    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
@@ -896,10 +931,10 @@ Returns a string array that contains the substrings in this instance that are de
 | InputClaim | inputClaim | string | A string claim type that contains the sub strings to split. |
 | InputParameter | delimiter | string | The string to use as a separator, such as comma `,`. |
 | OutputClaim | outputClaim | stringCollection | A string collection whose elements contain the substrings in this string that are delimited by the `delimiter` input parameter. |
-  
+
 The following example takes a comma delimiter string of user roles, and converts it to a string collection.
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />
@@ -921,3 +956,12 @@ The following example takes a comma delimiter string of user roles, and converts
   - **delimiter**: ","
 - Output claims:
   - **outputClaim**: [ "Admin", "Author", "Reader" ]
+
+## String claim transformations expressions
+Claim transformations expressions in Azure AD B2C custom policies provide context information about the tenant ID and technical profile ID.
+
+  | Expression | Description | Example |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | The technical profileId name. | Facebook-OAUTH |
+ | `{RelyingPartyTenantId}` | The tenant ID of the relying party policy. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | The tenant ID of the trust framework. | your-tenant.onmicrosoft.com |

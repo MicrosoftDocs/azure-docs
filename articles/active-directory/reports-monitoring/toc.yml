@@ -26,7 +26,8 @@
     href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-
+  - name: Log analytics wizard
+    href: tutorial-log-analytics-wizard.md
 
 - name: Concepts
   items:
@@ -56,6 +57,8 @@
   items:
   - name: Reports
     items:
+    - name: Manage inactive user accounts in Azure AD
+      href: howto-manage-inactive-user-accounts.md
     - name: Find activity reports
       href: howto-find-activity-reports.md
     - name: Troubleshoot sign-in errors for a user
@@ -90,7 +93,8 @@
       href: troubleshoot-missing-data-download.md
     - name: Cannot access Graph APIs for reporting
       href: troubleshoot-graph-api.md
-
+    - name: Audit data on verified domain change
+      href: troubleshoot-audit-data-verified-domain.md
 
 - name: Reference
   expanded: true

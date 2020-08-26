@@ -1,9 +1,9 @@
 ---
 title: Large file download optimization with Azure CDN
-description: This article explains how large file downloads can be optimized.
+description: Learn how large file downloads can be optimized in Azure Content Delivery Network. This article includes several scenarios.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: magattus
+ms.author: allensu
 ---
 # Large file download optimization with Azure CDN
 
@@ -102,8 +102,7 @@ The CDN caches any chunks as they're received. The entire file doesn't need to b
 ### Caching
 Large file optimization uses different default caching-expiration times from general web delivery. It differentiates between positive caching and negative caching based on HTTP response codes. If the origin server specifies an expiration time via a cache-control or expires header in the response, the CDN honors that value. When the origin doesn’t specify and the file matches the type and size conditions for this optimization type, the CDN uses the default values for large file optimization. Otherwise, the CDN uses defaults for general web delivery.
 
-
-|    | General web | Large file optimization 
+| Caching  | General web | Large file optimization 
 --- | --- | --- 
 Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302, and 410 | 7 days |1 day  
 Caching: Negative <br> HTTP 204, 305, 404, <br> and 405 | None | 1 second 

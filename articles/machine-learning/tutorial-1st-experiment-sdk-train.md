@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
-ms.date: 02/10/2020
+ms.author: sgilley
+author: sdgilley
+ms.date: 08/25/2020
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Train your first ML model
@@ -23,7 +23,7 @@ In this tutorial, you learn the following tasks:
 > [!div class="checklist"]
 > * Connect your workspace and create an experiment
 > * Load data and train scikit-learn models
-> * View training results in the portal
+> * View training results in the studio
 > * Retrieve the best model
 
 ## Prerequisites
@@ -38,22 +38,27 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook *t
 
 1. Open the **tutorial-1st-experiment-sdk-train.ipynb** in your folder as shown in [part one](tutorial-1st-experiment-sdk-setup.md#open).
 
-
-> [!Warning]
-> Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
-> for this tutorial.
+Do **not** create a *new* notebook in the Jupyter interface! The notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* is inclusive of **all code and data needed** 
+for this tutorial.
 
 ## Connect workspace and create experiment
 
-> [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
->
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
+
+> [!TIP]
+> Contents of _tutorial-1st-experiment-sdk-train.ipynb_. 
 > Switch to the Jupyter notebook now if you want to read along as you run the code. 
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
-Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
-If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
+Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. If you are running this notebook in a cloud notebook server in your workspace, the file is automatically in the root directory.
+
+If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token. In addition, if you have more than one tenant linked to your user, you will need to add the following lines:
+```
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
+```
 
 ```python
 from azureml.core import Workspace
@@ -101,16 +106,16 @@ alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 for alpha in alphas:
     run = experiment.start_logging()
     run.log("alpha_value", alpha)
-
+    
     model = Ridge(alpha=alpha)
     model.fit(X=X_train, y=y_train)
     y_pred = model.predict(X=X_test)
     rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
     run.log("rmse", rmse)
-
+    
     model_name = "model_alpha_" + str(alpha) + ".pkl"
     filename = "outputs/" + model_name
-
+    
     joblib.dump(value=model, filename=filename)
     run.upload_file(name=model_name, path_or_stream=filename)
     run.complete()
@@ -120,32 +125,33 @@ The above code accomplishes the following:
 
 1. For each alpha hyperparameter value in the `alphas` array, a new run is created within the experiment. The alpha value is logged to differentiate between each run.
 1. In each run, a Ridge model is instantiated, trained, and used to run predictions. The root-mean-squared-error is calculated for the actual versus predicted values, and then logged to the run. At this point the run has metadata attached for both the alpha value and the rmse accuracy.
-1. Next, the model for each run is serialized and uploaded to the run. This allows you to download the model file from the run in the portal.
+1. Next, the model for each run is serialized and uploaded to the run. This allows you to download the model file from the run in the studio.
 1. At the end of each iteration the run is completed by calling `run.complete()`.
 
-After the training has completed, call the `experiment` variable to fetch a link to the experiment in the portal.
+After the training has completed, call the `experiment` variable to fetch a link to the experiment in the studio.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure portal</td><td>Link to Documentation</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure Machine Learning studio</td><td>Link to Documentation</td></tr></table>
 
-## View training results in portal
+## View training results in studio
 
-Following the **Link to Azure portal** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts and tiles at the top of the experiment page. To add a logged metric to a chart or tile, hover over it, click the edit button, and find your custom-logged metric.
+Following the **Link to Azure Machine Learning studio** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts. To plot a new chart with a logged metric, click on 'Add chart' and select the metric you would like to plot.
 
 When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
 
-![Main Experiment page in Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Main Experiment page in the studio.":::
 
-Clicking on a run number link in the `RUN NUMBER` column takes you to the page for each individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
 
-![Run details page in Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+Select a run number link in the `RUN NUMBER` column to see the page for an individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs + logs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Run details page in the studio.":::
 
 ## Get the best model
 
-In addition to being able to download model files from the experiment in the portal, you can also download them programmatically. The following code iterates through each run in the experiment, and accesses both the logged run metrics and the run details (which contains the run_id). This keeps track of the best run, in this case the run with the lowest root-mean-squared-error.
+In addition to being able to download model files from the experiment in the studio, you can also download them programmatically. The following code iterates through each run in the experiment, and accesses both the logged run metrics and the run details (which contains the run_id). This keeps track of the best run, in this case the run with the lowest root-mean-squared-error.
 
 ```python
 minimum_rmse_runid = None
@@ -157,7 +163,7 @@ for run in experiment.get_runs():
     # each logged metric becomes a key in this returned dict
     run_rmse = run_metrics["rmse"]
     run_id = run_details["runId"]
-
+    
     if minimum_rmse is None:
         minimum_rmse = run_rmse
         minimum_rmse_runid = run_id
@@ -167,13 +173,15 @@ for run in experiment.get_runs():
             minimum_rmse_runid = run_id
 
 print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+print("Best run_id rmse: " + str(minimum_rmse))    
+```
+```output
+Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
+Best run_id rmse: 57.234760283951765
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
-
 Use the best run ID to fetch the individual run using the `Run` constructor along with the experiment object. Then call `get_file_names()` to see all the files available for download from this run. In this case, you only uploaded one file for each run during training.
+
 
 ```python
 from azureml.core import Run
@@ -181,13 +189,17 @@ best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
 print(best_run.get_file_names())
 ```
 
-    ['model_alpha_0.1.pkl']
+```output
+['model_alpha_0.1.pkl']
+```
 
 Call `download()` on the run object, specifying the model file name to download. By default this function downloads to the current directory.
+
 
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
+<!-- nbend -->
 
 ## Clean up resources
 
@@ -210,7 +222,7 @@ In this tutorial, you did the following tasks:
 > [!div class="checklist"]
 > * Connected your workspace and created an experiment
 > * Loaded data and trained scikit-learn models
-> * Viewed training results in the portal and retrieved models
+> * Viewed training results in the studio and retrieved models
 
 [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
 Learn how to develop [automated machine learning](tutorial-auto-train-models.md) experiments.

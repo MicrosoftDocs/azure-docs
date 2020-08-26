@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for Networks (Preview)
 description: A quick overview for Azure Monitor for Network which provides a comprehensive view of health and metrics for all deployed network resource without any configuration.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -45,7 +44,7 @@ You can click on each element in the grid view. Click on the Health icon to redi
 The **Alerts** grid on the right provides a view of all the alerts generated for the selected resources across all subscriptions. Click on the alert counts to navigate to detailed alerts page.
 
 ## Dependency view
-The **Dependency** view helps visualize how the resource is configured. Currently dependency view is only supported for Application Gateway. Dependency view can be accessed by clicking on the Application Gateway resource name from the metrics grid view.
+The **Dependency** view helps visualize how the resource is configured. Currently dependency view is now supported for Application Gateway, Virtual WAN, and Load Balancer. For example, in the case of Application Gateway, Dependency view can be accessed by clicking on the Application Gateway resource name from the metrics grid view. This also applies to Virtual WAN and Load Balancer. 
 
 ![Application Gateway view](media/network-insights-overview/application-gateway.png)
 
@@ -67,4 +66,4 @@ Click on **Detailed Metric View** to launch a pre-configured workbook with detai
 
 ## Next steps 
 
-- Learn more about network monitoring at What is [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Learn more about network monitoring at What is [Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).

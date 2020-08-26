@@ -1,11 +1,11 @@
 ---
-title: Copy a managed disks to a storage account - CLI sample
+title: Copy a managed disks to a storage account - Linux CLI sample
 description: Azure CLI sample - Export or copy a managed disks to a storage account.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/09/2019
 ms.author: ramankum
-ms.custom: "mvc,seodec18"
+ms.custom: "mvc,seodec18, devx-track-azurecli"
 ---
 
 # Export/Copy a managed disk to a storage account using the Azure CLI
@@ -39,8 +39,8 @@ This script uses following commands to generate the SAS URI for a managed disk a
 
 | Command | Notes |
 |---|---|
-| [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
+| [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
 
 ## Next steps
 
@@ -48,6 +48,6 @@ This script uses following commands to generate the SAS URI for a managed disk a
 
 [Create a virtual machine from a managed disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

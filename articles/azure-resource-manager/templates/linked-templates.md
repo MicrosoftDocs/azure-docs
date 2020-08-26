@@ -2,15 +2,15 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 07/21/2020
 ---
 # Using linked and nested templates when deploying Azure resources
 
-To deploy complex solutions, you can break your template into many related templates, and then deploy them together through a main template. The related templates can be separate files or template syntax that is embedded within the main template. This article uses the term **linked template** to refer to a separate template file that is linked to from the main template. It uses the term **nested template** to refer to embedded template syntax within the main template.
+To deploy complex solutions, you can break your template into many related templates, and then deploy them together through a main template. The related templates can be separate files or template syntax that is embedded within the main template. This article uses the term **linked template** to refer to a separate template file that is referenced via a link from the main template. It uses the term **nested template** to refer to embedded template syntax within the main template.
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
 
-For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](template-tutorial-create-linked-templates.md).
+For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
@@ -28,9 +28,9 @@ To nest a template, add a [deployments resource](/azure/templates/microsoft.reso
   "variables": {},
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -57,13 +57,13 @@ The following example deploys a storage account through a nested template.
   },
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2017-05-10",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "resources": [
             {
@@ -86,16 +86,16 @@ The following example deploys a storage account through a nested template.
 }
 ```
 
-### Scope for expressions in nested templates
+### Expression evaluation scope in nested templates
 
 When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](template-functions-resource.md#resourcegroup) and [subscription](template-functions-resource.md#subscription) are resolved.
 
-You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to scope expressions to the nested template.
+You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to cause expressions to be evaluated within the scope of the nested template.
 
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2017-05-10",
+  "apiVersion": "2019-10-01",
   "name": "nestedTemplate1",
   "properties": {
   "expressionEvaluationOptions": {
@@ -118,7 +118,7 @@ The following template demonstrates how template expressions are resolved accord
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "nestedTemplate1",
       "properties": {
         "expressionEvaluationOptions": {
@@ -126,7 +126,7 @@ The following template demonstrates how template expressions are resolved accord
         },
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "variables": {
             "exampleVar": "from nested template"
@@ -152,18 +152,18 @@ The following template demonstrates how template expressions are resolved accord
 }
 ```
 
-The value of the variable changes based on the scope. The following table shows the results for both scopes.
+The value of `exampleVar` changes depending on the value of the `scope` property in `expressionEvaluationOptions`. The following table shows the results for both scopes.
 
-| Scope | Output |
+| `expressionEvaluationOptions` scope | Output |
 | ----- | ------ |
 | inner | from nested template |
 | outer (or default) | from parent template |
 
-The following example deploys a SQL server and retrieves a key vault secret to use for the password. The scope is set to `inner` because it dynamically creates the key vault ID and passes it as a parameter to the nested template.
+The following example deploys a SQL server and retrieves a key vault secret to use for the password. The scope is set to `inner` because it dynamically creates the key vault ID (see `adminPassword.reference.keyVault` in the outer templates `parameters`) and passes it as a parameter to the nested template.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -202,15 +202,31 @@ The following example deploys a SQL server and retrieves a key vault secret to u
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
         "expressionEvaluationOptions": {
           "scope": "inner"
         },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {
@@ -244,22 +260,6 @@ The following example deploys a SQL server and retrieves a key vault secret to u
               "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
             }
           }
-        },
-        "parameters": {
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "adminLogin": {
-            "value": "ghuser"
-          },
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
         }
       }
     }
@@ -271,7 +271,7 @@ The following example deploys a SQL server and retrieves a key vault secret to u
 
 > [!NOTE]
 >
-> When scope is set to `outer`, you can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, either use inner scope or convert your nested template to a linked template.
+> When scope is set to `outer`, you can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, either use `inner` scope or convert your nested template to a linked template.
 
 ## Linked template
 
@@ -286,7 +286,7 @@ To link a template, add a [deployments resource](/azure/templates/microsoft.reso
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -302,9 +302,21 @@ To link a template, add a [deployments resource](/azure/templates/microsoft.reso
 }
 ```
 
-You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+When referencing a linked template, the value of `uri` must not be a local file or a file that is only available on your local network. You must provide a URI value that downloadable as **http** or **https**.
 
-You don't have to provide the `contentVersion` property for the template or parameters. If you don't provide a content version value, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
+> [!NOTE]
+>
+> You may reference templates using parameters that ultimately resolve
+> to something that uses **http** or **https**, for example, using the
+> `_artifactsLocation` parameter like so:
+> `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+
+Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+
+[Template specs](./template-specs.md) (currently in private preview) allows you to share ARM templates with other users in your organization. Templates specs can also be used to package a main template and its linked templates. For more information, see:
+
+- [Tutorial: Create a template spec with linked templates](./template-specs-create-linked.md).
+- [Tutorial: Deploy a template spec as a linked template](./template-specs-deploy-linked-template.md).
 
 ### Parameters for linked template
 
@@ -314,17 +326,17 @@ You can provide the parameters for your linked template either in an external fi
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "linkedTemplate",
   "properties": {
     "mode": "Incremental",
     "templateLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+      "contentVersion":"1.0.0.0"
     },
     "parametersLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+      "contentVersion":"1.0.0.0"
     }
   }
   }
@@ -337,7 +349,7 @@ To pass parameter values inline, use the **parameters** property.
 "resources": [
   {
    "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2018-05-01",
+   "apiVersion": "2019-10-01",
    "name": "linkedTemplate",
    "properties": {
      "mode": "Incremental",
@@ -346,7 +358,7 @@ To pass parameter values inline, use the **parameters** property.
       "contentVersion":"1.0.0.0"
      },
      "parameters": {
-      "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
+      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
     }
    }
   }
@@ -354,6 +366,41 @@ To pass parameter values inline, use the **parameters** property.
 ```
 
 You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
+
+## contentVersion
+
+You don't have to provide the `contentVersion` property for the `templateLink` or `parametersLink` property. If you don't provide a `contentVersion`, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
+
+## Using variables to link templates
+
+The previous examples showed hard-coded URL values for the template links. This approach might work for a simple template, but it doesn't work well for a large set of modular templates. Instead, you can create a static variable that stores a base URL for the main template and then dynamically create URLs for the linked templates from that base URL. The benefit of this approach is that you can easily move or fork the template because you need to change only the static variable in the main template. The main template passes the correct URIs throughout the decomposed template.
+
+The following example shows how to use a base URL to create two URLs for linked templates (**sharedTemplateUrl** and **vmTemplate**).
+
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+}
+```
+
+You can also use [deployment()](template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you're using a local template, that property isn't available.
+
+```json
+"variables": {
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+}
+```
+
+Ultimately, you would use the variable in the `uri` property of a `templateLink` property.
+
+```json
+"templateLink": {
+ "uri": "[variables('sharedTemplateUrl')]",
+ "contentVersion":"1.0.0.0"
+}
+```
 
 ## Using copy
 
@@ -365,7 +412,7 @@ The following example template shows how to use copy with a nested template.
 "resources": [
   {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2018-05-01",
+  "apiVersion": "2019-10-01",
   "name": "[concat('nestedTemplate', copyIndex())]",
   // yes, copy works here
   "copy":{
@@ -378,7 +425,7 @@ The following example template shows how to use copy with a nested template.
     "scope": "inner"
     },
     "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
       {
@@ -404,39 +451,17 @@ The following example template shows how to use copy with a nested template.
 ]
 ```
 
-## Using variables to link templates
-
-The previous examples showed hard-coded URL values for the template links. This approach might work for a simple template but it doesn't work well when working with a large set of modular templates. Instead, you can create a static variable that stores a base URL for the main template and then dynamically create URLs for the linked templates from that base URL. The benefit of this approach is you can easily move or fork the template because you only need to change the static variable in the main template. The main template passes the correct URIs throughout the decomposed template.
-
-The following example shows how to use a base URL to create two URLs for linked templates (**sharedTemplateUrl** and **vmTemplate**).
-
-```json
-"variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-  "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
-}
-```
-
-You can also use [deployment()](template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you're using a local template, that property isn't available.
-
-```json
-"variables": {
-  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-}
-```
-
 ## Get values from linked template
 
 To get an output value from a linked template, retrieve the property value with syntax like: `"[reference('deploymentName').outputs.propertyName.value]"`.
 
-When getting an output property from a linked template, the property name can't include a dash.
+When getting an output property from a linked template, the property name must not include a dash.
 
-The following examples demonstrate how to reference a linked template and retrieve an output value. The linked template returns a simple message.
+The following examples demonstrate how to reference a linked template and retrieve an output value. The linked template returns a simple message.  First, the linked template:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
@@ -454,14 +479,14 @@ The main template deploys the linked template and gets the returned value. Notic
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {},
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -481,13 +506,13 @@ The main template deploys the linked template and gets the returned value. Notic
 }
 ```
 
-Like other resource types, you can set dependencies between the linked template and other resources. When other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
+As with other resource types, you can set dependencies between the linked template and other resources. When other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
 
-The following example shows a template that deploys a public IP address and returns the resource ID:
+The following example shows a template that deploys a public IP address and returns the resource ID of the Azure resource for that public IP:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -518,11 +543,11 @@ The following example shows a template that deploys a public IP address and retu
 }
 ```
 
-To use the public IP address from the preceding template when deploying a load balancer, link to the template and add a dependency on the deployment resource. The public IP address on the load balancer is set to the output value from the linked template.
+To use the public IP address from the preceding template when deploying a load balancer, link to the template and declare a dependency on the `Microsoft.Resources/deployments` resource. The public IP address on the load balancer is set to the output value from the linked template.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "loadBalancers_name": {
@@ -548,6 +573,7 @@ To use the public IP address from the preceding template when deploying a load b
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
+                // this is where the output value from linkedTemplate is used
                 "id": "[reference('linkedTemplate').outputs.resourceID.value]"
               }
             }
@@ -560,13 +586,14 @@ To use the public IP address from the preceding template when deploying a load b
         "outboundNatRules": [],
         "inboundNatPools": []
       },
+      // This is where the dependency is declared
       "dependsOn": [
         "linkedTemplate"
       ]
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
@@ -593,7 +620,7 @@ You can use these separate entries in the history to retrieve output values afte
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "publicIPAddresses_name": {
@@ -631,7 +658,7 @@ The following template links to the preceding template. It creates three public 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
   },
@@ -639,7 +666,7 @@ The following template links to the preceding template. It creates three public 
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2019-10-01",
       "name": "[concat('linkedTemplate', copyIndex())]",
       "copy": {
         "count": 3,
@@ -680,7 +707,7 @@ Or, Azure CLI script in a Bash shell:
 for i in 0 1 2;
 do
   name="linkedTemplate$i";
-  deployment=$(az group deployment show -g examplegroup -n $name);
+  deployment=$(az deployment group show -g examplegroup -n $name);
   ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
   echo "deployment $name returned $ip";
 done
@@ -698,15 +725,15 @@ The following example shows how to pass a SAS token when linking to a template:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "string" }
+  "containerSasToken": { "type": "securestring" }
   },
   "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2018-05-01",
+    "apiVersion": "2019-10-01",
     "name": "linkedTemplate",
     "properties": {
     "mode": "Incremental",
@@ -753,7 +780,7 @@ url=$(az storage blob url \
   --output tsv \
   --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
+az deployment group create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
 ## Example templates
@@ -768,7 +795,7 @@ The following examples show common uses of linked templates.
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](template-tutorial-create-linked-templates.md).
+* To go through a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./deployment-tutorial-linked-template.md).
 * To learn about the defining the deployment order for your resources, see [Defining dependencies in Azure Resource Manager templates](define-resource-dependency.md).
 * To learn how to define one resource but create many instances of it, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md) or [Deploy resources with Resource Manager templates and Azure CLI](deploy-cli.md).

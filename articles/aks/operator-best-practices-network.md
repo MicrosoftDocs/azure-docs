@@ -1,13 +1,11 @@
 ---
-title: Operator best practices - Network connectivity in Azure Kubernetes Services (AKS)
+title: Best practices for network resources
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: mlearned
+
 ---
 
 # Best practices for network connectivity and security in Azure Kubernetes Service (AKS)
@@ -35,15 +33,17 @@ The Container Networking Interface (CNI) is a vendor-neutral protocol that lets 
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-For most production deployments, you should use Azure CNI networking. This network model allows for separation of control and management of resources. From a security perspective, you often want different teams to manage and secure those resources. Azure CNI networking lets you connect to existing Azure resources, on-premises resources, or other services directly via IP addresses assigned to each pod.
+For production deployments, both kubenet and Azure CNI are valid options.
+
+A notable benefit of Azure CNI networking for production is the network model allows for separation of control and management of resources. From a security perspective, you often want different teams to manage and secure those resources. Azure CNI networking lets you connect to existing Azure resources, on-premises resources, or other services directly via IP addresses assigned to each pod.
 
 When you use Azure CNI networking, the virtual network resource is in a separate resource group to the AKS cluster. Delegate permissions for the AKS service principal to access and manage these resources. The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation].
+For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation]. Instead of a service principal, you can also use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
 
-As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale out events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet. This additional address space is especially important if you use Windows Server containers (currently in preview in AKS), as those node pools require an upgrade to apply the latest security patches. For more information on Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
+As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale out events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet. This additional address space is especially important if you use Windows Server containers, as those node pools require an upgrade to apply the latest security patches. For more information on Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 To calculate the IP address required, see [Configure Azure CNI networking in AKS][advanced-networking].
 
@@ -97,7 +97,7 @@ spec:
 
 An ingress controller is a daemon that runs on an AKS node and watches for incoming requests. Traffic is then distributed based on the rules defined in the ingress resource. The most common ingress controller is based on [NGINX]. AKS doesn't restrict you to a specific controller, so you can use other controllers such as [Contour][contour], [HAProxy][haproxy], or [Traefik][traefik].
 
-Ingress controllers must be scheduled on a Linux node. Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller. Use a node selector in your YAML manifest or Helm chart deployment to indicate that the resource should run on a Linux-based node. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
+Ingress controllers must be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. Use a node selector in your YAML manifest or Helm chart deployment to indicate that the resource should run on a Linux-based node. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
 
 There are many scenarios for ingress, including the following how-to guides:
 
@@ -108,7 +108,7 @@ There are many scenarios for ingress, including the following how-to guides:
 
 ## Secure traffic with a web application firewall (WAF)
 
-**Best practice guidance** - To scan incoming traffic for potential attacks, use a web application firewall (WAF) such as [Barracuda WAF for Azure][barracuda-waf] or Azure Application Gateway. These more advanced network resources can also route traffic beyond just HTTP and HTTPS connections or basic SSL termination.
+**Best practice guidance** - To scan incoming traffic for potential attacks, use a web application firewall (WAF) such as [Barracuda WAF for Azure][barracuda-waf] or Azure Application Gateway. These more advanced network resources can also route traffic beyond just HTTP and HTTPS connections or basic TLS termination.
 
 An ingress controller that distributes traffic to services and applications is typically a Kubernetes resource in your AKS cluster. The controller runs as a daemon on an AKS node, and consumes some of the node's resources such as CPU, memory, and network bandwidth. In larger environments, you often want to offload some of this traffic routing or TLS termination to a network resource outside of the AKS cluster. You also want to scan incoming traffic for potential attacks.
 

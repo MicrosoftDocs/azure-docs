@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -42,12 +42,10 @@ The rest of the article shows how to use [Media Services v3 CLI](https://aka.ms/
 
 > [!NOTE]
 > For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
->
-> Currently, you cannot use the Azure portal to manage other v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Prerequisites 
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -55,7 +53,7 @@ The rest of the article shows how to use [Media Services v3 CLI](https://aka.ms/
 
 Run the `mru` command.
 
-The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
+The following [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
 ```azurecli
 az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
@@ -71,5 +69,5 @@ You are charged based on number of minutes the Media Reserved Units are provisio
 
 ## See also
 
-* [Quotas and limitations](limits-quotas-constraints.md)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Quotas and limits](limits-quotas-constraints.md)
+* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)

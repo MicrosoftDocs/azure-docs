@@ -47,7 +47,7 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
     Note that the **ReplaceValues** operation applies only to exact matches. For example, these strings would not be affected: `obs.`, `obsolete`.  
  
   
-5.  Run the pipeline.  
+5.  Submit the pipeline.  
 
 ## Results
 

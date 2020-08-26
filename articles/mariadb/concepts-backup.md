@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 8/13/2020
 ---
 
 # Backup and restore in Azure Database for MariaDB
@@ -16,9 +16,28 @@ Azure Database for MariaDB automatically creates server backups and stores them 
 
 Azure Database for MariaDB takes full, differential, and transaction log backups. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
+These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MariaDB. You can use [mysqldump](howto-migrate-dump-restore.md) to copy a database.
+
 ### Backup frequency
 
-Generally, full backups occur weekly, differential backups occur twice a day, and transaction log backups occur every five minutes. The first full backup is scheduled immediately after a server is created. The initial backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete.
+#### Servers with up to 4-TB storage
+
+For servers which support up to 4-TB maximum storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.
+
+#### Servers with up to 16-TB storage
+In a subset of [Azure regions](concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
+
+Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (binlog in MariaDB) exceeds 50-GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. 
+
+Transaction log backups occur every five minutes. 
+
+### Backup retention
+
+Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](howto-restore-server-portal.md#set-backup-configuration) or [Azure CLI](howto-restore-server-cli.md#set-backup-configuration). 
+
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example, if the backup retention period is set to 7 days, the recovery window is considered last 7 days. In this scenario, all the backups required to restore the server in last 7 days are retained. With a backup retention window of seven days:
+- Servers with up to 4-TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
+-	Servers with up to 16-TB storage will retain the full database snapshot, all the differential snapshots and transaction log backups in last 8 days.
 
 ### Backup redundancy options
 
@@ -29,20 +48,20 @@ Azure Database for MariaDB provides the flexibility to choose between locally re
 
 ### Backup storage cost
 
-Azure Database for MariaDB provides up to 100% of your provisioned server storage as backup storage at no additional cost. Typically, this is suitable for a backup retention of seven days. Any additional backup storage used is charged in GB-month.
+Azure Database for MariaDB provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no additional charge. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/mariadb/). 
 
-For example, if you have provisioned a server with 250 GB, you have 250 GB of backup storage at no additional charge. Storage in excess of 250 GB is charged.
+You can use the [Backup Storage used](concepts-monitoring.md) metric in Azure Monitor available via the Azure portal to monitor the backup storage consumed by a server. The Backup Storage used metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained earlier. Heavy transactional activity on the server can cause backup storage usage to increase irrespective of the total database size. For geo-redundant storage, backup storage usage is twice that of the locally redundant storage. 
 
-For more information on backup storage cost, visit the [MariaDB pricing page](https://azure.microsoft.com/pricing/details/mariadb/).
+The primary means of controlling the backup storage cost is by setting the appropriate backup retention period and choosing the right backup redundancy options to meet your desired recovery goals. You can select a retention period from a range of 7 to 35 days. General Purpose and Memory Optimized servers can choose to have geo-redundant storage for backups.
 
 ## Restore
 
-In Azure Database for MariaDB, performing a restore creates a new server from the original server's backups.
+In Azure Database for MariaDB, performing a restore creates a new server from the original server's backups and restores all databases contained in the server.
 
 There are two types of restore available:
 
-- **Point-in-time restore** is available with either backup redundancy option and creates a new server in the same region as your original server.
-- **Geo-restore** is available only if you configured your server for geo-redundant storage and it allows you to restore your server to a different region.
+- **Point-in-time restore** is available with either backup redundancy option and creates a new server in the same region as your original server utilizing the combination of full and transaction log backups.
+- **Geo-restore** is available only if you configured your server for geo-redundant storage and it allows you to restore your server to a different region utilizing the most recent backup taken.
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
@@ -59,7 +78,9 @@ You may need to wait for the next transaction log backup to be taken before you 
 
 ### Geo-restore
 
-You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
+You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for MariaDB pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
+
+Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 
 During geo-restore, the server configurations that can be changed include compute generation, vCore, backup retention period, and backup redundancy options. Changing pricing tier (Basic, General Purpose, or Memory Optimized) or storage size during geo-restore is not supported.
 
@@ -68,14 +89,12 @@ During geo-restore, the server configurations that can be changed include comput
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server
-- Ensure appropriate server-level firewall rules are in place for users to connect
+- Ensure appropriate VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate
 
 ## Next steps
 
 - To learn more about business continuity, see the [business continuity overview](concepts-business-continuity.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
- 
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->
+- To restore to a point-in-time using the Azure portal, see [restore server to a point-in-time using the Azure portal](howto-restore-server-portal.md).
+- To restore to a point-in-time using Azure CLI, see [restore server to a point-in-time using CLI](howto-restore-server-cli.md).

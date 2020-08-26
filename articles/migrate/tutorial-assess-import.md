@@ -61,9 +61,9 @@ To set up a new Azure Migrate project:
 
 4. In **Getting started**, select **Add tool(s)**.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-6. In **PROJECT DETAILS**, specify the project name and the geography in which you want to create the project. For more information:
+6. In **Project details**, specify the project name and the geography in which you want to create the project. For more information:
 
-    - Review [supported geographies](migrate-support-matrix.md#supported-geographies). The project geography is used only to store the metadata gathered from on-premises VMs.
+    - Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
     - You can select any target region when you run a migration.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-import/migrate-project.png)
@@ -104,8 +104,9 @@ The following table summarizes the file fields to fill in:
 **IP address** | No | Server address.
 **Cores** | Yes | Number of processor cores allocated to the server.
 **Memory** | Yes | Total RAM, in MB, allocated to the server.
-**OS name** | Yes | Server operating system.
+**OS name** | Yes | Server operating system. <br/> Operating system names that match or contain the names in [this](#supported-operating-system-names) list are recognized by the assessment.
 **OS version** | No | Server operating system version.
+**OS architecture** | No | Server OS architecture <br/> Valid values are: x64, x86, amd64, 32-bit or 64-bit
 **Number of disks** | No | Not needed if individual disk details are provided.
 **Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to eight disks.
 **Disk 1 read ops** | No | Disk read operations per second.
@@ -121,23 +122,8 @@ The following table summarizes the file fields to fill in:
 **Network In throughput** | No | Data received by the server, in MB per second.
 **Network Out throughput** | No | Data transmitted by the server, in MB per second.
 **Firmware type** | No | Server firmware. Values can be "BIOS" or "UEFI".
-**Server type** | No | Values can be "Physical" or "Virtual".
-**Hypervisor** | No | Hypervisor on which a machine is running. <br/> Values can be "VMware", "Hyper-V", "Xen", "AWS", "GCP", or "Other".
-**Hypervisor version number** | No | Hypervisor version.
-**Virtual machine ID** | No | VM identifier. This is the **InstanceUUid** value for a VMware vCenter VM, or the **Hyper-V VM ID** for Hyper-V.
-**Virtual machine manager ID** | No | This is the **InstanceUUid** value for VMWare vCenter. It isn't needed for Hyper-V.
 **MAC address**| No | Server MAC address.
-**BIOS ID** | No | Server BIOS ID.
-**Custom server ID** | No | Local, unique server ID on-premises. <br/> Useful for tracking the imported server by local ID.
-**Application 1 name** | No | Name of workload running on the server.<br/>You can add details for more apps by [adding columns](#add-multiple-applications) in the template. You can add up to five applications.
-**Application 1 type** | No | Type of workload running on the server
-**Application 1 version** | No | Version of the workload running on the server.
-**Application 1 license expiry** | No | License expiry of the workload (if applicable).
-**Business unit** | No | Business unit that the server belongs to.
-**Business owner** | No | Business unit owner.
-**Business application name** | No | Name of the application to which the app belongs.
-**Location** | No | Datacenter in which the server is located.
-**Server decommission date** | No | Decommission date of physical server or of the underlying physical server of the virtual server.
+
 
 ### Add operating systems
 
@@ -155,19 +141,6 @@ For example, to specify all fields for a second disk, add these columns:
 - Disk 2 read throughput
 - Disk 2 write throughput
 
-### Add multiple applications
-
-The template provides fields for a single application. You can add similar columns for up to five apps.  
-
-For example, to specify all fields for a second app, add these columns:
-
-- Application 2 name
-- Application 2 type
-- Application 2 version
-- Application 2 license expiry
-
-> [!NOTE]
-> App information is useful in evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform app-level assessment or take apps into account when creating an assessment.
 
 ## Import the server information
 
@@ -201,10 +174,21 @@ To verify that the servers appear in the Azure portal after discovery:
 
 You can create two types of assessments by using Server Assessment.
 
-**Assessment type** | **Details** | **Data**
+
+**Assessment Type** | **Details**
+--- | --- 
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+### Sizing criteria
+
+Server Assessment provides two sizing criteria options:
+
+**Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on performance-data values specified. | **Recommended VM size**: Based on CPU and memory usage data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the input/output per second (IOPS) and throughput of the on-premises disks.
-**As on-premises** | Assessments based on on-premises sizing. | **Recommended VM size**: Based on the server size specified.<br/><br> **Recommended disk type**: Based on the storage-type setting you select for the assessment.
+**Performance-based** | Assessments that make recommendations based on collected performance data | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
+**As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
+
 
 To run an assessment:
 
@@ -213,24 +197,31 @@ To run an assessment:
 
     ![Assess](./media/tutorial-assess-physical/assess.png)
 
-3. In **Assess servers**, specify a name for the assessment.
+3. In **Assess servers**, specify the assessment name and select the **assessment** type as *Azure VM* if you intend to perform Azure VM assessments or *Azure VMware Solution (AVS)* if you intend to perform AVS assessments.
+
+    ![Assessment Basics](./media/how-to-create-assessment/assess-servers-azurevm.png)
+
 4. In **Discovery source**, select **Machines added via import to Azure Migrate**.
+
 5. Select **View all** to review the assessment properties.
 
     ![Assessment properties](./media/tutorial-assess-physical/view-all.png)
 
-6. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+6. Click **next** to **Select machines to assess**. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
 7. In **Add machines to the group**, select servers to add to the group.
-8. Select **Create assessment** to create the group, and then run the assessment.
+8. Click **next** to **Review + create assessment** to review the assessment details.
+9. Click **Create assessment** to create the group, and then run the assessment.
 
     ![Create an assessment](./media/tutorial-assess-physical/assessment-create.png)
 
 9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
 10. Select **Export assessment** to download it as a Microsoft Excel file.
 
-## Review an assessment
+To know more details about **Azure VMware Solution (AVS)** assessment, please refer [here](how-to-create-azure-vmware-solution-assessment.md). 
 
-An assessment describes:
+## Review an Azure VM assessment
+
+An Azure VM assessment describes:
 
 - **Azure readiness**: Whether servers are suitable for migration to Azure.
 - **Monthly cost estimation**: Estimated monthly compute and storage costs for running the servers in Azure.
@@ -271,6 +262,8 @@ This view shows the estimated compute and storage cost of running VMs in Azure. 
 > Confidence ratings are not assigned to assessments of servers imported into Server Assessment by using CSV.
 
 ## Supported operating system names
+
+Operating system names provided in the CSV must match or contain the names in this list. This is necessary for the names specified to be recognized as valid by the assessment.
 
 <!-- BEGIN A - H -->
 

@@ -5,7 +5,7 @@ description: Get started using Azure Active Directory terms of use to present in
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 
 ms.author: joflore
@@ -245,7 +245,7 @@ The following procedure describes how to add a terms of use language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joined, the device ID is used to enforce the terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
@@ -274,7 +274,11 @@ If a user is using Windows 10 and Microsoft Edge, they will receive a message si
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-### Join an Android device
+### Register an iOS device
+
+If a user is using an iOS device, they will be prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### Register an Android device
 
 If a user is using an Android device, they will be prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
@@ -356,7 +360,7 @@ A: No, if an administrator edits the details for a terms of use (name, display n
 A: Currently, you can't update an existing terms of use document. To change a terms of use document, you will have to create a new terms of use instance.
 
 **Q: If hyperlinks are in the terms of use PDF document, will end users be able to click them?**<br />
-A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported.
+A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported. Also, hyperlinks in terms of use PDFs do not work when accessed from the Azure AD MyApps/MyAccount portal.
 
 **Q: Can a terms of use support multiple languages?**<br />
 A: Yes. Currently there are 108 different languages an administrator can configure for a single terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.

@@ -1,6 +1,6 @@
 ---
 title: Use remote tools to troubleshoot Azure VM issues | Microsoft Docs
-description: 
+description: Learn about PsExec, PowerShell scripts, and other remote tools you can use to troubleshoot remote Azure VM issues without using RDP.
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -28,7 +28,7 @@ Use a [serial console for Azure Virtual Machines](serial-console-windows.md) to 
 
 ## Remote CMD
 
-Download [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Connect to the VM by running the following command:
+Download [PsExec](/sysinternals/downloads/psexec). Connect to the VM by running the following command:
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -57,6 +57,9 @@ You can use the Custom Script Extension feature to run a custom script on the ta
 Upload your script to a storage account, and generate its own container. Then, run the following script in Azure PowerShell on a computer that has connectivity to the VM.
 
 ### For classic deployment model VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 
 ```powershell
 #Set up the basic variables.
@@ -245,9 +248,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## Next steps
 
-- For more information about the Enter-PSSession cmdlet, see [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- For more information about the Custom Script Extension for Windows using the classic deployment model, see [Custom Script Extension for Windows](../extensions/custom-script-classic.md).
+- For more information about the Enter-PSSession cmdlet, see [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- For more information about the Custom Script Extension for Windows using the classic deployment model, see [Custom Script Extension for Windows](../extensions/custom-script-windows.md).
 - PsExec is part of the [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip).
-- For more information about the PSTools Suite, see [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
-
-
+- For more information about the PSTools Suite, see [PSTools](/sysinternals/downloads/pstools).

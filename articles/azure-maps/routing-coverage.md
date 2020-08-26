@@ -1,8 +1,8 @@
 ---
 title: Routing coverage | Microsoft Azure Maps
-description: In this article, you will learn about regions with routing coverage for Microsoft Azure Maps. 
-author: jingjing-z
-ms.author: jinzh
+description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -47,7 +47,7 @@ The following table provides coverage information for Azure Maps routing.
 | Cabo Verde                     |        ✓       |                       |             |
 | Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo- Kinshasa                |        ✓       |                       |             |
-| côte d’ivoire                  |        ✓       |                       |             |
+| côte d'ivoire                  |        ✓       |                       |             |
 | Egypt                          |        ✓       |         ✓            |             |
 | Gabon                          |        ✓       |                       |             |
 | Gambia                         |        ✓       |                       |             |
@@ -202,7 +202,6 @@ The following table provides coverage information for Azure Maps routing.
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |

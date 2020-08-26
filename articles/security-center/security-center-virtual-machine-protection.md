@@ -80,17 +80,17 @@ Here you see the security details for the VM or computer. At the bottom, you can
 
 
 ### <a name="vmscale-sets"></a>Virtual machine scale sets
-Security Center automatically discovers whether you have scale sets and recommends that you install the Microsoft Monitoring Agent on them.
+Security Center automatically discovers whether you have scale sets and recommends that you install the Log Analytics agent on them.
 
-To install the Microsoft Monitoring Agent: 
+To install the Log Analytics agent: 
 
 1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
 
-1. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
+1. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it's not set.
 
    ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-To set new scale sets to automatically install the Microsoft Monitoring Agent:
+To set new scale sets to automatically install the Log Analytics agent:
 1. Go to Azure Policy and click **Definitions**.
 
 1. Search for the policy **Deploy Log Analytics agent for Windows virtual machine scale sets** and click on it.
@@ -99,7 +99,7 @@ To set new scale sets to automatically install the Microsoft Monitoring Agent:
 
 1. Set the **Scope** and **Log Analytics workspace** and click **Assign**.
 
-If you want to set all existing scale sets to install the Microsoft Monitoring Agent, in Azure Policy, go to **Remediation** and apply the existing policy to existing scale sets.
+If you want to set all existing scale sets to install the Log Analytics agent, in Azure Policy, go to **Remediation** and apply the existing policy to existing scale sets.
 
 
 
@@ -118,7 +118,7 @@ In a scenario where you have a recommendation, follow the steps in the recommend
 
 
 ### <a name="app-services"></a>App services
-To view the App Service information, you must be on Security Center's Standard pricing tier and enable App Service in your subscription. For instructions on enabling this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
+To view the App Service information, you must be on Security Center's standard pricing tier and enable App Service in your subscription. For instructions on enabling this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
 
 Under **App services**, you find a list of your App service environments and the health summary based on the assessment Security Center performed.
 
@@ -158,15 +158,13 @@ When you open the **Containers** tab, depending on your environment, you might s
 
 ![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Container hosts - VMs running docker 
 
-![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes Service (AKS) clusters
+![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes Service (AKS) clusters. [Learn about Security Center's AKS bundle](azure-kubernetes-service-integration.md)
 
-![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries - Shown only when you're on the standard pricing tier and when you have the Azure Container Registry bundle enabled.
+![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries. [Learn about Security Center's ACR bundle](azure-container-registry-integration.md)
 
 For instructions on how to use the container security features, see [Monitoring the security of your containers](monitor-container-security.md).
 
-Benefits of the Azure Container Registry bundle are explained [here](azure-container-registry-integration.md)
 
-Benefits of the Kubernetes Services bundle are explained [here](azure-kubernetes-service-integration.md)
 
 [![Containers tab](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
@@ -190,7 +188,7 @@ When you click one of the VMs running docker, you'll see the details page with i
 
 Security Center scans your Docker configurations and gives you visibility into misconfigurations by providing a list of all failed rules that were assessed. Security Center provides guidelines to help you resolve these issues quickly and save time. Security Center continuously assesses the Docker configurations and provides you with their latest state.
 
-![container tab](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![container tab](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## Next steps

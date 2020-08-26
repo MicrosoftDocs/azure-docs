@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 09/09/2019
+ms.date: 06/09/2020
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
@@ -9,8 +9,9 @@ ms.topic: how-to
 Resources that are non-compliant to a **deployIfNotExists** or **modify** policy can be put into a
 compliant state through **Remediation**. Remediation is accomplished by instructing Azure Policy to
 run the **deployIfNotExists** effect or the tag **operations** of the assigned policy on your
-existing resources. This article shows the steps needed to understand and accomplish remediation
-with Azure Policy.
+existing resources, whether that assignment is to a management group, a subscription, a resource
+group, or an individual resource. This article shows the steps needed to understand and accomplish
+remediation with Azure Policy.
 
 ## How remediation security works
 
@@ -18,10 +19,11 @@ When Azure Policy runs the template in the **deployIfNotExists** policy definiti
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy creates a managed identity for each assignment, but must have details about what roles
 to grant the managed identity. If the managed identity is missing roles, this error is displayed
-during the assignment of the policy or an initiative. When using the portal, Azure Policy will
-automatically grant the managed identity the listed roles once assignment is started.
+during the assignment of the policy or an initiative. When using the portal, Azure Policy
+automatically grants the managed identity the listed roles once assignment starts. The _location_ of
+the managed identity doesn't impact its operation with Azure Policy.
 
-![Managed identity - missing role](../media/remediate-resources/missing-role.png)
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Managed identity - missing roley" border="false":::
 
 > [!IMPORTANT]
 > If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
@@ -64,9 +66,6 @@ the managed identity and assign it permissions must be done manually:
 - While using the SDK (such as Azure PowerShell)
 - When a resource outside the assignment scope is modified by the template
 - When a resource outside the assignment scope is read by the template
-
-> [!NOTE]
-> Azure PowerShell and .NET are the only SDKs that currently support this capability.
 
 ### Create managed identity with PowerShell
 
@@ -163,11 +162,11 @@ To create a **remediation task**, follow these steps:
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.
 
-   ![Search for Policy in All Services](../media/remediate-resources/search-policy.png)
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
 
 1. Select **Remediation** on the left side of the Azure Policy page.
 
-   ![Select Remediation on the Policy page](../media/remediate-resources/select-remediation.png)
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Select Remediation on the Policy page" border="false":::
 
 1. All **deployIfNotExists** and **modify** policy assignments with non-compliant resources are
    included on the **Policies to remediate** tab and data table. Click on a policy with resources
@@ -182,13 +181,13 @@ To create a **remediation task**, follow these steps:
    individual resource objects). Additionally, use the **Locations** drop-down to further filter the
    resources. Only resources listed in the table will be remediated.
 
-   ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Remediate - select which resources to remediate" border="false":::
 
 1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The
    policy compliance page opens to the **Remediation tasks** tab to show the state of the tasks
    progress. Deployments created by the remediation task begin right away.
 
-   ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Remediate - progress of remediation tasks" border="false":::
 
 1. Click on the **remediation task** from the policy compliance page to get details about the
    progress. The filtering used for the task is shown along with a list of the resources being
@@ -198,7 +197,7 @@ To create a **remediation task**, follow these steps:
    task's deployment or the resource. At the end of the row, click on **Related events** to see
    details such as an error message.
 
-   ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Remediate - resource task context menu" border="false":::
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the
 policy compliance page.
@@ -234,6 +233,13 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 
 For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights)
 module.
+
+### Create a remediation task during policy assignment in the Azure portal
+
+A streamlined way of creating a remediation task is to do so from the Azure portal during policy
+assignment. If the policy definition to assign is a **deployIfNotExists** or a **Modify** effect,
+the wizard on the **Remediation** tab offers a _Create a remediation task_ option. If this option is
+selected, a remediation task is created at the same time as the policy assignment.
 
 ## Next steps
 

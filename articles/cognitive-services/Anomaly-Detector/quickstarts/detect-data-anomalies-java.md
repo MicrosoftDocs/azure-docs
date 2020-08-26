@@ -1,14 +1,15 @@
 ---
 title: "Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
+description: Learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 06/30/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 
@@ -25,22 +26,23 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Prerequisites
 
+- Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+- Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+    - You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
+    You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The [Java&trade; Development Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or later.
-- An Anomaly detector key and endpoint
 - Import these libraries from the Maven Repository
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) package
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) package
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### Create an Anomaly Detector resource
-
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-environment-variables](../includes/environment-variables.md)]
 
 ## Create a new application
 
 1. Create a new Java project and import the following libraries.
-    
+
     [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
 2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.

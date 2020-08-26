@@ -4,7 +4,7 @@ description: Replicate Azure Analysis Services servers with scale-out. Client qu
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -45,7 +45,7 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 
 ### Synchronization mode
 
-By default, query replicas are rehydrated in full, not incrementally. Rehydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the (in Preview) **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
+By default, query replicas are rehydrated in full, not incrementally. Rehydration happens in stages. They are detached and attached two at a time (assuming there are at least three replicas) to ensure at least one replica is kept online for queries at any given time. In some cases, clients may need to reconnect to one of the online replicas while this process is taking place. By using the **ReplicaSyncMode** setting, you can now specify query replica synchronization occurs in parallel. Parallel synchronization provides the following benefits: 
 
 - Significant reduction in synchronization time. 
 - Data across replicas are more likely to be consistent during the synchronization process. 
@@ -69,19 +69,23 @@ For maximum performance for both processing and query operations, you can choose
 
 ## Monitor QPU usage
 
-To determine if scale-out for your server is necessary, monitor your server in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
+To determine if scale-out for your server is necessary, [monitor your server](analysis-services-monitor.md) in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
 
 Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with the query pool. 
 
 ![Query scale out metrics](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### To configure QPU by ServerResourceType
+**To configure QPU by ServerResourceType**
+
 1. In a Metrics line chart, click **Add metric**. 
 2. In **RESOURCE**, select your server, then in **METRIC NAMESPACE**, select **Analysis Services standard metrics**, then in **METRIC**, select **QPU**, and then in **AGGREGATION**, select **Avg**. 
 3. Click **Apply Splitting**. 
 4. In **VALUES**, select **ServerResourceType**.  
 
-To learn more, see [Monitor server metrics](analysis-services-monitor.md).
+### Detailed diagnostic logging
+
+Use Azure Monitor Logs for more detailed diagnostics of scaled out server resources. With logs, you can use Log Analytics queries to break out QPU and memory by server and replica. To learn more, see example queries in [Analysis Services diagnostics logging](analysis-services-logging.md#example-queries).
+
 
 ## Configure scale-out
 

@@ -18,14 +18,16 @@ ms.author: juliako
 
 # Streaming Endpoints (Origin) in Azure Media Services
 
-In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs.
+In Microsoft Azure Media Services, a [Streaming Endpoint](/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs. 
 
-When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You can't delete the **default** Streaming Endpoint. More Streaming Endpoints can be created under the account (see [Quotas and limitations](limits-quotas-constraints.md)).
+When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You can't delete the **default** Streaming Endpoint. More Streaming Endpoints can be created under the account (see [Quotas and limits](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video.
 >
 > You're only billed when your Streaming Endpoint is in the running state.
+
+Make sure to also review the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
 
 ## Naming convention
 
@@ -37,11 +39,13 @@ When using the default streaming endpoint, `servicename` is omitted so the URL i
 ### Limitations
 
 * The streaming endpoint name has a max value of 24 characters.
-* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* The name should follow this [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## Types
 
 There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint.
+
+The maximum streaming unit limit is usually 10. Contact us [here](https://azure.microsoft.com/support/create-ticket/) to raise the limit for your account.
 
 The table describes the types:
 
@@ -73,7 +77,7 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 ## Streaming Endpoint properties
 
-This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](/rest/api/media/streamingendpoints/create).
 
 - `accessControl`: Used to configure the following security settings for this streaming endpoint: Akamai Signature Header Authentication keys and IP addresses that are allowed to connect to this endpoint. This property can only be set when `cdnEnabled` is set to false.
 
@@ -88,7 +92,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 - `cdnProfile`: When `cdnEnabled` is set to true, you can also pass `cdnProfile` values. `cdnProfile` is the name of the CDN profile where the CDN endpoint point will be created. You can provide an existing cdnProfile or use a new one. If value is NULL and `cdnEnabled` is true, the default value "AzureMediaStreamingPlatformCdnProfile" is used. If the provided `cdnProfile` already exists, an endpoint is created under it. If the profile doesn't exist, a new profile automatically gets created.
 - `cdnProvider`: When CDN is enabled, you can also pass `cdnProvider` values. `cdnProvider` controls which provider will be used. Currently, three values are supported: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". If no value is provided and `cdnEnabled` is true, "StandardVerizon" is used (that's the default value).
-- `crossSiteAccessPolicies`: Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). The settings only apply to Smooth Streaming.
+- `crossSiteAccessPolicies`: Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](/previous-versions/azure/azure-services/gg185950(v=azure.100)). The settings only apply to Smooth Streaming.
 - `customHostNames`: Used to configure a Streaming Endpoint to accept traffic directed to a custom host name. This property is valid for Standard and Premium Streaming Endpoints and can be set when `cdnEnabled`: false.
 
     The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.\<mediaservices-dns-zone>.
@@ -114,7 +118,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     > [!NOTE]
     > Streaming Endpoints located in the same data center can't share the same custom host name.
 
-    Currently, Media Services doesn’t support SSL with custom domains.
+    Currently, Media Services doesn't support TLS with custom domains.
 
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
 - `resourceState` -
@@ -155,10 +159,14 @@ See the following articles:
 - [CDN overview](../../cdn/cdn-overview.md)
 - [Scaling streaming with CDN](scale-streaming-cdn.md)
 
-## Ask questions, give feedback, get updates
+## Ask questions and  get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
+## See also
+
+[Dynamic packaging](dynamic-packaging-overview.md)
+
 ## Next steps
 
-The sample [in this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) shows how to start the default streaming endpoint with .NET.
+[Manage streaming endpoints](manage-streaming-endpoints-howto.md)

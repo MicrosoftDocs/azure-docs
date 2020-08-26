@@ -7,7 +7,7 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
@@ -42,7 +42,7 @@ Resource troubleshooting provides the ability troubleshoot issues that arise wit
 The first step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet in step 4.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Location "WestCentralUS" 
 ```
 
 ## Retrieve a Virtual Network Gateway Connection

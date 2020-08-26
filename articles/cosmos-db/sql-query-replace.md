@@ -37,7 +37,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
   The following example shows how to use `REPLACE` in a query.  
   
 ```sql
-SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
+SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```  
   
  Here is the result set.  
@@ -45,6 +45,10 @@ SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 ```json
 [{"replace": "This is a desk"}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

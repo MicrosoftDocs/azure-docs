@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -86,38 +86,19 @@ Select an item in the list view to get more detailed information.
 
 ## Filter provisioning activities
 
-To narrow down the reported data to a level that works for you, you can filter the provisioning data using the following default fields. Note that the values in the filters are dynamically populated based on your tenant. If, for example, you don't have any create events in your tenant, there won't be a filter option for create.
+You can filter your provisioning data. Some filter values are dynamically populated based on your tenant. If, for example, you don't have any create events in your tenant, there won't be a filter option for create.
+In the default view, you can select the following filters:
 
 - Identity
-- Action
-- Source system
-- Target system
-- Status
 - Date
+- Status
+- Action
 
 
-![Filter](./media/concept-provisioning-logs/filter.png "Filter")
+![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 The **Identity** filter enables you to specify the name or the identity that you care about. This identity could be a user, group, role, or other object. You can search by the name or ID of the object. The ID varies by scenario. For example, when provisioning an object from Azure AD to SalesForce, the Source ID is the object ID of the user in Azure AD while the TargetID is the ID of the user in Salesforce. When provisioning from Workday to Active Directory, the Source ID is the Workday worker employee ID. Note that the Name of the user may not always be present in the Identity column. There will always be one ID. 
 
-The **Source System** filter enables you to specify where the identity is getting provisioned from. For example, when provisioning an object from Azure AD to ServiceNow, the Source system is Azure AD. 
-
-The **Target System** filter enables you to specify where the identity is getting provisioned to. For example, when provisioning an object from Azure AD to ServiceNow, the Target System is ServiceNow. 
-
-The **Status** filter enables you to select:
-
-- All
-- Success
-- Failure
-- Skipped
-
-The **Action** filter enables you to filter the:
-
-- Create 
-- Update
-- Delete
-- Disable
-- Other
 
 The **Date** filter enables to you to define a timeframe for the returned data.  
 Possible values are:
@@ -131,7 +112,35 @@ Possible values are:
 When you select a custom time frame, you can configure a start date and an end date.
 
 
-In addition to the default fields, when selected, you can also include the following fields in your filter:
+The **Status** filter enables you to select:
+
+- All
+- Success
+- Failure
+- Skipped
+
+
+
+The **Action** filter enables you to filter the:
+
+- Create 
+- Update
+- Delete
+- Disable
+- Other
+
+In addition, to the filters of the default view, you can also set the following filters:
+
+- Job ID
+- Cycle ID
+- Change ID
+- Source ID
+- Target ID
+- Application
+
+
+![Pick a field](./media/concept-provisioning-logs/add-filter.png "Pick a field")
+
 
 - **Job ID** - A unique Job ID is associated with each application that you have enabled provisioning for.   
 
@@ -140,8 +149,13 @@ In addition to the default fields, when selected, you can also include the follo
 - **Change ID** - Unique identifier for the provisioning event. You can share this ID to support to look up the provisioning event.   
 
 
+- **Source System** - Enables you to specify where the identity is getting provisioned from. For example, when provisioning an object from Azure AD to ServiceNow, the Source system is Azure AD. 
 
-  
+- **Target System** - Enables you to specify where the identity is getting provisioned to. For example, when provisioning an object from Azure AD to ServiceNow, the Target System is ServiceNow. 
+
+- **Application** - Enables you to show only records of applications with a display name that contains a specific string.
+
+ 
 
 ## Provisioning details 
 
@@ -224,10 +238,12 @@ Use the table below to better understand how to resolve errors you may find in t
 |LicenseLimitExceeded|The user could not be created in the target application because there are no available licenses for this user. Either procure additional licenses for the target application, or review your user assignments and attribute mapping configuration to ensure that the correct users are assigned with the correct attributes.|
 |DuplicateTargetEntries  |The operation could not be completed because more than one user in the target application was found with the configured matching attributes. Either remove the duplicate user from the target application, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | The operation could not be completed because more than one user was found with the configured matching attributes. Either remove the duplicate user, or reconfigure your attribute mappings as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | When each user is evaluated, we attempt to import the user from the source system. This error commonly occurs when the user being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, we cannot evaluate scoping, matching, or export changes. Note, presence of this error does not indicate that the user is in scope as we have not yet evaluated scoping for the user.|
+|EntrySynchronizationSkipped | The provisioning service has successfully queried the source system and identified the user. No further action was taken on the user and they were skipped. The skip could be due to the user being out of scope or the user already existing in the target system with no further changes required.|
 
 ## Next steps
 
-* [Check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problem configuring user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

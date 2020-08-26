@@ -46,8 +46,8 @@ See the [Azure storage account scale targets](#azure-storage-account-scale-targe
 ### File share and file scale targets
 
 > [!NOTE]
-> Standard file shares larger than 5 TiB have certain limitations.
-> For a list of limitations, regional information, and instructions to enable these larger file share sizes, see the [Onboard to larger file shares](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide.
+> Standard file shares larger than 5 TiB have certain limitations. 
+> For a list of limitations and instructions to enable larger file share sizes, see the [enable larger file shares on standard file shares](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -70,7 +70,7 @@ For Azure File Sync, performance is critical in two stages:
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
 
-| System configuration |  |
+| System configuration | Details |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |
 | Memory | 128 GiB |
@@ -78,7 +78,7 @@ To help you plan your deployment for each of the stages, below are the results o
 | Network | 1 Gbps Network |
 | Workload | General Purpose File Server|
 
-| Initial one-time provisioning  |  |
+| Initial one-time provisioning  | Details |
 |-|-|
 | Number of objects | 25 million objects |
 | Dataset Size| ~4.7 TiB |
@@ -88,7 +88,7 @@ To help you plan your deployment for each of the stages, below are the results o
 
 *When a new server endpoint is created, the Azure File Sync agent does not download any of the file content. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 
-| Ongoing sync  |   |
+| Ongoing sync  | Details  |
 |-|--|
 | Number of objects synced| 125,000 objects (~1% churn) |
 | Dataset Size| 50 GiB |

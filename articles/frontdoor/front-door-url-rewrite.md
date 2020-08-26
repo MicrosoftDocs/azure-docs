@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - URL Rewrite | Microsoft Docs
-description: This article helps you understand how Azure Front Door Service does URL Rewrite for your routes, if configured.
+title: Azure Front Door - URL Rewrite | Microsoft Docs
+description: This article helps you understand how Azure Front Door does URL Rewrite for your routes, if configured.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # URL rewrite (custom forwarding path)
-Azure Front Door Service supports URL rewrite by allowing you to configure an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend. By default, if no custom forwarding path is provided, then Front Door will copy the incoming URL path to the URL used in the forwarded request. The Host header used in the forwarded request is as configured for the selected backend. Read [Backend Host Header](front-door-backend-pool.md#hostheader) to learn what it does and how you can configure it.
+Azure Front Door supports URL rewrite by allowing you to configure an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend. By default, if no custom forwarding path is provided, then Front Door will copy the incoming URL path to the URL used in the forwarded request. The Host header used in the forwarded request is as configured for the selected backend. Read [Backend Host Header](front-door-backend-pool.md#hostheader) to learn what it does and how you can configure it.
 
 The powerful part of URL rewrite using custom forwarding path is that it will copy any part of the incoming path that matches to a wildcard path to the forwarded path (these path segments are the **green** segments in the example below):
 </br>

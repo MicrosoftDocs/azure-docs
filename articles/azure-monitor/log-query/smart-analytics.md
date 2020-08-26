@@ -1,7 +1,6 @@
 ---
 title: Log Analytics smart analytics examples | Microsoft Docs
 description: Examples that use smart analytics functions in Log Analytics to perform analysis of user activity.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,7 +12,7 @@ ms.date: 01/15/2019
 # Log Analytics smart analytics examples
 This article includes examples that use smart analytics functions in Log Analytics to perform analysis of user activity. You can either use these examples to analyze your own applications monitored by Application Insights or use the concepts in these queries for similar analysis on other data. 
 
-See the [Kusto language reference](https://docs.microsoft.com/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Log Analytics.
+See the [Kusto language reference](/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Log Analytics.
 
 ## Cohorts analytics
 

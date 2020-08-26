@@ -39,7 +39,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 > [!NOTE]
 > Azure AD Identity Protection requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Azure AD Free and Azure AD Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
-As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
+As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren't aligned with the recommendations above.
 
 #### Owner recommended reading
 
@@ -59,8 +59,8 @@ Use the table below to find the recommended solution for mitigating the issue th
 | No mechanism to protect against weak passwords | Enable Azure AD [self-service password reset (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) and [password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | No mechanism to detect leaked passwords | Enable [password hash sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS) to gain insights |
 | Using AD FS and unable to move to managed authentication | Enable [AD FS Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) and / or [Azure AD Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| Password policy uses complexity-based rules such as length, multiple character sets, or expiration | Reconsider in favor of [Microsoft Recommended Practices](https://aka.ms/passwordguidance) and switch your approach to password management and deploy [Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
-| Users aren’t registered to use multi-factor authentication (MFA) | [Register all user's security information](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) so it can be used as a mechanism to verify the user’s identity along with their password |
+| Password policy uses complexity-based rules such as length, multiple character sets, or expiration | Reconsider in favor of [Microsoft Recommended Practices](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) and switch your approach to password management and deploy [Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
+| Users aren't registered to use multi-factor authentication (MFA) | [Register all user's security information](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) so it can be used as a mechanism to verify the user's identity along with their password |
 | There is no revocation of passwords based on user risk | Deploy Azure AD [Identity Protection user risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) to force password changes on leaked credentials using SSPR |
 | There is no smart lockout mechanism to protect malicious authentication from bad actors coming from identified IP addresses | Deploy cloud-managed authentication with either password hash sync or [pass-through authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
 
@@ -84,25 +84,25 @@ At a minimum, it is recommended you deploy Azure AD [self-service password reset
 
 ### Strong credential management
 
-Passwords by themselves aren’t secure enough to prevent bad actors from gaining access to your environment. At a minimum, any user with a privileged account must be enabled for multi-factor authentication (MFA). Ideally, you should enable [combined registration](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined) and require all users to register for MFA and SSPR using the [combined registration experience](https://docs.microsoft.com/azure/active-directory/user-help/user-help-security-info-overview). Eventually, we recommend you adopt a strategy to [provide resilience](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) to reduce the risk of lockout due to unforeseen circumstances.
+Passwords by themselves aren't secure enough to prevent bad actors from gaining access to your environment. At a minimum, any user with a privileged account must be enabled for multi-factor authentication (MFA). Ideally, you should enable [combined registration](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined) and require all users to register for MFA and SSPR using the [combined registration experience](https://docs.microsoft.com/azure/active-directory/user-help/user-help-security-info-overview). Eventually, we recommend you adopt a strategy to [provide resilience](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) to reduce the risk of lockout due to unforeseen circumstances.
 
 ![Combined user experience flow](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 
 ### On-premises outage authentication resiliency
 
-In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Office 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren’t available.
+In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Office 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren't available.
 
-If your on-premises organization is lacking an outage resiliency strategy or has one that isn’t integrated with Azure AD, you should deploy Azure AD PHS and define a disaster recovery plan that includes PHS. Enabling Azure AD PHS will allow users to authenticate against Azure AD should your on-premises Active Directory be unavailable.
+If your on-premises organization is lacking an outage resiliency strategy or has one that isn't integrated with Azure AD, you should deploy Azure AD PHS and define a disaster recovery plan that includes PHS. Enabling Azure AD PHS will allow users to authenticate against Azure AD should your on-premises Active Directory be unavailable.
 
 ![password hash sync flow](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-To better understand your authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+To better understand your authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md).
 
 ### Programmatic usage of credentials
 
-Azure AD scripts using PowerShell or applications using the Microsoft Graph API require secure authentication. Poor credential management executing those scripts and tools increase the risk of credential theft. If you are using scripts or applications that rely on hard-coded passwords or password prompts you should first review passwords in config files or source code, then replace those dependencies and use Azure Managed Identities, Integrated-Windows Authentication, or [certificates](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) whenever possible. For applications where the previous solutions aren’t possible, consider using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Azure AD scripts using PowerShell or applications using the Microsoft Graph API require secure authentication. Poor credential management executing those scripts and tools increase the risk of credential theft. If you are using scripts or applications that rely on hard-coded passwords or password prompts you should first review passwords in config files or source code, then replace those dependencies and use Azure Managed Identities, Integrated-Windows Authentication, or [certificates](../reports-monitoring/tutorial-access-api-with-certificates.md) whenever possible. For applications where the previous solutions aren't possible, consider using [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-If you determine that there are service principals with password credentials and you’re unsure how those password credentials are secured by scripts or applications, contact the owner of the application to better understand usage patterns.
+If you determine that there are service principals with password credentials and you're unsure how those password credentials are secured by scripts or applications, contact the owner of the application to better understand usage patterns.
 
 Microsoft also recommends you contact application owners to understand usage patterns if there are service principals with password credentials.
 
@@ -110,7 +110,7 @@ Microsoft also recommends you contact application owners to understand usage pat
 
 ### On-premises authentication
 
-Federated Authentication with Integrated Windows Authentication (IWA) or Seamless Single Sign-On (SSO) managed authentication with password hash sync or pass-through authentication is the best user experience when inside the corporate network with line-of-sight to on-premises domain controllers. It minimizes credential prompt fatigue and reduces the risk of users falling prey to phishing attacks. If you are already using cloud-managed authentication with PHS or PTA, but users still need to type in their password when authenticating on-premises, then you should immediately [deploy Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). On the other hand, if you are currently federated with plans to eventually migrate to cloud-managed authentication, then you should implement Seamless SSO as part of the migration project.
+Federated Authentication with Integrated Windows Authentication (IWA) or Seamless Single Sign-On (SSO) managed authentication with password hash sync or pass-through authentication is the best user experience when inside the corporate network with line-of-sight to on-premises domain controllers. It minimizes credential prompt fatigue and reduces the risk of users falling prey to phishing attacks. If you are already using cloud-managed authentication with PHS or PTA, but users still need to type in their password when authenticating on-premises, then you should immediately [deploy Seamless SSO](../hybrid/how-to-connect-sso.md). On the other hand, if you are currently federated with plans to eventually migrate to cloud-managed authentication, then you should implement Seamless SSO as part of the migration project.
 
 ### Device trust access policies
 
@@ -118,66 +118,66 @@ Like a user in your organization, a device is a core identity you want to protec
 
 - Avoiding friction, for example, with MFA, when the device is trusted
 - Blocking access from untrusted devices
-- For Windows 10 devices, provide [single sign-on to on-premises resources seamlessly](https://docs.microsoft.com/azure/active-directory/devices/azuread-join-sso).
+- For Windows 10 devices, provide [single sign-on to on-premises resources seamlessly](../devices/azuread-join-sso.md).
 
 You can carry out this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
 
 - Organizations can use [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Endpoint Configuration Manager) and Android mobile devices.
-- [Hybrid Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) provides management with Group Policies or Microsoft Endpoint Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) at the same time.
+- [Hybrid Azure AD join](../devices/hybrid-azuread-join-managed-domains.md) provides management with Group Policies or Microsoft Endpoint Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md) at the same time.
 
-If you have domain-joined Windows devices that aren’t registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without conditional access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) in your conditional access policies.
+If you have domain-joined Windows devices that aren't registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without conditional access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](../conditional-access/require-managed-devices.md) in your conditional access policies.
 
 ![A screenshot of grant in conditional access policy requiring hybrid device](./media/active-directory-ops-guide/active-directory-ops-img6.png)
 
-If you are managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) as a control in those policies.
+If you are managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) as a control in those policies.
 
 ![A screenshot of grant in conditional access policy requiring device compliance](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### Device trust access policies recommended reading
 
-- [How To: Plan your hybrid Azure Active Directory join implementation](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+- [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md)
 - [Identity and device access configurations](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### Windows Hello for Business
 
-In Windows 10, [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) replaces passwords with strong two-factor authentication on PCs. Windows Hello for Business enables a more streamlined MFA experience for users and reduces your dependency on passwords. If you haven’t begun rolling out Windows 10 devices, or have only partially deployed them, we recommend you upgrade to Windows 10 and [enable Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) on all devices.
+In Windows 10, [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) replaces passwords with strong two-factor authentication on PCs. Windows Hello for Business enables a more streamlined MFA experience for users and reduces your dependency on passwords. If you haven't begun rolling out Windows 10 devices, or have only partially deployed them, we recommend you upgrade to Windows 10 and [enable Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) on all devices.
 
-If you would like to learn more about passwordless authentication, see [A world without passwords with Azure Active Directory](https://aka.ms/passwordlessdoc).
+If you would like to learn more about passwordless authentication, see [A world without passwords with Azure Active Directory](../authentication/concept-authentication-passwordless.md).
 
 ## Application authentication and assignment
 
 ### Single sign-on for apps
 
-Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance. If you are using applications that support SSO with Azure AD but are currently configured to use local accounts, you should reconfigure those applications to use SSO with Azure AD. Likewise, if you are using any applications that support SSO with Azure AD but are using another Identity Provider, you should reconfigure those applications to use SSO with Azure AD as well. For applications that don’t support federation protocols but do support forms-based authentication, we recommend you configure the application to use [password vaulting](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting) with Azure AD Application Proxy.
+Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance. If you are using applications that support SSO with Azure AD but are currently configured to use local accounts, you should reconfigure those applications to use SSO with Azure AD. Likewise, if you are using any applications that support SSO with Azure AD but are using another Identity Provider, you should reconfigure those applications to use SSO with Azure AD as well. For applications that don't support federation protocols but do support forms-based authentication, we recommend you configure the application to use [password vaulting](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) with Azure AD Application Proxy.
 
 ![AppProxy Password-based Sign-on](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
 > [!NOTE]
-> If you don’t have a mechanism to discover unmanaged applications in your organization, we recommend implementing a discovery process using a cloud access security broker solution (CASB) such as [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
+> If you don't have a mechanism to discover unmanaged applications in your organization, we recommend implementing a discovery process using a cloud access security broker solution (CASB) such as [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing).
+Finally, if you have an Azure AD app gallery and use applications that support SSO with Azure AD, we recommend [listing the application in the app gallery](../azuread-dev/howto-app-gallery-listing.md).
 
 #### Single sign-on recommended reading
 
-- [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ### Migration of AD FS applications to Azure AD
 
-[Migrating apps from AD FS to Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) enables additional capabilities on security, more consistent manageability, and a better collaboration experience. If you have applications configured in AD FS that support SSO with Azure AD, then you should reconfigure those applications to use SSO with Azure AD. If you have applications configured in AD FS with uncommon configurations unsupported by Azure AD, you should contact the app owners to understand if the special configuration is an absolute requirement of the application. If it isn’t required, then you should reconfigure the application to use SSO with Azure AD.
+[Migrating apps from AD FS to Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md) enables additional capabilities on security, more consistent manageability, and a better collaboration experience. If you have applications configured in AD FS that support SSO with Azure AD, then you should reconfigure those applications to use SSO with Azure AD. If you have applications configured in AD FS with uncommon configurations unsupported by Azure AD, you should contact the app owners to understand if the special configuration is an absolute requirement of the application. If it isn't required, then you should reconfigure the application to use SSO with Azure AD.
 
 ![Azure AD as the primary identity provider](./media/active-directory-ops-guide/active-directory-ops-img9.png)
 
 > [!NOTE]
-> [Azure AD Connect Health for ADFS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs) can be used to collect configuration details about each application that can potentially be migrated to Azure AD.
+> [Azure AD Connect Health for ADFS](../hybrid/how-to-connect-health-adfs.md) can be used to collect configuration details about each application that can potentially be migrated to Azure AD.
 
 ### Assign users to applications
 
-[Assigning users to applications](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) is best mapped by using groups because they allow greater flexibility and ability to manage at scale. The benefits of using groups include [attribute-based dynamic group membership](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) and [delegation to app owners](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). Therefore, if you are already using and managing groups, we recommend you take the following actions to improve management at scale:
+[Assigning users to applications](../manage-apps/assign-user-or-group-access-portal.md) is best mapped by using groups because they allow greater flexibility and ability to manage at scale. The benefits of using groups include [attribute-based dynamic group membership](../users-groups-roles/groups-dynamic-membership.md) and [delegation to app owners](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Therefore, if you are already using and managing groups, we recommend you take the following actions to improve management at scale:
 
 - Delegate group management and governance to application owners.
 - Allow self-service access to the application.
 - Define dynamic groups if user attributes can consistently determine access to applications.
-- Implement attestation to groups used for application access using [Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview).
+- Implement attestation to groups used for application access using [Azure AD access reviews](../governance/access-reviews-overview.md).
 
 On the other hand, if you find applications that have assignment to individual users, be sure to implement [governance](https://docs.microsoft.com/azure/active-directory/governance/index) around those applications.
 
@@ -198,14 +198,14 @@ With [named locations](https://docs.microsoft.com/azure/active-directory/reports
 
 ![Named location](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
-Based on priority, use the table below to find the recommended solution that best meets your organization’s needs:
+Based on priority, use the table below to find the recommended solution that best meets your organization's needs:
 
 | **Priority** | **Scenario** | **Recommendation** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| 1 | If you use PHS or PTA and named locations haven’t been defined | Define named locations to improve detection of risk events |
-| 2 | If you are federated and don’t use "insideCorporateNetwork" claim and named locations haven’t been defined | Define named locations to improve detection of risk events |
-| 3 | If you don’t use named locations in conditional access policies and there is no risk or device controls in conditional access policies | Configure the conditional access policy to include named locations |
-| 4 | If you are federated and do use "insideCorporateNetwork" claim and named locations haven’t been defined | Define named locations to improve detection of risk events |
+| 1 | If you use PHS or PTA and named locations haven't been defined | Define named locations to improve detection of risk events |
+| 2 | If you are federated and don't use "insideCorporateNetwork" claim and named locations haven't been defined | Define named locations to improve detection of risk events |
+| 3 | If you don't use named locations in conditional access policies and there is no risk or device controls in conditional access policies | Configure the conditional access policy to include named locations |
+| 4 | If you are federated and do use "insideCorporateNetwork" claim and named locations haven't been defined | Define named locations to improve detection of risk events |
 | 5 | If you are using trusted IP addresses with MFA rather than named locations and marking them as trusted | Define named locations and mark them as trusted to improve detection of risk events |
 
 ### Risk-based access policies
@@ -214,16 +214,16 @@ Azure AD can calculate the risk for every sign-in and every user. Using risk as 
 
 ![Sign-in risk policy](./media/active-directory-ops-guide/active-directory-ops-img11.png)
 
-If you already own Azure AD Premium P2 licenses that support using risk in access policies, but they aren’t being used, we highly recommend adding risk to your security posture.
+If you already own Azure AD Premium P2 licenses that support using risk in access policies, but they aren't being used, we highly recommend adding risk to your security posture.
 
 #### Risk-based access policies recommended reading
 
-- [How To: Configure the sign-in risk policy](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
-- [How To: Configure the user risk policy](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+- [How To: Configure the sign-in risk policy](../identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [How To: Configure the user risk policy](../identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 ### Client application access policies
 
-Microsoft Intune Application Management (MAM) provides the ability to push data protection controls such as storage encryption, PIN, remote storage cleanup, etc. to compatible client mobile applications such as Outlook Mobile. In addition, conditional access policies can be created to [restrict access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) to cloud services such as Exchange Online from approved or compatible apps.
+Microsoft Intune Application Management (MAM) provides the ability to push data protection controls such as storage encryption, PIN, remote storage cleanup, etc. to compatible client mobile applications such as Outlook Mobile. In addition, conditional access policies can be created to [restrict access](../conditional-access/app-based-conditional-access.md) to cloud services such as Exchange Online from approved or compatible apps.
 
 If your employees install MAM-capable applications such as Office mobile apps to access corporate resources such as Exchange Online or SharePoint Online, and you also support BYOD (bring your own device), we recommend you deploy application MAM policies to manage the application configuration in personally owned devices without MDM enrollment and then update your conditional access policies to only allow access from MAM-capable clients.
 
@@ -240,10 +240,10 @@ Conditional Access is an essential tool for improving the security posture of yo
 - Avoid using the **All users** as a filter and inadvertently adding **Guests**
 - **Migrate all "legacy" policies to the Azure portal**
 - Catch all criteria for users, devices, and applications
-- Use Conditional Access policies to [implement MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access), rather than using a **per-user MFA**
+- Use Conditional Access policies to [implement MFA](../conditional-access/plan-conditional-access.md), rather than using a **per-user MFA**
 - Have a small set of core policies that can apply to multiple applications
 - Define empty exception groups and add them to the policies to have an exception strategy
-- Plan for [break glass](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
+- Plan for [break glass](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
 - Ensure a consistent experience across Office 365 client applications, for example, Teams, OneDrive for Business, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and Sharepoint Online
 - Assignment to policies should be implemented through groups, not individuals
 - Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
@@ -263,7 +263,7 @@ Strong credentials such as MFA cannot protect apps using legacy authentication p
 
 Legacy authentication is a term that refers to authentication protocols used by apps like:
 
-- Older Office clients that don’t use modern authentication (for example, Office 2010 client)
+- Older Office clients that don't use modern authentication (for example, Office 2010 client)
 - Clients that use mail protocols such as IMAP/SMTP/POP
 
 Attackers strongly prefer these protocols - in fact, nearly [100% of password spray attacks](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) use legacy authentication protocols! Hackers use legacy authentication protocols, because they don't support interactive sign-in, which is needed for additional security challenges like multi-factor authentication and device authentication.
@@ -278,7 +278,7 @@ If legacy authentication is widely used in your environment, you should plan to 
    
    c. Identify what legacy applications have a hard dependency on legacy authentication. See step 3 below.
 
-2. Disable legacy protocols at the source (for example Exchange Mailbox) for users who aren’t using legacy auth to avoid more exposure.
+2. Disable legacy protocols at the source (for example Exchange Mailbox) for users who aren't using legacy auth to avoid more exposure.
 3. For the remaining accounts (ideally non-human identities such as service accounts), use [conditional access to restrict legacy protocols](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) post-authentication.
 
 #### Legacy authentication recommended reading
@@ -319,13 +319,13 @@ To avoid this scenario, you should refer to [detect and remediate illicit consen
 
 ### User and group settings
 
-Below are the user and group settings that can be locked down if there isn’t an explicit business need:
+Below are the user and group settings that can be locked down if there isn't an explicit business need:
 
 #### User settings
 
 - **External Users** - external collaboration can happen organically in the enterprise with services like Teams, Power BI, Sharepoint Online, and Azure Information Protection. If you have explicit constraints to control user-initiated external collaboration, it is recommended you enable external users by using [Azure AD Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) or a controlled operation such as through your help desk. If you don't want to allow organic external collaboration for services, you can [block members from inviting external users completely](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Alternatively, you can also [allow or block specific domains](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) in external user invitations.
 - **App Registrations** - when App registrations are enabled, end users can onboard applications themselves and grant access to their data. A typical example of App registration is users enabling Outlook plug-ins, or voice assistants such as Alexa and Siri to read their email and calendar or send emails on their behalf. If the customer decides to turn off App registration, the InfoSec and IAM teams must be involved in the management of exceptions (app registrations that are needed based on business requirements), as they would need to register the applications with an admin account, and most likely require designing a process to operationalize the process.
-- **Administration Portal** - organizations can lock down the Azure AD blade in the Azure portal so that non-administrators can’t access Azure AD management in the Azure portal and get confused. Go to the user settings in the Azure AD management portal to restrict access:
+- **Administration Portal** - organizations can lock down the Azure AD blade in the Azure portal so that non-administrators can't access Azure AD management in the Azure portal and get confused. Go to the user settings in the Azure AD management portal to restrict access:
 
 ![Administration portal restricted access](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 
@@ -350,7 +350,7 @@ Attackers originate from various parts of the world. Manage this risk by using c
 
 ![Create a new named location](./media/active-directory-ops-guide/active-directory-ops-img14.png)
 
-If available, use a security information and event management (SIEM) solution to analyze and find patterns of access across regions. If you don’t use a SIEM product, or it isn’t ingesting authentication information from Azure AD, we recommend you use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to identify patterns of access across regions.
+If available, use a security information and event management (SIEM) solution to analyze and find patterns of access across regions. If you don't use a SIEM product, or it isn't ingesting authentication information from Azure AD, we recommend you use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to identify patterns of access across regions.
 
 ## Access usage
 

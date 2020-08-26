@@ -9,14 +9,15 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure Storage account
 
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
 
-In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
+In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -148,8 +149,8 @@ To create a general-purpose v2 storage account with a different replication opti
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-|Geo-zone-redundant storage (GZRS) (preview)    |Standard_GZRS         |
-|Read-access geo-zone-redundant storage (RA-GZRS) (preview)    |Standard_RAGZRS         |
+|Geo-zone-redundant storage (GZRS)    |Standard_GZRS         |
+|Read-access geo-zone-redundant storage (RA-GZRS)    |Standard_RAGZRS         |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -191,12 +192,12 @@ To create a general-purpose v2 storage account with a different replication opti
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-|Geo-zone-redundant storage (GZRS) (preview)    |Standard_GZRS         |
-|Read-access geo-zone-redundant storage (RA-GZRS) (preview)    |Standard_RAGZRS         |
+|Geo-zone-redundant storage (GZRS)    |Standard_GZRS         |
+|Read-access geo-zone-redundant storage (RA-GZRS)    |Standard_RAGZRS         |
 
 # [Template](#tab/template)
 
-You can use either Azure Powershell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**.
+You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -215,7 +216,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-To learn how to create templates, see:
+> [!NOTE]
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`. 
+
+To learn how to modify this template or create new ones, see:
 
 - [Azure Resource Manager documentation](/azure/azure-resource-manager/).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).

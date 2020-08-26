@@ -2,26 +2,22 @@
 title: 'Azure AD Connect Provisioning Agent: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect Provisioning Agent and describes new features and fixed issues
 services: active-directory
-documentationcenter: ''
-author: cmmdesai
-manager: daveba
-editor: ''
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 02/26/2020
 ms.subservice: app-provisioning
-ms.author: chmutali
-
-ms.collection: M365-identity-device-management
+ms.author: kenwith
+ms.reviewer: celested
 ---
+
 # Azure AD Connect Provisioning Agent: Version release history
+
 This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. The Provisioning Agent is updated automatically when a new version is released. 
 
-We recommend enabling auto update for your agents to ensure that you have the latest features and bug fixes. Microsoft provides direct support for the latest agent version and one version before.
+Microsoft provides direct support for the latest agent version and one version before.
 
 ## 1.1.96.0
 

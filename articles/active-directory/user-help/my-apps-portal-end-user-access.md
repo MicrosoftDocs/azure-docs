@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
@@ -28,7 +28,7 @@ If you don’t have access to the **My Apps** portal, contact your Helpdesk for 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> This content is intended for My Apps users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> This content is intended for My Apps users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
 
 ## Supported browsers
 
@@ -54,7 +54,7 @@ This extension helps you:
 
 - See the last apps you used in the **Recently Used** section.
 
-- Use internal company URLs while remote with [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Use internal company URLs while remote with [Application Proxy](../manage-apps/application-proxy.md).
 
 ### To download and install the extension
 
@@ -64,7 +64,8 @@ Download and install the extension, based on the browser you're using:
 
 - **Mozilla Firefox** From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
 
-- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) feature, and then select **Get**.
+- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) feature, and then select **Get** to get the extension for Microsoft Edge legacy browser.  
+If you are using the new Microsoft Edge browser (Edge on Chromium) then you can get the extenion from [Microsoft Edge Addons Store](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
 
 An icon is added to the right of your **Address** bar, letting you sign-in and customize the extension.
 
@@ -104,7 +105,7 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
 
-1. On your mobile device, download and install the Intune Managed Browser app from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and the [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. On your mobile device, download and install the Intune Managed Browser app from the Apple App Store and the Google Play Store.
 
 2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 

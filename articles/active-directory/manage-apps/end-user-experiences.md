@@ -2,14 +2,14 @@
 title: End-user experiences for applications - Azure Active Directory
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +27,7 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 ## Azure AD access panel
 
-The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
+The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch applications to which they have been granted access by the Azure AD administrator. If you are an end user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
 
 ![Screenshot shows the Azure AD Access Panel portal](media/what-is-single-sign-on/azure-ad-access-panel.png)
 

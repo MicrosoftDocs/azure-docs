@@ -269,11 +269,11 @@ When using the Node Transition API to stop a node, one of the required parameter
         }
 ```
 
-[stopnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN
-[stopnodeps]: https://msdn.microsoft.com/library/mt125982.aspx
-[startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN
-[startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
-[nodequery]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient
-[nodequeryps]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode
-[snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient
-[gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient
+[stopnode]: /dotnet/api/system.fabric.fabricclient.faultmanagementclient
+[stopnodeps]: /previous-versions/azure/mt125982(v=azure.100)
+[startnode]: /dotnet/api/system.fabric.fabricclient.faultmanagementclient
+[startnodeps]: /previous-versions/azure/mt163520(v=azure.100)
+[nodequery]: /dotnet/api/system.fabric.fabricclient.queryclient
+[nodequeryps]: /powershell/module/servicefabric/get-servicefabricnode
+[snt]: /dotnet/api/system.fabric.fabricclient.testmanagementclient
+[gntp]: /dotnet/api/system.fabric.fabricclient.testmanagementclient

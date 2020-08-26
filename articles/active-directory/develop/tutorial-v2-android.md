@@ -2,26 +2,23 @@
 title: Sign users in/out & call Microsoft Graph (Android) - Microsoft identity platform | Azure 
 description: Get an access token and call Microsoft Graph or APIs that require access tokens from Microsoft identity platform (Android)
 services: active-directory
-documentationcenter: dev-center-name
 author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: hahamil 
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40 
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph from an Android application 
 
 >[!NOTE]
->This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore more complex scenarios. View the [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) for more on the sample app, configuration, and registration. 
+>This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore more complex scenarios. View the [Quickstart](./quickstart-v2-android.md) for more on the sample app, configuration, and registration. 
 
 In this tutorial, you'll learn how to integrate your android app with the Microsoft identity platform using the Microsoft Authentication Library for Android. You'll learn how to sign in and sign out a user, get an access token to call the Microsoft Graph API, and make a request to the Graph API. 
 
@@ -90,7 +87,7 @@ If you do not already have an Android application, follow these steps to set up 
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_configbn_single_account.json` and paste the MSAL Configuration that you saved earlier. 
+3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config_single_account.json` and paste the MSAL Configuration that you saved earlier. 
 
     Below the redirect URI, paste: 
     ```json
@@ -116,7 +113,7 @@ If you do not already have an Android application, follow these steps to set up 
    ```
     
    >[!NOTE]
-   >This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) and [configuring your app](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
+   >This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md)
    
 4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Microsoft to call back to your application after it completes the authentication:
 
@@ -153,7 +150,7 @@ If you do not already have an Android application, follow these steps to set up 
         jcenter()
     }  
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.2.+'
+        implementation 'com.microsoft.identity.client:msal:1.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{
@@ -191,7 +188,7 @@ import com.microsoft.identity.client.exception.*;
 ## Instantiate PublicClientApplication
 #### Initialize Variables 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -583,9 +580,4 @@ When no longer needed, delete the app object that you created in the [Register y
 
 ## Get help
 
-Visit [Help and support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) if you have trouble with this tutorial or with the Microsoft identity platform.
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+Visit [Help and support](./developer-support-help-options.md) if you have trouble with this tutorial or with the Microsoft identity platform.

@@ -1,30 +1,24 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic (Limited Release) | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and New Relic (Limited Release).
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic (By Organization) | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and New Relic (By Organization).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2ffbcf4a-b6b4-45ac-922f-358abe4c05e8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic (Limited Release)
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic (By Organization)
 
-In this tutorial, you'll learn how to integrate New Relic (Limited Release) with Azure Active Directory (Azure AD). When you integrate New Relic (Limited Release) with Azure AD, you can:
+In this tutorial, you'll learn how to integrate New Relic (By Organization) with Azure Active Directory (Azure AD). When you integrate New Relic (By Organization) with Azure AD, you can:
 
-* Control in Azure AD who has access to New Relic (Limited Release).
-* Enable your users to be automatically signed-in to New Relic (Limited Release) with their Azure AD accounts.
+* Control in Azure AD who has access to New Relic (By Organization).
+* Enable your users to be automatically signed-in to New Relic (By Organization) with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -34,46 +28,46 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* New Relic (Limited Release) single sign-on (SSO) enabled subscription.
+* New Relic (By Organization) single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* New Relic (Limited Release) supports **IDP** initiated SSO
+* New Relic (By Organization) supports **IDP** initiated SSO
 
 * Once you configure the New Relic you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## Adding New Relic (Limited Release) from the gallery
+## Adding New Relic (By Organization) from the gallery
 
-To configure the integration of New Relic (Limited Release) into Azure AD, you need to add New Relic (Limited Release) from the gallery to your list of managed SaaS apps.
+To configure the integration of New Relic (By Organization) into Azure AD, you need to add New Relic (By Organization) from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **New Relic (Limited Release)** in the search box.
-1. Select **New Relic (Limited Release)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **New Relic (By Organization)** in the search box.
+1. Select **New Relic (By Organization)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for New Relic (Limited Release)
+## Configure and test Azure AD single sign-on for New Relic (By Organization)
 
-Configure and test Azure AD SSO with New Relic (Limited Release) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in New Relic (Limited Release).
+Configure and test Azure AD SSO with New Relic (By Organization) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in New Relic (By Organization).
 
-To configure and test Azure AD SSO with New Relic (Limited Release), complete the following building blocks:
+To configure and test Azure AD SSO with New Relic (By Organization), complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure New Relic (Limited Release) SSO](#configure-new-relic-limited-release-sso)** - to configure the single sign-on settings on application side.
-    * **[Create New Relic (Limited Release) test user](#create-new-relic-limited-release-test-user)** - to have a counterpart of B.Simon in New Relic (Limited Release) that is linked to the Azure AD representation of user.
+1. **[Configure New Relic (By Organization) SSO](#configure-new-relic-by-organization-sso)** - to configure the single sign-on settings on application side.
+    * **[Create New Relic (By Organization) test user](#create-new-relic-by-organization-test-user)** - to have a counterpart of B.Simon in New Relic (By Organization) that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **New Relic (Limited Release)** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **New Relic (By Organization)** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -114,10 +108,10 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to New Relic (Limited Release).
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to New Relic (By Organization).
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **New Relic (Limited Release)**.
+1. In the applications list, select **New Relic (By Organization)**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
@@ -130,20 +124,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure New Relic (Limited Release) SSO
+## Configure New Relic (By Organization) SSO
 
-To configure single sign-on on **New Relic (Limited Release)** side, you need to send the **App Federation Metadata Url** to [New Relic (Limited Release) support team](https://support.newrelic.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **New Relic (By Organization)** side, you need to send the **App Federation Metadata Url** to [New Relic (By Organization) support team](https://support.newrelic.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 
-### Create New Relic (Limited Release) test user
+### Create New Relic (By Organization) test user
 
-In this section, you create a user called B.Simon in New Relic (Limited Release). Work with [New Relic (Limited Release) support team](https://support.newrelic.com/) to add the users in the New Relic (Limited Release) platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in New Relic (By Organization). Work with [New Relic (By Organization) support team](https://support.newrelic.com/) to add the users in the New Relic (By Organization) platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the New Relic (Limited Release) tile in the Access Panel, you should be automatically signed in to the New Relic (Limited Release) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the New Relic (By Organization) tile in the Access Panel, you should be automatically signed in to the New Relic (By Organization) for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
@@ -153,6 +147,6 @@ When you click the New Relic (Limited Release) tile in the Access Panel, you sho
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try New Relic (Limited Release) with Azure AD](https://aad.portal.azure.com/)
+- [Try New Relic (By Organization) with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

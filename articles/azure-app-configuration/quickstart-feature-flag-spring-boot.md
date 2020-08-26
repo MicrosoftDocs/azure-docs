@@ -4,8 +4,9 @@ description: Add feature flags to Spring Boot apps and manage them using Azure A
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
+ms.custom: devx-track-java
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -18,9 +19,9 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- A supported [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) with version 8.
-- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* A supported [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) with version 8.
+* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create an App Configuration instance
 
@@ -39,35 +40,56 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Browse to <https://start.spring.io/>.
 
-2. Specify the following options:
+1. Specify the following options:
 
-   - Generate a **Maven** project with **Java**.
-   - Specify a **Spring Boot** version that's equal to or greater than 2.0.
-   - Specify the **Group** and **Artifact** names for your application.  This article uses `com.example` and `demo`.
-   - Add the **Spring Web** dependency.
+   * Generate a **Maven** project with **Java**.
+   * Specify a **Spring Boot** version that's equal to or greater than 2.0.
+   * Specify the **Group** and **Artifact** names for your application.  This article uses `com.example` and `demo`.
+   * Add the **Spring Web** dependency.
 
-3. After you specify the previous options, select **Generate Project**. When prompted, download the project to your local computer.
+1. After you specify the previous options, select **Generate Project**. When prompted, download the project to your local computer.
 
 ## Add feature management
 
 1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate  *pom.xml* in the root directory of your app.
 
-1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`.:
+1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
+
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.2.1</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.1</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    ```
+
+    **Spring Cloud 1.2.x**
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+        <version>1.2.7</version>
+    </dependency>
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+        <version>1.2.7</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     ```
 
@@ -79,7 +101,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 1. Navigate to the `resources` directory of your app and open `bootstrap.properties`.  If the file does not exist, create it. Add the following line to the file.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. In the App Configuration portal for your config store, select `Access keys` from the sidebar. Select the Read-only keys tab. Copy the value of the primary connection string.
@@ -105,6 +127,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
         }
     }
     ```
+
 1. Create a new Java file named *MessageProperties.java* in the package directory of your app.
 
     ```java
@@ -128,7 +151,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     }
     ```
 
-1. Create a new Java file named *HelloController.java* in the package directory of your app. 
+1. Create a new Java file named *HelloController.java* in the package directory of your app.
 
     ```java
     package com.example.demo;
@@ -143,7 +166,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     @Controller
     @ConfigurationProperties("controller")
-
     public class HelloController {
 
         private FeatureManager featureManager;
@@ -154,7 +176,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta"));
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }
@@ -217,36 +239,36 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     ```
 
-6. Create a new folder named CSS under `static` and inside of it a new CSS file named *main.css*.
+1. Create a new folder named CSS under `static` and inside of it a new CSS file named *main.css*.
 
     ```css
     html {
-    position: relative;
-    min-height: 100%;
+     position: relative;
+     min-height: 100%;
     }
     body {
-    margin-bottom: 60px;
+     margin-bottom: 60px;
     }
     .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #f5f5f5;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 60px;
+     line-height: 60px;
+     background-color: #f5f5f5;
     }
 
     body > .container {
-    padding: 60px 15px 0;
+     padding: 60px 15px 0;
     }
 
     .footer > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+     padding-right: 15px;
+     padding-left: 15px;
     }
 
     code {
-    font-size: 80%;
+     font-size: 80%;
     }
     ```
 
@@ -259,7 +281,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the default URL for a locally hosted web app: `https://localhost:8080`.
+1. Open a browser window, and go to the URL: `http://localhost:8080/welcome`.
 
     ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
@@ -281,6 +303,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](https://go.microsoft.com/fwlink/?linkid=2074664).
 
-- Learn more about [feature management](./concept-feature-management.md).
-- [Manage feature flags](./manage-feature-flags.md).
-- [Use feature flags in a Spring Boot Core app](./use-feature-flags-spring-boot.md).
+* Learn more about [feature management](./concept-feature-management.md).
+* [Manage feature flags](./manage-feature-flags.md).
+* [Use feature flags in a Spring Boot Core app](./use-feature-flags-spring-boot.md).

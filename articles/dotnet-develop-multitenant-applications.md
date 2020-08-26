@@ -44,7 +44,7 @@ Azure provides many features that allow you to address the key problems encounte
 
 **Isolation**
 
-* Segment Website Tenants by Host Headers with or without SSL communication
+* Segment Website Tenants by Host Headers with or without TLS communication
 * Segment Website Tenants by Query Parameters
 * Web Services in Worker Roles
   * Worker Roles that typically process data on the backend of an application.

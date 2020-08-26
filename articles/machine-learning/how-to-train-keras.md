@@ -5,12 +5,12 @@ description: Learn how to train and register a Keras deep neural network classif
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -123,6 +123,8 @@ except ComputeTargetException:
 
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
 

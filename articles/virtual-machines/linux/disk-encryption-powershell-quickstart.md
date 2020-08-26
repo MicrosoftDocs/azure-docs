@@ -3,7 +3,8 @@ title: Create and encrypt a Linux VM with Azure Powershell
 description: In this quickstart, you learn how to use Azure Powershell to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ---
@@ -27,9 +28,9 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm), passing to it the VM configuration object you created above.
 
 ```powershell-interactive
-$cred = = Get-Credential
+$cred = Get-Credential
 
-New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
+New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:18.04-LTS:latest -Size Standard_D2S_V3
 ```
 
 It will take a few minutes for your VM to be deployed. 

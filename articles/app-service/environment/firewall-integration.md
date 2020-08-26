@@ -4,9 +4,9 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 07/13/2020
 ms.author: ccompy
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 
 ---
 
@@ -37,9 +37,11 @@ The traffic to and from an ASE must abide by the following conventions
 
 ## Locking down inbound management traffic
 
-If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. This is all that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
+If your ASE subnet does not already have an NSG assigned to it, create one. Within the NSG, set the first rule to allow traffic from the Service Tag named AppServiceManagement on ports 454, 455. The rule to allow access from the AppServiceManagement tag is the only thing that is required from public IPs to manage your ASE. The addresses that are behind that Service Tag are only used to administer the Azure App Service. The management traffic that flows through these connections is encrypted and secured with authentication certificates. Typical traffic on this channel includes things like customer initiated commands and health probes. 
 
 ASEs that are made through the portal with a new subnet are made with an NSG that contains the allow rule for the AppServiceManagement tag.  
+
+Your ASE must also allow inbound requests from the Load Balancer tag on port 16001. The requests from the Load Balancer on port 16001 are keep alive checks between the Load Balancer and the ASE front ends. If port 16001 is blocked, your ASE will go unhealthy.
 
 ## Configuring Azure Firewall with your ASE 
 
@@ -55,7 +57,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a ptocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a protocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
 
    ![Add NTP network rule][3]
    
@@ -90,8 +92,10 @@ This use of the Application Gateway is just one example of how to configure your
 
 Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Azure Monitor logs, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics workspace portal > Logs and enter a query like 
 
-    AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
- 
+```kusto
+AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
+```
+
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## Dependencies
@@ -133,7 +137,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 | Endpoint |
 |----------|
-|graph.windows.net:443 |
+|graph.microsoft.com:443 |
 |login.live.com:443 |
 |login.windows.com:443 |
 |login.windows.net:443 |
@@ -168,6 +172,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |azglobal-red.azglobal.metrics.nsatc.net:443 |
 |antares-black.antares.metrics.nsatc.net:443 |
 |antares-red.antares.metrics.nsatc.net:443 |
+|prod.microsoftmetrics.com:443 |
 |maupdateaccount.blob.core.windows.net:443 |
 |clientconfig.passport.net:443 |
 |packages.microsoft.com:443 |
@@ -184,6 +189,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |admin.core.windows.net:443 |
 |prod.warmpath.msftcloudes.com:443 |
 |prod.warmpath.msftcloudes.com:80 |
+|gcs.prod.monitoring.core.windows.net:80|
+|gcs.prod.monitoring.core.windows.net:443|
 |azureprofileruploads.blob.core.windows.net:443 |
 |azureprofileruploads2.blob.core.windows.net:443 |
 |azureprofileruploads3.blob.core.windows.net:443 |
@@ -209,6 +216,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |gmstorageprodsn1.queue.core.windows.net:443 |
 |gmstorageprodsn1.table.core.windows.net:443 |
 |rteventservice.trafficmanager.net:443 |
+|ctldl.windowsupdate.com:80 |
+|ctldl.windowsupdate.com:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 
@@ -219,6 +228,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
 | \*.identity.azure.net:443 |
+| \*.ctldl.windowsupdate.com:80 |
+| \*.ctldl.windowsupdate.com:443 |
 
 #### Linux dependencies 
 
@@ -233,8 +244,10 @@ With an Azure Firewall, you automatically get everything below configured with t
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
+|oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
+|\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |
@@ -269,6 +282,21 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 | Azure SQL |
 | Azure Storage |
 | Azure Event Hub |
+
+#### IP Address dependencies
+
+| Endpoint | Details |
+|----------| ----- |
+| \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
+| \*:12000 | This port is used for some system monitoring. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
+| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
+| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
 
 #### Dependencies ####
 

@@ -4,7 +4,7 @@ description: In this learning path, get started protecting DNS zones and record 
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ---
@@ -15,11 +15,11 @@ ms.author: allensu
 
 DNS zones and records are critical resources. Deleting a DNS zone or a single DNS record can result in a service outage. It's important that DNS zones and records are protected against unauthorized or accidental changes.
 
-This article explains how Azure DNS enables you to protect your private DNS zones and records against such changes.  We apply two powerful securities features provided by Azure Resource Manager: [role-based access control](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
+This article explains how Azure DNS enables you to protect your private DNS zones and records against such changes.  We apply two powerful securities features provided by Azure Resource Manager: [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
 
 ## Role-based access control
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure users, groups, and resources. With RBAC, you can grant the level of access that users need. For more information about how RBAC helps you manage access, see [What is Role-Based Access Control](../role-based-access-control/overview.md).
+Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With RBAC, you can grant the level of access that users need. For more information about how RBAC helps you manage access, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### The DNS Zone Contributor role
 
@@ -163,7 +163,7 @@ The Actions property defines the following DNS-specific permissions:
 The remaining Actions are copied from the [DNS Zone Contributor built-in role](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
-> Using a custom RBAC role to prevent deleting record sets while still allowing them to be updated is not an effective control. It prevents record sets from being deleted, but it does not prevent them from being modified.  Permitted modifications include adding and removing records from the record set, including removing all records to leave an empty record set. This has the same effect as deleting the record set from a DNS resolution viewpoint.
+> Using an Azure custom role to prevent deleting record sets while still allowing them to be updated is not an effective control. It prevents record sets from being deleted, but it does not prevent them from being modified.  Permitted modifications include adding and removing records from the record set, including removing all records to leave an empty record set. This has the same effect as deleting the record set from a DNS resolution viewpoint.
 
 Custom role definitions can't currently be defined via the Azure portal. A custom role based on this role definition can be created using Azure PowerShell:
 
@@ -213,7 +213,7 @@ New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceTy
 
 The equivalent command is also [available via the Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
-```azurecli-interactive
+```azurecli
 # Lock a DNS zone
 
 az lock create \
@@ -259,7 +259,7 @@ The following PowerShell command creates a CanNotDelete lock against the SOA rec
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
 
-$lvl = "CanNotDelete
+$lvl = "CanNotDelete"
 $lnm = "<lock name>"
 $rsc = "<zone name>/@"
 $rty = "Microsoft.Network/DNSZones/SOA"

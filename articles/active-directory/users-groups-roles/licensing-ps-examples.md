@@ -9,9 +9,9 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
@@ -20,13 +20,13 @@ ms.collection: M365-identity-device-management
 # PowerShell and Graph examples for group-based licensing in Azure AD
 
 Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently PowerShell and Microsoft Graph support is limited to read-only operations. However, there are some useful tasks that can be performed using the existing [MSOnline PowerShell
-cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) and Microsoft Graph. This document provides examples of what is possible.
+cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your organization first, by running the `Connect-MsolService` cmdlet.
 
 > [!WARNING]
-> This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test tenant. You may have to adjust the code to meet the specific needs of your environment.
+> This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test organization. You may have to adjust the code to meet the specific needs of your environment.
 
 ## View product licenses assigned to a group
 
@@ -251,12 +251,12 @@ HTTP/1.1 200 OK
 
 ```
 
-## Get all users with license errors in the entire tenant
+## Get all users with license errors in the entire organization
 
 The following script can be used to get all users who have license errors from one or more groups. The script prints one row per user, per license error, which allows you to clearly identify the source of each error.
 
 > [!NOTE]
-> This script enumerates all users in the tenant, which might not be optimal for large tenants.
+> This script enumerates all users in the organization, which might not be optimal for large organizations.
 
 ```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
@@ -364,10 +364,10 @@ function UserHasLicenseAssignedFromGroup
 }
 ```
 
-This script executes those functions on each user in the tenant, using the SKU ID as input - in this example we are interested in the license for *Enterprise Mobility + Security*, which in our tenant is represented with ID *contoso:EMS*:
+This script executes those functions on each user in the organization, using the SKU ID as input - in this example we are interested in the license for *Enterprise Mobility + Security*, which in our organization is represented with ID *contoso:EMS*:
 
 ```powershell
-#the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant
+#the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your organization
 $skuId = "contoso:EMS"
 
 #find all users that have the SKU license assigned
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## Remove direct licenses for users with group licenses
 
-The purpose of this script is to remove unnecessary direct licenses from users who already inherit the same license from a group; for example, as part of a [transitioning to group-based licensing](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+The purpose of this script is to remove unnecessary direct licenses from users who already inherit the same license from a group; for example, as part of a [transitioning to group-based licensing](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > It is important to first validate that the direct licenses to be removed do not enable more service functionality than the inherited licenses. Otherwise, removing the direct license may disable access to services and data for users. Currently it is not possible to check via PowerShell which services are enabled via inherited licenses vs direct. In the script, we specify the minimum level of services we know are being inherited from groups and check against that to make sure users do not unexpectedly lose access to services.
 

@@ -1,12 +1,12 @@
 ---
 title: Azure Data Box cabling options | Microsoft Docs 
-description: Describes the various cabling options for your Azure Data Box.
+description: Learn about the different the ways to cable your Azure Data Box for data transfer by using MGMT port or DATA port.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ---

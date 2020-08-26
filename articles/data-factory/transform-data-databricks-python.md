@@ -12,8 +12,11 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
+ms.custom: devx-track-python
 ---
 # Transform data by running a Python activity in Azure Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 The Azure Databricks Python Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Python file in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 

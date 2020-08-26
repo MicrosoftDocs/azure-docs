@@ -13,6 +13,7 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Application types in v1.0
@@ -36,7 +37,7 @@ These are the five primary application scenarios supported by Azure AD:
 Follow the links to learn more about each type of app and understand the high-level scenarios before you start working with the code. You can also learn about the differences you need to know when writing a particular app that works with the v1.0 endpoint or v2.0 endpoint.
 
 > [!NOTE]
-> The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+> The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json).
 
 You can develop any of the apps and scenarios described here using various languages and platforms. They are all backed by complete code samples available in the code samples guide: [v1.0 code samples by scenario](sample-v1-code.md) and [v2.0 code samples by scenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). You can also download the code samples directly from the corresponding [GitHub sample repositories](https://github.com/Azure-Samples?q=active-directory).
 
@@ -46,7 +47,7 @@ In addition, if your application needs a specific piece or segment of an end-to-
 
 ### Registering an app that uses the Azure AD v1.0 endpoint
 
-Any application that outsources authentication to Azure AD must be registered in a directory. This step involves telling Azure AD about your application, including the URL where it’s located, the URL to send replies after authentication, the URI to identify your application, and more. This information is required for a few key reasons:
+Any application that outsources authentication to Azure AD must be registered in a directory. This step involves telling Azure AD about your application, including the URL where it's located, the URL to send replies after authentication, the URI to identify your application, and more. This information is required for a few key reasons:
 
 * Azure AD needs to communicate with the application when handling sign-on or exchanging tokens. The information passed between Azure AD and the application includes the following:
   
@@ -67,7 +68,7 @@ Provisioning becomes clearer when you understand that there are two categories o
 
 ### Additional considerations when developing single tenant or multi-tenant apps
 
-Some additional considerations arise when developing a multi-tenant application instead of a single tenant application. For example, if you are making your application available to users in multiple directories, you need a mechanism to determine which tenant they’re in. A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD. To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint. This endpoint is https://login.microsoftonline.com/common for all directories in Azure AD, whereas a tenant-specific endpoint might be https://login.microsoftonline.com/contoso.onmicrosoft.com. The common endpoint is especially important to consider when developing your application because you’ll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.
+Some additional considerations arise when developing a multi-tenant application instead of a single tenant application. For example, if you are making your application available to users in multiple directories, you need a mechanism to determine which tenant they're in. A single tenant application only needs to look in its own directory for a user, while a multi-tenant application needs to identify a specific user from all the directories in Azure AD. To accomplish this task, Azure AD provides a common authentication endpoint where any multi-tenant application can direct sign-in requests, instead of a tenant-specific endpoint. This endpoint is `https://login.microsoftonline.com/common` for all directories in Azure AD, whereas a tenant-specific endpoint might be `https://login.microsoftonline.com/contoso.onmicrosoft.com`. The common endpoint is especially important to consider when developing your application because you'll need the necessary logic to handle multiple tenants during sign-in, sign-out, and token validation.
 
 If you are currently developing a single tenant application but want to make it available to many organizations, you can easily make changes to the application and its configuration in Azure AD to make it multi-tenant capable. In addition, Azure AD uses the same signing key for all tokens in all directories, whether you are providing authentication in a single tenant or multi-tenant application.
 

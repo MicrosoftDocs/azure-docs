@@ -1,17 +1,18 @@
 ---
-title: 'Tutorial: Configure SSL termination in portal - Azure Application Gateway'
-description: In this tutorial, you learn how to configure an application gateway and add a certificate for SSL termination using the Azure portal.
+title: 'Tutorial: Configure TLS termination in portal - Azure Application Gateway'
+description: In this tutorial, you learn how to configure an application gateway and add a certificate for TLS termination using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/13/2019
+ms.date: 08/14/2020
 ms.author: victorh
-#Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with SSL termination so I can secure my application traffic.
+#Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
-# Tutorial: Configure an application gateway with SSL termination using the Azure portal
 
-You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for SSL termination that uses virtual machines for backend servers.
+# Tutorial: Configure an application gateway with TLS termination using the Azure portal
+
+You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for TLS termination that uses virtual machines for backend servers.
 
 In this tutorial, you learn how to:
 
@@ -25,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Sign in to Azure
+## Prerequisites
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
@@ -51,13 +52,11 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate. Make sure your password is 4 - 12 characters long:
 
-> [!NOTE]
-> Do not use any special characters in your .pfx file password. Only alphanumeric characters are supported.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String <your password> -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -145,7 +144,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
    - **PFX certificate file** - Browse to and select the c:\appgwcert.pfx file that you create earlier.
    - **Certificate name** - Type *mycert1* for the name of the certificate.
-   - **Password** - Type *Azure123456* for the password.
+   - **Password** - Type your password.
   
         Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
@@ -155,7 +154,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-   ![Create new application gateway: HTTP setting](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Create new application gateway: HTTP setting":::
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
@@ -189,10 +188,10 @@ To do this, you'll:
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
     - **Username**: Enter *azureuser* for the administrator user name.
-    - **Password**: Enter *Azure123456* for the administrator password.
-4. Accept the other defaults and then select **Next: Disks**.  
-5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.
+    - **Password**: Enter a password for the administrator account.
+1. Accept the other defaults and then select **Next: Disks**.  
+2. Accept the **Disks** tab defaults and then select **Next: Networking**.
+3. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.
 
    Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
 1. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
@@ -257,7 +256,11 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
     ![Test base URL in application gateway](./media/create-ssl-portal/application-gateway-iistest.png)
 
+## Clean up resources
+
+When no longer needed, delete the resource group and all related resources. To do so, select the resource group and select **Delete resource group**.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Application Gateway SSL support](ssl-overview.md)
+> [Learn more about Application Gateway TLS support](ssl-overview.md)

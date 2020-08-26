@@ -1,7 +1,6 @@
 ---
 title: OMS portal moving to Azure | Microsoft Docs
 description: The OMS portal is being sunsetted with all functionality moving to the Azure portal. This article provides details on this transition.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -29,7 +28,7 @@ The following changes are being announced with the deprecation of the OMS portal
 - The [OMS Mobile App](#oms-mobile-app) is being deprecated. 
 - The [NSG solution is being replaced](#azure-network-security-group-analytics) with enhanced functionality available via Traffic Analytics solution.
 - New connections from System Center Operations Manager to Log Analytics require [updated management packs](#system-center-operations-manager).
-- See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on changes to [Update Management](../../automation/automation-update-management.md).
+- See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on changes to [Update Management](../../automation/update-management/update-mgmt-overview.md).
 
 
 ## What should I do now?
@@ -38,7 +37,7 @@ While most features will continue to work without performing any migration, you 
 - You need to [migrate your user permissions](#user-access-and-role-migration) to the Azure portal.
 - See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on transitioning the Update Management solution.
 
-Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for information about how to transition to the Azure portal. 
+Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../overview.md) for information about how to transition to the Azure portal. 
 
 ## User access and role migration
 Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Designing your Azure Monitor Logs workspace](design-logs-deployment.md) for details of access management in Log Analytics.
@@ -67,7 +66,7 @@ You are no longer be able to create new workspaces using the OMS portal. Follow 
 
 ### Alert extension  
 
-Alerts have been [extended into the Azure portal](alerts-extend.md) Existing alerts will continue to be listed in the OMS portal, but you can only manage them in Azure portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
+Alerts have been [extended into the Azure portal](./alerts-unified-log.md) Existing alerts will continue to be listed in the OMS portal, but you can only manage them in Azure portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
 As a change from a previous announcement, the [Alert management solution](alert-management-solution.md) will continue to be available and fully supported in the Azure portal. You can continue to install the solution from Azure Marketplace.
@@ -99,7 +98,7 @@ This solution analyzes NSG Flow logs and provides insights into the following.
 You can continue to rely on Diagnostics Settings to send NSG logs to Log Analytics so your existing saved searches, alerts, dashboards will continue to work. Customers who have already installed the solution can continue to use it until further notice. Starting September 5, the Network Security Group Analytics solution will be removed from the marketplace and made available through the community as a [Azure QuickStart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## System Center Operations Manager
-If you've [connected your Operations Manager management group to Log Analytics](om-agents.md), then it will continue to work with no changes. For new connections though, you must follow the guidance in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
+If you've [connected your Operations Manager management group to Log Analytics](om-agents.md), then it will continue to work with no changes. For new connections though, you must follow the guidance in [Microsoft System Center Operations Manager Management Pack to configure Operations Management Suite](https://techcommunity.microsoft.com/t5/system-center-blog/bg-p/SystemCenterBlog).
 
 ## Next steps
-- See [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for guidance on moving from the OMS portal to the Azure portal.
+- See [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../overview.md) for guidance on moving from the OMS portal to the Azure portal.

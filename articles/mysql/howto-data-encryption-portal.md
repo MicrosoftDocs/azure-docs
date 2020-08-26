@@ -1,11 +1,12 @@
 ---
-title: Data encryption for Azure Database for MySQL by using the Azure portal
+title: Data encryption - Azure portal - Azure Database for MySQL
 description: Learn how to set up and manage data encryption for your Azure Database for MySQL by using the Azure portal.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 01/13/2020
+ms.topic: how-to
+ms.date: 01/13/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for MySQL by using the Azure portal
@@ -17,13 +18,13 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
 * You must have an Azure subscription and be an administrator on that subscription.
 * In Azure Key Vault, create a key vault and a key to use for a customer-managed key.
 * The key vault must have the following properties to use as a customer-managed key:
-  * [Soft delete](../key-vault/key-vault-ovw-soft-delete.md)
+  * [Soft delete](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Purge protected](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [Purge protected](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -60,7 +61,7 @@ Learn how to use the Azure portal to set up and manage data encryption for your 
 
 4. To ensure all files (including temp files) are fully encrypted, restart the server.
 
-## Restore or create a replica of the server
+## Using Data encryption for restore or replica servers
 
 After Azure Database for MySQL is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through a replica (local/cross-region) operation. So for an encrypted MySQL server, you can use the following steps to create an encrypted restored server.
 

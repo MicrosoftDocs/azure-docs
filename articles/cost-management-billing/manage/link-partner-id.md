@@ -1,29 +1,32 @@
 ---
-title: Link an Azure account to a partner ID | Microsoft Docs
+title: Link an Azure account to a partner ID
 description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 07/24/2020
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.subservice: billing
+ms.topic: how-to
 ---
 
 # Link a partner ID to your Azure accounts
 
-Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link, partners can associate their partner network ID with the credentials used for service delivery.
+Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link(PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success.Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ).
 
 ## Get access from your customer
 
 Before you link your partner ID, your customer must give you access to their Azure resources by using one of the following options:
 
-- **Guest user**: Your customer can add you as a guest user and assign any role-based access control (RBAC) roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Guest user**: Your customer can add you as a guest user and assign any Azure roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Directory account**: Your customer can create a user account for you in their own directory and assign any RBAC role.
+- **Directory account**: Your customer can create a user account for you in their own directory and assign any Azure role.
 
-- **Service principal**: Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as a service principal.
+- **Service principal**: Your customer can add an app or script from your organization in their directory and assign any Azure role. The identity of the app or script is known as a service principal.
+
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
 ## Link to a partner ID
 
@@ -149,3 +152,20 @@ You can't see the customer in the reports due to following reasons
 **Does link partner ID works with Azure Stack?**
 
 Yes, You can link your partner ID for Azure Stack.
+
+**How do I link my partner ID if my company uses [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) to access customer resources?**
+
+If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), your MPN ID will automatically be associated. If you [onboard customers by deploying Azure Resource Manager templates](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), you'll need to associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID and granting it Reader access to every customer you onboard. In this example, the RBAC Reader role is used and it is one of the roles that isn't eligible for Partner Earned Credit. For more information about roles, see [Roles and permissions for partner earned credit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+
+
+**How do I explain Partner Admin Link (PAL) to my Customer?**
+
+Partner Admin Link (PAL) enables Microsoft to identify and recognize those partners who are helping customers achieve business objectives and realize value in the cloud. Customers must first provide a partner access to their Azure resource. Once access is granted, the partner’s Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand the ecosystem of IT service providers and to refine the tools and programs needed to best support our common customers.
+
+**What data does PAL collect?**
+
+The PAL association to existing credentials provides no new customer data to Microsoft. It simply provides the telemetry to Microsoft where a partner is actively involved in a customer’s Azure environment. Microsoft can attribute influence and Azure consumed revenue from customer environment to partner organization based on the account's permissions (Azure role) and scope (Management Group, Subscription, Resource Group, Resource) provided to the partner by customer. 
+
+**Does this impact the security of a customer’s Azure Environment?**
+
+PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (Azure role) or provide additional Azure service data to partner or Microsoft. 

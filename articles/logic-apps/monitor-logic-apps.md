@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 05/04/2020
 ---
 
 # Monitor run status, review trigger history, and set up alerts for Azure Logic Apps
@@ -14,7 +14,13 @@ After you [create and run a logic app](../logic-apps/quickstart-create-first-log
 
 For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> If your logic apps run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
+> that was created to use an [internal access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), 
+> you can view and access inputs and outputs from logic app's runs history *only from inside your virtual network*. Make sure that you have network 
+> connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist 
+> inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual 
+> private network. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
@@ -65,7 +71,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
    ![Review details about each step in the run](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](https://docs.microsoft.com/rest/api/logic).
+   For example, you can get the run's **Correlation ID** property, which you might need when you use the [REST API for Logic Apps](/rest/api/logic).
 
 1. To get more information about a specific step, select either option:
 
@@ -84,7 +90,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
    > They are decrypted only when a user requests to view that data. 
    > You can [hide inputs and outputs in run history](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 
    > or control user access to this information by using 
-   > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
+   > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 
@@ -137,7 +143,7 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
 ## Set up monitoring alerts
 
-To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md). Learn about [metrics in Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). To set up alerts without using [Azure Monitor](../log-analytics/log-analytics-overview.md), follow these steps.
+To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md). Learn about [metrics in Azure](../azure-monitor/platform/data-platform.md). To set up alerts without using [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), follow these steps.
 
 1. On your logic app menu, under **Monitoring**, select **Alerts** > **New alert rule**.
 

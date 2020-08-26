@@ -18,7 +18,10 @@ ms.author: juliako
 ms.reviewer: milanga
 ---
 # Use Azure Media Video Thumbnails to Create a Video Summarization  
- 
+
+> [!NOTE]
+> The **Azure Media Video Thumbnails** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
+
 ## Overview
 
 The **Azure Media Video Thumbnails** media processor (MP) enables you to create a summary of a video that is useful to customers who just want to preview a summary of a long video. For example, customers might want to see a short "summary video" when they hover over a thumbnail. By tweaking the parameters of **Azure Media Video Thumbnails** through a configuration preset, you can use the MP's powerful shot detection and concatenation technology to algorithmically generate a descriptive subclip.  
@@ -59,10 +62,10 @@ Currently, you can change the following parameters:
 
 The following table describes the default duration, when **maxMotionThumbnailInSecs** is not used.
 
-|  |  |  |
+|  | Small | Larger |
 | --- | --- | --- |
-| Video duration |d < 3 min |3 min < d < 15 min |
-| Thumbnail duration |15 sec (2-3 scenes) |30 sec (3-5 scenes) |
+| **Video duration** |d < 3 min |3 min < d < 15 min |
+| **Thumbnail duration** |15 sec (2-3 scenes) |30 sec (3-5 scenes) |
 
 The following JSON sets available parameters.
 

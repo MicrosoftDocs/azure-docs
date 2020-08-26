@@ -104,7 +104,7 @@ Now go back to the Azure portal to get your connection string information and co
 
    **Gremlin Endpoint** - This value is used when you connect to the graph account by using Gremlin.Net library.
 
-    ![Copy the endpoint](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copy the endpoint":::
 
    To run this sample, copy the **Gremlin Endpoint** value, delete the port number at the end, that is the URI becomes `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. The endpoint value should look like `testgraphacct.gremlin.cosmosdb.azure.com`
 
@@ -113,7 +113,7 @@ Now go back to the Azure portal to get your connection string information and co
 1. After you have copied the URI and PRIMARY KEY of your account, save them to a new environment variable on the local machine running the application. To set the environment variable, open a command prompt window, and run the following command. Make sure to replace <Your_Azure_Cosmos_account_URI> and <Your_Azure_Cosmos_account_PRIMARY_KEY> values.
 
    ```console
-   setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
+   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
@@ -142,7 +142,7 @@ You can now go back to Data Explorer in the Azure portal and browse and query yo
 
     You can zoom in and out of the graph, you can expand the graph display space, add additional vertices, and move vertices on the display surface.
 
-    ![View the graph in Data Explorer in the Azure portal](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="View the graph in Data Explorer in the Azure portal":::
 
 ## Review SLAs in the Azure portal
 

@@ -9,7 +9,7 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
 ---
@@ -41,7 +41,7 @@ If you use two-step verification with your work or school account and your admin
 
 ### To create a new app password
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
@@ -80,4 +80,4 @@ If you no longer need to use an app that requires an app password, you can delet
 
 ## For more information
 
-- For more information about the **Security info** page and how to set it up, see [Security info overview](user-help-security-info-overview.md)
+- For more information about the **Security info** page and how to set it up, see [Security info overview](./security-info-setup-signin.md)

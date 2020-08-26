@@ -1,29 +1,19 @@
 ---
 title: Azure CLI Samples 
 description: Azure CLI Samples
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-service-management
-
-ms.assetid:
 ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: how-to
 ms.date: 03/01/2019
-ms.author: cynthn
-ms.custom: mvc
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI Samples for Linux virtual machines
 
 The following table includes links to bash scripts built using the Azure CLI.
 
-| | |
+| Script | Description |
 |---|---|
 |**Create virtual machines**||
 | [Create a virtual machine](./../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a Linux virtual machine with minimal configuration. |

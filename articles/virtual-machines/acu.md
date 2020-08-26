@@ -1,25 +1,25 @@
 ---
-title: Overview of the Azure Compute Unit | Microsoft Docs
+title: Overview of the Azure Compute Unit
 description: Overview of the concept of the Azure compute units. The ACU provides a way of comparing CPU performance across Azure SKUs.
-services: virtual-machines
-documentationcenter: ''
-author: jonbeck7
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
+author: mimckitt
 ms.service: virtual-machines
-ms.devlang: na
-ms.topic: article
+ms.subservice: sizes
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
-ms.author: jonbeck
-
+ms.author: mimckitt
+ms.reviewer: davberg
 ---
 
 # Azure compute unit (ACU)
 
-The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark.
+The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
+
+*ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
+
+**ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
+
+***Hyper-threaded and capable of running nested virtualization
 
 > [!IMPORTANT]
 > The ACU is only a guideline. The results for your workload may vary.
@@ -39,8 +39,20 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [DS1_v2 - DS15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [D_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
+| [Dav4](dav4-dasv4-series.md) |230 - 260** | 2:1 |
+| [Dasv4](dav4-dasv4-series.md) |230 - 260** | 2:1 |
+| [Dv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Ddv4](ddv4-ddsv4-series.md) | 195 -210* | 2:1\*\*\* |
+| [Ddsv4](ddv4-ddsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
+| [Eav4](eav4-easv4-series.md) |230 - 260** | 2:1 |
+| [Easv4](eav4-easv4-series.md) | 230 - 260** | 2:1 |
+| [Ev4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Esv4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
+| [Edv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
+| [Edsv4](edv4-edsv4-series.md) | 195 - 210* | 2:1\*\*\* |
 | [F2s_v2 - F72s_v2](fsv2-series.md) |195 - 210* | 2:1\*\*\* |
 | [F1 - F16](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [F1s - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
@@ -52,10 +64,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
-
-*ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
-**ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
-***Hyper-threaded and capable of running nested virtualization
+| [NVv4](nvv4-series.md) |230 - 260** | 2:1 |
 
 Here are links to more information about the different sizes:
 

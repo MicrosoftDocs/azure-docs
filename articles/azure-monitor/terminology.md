@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor terminology updates | Microsoft Docs
 description: Describes recent terminology changes made to Azure monitoring services.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -56,4 +55,4 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
-- Learn about the [transition of the OMS portal](../log-analytics/log-analytics-oms-portal-transition.md).
+- Learn about the [transition of the OMS portal](./platform/oms-portal-transition.md).

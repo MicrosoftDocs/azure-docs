@@ -9,7 +9,7 @@ ms.author: billmath
 ---
 
 ## Steps to enable Single Sign-on
-Cloud provisioning works with Single Sign-on.  Currently their is not an option to enable SSO when the agent is installed, however you can use the steps below to enable SSO and use it. 
+Cloud provisioning works with Single Sign-on.  Currently there is not an option to enable SSO when the agent is installed, however you can use the steps below to enable SSO and use it. 
 
 ### Step 1: Download and extract Azure AD Connect files
 1.  First, download the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)

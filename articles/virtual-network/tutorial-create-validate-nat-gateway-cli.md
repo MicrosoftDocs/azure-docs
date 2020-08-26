@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create and test a NAT gateway - Azure CLI'
+title: 'Create and test a NAT gateway - Azure CLI'
 titlesuffix: Azure Virtual Network NAT
 description: This tutorial shows how to create a NAT gateway using the Azure CLI and test the NAT service
 services: virtual-network
@@ -8,18 +8,17 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
-ms.author: allensu
+ms.date: 06/11/2020
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 # Tutorial: Create a NAT gateway using Azure CLI and test the NAT service
 
 In this tutorial, you'll create a NAT gateway to provide outbound connectivity for virtual machines in Azure. To test the NAT gateway, you deploy a source and destination virtual machine. You'll test the NAT gateway by making outbound connections to a public IP address. These connections will come from the source to the destination virtual machine. This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
-
->[!NOTE] 
->Azure Virtual Network NAT is available as public preview at this time and available in a limited set of [regions](./nat-overview.md#region-availability). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -28,8 +27,6 @@ You can complete this tutorial using Azure Cloud Shell or run the respective com
 
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> After Virtual Network NAT [preview is enabled](./nat-overview.md#enable-preview) on your subscription, use https://aka.ms/natportal to access the portal.
 
 ## Create a resource group
 
@@ -41,6 +38,7 @@ The following example creates a resource group named **myResourceGroupNAT** in t
   az group create \
     --name myResourceGroupNAT \
     --location eastus2
+    
 ```
 
 ## Create the NAT Gateway
@@ -54,17 +52,19 @@ To access the public Internet, you need one or more public IP addresses for the 
   --resource-group myResourceGroupNAT \
   --name myPublicIPsource \
   --sku standard
+  
 ```
 
 ### Create a public IP prefix
 
-You can use one or more public IP address resources, public IP prefixes or both with NAT gateway. We'll add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named **myPublicIPprefixsource** in **myResourceGroupNAT**.
+You can use one or more public IP address resources, public IP prefixes or both with NAT gateway. We'll add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) to create a public IP prefix resource named **myPublicIPprefixsource** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPprefixsource \
   --length 31
+  
 ```
 
 ### Create a NAT gateway resource
@@ -82,6 +82,7 @@ Create a global Azure NAT gateway with [az network nat gateway create](https://d
     --public-ip-addresses myPublicIPsource \
     --public-ip-prefixes myPublicIPprefixsource \
     --idle-timeout 10       
+    
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
@@ -99,11 +100,11 @@ Create a virtual network named **myVnetsource** with a subnet named **mySubnetso
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location eastus2 \
     --name myVnetsource \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetsource \
     --subnet-prefix 192.168.0.0/24
+    
 ```
 
 ### Configure NAT service for source subnet
@@ -116,6 +117,7 @@ Configure the source subnet **mySubnetsource** in virtual network **myVnetsource
     --vnet-name myVnetsource \
     --name mySubnetsource \
     --nat-gateway myNATgateway
+    
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It's not necessary to configure a UDR.
@@ -133,6 +135,7 @@ We create a public IP to be used to access the source VM. Use [az network public
     --resource-group myResourceGroupNAT \
     --name myPublicIPsourceVM \
     --sku standard
+    
 ```
 
 ### Create an NSG for source VM
@@ -143,6 +146,7 @@ Because Standard public IP addresses are 'secure by default', we need to create 
   az network nsg create \
     --resource-group myResourceGroupNAT \
     --name myNSGsource 
+    
 ```
 
 ### Expose SSH endpoint on source VM
@@ -160,6 +164,7 @@ We create a rule in the NSG for SSH access to the source vm. Use [az network nsg
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
+    
 ```
 
 ### Create NIC for source VM
@@ -174,6 +179,7 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
     --subnet mySubnetsource \
     --public-ip-address myPublicIPSourceVM \
     --network-security-group myNSGsource
+    
 ```
 
 ### Create a source VM
@@ -188,6 +194,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --image UbuntuLTS \
     --generate-ssh-keys \
     --no-wait
+    
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -205,11 +212,11 @@ Create a virtual network named **myVnetdestination** with a subnet named **mySub
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location westus \
     --name myVnetdestination \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetdestination \
     --subnet-prefix 192.168.0.0/24
+    
 ```
 
 ### Create public IP for destination VM
@@ -220,8 +227,8 @@ We create a public IP to be used to access the source VM. Use [az network public
   az network public-ip create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPdestinationVM \
-  --sku standard \
-  --location westus
+  --sku standard
+  
 ```
 
 ### Create an NSG for destination VM
@@ -231,8 +238,8 @@ Standard Public IP addresses are 'secure by default', you'll need to create an N
 ```azurecli-interactive
     az network nsg create \
     --resource-group myResourceGroupNAT \
-    --name myNSGdestination \
-    --location westus
+    --name myNSGdestination
+    
 ```
 
 ### Expose SSH endpoint on destination VM
@@ -250,6 +257,7 @@ We create a rule in the NSG for SSH access to the destination vm. Use [az networ
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 22
+    
 ```
 
 ### Expose HTTP endpoint on destination VM
@@ -267,6 +275,7 @@ We create a rule in the NSG for HTTP access to the destination vm. Use [az netwo
     --protocol tcp \
     --direction inbound \
     --destination-port-ranges 80
+    
 ```
 
 ### Create NIC for destination VM
@@ -280,8 +289,8 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
     --vnet-name myVnetdestination \
     --subnet mySubnetdestination \
     --public-ip-address myPublicIPdestinationVM \
-    --network-security-group myNSGdestination \
-    --location westus
+    --network-security-group myNSGdestination
+    
 ```
 
 ### Create a destination VM
@@ -295,8 +304,8 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --nics myNicdestination \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --no-wait \
-    --location westus
+    --no-wait
+    
 ```
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
 
@@ -310,6 +319,7 @@ First we need to discover the IP address of the destination VM.  To get the publ
     --name myPublicIPdestinationVM \
     --query [ipAddress] \
     --output tsv
+    
 ``` 
 
 >[!IMPORTANT]
@@ -326,16 +336,14 @@ ssh <ip-address-destination>
 Copy and paste the following commands once you've signed in.  
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get -y install nginx && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt -y install nginx && \
 sudo ln -sf /dev/null /var/log/nginx/access.log && \
 sudo touch /var/www/html/index.html && \
 sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
+
 ```
 
 These commands will update your virtual machine, install nginx, and create a 100-KBytes file. This file will be retrieved from the source VM using the NAT service.
@@ -352,6 +360,7 @@ First we need to discover the IP address of the source VM.  To get the public IP
     --name myPublicIPsourceVM \
     --query [ipAddress] \
     --output tsv
+    
 ``` 
 
 >[!IMPORTANT]
@@ -368,12 +377,9 @@ ssh <ip-address-source>
 Copy and paste the following commands to prepare for testing the NAT service.
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get install -y nload golang && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
 . ~/.bashrc &&
@@ -409,6 +415,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupNAT
+  
 ```
 
 ## Next steps
@@ -421,7 +428,6 @@ Review metrics in Azure Monitor to see your NAT service operating. Diagnose issu
 - Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
-- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

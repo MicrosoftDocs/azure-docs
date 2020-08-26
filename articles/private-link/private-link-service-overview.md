@@ -2,20 +2,27 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: malopMSFT
+author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: sumi
 
 ---
 # What is Azure Private Link service?
 
 Azure Private Link service is the reference to your own service that is powered by Azure Private Link. Your service that is running behind [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) can be enabled for Private Link access so that consumers to your service can access it privately from their own VNets. Your customers can create a private endpoint inside their VNet and map it to this service. This article explains concepts related to the service provider side. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Private link service workflow" border="true":::
+
+*Figure: Azure Private Link Service.*
+
 ## Workflow
 
 ![Private Link service workflow](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Figure: Azure Private Link service workflow.*
 
 ### Create your Private Link Service
 
@@ -56,7 +63,7 @@ A Private Link service specifies the following properties:
 
 ### Details
 
-- Private Link service can be accessed from approved private endpoints in the same region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
+- Private Link service can be accessed from approved private endpoints in any public region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
  
 - When creating a Private Link Service, a network interface is created for the lifecycle of the resource. This interface is not manageable by the customer.
  
@@ -107,7 +114,7 @@ Custom TLV details:
 |  |4        |UINT32 (4 bytes) representing the LINKID of the private endpoint. Encoded in little endian format.|
 
  > [!NOTE]
- > Service provider is responsible for making sure that the service behind the standard load balancer is configured to parse the proxy protocol header as per the [specification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) when proxy protocol is enabled on private link service. The request will fail if proxy protocol setting is enabled on private link service and service is not configured to parse the header. Similarly, the request will fail if the service is expecting a proxy protocol header while the setting is not enabled on the private link service. Once proxy protocol setting is enabled, proxy protocol header will also be included in HTTP/TCP health probes from host to the backend virtual machines, even though there will be no client information in the header. 
+ > Service provider is responsible for making sure that the service behind the standard load balancer is configured to parse the proxy protocol header as per the [specification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) when proxy protocol is enabled on private link service. The request will fail if proxy protocol setting is enabled on private link service but service provider's service is not configured to parse the header. Similarly, the request will fail if the service provider's service is expecting a proxy protocol header while the setting is not enabled on the private link service. Once proxy protocol setting is enabled, proxy protocol header will also be included in HTTP/TCP health probes from host to the backend virtual machines, even though there will be no client information in the header. 
 
 ## Limitations
 

@@ -3,14 +3,14 @@ title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines in Azure DevOps Services.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -172,7 +172,7 @@ If the task completes successfully, add deployment tasks by performing the prece
 
 The `PolicyId` is a value found at the start of an XML policy file within the TrustFrameworkPolicy node. For example, the `PolicyId` in the following policy XML is *B2C_1A_TrustFrameworkBase*:
 
-```XML
+```xml
 <TrustFrameworkPolicy
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema"

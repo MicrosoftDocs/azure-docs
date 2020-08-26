@@ -5,8 +5,8 @@ description: This article provides guidance on how to configure Azure App servic
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: absha
 ---
 
@@ -54,7 +54,7 @@ In this article, you learn how to:
 3. Choose the protocol as HTTP or HTTPS as per your use case. 
 
    > [!NOTE]
-   > If you select HTTPS, you do not need to upload any authentication certificate or trusted root certificate to whitelist the app service backend since app service is a trusted Azure service.
+   > If you select HTTPS, you do not need to upload any authentication certificate or trusted root certificate to allow the app service backend since app service is a trusted Azure service.
 
 4. Check the box for **Use for App Service** . Note that the switches  `Create a probe with pick host name from backend address` and `Pick host name from backend address` will automatically get enabled.`Pick host name from backend address` will override the  host header in the request with the host name of the back-end when the request is routed from the Application Gateway to the backend.  
 

@@ -7,8 +7,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 11/08/2019
+ms.topic: how-to
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -16,13 +16,13 @@ ms.collection: M365-identity-device-management
 ---
 # Assign custom roles with resource scope using PowerShell in Azure Active Directory
 
-This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](roles-create-custom.md).This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](roles-create-custom.md).This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 
 For more information about Azure AD admin roles, see [Assigning administrator roles in Azure Active Directory](directory-assign-admin-roles.md).
 
 ## Required permissions
 
-Connect to your Azure AD tenant using a global administrator account to assign or remove roles.
+Connect to your Azure AD organization using a global administrator account to assign or remove roles.
 
 ## Prepare PowerShell
 
@@ -63,7 +63,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal cmdlet](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+To assign the role to a service principal instead of a user, use the [Get-AzureADMSServicePrincipal cmdlet](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## Operations on RoleDefinition
 

@@ -1,18 +1,18 @@
 ---
 title: Quickstart - Create a virtual machine scale set with Azure CLI
 description: Get started with your deployments by learning how to quickly create a virtual machine scale set with Azure CLI.
-author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.devlang: azurecli
+author: ju-shim
+ms.author: jushiman
 ms.topic: quickstart
-ms.custom: mvc
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 ---
 
 # Quickstart: Create a virtual machine scale set with the Azure CLI
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with the Azure CLI.
+A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with the Azure CLI.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -44,7 +44,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Deploy sample application
-To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs an application on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
+To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs an application on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-linux.md).
 
 Use the Custom Script Extension to install a basic NGINX web server. Apply the Custom Script Extension that installs NGINX with [az vmss extension set](/cli/azure/vmss/extension) as follows:
 
@@ -104,4 +104,3 @@ In this quickstart, you created a basic scale set and used the Custom Script Ext
 
 > [!div class="nextstepaction"]
 > [Create and manage Azure virtual machine scale sets](tutorial-create-and-manage-cli.md)
-

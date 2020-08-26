@@ -26,7 +26,9 @@ When integrating with Azure services, errors may originate from the APIs of the 
 
 + [Blob storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
-+ [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
++ [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
+
++ [IoT Hubs](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
 
 + [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 

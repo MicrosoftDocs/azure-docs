@@ -10,31 +10,31 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-1. Go to **Resource groups** and click on the resource group you selected while creating **Peering** resource. You may use the *Filter* field if you have too many resource groups.
+1. Go to **Resource groups**, and select the resource group you selected when you created the **Peering** resource. Use the **Filter** box if you have too many resource groups.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource group](../media/setup-direct-get-resourcegroup.png)
+    > ![Resource groups](../media/setup-direct-get-resourcegroup.png)
 
-1. Click on the **Peering** resource you created.
+1. Select the **Peering** resource you created.
 
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/setup-direct-get-open.png)
 
-1. The **Overview** page shows high-level information. Observe the info highlighted below.
+1. The **Overview** page shows high-level information, as shown here.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-get-overview.png)
+    > ![Peering resource Overview pane](../media/setup-direct-get-overview.png)
 
-1. On the left, click on **ASN information** to view information submitted while creating PeerAsn
-
-    > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-get-asninfo.png)
-
-1. On the left, click on **Connections**. Observe on the top a summary of peering connections between your ASN and Microsoft, across different facilities within the metro. You may also arrive at the connections summary from **Overview** page, by clicking on **Connections** in the center pane as highlighted above.
+1. On the left, select **ASN information** to view the information submitted when you created PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-get-connectionssummary.png)
+    > ![Peering resource ASN information](../media/setup-direct-get-asninfo.png)
 
-    * **Connection State** corresponds to the state of the peering connection set up. The states displayed in this field follow the state diagram shown in [Direct peering walkthrough](../walkthrough-direct-all.md)
-    * **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states respectively.  
-    * When you select a row on the top, the ***Connection*** section on the bottom shows details for each connection. You can click on arrow marks to expand the sub-sections ***Configuration***, ***IPv4 address*** and ***IPv6 address***
+1. On the left, select **Connections**. At the top of the screen, you see a summary of peering connections between your ASN and Microsoft, across different facilities within the metro. You can also access the connections summary from the **Overview** page by selecting **Connections** in the center of the pane, as shown.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering resource Connections](../media/setup-direct-get-connectionssummary.png)
+
+    * **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Direct peering walkthrough](../walkthrough-direct-all.md).
+    * **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
+    * When you select a row at the top of the screen, the **Connection** section on the bottom shows details for each connection. Select the arrows to expand **Configuration**, **IPv4 address**, and **IPv6 address**.

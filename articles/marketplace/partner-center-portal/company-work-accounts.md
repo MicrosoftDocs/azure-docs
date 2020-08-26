@@ -1,12 +1,11 @@
 ---
 title: Company work accounts and Partner Center 
 description: How to check whether your company has a work account set up with Microsoft, create a new work account, or set up multiple work accounts to use with Partner Center. 
-author: ChJenk
-manager: evansma
-ms.author: parthp 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 05/30/2019
 ---
 
@@ -40,7 +39,7 @@ To create a new work account for your company, follow the steps below. You may n
 
 The email address for the user account must be a verified domain name in your directory. You can list all the verified domains in your directory by selecting **Azure Active Directory** -> **Custom domain names** in the left-navigation menu.
 
-To learn more about adding custom domains in Azure Active Directory, see [Add or associate a domain in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+To learn more about adding custom domains in Azure Active Directory, see [Add or associate a domain in Azure AD](../../active-directory/active-directory-add-domain.md).
 
 ## Troubleshoot work email sign-in
 
@@ -50,4 +49,4 @@ If you're having trouble signing in to your work account (also known as your Azu
 
 ## Next steps
 
-- [Manage your Commercial Marketplace account in Partner Center](./manage-account.md) 
+- [Manage your commercial marketplace account in Partner Center](./manage-account.md) 

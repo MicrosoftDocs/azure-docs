@@ -1,13 +1,11 @@
 ---
-title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster in the portal
+title: Create an AKS cluster in the portal
+titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: quickstart
-ms.date: 01/21/2020
-ms.author: mlearned
+ms.date: 08/18/2020
+
 ms.custom: mvc, seo-javascript-october2019
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -47,11 +45,13 @@ To create an AKS cluster, complete the following steps:
 
 4. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next: Authentication**.
     > [!CAUTION]
-    > Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) for mitigations.
+    > Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) for mitigation.
 
 5. On the **Authentication** page, configure the following options:
     - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
-    - Enable the option for Kubernetes role-based access controls (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
+    - Enable the option for Kubernetes role-based access control (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
+
+    Alternatively, you can use a managed identity instead of a service principal. See [use managed identities](use-managed-identity.md) for more information.
 
 By default, *Basic* networking is used, and Azure Monitor for containers is enabled. Click **Review + create** and then **Create** when validation completes.
 
@@ -75,13 +75,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
 
-```
+```output
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 ```
@@ -90,10 +90,7 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 A Kubernetes manifest file defines a desired state for the cluster, such as what container images to run. In this quickstart, a manifest is used to create all objects needed to run the Azure Vote application. This manifest includes two [Kubernetes deployments][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] are also created - an internal service for the Redis instance, and an external service to access the Azure Vote application from the internet.
 
-> [!TIP]
-> In this quickstart, you manually create and deploy your application manifests to the AKS cluster. In more real-world scenarios, you can use [Azure Dev Spaces][azure-dev-spaces] to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.
-
-In the cloud shell, use either the `nano azure-vote.yaml` or `vi azure-vote.yaml` command to create a file named `azure-vote.yaml`. Then copy in the following YAML definition:
+In the Cloud Shell, use an editor to create a file named `azure-vote.yaml`, such as `code azure-vote.yaml`, `nano azure-vote.yaml` or `vi azure-vote.yaml`. Then copy in the following YAML definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -182,13 +179,13 @@ spec:
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
 The following example output shows the Deployments and Services created successfully:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -201,20 +198,20 @@ When the application runs, a Kubernetes service exposes the application front en
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -250,7 +247,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Get the code
 
@@ -278,11 +275,11 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-monitor]: ../azure-monitor/insights/container-insights-overview.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

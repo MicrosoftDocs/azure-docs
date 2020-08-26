@@ -3,14 +3,14 @@ title: Set up sign-in with an Azure AD account by using custom policies
 titleSuffix: Azure AD B2C
 description: Set up sign in with an Azure Active Directory account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/11/2020
-ms.author: marsma
+ms.topic: how-to
+ms.date: 04/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -24,40 +24,8 @@ This article shows you how to enable sign-in for users from an Azure Active Dire
 
 Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 
-## Register an application
 
-To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, contoso.com). Select the **Directory + subscription filter** in the top menu, and then choose the directory that contains your Azure AD tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
-1. Select **New registration**.
-1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
-1. Accept the default selection of **Accounts in this organizational directory only** for this application.
-1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
-
-    ```
-    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
-    ```
-
-    For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
-
-1. Select **Register**. Record the **Application (client) ID** for use in a later step.
-1. Select **Certificates & secrets**, and then select **New client secret**.
-1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
-
-## Configuring optional claims
-
-If you want to get the `family_name` and `given_name` claims from Azure AD, you can configure optional claims for your application in the Azure portal UI or application manifest. For more information, see [How to provide optional claims to your Azure AD app](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
-1. From the **Manage** section, select **App registrations**.
-1. Select the application you want to configure optional claims for in the list.
-1. From the **Manage** section, select **Token configuration (preview)**.
-1. Select **Add optional claim**.
-1. Select the token type you want to configure.
-1. Select the optional claims to add.
-1. Click **Add**.
+[!INCLUDE [active-directory-b2c-identity-provider-azure-ad](../../includes/active-directory-b2c-identity-provider-azure-ad.md)]
 
 ## Create a policy key
 
@@ -164,7 +132,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
 1. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
     ```
 
@@ -175,7 +143,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
 1. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 

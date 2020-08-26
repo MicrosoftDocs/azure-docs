@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 02/12/2020
+ms.date: 08/06/2020
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -20,6 +20,8 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 
 > [!IMPORTANT]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](hdinsight-delete-cluster.md)
+
+If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](interactive-query/apache-hive-warehouse-connector.md).
 
 ## Cluster setup methods
 
@@ -34,7 +36,7 @@ The following table shows the different methods you can use to set up an HDInsig
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using the default view or *Classic*.
+This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
 
 ## Basics
 
@@ -124,6 +126,12 @@ During configuration, for the default storage endpoint you specify a blob contai
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
+> [!IMPORTANT]
+> Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
+
+> [!Note]  
+> Azure HDInsight does not automatically transfer, move or copy your data stored in Azure Storage from one region to another.
+
 ### Metastore settings
 
 You can create optional Hive or Apache Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores.
@@ -138,6 +146,9 @@ For more information, see [Use external metadata stores in Azure HDInsight](./hd
 If you want to retain your Hive tables after you delete an HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
 
 An HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+> [!IMPORTANT]
+> The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
 #### SQL database for Oozie
 
@@ -164,7 +175,7 @@ For more information on creating domain-joined HDInsight cluster, see [Create do
 
 ### TLS
 
-For more information, see [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)
+For more information, see [Transport Layer Security](./transport-layer-security.md)
 
 ### Virtual network
 
@@ -190,7 +201,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 ![HDInsight choose your node size](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
 
-You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
+You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
 
 ### Node configuration
 

@@ -1,12 +1,11 @@
 ---
 title: Create and share dashboards of Azure Log Analytics data | Microsoft Docs
 description: This tutorial helps you understand how Log Analytics dashboards can visualize all of your saved log queries, giving you a single lens to view your environment.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 
 ms.custom: mvc
 ---
@@ -33,6 +32,14 @@ Select **Dashboard** to open your default [dashboard](../../azure-portal/azure-p
 
 Here you can bring together operational data that is most important to IT across all your Azure resources, including telemetry from Azure Log Analytics.  Before we step into visualizing a log query, let's first create a dashboard and share it.  We can then focus on our example performance log query, which will render as a line chart, and add it to the dashboard.  
 
+> [!NOTE]
+> The following chart types are supported in Azure dashboards using log queries:
+> - areachart
+> - columnchart
+> - piechart (will render in dashboard as donut)
+> - scatterchart
+> - timechart
+
 To create a dashboard, select the **New dashboard** button next to the current dashboard's name.
 
 ![Create new dashboard in Azure portal](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
@@ -43,7 +50,7 @@ When you create a dashboard, it is private by default, which means you are the o
 
 ![Share a new dashboard in Azure portal](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  Verify the subscription selected and then click **Publish**.  Access to the information displayed in the dashboard is controlled with [Azure Resource Based Access Control](../../role-based-access-control/role-assignments-portal.md).   
+You are asked to choose a subscription and resource group for your dashboard to be published to. For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  Verify the subscription selected and then click **Publish**.  Access to the information displayed in the dashboard is controlled with [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## Visualize a log query
 [Log Analytics](../log-query/get-started-portal.md) is a dedicated portal used to work with log queries and their results. Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics. In this tutorial, you will use Log Analytics to create a performance view in graphical form, save it for a future query, and pin it to the shared dashboard created earlier.
