@@ -59,6 +59,7 @@ In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/d
 ### Zone Redundant HA
 - Can only be set during server create.
 - Not supported in Burstable compute tier.
+- Servers configured with zone redundant HA do not support read replicas.
 
 ### Networking
 - The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create.
@@ -68,6 +69,10 @@ In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/d
 
 ### Scale operations
 - Decreasing server storage size is currently not supported.
+
+### Read replicas
+- Primary servers configured with replicas do not support zone redundant HA. 
+- Replicas do not support zone redundant HA.
 
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a dump and restore <!--  [dump and restore](./howto-migrate-using-dump-and-restore.md)--> it to a server that was created with the new engine version.

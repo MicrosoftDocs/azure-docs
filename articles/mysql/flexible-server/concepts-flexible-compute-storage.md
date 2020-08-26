@@ -46,7 +46,6 @@ The detailed specifications of the available server types are as follows:
 | B1s                  | 1      | 1 GiB       |  
 | B1ms                 | 1      | 2 GiB       | 
 | B2s                  | 2      | 4 GiB       |  
-| B2ms                 | 2      | 8 GiB       | 
 | **General Purpose**  |        |             |                                
 | D2ds_v4              | 2      | 8 GiB       |  
 | D4ds_v4              | 4      | 16 GiB      | 
@@ -95,11 +94,11 @@ Storage auto-grow is not yet available for Azure Database for MySQL Flexible Ser
 
 In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio. You can scale IOPS by increasing the provisioned storage. The minimum IOPS supported is 100 IOPS. The maximum effective IOPS may be limited by the maximum available IOPS of the selected compute size. 
 
-**Effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned * 3)
+**Max effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned in GiB * 3)
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using IO percent metric. <!-- add link to metrics doc-->
 
-> [!NOTE]
+> [!IMPORTANT]
 > In preview, the max IOPS supported is 20,000 IOPS.
 
 ## Backup

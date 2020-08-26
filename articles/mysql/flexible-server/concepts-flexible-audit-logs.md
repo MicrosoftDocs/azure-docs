@@ -13,14 +13,14 @@ ms.date: 8/25/2020
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
 
-Azure Database for MySQL Flexible Server provides users with the ability to configure audit logs. The audit log can be used to track database-level activity and is commonly used for compliance.
+Azure Database for MySQL Flexible Server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposes.
 
 ## Configure audit logging
 
 >[!IMPORTANT]
 > It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
-By default, the audit log is disabled. To enable it, set `audit_log_enabled` to *ON*.
+By default, audit logs are disabled. To enable them, set the `audit_log_enabled` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->. 
 
 Other parameters you can adjust to control audit logging behavior include:
 
@@ -45,7 +45,7 @@ Other parameters you can adjust to control audit logging behavior include:
 
 ## Access audit logs
 
-Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MySQL server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../../azure-monitor/platform/platform-logs-overview.md).<!-- To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).-->
 
 The following sections describe what's output by MySQL audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
 
