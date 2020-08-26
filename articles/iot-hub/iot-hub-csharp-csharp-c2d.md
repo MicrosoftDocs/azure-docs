@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: robinsh
-ms.custom:  [amqp, mqtt]
+ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Send messages from the cloud to your device with IoT Hub (.NET)

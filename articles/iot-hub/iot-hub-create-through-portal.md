@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Create an IoT hub using the Azure portal

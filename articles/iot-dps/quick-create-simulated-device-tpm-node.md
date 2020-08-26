@@ -7,7 +7,7 @@ ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom:  [mvc, amqp, mqtt]
+ms.custom:  [mvc, amqp, mqtt, devx-track-javascript]
 ---
 
 # Quickstart: Create and provision a simulated TPM device using Node.js device SDK for IoT Hub Device Provisioning Service

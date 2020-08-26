@@ -85,6 +85,9 @@ Deployment of Azure AD Password Protection in an AD DS forest requires registrat
 
 The AD DS forest and all deployed proxy services within a forest must be registered with the same tenant. It's not supported to have an AD DS forest or any proxy services in that forest being registered to different Azure AD tenants. Symptoms of such a mis-configured deployment include the inability to download password policies.
 
+> [!NOTE]
+> Customers that have multiple Azure AD tenants must therefore choose one distinguished tenant to register each forest for Azure AD Password Protection purposes.
+
 ## Download
 
 The two required agent installers for Azure AD Password Protection are available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).

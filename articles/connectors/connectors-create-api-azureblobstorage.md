@@ -15,7 +15,7 @@ This article shows how you can access and manage files stored as blobs in your A
 
 Suppose that you have a tool that gets updated on an Azure website. which acts as the trigger for your logic app. When this event happens, you can have your logic app update some file in your blob storage container, which is an action in your logic app.
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](https://docs.microsoft.com/connectors/azureblobconnector/).
+If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Logic apps can't directly access storage accounts that are behind firewalls if they're both in the same region. As a workaround, 
@@ -134,7 +134,7 @@ This example only gets the contents for a blob. To view the contents, add anothe
 
 ## Connector reference
 
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/azureblobconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/azureblobconnector/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
@@ -196,7 +196,7 @@ To set up the exception and managed identity support, follow these general steps
    > make sure that the request header includes the `x-ms-version` property 
    > and the API version for the operation that you want to run on the storage account. 
    > For more information, see [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) and 
-   > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. On that action, [select the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) to use for authentication.
 
@@ -209,3 +209,4 @@ If you use a dedicated tier for [API Management](../api-management/api-managemen
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

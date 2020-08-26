@@ -192,7 +192,7 @@ Organizations that don’t add extra layers of identity protection, such as two-
 
 ## Use role-based access control
 
-Access management for cloud resources is critical for any organization that uses the cloud. [Role-based access control (RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is critical for any organization that uses the cloud. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
 
@@ -201,7 +201,7 @@ Your security team needs visibility into your Azure resources in order to assess
 You can use [RBAC](/azure/role-based-access-control/overview) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 **Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.
-**Detail**: Use [built-in RBAC roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
+**Detail**: Use [Azure built-in roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
 
 > [!Note]
 > Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Azure AD.

@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Object replication for block blobs (preview)

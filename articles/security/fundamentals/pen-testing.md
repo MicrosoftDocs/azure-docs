@@ -38,8 +38,6 @@ Standard tests you can perform include:
 * [Fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
 
-One type of test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate or simulate any type of DoS attack.
-
 ## Next steps
 
 - If you would like to formally document an upcoming penetration testing against your applications hosted in Microsoft Azure, head on over to the [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) and fill out the testing notification form.

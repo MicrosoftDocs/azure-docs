@@ -1,5 +1,5 @@
 ---
-title: Upgrade to Azure Cognitive Search .NET SDK version 10
+title: Upgrade to .NET SDK version 10
 titleSuffix: Azure Cognitive Search
 description: Migrate code to the Azure Cognitive Search .NET SDK version 10 from older versions. Learn what is new and which code changes are required.
 

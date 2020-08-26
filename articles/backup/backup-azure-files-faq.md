@@ -29,13 +29,13 @@ Yes. Protection of Azure File Shares connected to Sync Groups is enabled.
 
 When trying to back up, selecting a Storage Account to discover file shares within it registers the Storage Account with the vault from which this is done. If you choose to protect the file shares with a different vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the chosen Storage Account from this vault.
 
+### Why can't I change the vault to configure backup for the file share?
+
+If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you are not given an option to change it as all file shares in a storage account can be protected only by the same vault. Incase you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
+
 ### Can I change the Vault to which I back up my file shares?
 
 Yes. However, you'll need to [stop protection on the file share](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) this Storage Account, and then protect it from a different vault.
-
-### How many Azure file shares can I protect in a Vault?
-
-You can protect Azure file shares from up to 50 Storage Accounts per Vault. You can also protect up to 200 Azure file shares in a single vault.
 
 ### Can I protect two different file shares from the same Storage Account to different Vaults?
 

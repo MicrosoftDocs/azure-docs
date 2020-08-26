@@ -3,7 +3,7 @@ title: Co-locate VMs for improved latency
 description: Learn about how co-locating Azure VM resources can improve latency.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr

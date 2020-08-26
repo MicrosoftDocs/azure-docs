@@ -1,11 +1,12 @@
 ---
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
-description: Quickstart for using Azure App Configuration with ASP.NET Core apps
+description: Create an ASP.NET Core app with Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application.
 services: azure-app-configuration
 author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
@@ -239,6 +240,8 @@ If you're working in the Azure Cloud Shell, select the *Web Preview* button foll
 ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
 When prompted to configure the port for preview, enter '5000' and select *Open and browse*.  The web page will read "Data from Azure App Configuration."
+
+![Launching quickstart app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
 ## Clean up resources
 

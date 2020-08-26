@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What is Azure Data Lake Analytics?
             url: data-lake-analytics-overview.md
+          - text: What's new in Data Lake Analytics?
+            url: data-lake-analytics-whats-new.md
       - linkListType: quickstart
         links:
           - text: Create U-SQL jobs in the Azure portal

@@ -542,7 +542,8 @@ Use this sample if you have a .NET Core 3.0 Worker Service application as per of
 
 ## Next steps
 
-* [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* [Track additional dependencies not automatically tracked](../../azure-monitor/app/auto-collect-dependencies.md).
-* [Enrich or Filter auto collected telemetry](../../azure-monitor/app/api-filtering-sampling.md).
+* [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
+* [Track additional dependencies not automatically tracked](./auto-collect-dependencies.md).
+* [Enrich or Filter auto collected telemetry](./api-filtering-sampling.md).
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
+

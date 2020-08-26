@@ -39,7 +39,7 @@ enterprise-ready foundation. This environment is composed of:
   - Require Azure Storage Account Secure transfer Encryption
   - Deny resource types (choose while deploying)  
 - Initiatives
-  - Enable Monitoring in Azure Security Center (89 Policies)
+  - Enable Monitoring in Azure Security Center (100+ policy definitions)
 
 All these elements abide to the proven practices published in the
 [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).

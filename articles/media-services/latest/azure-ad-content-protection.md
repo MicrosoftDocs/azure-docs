@@ -12,6 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/1/2020
 ms.author: inhenkel
+ms.custom: devx-track-javascript
 ---
 
 # Tutorial: End-to-End content protection using Azure AD

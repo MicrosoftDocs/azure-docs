@@ -28,7 +28,7 @@ Role-Based Access Control (RBAC) provides detailed access management for Azure r
 Learn more:
 
 * [Active Directory team blog on RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Azure Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
 

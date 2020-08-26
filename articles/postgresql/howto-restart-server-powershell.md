@@ -5,7 +5,8 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 06/08/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Restart Azure Database for PostgreSQL server using PowerShell

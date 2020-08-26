@@ -4,8 +4,8 @@ description: This article describes the high-level steps for publishing a Power 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.date: 04/02/2020
 ---
 

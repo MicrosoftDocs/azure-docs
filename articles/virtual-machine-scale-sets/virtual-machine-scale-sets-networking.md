@@ -41,7 +41,7 @@ Azure Accelerated Networking improves network performance by enabling single roo
 
 When working with virtual machine scale sets and load balancer, the following items should be considered:
 
-* **Multiple virtual machine scale sets can't use the same load balancer**.
+* **Multiple virtual machine scale sets can use the same Load Balancer**.
 * **Port Forwarding and inbound NAT rules**:
   * Each virtual machine scale set must have an inbound NAT rule.
   * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
@@ -239,7 +239,7 @@ Example output from the [Azure Resource Explorer](https://resources.azure.com) a
 Every NIC attached to a VM in a scale set can have one or more IP configurations associated with it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated with it. To understand how many IP addresses can be assigned to a NIC, and how many public IP addresses you can use in an Azure subscription, refer to [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Multiple NICs per virtual machine
-You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/windows/sizes.md). All NICs connected to a VM instance must connect to the same virtual network. The NICs can connect to different subnets, but all subnets must be part of the same virtual network.
+You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/sizes.md). All NICs connected to a VM instance must connect to the same virtual network. The NICs can connect to different subnets, but all subnets must be part of the same virtual network.
 
 The following example is a scale set network profile showing multiple NIC entries, and multiple public IPs per virtual machine:
 

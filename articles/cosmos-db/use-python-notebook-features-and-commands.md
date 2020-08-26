@@ -48,7 +48,7 @@ Run ```%%sql?``` in a cell to see the help documentation for the sql magic comma
 
 ## Run a SQL query and output to a Pandas DataFrame
 
-You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Use the syntax: 
+You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame). Use the syntax: 
 
 ```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}

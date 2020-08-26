@@ -5,7 +5,8 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/04/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli
 
 ---
 

@@ -1,15 +1,15 @@
 ---
 title: Azure Key Vault - How to use soft-delete with PowerShell
-description: Use case examples of soft-delete with PowerShell code snips
+description: Learn how to use Azure PowerShell to use the soft-delete feature of Azure Key Vault that allows recovery of key vaults and key vault objects.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.author: sudbalas
 ---
 
 # How to use Key Vault soft-delete with PowerShell
@@ -64,11 +64,7 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ### New key vault
 
-Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
-
-```powershell
-New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
-```
+Soft delete is automatically on by default for all new key vaults. By December 31st 2020 it will no longer be possible to disable soft delete on any key vault. 
 
 ### Verify soft-delete enablement
 
@@ -203,7 +199,7 @@ Like keys, secrets are managed with their own commands:
 
 You can manage certificates using below commands:
 
-- Delete a Certificate named SQLPassword: 
+- Delete a Certificate: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
@@ -282,5 +278,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## Other resources
 
-- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](overview-soft-delete.md)).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)).
 - For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)).

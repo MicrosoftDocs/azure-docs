@@ -31,7 +31,7 @@ Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 If your question isn't listed here, let us know, so we can help you find an answer.
 
 - Post a question at the end of this FAQ.
-- To reach a wider audience, post a question on the [Microsoft Q&A question page for Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Engage with the Azure DevTest Labs team and other members of the community.
+- To reach a wider audience, post a question on the [Microsoft Q&A question page for Azure DevTest Labs](/answers/topics/azure-devtestlabs.html). Engage with the Azure DevTest Labs team and other members of the community.
 - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### What is a Microsoft account?

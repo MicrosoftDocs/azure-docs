@@ -5,7 +5,8 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 07/10/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage read replicas from the Azure CLI, REST API

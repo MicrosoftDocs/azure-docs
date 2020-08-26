@@ -1,6 +1,6 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-description: Learn about the advanced policies available for use in Azure API Management.
+description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino

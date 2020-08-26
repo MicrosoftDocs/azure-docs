@@ -50,5 +50,5 @@ Azure Synapse Analytics provides you with the capability to analyze data with SQ
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using spark](get-started-analyze-spark.md)
+> [Analyze using Spark](get-started-analyze-spark.md)
 

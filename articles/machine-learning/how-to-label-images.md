@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -33,11 +33,9 @@ After your project administrator [creates a labeling project](https://docs.micro
 
 1. Select **Data labeling** on the left-hand side to find the project.  
 
-1. Select the project name in the list.
-
 ## Understand the labeling task
 
-Once you've selected the project, at the top of the page, select **Label data**.
+In the table of data labeling projects, select **Label link** for your project.
 
 You see instructions that are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, at the top of the page select **Tasks**.  Or at the bottom of the page, select **Start labeling**.
 
