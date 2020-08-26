@@ -160,7 +160,7 @@ Set up the appliance for the first time.
       - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
       - Specify credentials if the proxy needs authentication.
       - Only HTTP proxy is supported.
-      - Click on **Save** to trigger connectivity check, if you have provided the proxy details or disabled the proxy and/or authentication.
+      - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for VM discovery to work properly.
     - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
@@ -211,20 +211,20 @@ Connect from the appliance to Hyper-V hosts or clusters, and start VM discovery.
 1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide Hyper-V host/cluster details through **Import CSV**.
 
-    ![Selections for Generate Key](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+    ![Selections for adding discovery source](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
 
     - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN** and click on **Save**.
     - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box.**Verify** the added records and click on **Save**.
     - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
 
-1. On clicking Save, appliance will try validating the connection to the Hyper-V hosts/clusters provided and show the **Validation status** in the table against each host/cluster.
+1. On clicking Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
     - For successfully validated hosts/clusters, you can view more details by clicking on their IP address/FQDN.
     - If validation fails for a host, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove hosts or clusters, click on **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 1. You can **revalidate** the connectivity to hosts/clusters any time before starting the discovery.
-1. Click on **Start discovery**, to kick off VM discovery from the successfully validated hosts/clusters. After the discovery has been successfully initiated, you can check the discovery status against the host/cluster in the table.
+1. Click on **Start discovery**, to kick off VM discovery from the successfully validated hosts/clusters. After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
 This starts discovery. It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
 
