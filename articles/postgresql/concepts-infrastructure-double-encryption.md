@@ -57,7 +57,7 @@ The encryption capabilities that are provided by Azure Database for PostgreSQL c
 For Azure Database for PostgreSQL, the support for infrastructure double encryption using service-managed key has the following limitations:
 
 * Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
-* You can create a Azure Database for MySQL with infrastructure encryption enabled in the following regions:
+* You can create a Azure Database for PostgreSQL with infrastructure double encryption enabled in the following regions:
 
    * East US
    * South Central US
