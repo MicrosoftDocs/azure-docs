@@ -104,7 +104,7 @@ The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protec
 ## Soft delete for VMs using REST API
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
+- If you wish to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## How to disable soft delete
 
