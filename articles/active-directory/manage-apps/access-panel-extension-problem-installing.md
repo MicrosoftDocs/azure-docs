@@ -2,20 +2,15 @@
 title: Install application access panel browser extension - Azure AD
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/04/2018
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.collection: M365-identity-device-management
 ---
 
 # Install the access panel browser extension
