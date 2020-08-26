@@ -54,7 +54,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 ## Network Security Rules
 
-The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Without opening those ports or whitelisting the IP/URL this will prevents the operation of the cluster, and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), otherwise additional ports has to be opened.
+The basic rules here are the minimum for a security lockdown of an Azure managed Service Fabric cluster. Failure to open the following ports or whitelisting the IP/URL will prevent proper operation of the cluster and may not be supported. With this rule set it's strictly required to use [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), otherwise additional ports will need to be opened.
 
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
@@ -70,23 +70,23 @@ The basic rules here are the minimum for a security lockdown of an Azure managed
 |3980       |Custom Endpoint    |80          |TCP       |Internet           |VirtualNetwork    |Allow
 |4100       |Block Inbound      |443         |Any       |Any                |Any               |Allow
 
-More information about the inbound security rules.
+More information about the inbound security rules:
 
 * **Azure**. This port is used by Service Fabric Explorer to browse and manage your cluster, and it is also used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
 
 * **Client**. The client connection endpoint for APIs like REST/PowerShell/CLI. 
 
-* **Cluster**. For inter node communication, should never been blocked.
+* **Cluster**. Used for inter-node communication; should never be blocked.
 
 * **Ephemeral**. Service Fabric uses a part of these ports as application ports, and the remaining are available for the OS. It also maps this range to the existing range present in the OS, so for all purposes, you can use the ranges given in the sample here. Make sure that the difference between the start and the end ports is at least 255. You might run into conflicts if this difference is too low, because this range is shared with the OS. To see the configured dynamic port range, run *netsh int ipv4 show dynamic port tcp*. These ports aren't needed for Linux clusters.
 
 * **Application**. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, that is, the ephemeralPorts range as set in the configuration. Service Fabric uses these ports whenever new ports are required and takes care of opening the firewall for these ports on the nodes.
 
-* **SMB**. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas himself. 
+* **SMB**. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
 
-* **RDP**. Optional if RDP is required from the Internet or VirtualNetwork in case of an jumpbox. 
+* **RDP**. Optional, if RDP is required from the Internet or VirtualNetwork for jumpbox scenarios. 
 
-* **SSH**. Optional if SSH is required from the Internet or VirtualNetwork in case of an jumpbox.
+* **SSH**. Optional, if SSH is required from the Internet or VirtualNetwork for jumpbox scenarios.
 
 * **Custom endpoint**. An example for your application to enable an internet accessible endpoint.
 
@@ -99,15 +99,15 @@ More information about the inbound security rules.
 |3920       |Upgrade            |443         |TCP       |VirtualNetwork     |Internet          |Allow
 |3950       |Block Outbound     |Any         |Any       |Any                |Any               |Deny
 
-More information about the outbound security rules.
+More information about the outbound security rules:
 
 * **Network**. Communication channel for subnets and to another virtual networks.
 
 * **Resource Provider**. Connection by the UpgradeService to execute all ARM deployments by the Service Fabric resource provider.
 
-* **Upgrade**. The upgrade service using the Akaimai network to download the bits, this is needed for setup, re-image and runtime upgrades. Akaimai are using dynamic IP addresses, we are working to make this Azure internal. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optional this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
+* **Upgrade**. The upgrade service using the address download.microsoft.com to get the bits, this is needed for setup, re-image and runtime upgrades. The service operates with dynamic IP addresses. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
 
-Use Azure Firewall with [NSG flow log](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview) and [traffic analytics](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
+Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-flow-logging-overview) and [traffic analytics]()../network-watcher/traffic-analytics) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
 
 
 ## Application Networking
