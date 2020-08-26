@@ -4,14 +4,14 @@ description: In this article, learn how to create a premium Azure file share usi
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2019
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurecli
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# How to create an premium Azure file share
+# How to create an Azure premium file share
+
 Premium file shares are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
@@ -149,6 +149,8 @@ STORAGEKEY=$(az storage account keys list \
 
 ## Create a premium file share
 
+Now that you've created a FileStorage account, you can create a premium file share within that storage account.
+
 # [Portal](#tab/azure-portal)
 
 1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
@@ -162,7 +164,7 @@ STORAGEKEY=$(az storage account keys list \
 
 # [PowerShell](#tab/azure-powershell)
 
-Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
+To create a premium file share with the Azure PowerShell module, use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
@@ -175,7 +177,7 @@ New-AzStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-Now that you have a filestorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
+To create a premium file share with the Azure CLI, use the [az storage share create](/cli/azure/storage/share) command.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
@@ -190,12 +192,13 @@ az storage share create \
 
 ## Clean up resources
 
-
 # [Portal](#tab/azure-portal)
 
-If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
+If you would like to clean up the resources created in this article, delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
 
 # [PowerShell](#tab/azure-powershell)
+
+If you would like to clean up the resources created in this article, delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
 
 To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command: 
 
@@ -204,6 +207,8 @@ Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+If you would like to clean up the resources created in this article, delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
 
 To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
 
