@@ -26,7 +26,7 @@ Choose a tab to view any SDK-specific prerequisites.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+Not applicable
 
 ### [.NET](#tab/dotnet)
 
@@ -68,7 +68,6 @@ Update-Module -Name Az
 ```
 
 ### [.NET](#tab/dotnet)
-
 
 1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
@@ -132,7 +131,7 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 
 ## Add statements
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 Not applicable
 
@@ -208,7 +207,7 @@ You can use SQL to specify the row filter predicates and column projections in a
 
 - Column references are specified as `_N` where the first column is `_1`. If the source file contains a header row, then you can refer to columns by the name that is specified in the header row. 
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $container = "data"
@@ -379,7 +378,7 @@ You can scope your results to a subset of columns. That way you retrieve only th
 
 This code retrieves only the `BibNum` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query.
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $container = "data"
@@ -437,7 +436,7 @@ async function queryBibNum(blob)
 
 The following code combines row filtering and column projections into the same query. 
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $container = "data"
