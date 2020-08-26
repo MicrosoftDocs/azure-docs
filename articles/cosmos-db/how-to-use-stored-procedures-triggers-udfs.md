@@ -191,33 +191,48 @@ const {body: result} = await container.scripts.storedProcedure(sprocId).execute(
 
 ### Stored procedures - Python SDK
 
-The following example shows how to register a stored procedure by using the Python SDK
+The following example shows how to register a stored procedure by using the Python SDK:
 
 ```python
+import azure.cosmos.cosmos_client as cosmos_client
+
+url = "your_cosmos_db_account_URI"
+key = "your_cosmos_db_account_key"
+database_name = 'your_cosmos_db_database_name'
+container_name = 'your_cosmos_db_container_name'
+
 with open('../js/spCreateToDoItems.js') as file:
     file_contents = file.read()
-container_link = 'dbs/myDatabase/colls/myContainer'
-sproc_definition = {
-    'id': 'spCreateToDoItems',
+
+sproc = {
+    'id': 'spCreateToDoItem',
     'serverScript': file_contents,
 }
 client = cosmos_client.CosmosClient(url, key)
 database = client.get_database_client(database_name)
 container = database.get_container_client(container_name)
-sproc = container.create_stored_procedure(container_link, sproc_definition)
+created_sproc = container.scripts.create_stored_procedure(body=sproc) 
+
 ```
 
-The following code shows how to call a stored procedure by using the Python SDK
+The following code shows how to call a stored procedure by using the Python SDK:
 
 ```python
-sproc_link = 'dbs/myDatabase/colls/myContainer/sprocs/spCreateToDoItems'
-new_item = [{
-    'category':'Personal',
-    'name':'Groceries',
-    'description':'Pick up strawberries',
-    'isComplete': False
-}]
-container.execute_stored_procedure(sproc_link, new_item, {'partitionKey': 'Personal'}
+import azure.cosmos.cosmos_client as cosmos_client
+import uuid
+
+new_id= str(uuid.uuid4())
+
+# Creating a document for a container with "id" as a partition key.
+
+new_item =   {
+      "id": new_id, 
+      "category":"Personal",
+      "name":"Groceries",
+      "description":"Pick up strawberries",
+      "isComplete":False
+   }
+result = container.scripts.execute_stored_procedure(sproc=created_sproc,params=[[new_item]], partition_key=new_id) 
 ```
 
 ## <a id="pre-triggers"></a>How to run pre-triggers
