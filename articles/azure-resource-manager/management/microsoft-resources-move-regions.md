@@ -65,6 +65,12 @@ If you have a [template spec](../templates/template-specs.md) in one region and 
 
 1. [Export the template](../templates/export-template-portal.md). When exporting, select the deployment script and any other required resources.
 
+1. In the exported template, delete the following properties:
+
+   * tenantId
+   * principalId
+   * clientId
+
 1. The exported template has a hardcoded value for the region of the deployment script.
 
    ```json
