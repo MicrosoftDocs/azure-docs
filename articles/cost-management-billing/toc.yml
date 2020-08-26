@@ -172,6 +172,10 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
+      - name: Create subscriptions programmatically
+        href: manage/programmatically-create-subscription.md
+      - name: Grant access to create EA subscriptions
+        href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
       - name: Change credit card

@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/21/2020
+ ms.date: 08/26/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -45,10 +45,15 @@ Shared premium SSDs are only supported in the following regions:
 - West US 2
 - West Central US
 - South Central US
+- North Central US
 - Central US
+- West Europe
+- North Europe
 - Korea Central
 - Canada Central
 - Canada East
+- Japan East
+- Japan West
 - US Gov Virginia
 - US Gov Arizona
 
