@@ -19,11 +19,6 @@ ms.reviewer: lenalepa, aragra, sureshja
 
 # Quickstart: Configure a client application to access a web API
 
-> [!WARNING]
-> NOT READY FOR REVIEW<br/>
-> WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS WORK-IN-PROGRESS<br/>
-> NOT READY FOR REVIEW
-
 In this quickstart, you provide a client app registered with the Microsoft identity platform with scoped, permissions-based access to your own web API. You also provide the client app with access to Microsoft Graph.
 
 By specifying a web API's scopes in your client app's registration, the client app can obtain an access token containing those scopes from the Microsoft identity platform. Within its code, the web API can then provide permission-based access to its resources based on the scopes found in the access token.
@@ -76,6 +71,7 @@ Configure delegated permission to Microsoft Graph to enable your client applicat
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph**
 1. Select **Delegated permissions**. Microsoft Graph exposes many permissions, with the most commonly used shown at the top of the list.
 1. Under **Select permissions**, select the following permissions:
+
     | Permission       | Description                                         |
     |------------------|-----------------------------------------------------|
     | `email`          | View users' email address                           |
@@ -88,27 +84,50 @@ Whenever you configure permissions, users of your app are asked for their consen
 
 ### Application permission to Microsoft Graph
 
-Configure application permissions for an application that needs to authenticate as itself without user interaction or consent. Application permissions are typically used by background services or daemon apps that access an API in a "headless" manner, and by web APIs that access a another API (often called a *downstream* API).
+Configure application permissions for an application that needs to authenticate as itself without user interaction or consent. Application permissions are typically used by background services or daemon apps that access an API in a "headless" manner, and by web APIs that access another API (often called a *downstream* API).
+
+In the following steps, you grant permission to Microsoft Graph's *Files.Read.All*
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
+1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
+1. All permissions exposed by Microsoft Graph are shown under **Select permission**.
+1. Select the permission or permissions you want to grant your application. As an example, you might have a daemon app that scans files in your organization, alerting on a specific file type or name.
+    Under **Select permissions**, expand **Files**, and then select the *Files.Read.All* permission.
+1. Select **Add permissions**.
+
+Some permissions, like the *Files.Read.All* permission you might have added in a previous step, require admin consent. You grant admin consent by selecting the **Grant admin consent** button, discussed in the [Admin consent button](#admin-consent-button) section later in this article.
+
+### Configure client credentials
+
+Apps that use application permissions authenticate as themselves by using their own credentials, without requiring any user interaction. Before your application (or API) can access Microsoft Graph, your own web API, or another API by using application permissions, you need to configure that client app's credentials.
+
+For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
 ## Understanding API permissions and admin consent UI
 
 ### Configured permissions
 
-This section shows the permissions that have been explicitly configured on the application object. These permissions are part of the app's required resource access list. You may add or remove permissions from this table. As an admin, you can also grant or revoke admin consent for a set of an API's permissions or individual permissions.
+The **Configured permissions** section shows the permissions that have been explicitly configured on the application object. These permissions are part of the app's required resource access list.
+
+You can add or remove the permissions that appear in this table. As an admin, you can also grant or revoke admin consent for a set of an API's permissions or individual permissions.
 
 ### Other permissions granted
 
-If your application is registered in a tenant, you may see an additional section titled **Other permissions granted for Tenant**. This section shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented. This section only appears if there is at least one permission that applies.
+You might also see the **Other permissions granted for {your tenant}** section in addition to **Configured permissions**. The **Other permissions granted for {your tenant}** section shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented. This section only appears if there is at least one permission that applies.
 
-You may add a set of an API's permissions or individual permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
+You can add a set of an API's permissions or individual permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
 
 ### Admin consent button
 
-The **Grant admin consent for {your tenant}** button allows an admin to grant admin consent to the permissions configured for the application. Clicking the admin consent button launches a new window with a consent prompt showing all the configured permissions. There's a delay between permissions being configured for the application and appearing on the consent prompt. If at first you don't see all the configured permissions in the consent prompt, close the prompt and select the button again to reinitiate consent.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Grant admin consent button highlighted in the Configured permissions pane in the Azure portal":::
 
-The consent prompt provides options to **Accept** or **Cancel**. Select **Accept** to grant admin consent. If you select **Cancel**, admin consent isn't granted and an error message states that consent has been declined. There's a delay between granting admin consent by selecting **Accept** the status of admin consent being reflected in the portal.
+The **Grant admin consent for {your tenant}** button allows an admin to grant admin consent to the permissions configured for the application. When you select the button, a dialog is shown requesting that you confirm the consent action. After granting consent, the permissions that required admin consent are shown as having consent granted:
 
-The **Grant admin consent** button is *disabled* if you aren't an admin or if no permissions have been configured for the application. If you have permissions that have been granted but not configured, the admin consent button prompts you to handle these permissions. You may add them to configured permissions or you may remove them.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Configure permissions table in Azure portal showing admin consent granted for the Files.Read.All permission":::
+
+The **Grant admin consent** button is *disabled* if you aren't an admin or if no permissions have been configured for the application. If you have permissions that have been granted but not yet configured, the admin consent button prompts you to handle these permissions. You can add them to configured permissions or remove them.
 
 ## Next steps
 
