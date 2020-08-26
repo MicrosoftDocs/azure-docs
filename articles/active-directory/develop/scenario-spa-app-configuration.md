@@ -25,8 +25,8 @@ The Microsoft identity platform provides the following Microsoft Authentication 
 
 | MSAL library | Flow | Description |
 |--------------|------|-------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Authorization code flow (PKCE) | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Implicit flow | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Authorization code flow (PKCE) | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Implicit flow | Plain JavaScript library for use in any client-side web app that's built through JavaScript or SPA frameworks such as Angular, Vue.js, and React.js. |
 | ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Implicit flow | Wrapper of the core MSAL.js library to simplify use in single-page apps that are built through the Angular framework. |
 
 ## Application code configuration
