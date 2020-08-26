@@ -2,6 +2,7 @@
 title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitor ASP.NET Core web applications for availability, performance, and usage.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/30/2020
 
 ---
