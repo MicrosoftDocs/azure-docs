@@ -33,6 +33,7 @@ The table summarizes the tasks you need to complete in Azure. Instructions follo
 **Create an Azure Migrate project** | An Azure Migrate project provides a central location for orchestrating and managing assessments and migrations with Azure Migrate tools, Microsoft tools, and third-party offerings. | Your Azure account needs Contributor or Owner permissions in the resource group in which the project resides.
 **Register appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess Hyper-V VMs. [Learn more](migrate-appliance-architecture.md#appliance-registration). | To register the appliance, your Azure account needs Contributor or Owner permissions on the Azure subscription.
 **Create Azure AD app** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication between the agents running on the appliance and Azure Migrate. | Your Azure account needs permissions to create Azure AD apps.
+**Create a Key Vault** | The Key Vault is created as a part of appliance registration and is used for management of the certificate downloaded on the appliance during its configuration.| To allow Azure Migrate to create the Key Vault, your Azure account needs Contributor permissions on the resource group in which the Azure Migrate project resides.
 **Create a VM** | You need permissions to create a VM in the resource group and virtual network, and to write to an Azure managed disk. | You Azure account needs the Virtual Machine Contributor role.
 
 
@@ -76,6 +77,7 @@ The tenant/global admin can grant permissions as follows:
 #### Assign Application Developer role
 
 The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### Assign Azure account permissions
 
