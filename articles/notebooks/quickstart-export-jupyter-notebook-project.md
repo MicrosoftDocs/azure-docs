@@ -1,5 +1,5 @@
 ---
-title: Export a Jupyter Ntebook project from the Azure Notebooks Preview
+title: Export a Jupyter Notebook project from the Azure Notebooks Preview
 description: Quickly export a Jupyter Notebook project.
 ms.topic: quickstart
 ms.date: 06/29/2020
@@ -12,6 +12,7 @@ ms.date: 06/29/2020
 In this quickstart, you will download an Azure Notebooks project for use in other Jupyter Notebook solutions. 
 
 ## Prerequisites
+
 An existing Azure Notebooks project.
 
 ## Export an Azure Notebooks project
