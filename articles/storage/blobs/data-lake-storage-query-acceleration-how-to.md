@@ -24,7 +24,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 Choose a tab to view any SDK-specific prerequisites.
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 Not applicable
 
@@ -53,7 +53,7 @@ There are no additional prerequisites required to use the Node.js SDK.
 
 ## Install packages 
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 Install the Az module version 4.6.0 or higher.
 
