@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/25/2020
 ---
 
 # Outputs from Azure Stream Analytics
@@ -19,12 +19,12 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Access key|
-|[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|SQL user auth <\br> MSI (Preview)|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Azure Active Directory user </br> MSI|
+|[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|SQL user auth </br> MSI (Preview)|
 |[Azure Synapse Analytics (Preview)](azure-synapse-analytics-output.md)|No|SQL user auth|
-|[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI|
+|[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Access key|
 |[Azure Event Hubs](event-hubs-output.md)|Yes|Access key|
-|[Power BI](power-bi-output.md)|No|MSI|
+|[Power BI](power-bi-output.md)|No|Azure Active Directory user </br> MSI|
 |[Azure Table storage](table-storage-output.md)|Yes|Account key|
 |[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key|
 |[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key|
@@ -33,15 +33,51 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 ## Partitioning
 
+Stream Analytics supports partitions for all outputs except for Power BI. For more information on partition keys and the number of output writers, see the article for the specific output type you're interested in. All output articles are linked in the previous section.  
+
 The number of output writers can be controlled using an `INTO <partition count>` (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query, which can be helpful in achieving a desired job topology. If your output adapter is not partitioned, lack of data in one input partition causes a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
 
 ## Output batch size
 
 All outputs support batching, but only some support batch size explicitly. Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically the Stream Analytics engine doesn't write one message at a time, and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
 
+## Parquet output batching window properties
+
+When using Azure Resource Manager template deployment or the REST API, the two batching window properties are:
+
+1. *timeWindow*
+
+   The maximum wait time per batch. The value should be a string of Timespan. For example, "00:02:00" for two minutes. After this time, the batch is written to the output even if the minimum rows requirement is not met. The default value is 1 minute and the allowed maximum is 2 hours. If your blob output has path pattern frequency, the wait time cannot be higher than the partition time range.
+
+2. *sizeWindow*
+
+   The number of minimum rows per batch. For Parquet, every batch creates a new file. The current default value is 2,000 rows and the allowed maximum is 10,000 rows.
+
+These batching window properties are only supported by API version **2017-04-01-preview**. Below is an example of the JSON payload for a REST API call:
+
+```json
+"type": "stream",
+      "serialization": {
+        "type": "Parquet",
+        "properties": {}
+      },
+      "timeWindow": "00:02:00",
+	  "sizeWindow": "2000",
+      "datasource": {
+        "type": "Microsoft.Storage/Blob",
+        "properties": {
+          "storageAccounts" : [
+          {
+            "accountName": "{accountName}",
+            "accountKey": "{accountKey}",
+          }
+          ],
+```
+
 ## Next steps
+
 > [!div class="nextstepaction"]
-> 
+>
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

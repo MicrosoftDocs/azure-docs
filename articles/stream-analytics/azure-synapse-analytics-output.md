@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/25/2020
 ---
 
 # Azure Synapse Analytics output from Azure Stream Analytics (Preview)
