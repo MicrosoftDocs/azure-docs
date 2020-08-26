@@ -96,7 +96,7 @@ Live Video Analytics on IoT Edge emits events, or telemetry data according to th
 The events emitted by the module are sent to the [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub), and from there it can be routed to other destinations. 
 
 ### Timestamps in analytic events
-As indicated above, events generated as part of video analysis have a timestamp associated with them. If you [recorded the live video](continuous-video-recording-concept.md) as part of your graph topology, then this timestamp helps you locate where in the recorded video that particular event occured. Following are the guidelines on how to map the timestamp in an analytic event to the timeline of the video recorded into an [Azure Media Service asset](terminology.md#asset).
+As indicated above, events generated as part of video analysis have a timestamp associated with them. If you [recorded the live video](video-recording-concept.md) as part of your graph topology, then this timestamp helps you locate where in the recorded video that particular event occured. Following are the guidelines on how to map the timestamp in an analytic event to the timeline of the video recorded into an [Azure Media Service asset](terminology.md#asset).
 
 First, extract the `eventTime` value. Use this value in a [time range filter](playback-recordings-how-to.md#time-range-filters) to retrieve a suitable portion of the recording. For example, you may want to fetch video that starts 30 seconds before `eventTime` and ends 30 seconds afterwards. With the above example, where `eventTime` is 2020-05-12T23:33:09.381Z, a request for a HLS manifest for the +/- 30s window would look like the following:
 ```
