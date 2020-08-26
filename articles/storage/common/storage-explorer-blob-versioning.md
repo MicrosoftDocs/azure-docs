@@ -11,7 +11,7 @@ ms.author: chuye
 
 # Azure Storage Explorer Blob Versioning guide
 
-Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how Blob Versioning works in Azure Storage Explorer. If you haven't read the documentation on how Blob Versioning works, please read [Blob Versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) before continuing.
+Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how Blob Versioning works in Azure Storage Explorer. If you haven't read the documentation on how Blob Versioning works, read [Blob Versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) before continuing.
 
 ## Terminology
 
@@ -74,7 +74,7 @@ Blob versions are subject to your Soft Delete policy. If Soft Delete is enabled,
 
 You can restore the contents of a blob by promoting a previous blob version to become the current blob version. Select the blob version you want to promote and choose `Promote Version` from the toolbar or the context menu.
 
-Non-version blobs will be overwritten by the promoted blob version. Make sure you no longer need that data or back it up yourself before confirming the operation. Current blob versions will automatically become a previous version instead so Storage Explorer don't prompt for a confirmation.
+Non-version blobs will be overwritten by the promoted blob version. Make sure you no longer need that data or back up the data yourself before confirming the operation. Current blob versions will automatically become a previous version instead so Storage Explorer don't prompt for a confirmation.
 
 ### Undelete blob version
 
