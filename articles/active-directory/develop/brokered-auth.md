@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
@@ -117,3 +117,12 @@ If you get an `MsalClientException` with error code `"BROKER_BIND_FAILURE"`, the
 
 - Ask the user to disable power optimization for the Microsoft Authenticator app and the Intune Company Portal.
 - Ask the user to grant the `"READ_CONTACTS"` permission
+
+## Verifying broker integration
+
+It might not be immediately clear that broker integration is working, but you can use the following steps to check:
+
+1. On your Android device, complete a request using the broker.
+1. In the settings on your Android device, look for a newly created account corresponding to the account that you authenticated with. The account should be of type *Work account*.
+
+You can remove the account from settings if you want to repeat the test.
