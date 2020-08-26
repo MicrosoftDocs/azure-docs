@@ -62,7 +62,7 @@ Points to note:
 4. The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
 5. You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs will be created in the new RG. However, the old RPs will still reside in the old RG and won't be moved, as RP Collection doesn't support resource move. Eventually the RPs will get garbage collected as the points expire.
 ![Change name when modifying policy](./media/backup-during-vm-creation/modify-policy.png)
-6. It is advised not to lock the resource group created for use by the Backup service.
+6. It's advised not to lock the resource group created for use by the Backup service.
 
 To configure the Azure Backup resource group for Virtual Machines using PowerShell, refer to [Creating Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
