@@ -24,6 +24,8 @@ Hot and cool file shares are currently available in the following subset of publ
 - Australia Central 2
 - Australia East
 - Australia Southeast
+- Canada East
+- Canada Central
 - France Central
 - France South
 - Germany North (public)
@@ -39,6 +41,8 @@ Hot and cool file shares are currently available in the following subset of publ
 - Norway West
 - South Africa North
 - South Africa West
+- Switzerland North
+- Switzerland West
 - UAE Central
 - UAE North
 - UK South
