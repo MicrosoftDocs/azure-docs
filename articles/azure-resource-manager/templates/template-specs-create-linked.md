@@ -241,7 +241,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell. The command hangs.
+> There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell.
 
 ---
 
