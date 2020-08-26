@@ -300,7 +300,8 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 >
 > |Scenario|Flag|
 > |---|---|
-> |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
+> |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
 > |Exclude files based on a pattern.|**--exclude-path**|
 > |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > 

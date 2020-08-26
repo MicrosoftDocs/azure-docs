@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: speech-full-stack
 ---
 

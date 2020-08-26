@@ -19,7 +19,7 @@ ms.date: 08/24/2020
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.
