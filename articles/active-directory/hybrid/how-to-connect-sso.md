@@ -58,7 +58,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
-|Windows 8.1|Yes\*|N/A|Yes|Yes\*\*\*|N/A
+|Windows 8.1|Yes\*|Yes*\*\*\*|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
@@ -70,6 +70,8 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 \*\*Requires Internet Explorer versions 10 or above. Disable Enhanced Protected Mode
 
 \*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
+
+\*\*\*\* Edge version 77 or above.
 
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../devices/concept-azure-ad-join.md) for the optimal single sign-on experience with Azure AD.
