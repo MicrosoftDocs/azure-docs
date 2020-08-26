@@ -24,13 +24,13 @@ The following table shows the plan options for each offer type. The following se
 
 | Offer type | Plans with pricing options | Plans without pricing options | Private audience option |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure managed application | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) | | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |
-| Azure solution template | | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |
-| Azure container | | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) (BYOL) | |
-| IoT Edge module |  | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |  |
-| Managed service |  | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) (BYOL) | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |
-| Software as a service | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |  | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |
-| Azure virtual machine | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |  | ![Check mark icon.](../media/commercial-marketplace-plans/check-mark.png) |
+| Azure managed application | &#10004; | | &#10004; |
+| Azure solution template | | &#10004; | &#10004; |
+| Azure container | | &#10004; (BYOL) | |
+| IoT Edge module |  | &#10004; |  |
+| Managed service |  | &#10004; (BYOL) | &#10004; |
+| Software as a service | &#10004; |  | &#10004; |
+| Azure virtual machine | &#10004; |  | &#10004; |
 |||||
 
 Plans are not supported for the following offer types:
@@ -42,9 +42,9 @@ Plans are not supported for the following offer types:
 
 ## Plan information
 
-Each offer type requires different information when you create a new plan. You can find links to offer-specific articles in [Publishing guide by offer type](../publisher-guide-by-offer-type.md). Once you create a new plan in the Plan overview page, you will see different tabs, such as Plan listing or Pricing and availability) to configure different details for your plan. Each tab will show a status of incomplete or complete as you work through these fields.
+Each offer type requires different information when you create a new plan. You can find links to offer-specific articles in [Publishing guide by offer type](publisher-guide-by-offer-type.md). Once you create a new plan in the Plan overview page, you will see different tabs, such as Plan listing or Pricing and availability) to configure different details for your plan. Each tab will show a status of incomplete or complete as you work through these fields.
 
-![Illustrates the plan listing page in Partner Center. The Plan name, Plan summary, and Plan description fields are highlighted.](../media/commercial-marketplace-plans/plan-listing-tab.png)
+![Illustrates the plan listing page in Partner Center. The Plan name, Plan summary, and Plan description fields are highlighted.](./media/commercial-marketplace-plans/plan-listing-tab.png)
 
 There are a few common details to complete for a new plan:
 
@@ -64,7 +64,7 @@ Once you create your plans, the **Plan overview** page shows a list of your plan
 
 The following screenshot shows two draft offers.
 
-![Illustrates the Plan overview page in Partner Center. Two plans are shown.](../media/commercial-marketplace-plans/plan-overview-tab.png)
+![Illustrates the Plan overview page in Partner Center. Two plans are shown.](./media/commercial-marketplace-plans/plan-overview-tab.png)
 
 ## Pricing and availability
 
@@ -92,7 +92,7 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 > [!IMPORTANT]
 > After your offer is published, the pricing model choice cannot be changed.
 
-Flat-rate SaaS offers and managed application offers support metered billing using the marketplace metering service. This is a usage-based billing model that lets you define non-standard units, such as bandwidth or emails, that your customers will pay on a consumption basis. See related documentation to learn more about metered billing for [managed applications](../partner-center-portal/azure-app-metered-billing.md) and [SaaS apps](../partner-center-portal/saas-metered-billing.md).
+Flat-rate SaaS offers and managed application offers support metered billing using the marketplace metering service. This is a usage-based billing model that lets you define non-standard units, such as bandwidth or emails, that your customers will pay on a consumption basis. See related documentation to learn more about metered billing for [managed applications](./partner-center-portal/azure-app-metered-billing.md) and [SaaS apps](./partner-center-portal/saas-metered-billing.md).
 
 ## Custom prices
 
@@ -135,7 +135,7 @@ Prices set in United States Dollars (USD) are converted into the local currency 
 
 ### Plan visibility
 
-You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
+You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 You define your private audience by using Azure tenant IDs or Azure subscription IDs, depending on the offer type. You can enter up to 10 IDs manually or import up to 10,00 subscription IDs or 20,000 tenant IDs (as applicable) with a .csv file. You can also define private audiences for consulting services and Dynamics 365 offers that do not have plans.
 
@@ -171,9 +171,9 @@ After a customer selects a free trial for a plan, they can't convert to a paid s
 > [!NOTE]
 > After a customer starts paying for a plan, they can’t get a free trial on the same offer again, even if they switch to another plan that supports free trials.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](../partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
 
 ## Next steps
 
--  To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](../partner-center-portal/update-existing-offer.md).
--  To learn more about transaction options and associated pricing models, see [Commercial marketplace transact capabilities](../marketplace-commercial-transaction-capabilities-and-considerations.md).
+-  To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
+-  To learn more about transaction options and associated pricing models, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
