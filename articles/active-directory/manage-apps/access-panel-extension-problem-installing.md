@@ -50,11 +50,10 @@ To install the My Apps browser extension, do the following:
 
 7.  Sign in to My Apps, and check to see whether you can start your password-based SSO applications.
 
-You can also download the extension for Chrome and Microsoft Edge directly from following sites:
-
-- [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge extension](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
-- [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
+You can also download the extension from the appropriate browser add-on store. On the appropriate store, search for **My Apps Secure Sign-in Extension**. 
+- [Edge extensions](https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home)
+- [Firefox extensions](https://addons.mozilla.org/firefox/)
+- [Chrome extensions](https://chrome.google.com/webstore/category/extensions)
 
 ## Use the My Apps Secure Sign-in Extension
 * If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
