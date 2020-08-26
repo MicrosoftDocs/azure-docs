@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrate an Android app |Microsoft Azure Maps'
-description: 'Tutorial: How to migrate an Android app from Google Maps to Microsoft Azure Maps'
+description: How to migrate an Android app from Google Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Tutorial: Migrate an Android app from Google Maps
+# Migrate an Android app from Google Maps
 
 The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply.
 
@@ -20,9 +20,6 @@ The Azure Maps Android SDK supports a minimum Android version of API 21: Android
 All examples are provided in Java; however, you can use Kotlin with the Azure Maps Android SDK.
 
 For more information on developing with the Android SDK by Azure Maps, see the [How-to guides for the Azure Maps Android SDK](how-to-use-android-map-control-library.md).
-
-> [!div class="checklist"]
-> * 
 
 ## Load a map
 
@@ -181,7 +178,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         > The Azure Maps Android SDK is regularly upgraded and enhanced. You can see the [Getting started with Android map control](how-to-use-android-map-control-library.md) to get the latest Azure Maps version number. Also, you can set the version number from "0.2" to "0+" to have your code always point to the latest version.
     
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
-3. Add a map fragment to the main activity (resources pwd\> layout \> activity\_main.xml):
+3. Add a map fragment to the main activity (resources \> layout \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -784,4 +781,5 @@ mapControl.onReady(map -> {
 
 Learn more about the Azure Maps Android SDK.
 
-[How to use the Android map control](how-to-use-android-map-control-library.md)
+> [!div class="nextstepaction"]
+> [How to use the Android map control](how-to-use-android-map-control-library.md)
