@@ -42444,6 +42444,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/template-workspace-configuration.md",
+      "redirect_url": "/azure/azure-monitor/samples/resource-manager-workspace",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/advisor/advisor-alerts.md",
       "redirect_url": "/azure/advisor/advisor-alerts-portal",
       "redirect_document_id": false
