@@ -135,9 +135,9 @@ In the *MODEL VIEW* box, hit the *Upload a Model* icon.
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="In the Model View box, the middle icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-* In the file selector box that appears, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* folder in the downloaded repository.
-* Select *Room.json* and *Floor.json*, and hit OK. (You can upload the other models if you'd like, but they won't be used in this quickstart.)
-* Follow the popup dialog asking you to sign into your Azure account.
+1. In the file selector box that appears, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* folder in the downloaded repository.
+2. Select *Room.json* and *Floor.json*, and hit OK. (You can upload the other models if you'd like, but they won't be used in this quickstart.)
+3. Follow the popup dialog asking you to sign into your Azure account.
 
 >[!NOTE]
 >If you see the following error message:
