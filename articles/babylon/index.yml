@@ -1,0 +1,46 @@
+### YamlMime:Landing
+title: Azure Babylon documentation
+summary: "Learn how to set up a Azure Babylon so your organization can find, understand, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and set up your data repository where data consumers can discover available data sources and gain knowledge contributed by subject matter experts."
+metadata: 
+  author: jasonwhowell
+  description: "Learn how to set up Azure Babylon where your organization can find, understand, and consume data sources. Tutorials, API reference, and other documentation."
+  ms.author: jasonh
+  ms.date: 08/26/2020
+  ms.service: data-catalog
+  ms.topic: landing-page
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card
+  - title: Get started with Azure Babylon
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Babylon
+            url: overview.md
+          - text: Product limitations
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Babylon account
+            url: overview.md
+          - text: Adding Babylon admins
+            url: overview.md
+
+  # Card
+  - title: Top scenarios
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Tutorial on scanning data
+            url: overview.md
+          - text: Tutorial on Home page and search
+            url: overview.md
+          - text: Tutorial on Browse and Lineage
+            url: overview.md
+          - text: Tutorial on Resource set, asset details, schema and classification
+            url: overview.md
+          - text: Tutorial on Glossary, terms and import
+            url: overview.md
+
