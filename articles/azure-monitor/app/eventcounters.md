@@ -3,6 +3,7 @@ title: Event counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET/.NET Core EventCounters in Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
+ms.custom: devx-track-csharp
 
 ---
 
