@@ -40,47 +40,51 @@ Compute resources can be selected based on the tier, as well as the vCores and m
 
 The detailed specifications of the available server types are as follows:
 
-| SKU Name             | vCores | Memory Size | Max Supported IOPS | Max Supported I/O bandwidth |
-|----------------------|--------|-------------|--------------------|-----------------------------|
-| **Burstable**        |        |             |                    |                             |
-| Basic                | 1      | 1 GiB       | 320                | 10 MiB/sec                  |
-| B1ms                 | 1      | 2 GiB       | 640                | 15 MiB/sec                  |
-| B2s                  | 2      | 4 GiB       | 1280               | 15 MiB/sec                  |
-| **General Purpose**  |        |             |                    |                             |
-| D2ds_v4              | 2      | 8 GiB       | 3200               | 48 MiB/sec                  |
-| D4ds_v4              | 4      | 16 GiB      | 6400               | 96 MiB/sec                  |
-| D8ds_v4              | 8      | 32 GiB      | 12800              | 192 MiB/sec                 |
-| D16ds_v4             | 16     | 64 GiB      | 25600              | 384 MiB/sec                 |
-| D32ds_v4             | 32     | 128 GiB     | 51200              | 768 MiB/sec                 |
-| D48ds_v4             | 48     | 192 GiB     | 76800              | 1152 MiB/sec                |
-| D64ds_v4             | 64     | 256 GiB     | 80000              | 1200 MiB/sec                |
-| **Memory Optimized** |        |             |                    |                             |
-| E2ds_v4              | 2      | 16 GiB      | 3200               | 48 MiB/sec                  |
-| E4ds_v4              | 4      | 32 GiB      | 6400               | 96 MiB/sec                  |
-| E8ds_v4              | 8      | 64 GiB      | 12800              | 192 MiB/sec                 |
-| E16ds_v4             | 16     | 128 GiB     | 25600              | 384 MiB/sec                 |
-| E32ds_v4             | 32     | 256 GiB     | 51200              | 768 MiB/sec                 |
-| E48ds_v4             | 48     | 384 GiB     | 76800              | 1152 MiB/sec                |
-| E64ds_v4             | 64     | 504 GiB     | 80000              | 1200 MiB/sec                |
+| SKU Name             | vCores | Memory Size | 
+|----------------------|--------|-------------|
+| **Burstable**        |        |             | 
+| B1s                  | 1      | 1 GiB       |  
+| B1ms                 | 1      | 2 GiB       | 
+| B2s                  | 2      | 4 GiB       |  
+| B2ms                 | 2      | 8 GiB       | 
+| **General Purpose**  |        |             |                                
+| D2ds_v4              | 2      | 8 GiB       |  
+| D4ds_v4              | 4      | 16 GiB      | 
+| D8ds_v4              | 8      | 32 GiB      | 
+| D16ds_v4             | 16     | 64 GiB      | 
+| D32ds_v4             | 32     | 128 GiB     |  
+| D48ds_v4             | 48     | 192 GiB     |  
+| D64ds_v4             | 64     | 256 GiB     | 
+| **Memory Optimized** |        |             |
+| E2ds_v4              | 2      | 16 GiB      |
+| E4ds_v4              | 4      | 32 GiB      |
+| E8ds_v4              | 8      | 64 GiB      |
+| E16ds_v4             | 16     | 128 GiB     |
+| E32ds_v4             | 32     | 256 GiB     |
+| E48ds_v4             | 48     | 384 GiB     |
+| E64ds_v4             | 64     | 504 GiB     |
+
+To get more details about the compute VM, please refer to Azure VM documentation for [B-series](../../virtual-machines/sizes-b-series-burstable), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series).
 
 ## Storage
 
-The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
-
-| Storage attribute      | Burstable              | General Purpose         | Memory Optimized         |
-|:-----------------------|:-----------------------|:------------------------|:-------------------------|
-| Storage size           | 5 GiB to 16 TiB        | 5 GiB to 16 TiB         | 5 GiB to 16 TiB          |
-| Storage increment size | 1 GiB                  | 1 GiB                   | 1 GiB                    |
-| IOPS                   | 3 IOPS/GiB<br/>Max 20,000 IOPS |3 IOPS/GiB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GiB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
-
-You can add additional storage capacity during and after the creation of the server.
-
-In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
+The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all compute tiers, the minimum storage supported is 5 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
 
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-You can monitor your I/O consumption in the Azure portal<!-- or by using Azure CLI commands-->. The relevant metrics to monitor are storage limit, storage percentage, storage used, and IO percent <!-- [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->.
+You can monitor the your storage consumption in the Azure portal using the storage limit, storage percentage, and storage used metrics. <!-- add link to metrics doc>
+
+## IOPS
+
+In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio. You can scale IOPS by increasing the provisioned storage. The minimum IOPS supported is 100 IOPS. The maximum effective IOPS may be limited by the maximum available IOPS of the selected compute size. 
+
+**Effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned * 3)
+
+You can monitor your I/O consumption in the Azure portal using IO percent metric. <!-- add link to metrics doc-->
+
+> [!NOTE]
+> In preview, the max IOPS supported is 20,000 IOPS.
 
 ### Reaching the storage limit
 
