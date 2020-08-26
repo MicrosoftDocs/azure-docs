@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ---
 
+# Achieve geo-redundancy for Azure Stream Analytics jobs
+
 Azure Stream Analytics does not provide automatic geo-failover, but you can achieve geo-redundancy by deploying identical Stream Analytics jobs in multiple Azure regions. Each job connects to a local input and local output sources. It is the responsibility of your application to both send input data into the two regional inputs and reconcile between the two regional outputs. The Stream Analytics jobs are two separate entities.
 
 The following diagram depicts a sample geo-redundant Stream Analytics job deployment with Event Hub input and Azure Database output.
