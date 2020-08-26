@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,7 +50,7 @@ To edit a custom control, you must delete the current control and create a new c
 
 ## Known limitations
 
-Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, or to elevate roles in Privileged Identity Manager (PIM).
+Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), or as part of Intune device enrollment.
 
 ## Next steps
 
