@@ -64,27 +64,16 @@ The detailed specifications of the available server types are as follows:
 | E48ds_v4             | 48     | 384 GiB     |
 | E64ds_v4             | 64     | 504 GiB     |
 
-To get more details about the compute VM, please refer to Azure VM documentation for [B-series](../../virtual-machines/sizes-b-series-burstable), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series).
+To get more details about the compute series available, please refer to Azure VM documentation for [B-series (Burstable)](../../virtual-machines/sizes-b-series-burstable), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series), and [Memory Optmized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series).
 
 ## Storage
 
-The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all compute tiers, the minimum storage supported is 5 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
+The storage you provision is the amount of storage capacity available to your flexible server. Storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. In all compute tiers, the minimum storage supported is 5 GiB and maximum is 16 TiB. Storage is scaled in 1 GiB increments and can be scaled up after the server is created.
 
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-You can monitor the your storage consumption in the Azure portal using the storage limit, storage percentage, and storage used metrics. <!-- add link to metrics doc>
-
-## IOPS
-
-In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio. You can scale IOPS by increasing the provisioned storage. The minimum IOPS supported is 100 IOPS. The maximum effective IOPS may be limited by the maximum available IOPS of the selected compute size. 
-
-**Effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned * 3)
-
-You can monitor your I/O consumption in the Azure portal using IO percent metric. <!-- add link to metrics doc-->
-
-> [!NOTE]
-> In preview, the max IOPS supported is 20,000 IOPS.
+You can monitor the your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. <!-- add link to metrics doc>
 
 ### Reaching the storage limit
 
@@ -96,11 +85,22 @@ While the service attempts to make the server read-only, all new write transacti
 
 We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. 
 
-<!-- We recommend that you turn on storage auto-grow or to set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](howto-alert-on-metric.md)-->.
+<!-- We recommend that you turn on storage auto-grow or to set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](howto-alert-on-metric.md).-->
 
 ### Storage auto-grow
 
-Storage auto-grow is not yet available for Flexible Server.
+Storage auto-grow is not yet available for Azure Database for MySQL Flexible Server.
+
+## IOPS
+
+In all compute tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio. You can scale IOPS by increasing the provisioned storage. The minimum IOPS supported is 100 IOPS. The maximum effective IOPS may be limited by the maximum available IOPS of the selected compute size. 
+
+**Effective IOPS** = MINIMUM(maximum IOPS of compute size, storage provisioned * 3)
+
+You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using IO percent metric. <!-- add link to metrics doc-->
+
+> [!NOTE]
+> In preview, the max IOPS supported is 20,000 IOPS.
 
 ## Backup
 
