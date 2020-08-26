@@ -5,22 +5,22 @@
   - name: What is Project Babylon?
     href: overview.md
   - name: Product Limitations
-    href: product-limitations.md
+    href: overview.md
 - name: Quickstart
   items:
   - name: Create a Babylon account
-    href: create-catalog-portal.md
+    href: overview.md
   - name: Adding Babylon admins
-    href: catalog-permissions.md
+    href: overview.md
 - name: Tutorials
   items:
   - name: Tutorial on scanning data
-    href: starter-kit-tutorial-1.md
+    href: overview.md
   - name: Tutorial on Home page and search
-    href: starter-kit-tutorial-2.md
+    href: overview.md
   - name: Tutorial on Browse and Lineage
-    href: starter-kit-tutorial-3.md 
+    href: overview.md
   - name: Tutorial on Resource set, asset details, schema and classification
-    href: starter-kit-tutorial-4.md 
+    href: overview.md
   - name: Tutorial on Glossary, terms and import
-    href: starter-kit-tutorial-5.md
+    href: overview.md
