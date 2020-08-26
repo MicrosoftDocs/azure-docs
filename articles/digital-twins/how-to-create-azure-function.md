@@ -85,7 +85,7 @@ For more information about this, see [*Debug Event Grid trigger locally*](../azu
 
 The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). In order to use the SDK, you'll need to include the following packages in your project:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity` (version `1.1.1`)
+* `Azure.Identity`
 
 For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need:
 * `Azure.Net.Http`
