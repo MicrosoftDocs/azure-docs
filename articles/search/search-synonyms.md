@@ -18,7 +18,7 @@ In Azure Cognitive Search, synonym expansion is done at query time. You can add 
 
 ## Create synonyms
 
-There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
+There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
 
 Optionally, if you are using [customer-managed keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest, you can apply that protection to the contents of your synonym map.
 
@@ -168,4 +168,4 @@ If you have an existing index in a development (non-production) environment, exp
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a synonym map](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Create a synonym map](/rest/api/searchservice/create-synonym-map)

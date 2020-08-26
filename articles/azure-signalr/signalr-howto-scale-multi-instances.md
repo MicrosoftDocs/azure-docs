@@ -4,6 +4,7 @@ description: In many scaling scenarios, customer often needs to provision multip
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
 ---

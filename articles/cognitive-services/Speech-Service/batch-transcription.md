@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: wolfma
+ms.custom: devx-track-csharp
 ---
 
 # How to use batch transcription

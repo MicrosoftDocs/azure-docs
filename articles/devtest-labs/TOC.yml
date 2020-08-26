@@ -8,7 +8,7 @@
     href: lab-services-overview.md
 - name: Quickstart
   items:
-  - name: Create a lab - ARM template
+  - name: Create a lab - Resource Manager template
     displayName: Resource Manager
     href: create-lab-windows-vm-template.md  
 - name: Tutorials
@@ -75,6 +75,8 @@
     items: 
     - name: Create a lab
       href: devtest-lab-create-lab.md
+    - name: Create a network isolated lab
+      href: network-isolation.md
     - name: Create or modify labs using Resource Manager template
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
     - name: Specify resource group for lab virtual machines
