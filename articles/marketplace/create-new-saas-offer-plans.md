@@ -12,7 +12,7 @@ ms.date: 07/31/2020
 
 # Create plans for your SaaS offer
 
-Offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service.
+Offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service. For detailed guidance on plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
 
 > [!NOTE]
    > If you choose to process transactions independently, you don't need to create plans for your offer, and you won't see the option to do so. Instead, go to [Marketing options](create-new-saas-offer-marketing.md).
@@ -59,7 +59,7 @@ Every plan must be available in at least one market. On the **Pricing and availa
 
 ## Define a pricing model
 
-You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [Pricing models](plan-saas-offer.md#pricing-models).
+You must associate a pricing model with each plan: either _flat rate_ or _per user_. All plans in the same offer must use the same pricing model. For example, an offer cannot have one plan that's flat rate and another plan that’s per user. For more information, see [Pricing models](plan-saas-offer.md#saas-pricing-models).
 
 > [!IMPORTANT]
 > After your offer is published, your pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
@@ -90,19 +90,7 @@ This option is available only if you selected flat rate pricing.
 
 ### Validate custom prices
 
-To set custom prices in an individual market, export, modify, and then import the pricing spreadsheet. You're responsible for validating this pricing and owning these settings.
-
-Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published.
-
-Note the following:
-
-- After a plan is published, the pricing model can't be changed.
-- After a billing term is published for a plan, it can't be removed later.
-- After a price for a market in your plan is published, it can't be changed later.
-
-Plan pricing is always displayed in United States Dollars (USD) on the **Pricing and availability** page. Prices are automatically converted into the local currency of all selected markets using the current exchange rates. You can validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
-
-**To validate and set custom prices**
+To set custom prices in an individual market, export, modify, and then import the pricing spreadsheet. You're responsible for validating this pricing and owning these settings. For detailed information, see [Custom prices](plans-pricing.md#custom-prices).
 
 1. You must first save your pricing changes to enable export of pricing data. Near the bottom of the **Pricing and availability** tab, select **Save draft**.
 1. Under **Pricing**, select the **Export pricing data** link.
@@ -117,7 +105,7 @@ Plan pricing is always displayed in United States Dollars (USD) on the **Pricing
 
 ### Enable a free trial
 
-You can configure a free trial for each plan in your offer. Select the check box to allow a one-month free trial. For more information about free trials, see [Free trials](plan-saas-offer.md#free-trials).
+You can configure a free trial for each plan in your offer. Select the check box to allow a one-month free trial. For more information, see [Free trials](plans-pricing.md#free-trials).
 
 > [!IMPORTANT]
 > After your transactable offer has been published with a free trial, it cannot be disabled for that plan. Make sure this setting is correct before you publish the offer to avoid having to re-create the plan.
@@ -129,7 +117,7 @@ You can configure a free trial for each plan in your offer. Select the check box
   > [!NOTE]
   > This check box isn't available for plans that use the marketplace metering service.
 
-### **Choose who can see your plan**
+### Choose who can see your plan
 
 You can configure each plan to be visible to everyone or to only a specific audience. You grant access to a private plan using tenant IDs with the option to include a description of each tenant ID you assign. You can add a maximum of 10 tenant IDs manually or up to 20,000 tenant IDs using a .CSV file.
 

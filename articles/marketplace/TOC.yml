@@ -18,7 +18,7 @@
       - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
       - name: Plans and Pricing
-        href: plans.pricing.md
+        href: plans-pricing.md
       - name: Private offers
         href: ./private-offers.md
       - name: Standard Contract
@@ -237,8 +237,6 @@
         href: ./test-drive-technical-configuration.md
       - name: Test drive for Azure Resource Manager
         href: ./azure-resource-manager-test-drive.md
-    - name: Free trials
-      href: free-trial-offer.md    
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md 
       items:

@@ -25,7 +25,7 @@ The following table shows the listing options for SaaS offers in the commercial 
 | Contact me | The customer contacts you directly from information in your listing.``*`` |
 | Free trial | The customer is redirected to your target URL via Azure Active Directory (Azure AD).``*`` |
 | Get it now (Free) | The customer is redirected to your target URL via Azure AD.``*`` |
-| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers as a flat fee, and manage customer transactions on your behalf. Note that Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [Pricing and billing](#pricing-and-billing) below.  |
+| Sell through Microsoft  | Offers sold through Microsoft are called _transactable_ offers. An offer that is transactable is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. We bill SaaS offers as a flat fee, and manage customer transactions on your behalf. Note that Azure infrastructure usage fees are billed to you, the partner, directly. You should account for infrastructure costs in your pricing model. This is explained in more detail in [SaaS billing](#saas-billing) below.  |
 |||
 
 ``*`` Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to order, fulfillment, metering, billing, invoicing, payment, and collection.
@@ -99,7 +99,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
 You can choose to enable a test drive for your SaaS app. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
 
 > [!TIP]
-> A test drive is different from a [free trial](#free-trials). You can offer a test drive, free trial, or both. They both provide your customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
+> A test drive is different from a [free trial](plans-pricing.md#free-trials). You can offer a test drive, free trial, or both. They both provide your customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
 ## Customer leads
 
@@ -252,7 +252,7 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Providers](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) for more information.
 
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
 
 ## Next steps
 
