@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article tells how to run runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
 ---
 # Run runbooks on a Hybrid Runbook Worker
@@ -25,6 +25,12 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 * Have the runbook provide its own authentication to local resources.
 * Configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). 
 * Specify a Run As account to provide a user context for all runbooks.
+
+## Logs
+
+Logs are stored locally on each hybrid worker. On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes`. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations.
+
+On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log` and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
 
 ## Use runbook authentication to local resources
 
