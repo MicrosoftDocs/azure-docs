@@ -68,7 +68,27 @@ In addition to accessing your own web API on behalf of the signed-in user, your 
 
 ### Delegated permission to Microsoft Graph
 
+Configure delegated permission to Microsoft Graph to enable your client application to perform operations on behalf of the user, for example reading their email or modifying their profile. By default, users of your client app are asked when they sign in to consent to the delegated permissions you configure for it.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
+1. Select **API permissions** > **Add a permission** > **Microsoft Graph**
+1. Select **Delegated permissions**. Microsoft Graph exposes many permissions, with the most commonly used shown at the top of the list.
+1. Under **Select permissions**, select the following permissions:
+    | Permission       | Description                                         |
+    |------------------|-----------------------------------------------------|
+    | `email`          | View users' email address                           |
+    | `offline_access` | Maintain access to data you have given it access to |
+    | `openid`         | Sign users in                                       |
+    | `profile`        | View users' basic profile                           |
+1. Select **Add permissions** to complete the process.
+
+Whenever you configure permissions, users of your app are asked for their consent to allow your app to access the resource API on their behalf. As an admin, you can also grant consent on behalf of all users so they're not prompted to do so. Admin consent is discussed later in the [Understanding API permissions and admin consent UI](#understanding-api-permissions-and-admin-consent-ui) section of this article.
+
 ### Application permission to Microsoft Graph
+
+Configure application permissions for an application that needs to authenticate as itself without user interaction or consent. Application permissions are typically used by background services or daemon apps that access an API in a "headless" manner, and by web APIs that access a another API (often called a *downstream* API).
 
 ## Understanding API permissions and admin consent UI
 
