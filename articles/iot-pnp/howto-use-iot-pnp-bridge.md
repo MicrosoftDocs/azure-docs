@@ -11,7 +11,7 @@ services: iot-pnp
 # As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play bridge device application running on Linux or Windows to IoT Hub
+# How to Connect a sample IoT Plug and Play bridge device application running on Linux or Windows to IoT Hub
 
 This quickstart shows you how to build IoT Plug and Play bridge, connect it to your IoT Hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
