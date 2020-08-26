@@ -7,6 +7,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
