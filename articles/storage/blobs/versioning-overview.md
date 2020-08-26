@@ -36,6 +36,10 @@ When you delete a blob with versioning enabled, Azure Storage creates a version 
 
 Blob versions are immutable. You cannot modify the content or metadata of an existing blob version.
 
+Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
+
+Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
+
 ### Version ID
 
 Each blob version is identified by a version ID. The value of the version ID is the timestamp at which the blob was written or updated. The version ID is assigned at the time that the version is created.
@@ -189,86 +193,6 @@ The following table shows the permission required on a SAS to delete a blob vers
 | **Permission** | **URI symbol** | **Allowed operations** |
 |----------------|----------------|------------------------|
 | Delete         | x              | Delete a blob version. |
-
-## About the preview
-
-Blob versioning is available in preview in the following regions:
-
-- East US 2
-- Central US
-- North Europe
-- West Europe
-- France Central
-- Canada East
-- Canada Central
-
-> [!IMPORTANT]
-> The blob versioning preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
-
-### Storage account support
-
-Blob versioning is available for the following types of storage accounts:
-
-- General-purpose v2 storage accounts
-- Block blob storage accounts
-- Blob storage accounts
-
-If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
-
-Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
-
-### Register for the preview
-
-To enroll in the blob versioning preview, use PowerShell or Azure CLI to submit a request to register the feature with your subscription. After your request is approved, you can enable blob versioning with any new or existing general-purpose v2, Blob storage, or premium block blob storage accounts.
-
-# [PowerShell](#tab/powershell)
-
-To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-```powershell
-# Register for blob versioning
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### Check the status of your registration
-
-To check the status of your registration, use PowerShell or Azure CLI.
-
-# [PowerShell](#tab/powershell)
-
-To check the status of your registration with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
 
 ## Pricing and billing
 
