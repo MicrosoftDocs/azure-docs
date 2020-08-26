@@ -153,25 +153,10 @@ Microsoft provides [customizable templates for emails and other communications](
 
 When a user signs in to an application, they go through an authentication process and are required to prove who they are. Without SSO, a password is stored in the application, and the user is required to know this password. With SSO, users’ credentials are passed to the application, so they don't need to reenter passwords for each application.
 
-To launch applications in My Apps, SSO must be enabled.
+To launch applications in My Apps, SSO must be enabled. Azure AD supports multiple SSO options. To learn more, see [Single sign-on options in Azure AD](sso-options.md).
 
-Azure AD supports three different ways to enable [single sign-on in applications](what-is-single-sign-on.md):
-
-* **Federated single sign-on** 
-    * Enables an application to redirect to Azure AD for user authentication, instead of prompting for a password. 
-    * Is supported for applications that use protocols, such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.
-
-* **Password-based single sign-on** 
-    * Enables secure application password storage and replay by using a web browser extension or mobile app. 
-    * Takes advantage of the existing sign-in process provided by the application but enables an administrator to manage the passwords. User isn't required to know the password.
-
-* **Existing single sign-on** 
-    * Enables Azure AD to take advantage of any existing single sign-on that's been configured for the application.
-    * Enables these applications to be linked to the Office 365 or Azure AD My Apps portals. 
-    * Enables additional reporting in Azure AD when the applications are launched there. 
-    * Includes using Azure Application Proxy and the linked single sign-on mode.
-
-To learn more about using Azure AD as an identity provider for an app, see [Quickstart Series on Application Management](view-applications-portal.md).
+> [!NOTE]
+> To learn more about using Azure AD as an identity provider for an app, see the [Quickstart Series on Application Management](view-applications-portal.md).
 
 For the best experience with the My Apps page, start with the integration of cloud applications that are available for federated SSO. Federated SSO allows users to have a consistent one-click experience across their app launching surfaces and tends to be more robust in configuration control.
 
@@ -181,7 +166,7 @@ For more information on how to deploy and configure your SaaS applications, see 
 
 #### Plan to deploy the My Apps browser extension
 
-When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing My Apps browser extension](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
+When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing My Apps browser extension](application-access-panel-extension-problem-installing.md).
 
 If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
@@ -191,8 +176,6 @@ If you must integrate password-based SSO applications, you should define a mecha
 
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Learn more: [How to configure password single sign-on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
-
 Users who don't use password-based SSO applications also benefit from the extension. These benefits include the ability to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 
 #### Plan for mobile access
@@ -201,9 +184,10 @@ A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser
 
 ## Plan your My Apps Deployment
 
-The foundation of My Apps is the application launcher My Apps, which users access at [https://myapps.microsoft.com](https://myapps.microsoft.com/). The My Apps pages give users a single place to start their work and get to their necessary applications. Here, users find a list of all the applications they have single sign-on access to. 
+The foundation of My Apps is the application launcher portal, which users access at [https://myapps.microsoft.com](https://myapps.microsoft.com/). The My Apps page give users a single place to start their work and get to their necessary applications. Here, users find a list of all the applications they have single sign-on access to. 
 
-The same applications will be shown in the Office 365 app launcher when users are using the Office 365 portal.
+> [!NOTE]
+> The same applications will be shown in the Office 365 app launcher when users are using the Office 365 portal.
 
 Plan the order in which you'll add applications to the My Apps launcher, and decide whether you'll roll them out gradually or all at once. To do so, create an application inventory listing the type of authentication and any existing SSO integrations for each application.
 
@@ -239,11 +223,11 @@ Approval workflows are available for explicit approval to access applications. U
 
 You can enable users to create and manage their own security groups or Office 365 groups in Azure AD. The owner of the group can approve or deny membership requests and delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists.
 
-To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If you're allowing a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) for details on enabling these scenarios.
+To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If you're allowing a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](../users-groups-roles/groups-self-service-management.md) for details on enabling these scenarios.
 
 ## Plan reporting and auditing
 
-Azure AD provides [reports that offer technical and business insights](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Work with your business and technical application owners to assume ownership of these reports and to consume them on a regular basis. The following table provides some examples of typical reporting scenarios.
+Azure AD provides [reports that offer technical and business insights](../reports-monitoring/overview-reports.md). Work with your business and technical application owners to assume ownership of these reports and to consume them on a regular basis. The following table provides some examples of typical reporting scenarios.
 
 | Example | Manage risk| Increase productivity| Governance and compliance |
 |  - |- | - | - |
@@ -264,7 +248,7 @@ After an application has been configured for SSO, groups are assigned access. Us
 
 See [Assign users and groups to an application in Active Directory](methods-for-assigning-users-and-groups.md).
 
-If during testing or deployment you want to add the groups but not yet allow the applications to show in My Apps, see [Hide an application from user’s experience in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
+If during testing or deployment you want to add the groups but not yet allow the applications to show in My Apps, see [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
 ### Deploy Microsoft Office 365 applications to My Apps
 
@@ -278,7 +262,7 @@ Self-service application access allows users to self-discover and request access
 
 You can delegate approval of application access requests to business approvers. The business approver can set the app access passwords from the business approver’s My Apps page.
 
-Learn more: [How to use self-service application access](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
+Learn more: [How to use self-service application access](access-panel-manage-self-service-access.md).
 
 ## Validate your deployment
 
@@ -309,12 +293,12 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 ### Rollback steps
 
-It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../manage-apps/plan-sso-deployment.md).
+It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## Manage your implementation
 
-You should use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
+You should use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](../users-groups-roles/directory-assign-admin-roles.md) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
 
 | Personas| Roles| Azure AD role  |
 | - | -| -|
@@ -324,7 +308,7 @@ You should use the least privileged role to accomplish a required task within Az
 | Infrastructure admins| Cert rollover owner| Global admin |
 | Business owner/stakeholder| User attestation in application, configuration on users with permissions| None |
 
-You can use [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
+You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
 ### Troubleshoot My Apps issues
 
@@ -332,15 +316,15 @@ Create troubleshooting guides for your support organization with common scenario
 
 See these troubleshooting guides for reference:
 
-[Applications not appearing](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
+[Applications not appearing](access-panel-troubleshoot-application-not-appearing.md)
 
-[Unexpected applications appearing](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application)
+[Unexpected applications appearing](access-panel-troubleshoot-unexpected-application.md)
 
-[User cannot sign in to My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem)
+[User cannot sign in to My Apps](access-panel-troubleshoot-web-sign-in-problem.md)
 
-[Problems using self-service application access](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access)
+[Problems using self-service application access](access-panel-troubleshoot-self-service-access.md)
 
-[Issues with the browser extension](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
+[Issues with the browser extension](manage-access-panel-browser-extension.md)
 
 ## Next steps
 
