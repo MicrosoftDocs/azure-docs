@@ -94,7 +94,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```
 
 > [!Note]
-> There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) for differences.
+> There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/microsoft/spring-cloud-azure) for differences.
 
 ## Connect to an App Configuration store
 

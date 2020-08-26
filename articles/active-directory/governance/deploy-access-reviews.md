@@ -421,7 +421,7 @@ To reduce the risk of stale access, administrators can enable periodic reviews o
 | How-to articles| Description |
 | - | - |
 | [Create Access Reviews](entitlement-management-access-reviews-create.md)| Enable reviews of Access Package. |
-| [Perform Access Reviews](/entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
+| [Perform Access Reviews](entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
 | [Self-review assigned Access Package(s)](entitlement-management-access-reviews-self-review.md)| Self-review of assigned Access Package(s) |
 
 

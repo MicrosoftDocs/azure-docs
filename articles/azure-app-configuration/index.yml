@@ -132,7 +132,7 @@ landingContent:
         - text: Azure SDK for .Net
           url: https://go.microsoft.com/fwlink/?linkid=2092056
         - text: Spring Boot provider
-          url: https://go.microsoft.com/fwlink/?linkid=2074659
+          url: https://github.com/microsoft/spring-cloud-azure/tree/master/
         - text: Azure SDK for Java
           url: https://go.microsoft.com/fwlink/?linkid=2098196
         - text: Azure SDK for Python
