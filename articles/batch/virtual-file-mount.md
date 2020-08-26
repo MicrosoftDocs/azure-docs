@@ -2,6 +2,7 @@
 title: Mount a virtual file system on a pool
 description: Learn how to mount a virtual file system on a Batch pool.
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ms.date: 08/13/2019
 ---
 

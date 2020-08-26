@@ -10,6 +10,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
+ms.custom: devx-track-csharp
 ---
 
 # Specify a face recognition model

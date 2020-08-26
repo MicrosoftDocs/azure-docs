@@ -40,11 +40,11 @@ void ChangeStageSpace(AzureSession session)
 ```cpp
 void ChangeStageSpace(ApiHandle<AzureSession> session)
 {
-    ApiHandle<StageSpaceSettings> settings = *session->Actions()->StageSpaceSettings();
+    ApiHandle<StageSpaceSettings> settings = session->Actions()->GetStageSpaceSettings();
 
     // Set position and rotation to the world-space transform of the stage space.
-    settings->Position({0, 0, 0});
-    settings->Rotation({0, 0, 0, 1});
+    settings->SetPosition({0, 0, 0});
+    settings->SetRotation({0, 0, 0, 1});
 }
 ```
 

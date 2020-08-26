@@ -132,7 +132,7 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 - The maximum number of usable ephemeral ports per frontend IP address is 64,000.
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load Balancer does not support ICMP for outbound NAT.
-- Outbound rules can only be applied to primary IP configuration of a NIC.  Multiple NICs are supported.
+- Outbound rules can only be applied to primary IP configuration of a NIC.  You cannot create an outbound rule for the secondary IP of a VM or NVA. Multiple NICs are supported.
 - Web Worker Roles without a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer is used due to a side effect from how pre-VNet services and other platform services function. Do not rely on this side effect as the respective service itself or the underlying platform may change without notice. You must always assume you need to create outbound connectivity explicitly if desired when using an internal Standard Load Balancer only. Scenario 3 described in this article is not available.
 
 ## Next steps
