@@ -84,23 +84,23 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
    1. Provide a name for your connection, and select your Service Bus namespace.
 
-      ![Create Service Bus connection, part 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Screenshot that shows providing connection name and selecting Service Bus namespace](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       To manually enter the connection string instead, select **Manually enter connection information**. If you don't have your connection string, learn [how to find your connection string](#permissions-connection-string).
 
    1. Select your Service Bus policy, and select **Create**.
 
-      ![Create Service Bus connection, part 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Screenshot that shows selecting Service Bus policy](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Select the messaging entity you want, such as a queue or topic. For this example, select your Service Bus queue.
    
-      ![Select Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Screenshot that shows selecting Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Provide the necessary information for your selected trigger. To add other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
    For this example's trigger, select the polling interval and frequency for checking the queue.
 
-   ![Set up polling interval](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Screenshot that shows setting polling interval on the Service Bus trigger](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    For more information about available triggers and properties, see the connector's [reference page](/connectors/servicebus/).
 
@@ -122,29 +122,29 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
    For this example, select the **Send message** action.
 
-   ![Select Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Screenshot that shows selecting the Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. If your action is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
    1. Provide a name for your connection, and select your Service Bus namespace.
 
-      ![Create Service Bus connection, part 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Screenshot that shows providing a connection name and selecting a Service Bus namespace](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       To manually enter the connection string instead, select **Manually enter connection information**. If you don't have your connection string, learn [how to find your connection string](#permissions-connection-string).
 
    1. Select your Service Bus policy, and select **Create**.
 
-      ![Create Service Bus connection, part 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Screenshot that shows selecting a Service Bus policy and selecting the Create button](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Select the messaging entity you want, such as a queue or topic. For this example, select your Service Bus queue.
 
-      ![Select Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Screenshot that shows selecting a Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Provide the necessary details for your selected action. To add other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
    For example, select the **Content** and **Content Type** properties so that you add them to the action. Then, specify the content for the message that you want to send.
 
-   ![Provide message content and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Screenshot that shows providing the message content type and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    For more information about available actions and their properties, see the connector's [reference page](/connectors/servicebus/).
 

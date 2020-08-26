@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Explore the basics with a sample client app
+title: 'Tutorial: Explore the basics with a sample client app'
 titleSuffix: Azure Digital Twins
 description: Tutorial to explore the Azure Digital Twins SDKs using a sample command-line application
 author: baanders
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Explore Azure Digital Twins with a sample client app
+# Tutorial: Explore Azure Digital Twins with a sample client app
 
 This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [*Tutorial: Code a client app*](tutorial-code.md).
 
@@ -289,24 +289,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 The project in this tutorial forms the basis for the next tutorial, [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
 * In this case, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
 
-If you no longer need the resources created in this tutorial, follow these steps to delete them.
-
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
-
-Open an Azure Cloud Shell and run the following command to delete the resource group and everything it contains.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Finally, delete the project sample folder you downloaded to your local machine.
 
@@ -315,12 +298,5 @@ Finally, delete the project sample folder you downloaded to your local machine.
 In this tutorial, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You used the client app to explore Azure Digital Twins, creating models, digital twins, and relationships. You also ran some queries on the solution, to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
 
 Continue to the next tutorial to use the sample command-line app in combination with other Azure services to complete a data-driven, end-to-end scenario:
-
 > [!div class="nextstepaction"]
 > [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
-
-Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [*Concepts: Custom models*](concepts-models.md)
-
-You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
