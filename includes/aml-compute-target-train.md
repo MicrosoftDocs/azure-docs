@@ -18,7 +18,7 @@ ms.date: 08/19/2020
 |[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-sdk.md#amlcompute)| yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
 |[Azure Machine Learning compute instance](../articles/machine-learning/how-to-create-attach-compute-sdk.md#instance) | yes & <br/>hyperparameter tuning | yes |  |
 |[Remote VM](../articles/machine-learning/how-to-create-attach-compute-sdk.md#vm) | yes & <br/>hyperparameter tuning | yes | &nbsp; |
-|[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| yes (SDK local mode only) | yes | &nbsp; |
-|[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | yes | &nbsp; |
+|[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-attach-compute-sdk.md#databricks)| yes (SDK local mode only) | yes | &nbsp; |
+|[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-attach-compute-sdk.md#adla) | &nbsp; | yes | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-create-attach-compute-sdk.md#hdinsight) | &nbsp; | yes | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-create-attach-compute-sdk.md#azbatch) | &nbsp; | yes | &nbsp; |
