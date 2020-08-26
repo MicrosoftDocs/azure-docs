@@ -107,6 +107,8 @@ my_environment.python.user_managed_dependencies = True
 
 ## Create script run configuration
 
+Now that you have a compute target (`compute_target`) and environment (`my_environment`), create a script run configuration that runs your training script (`train.py`) from your `project_folder` directory:
+
 ```python
 from azureml.core import ScriptRunConfig
 
