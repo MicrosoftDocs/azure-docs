@@ -270,7 +270,7 @@ If during testing or deployment you want to add the groups but not yet allow the
 
 For Office 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications that are associated with the license in their My Apps page and in the Office 365 app launcher.
 
-If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Office 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Office 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
 ### Deploy application self-service capabilities
 
