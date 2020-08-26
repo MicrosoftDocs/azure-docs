@@ -48,4 +48,4 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 
 ## Next steps
 > [!div class="nextstepaction"]
-> * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
+> [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
