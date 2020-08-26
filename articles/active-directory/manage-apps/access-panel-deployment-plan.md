@@ -171,7 +171,7 @@ Azure AD supports three different ways to enable [single sign-on in applications
     * Enables additional reporting in Azure AD when the applications are launched there. 
     * Includes using Azure Application Proxy and the linked single sign-on mode.
 
-Learn how to configure an application’s SSO mode here: [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about using Azure AD as an identity provider for an app, see [Quickstart Series on Application Management](view-applications-portal.md).
 
 For the best experience with the My Apps page, start with the integration of cloud applications that are available for federated SSO. Federated SSO allows users to have a consistent one-click experience across their app launching surfaces and tends to be more robust in configuration control.
 
@@ -195,10 +195,6 @@ Learn more: [How to configure password single sign-on](https://docs.microsoft.co
 
 Users who don't use password-based SSO applications also benefit from the extension. These benefits include the ability to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 
-Here’s what the user will see when launching a password-based SSO application for the first time:
-
-![Screenshot of My Apps browser extension install screen ](media/access-panel-deployment-plan/ap-dp-sign-in.png)
-
 #### Plan for mobile access
 
 A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
@@ -206,8 +202,6 @@ A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser
 ## Plan your My Apps Deployment
 
 The foundation of My Apps is the application launcher My Apps, which users access at [https://myapps.microsoft.com](https://myapps.microsoft.com/). The My Apps pages give users a single place to start their work and get to their necessary applications. Here, users find a list of all the applications they have single sign-on access to. 
-
-![A screenshot of the apps panel](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
 The same applications will be shown in the Office 365 app launcher when users are using the Office 365 portal.
 
@@ -276,9 +270,7 @@ If during testing or deployment you want to add the groups but not yet allow the
 
 For Office 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications that are associated with the license in their My Apps page and in the Office 365 app launcher.
 
-If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Office 365 portal. Find these settings in the User settings portion of the application. Learn more: [Hide an application from user’s experience in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
-
-![A screenshot of configuring how to hide applications](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
+If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Office 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
 
 ### Deploy application self-service capabilities
 
@@ -287,8 +279,6 @@ Self-service application access allows users to self-discover and request access
 You can delegate approval of application access requests to business approvers. The business approver can set the app access passwords from the business approver’s My Apps page.
 
 Learn more: [How to use self-service application access](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
-
-![A screenshot of configuring self-service application management](media/access-panel-deployment-plan/ap-dp-salesforce.png)
 
 ## Validate your deployment
 
