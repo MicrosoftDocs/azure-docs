@@ -10,7 +10,7 @@ manager: lizross
 # Use Microsoft Teams on Windows Virtual desktop
 
 >[!IMPORTANT]
->Media optimization for Teams is supported for Microsoft 365 Government (GCC) environments. Media optimization for Teams is not supported for GCC-High or DoD. 
+>Media optimization for Teams is supported for Microsoft 365 Government (GCC) environments. Media optimization for Teams is not supported for GCC-High or DoD.
 
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
@@ -26,7 +26,7 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
 - Install the [Windows Desktop client](connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
-- Install the Teams desktop app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
+- [Download](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) and install the Teams desktop app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
 ## Install the Teams desktop app
 
