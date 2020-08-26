@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 Premium file shares are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
-This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
+This article shows you how to create this new account type using the [Azure portal](https://portal.azure.com/), Azure PowerShell module, and the Azure CLI.
 
 ## Prerequisites
 
