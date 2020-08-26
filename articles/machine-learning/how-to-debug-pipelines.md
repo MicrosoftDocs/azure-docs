@@ -104,7 +104,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### Finding and reading the log files
+### Finding and reading pipeline log files
 
 The log file `70_driver_log.txt` contains: 
 
