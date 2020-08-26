@@ -7949,8 +7949,6 @@ Azure service: [Automation](../automation/index.yml)
 > | Microsoft.Automation/automationAccounts/certificates/delete | Deletes an Azure Automation certificate asset |
 > | Microsoft.Automation/automationAccounts/compilationjobs/write | Writes an Azure Automation DSC's Compilation |
 > | Microsoft.Automation/automationAccounts/compilationjobs/read | Reads an Azure Automation DSC's Compilation |
-> | Microsoft.Automation/automationAccounts/compilationjobs/write | Writes an Azure Automation DSC's Compilation |
-> | Microsoft.Automation/automationAccounts/compilationjobs/read | Reads an Azure Automation DSC's Compilation |
 > | Microsoft.Automation/automationAccounts/configurations/read | Gets an Azure Automation DSC's content |
 > | Microsoft.Automation/automationAccounts/configurations/getCount/action | Reads the count of an Azure Automation DSC's content |
 > | Microsoft.Automation/automationAccounts/configurations/write | Writes an Azure Automation DSC's content |
