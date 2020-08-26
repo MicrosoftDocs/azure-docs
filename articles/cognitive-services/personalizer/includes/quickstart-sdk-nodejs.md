@@ -13,7 +13,7 @@ ms.date: 07/30/2020
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org) and NPM.
 
 ## Using this quickstart

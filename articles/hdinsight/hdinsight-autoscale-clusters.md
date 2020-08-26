@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/29/2020
+ms.custom: contperfq1
+ms.date: 08/21/2020
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -128,7 +128,7 @@ For more information on HDInsight cluster creation using the Azure portal, see [
 
 #### Load-based autoscaling
 
-You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below.
+You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below. For a complete resource manager template see [Quickstart template: Deploy Spark Cluster with Loadbased Autoscale Enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -156,7 +156,7 @@ You can create an HDInsight cluster with load-based Autoscaling an Azure Resourc
 
 #### Schedule-based autoscaling
 
-You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change will take place.
+You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change will take place. For a complete resource manager template, see [Deploy Spark Cluster with schedule-based Autoscale Enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -253,6 +253,26 @@ The running jobs will continue. The pending jobs will wait for scheduling with f
 ### Minimum cluster size
 
 Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication.  For more information, see [Getting stuck in safe mode](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### LLAP Daemons count
+
+In case of autoscale enabled LLAP clusters, autoscale up/down event also scales up/down the number of LLAP daemons to the number of active worker nodes. But this change in the number of daemons is not persisted in the **num_llap_nodes** config in Ambari. If Hive services are restarted manually, then the number of LLAP daemons will be reset as per the config in Ambari.
+
+Let's take the below scenario:
+1. A LLAP autoscale enabled cluster is created with 3 worker nodes and load based autoscale is enabled with minimum worker nodes as 3 and maximum worker nodes as 10.
+2. The LLAP daemons count config according to LLAP configuration and Ambari is 3, since the cluster got created with 3 worker nodes.
+3. Then an autoscale up is triggered due to load on the cluster, the cluster is now scaled to 10 nodes.
+4. The autoscale check running at regular interval notices that the LLAP daemons count is 3, but the number of active worker node is 10, autoscale process will now increase the LLAP daemon count to 10, but this change is not persisted in the Ambari Config - num_llap_nodes.
+5. Autoscale is now disabled.
+6. The cluster now has 10 worker nodes and 10 LLAP daemons.
+7. The LLAP service is manually restarted.
+8. During restart, it checks the num_llap_nodes config in the LLAP configuration and notices the value as 3, so it spins up 3 instance of daemons, but the number of worker node is 10. There is now a mismatch between the two.
+
+When this happens, we need to manually change the **num_llap_node configuration (Number of node(s) to for running Hive LLAP daemon) under Advanced hive-interactive-env** to match the current active worker node count.
+
+**Note**
+
+Autoscale events does not change the Hive config **Maximum Total Concurrent Queries** in Ambari. This means that the Hive Server 2 Interactive Service **can handle only the given number of concurrent queries at any point of time even if the LLAP daemons count are scaled up and down based on load/schedule**. The general recommendation is to set this config for the peak usage scenario so that the manual intervention can be avoided. However, one should be aware that **setting a high value for maximum total concurrent queries config may fail Hive Server 2 Interactive service restart if the minimum number of worker nodes cannot accommodate the given number of Tez Ams (equal to the Maximum Total Concurrent Queries Config)**
 
 ## Next steps
 

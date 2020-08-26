@@ -11,7 +11,7 @@ ms.author: tomfitz
 | Resources per resource group, per resource type |800 - Some resource types can exceed the 800 limit. See [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Deployments per resource group in the deployment history |800<sup>1</sup> |
 | Resources per deployment |800 |
-| Management locks per unique scope |20 |
+| Management locks per unique [scope](../articles/azure-resource-manager/management/overview.md#understand-scope)  |20 |
 | Number of tags per resource or resource group |50 |
 | Tag key length |512 |
 | Tag value length |256 |

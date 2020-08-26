@@ -1,5 +1,5 @@
 ---
-title: Managing Applications with Azure Active Directory | Microsoft Docs
+title: What is application management in Azure Active Directory
 description: An overview of using Azure Active Directory (AD) as an Identity and Access Management (IAM) system for your cloud and on-premises applications.
 services: active-directory
 author: kenwith

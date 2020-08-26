@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a user or group to an enterprise app in Azure Active Directory
 
-This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps access panel](https://myapps.microsoft.com/) for easy access. If the application exposes roles, you can also assign a specific role to the user.
+This article shows you how to assign users or groups to enterprise applications in Azure Active Directory (Azure AD), either from within the Azure portal or by using PowerShell. When you assign a user to an application, the application appears in the user's [My Apps](https://myapps.microsoft.com/) for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
 For greater control, certain types of enterprise applications can be configured to [require user assignment](#configure-an-application-to-require-user-assignment). 
 
@@ -40,7 +40,7 @@ When user assignment is required, only those users you explicitly assign to the 
 
 When assignment is *not required*, either because you've set this option to **No** or because the application uses another SSO mode, any user will be able to access the application if they have a direct link to the application or the **User Access URL** in the application’s **Properties** page. 
 
-This setting doesn't affect whether or not an application appears on the My Apps access panel. Applications appear on users' My Apps access panels once you've assigned a user or group to the application. For background, see [Managing access to apps](what-is-access-management.md).
+This setting doesn't affect whether or not an application appears on My Apps. Applications appear on users' My Apps access panels once you've assigned a user or group to the application. For background, see [Managing access to apps](what-is-access-management.md).
 
 
 To require user assignment for an application:
@@ -156,7 +156,7 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 ## Related articles
 
 - [Learn more about end-user access to applications](end-user-experiences.md)
-- [Plan an Azure AD access panel deployment](access-panel-deployment-plan.md)
+- [Plan an Azure AD My Apps deployment](access-panel-deployment-plan.md)
 - [Managing access to apps](what-is-access-management.md)
  
 ## Next steps

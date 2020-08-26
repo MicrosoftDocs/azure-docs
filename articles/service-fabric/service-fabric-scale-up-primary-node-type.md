@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
 ---
-# Scale up a Service Fabric cluster primary node type
+# Scale up a Service Fabric cluster primary node type by adding a Node Type
 This article describes how to scale up a Service Fabric cluster primary node type by adding an additional node type to the cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately.
 
 The sample templates in the following tutorial can be found here: [Service Fabric primary node type scaling samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample)
@@ -38,7 +38,7 @@ $resourceGroupName = "myResourceGroup"
 $location = "WestUS"
 
 New-AzResourceGroup `
-    -Name $resourceGroupName
+    -Name $resourceGroupName `
     -Location $location
 ```
 3. Fill in the parameter values in the template files. 
@@ -51,7 +51,7 @@ $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
+    -TemplateParameterFile $parameterFilePath
 ```
 
 ### Add a new primary node type to the cluster

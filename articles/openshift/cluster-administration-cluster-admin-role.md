@@ -11,7 +11,7 @@ ms.date: 09/25/2019
 ---
 
 # Azure Red Hat OpenShift customer administrator role
-
+ 
 You're the cluster administrator of an Azure Red Hat OpenShift cluster. Your account has increased permissions and access to all user-created projects.
 
 When your account has the customer-admin-cluster authorization role bound to it, it can automatically manage a project.

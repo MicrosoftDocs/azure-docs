@@ -173,8 +173,10 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 ## Next steps
 
+Learn more about how Azure Dev Spaces works.
+
 > [!div class="nextstepaction"]
-> [Learn about multi-service development](multi-service-netcore-visualstudio.md)
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

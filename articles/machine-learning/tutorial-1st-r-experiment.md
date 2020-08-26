@@ -99,22 +99,15 @@ The setup for your development work in this tutorial includes the following acti
 * Create a remote compute target to use for training
 
 ### Install required packages
-
- * Install the latest version from CRAN.
-
-    ```R
-    # install the latest version from CRAN
-    install.packages("azuremlsdk")
-    azuremlsdk::install_azureml(envname = 'r-reticulate')
-    ```
+The compute instance already has the latest version of the R SDK from CRAN installed. If you would like to install the development version from GitHub instead to pick up the latest bug fixes, please run the following:
     
-* Or install the development version from GitHub.
+```R
+remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
+azuremlsdk::install_azureml()
+```
 
-    ```R
-    # or install the development version from GitHub
-    remotes::install_github('https://github.com/Azure/azureml-sdk-for-r')
-    azuremlsdk::install_azureml(envname = 'r-reticulate')
-    ```
+> [!WARNING]
+> During the installation process, if you get the prompt "`Would you like to install Miniconda? [Y/n]:`", please respond with "`n`" as the compute instance already has Anaconda installed and a Miniconda installation is not needed.
 
 Now go ahead and import the **azuremlsdk** package.
 

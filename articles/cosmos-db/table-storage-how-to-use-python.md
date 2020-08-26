@@ -203,7 +203,7 @@ You can also restrict which properties are returned for each entity in a query. 
 The query in the following code returns only the descriptions of entities in the table.
 
 > [!NOTE]
-> The following snippet works only against the Azure Storage. It is not supported by the storage emulator.
+> The following snippet works only against the Azure Storage. It is not supported by the Storage Emulator.
 
 ```python
 tasks = table_service.query_entities(
