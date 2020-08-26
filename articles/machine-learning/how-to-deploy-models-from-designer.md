@@ -73,7 +73,7 @@ You are now ready to deploy your model in the **Models** asset page. Select the 
 A configuration window for deployment will show up. Following information are necessary for deployment:
 
 - Input the name of the endpoint.
-- Select to deploy the model to [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service) or [Azure Container Instance](how-to-deploy-azure-container-instance).
+- Select to deploy the model to [Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md) or [Azure Container Instance](how-to-deploy-azure-container-instance.md).
 - Upload the `score.py` for the **Entry Script file**, and `conda_env.yml` for the **Conda dependencies file**. 
 
 Then you can click on the **Deploy** button to deploy your model as a real-time endpoint.
