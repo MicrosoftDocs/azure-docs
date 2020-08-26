@@ -15,7 +15,7 @@ Microsoft Azure Storage Explorer provides easy access and management of blob ver
 
 ## Terminology
 
-This section will introduce a few terms used in this documentation to help you understand the following sections.
+This section provides some definitions to help understand their usage in this document.
 
 - Soft Delete: An alternative automatic data protection feature. You can learn more about Soft Delete [here](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
 - Blob version: A blob created with Blob Versioning enabled. Each blob version is associated with a version ID.
@@ -83,7 +83,7 @@ Non-version blobs will be overwritten by the promoted blob version. Make sure yo
 
 ### Undelete blob version
 
-You can only undelete all blob versions of a blob at a time. To undelete all blob versions of a blob, select any one of the blob's versions and select `Undelete Selected` from the toolbar or the context menu.
+Blob versions cannot be undeleted individually. They must be undeleted all at once. To undelete all blob versions of a blob, select any one of the blob's versions and select `Undelete Selected` from the toolbar or the context menu.
 
 ### Change access tier of blob versions
 
