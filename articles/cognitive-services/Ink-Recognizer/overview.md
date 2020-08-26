@@ -10,6 +10,7 @@ ms.subservice: ink-recognizer
 ms.topic: overview
 ms.date: 08/06/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # What is the Ink Recognizer API?
