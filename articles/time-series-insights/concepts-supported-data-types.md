@@ -16,7 +16,7 @@ ms.date: 08/12/2020
 The following table lists the data types supported by Azure Time Series Insights Gen2
 
 | Data type | Description | Example | [Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Property column name in Parquet
-|---|---|---|---|
+|---|---|---|---|---|
 | **bool** | A data type having one of two states: `true` or `false`. | `"isQuestionable" : true` | `$event.isQuestionable.Bool` or `$event['isQuestionable'].Bool` | `isQuestionable_bool`
 | **datetime** | Represents an instant in time, typically expressed as a date and time of day. Expressed in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. Datetime properties are always stored in UTC format. Time zone offsets, if correctly formatted, will be applied and then the valued stored in UTC. See [this](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) section for more information on the environment timestamp property and datetime offsets | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  If "eventProcessedLocalTime" is the event source timestamp: `$event.$ts`. If it's another JSON property: `$event.eventProcessedLocalTime.DateTime` or `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
 | **double** | A double-precision 64-bit number  | `"value": 31.0482941` | `$event.value.Double` or `$event['value'].Double` |  `value_double`
@@ -31,7 +31,7 @@ The following table lists the data types supported by Azure Time Series Insights
 > **String** type is not nullable:
 >   * A [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressed in a [Time Series Query](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) comparing the value of an empty string (**''**) against **NULL** will behave the same way: `$event.siteid.String = NULL` is equivalent to `$event.siteid.String = ''`.
 >   * The API may return **NULL** values even if original events contained empty strings.
-> Do not take dependency on **NULL** values in **String** columns to do comparisons or evaluations, treat them the same way as empty strings.
+>   * Do not take dependency on **NULL** values in **String** columns to do comparisons or evaluations, treat them the same way as empty strings.
 
 ## Sending mixed data types
 
