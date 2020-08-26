@@ -4,7 +4,7 @@ description: The Service Bus security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/26/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -23,7 +23,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 *For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
 
-### 1.1: Protect Azure resources within virtual networks
+### 1.1: The integration of Service Bus with virtual network service endpoints enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.Once bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding your Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.You can also create a private endpoint, which is a network interface that connects you privately and securely to Azure Service Bus service by using the Azure Private Link service. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed.You can also secure your Azure Service Bus namespace by using firewalls. Azure Service Bus supports IP-based access controls for inbound firewall support. You can set firewall rules by using the Azure portal, Azure Resource Manager templates, or through the Azure CLI or Azure PowerShell.Allow access to Azure Service Bus namespace from specific virtual networks service-bus-service-endpoints.md    Allow access to Azure Service Bus namespaces via private endpoints  private-link-service.md    Allow access to Azure Service Bus namespace from specific IP addresses or ranges  service-bus-ip-filtering.md   
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32074.).
@@ -39,7 +39,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32075.).
 
-**Guidance**: None.
+**Guidance**: Use Azure Security Center and follow network protection recommendations to help secure your Service Bus resources in Azure. If using Azure virtual machines to access your Service Bus entities, enable network security group (NSG) flow logs and send logs into a storage account for traffic audit.How to Enable NSG Flow Logs: /azure/network-watcher/network-watcher-nsg-flow-logging-portalUnderstanding Network Security provided by Azure Security Center: ../security-center/security-center-network-recommendations.md
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -50,7 +50,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32076.).
 
-**Guidance**: None.
+**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
