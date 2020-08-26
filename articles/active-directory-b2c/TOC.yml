@@ -113,6 +113,8 @@
         href: configure-ropc.md
       - name: Set up self-serve password reset
         href: user-flow-self-service-password-reset.md
+    - name: Add Conditional Access
+      href: conditional-access-user-flow.md
     - name: UX customization
       items:
       - name: Customize the UI
@@ -170,8 +172,6 @@
     items:
     - name: Set up Identity Protection
       href: conditional-access-identity-protection-setup.md
-    - name: Add Conditional Access to user flows
-      href: conditional-access-user-flow.md
     - name: Review audit reports
       href: conditional-access-audit-reports.md
   - name: Custom policy

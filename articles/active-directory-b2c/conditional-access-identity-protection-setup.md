@@ -1,6 +1,6 @@
 ---
 title: Set up Identity Protection and Conditional Access in Azure AD B2C
-description: Learn how Conditional Access is at the heart of the new identity driven control plane.
+description: Learn how configure Identity Protection and Conditional Access for you Azure AD B2C tenant to view risky sign-in and other risk events and create policies based on risk detections.
 
 services: active-directory
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. If your tenant is linked to an Azure subscription with Azure AD Premium P2, you can view Identity Protection risk events in the Azure portal. You can also use [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) policies based on these risk detections to determine actions and enforce organizational policies.
+Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. If your tenant is linked to an Azure subscription with Azure AD Premium P2, you can view Identity Protection risk events in the Azure portal. You can also use [Conditional Access](../active-directory/conditional-access/overview) policies based on these risk detections to determine actions and enforce organizational policies.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following risk detections are currently supported for Azure AD B2C:
 |Malware linked IP address     | Sign in from a malware linked IP address         |
 |Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern        |
 
-### To view risk events for your Azure AD B2C tenant
+## View risk events for your Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -91,32 +91,32 @@ To add a conditional access policy based on the Identity Protection risk detecti
 
 1. Select **New policy** and follow the Azure AD Conditional Access documentation to create a new policy. The following are examples:
 
-   - [Sign-in risk-based Conditional Access: Enable with Conditional Access policy](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk#enable-with-conditional-access-policy)
+   - [Sign-in risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk#enable-with-conditional-access-policy)
 
-   - [User risk-based Conditional Access: Enable with Conditional Access policy](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-risk-user#enable-with-conditional-access-policy)
+   - [User risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk-user#enable-with-conditional-access-policy)
 
    > [!IMPORTANT]
    > When selecting the users you want to apply the policy to, don't select **All users** only, or you could block yourself from signing in.
 
-### To test a Conditional Access Policy
+## Test the Conditional Access Policy
 
-1. Create a Conditional Access policy as noted above, with the following settings.
+1. Create a Conditional Access policy as noted above, with the following settings:
+   
+   - For **Users and groups**, select the test user. Don't select **All users** or you'll block yourself from signing in.
+   - For **Cloud apps or actions**, choose **Select apps**, and then choose your relying party application.
+   - For Conditions, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
+   - For **Grant**, choose **Block access**.
 
-   ![Select users](media/conditional-access-identity-protection-setup/select-users.png)
+      ![Risk detections](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
-1. For the clouds app or action, select your relying party application.
+1. Enable your test conditional access policy by selecting **Create**.
 
-    ![Select relying party application for cloud apps](media/conditional-access-identity-protection-setup/cloud-apps.png)
+1. Simulate a risky sign-in by using the [Tor browser](https://www.torproject.org/download/). 
 
-
-1. Select the condition
-
-1. Under **Access controls**, For the grant select block - MUST be block
-
-    ![Set the condition to block](media/conditional-access-identity-protection-setup/grant-or-block.png)
-
-1. Enable your conditional access policy by clicking “Create.”
-
-1. Simulate a risky sign-in by using the [Tor browser](https://www.torproject.org/download/).
+1. In the jwt.ms decoded token for the attempted sign-in, you should see that the sign-in was blocked:
 
    ![Test a blocked sign-in](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
+
+## Next steps
+
+[Add Conditional Access to a user flow](conditional-access-user-flow.md).
