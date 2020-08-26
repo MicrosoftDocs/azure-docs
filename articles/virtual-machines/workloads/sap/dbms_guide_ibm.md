@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/13/2020
+ms.date: 08/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -81,8 +81,8 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 | VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3.500  |170  ||  |
-|vCPU: 4 |/db2/<SID>/sapdata |P6 |4 |960  |200  |256  |14.000  |680  |256 KB |ReadOnly |
-|RAM: 32 GiB |/db2/<SID>/saptmp |P6 |2 |480  |100  |128  |7.000  |340  |128 KB ||
+|vCPU: 4 |/db2/<SID>/sapdata |P10 |2 |1.000  |200  |256  |7.000  |340  |256 KB |ReadOnly |
+|RAM: 32 GiB |/db2/<SID>/saptmp |P6 |1 |240  |50  |128  |3.500  |170  | ||
 | |/db2/<SID>/log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64 KB ||
 | |/db2/<SID>/offline_log_dir |P10 |1 |500  |100  |128  |3.500  |170  || |
 
@@ -398,7 +398,7 @@ All other general areas like Azure Availability Sets or SAP monitoring apply as 
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md

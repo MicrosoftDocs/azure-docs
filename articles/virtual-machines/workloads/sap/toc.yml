@@ -227,6 +227,8 @@
         href: high-availability-guide-rhel-netapp-files.md
     - name: SAP Multi-SID
       items:
+      - name: Windows with Azure Shared Disk for (A)SCS Instance
+        href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
       - name: Windows with Shared Disk for (A)SCS Instance
         href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
@@ -291,6 +293,8 @@
     href: azure-monitor-overview.md
   - name: Azure Monitor for SAP Solutions Providers
     href: azure-monitor-providers.md
+  - name: Configure Azure Monitor for SAP Solutions
+    href: azure-monitor-sap-quickstart.md
   - name: Azure Monitor for SAP Solutions FAQ
     href: azure-monitor-faq.md
 - name: Reference

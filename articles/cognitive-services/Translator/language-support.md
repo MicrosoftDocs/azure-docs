@@ -69,6 +69,8 @@ Translator supports the following languages for text to text translation.
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku`	|
+|Kurdish (Northern)	|`kmr`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malagasy|	`mg`	|
@@ -152,6 +154,7 @@ Translator detects the following languages for translation and transliteration.
 |Malay|	`ms`		|
 |Maltese|	`mt`	|
 |Norwegian|	`nb`	|
+|Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
 |Portuguese (Brazil)|	`pt-br`	|
@@ -188,19 +191,19 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Chinese Simplified `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latin `Latn` |
 | Hebrew | `he` | Hebrew `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ### Dictionary
@@ -290,6 +293,7 @@ The following languages are available for customization to or from English using
 | French      | `fr`          |
 | German      | `de`          |
 | Greek      | `el`          |
+| Gujarati|	`gu`	|
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
@@ -303,11 +307,14 @@ The following languages are available for customization to or from English using
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
+| Malay|	`ms`		|
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese (Brazil) | `pt-br` |
+| Punjabi|`pa`|
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
 | Samoan|	`sm`	|
@@ -319,6 +326,7 @@ The following languages are available for customization to or from English using
 | Thai      | `th`          |
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
+| Urdu|	`ur`	|
 | Vietnamese      | `vi`          |
 | Welsh | `cy` |
 
