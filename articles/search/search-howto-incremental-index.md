@@ -34,7 +34,7 @@ If you have an existing indexer that already has a skillset, follow the steps in
 
 Start with a valid, existing indexer that has these components: data source, skillset, index. Your indexer should be runnable. 
 
-Using an API client, construct a [GET Indexer request](https://docs.microsoft.com/rest/api/searchservice/get-indexer) to get the current configuration of the indexer. When you use the preview API version to the GET the indexer, a `cache` property set to null is added to the definitions.
+Using an API client, construct a [GET Indexer request](/rest/api/searchservice/get-indexer) to get the current configuration of the indexer. When you use the preview API version to the GET the indexer, a `cache` property set to null is added to the definitions.
 
 ```http
 GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
@@ -71,7 +71,7 @@ Modify the cache object to include the following required and optional propertie
 
 ### Step 3: Reset the indexer
 
-A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client and the [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) for this task.
+A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client and the [Reset Indexer REST API](/rest/api/searchservice/reset-indexer) for this task.
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2020-06-30-Preview
@@ -81,7 +81,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### Step 4: Save the updated definition
 
-[Update the indexer](https://docs.microsoft.com/rest/api/searchservice/preview-api/update-indexer) with a PUT request, the body of the request should contain the updated indexer definition that has the cache property. If you get a 400, check the indexer definition to make sure all requirements are met (data source, skillset, index).
+[Update the indexer](/rest/api/searchservice/preview-api/update-indexer) with a PUT request, the body of the request should contain the updated indexer definition that has the cache property. If you get a 400, check the indexer definition to make sure all requirements are met (data source, skillset, index).
 
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
@@ -111,7 +111,7 @@ If you now issue another GET request on the indexer, the response from the servi
 
 To run indexer, you can use the portal or the API. In the portal, from the indexers list, select the indexer and click **Run**. One advantage to using the portal is that you can monitor indexer status, note the duration of the job, and how many documents are processed. Portal pages are refreshed every few minutes.
 
-Alternatively, you can use REST to [run the indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
+Alternatively, you can use REST to [run the indexer](/rest/api/searchservice/run-indexer):
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2020-06-30-Preview
@@ -133,7 +133,7 @@ Run the indexer again. Only those parts of an enriched document tree are updated
 
 ## Enable caching on new indexers
 
-To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when calling [Create Indexer (2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer). 
+To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when calling [Create Indexer (2020-06-30-Preview)](/rest/api/searchservice/preview-api/create-indexer). 
 
 
 ```json
@@ -161,16 +161,16 @@ For example, assume a skillset that starts with image analysis and Optical Chara
 
 ## Working with the cache
 
-Once the cache is operational, indexers check the cache whenever [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) is called, to see which parts of the existing output can be used. 
+Once the cache is operational, indexers check the cache whenever [Run Indexer](/rest/api/searchservice/run-indexer) is called, to see which parts of the existing output can be used. 
 
 The following table summarizes how various APIs relate to the cache:
 
 | API           | Cache impact     |
 |---------------|------------------|
-| [Create Indexer (2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/create-indexer) | Creates and runs an indexer on first use, including creating a cache if your indexer definition specifies it. |
-| [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Executes an enrichment pipeline on demand. This API reads from the cache if it exists, or creates a cache if you added caching to an updated indexer definition. When you run an indexer that has caching enabled, the indexer omits steps if cached output can be used. You can use the generally available or preview API version of this API.|
-| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Clears the indexer of any incremental indexing information. The next indexer run (either on-demand or schedule) is full reprocessing from scratch, including re-running all skills and rebuilding the cache. It is functionally equivalent to deleting the indexer and recreating it. You can use the generally available or preview API version of this API.|
-| [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) | Specifies which skills to rerun on the next indexer run, even if you haven't modified any skills. The cache is updated accordingly. Outputs, such as a knowledge store or search index, are refreshed using reusable data from the cache plus new content per the updated skill. |
+| [Create Indexer (2020-06-30-Preview)](/rest/api/searchservice/preview-api/create-indexer) | Creates and runs an indexer on first use, including creating a cache if your indexer definition specifies it. |
+| [Run Indexer](/rest/api/searchservice/run-indexer) | Executes an enrichment pipeline on demand. This API reads from the cache if it exists, or creates a cache if you added caching to an updated indexer definition. When you run an indexer that has caching enabled, the indexer omits steps if cached output can be used. You can use the generally available or preview API version of this API.|
+| [Reset Indexer](/rest/api/searchservice/reset-indexer)| Clears the indexer of any incremental indexing information. The next indexer run (either on-demand or schedule) is full reprocessing from scratch, including re-running all skills and rebuilding the cache. It is functionally equivalent to deleting the indexer and recreating it. You can use the generally available or preview API version of this API.|
+| [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) | Specifies which skills to rerun on the next indexer run, even if you haven't modified any skills. The cache is updated accordingly. Outputs, such as a knowledge store or search index, are refreshed using reusable data from the cache plus new content per the updated skill. |
 
 For more information about controlling what happens to the cache, see [Cache management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

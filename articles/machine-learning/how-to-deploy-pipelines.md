@@ -8,9 +8,9 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
-ms.date: 8/22/2020
+ms.date: 8/25/2020
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperfq1
 
 ---
 
@@ -153,5 +153,3 @@ You can enable it again with `p.enable()`. For more information, see [PublishedP
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.
 - See the SDK reference help for the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)
