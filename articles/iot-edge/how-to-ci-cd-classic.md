@@ -57,11 +57,11 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
     ![Create a new build pipeline](./media/how-to-ci-cd-classic/add-new-pipeline.png)
 
-   At the bottom of the **Where is your code?** page, select **Use the classic editor**. If you wish to use YAML to create your project's build pipelines, see the [YAML guide](how-to-ci-cd.md).
+3. At the bottom of the **Where is your code?** page, select **Use the classic editor**. If you wish to use YAML to create your project's build pipelines, see the [YAML guide](how-to-ci-cd.md).
 
     ![Select Use the classic editor](./media/how-to-ci-cd-classic/use-classic-editor.png)
 
-3. Follow the prompts to create your pipeline.
+4. Follow the prompts to create your pipeline.
 
    1. Provide the source information for your new build pipeline. Select **Azure Repos Git** as the source, then select the project, repository, and branch where your IoT Edge solution code is located. Then, select **Continue**.
 
@@ -71,7 +71,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
       ![Start with an empty job](./media/how-to-ci-cd-classic/start-with-empty-build-job.png)
 
-4. Once your pipeline is created, you are taken to the pipeline editor. Here, you can change the pipeline's name, agent pool, and agent specification.
+5. Once your pipeline is created, you are taken to the pipeline editor. Here, you can change the pipeline's name, agent pool, and agent specification.
 
    You can select a Microsoft-hosted pool, or a self-hosted pool that you manage.
 
@@ -85,7 +85,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
      ![Configure build agent specification](./media/how-to-ci-cd-classic/configure-env.png)
 
-5. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign (**+**) to add four tasks to the job: **Azure IoT Edge** twice, **Copy Files** once, and **Publish Build Artifacts** once. Search for each task and hover over the task's name to see the **Add** button.
+6. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign (**+**) to add four tasks to the job: **Azure IoT Edge** twice, **Copy Files** once, and **Publish Build Artifacts** once. Search for each task and hover over the task's name to see the **Add** button.
 
    ![Add Azure IoT Edge task](./media/how-to-ci-cd-classic/add-iot-edge-task.png)
 
@@ -93,7 +93,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    ![Four tasks in the build pipeline](./media/how-to-ci-cd-classic/add-tasks.png)
 
-6. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify. Edit the task with the following values:
+7. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify. Edit the task with the following values:
 
     | Parameter | Description |
     | --- | --- |
@@ -109,7 +109,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
     If you have other variables in your project, you can specify the name and value on this tab. **Build module images** recognizes only variables that are in `${VARIABLE}` format. Make sure you use this format in your `**/module.json` files.
 
-7. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select.
+8. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select.
 
     | Parameter | Description |
     | --- | --- |
@@ -124,7 +124,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the **Advanced** settings to bypass the images which are not for this specific registry.
 
-8. Select the **Copy Files** task to edit it. Use this task to copy files to the artifact staging directory.
+9. Select the **Copy Files** task to edit it. Use this task to copy files to the artifact staging directory.
 
     | Parameter | Description |
     | --- | --- |
@@ -133,7 +133,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
     | Contents | Add two lines: `deployment.template.json` and `**/module.json`. These two files serve as inputs to generate the IoT Edge deployment manifest. |
     | Target Folder | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) to learn about the description. |
 
-9. Select the **Publish Build Artifacts** task to edit it. Provide artifact staging directory path to the task so that the path can be published to release pipeline.
+10. Select the **Publish Build Artifacts** task to edit it. Provide artifact staging directory path to the task so that the path can be published to release pipeline.
 
     | Parameter | Description |
     | --- | --- |
@@ -147,11 +147,11 @@ In this section, you create a new build pipeline. You configure the pipeline to 
    * **Artifact name**: drop.
    * **Artifact publish location**: Azure Pipelines.
 
-10. Open the **Triggers** tab and check the box to **Enable continuous integration**. Make sure the branch containing your code is included.
+11. Open the **Triggers** tab and check the box to **Enable continuous integration**. Make sure the branch containing your code is included.
 
     ![Turn on continuous integration trigger](./media/how-to-ci-cd-classic/configure-trigger.png)
 
-11. Select **Save** from the **Save & queue** dropdown.
+12. Select **Save** from the **Save & queue** dropdown.
 
 This pipeline is now configured to run automatically when you push new code to your repo. The last task, publishing the pipeline artifacts, triggers a release pipeline. Continue to the next section to build the release pipeline.
 
@@ -171,7 +171,7 @@ Create a new pipeline, and add a new stage:
 
 3. Your new release pipeline initializes with one stage, called **Stage 1**. Rename Stage 1 to **dev** and treat it as a continuous deployment pipeline for your development environment. Usually, continuous deployment pipelines have multiple stages including **dev**, **staging** and **prod**. You can use different names and create more based on your DevOps practice. Close the stage details window once it's renamed.
 
-   You can also rename your release pipeline by selecting the 'New release pipeline' text at the top.
+   You can also rename your release pipeline by selecting the "New release pipeline" text at the top.
 
 4. Link the release to the build artifacts that are published by the build pipeline. Click **Add** in artifacts area.
 
@@ -187,7 +187,7 @@ Create a new pipeline, and add a new stage:
 
 7. The **dev** stage is preconfigured with one job and zero tasks. From the pipeline menu, select **Tasks** then choose the **dev** stage. Select the **Agent job** and change its **Display name** to **QA**. You can configure details about the agent job, but the deployment task is platform insensitive so you can use any **Agent specification** in the chosen **Agent pool**.
 
-    ![Configure dev tasks](./media/how-to-ci-cd-classic/view-stage-tasks.png)
+   ![Configure dev tasks](./media/how-to-ci-cd-classic/view-stage-tasks.png)
 
 8. On the QA job, select the plus sign (**+**) to add two tasks. Search for and add **Azure IoT Edge** twice.
 
