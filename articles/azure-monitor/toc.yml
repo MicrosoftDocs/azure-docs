@@ -222,8 +222,6 @@
           href: learn/quick-create-workspace-cli.md
         - name: Use PowerShell
           href: platform/powershell-workspace-configuration.md
-        - name: Use Resource Manager template
-          href: platform/template-workspace-configuration.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Move a workspace
