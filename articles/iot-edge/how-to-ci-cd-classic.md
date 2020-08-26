@@ -1,10 +1,10 @@
 ---
-title: Continuous integration & continuous deployment - Azure IoT Edge
-description: Set up continuous integration and continuous deployment - Azure IoT Edge with Azure DevOps, Azure Pipelines
+title: CI/CD to Azure IoT Edge devices (classic) - Azure IoT Edge
+description: Set up continuous integration and continuous deployment using the classic editor - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 08/25/2020
+ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
