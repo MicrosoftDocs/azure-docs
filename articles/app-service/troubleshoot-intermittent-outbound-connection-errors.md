@@ -39,7 +39,7 @@ If your destination is an Azure service that supports service endpoints, you can
 
 Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port.
 
-General strategies for mitigating SNAT port exhaustion are discussed in the [Problem-solving section](../load-balancer/load-balancer-outbound-connections.md#problemsolving) of the **Outbound connections of Azure** documentation. Of these strategies, the following are applicable to apps and functions hosted on Azure App service.
+General strategies for mitigating SNAT port exhaustion are discussed in the [Problem-solving section](../load-balancer/load-balancer-outbound-connections.md) of the **Outbound connections of Azure** documentation. Of these strategies, the following are applicable to apps and functions hosted on Azure App service.
 
 ### Modify the application to use connection pooling
 
@@ -166,7 +166,7 @@ If SNAT ports are exhausted, where WebJobs are unable to connect to SQL Database
 
 You cannot change any Azure settings to release the used SNAT ports sooner, as all SNAT ports will be released as per the below conditions and the behavior is by design.
  
-* If either server or client sends FINACK, the [SNAT port will be released](../load-balancer/load-balancer-outbound-connections.md#tcp-snat-port-release) after 240 seconds.
+* If either server or client sends FINACK, the [SNAT port will be released](../load-balancer/load-balancer-outbound-connections.md) after 240 seconds.
 * If an RST is seen, the SNAT port will be released after 15 seconds.
 * If idle timeout has been reached, the port is released.
  
