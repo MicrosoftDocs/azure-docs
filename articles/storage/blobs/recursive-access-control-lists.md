@@ -1,6 +1,6 @@
 ---
 title: Set ACLs recursively for Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Put some description here.
+description: You can add, update, and remove ACLs recursively for existing child items of a parent directory without having to make these changes individually for each child item.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
