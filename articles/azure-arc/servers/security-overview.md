@@ -43,10 +43,12 @@ While the Hybrid Instance Metadata Service (himds) can be accessed by any applic
 
 ## What the Azure Active Directory system assigned identity can manage
 
-By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc enabled server in Azure (for example, *last seen* through heartbeats). You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services.
+By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services.
 
 ## Using disk encryption
 
 The Azure Connected Machine agent (azcmagent) uses public key authentication to communicate with the Azure service. After you onboard a server to Azure Arc, a private key is saved to the disk and used whenever the agent communicates with Azure. If stolen, the private key can be used on another server to communicate with the service and act as if it were the original server. This includes getting access to the system assigned identity and any resources that identity has access to. The private key file is protected to only allow the **himds** account access to read it. To prevent offline attacks, we strongly recommend the use of full disk encryption (for example, BitLocker, dm-crypt, etc.) on the operating system volume of your server.
 
 ## Next steps
+
+Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) article to understand what is required, technical details about the agent, and deployment methods.
