@@ -110,6 +110,34 @@ Once you have several origins and an origin group, you can add or remove the ori
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Update origin group delete origin" border="true":::
 
+## Override origin group with rule engine
+
+Customize how traffic is distributed to different origin groups by using the standard rules engine.
+
+Distribute traffic to a different group based on the request URL.
+
+1. In your CDN endpoint, select **Rules engine** under **Settings**:
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Rules engine" border="true":::
+
+2. Select **+ Add rule**.
+
+3. Enter a name for the rule in **Name**.
+
+4. Select **+ Condition**, then select **URL path**.
+
+5. In the **operator** pull-down, select **Contains**.
+
+6. In **Value**, enter **/images**.
+
+7. Select **+ Add action**, then select **Origin group override**.
+
+8. In **Origin group**, select the origin group in the pull-down box.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Rules engine conditions" border="true":::
+
+For all incoming requests if the URL path contains **/images**, then the request will be assigned to the origin group in the action section **(myorigingroup)**. 
+
 ## Next Steps
 In this article, you enabled Azure CDN endpoint multi-origin.
 
