@@ -14,7 +14,7 @@ ms.date: 11/13/2018
 >
 >
 
-> Applies To: MABS v3. (MABS v2 is no longer supported. If you are using a version earlier than MABS v3, please upgrade to the latest version.)
+> Applies To: MABS v3. (MABS v2 is no longer supported. If you're using a version earlier than MABS v3, please upgrade to the latest version.)
 
 This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
 
@@ -124,7 +124,7 @@ To edit the storage replication setting:
     The **Getting Started with backup** wizard switches the **Prepare infrastructure** option to back up workloads to Azure.
 
    > [!NOTE]
-   > If you only want to back up files and folders, we recommend using the Azure Backup agent and following the guidance in the article, [First look: back up files and folders](./backup-windows-with-mars-agent.md). If you are going to protect more than files and folders, or you are planning to expand the protection needs in the future, select those workloads.
+   > If you only want to back up files and folders, we recommend using the Azure Backup agent and following the guidance in the article, [First look: back up files and folders](./backup-windows-with-mars-agent.md). If you're going to protect more than files and folders, or you're planning to expand the protection needs in the future, select those workloads.
    >
    >
 
