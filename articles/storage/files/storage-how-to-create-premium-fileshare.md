@@ -1,6 +1,6 @@
 ---
 title: Create a premium Azure file share
-description: In this article, learn how to create a premium Azure file share using the Azure portal, PowerShell, or the Azure CLI.
+description: Learn how to create an Azure premium file share using the Azure portal, Azure PowerShell module, or the Azure CLI.
 author: roygara
 ms.service: storage
 ms.topic: how-to
