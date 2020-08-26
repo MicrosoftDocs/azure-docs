@@ -145,7 +145,7 @@ It is important to understand the following configuration details if you are new
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "name": "[parameters('sku')]",
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -187,7 +187,7 @@ It is important to understand the following configuration details if you are new
                 "sku": {
                     "name": "Basic"
                 }
-            },
+            }
         },
         {
             "apiVersion": "2020-03-01-preview",
