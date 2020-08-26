@@ -255,9 +255,9 @@ The following table describes the billing behavior for a blob or version when it
 
 | When blob tier is set explicitly on… | Then you are billed for this number of objects |
 |-|-|
-| A base blob with one or more versions | Two objects: the base blob in the new tier and the version in the original tier.<br /><br /> Versions in the original tier are charged for unique blocks. |
-| A base blob with one or more versions and one or more snapshots | Three objects: the base blob in the new tier, the version in the original tier, and the snapshot in the original tier.<br /><br /> Versions in the original tier are charged for unique blocks among versions. Snapshots in the original tier are charged for unique   blocks among snapshots. |
-| A version | Two objects: the version in the new tier and the base blob in the original tier.<br /><br /> The base blob and any other versions in the original tier   are charged for unique blocks. |
+| A base blob with a previous version | Two objects: the base blob in the new tier and the version in the original tier.<br /><br /> Other versions in the original tier are charged based on unique blocks. |
+| A base blob with a previous version and a snapshot | Three objects: the base blob in the new tier, the version in the original tier, and the snapshot in the original tier.<br /><br /> Other versions in the original tier are charged based on unique blocks shared among versions. Other snapshots in the original tier are charged based on unique blocks shared among snapshots. |
+| A version | Two objects: the version in the new tier and the base blob in the original tier.<br /><br /> Other versions in the original tier are charged based on unique blocks shared among versions or the base blob. |
 
 Explicitly setting the tier for a blob or version cannot be undone. If you move a blob to a new tier and then move it back to its original tier, you are charged for the full content length of the object even if it shares blocks with other objects in the original tier.
 
