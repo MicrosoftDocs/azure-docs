@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
@@ -180,7 +180,8 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |int getNumberOfDocumentsUpdated()  |   The total number of documents that were successfully updated out of the documents supplied to the bulk update API call.      |
    |double getTotalRequestUnitsConsumed() |  The total request units (RU) consumed by the bulk update API call.       |
    |Duration getTotalTimeTaken()  |   The total time taken by the bulk update API call to complete execution.      |
-   |List\<Exception> getErrors()   |       Gets the list of errors if some documents out of the batch supplied to the bulk update API call failed to get inserted.      |
+   |List\<Exception> getErrors()   |       Gets the list of operational or networking issues related to the update operation.      |
+   |List\<BulkUpdateFailure> getFailedUpdates()   |       Gets the list of updates which could not be completed along with the specific exceptions leading to the failures.|
 
 3. After you have the bulk update application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
 

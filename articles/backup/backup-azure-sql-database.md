@@ -45,9 +45,9 @@ Before you start, verify the following requirements:
 * Creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
 * Discovers databases that are running on a VM, Azure Backup uses the NT AUTHORITY\SYSTEM account. This account must be a public sign-in on SQL.
 
-If you didn't create the SQL Server VM in Azure Marketplace or if you are on SQL 2008 and 2008 R2, you might receive a **UserErrorSQLNoSysadminMembership** error.
+If you didn't create the SQL Server VM in Azure Marketplace or if you're on SQL 2008 or 2008 R2, you might receive a **UserErrorSQLNoSysadminMembership** error.
 
-For giving permissions in case of **SQL 2008** and **2008 R2** running on Windows 2008 R2, refer [here](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+For giving permissions in the case of **SQL 2008** and **2008 R2** running on Windows 2008 R2, refer to [here](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 For all other versions, fix permissions with the following steps:
 
