@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/26/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -83,7 +83,7 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32276.).
 
-**Guidance**: Use Azure Monitor to set log retention period for the Log Analytics workspaces associated with Public IP instances based upon your organization's compliance regulations.
+**Guidance**: Use Azure Monitor to set log retention period for the Log Analytics workspaces associated with Public IP instances per your organization's compliance obligations.
 
 - [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -96,7 +96,11 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32277.).
 
-**Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Public IP instances. Other than at the control plane (for example, Azure portal), Public IP itself does not generate logs related to network traffic. Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+**Guidance**: Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. 
+
+Use Azure Activity Log to monitor configurations and detect changes for your Public IP instances. 
+
+Public IP itself does not generate logs related to network traffic other than at the control plane (for example, Azure portal).
 
 - [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
@@ -109,7 +113,7 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32278.).
 
-**Guidance**: You can configure to receive alerts based on activity logs related to Public IP. Azure Monitor allows you to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
+**Guidance**: Configure your alerts based on activity logs related to Public IP. Use Azure Monitor to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
@@ -127,9 +131,9 @@ Instead, you can enable and on-board data to Azure Sentinel or a third-party SIE
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32282.).
 
 **Guidance**: 
-Use Azure role-based access control (Azure RBAC) to manage access to Azure resources like Public IP instances with role assignments. 
+Use Azure role-based access control (Azure RBAC) to manage access to Azure resources like Public IP instances with role assignments. Assign these roles to users, groups, service principals, and managed identities. 
 
-Assign these roles to users, groups, service principals, and managed identities. Pre-defined Azure built-in roles exist for certain resources and can be inventoried or queried through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
+Inventoried or query pre-defined Azure built-in roles exist for certain resources through tools such as Azure CLI, Azure PowerShell, or the Azure portal.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -146,7 +150,7 @@ Assign these roles to users, groups, service principals, and managed identities.
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. 
 
-Just-In-Time access can be enabled by using Azure Active Directory Privileged Identity Management (PIM) and Azure Resource Manager (ARM). 
+Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM) and Azure Resource Manager (ARM). 
 
 - [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management)
 
@@ -191,7 +195,7 @@ Just-In-Time access can be enabled by using Azure Active Directory Privileged Id
 
 **Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
+Review and action Azure AD risk detections for alerts and reports on risky user behavior.
 
 - [How to deploy Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
@@ -232,7 +236,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32291.).
 
-**Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. Also, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
+**Guidance**: Discover stale accounts with logs in Azure Active Directory (Azure AD). 
+
+Use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure users have approved and continued access.
 
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
@@ -247,9 +253,8 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32292.).
 
-**Guidance**: Customers have access to Azure Active Directory sign-in activity, audit, and risk event log sources to implement integration with any SIEM/monitoring tool. 
-
-You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired alerts within Log Analytics Workspace. 
+**Guidance**: Implement integration with any SIEM/monitoring tool based on your access to Azure Active Directory (Azure AD) sign-in activity, audit, and risk event log sources.
+Streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. Configure desired alerts within the Log Analytics workspace. 
 
 - [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -262,8 +267,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32293.).
 
-**Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation. 
-
+**Guidance**: Use Azure Active Directory (Azure AD) Identity Protection features to configure automated responses to detected suspicious actions related to user identities. Ingest data into Azure Sentinel for further investigation as desired and based on business requirements.
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
