@@ -2,16 +2,16 @@
 title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
 description: This article describes how to migrate AWS VMs to Azure with Azure Migrate.
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 08/19/2020
 ms.custom: MVC
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
 
-This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and Server Migration tools
+This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Azure Migrate: Server Migration tools.
 
 > [!NOTE]
-> When you migrate your AWS VMs to Azure, the VMs are treated as though they were physical servers. You will use the Server Migration flow for migration of physical machines, to migrate your AWS VMs to Azure.
+> You migrate AWS VMs to Azure by treating them as physical servers.
 
 In this tutorial, you will learn how to:
 > [!div class="checklist"]
@@ -28,20 +28,29 @@ In this tutorial, you will learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-## Discover and assess AWS VMs  
+## Discover and assess
 
-Before you migrate to Azure, we recommend that you perform a VM discovery and migration assessment. This assessment helps right-size your AWS VMs for migration to Azure and estimate potential Azure run costs.
+Before you migrate to Azure, we recommend that you perform a VM discovery and migration assessment. This assessment helps right-size your AWS VMs for migration to Azure, and estimate potential Azure run costs.
 
 Set up an assessment as follows:
 
-1. An assessment can be performed by treating your AWS VMs as physical machines for the purpose of conducting an assessment using the Azure Migrate: Server Assessment tool. Follow the [tutorial](./tutorial-prepare-physical.md) to set up Azure and prepare your AWS VMs for an assessment.
+1. Follow the [tutorial](./tutorial-prepare-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
+
+    - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
+        - For Windows machines, allow WinRM port 5986 (HTTPS), and 5985 (HTTP). This allows remote WMI calls. If you set up the 
+        - For Linux machines:
+            1. Sign into each Linux  machine.
+            2. Open the sshd_config file : vi /etc/ssh/sshd_config
+            3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
+            4. Save the file and close it. Restart the ssh service.
+
 2. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
 
 Although we recommend that you try out an assessment, performing an assessment isn’t a mandatory step to be able to migrate VMs.
 
-## Migrate AWS VMs   
 
-## 1. Prerequisites for migration
+
+## Prerequisites 
 
 - Ensure that the AWS VMs you want to migrate are running a supported OS version. AWS VMs are treated like physical machines for the purpose of the migration. Review the [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. We recommend you perform a test migration (test failover) to validate if the VM works as expected before proceeding with the actual migration.
 - Make sure your AWS VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
@@ -51,7 +60,7 @@ Although we recommend that you try out an assessment, performing an assessment i
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
-## 2. Prepare Azure resources for migration
+### Prepare Azure resources for migration
 
 Prepare Azure for migration with Azure Migrate: Server Migration tool.
 
@@ -80,7 +89,7 @@ Assign the Virtual Machine Contributor role to the Azure account. This provides 
 
 [Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, the Azure VMs that are created are joined to the Azure VNet that you specify when you set up migration.
 
-## 3. Prepare AWS instances for migration
+## Prepare AWS instances for migration
 
 To prepare for AWS to Azure migration, you need to prepare and deploy a replication appliance for migration.
 
@@ -106,7 +115,7 @@ Prepare for appliance deployment as follows:
 - The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
 
-## 4. Add the Server Migration tool
+## Add the Server Migration tool
 
 Set up an Azure Migrate project, and then add the Server Migration tool to it.
 
@@ -130,7 +139,7 @@ Set up an Azure Migrate project, and then add the Server Migration tool to it.
 10. In **Review + add tools**, review the settings, and click **Add tools**
 11. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
-## 5. Set up the replication appliance
+## Set up the replication appliance
 
 The first step of migration is to set up the replication appliance. To set up the appliance for AWS VMs migration, you must download the installer file for the appliance, and then run it on the [VM you prepared](#prepare-a-machine-for-the-replication-appliance).
 
@@ -172,7 +181,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-## 6. Install the Mobility service
+## Install the Mobility service
 
 A Mobility service agent must be installed on the source AWS VMs to be migrated. The agent installers are available on the replication appliance. You find the right installer, and install the agent on each machine you want to migrate. Do as follows:
 
@@ -224,7 +233,7 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
     ```
 
-## 7. Enable replication for AWS VMs
+## Enable replication for AWS VMs
 
 > [!NOTE]
 > Through the portal, you can add up to 10 VMs for replication at once. To replicate more VMs simultaneously, you can add them in batches of 10.
@@ -271,7 +280,7 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
-## 8. Track and monitor replication status
+## Track and monitor replication status
 
 - When you click **Replicate** a Start Replication job begins.
 - When the Start Replication job finishes successfully, the VMs begin their initial replication to Azure.
@@ -283,7 +292,7 @@ You can monitor replication status by clicking on **Replicating servers** in **A
 
 ![Monitor replication](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
-## 9. Run a test migration
+## Run a test migration
 
 When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. The test migration is highly recommended and provides an opportunity to discover any potential issues and fix them before you proceed with the actual migration. It is advised that you do this at least once for each VM before you migrate it.
 
@@ -309,7 +318,7 @@ Do a test migration as follows:
     ![Clean up migration](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
 
-## 10. Migrate AWS VMs
+## Migrate AWS VMs
 
 After you've verified that the test migration works as expected, you can migrate the AWS VMs.
 
@@ -335,6 +344,9 @@ After you've verified that the test migration works as expected, you can migrate
 5. Cut over traffic to the migrated Azure VM instance.
 6. Update any internal documentation to show the new location and IP address of the Azure VMs. 
 
+
+
+
 ## Post-migration best practices
 
 - For increased resilience:
@@ -348,9 +360,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
 
-## Next steps
 
-Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
 
 ## Troubleshooting / Tips
 
@@ -365,10 +375,14 @@ Mobility Agent is installed on the source VM to be migrated and is registered th
 **Answer:** Currently, we do not support the import of assessment for this workflow. As a workaround, you can export the assessment and then manually select the VM recommendation during the Enable Replication step.
   
 **Question:** I am getting the error “Failed to fetch BIOS GUID” while trying to discover my AWS VMs   
-**Answer:** Review supported operating systems for AWS VMs.  
+**Answer:** Always use root login for authentication and not any pseudo user. Also review supported operating systems for AWS VMs.  
 
 **Question:** My replication status is not progressing    
 **Answer:** Check if your replication appliance meets the requirements. Make sure you’ve enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that there are no stale duplicate versions of the replication appliance connected to the same project.   
 
 **Question:** I am unable to Discover AWS Instances using Azure Migrate due to HTTP status code of 504 from the remote Windows management service    
 **Answer:** Make sure to review the Azure migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.   
+
+## Next steps
+
+Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.

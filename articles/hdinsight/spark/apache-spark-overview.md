@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc,seoapr2020
+ms.custom: contperfq1
 ms.topic: overview
-ms.date: 04/17/2020
+ms.date: 08/21/2020
 
 #customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
@@ -105,3 +105,4 @@ You can use the following articles to learn more about Apache Spark in HDInsight
 In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
 
 * [Create an Apache Spark cluster in HDInsight](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [Optimize Spark jobs for performance](apache-spark-perf.md)

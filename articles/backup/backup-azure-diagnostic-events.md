@@ -24,7 +24,7 @@ Azure Backup provides the following diagnostics events. Each event provides deta
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-If you are using the [legacy event](#legacy-event) AzureBackupReport, you are recommended to switch to using the above events at the earliest.
+If you are still using the [legacy event](#legacy-event) AzureBackupReport, we recommend switching to using the events above.
 
 For more information, see [Data model for Azure Backup diagnostics events](./backup-azure-reports-data-model.md).
 
@@ -77,7 +77,7 @@ Currently, we continue to support the AzureBackupReport event for backward compa
         | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
-        // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
+        // Some Workspaces will not have AzureDiagnostics Table, so you need to use isFuzzy
     let CombinedVaultTable = (){
         union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
@@ -105,7 +105,7 @@ You might choose to have separate diagnostics settings for AzureBackupReport and
 > The AzureBackupReport event is supported *only* in Azure diagnostics mode. *If you try to send data for this event in the resource-specific mode, no data will flow to the Log Analytics workspace.*
 
 > [!NOTE]
-> The toggle for **Azure diagnostics** or **Resource specific** appears only if the user selects **Send to Log Analytics**. To send data to a storage account or an event hub, a user selects the required destination and selects the check boxes for any of the desired events, without any additional inputs. Again, we recommend that you do not choose the legacy event AzureBackupReport going forward.
+> The toggle for **Azure diagnostics** or **Resource specific** appears only if the user selects **Send to Log Analytics**. To send data to a storage account or an event hub, a user selects the required destination and selects the check boxes for any of the desired events, without any additional inputs. Again, we recommend that you don't choose the legacy event AzureBackupReport going forward.
 
 ## Send Azure Site Recovery events to Log Analytics
 

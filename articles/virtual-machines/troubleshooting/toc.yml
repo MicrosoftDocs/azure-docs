@@ -194,9 +194,9 @@
 - name: Virtual Disk Management issues
   items:
   - name: Overview
-    href: ../windows/managed-disks-overview.md
+    href: ../managed-disks-overview.md
   - name: FAQ
-    href: ../windows/faq-for-disks.md
+    href: ../faq-for-disks.md
   - name: Errors when deleting storage resources
     href: storage-resource-deletion-errors.md
   - name: Errors when deleting classic storage resources
