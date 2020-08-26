@@ -41,7 +41,7 @@ Here’s the problematic policy:
 
 ## Solution
 
-### Process Overview:
+### Process overview
 
 1. Create and Access a Repair VM.
 1. Disable the policy.
@@ -49,7 +49,7 @@ Here’s the problematic policy:
 1. Rebuild the VM.
 1. Collect the memory dump file and submit a support ticket.
 
-### Create and Access a Repair VM
+### Create and access a repair VM
 
 1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 1. Using Remote Desktop Connection, connect to the Repair VM.
@@ -162,7 +162,7 @@ If the issue was fixed, the policy is now disabled locally. For a permanent solu
 **Don’t use this policy:**
 *Machine\Admin Templates\System\User Profiles\Delete user profiles older than a specified number of days on system restart.*
 
-## The issue should now be fixed.
+### The issue should now be fixed
 
 Test your VM to make sure it is functioning like normal. If you are still experiencing issues, then you can continue to the next section for further assistance.
 
@@ -170,12 +170,12 @@ Test your VM to make sure it is functioning like normal. If you are still experi
 
 To resolve this problem, you would need first to gather the memory dump file for the crash and then contact support with the memory dump file. To collect the dump file, follow these steps:
 
-**Attach the OS disk to a new Repair VM**
+#### Attach the OS disk to a new Repair VM
 
 1. Use steps 1-3 of the [VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a new Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
 
-**Locate the dump file and submit a support ticket**
+#### Locate the dump file and submit a support ticket
 
 1. On the repair VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is labeled as *F*, then you need to go to `F:\Windows`.
 1. Locate the `memory.dmp` file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
