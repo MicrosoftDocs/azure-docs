@@ -9,14 +9,14 @@ ms.date: 04/23/2019
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
+> Based on feedback from users, we've renamed **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 > All the Azure backup users have now been upgraded to **Instant Restore**.
 
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
 * Reduces backup and restore times by retaining snapshots locally, for two days by default. This default snapshot retention value is configurable to any value between 1 to 5 days.
-* Supports disk sizes up to 32 TB. Resizing of disks is not recommended by Azure Backup.
+* Supports disk sizes up to 32 TB. Resizing of disks isn't recommended by Azure Backup.
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 * Ability to use an unmanaged VMs original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 * For backup of VMs that are using unmanaged premium disks in storage accounts, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space isn't a requirement for backups after the first backup is complete.
@@ -71,7 +71,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-The default snapshot retention for each policy is set to two days. User can change the value to a minimum of 1 and a maximum of five days. For weekly policies, the snapshot retention is fixed to five days.
+The default snapshot retention for each policy is set to two days. You can change the value to a minimum of 1 and a maximum of five days. For weekly policies, the snapshot retention is fixed to five days.
 
 ## Frequently asked questions
 
@@ -110,4 +110,3 @@ If the recovery point has snapshot and that is the latest RP available, it's ret
 ### I don’t need Instant Restore functionality. Can it be disabled?
 
 Instant restore feature is enabled for everyone and can't be disabled. You can reduce the snapshot retention to a minimum of one day.
-

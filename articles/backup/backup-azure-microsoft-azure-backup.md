@@ -14,7 +14,7 @@ ms.date: 11/13/2018
 >
 >
 
-> Applies To: MABS v3. (MABS v2 is no longer supported. If you are using a version earlier than MABS v3, please upgrade to the latest version.)
+> Applies To: MABS v3. (MABS v2 is no longer supported. If you're using a version earlier than MABS v3, please upgrade to the latest version.)
 
 This article explains how to prepare your environment to back up workloads using Microsoft Azure Backup Server (MABS). With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange, and Windows clients from a single console.
 
@@ -57,7 +57,7 @@ If you don't want to run the base server in Azure, you can run the server on a H
 You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) work together when deployed in Hyper-V VMs.
 
 > [!NOTE]
-> Azure Backup Server is designed to run on a dedicated, single-purpose server. You cannot install Azure Backup Server on:
+> Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on:
 >
 > * A computer running as a domain controller
 > * A computer on which the Application Server role is installed
@@ -65,7 +65,7 @@ You can deduplicate the DPM storage using Windows Server Deduplication. Learn mo
 > * A computer on which Exchange Server is running
 > * A computer that is a node of a cluster
 >
-> Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
+> Installing Azure Backup Server isn't supported on Windows Server Core or Microsoft Hyper-V Server.
 
 Always join Azure Backup Server to a domain. If you plan to move the server to a different domain, install Azure Backup Server first, then join the server to the new domain. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
@@ -96,7 +96,7 @@ To edit the storage replication setting:
    * In the list of resources, type **Recovery Services**.
    * As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, select it.
 
-     ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Create Recovery Services vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      The list of Recovery Services vaults appears.
    * From the list of Recovery Services vaults, select a vault.
@@ -124,13 +124,13 @@ To edit the storage replication setting:
     The **Getting Started with backup** wizard switches the **Prepare infrastructure** option to back up workloads to Azure.
 
    > [!NOTE]
-   > If you only want to back up files and folders, we recommend using the Azure Backup agent and following the guidance in the article, [First look: back up files and folders](./backup-windows-with-mars-agent.md). If you are going to protect more than files and folders, or you are planning to expand the protection needs in the future, select those workloads.
+   > If you only want to back up files and folders, we recommend using the Azure Backup agent and following the guidance in the article, [First look: back up files and folders](./backup-windows-with-mars-agent.md). If you're going to protect more than files and folders, or you're planning to expand the protection needs in the future, select those workloads.
    >
    >
 
     ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. In the **Prepare infrastructure** pane that opens, select the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
+6. In the **Prepare infrastructure** pane that opens, select the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the Recovery Services vault. The links take you to the Download Center where the software package can be downloaded.
 
     ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -138,7 +138,7 @@ To edit the storage replication setting:
 
     ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Since the download size of all the files together is > 3G, on a 10-Mbps download link it may take up to 60 minutes for the download to complete.
+    Since the download size of all the files together is > 3 GB, on a 10-Mbps download link it may take up to 60 minutes for the download to complete.
 
 ### Extracting the software package
 
@@ -165,7 +165,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     >[!NOTE]
     >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2014 SP1 or higher, 2016 and 2017.  All SQL Server versions should be Standard or Enterprise 64-bit.
-    >Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you are using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
+    >Azure Backup Server won't work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you're using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
 
     ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -211,7 +211,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Summary of settings](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available, you can continue with the installation. If not, you need to provide proxy details to connect to the Internet.
 
-    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the recovery services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
+    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the Recovery Services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
     ![Register Server Wizard](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
@@ -329,7 +329,7 @@ Use the following procedures to upgrade MABS.
 
 > [!NOTE]
 >
-> MABS V2 is not a prerequisite for installing MABS V3. However, you can upgrade to MABS V3 only from MABS V2.
+> MABS V2 isn't a prerequisite for installing MABS V3. However, you can upgrade to MABS V3 only from MABS V2.
 
 Use the following steps to upgrade MABS:
 
@@ -339,7 +339,7 @@ Use the following steps to upgrade MABS:
 
    > [!NOTE]
    >
-   > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and so an attempt to re-upgrade MABS will fail.
+   > Don't exit while your SQL instance is being upgraded. Exiting will uninstall the SQL reporting instance and so an attempt to re-upgrade MABS will fail.
 
    > [!IMPORTANT]
    >
