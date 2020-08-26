@@ -18,13 +18,15 @@
   - name: Manage data feeds
     href: how-tos/datafeeds.md
   - name: Configure metrics and anomaly detection
-    href: how-tos/web-portal.md
+    href: how-tos/configure-metrics.md
   - name: Create and send alerts
     href: How-tos/alerts.md
   - name: Diagnose an incident
     href: how-tos/diagnose-incident
   - name: Connect different data feed sources
     href: data-feeds-from-different-sources.md
+  - name: Adjust anomaly detection using feedback
+    href: how-tos/anomaly-feedback.md
 - name: Reference
   items:
   - name: Glossary
