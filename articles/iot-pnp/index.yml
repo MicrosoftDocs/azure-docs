@@ -45,6 +45,8 @@ landingContent:
           url: concepts-convention.md
         - text: Components
           url: concepts-components.md
+        - text: IoT Plug and Play bridge
+          url: concepts-iot-pnp-bridge.md
   - title: Build solutions
     linkLists:
     - linkListType: quickstart
