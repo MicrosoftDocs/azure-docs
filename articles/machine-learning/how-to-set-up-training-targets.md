@@ -218,7 +218,7 @@ During a run there are two applications of an identity:
 1. The user applies an identity to access resources from within the code for a submitted run
     
     * In this case, the user must provide the *client_id* corresponding to the managed identity they want to use to retrieve a credential. 
-    * Alternatively, AML exposes the user-assigned identity's client id through the *DEFAULT_IDENTITY_CLIENT_ID* environment variable.
+    * Alternatively, AML exposes the user-assigned identity's client ID through the *DEFAULT_IDENTITY_CLIENT_ID* environment variable.
     
     For example, to retrieve a token for a datastore with the default managed identity:
     
