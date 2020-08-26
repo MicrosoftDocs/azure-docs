@@ -20,7 +20,7 @@ This article shows you how to create this new account type using [Azure portal](
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - If you intend to use the Azure CLI, [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+- If you intend to use Azure PowerShell, [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## Create a FileStorage storage account
 
@@ -60,23 +60,7 @@ Once your storage account resource has been created, navigate to it.
 
 # [PowerShell](#tab/azure-powershell)
 
-First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
-
-Then, upgrade your PowerShell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
-
-### Upgrade your PowerShell module
-
-To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module version 1.4.0, or the latest Az.Storage module.
-
-Start by opening a PowerShell session with elevated permissions.
-
-Install the Az.Storage module:
-
-```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
-```
-
-### Sign in to your Azure Subscription
+### Sign in to Azure
 
 Use the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
 
