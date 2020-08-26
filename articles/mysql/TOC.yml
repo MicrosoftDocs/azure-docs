@@ -171,27 +171,27 @@
          displayName: monitor, alerts, audit log
        - name: Query Store
          href: concepts-query-store.md
-         displayName: performance, query store, optimize
+         displayName: performance, query store
        - name: Query Performance Insights
          href: concepts-query-performance-insight.md
-         displayName: performance, query store, optimize, query performance insights
+         displayName: query performance insights
        - name: Performance Recommendations
          href: concepts-performance-recommendations.md
-         displayName: performance, query store, optimize, recommendation
+         displayName:  recommendation
        - name: Application Development
          items:
          - name: Drivers and tools compatibility
            href: concepts-compatibility.md
-           displayName: application, development, drivers, tools
+           displayName: drivers, tools
          - name: Application development
            href: concepts-database-application-development.md
-           displayName: application, development, drivers, tools
+           displayName: developement 
          - name: Application Best practices
            href: app-development-best-practices.md
-           displayName: application, development, schema, optimize, build, deploy
+           displayName: application
          - name: Connection resiliency
            href: concepts-connectivity.md
-           displayName: application, development, connection, resiliency
+           displayName: connection, resiliency
      - name: Replication
        items:
        - name: Data-in replication
@@ -222,52 +222,52 @@
       items:
         - name: Create users
           href: howto-create-users.md
-          displayName: application , users, non admin user
+          displayName: users
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-azure-ad-authentication.md
-          displayName: application ,  active directory
+          displayName:  active directory
         - name: Connect with Managed Identity
           href: howto-connect-with-managed-identity.md
-          displayName: application , managed identity, msi
+          displayName: managed identity, msi
     - name: Restore a server
       items:
       - name: Azure portal
         href: howto-restore-server-portal.md
-        displayName: restore server, backup, geo-restore, restore using portal
+        displayName: restore server,backup
       - name: Azure CLI
         href: howto-restore-server-cli.md
-        displayName: restore server, backup, geo-restore, restore using cli
+        displayName: restore server, backup
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
-        displayName: restore server, backup, geo-restore, restore using powershell
+        displayName: restore server, backup, geo-restore powershell
     - name: Connect applications
       items:
           - name: Configure SSL
             href: howto-configure-ssl.md
-            displayName: ssl, security, application developement
+            displayName: ssl, security, application
           - name: Configure TLS
             href: howto-tls-configurations.md
-            displayName: TLS, security, application developement
+            displayName: TLS, security, developement
           - name: Connect and query guide
             href: how-to-connect-overview-single-server.md
             displayName: connect , query , libraries, TLS, runtime
           - name: Web apps
             href: howto-connect-webapp.md
-            displayName: azure web app, security, application developement, app service
+            displayName: azure web app, security, web app, app service 
           - name: Connect with redirection
             href: howto-redirection.md
-            displayName: application development, redirection , php
+            displayName: development, redirection , php
     - name: Configure server parameters
       items:
       - name: Azure portal
         href: howto-server-parameters.md
-        displayName: server parameters, configure , system, portal
+        displayName: server parameters 
       - name: Azure CLI
         href: howto-configure-server-parameters-using-cli.md
-        displayName: server parameters, configure , system, cli
+        displayName: server parameters, cli
       - name: Azure PowerShell
         href: howto-configure-server-parameters-using-powershell.md
-        displayName: server parameters, configure , system, powershell
+        displayName: server parameters, powershell
     - name: Auto grow storage
       items:
       - name: Azure portal
@@ -402,13 +402,13 @@
     items:
     - name: Build PHP (Laravel) app with Flexible Server
       href: flexible-server/tutorial-php-flexible-server-database-app.md
-  - name: how-to-guides
+  - name: How-to guides
     items:
     - name: Manage your server
       items:
       - name: Azure Portal
         href: flexible-server/how-to-manage-flexible-server-portal.md
-      - name: Azure Portal
+      - name: Azure CLI
         href: flexible-server/how-to-manage-flexible-server-cli.md
 - name: Reference
   items:
