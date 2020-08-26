@@ -1,5 +1,5 @@
 ---
-title: CI/CD to Azure IoT Edge devices (classic) - Azure IoT Edge
+title: Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor) - Azure IoT Edge
 description: Set up continuous integration and continuous deployment using the classic editor - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: shizn
 manager: philmea
@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Continuous integration and continuous deployment to Azure IoT Edge
+# Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor)
 
 You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-ci-cd.md).
 
@@ -43,7 +43,7 @@ Unless otherwise specified, the procedures in this article do not explore all th
    If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there.
 
 * A container registry where you can push module images. You can use [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or a third-party registry.
-* An active [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
+* An active Azure [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least two IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
 
 ## Create a build pipeline for continuous integration
 
