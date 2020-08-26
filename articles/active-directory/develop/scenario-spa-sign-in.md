@@ -40,7 +40,7 @@ You can't use both the pop-up and redirect methods in your application. The choi
 ## Sign-in with a pop-up window
 
 
-# [JavaScript (MSAL.js 2x)](#tab/javascript2)
+# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
 ```javascript
 
@@ -81,7 +81,7 @@ myMsal.loginPopup(loginRequest)
     });
 ```
 
-# [JavaScript (MSAL.js 1x)](#tab/javascript1)
+# [JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 ```javascript
 
@@ -162,7 +162,7 @@ For a pop-up window experience, enable the `popUp` configuration option. You can
 
 ## Sign-in with redirect
 
-# [JavaScript (MSAL.js 2x)](#tab/javascript2)
+# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
 ```javascript
 
@@ -202,7 +202,7 @@ myMsal.handleRedirectPromise(handleResponse);
 myMsal.loginRedirect(loginRequest);
 ```
 
-# [JavaScript (MSAL.js 1x)](#tab/javascript1)
+# [JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, you need to register success and error callbacks before you call the redirect methods.
 
@@ -243,7 +243,7 @@ The MSAL library provides a `logout` method that clears the cache in browser sto
 
 You can configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should also be registered as the logout URI in your application registration.
 
-# [JavaScript (MSAL.js 2x)](#tab/javascript2)
+# [JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
 ```javascript
 const config = {
@@ -264,7 +264,7 @@ const logoutRequest = {
 myMsal.logout(logoutRequest);
 ```
 
-# [JavaScript (MSAL.js 1x)](#tab/javascript1)
+# [JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 ```javascript
 const config = {
