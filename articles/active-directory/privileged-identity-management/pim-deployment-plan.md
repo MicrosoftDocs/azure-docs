@@ -197,7 +197,7 @@ Keeping track of who is assigned to a role and managing their assignments based 
 A group owner can manage membership for a group. In PIM, only the Privileged Role Administrator, the Global Administrator, and group Owner roles can manage group membership. Use group owners to delegate the management of group membership for an assigned role to reduce the breadth of privilege required. For more information about assigning an owner to a group when creating the group, see [Create a role-assignable group in Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
 
 > [!TIP]
-:heavy_check_mark: **Microsoft recommends** that you bring Azure AD role-assignable groups under management by PIM to require owners to activate their Owner role assignment before they can manage group membership. For more information about bringing groups under PIM management, see [Bring privileged access groups (preview) into Privileged Identity Management](groups-discover-groups.md).
+> :heavy_check_mark: **Microsoft recommends** that you bring Azure AD role-assignable groups under management by PIM to require owners to activate their Owner role assignment before they can manage group membership. For more information about bringing groups under PIM management, see [Bring privileged access groups (preview) into Privileged Identity Management](groups-discover-groups.md).
 
 ### Decide which role assignments should be permanent or eligible
 
