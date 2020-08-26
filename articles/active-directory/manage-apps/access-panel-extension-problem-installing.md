@@ -1,6 +1,6 @@
 ---
-title: Install application access panel browser extension - Azure AD
-description: Fix common errors encountered when you install the access panel browser extension.
+title: Resolve errors encountered when installing the Azure Active Directory My Apps extension
+description: Fix common errors encountered when you install the My Apps browser extension.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,17 +13,17 @@ ms.author: kenwith
 ms.reviewer: japere,asteen
 ---
 
-# Install the access panel browser extension
+# Resolve errors encountered when installing the Azure Active Directory My Apps extension
 
-The access panel is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can use the access panel to view and start cloud-based applications that an Azure AD administrator has granted you access to. 
+My Apps is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can use My Apps to view and start cloud-based applications that an Azure AD administrator has granted you access to. 
 
-If you're using Azure AD editions, you can also use self-service group and app management capabilities through the access panel. 
+If you're using Azure AD editions, you can also use self-service group and app management capabilities through My Apps. 
 
-The access panel is separate from the Azure portal. It does not require you to have an Azure subscription.
+My Apps is separate from the Azure portal. It does not require you to have an Azure subscription.
 
 ## Web browser requirements
 
-At minimum, the access panel requires a browser that supports JavaScript and has CSS enabled. To be signed in to applications through password-based SSO in the access panel, you must have the access panel extension installed in your browser. The extension is downloaded automatically when you select an application that's configured for password-based SSO.
+At minimum, My Apps requires a browser that supports JavaScript and has CSS enabled. To be signed in to applications through password-based SSO in My Apps, you must have the My Apps extension installed in your browser. The extension is downloaded automatically when you select an application that's configured for password-based SSO.
 
 For password-based SSO, you can use any of the following browsers:
 
@@ -31,11 +31,11 @@ For password-based SSO, you can use any of the following browsers:
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 
-## Install the access panel browser extension
+## Install the My Apps browser extension
 
-To install the access panel browser extension, do the following:
+To install the My Apps browser extension, do the following:
 
-1.  In one of the supported browsers, open the [access panel](https://myapps.microsoft.com), and then sign in as a user in your Azure AD account.
+1.  In one of the supported browsers, open [My Apps](https://myapps.microsoft.com), and then sign in as a user in your Azure AD account.
 
 2.  Select a password-based SSO application.
 
@@ -48,7 +48,7 @@ To install the access panel browser extension, do the following:
 
 6.  After installation is complete, restart your browser.
 
-7.  Sign in to the access panel, and check to see whether you can start your password-based SSO applications.
+7.  Sign in to My Apps, and check to see whether you can start your password-based SSO applications.
 
 You can also download the extension for Chrome and Microsoft Edge directly from following sites:
 
@@ -89,7 +89,7 @@ You can also download the extension for Chrome and Microsoft Edge directly from 
 
 ## Set up a group policy for Internet Explorer
 
-You can set up a group policy that allows you to remotely install the access panel extension for Internet Explorer on your users' machines.
+You can set up a group policy that allows you to remotely install the My Apps extension for Internet Explorer on your users' machines.
 
 Before you set up a group policy, ensure that:
 
@@ -97,11 +97,11 @@ Before you set up a group policy, ensure that:
 
 -   To edit the Group Policy Object (GPO), you must have *Edit settings* permissions. By default, this permission is granted to members of the following security groups: domain administrators, enterprise administrators, and group policy creator owners.
 
-For step by step instructions about configuring the group policy and deploying it to users, see [Deploy the access panel extension for Internet Explorer by using group policy](deploy-access-panel-browser-extension.md).
+For step by step instructions about configuring the group policy and deploying it to users, see [Deploy the My Apps extension for Internet Explorer by using group policy](deploy-access-panel-browser-extension.md).
 
-## Troubleshoot the access panel extension in Internet Explorer
+## Troubleshoot the My Apps extension in Internet Explorer
 
-For access to a diagnostics tool and information about configuring the extension for Internet Explorer, see [Troubleshoot the access panel extension for Internet Explorer](manage-access-panel-browser-extension.md).
+For access to a diagnostics tool and information about configuring the extension for Internet Explorer, see [Troubleshoot the My Apps extension for Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
 > Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
