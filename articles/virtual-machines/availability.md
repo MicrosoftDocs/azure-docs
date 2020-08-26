@@ -54,7 +54,7 @@ An availability set is a logical grouping of VMs within a datacenter that allows
 
 In an availability set, VMs are automatically distributed across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
 
-For VMs using [Azure Managed Disks](./windows/faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. 
+For VMs using [Azure Managed Disks](./faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. 
 
 Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region. You can read more about these managed disk fault domains for [Linux VMs](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) or [Windows VMs](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 
