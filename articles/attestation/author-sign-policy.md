@@ -99,7 +99,7 @@ See [claim and claim rules](claim-rule-grammar.md) for for more information.
   [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
   ```
 
-  Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
+  Complex policies can be crafted in a similar manner. For more information, see [attestation policy examples](policy-examples.md).
   
 6. Save file.
 
@@ -122,7 +122,7 @@ After creating a policy file, to upload a policy in JWS format, follow the below
      - None – When you don’t want to sign the policy payload
      - RS256 – Supported algorithm to sign the policy payload
 
-3. Upload the JWS and validate the policy (See “Policy management” section of this document)
+3. Upload the JWS and validate the policy. 
      - If the policy file is free of syntax errors the policy file gets accepted by the service.
      - If the policy file contains syntax errors the policy file will be rejected by the service.
 
