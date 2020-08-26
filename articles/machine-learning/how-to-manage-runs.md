@@ -105,7 +105,7 @@ To start a run of your experiment, use the following steps:
 
 ### Using Azure Machine Learning studio
 
-To start a submit a pipeline run in the designer (preview), use the following steps:
+To start a submit a pipeline run in the designer, use the following steps:
 
 1. Set a default compute target for your pipeline.
 

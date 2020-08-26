@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 # Decision Forest Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model based on an ensemble of decision trees.
 

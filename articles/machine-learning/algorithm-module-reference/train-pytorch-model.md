@@ -14,7 +14,7 @@ ms.date: 05/26/2020
 
 # Train Pytorch Model
 
-This article describes how to use the **Train Pytorch Model** module in Azure Machine Learning designer (preview) to train pytorch models like DenseNet. Training takes place after you define a model and set its parameters, and requires labeled data. 
+This article describes how to use the **Train Pytorch Model** module in Azure Machine Learning designer to train pytorch models like DenseNet. Training takes place after you define a model and set its parameters, and requires labeled data. 
 
 ## How to use Train Pytorch Model 
 

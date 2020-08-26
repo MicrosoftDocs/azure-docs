@@ -13,7 +13,7 @@ ms.date: 05/26/2020
 ---
 # Convert to Image Directory
 
-This article describes how to use the Convert to Image Directory module to help convert image dataset to 'Image Directory' data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer (preview).
+This article describes how to use the Convert to Image Directory module to help convert image dataset to 'Image Directory' data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer.
 
 ## How to use Convert to Image Directory  
 

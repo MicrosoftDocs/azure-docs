@@ -24,7 +24,7 @@ The following table summarizes some of the key differences between Azure Machine
 
 | Feature | Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Supported | Supported - [Azure Machine Learning designer (preview)](concept-designer.md) <br/>(Requires Enterprise workspace) | 
+| Drag and drop interface | Supported | Supported - [Azure Machine Learning designer](concept-designer.md) <br/>(Requires Enterprise workspace) | 
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
 | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |
@@ -37,7 +37,7 @@ The following table summarizes some of the key differences between Azure Machine
 
 ## Migrate from Machine Learning Studio (classic)
 
-Currently, there's no way to migrate Studio (classic) assets to Azure Machine Learning designer (preview). Current Studio (classic) users can continue to use their machine learning assets. However, we encourage all users to considering using the designer, which provides a familiar drag-and-drop experience with improved workflow **plus** scalability, version control, and enterprise security.
+Currently, there's no way to migrate Studio (classic) assets to Azure Machine Learning designer. Current Studio (classic) users can continue to use their machine learning assets. However, we encourage all users to considering using the designer, which provides a familiar drag-and-drop experience with improved workflow **plus** scalability, version control, and enterprise security.
 
 ## Get started with Azure Machine Learning
 

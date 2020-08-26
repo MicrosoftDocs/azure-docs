@@ -13,7 +13,7 @@ ms.date: 08/24/2020
 ---
 # Two-Class Boosted Decision Tree module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
