@@ -16,7 +16,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Configure an availability group for SQL Server on Azure VM (Azure portal - preview)
+# Configure an availability group for SQL Server on Azure VM (Azure portal - Preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
