@@ -389,9 +389,9 @@
   - name: Concepts
     items:
     - name: Compute and storage
-      href: flexible-server/concepts-flexible compute-storage.md
+      href: flexible-server/concepts-flexible-compute-storage.md
     - name: Limitations
-      href: flexible-server/concepts-flexible-limits.md
+      href: flexible-server/concepts-flexible-limitations.md
     - name: Manage
       items:
       - name: Logs and Diagnostics

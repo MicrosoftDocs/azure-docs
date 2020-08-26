@@ -63,7 +63,7 @@ The detailed specifications of the available server types are as follows:
 | E48ds_v4             | 48     | 384 GiB     |
 | E64ds_v4             | 64     | 504 GiB     |
 
-To get more details about the compute series available, please refer to Azure VM documentation for [B-series (Burstable)](../../virtual-machines/sizes-b-series-burstable), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series), and [Memory Optmized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series).
+To get more details about the compute series available, please refer to Azure VM documentation for [B-series (Burstable)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optmized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
 ## Storage
 
@@ -122,5 +122,5 @@ For the most up-to-date pricing information, see the service [pricing page](http
 
 ## Next steps
 
-- Learn how to [create a MySQL server in the portal](quickstart-create-flexible-server-portal.md).
+<!--- Learn how to [create a MySQL server in the portal](quickstart-create-flexible-server-portal.md).-->
 - Learn about [service limitations](concepts-flexible-limitations.md).
