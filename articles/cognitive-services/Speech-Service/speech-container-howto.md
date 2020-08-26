@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/26/2020
 ms.author: aahi
 ---
 
@@ -23,6 +23,7 @@ Speech containers enable customers to build a speech application architecture th
 > * Speech-to-text
 > * Custom Speech-to-text
 > * Text-to-speech
+> 
 > The following speech containers are in Public gated preview and require [an application](https://aka.ms/cognitivegate) to access them. 
 > * Custom Text-to-speech
 > * Speech language detection 
@@ -33,7 +34,7 @@ Speech containers enable customers to build a speech application architecture th
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.3.1 |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
 | Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.5.0 |
-| Speech language detection | Detect the language spoken in audio files. | TBD |
+| Speech language detection | Detect the language spoken in audio files. | 1.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -67,13 +68,40 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 The following table describes the minimum and recommended allocation of resources for each Speech container.
 
+# [Speech-to-text](#tab/stt)
+
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
+
+# [Custom Speech-to-text](#tab/cstt)
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
 | Custom Speech-to-text | 2 core, 2-GB memory | 4 core, 4-GB memory |
+
+# [Text-to-speech](#tab/tts)
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
 | Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
+
+# [Custom Text-to-speech](#tab/ctts)
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
 | Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
+
+# [Language Detection](#tab/lid)
+
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
 | Language Detection | 1 core, 1-GB memory | 1 core, 1-GB memory |
+
+> [!NOTE]
+> Increasing the number of concurrent calls can impact reliability and latency. For language detection, we recommend a maximum of 4 concurrent calls using 1 CPU with and 1GB of memory. For hosts with 2 CPUs and 2GB of memory, we recommend a maximum of 6 concurrent calls.
+
+***
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -114,7 +142,7 @@ Container images for Speech are available in the following Container Registry.
 
 | Container | Repository |
 |-----------|------------|
-| Language Detection | `speechlid.azurecr.io/microsoft/cognitive-services-language-detection:latest` |
+| Language Detection | `mcr.microsoft.com/azure-cognitive-services/speech/language-detection:latest` |
 
 ***
 
@@ -225,7 +253,7 @@ Fill out and submit the [request form](https://aka.ms/cognitivegate) to request 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Container Preview registry.
 
 ```Docker
-docker pull speechlid.azurecr.io/microsoft/cognitive-services-language-detection:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speech/language-detection
 ```
 
 ***
@@ -407,7 +435,7 @@ To run the *Language Detection* container, execute the following `docker run` co
 
 ```bash
 docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
-speechlid.azurecr.io/microsoft/cognitive-services-language-detection \
+mcr.microsoft.com/azure-cognitive-services/speech/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
