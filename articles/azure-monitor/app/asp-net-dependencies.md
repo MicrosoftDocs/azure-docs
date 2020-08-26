@@ -2,7 +2,7 @@
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/26/2020
 
 ---
 
@@ -192,6 +192,18 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
 ### *How does automatic dependency collector report failed calls to dependencies?*
 
 * Failed dependency calls will have 'success' field set to False. `DependencyTrackingTelemetryModule` does not report `ExceptionTelemetry`. The full data model for dependency is described [here](data-model-dependency-telemetry.md).
+
+### *How do I calculate ingestion latency for my dependency telemetry?*
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### *How do I determine the time the dependency call was initiated?*
+
+In the Log Analytics query view `timestamp` represents the moment the TrackDependency() call was initiated which occurs immediately after the dependency call response is received. To calculate the time when the dependency call began, you would take `timestamp` and subtract the recorded `duration` of the dependency call.
 
 ## Open-source SDK
 Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
