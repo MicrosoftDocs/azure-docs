@@ -298,7 +298,7 @@ For more information, go to [payout account and tax forms](partner-center-portal
 
 ### Are returns and refunds supported with the commercial marketplace?
 
-To receive refunds, customers can cancel subscriptions within a specified time frame. For monthly subscriptions, it is 24 hours, and for annual subscriptions, it is 14 days. Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
+To receive refunds, customers can cancel subscriptions within a specified time frame. For monthly subscriptions, it is 24 hours, and for annual subscriptions, it is 14 days. Offers that use Azure metering functionality, where customers are billed according to usage, are not eligible for refunds. This includes SaaS and Azure Application offers with custom meters and Virtual Machine usage.
 
 ## Resources
 
