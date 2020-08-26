@@ -30,11 +30,11 @@ Copy the JSON data and then paste it into the related textbox. Do not make any c
 
 The option to create a custom control is in the **Manage** section of the **Conditional Access** page.
 
-![Control](./media/controls/82.png)
+![Custom controls interface in Conditional Access](./media/controls/custom-controls-conditional-access.png)
 
 Clicking **New custom control**, opens a blade with a textbox for the JSON data of your control.  
 
-![Control](./media/controls/81.png)
+![New custom control](./media/controls/new-custom-controls-conditional-access.png)
 
 ## Deleting custom controls
 
