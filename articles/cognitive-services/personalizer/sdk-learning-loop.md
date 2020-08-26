@@ -2,8 +2,9 @@
 title: "Quickstart: Create and use learning loop with SDK - Personalizer"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
-ms.date: 07/30/2020
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.date: 08/25/2020
+ms.custom: cog-serv-seo-aug-2020
+keywords: personalizer, Azure personalizer, machine learning 
 zone_pivot_groups: programming-languages-set-six
 ---
 
@@ -38,9 +39,5 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[How Personalizer works](how-personalizer-works.md)
-
-* [What is Personalizer?](what-is-personalizer.md)
-* [Where can you use Personalizer?](where-can-you-use-personalizer.md)
-* [Troubleshooting](troubleshooting.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer).
+> [How Personalizer works](how-personalizer-works.md)
+> [Where to use Personalizer?](where-can-you-use-personalizer.md)
