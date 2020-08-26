@@ -79,7 +79,7 @@ If you're trying to install Visual Studio or any Office-licensed product, contac
 
 For more information about selecting an approved base, see [Create your Azure virtual machine technical assets](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## Tool kit test case execution failed
+## Tool kit test case execution failed 
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
