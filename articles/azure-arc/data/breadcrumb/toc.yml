@@ -1,0 +1,11 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+  - name: Azure Arc
+    tocHref: /azure-arc/
+    topicHref: /azure-arc/index
+    items:
+    - name: Data
+      tocHref: /azure-arc/data/
+      topicHref: /azure-arc/data/index
