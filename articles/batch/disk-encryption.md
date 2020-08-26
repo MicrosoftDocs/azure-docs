@@ -31,7 +31,7 @@ Batch will apply one of these disk encryption technologies on compute nodes, bas
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the server side. After the disk encryption configuration is specified, the target disks for each node in the pool will be encrypted when the pool is created.
+You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node.
  
 ## Azure portal 
 
