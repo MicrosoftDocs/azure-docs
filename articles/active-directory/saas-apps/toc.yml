@@ -638,6 +638,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -924,6 +926,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kemp LoadMaster
+        href: kemp-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1658,7 +1662,7 @@
         href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
-      - name: TigerText Secure Messenger
+      - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
       - name: TimeLive
         href: timelive-tutorial.md
@@ -1876,6 +1880,8 @@
         href: zscaler-zscloud-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
+      - name: Zylo
+        href: zylo-tutorial.md
   - name: User provisioning tutorials
     expanded: true
     items:
@@ -2039,6 +2045,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Analytics Cloud
+        href: sap-analytics-cloud-provisioning-tutorial.md
       - name: SAP Cloud Platform Identity Authentication
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory

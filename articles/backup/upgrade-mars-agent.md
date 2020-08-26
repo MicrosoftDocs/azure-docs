@@ -17,8 +17,8 @@ In this article you'll learn how to:
 
 For Installations of Azure Backup agent and Azure backup server:
 
-1. Navigate to the Recovery Services Vault where you have registered servers that are potentially being backed up by older versions of the agent. You can find a representative list of vaults with older Azure Backup agents in the Azure Backup Update alerts from Azure.
-1. On the left-side **Settings** section of the Recovery Services Vault, select **Backup Infrastructure** under the **Manage** section.
+1. Navigate to the Recovery Services vault where you have registered servers that are potentially being backed up by older versions of the agent. You can find a representative list of vaults with older Azure Backup agents in the Azure Backup Update alerts from Azure.
+1. On the left-side **Settings** section of the Recovery Services vault, select **Backup Infrastructure** under the **Manage** section.
 1. To discover Azure backup agents installed as part of Azure Backup server installations, go to **Backup Management Servers** under **Management Servers**. This will list the servers that have Azure Backup server installations along with the version number for the associated Azure Backup agent.
 
     ![List of MARS agents installed as part of Azure Backup server installations](./media/upgrade-mars-agent/backup-management-servers.png)
@@ -46,7 +46,7 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
     ![Connect to server via remote desktop connection](./media/upgrade-mars-agent/connect-to-server.png)
 
     >[!NOTE]
-    > If the listed server does not exist or has been decommissioned, you can ignore the remaining steps below and skip to the next server.
+    > If the listed server doesn't exist or has been decommissioned, you can ignore the remaining steps below and skip to the next server.
 
 1. Enter your administrative login details and sign in.
 

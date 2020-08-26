@@ -179,7 +179,7 @@ Typical targets for review include:
 
 * [Applications integrated with Azure AD for Single Sign-on](../manage-apps/what-is-application-management.md) (such as SaaS, line-of-business).
 
-* Group [membership](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) (synchronized to Azure AD, or created in Azure AD or Office 365, including Microsoft Teams).
+* Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synchronized to Azure AD, or created in Azure AD or Office 365, including Microsoft Teams).
 
 * [Access Package](/entitlement-management-overview.md) that group resources (groups, apps, and sites) into a single package to manage access.
 
@@ -282,7 +282,7 @@ External identities can be granted access to company resources through one of th
 
 * Assigned a privileged role in Azure AD or in an Azure subscription
 
-See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
+See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
 
 When creating an Access Review for groups or applications, you can choose to let the reviewer focus on Everyone with access, or Guest users only. By selecting Guest users only, reviewers are given a focused list of external identities from Azure AD B2B that have access to the resource.
 
@@ -388,7 +388,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) much smaller and increases the overall security of the directory.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
 
 Access Reviews allows reviewers to attest whether users still need to be in a role. Just like Access Reviews for Access Packages, reviews for Azure AD roles and Azure resource are integrated into the PIM admin user experience. We recommend you review the following role assignments regularly:
 
@@ -451,9 +451,9 @@ Follow the instructions in the links below:
 
 | How-to articles | Description |
 | - | - |
- [Create Access Reviews](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure AD roles in PIM |
-| [Self-review your access](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| View an Access Review and apply the results |
+ [Create Access Reviews](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ### Review Azure resource roles
@@ -466,14 +466,14 @@ Follow the instructions in the links below:
 
 | How-to articles| Description |
 | - | -|
-| [Create Access Reviews](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure resource roles in PIM |
-| [Self-review your access](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| View an Access Review and apply the results |
+| [Create Access Reviews](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ## Use the Access Reviews API
 
-See [graph API methods](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) and [role and application permission authorization checks](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
+See [graph API methods](/graph/api/resources/accessreviews-root?view=graph-rest-beta) and [role and application permission authorization checks](/graph/api/resources/accessreviews-root?view=graph-rest-beta) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
 
 Popular Access Reviews tasks to automate using the Graph API for Access Reviews are:
 
@@ -518,4 +518,3 @@ Learn about the below related technologies.
 
 * [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

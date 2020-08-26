@@ -8,7 +8,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/05/2020
+ms.date: 08/21/2020
 ---
 
 # Tutorial: Optimize indexing with the push API

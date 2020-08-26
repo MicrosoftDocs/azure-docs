@@ -13,6 +13,8 @@ ms.reviewer: dineshm
 
 # Get started with Azure Queue storage using .NET
 
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+
 ## Overview
 
 Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled so they can scale independently. Queue storage delivers asynchronous messaging between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.

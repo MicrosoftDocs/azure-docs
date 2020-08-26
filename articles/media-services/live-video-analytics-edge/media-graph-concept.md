@@ -74,7 +74,11 @@ The frame rate filter processor node enables you to sample frames from the incom
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to connect your own IoT Edge module to a media graph. This node takes decoded video frames as the input, and relays such frames to a HTTP REST endpoint exposed by your module. This node has the ability to authenticate with the REST endpoint if required. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the REST endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats.
+The HTTP extension processor node enables you to connect your own IoT Edge module to a media graph. This node takes decoded video frames as the input, and relays such frames to a HTTP REST endpoint exposed by your module. This node has the ability to authenticate with the REST endpoint if required. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the REST endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports JPEG, PNG, or BMP formats.
+
+#### gRPC extension processor
+
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats.
 
 #### Signal gate processor  
 
@@ -96,7 +100,7 @@ An IoT Hub message sink node enables you to publish events to IoT Edge hub. The 
 
 ## Rules on the use of nodes
 
-See [quotas](quotas-limitations.md#limitations-on-graph-topologies-at-preview) for additional rules on how different nodes can be used within a media graph.
+See [limitations on graph topologies](quotas-limitations.md#limitations-on-graph-topologies-at-preview) for additional rules on how different nodes can be used within a media graph.
 
 ## Scenarios
 

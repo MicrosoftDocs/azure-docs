@@ -34,8 +34,10 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  - name: Create a Synapse workspace
+  - name: Create a Synapse workspace using the Azure portal
     href: quickstart-create-workspace.md
+  - name: Create a Synapse workspace using Azure CLI
+    href: quickstart-create-workspace-cli.md
   - name: Use Synapse Studio 
     href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
@@ -218,6 +220,8 @@
         href: ./spark/apache-spark-concepts.md
       - name: What is Delta Lake
         href: ./spark/apache-spark-what-is-delta-lake.md
+      - name: Delta Lake functional overview
+        href: ./spark/apache-spark-delta-lake-overview.md
       - name: Apache Spark performance
         href: ./spark/apache-spark-performance.md
       - name: Apache Spark Auto Scale behavior
@@ -472,6 +476,8 @@
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Query Azure Cosmos DB analytical store with Apache Spark for Azure Synapse Analytics
         href: ./synapse-link/how-to-query-analytical-store-spark.md
+      - name: Copy data from Synapse Link into a SQL pool using Apache Spark
+        href: ./synapse-link/how-to-copy-to-sql-pool.md
     - name: Synapse SQL
       items:
       - name: Query data in storage

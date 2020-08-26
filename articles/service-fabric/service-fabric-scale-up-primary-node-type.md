@@ -38,7 +38,7 @@ $resourceGroupName = "myResourceGroup"
 $location = "WestUS"
 
 New-AzResourceGroup `
-    -Name $resourceGroupName
+    -Name $resourceGroupName `
     -Location $location
 ```
 3. Fill in the parameter values in the template files. 
@@ -51,7 +51,7 @@ $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
+    -TemplateParameterFile $parameterFilePath
 ```
 
 ### Add a new primary node type to the cluster
