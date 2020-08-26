@@ -170,8 +170,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
   - A copy activity with an input dataset for the data to be copied from Azure Blob storage.
   - An output dataset for the data on Azure SQL Database.
   - A schedule triggers to execute the pipeline.
-> [!NOTE]
-> These prices are for example purposes only
+
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -184,6 +183,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
 | Copy Data Assumption: each execution time = 10 min. The Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC. The Delete Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
 | Monitor Pipeline Assumption: Only 2 runs occurred | 6 Monitoring run records retried (2 for pipeline run, 4 for activity run) |
 
+
 **Total Scenario pricing: $0.45523**
 
 - Data Factory Operations = $0.00023
@@ -193,6 +193,9 @@ To accomplish the scenario, you need to create two pipelines with the following 
   - Activity Runs = 0.001*6 = 0.006 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - Pipeline Activity = $0.116 (Prorated for 7 minutes of execution time. $1/hour on Azure Integration Runtime)
+
+> [!NOTE]
+> These prices are for example purposes only.
 
 **FAQ**
 
