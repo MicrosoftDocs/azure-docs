@@ -11,7 +11,7 @@ ms.author: chuye
 
 # Azure Storage Explorer blob versioning guide
 
-Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. If you haven't read the documentation on how blob versioning works, read [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview) before continuing.
+Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended to read more about [blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
 
 ## Terminology
 
@@ -83,7 +83,7 @@ Non-version blobs will be overwritten by the promoted blob version. Make sure yo
 
 ### Undelete blob version
 
-Blob versions cannot be undeleted individually. They must be undeleted all at once. To undelete all blob versions of a blob, select any one of the blob's versions and select `Undelete Selected` from the toolbar or the context menu.
+Blob versions can't be undeleted individually. They must be undeleted all at once. To undelete all blob versions of a blob, select any one of the blob's versions and select `Undelete Selected` from the toolbar or the context menu.
 
 ### Change access tier of blob versions
 
