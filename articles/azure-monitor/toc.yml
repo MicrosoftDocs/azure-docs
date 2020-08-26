@@ -210,33 +210,13 @@
       href: platform/diagnostic-settings.md
   - name: Log Analytics
     items:
-    - name: Workspaces
-      items:
-      - name: Design a workspace deployment
-        href: platform/design-logs-deployment.md
-      - name: Create a workspace
-        items:
-        - name: Use Azure portal
-          href: learn/quick-create-workspace.md 
-        - name: Use Azure CLI
-          href: learn/quick-create-workspace-cli.md
-        - name: Use PowerShell
-          href: platform/powershell-workspace-configuration.md
-        - name: Use Resource Manager template
-          href: platform/template-workspace-configuration.md
-      - name: Delete and recover a workspace
-        href: platform/delete-workspace.md
-      - name: Move a workspace
-        href: platform/move-workspace.md
-      - name: Design for service providers
-        href: platform/service-providers.md
-      - name: Manage access
-        href: platform/manage-access.md
     - name: Log query overview
       displayname: log query, log queries, query, queries
       href: log-query/log-query-overview.md
     - name: Simple logs experience
       href: log-query/simple-logs.md
+    - name: Audit log queries
+      href: log-query/query-audit.md
     - name: Tutorials
       items:
       - name: Log Analytics tutorial
@@ -315,6 +295,26 @@
         href: log-query/query-optimization.md
       - name: Parse text data
         href: log-query/parse-text.md
+    - name: Workspaces
+      items:
+      - name: Design a workspace deployment
+        href: platform/design-logs-deployment.md
+      - name: Create a workspace
+        items:
+        - name: Use Azure portal
+          href: learn/quick-create-workspace.md 
+        - name: Use Azure CLI
+          href: learn/quick-create-workspace-cli.md
+        - name: Use PowerShell
+          href: platform/powershell-workspace-configuration.md
+      - name: Delete and recover a workspace
+        href: platform/delete-workspace.md
+      - name: Move a workspace
+        href: platform/move-workspace.md
+      - name: Design for service providers
+        href: platform/service-providers.md
+      - name: Manage access
+        href: platform/manage-access.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer

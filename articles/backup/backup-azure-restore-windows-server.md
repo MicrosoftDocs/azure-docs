@@ -45,7 +45,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
    > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you don't see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
 
    > [!TIP]
-   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, and is recommended for a total size of less than 80 GB. It offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), and is recommended for recovering large-sized data or entire volumes.
+   > The **Individual files and folders** option allows for quick access to the recovery point data. It's suitable for recovering individual files, and is recommended for a total size of less than 80 GB. It offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), and is recommended for recovering large-sized data or entire volumes.
 
 5. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 
@@ -70,7 +70,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     ![Screenshot of Recover Data Wizard Browse and Recover Files page (restore to same machine) - Confirm Recovery Volume Unmount](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
+    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in the case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
 ## Use Instant Restore to restore data to an alternate machine
@@ -133,7 +133,7 @@ These steps include the following terminology:
     ![Unmount the volume (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
+    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in the case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
 ## Next steps
