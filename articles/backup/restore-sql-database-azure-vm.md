@@ -159,7 +159,7 @@ If you've selected **Full & Differential** as the restore type, do the following
 
 ### Restore databases with large number of files
 
-If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component such that you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
+If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup stores the list of database files in a different pit component so you can't set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
 
   ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
 

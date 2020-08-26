@@ -41,4 +41,4 @@ Sort hotels in descending order by `search.score` and `rating`, and then in asce
 
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search EST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search EST API&#41;](/rest/api/searchservice/Search-Documents)
