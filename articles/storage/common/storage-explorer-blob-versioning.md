@@ -61,7 +61,7 @@ Due to service limitation, Storage Explorer needs some additional processing to 
 
 ### View versions of a blob
 
-Storage Explorer provides a `Manage Versions` option to view all the versions of a blob. To go to that view, select the blob you want to view versions for and select `Manage History -> Manage Versions` from either the toolbar or the context menu.
+Storage Explorer provides a `Manage Versions` command to view all the versions of a blob. To view a blob's versions, select the blob you want to view versions for and select `Manage History -> Manage Versions` from either the toolbar or the context menu.
 
 ### Download blob versions
 
