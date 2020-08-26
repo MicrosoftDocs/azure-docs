@@ -17,16 +17,16 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Data Catalog?
+          - text: What is Azure Babylon
             url: overview.md
           - text: Product limitations
-            url: product-limitations.md
+            url: overview.md
       - linkListType: quickstart
         links:
           - text: Create a Babylon account
-            url: create-catalog-portal.md
+            url: overview.md
           - text: Adding Babylon admins
-            url: catalog-permissions.md
+            url: overview.md
 
   # Card
   - title: Top scenarios
@@ -34,13 +34,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Tutorial on scanning data
-            url: starter-kit-tutorial-1.md
+            url: overview.md
           - text: Tutorial on Home page and search
-            url: starter-kit-tutorial-2.md
+            url: overview.md
           - text: Tutorial on Browse and Lineage
-            url: starter-kit-tutorial-3.md
+            url: overview.md
           - text: Tutorial on Resource set, asset details, schema and classification
-            url: starter-kit-tutorial-4.md
+            url: overview.md
           - text: Tutorial on Glossary, terms and import
-            url: starter-kit-tutorial-5.md
+            url: overview.md
 
