@@ -100,6 +100,8 @@
       href: troubleshoot-guide-windows-boot-manager-menu.md
     - name: VM is unresponsive due to updating
       href: unresponsive-vm-apply-windows-update.md
+    - name: VM is unresponsive while applying audit configuration policy
+      href: vm-unresponsive-applying-audit-configuration-policy.md
     - name: VM is unresponsive when applying group policy
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
