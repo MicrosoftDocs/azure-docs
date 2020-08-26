@@ -1,9 +1,11 @@
 ---
 title: Programmatically create Azure subscriptions
 description: Learn how to create additional Azure subscriptions programmatically.
-author: anuragdalmia
+author: bandersmsft
+ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/26/2020
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell
@@ -211,9 +213,9 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 
 ### Prerequisites
 
-You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
+You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
+The example shown below use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
 
 ### Find billing accounts that you have access to
 
@@ -438,7 +440,7 @@ The API response lists the customers in the billing account with Azure plans. Yo
 
 ```
 
-Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, if you want to create a subscription for `Fabrikam toys`, you'd copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste this value somewhere to use it in the subsequent steps.
+Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, if you want to create a subscription for `Fabrikam toys`, you'd copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste this value somewhere to use it in later steps.
 
 ### Optional for Indirect providers: Get the resellers for a customer
 
