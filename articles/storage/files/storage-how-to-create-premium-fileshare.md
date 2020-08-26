@@ -106,7 +106,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
+If you want to log into your local installation of the CLI, make sure you have the latest version, then sign in:
 
 ```azurecli
 az login
@@ -158,7 +158,7 @@ Now that you've created a FileStorage account, you can create a premium file sha
 1. Enter a name and a desired quota for your file share, then select **Create**.
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
    ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
@@ -167,7 +167,7 @@ Now that you've created a FileStorage account, you can create a premium file sha
 To create a premium file share with the Azure PowerShell module, use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet.
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ```powershell
 New-AzStorageShare `
@@ -180,7 +180,7 @@ New-AzStorageShare `
 To create a premium file share with the Azure CLI, use the [az storage share create](/cli/azure/storage/share) command.
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ```azurecli-interactive
 az storage share create \
