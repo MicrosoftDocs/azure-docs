@@ -41,7 +41,7 @@ This section describes how to migrate your existing version 1.x Durable Function
 
 Install the latest 2.x version of the Durable Functions bindings extension in your project.
 
-#### JavaScript and Python
+#### JavaScript, Python, and PowerShell
 
 Durable Functions 2.x is available in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
 

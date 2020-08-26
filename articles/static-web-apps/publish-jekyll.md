@@ -46,7 +46,7 @@ Create a Jekyll app using the Jekyll Command Line Interface (CLI):
    cd static-app
    ```
 
-1. Initialize a new git repository.
+1. Initialize a new Git repository.
 
    ```bash
     git init

@@ -907,7 +907,7 @@
     },
     {
       "source_path": "articles/machine-learning/tutorial-resource-manager-workspace.md",
-      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template.md?tabs=azcli",
+      "redirect_url": "/azure/machine-learning/how-to-create-workspace-template",
       "redirect_document_id": false
     },
     {
@@ -8684,6 +8684,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/whats-new.md",
+      "redirect_url": "/azure/application-gateway/overview#whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
       "redirect_document_id": false
@@ -12914,6 +12919,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/faq-for-disks.md",
+      "redirect_url": "/azure/virtual-machines/faq-for-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/faq-for-disks.md",
+      "redirect_url": "/azure/virtual-machines/faq-for-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-double-encryption-at-rest-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-double-encryption-at-rest-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-customer-managed-keys-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-customer-managed-keys-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-customer-managed-keys-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-customer-managed-keys-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-host-based-encryption-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-host-based-encryption-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-host-based-encryption-portal.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-host-based-encryption-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/spot-vms.md",
+      "redirect_url": "/azure/virtual-machines/spot-vms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/spot-vms.md",
+      "redirect_url": "/azure/virtual-machines/spot-vms",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-panorama9-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/panorama9-tutorial",
       "redirect_document_id": true
@@ -15553,6 +15608,31 @@
       "redirect_url": "/azure/event-hubs/event-hubs-about",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/get-started-dotnet-standard-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/get-started-java-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/get-started-node-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
+      "redirect_document_id": false
+    },                
+    {
+      "source_path": "articles/event-hubs/get-started-capture-python-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-capture-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/get-started-python-send-v2.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },   
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
@@ -39819,6 +39899,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/scenario-availability.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": true
@@ -39826,6 +39911,11 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-audio-file.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/get-started.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/overview#try-the-speech-service-for-free",
       "redirect_document_id": false
     },
     {
@@ -42381,6 +42471,11 @@
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
       "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/template-workspace-configuration.md",
+      "redirect_url": "/azure/azure-monitor/samples/resource-manager-workspace",
       "redirect_document_id": false
     },
     {
@@ -47516,6 +47611,14 @@
       "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
       "redirect_document_id": true
     },
+    {
+      "source_path": "articles/iot-central/retail/howto-deploy-video-analytics-template.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
+      "redirect_document_id": true
+    },
+
+    
+
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
@@ -53001,11 +53104,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cdn/endpoint-multiorigin.md",
-      "redirect_url": "/azure/cdn/cdn-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/app/usage-workbooks.md",
       "redirect_url": "/azure/azure-monitor/platform/workbooks-overview",
       "redirect_document_id": false
@@ -55576,11 +55674,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-arc/kubernetes/index.yml",
-      "redirect_url": "/azure/azure-arc/kubernetes/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/batch/batch-visual-studio-templates.md",
       "redirect_url": "/azure/batch/",
       "redirect_document_id": false
@@ -55614,6 +55707,16 @@
       "source_path": "articles/cost-management-billing/understand/index.yml",
       "redirect_url": "/azure/cost-management-billing",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/management/programmatically-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-resource-manager/management/grant-access-to-create-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/grant-access-to-create-subscription",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",
@@ -56099,6 +56202,11 @@
     {
       "source_path": "articles/media-services/latest/upload-files-rest-how-to.md",
       "redirect_url": "how-to-upload-media?tabs=rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-scale-up-node-type.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
       "redirect_document_id": false
     }
   ]

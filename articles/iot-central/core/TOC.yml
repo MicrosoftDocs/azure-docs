@@ -163,7 +163,10 @@
               href: howto-manage-preferences.md
             - name: Toggle live chat
               href: howto-show-hide-chat.md
-
+    - name: Troubleshoot
+      items:
+      -name: Device connections
+      href: troubleshoot-connection.md
 - name: Reference
   items:
   - name: Azure CLI

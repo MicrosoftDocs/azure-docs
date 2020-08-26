@@ -39,7 +39,7 @@ Updates in August include:
 
 ### Asset inventory - powerful new view of the security posture of your assets
 
-Security Center's asset inventory provides a way to view the security posture of the resources you've connected to Security Center.
+Security Center's asset inventory (currently in preview) provides a way to view the security posture of the resources you've connected to Security Center.
 
 Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities. When any resource has outstanding recommendations, they'll appear in the inventory.
 

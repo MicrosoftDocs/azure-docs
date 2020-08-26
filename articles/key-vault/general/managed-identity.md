@@ -110,6 +110,6 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 - [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management)
 - [Provide Key Vault authentication with an access control policy](group-permissions-for-apps.md)
-- [Secure your key vault](secure-your-key-vault.md)).
+- [Secure your key vault](secure-your-key-vault.md).
 - [Azure Key Vault developer's guide](developers-guide.md)
 - Review [Azure Key Vault best practices](best-practices.md)
