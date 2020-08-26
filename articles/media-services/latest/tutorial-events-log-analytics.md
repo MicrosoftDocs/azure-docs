@@ -63,11 +63,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. In the **Resource Type** list, locate "Microsoft.Media.MediaServices".
     > [!div class="mx-imgBorder"]
-    >![Azure Media Services Resource Events](media/tutorial-events-log-analytics/locate-ams-events-05.png)
+    >![Azure Media Services Resource Events](media/tutorial-events-log-analytics/locate-azure-media-services-events-05.png)
 
 1. Select the **Event Type item**. There will be a list of all the events Azure Media Services emits. You can select the events you would like to track. You can add multiple event types. (Later, you will make a small change to the Logic App flow to store each event type in a separate Log Analytics Log and propagate the Event Type name to the Log Analytics Log name dynamically.)
     > [!div class="mx-imgBorder"]
-    > ![Azure Media Services Event Type](media/tutorial-events-log-analytics/select-ams-event-type-06.png)
+    > ![Azure Media Services Event Type](media/tutorial-events-log-analytics/select-azure-media-services-event-type-06.png)
 
 1. Select **Save As**.
 
@@ -137,7 +137,7 @@ Now that you are subscribed to the event(s), create an action.
 
 1. When you examine all the resources in the resource group, there will be a Logic App and two Logic App API connectors listed, one for the Events and one for Log Analytics. For more information about Event Grid system topics, read [Event Grid System Topics](https://docs.microsoft.com/azure/event-grid/system-topics).
     > [!div class="mx-imgBorder"]
-    > ![See all new resources in Resource Group](media/tutorial-events-log-analytics/contosorg-listing.png)
+    > ![See all new resources in Resource Group](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
 ## Test
 
