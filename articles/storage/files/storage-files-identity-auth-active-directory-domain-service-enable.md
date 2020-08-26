@@ -77,7 +77,7 @@ To enable Azure AD DS authentication over SMB for Azure Files, you can set a pro
 
 Keep in mind that you can enable Azure AD DS authentication over SMB only after you have successfully deployed Azure AD DS to your Azure AD tenant. For more information, see the [prerequisites](#prerequisites).
 
-### Azure portal
+# [Portal](#tab/azure-portal)
 
 To enable Azure AD DS authentication over SMB with the [Azure portal](https://portal.azure.com), follow these steps:
 
@@ -90,11 +90,11 @@ The following image shows how to enable Azure AD DS authentication over SMB for 
 
 ![Enable Azure AD DS authentication over SMB in the Azure portal](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
 
-### PowerShell  
+# [PowerShell](#tab/azure-powershell)
 
 To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-To create a new storage account, call [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **EnableAzureFilesAadIntegrationForSMB**.)
+To create a new storage account, call [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for enabling the feature is **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -116,7 +116,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 
-### Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -133,10 +133,11 @@ To enable this feature on existing storage accounts, use the following command:
 # Update a new storage account
 az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
 ```
+---
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-You have now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#2-assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB sections](#3-configure-ntfs-permissions-over-smb).
+You have now successfully enabled Azure AD DS authentication over SMB and assigned a custom role that provides access to an Azure file share with an Azure AD identity. To grant additional users access to your file share, follow the instructions in the [Assign access permissions](#assign-access-permissions-to-an-identity) to use an identity and [Configure NTFS permissions over SMB sections](#configure-ntfs-permissions-over-smb).
 
 ## Next steps
 
