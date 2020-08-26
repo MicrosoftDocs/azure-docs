@@ -4,7 +4,7 @@ description: The Azure Monitor security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/26/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -796,7 +796,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Use Azure Automation to run the backup scripts automatically. 
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](platform/template-workspace-configuration.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/platform/template-workspace-configuration)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -813,7 +813,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Use Azure Resource Manager to export the Azure Monitor and related resources in a JavaScript Object Notation (JSON) template which can be used as backup for Azure Monitor and related configurations.  Backup customer-managed keys within Azure Key Vault if Azure Monitor related resources are using customer-managed keys, 
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](platform/template-workspace-configuration.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/platform/template-workspace-configuration)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -830,7 +830,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 **Guidance**: Ensure ability to periodically perform restoration using Azure Resource Manager backed template files.  Test restoration of backed up customer-managed keys.
 
-- [Manage Log Analytics workspace using Azure Resource Manager templates](platform/template-workspace-configuration.md)
+- [Manage Log Analytics workspace using Azure Resource Manager templates](/azure/azure-monitor/platform/template-workspace-configuration)
 
 - [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
