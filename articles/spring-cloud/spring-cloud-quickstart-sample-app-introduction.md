@@ -1,5 +1,5 @@
 ---
-title:  "Quickstart - Introduction to Piggy Metrics Azure Spring Cloud sample app"
+title:  "Quickstart - Introduction to Piggy Metrics sample app - Azure Spring Cloud"
 description: Describes the Piggy Metrics sample app used in deployment Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
