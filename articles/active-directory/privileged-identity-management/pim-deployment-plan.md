@@ -25,11 +25,7 @@ This step-by-step guide describes how to plan the deployment of Privileged Ident
 >
 > :heavy_check_mark: **Microsoft recommends**
 >
-<<<<<<< HEAD
-> These are general recommendations that you can implement if they apply to your specific enterprise needs.
-=======
 > These are general recommendations, and you should implement them only when they apply to your specific enterprise needs.
->>>>>>> 53db725d9e9c4c1cdd6fb067fb11cc277f087a3a
 
 ## Licensing requirements
 
