@@ -42,6 +42,8 @@ To optimize the frequency of authentication prompts for your users, you can conf
 
 Without any session lifetime settings, there are no persistent cookies in the browser session. Every time a user closes and open the browser, they get a prompt for reauthentication. In Office clients, the default time period is a rolling window of 90 days. With this default Office configuration, if the user has reset their password or there has been inactivity of over 90 days, the user is required to reauthenticate with all required factors (first and second factor).
 
+End users may experience multiple MFA prompts on devices that do not have an identity in Azure AD.  This is caused by each application having their own OAuth Refresh Token that is not shared with other client apps.  MFA will prompt multiple times in this scenario as each application will request an OAuth Refresh Token that needs to be validated with MFA.
+
 In Azure AD, the most restrictive policy for session lifetime determines when the user needs to reauthenticate. Consider the following scenario:
 
 * You enable *Remain signed-in*, which uses a persistent browser cookie, and
