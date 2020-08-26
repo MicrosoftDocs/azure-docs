@@ -76,7 +76,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
   Learn how to [track and visualize data science experiments](tutorial-first-experiment-automated-ml.md) in the studio. 
 
-![Run details in Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
+    ![Run details in Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
 
 
 + **And much more...**
