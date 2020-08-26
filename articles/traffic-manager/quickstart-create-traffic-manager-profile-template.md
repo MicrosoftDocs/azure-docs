@@ -1,6 +1,6 @@
 ---
 title: Create a Traffic Manager by using Azure Resource Manager template (ARM template)
-description: Learn how to create a Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
+description: Learn how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
@@ -112,14 +112,8 @@ Write-Host "Press [ENTER] to continue..."
 
 In this quickstart, you created a:
 * Traffic Manager profile
-* Endpoint
 
-To learn more about Azure Traffic Manager and Azure Resource Manager, continue on to the articles below.
-
-* Read an [Overview of Azure Traffic Manager](traffic-manager-overview.md)
-* Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md)
