@@ -6,6 +6,10 @@
     href: overview.md
   - name: Differences from previous release
     href: overview-differences.md
+- name: Quickstart
+  items:
+  - name: Explore a sample scenario
+    href: quickstart-adt-explorer.md
 - name: Tutorials
   items:
   - name: Code a client app
