@@ -215,6 +215,8 @@
       href: log-query/log-query-overview.md
     - name: Simple logs experience
       href: log-query/simple-logs.md
+    - name: Audit log queries
+      href: log-query/query-audit.md
     - name: Tutorials
       items:
       - name: Log Analytics tutorial
