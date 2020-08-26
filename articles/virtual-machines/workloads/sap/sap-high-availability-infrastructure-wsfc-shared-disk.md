@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -543,7 +543,7 @@ After you install SIOS DataKeeper on both nodes, start the configuration. The go
 
    ![Figure 43: Select Yes to set the replicated volume as a cluster volume][sap-ha-guide-figure-3043]
 
-   _ Select **Yes** to set the replicated volume as a cluster volume_
+   _Select **Yes** to set the replicated volume as a cluster volume_
 
    After the volume is created, the DataKeeper Management and Configuration tool shows that the replication job is active.
 
