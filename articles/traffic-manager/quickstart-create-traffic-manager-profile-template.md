@@ -1,6 +1,6 @@
 ---
-title: Create an Traffic Manager by using Azure Resource Manager template (ARM template)
-description: Learn how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
+title: Create a Traffic Manager by using Azure Resource Manager template (ARM template)
+description: Learn how to create a Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
@@ -61,7 +61,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment creates a profile with two external endpoints. **Endpoint1** has target endpoint of *w<span>ww.microsoft</span>.com* with the location in **North Europe** and **endpoint2** has a target endpoint of *d<span>ocs.microsoft</span>.com* with the location in **South Central US**. 
+    The template deployment creates a profile with two external endpoints. **Endpoint1** uses target endpoint of *w<span>ww.microsoft</span>.com* with the location in **North Europe**. **Endpoint2** uses a target endpoint of *d<span>ocs.microsoft</span>.com* with the location in **South Central US**. 
 
     The resource group name is the project name with **rg** appended.
 
