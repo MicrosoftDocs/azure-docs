@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/20/2020
+ms.date: 08/26/2020
 ms.custom: generated
 ---
 
@@ -148,15 +148,15 @@ The following table provides a brief description and the unique ID of each built
 > | [Azure Sentinel Contributor](#azure-sentinel-contributor) | Azure Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Key Vault Administrator (preview)](#key-vault-administrator-preview) | Can perform any action on certificates, keys and secrets of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-> | [Key Vault Certificates Officer (preview)](#key-vault-certificates-officer-preview) | Can perform any action on the certificates of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | a4417e6f-fecd-4de8-b567-7b0420556985 |
-> | [Key Vault Contributor](#key-vault-contributor) | Lets you manage key vaults, but not access to them. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Key Vault Crypto Officer (preview)](#key-vault-crypto-officer-preview) | Can perform any action on the keys of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Key Vault Crypto Service Encryption (preview)](#key-vault-crypto-service-encryption-preview) | Can read metadata of keys and perform wrap/unwrap operations. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-> | [Key Vault Crypto User (preview)](#key-vault-crypto-user-preview) | Can perform cryptographic operations on keys and certificates. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | [Key Vault Reader (preview)](#key-vault-reader-preview) | Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-> | [Key Vault Secrets Officer (preview)](#key-vault-secrets-officer-preview) | Can perform any action on the secrets of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-> | [Key Vault Secrets User (preview)](#key-vault-secrets-user-preview) | Can read secret contents. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied. | 4633458b-17de-408a-b874-0445c86b69e6 |
+> | [Key Vault Administrator (preview)](#key-vault-administrator-preview) | Perform all data plane operations on a key vault and  all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault Certificates Officer (preview)](#key-vault-certificates-officer-preview) | Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Key Vault Contributor](#key-vault-contributor) | Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Key Vault Crypto Officer (preview)](#key-vault-crypto-officer-preview) | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Key Vault Crypto Service Encryption (preview)](#key-vault-crypto-service-encryption-preview) | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault Crypto User (preview)](#key-vault-crypto-user-preview) | Perform cryptographic operations on keys and certificates. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Key Vault Reader (preview)](#key-vault-reader-preview) | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Key Vault Secrets Officer (preview)](#key-vault-secrets-officer-preview) | Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Key Vault Secrets User (preview)](#key-vault-secrets-user-preview) | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Security Admin](#security-admin) | View and update permissions for Security Center. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
@@ -6281,7 +6281,7 @@ Azure Sentinel Responder [Learn more](../sentinel/roles.md)
 
 ### Key Vault Administrator (preview)
 
-Can perform any action on certificates, keys and secrets of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Perform all data plane operations on a key vault and  all objects in it, including certificates, keys, and secrets. Cannot manage key vault resources or manage role assignments. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6340,7 +6340,7 @@ Can perform any action on certificates, keys and secrets of a key vault, except 
 
 ### Key Vault Certificates Officer (preview)
 
-Can perform any action on the certificates of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Perform any action on the certificates of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6401,7 +6401,7 @@ Can perform any action on the certificates of a key vault, except manage permiss
 
 ### Key Vault Contributor
 
-Lets you manage key vaults, but not access to them. [Learn more](../key-vault/general/secure-your-key-vault.md)
+Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates. [Learn more](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6454,7 +6454,7 @@ Lets you manage key vaults, but not access to them. [Learn more](../key-vault/ge
 
 ### Key Vault Crypto Officer (preview)
 
-Can perform any action on the keys of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6513,7 +6513,7 @@ Can perform any action on the keys of a key vault, except manage permissions. Th
 
 ### Key Vault Crypto Service Encryption (preview)
 
-Can read metadata of keys and perform wrap/unwrap operations. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6556,7 +6556,7 @@ Can read metadata of keys and perform wrap/unwrap operations. This role requires
 
 ### Key Vault Crypto User (preview)
 
-Can perform cryptographic operations on keys and certificates. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Perform cryptographic operations on keys and certificates. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6611,7 +6611,7 @@ Can perform cryptographic operations on keys and certificates. This role require
 
 ### Key Vault Reader (preview)
 
-Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6672,7 +6672,7 @@ Can read metadata of key vaults and its certificates, keys and secrets. Cannot r
 
 ### Key Vault Secrets Officer (preview)
 
-Can perform any action on the secrets of a key vault, except manage permissions. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -6731,7 +6731,7 @@ Can perform any action on the secrets of a key vault, except manage permissions.
 
 ### Key Vault Secrets User (preview)
 
-Can read secret contents. This role requires that the 'enabledRbacAuthorization' property or 'Azure role-based access control' permission model to be set on Key Vault for permissions to be applied.
+Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
