@@ -45,7 +45,7 @@ Create policies for each of the application teams:
 
 :::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Policy hierarchy" border="false":::
 
-### Create custom roles to access the rulecollectiongroups 
+### Create custom roles to access the rule collection groups 
 
 Custom roles are defined for each application team. The role defines operations and scope. The application teams are allowed to edit rule collection groups for their respective applications.
 
