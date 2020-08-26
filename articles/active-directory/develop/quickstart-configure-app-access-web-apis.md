@@ -41,11 +41,11 @@ Once you've registered both your client app and web API and you've exposed the A
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
-1. Select **Azure Active Directory** > **App registrations**, and then select your client application.
-1. Select **API permissions** > **Add a permission** > **My APIs**
+1. Select **Azure Active Directory** > **App registrations**, and then select your client application (*not* your web API).
+1. Select **API permissions** > **Add a permission** > **My APIs**.
 1. Select the web API you registered as part of the prerequisites.
 
-    **Delegated permissions** is selected by default. Delegated permissions are appropriate for client apps that access a web API as the signed-in user, and whose access should be restricted to the permissions you select in the next step. Leave **Delegated permissions** selected.
+    **Delegated permissions** is selected by default. Delegated permissions are appropriate for client apps that access a web API as the signed-in user, and whose access should be restricted to the permissions you select in the next step. Leave **Delegated permissions** selected for this example.
 
     **Application permissions** are for service- or daemon-type applications that need to access a web API as themselves, without user interaction for sign-in or consent. Unless you've defined application roles for your web API, this option is disabled.
 1. Under **Select permissions**, expand the resource whose scopes you defined for your web API, and select the permissions the client app should have on behalf of the signed-in user.
@@ -99,6 +99,7 @@ In the following steps, you grant permission to Microsoft Graph's *Files.Read.Al
 1. Select **API permissions** > **Add a permission** > **Microsoft Graph** > **Application permissions**.
 1. All permissions exposed by Microsoft Graph are shown under **Select permissions**.
 1. Select the permission or permissions you want to grant your application. As an example, you might have a daemon app that scans files in your organization, alerting on a specific file type or name.
+
     Under **Select permissions**, expand **Files**, and then select the *Files.Read.All* permission.
 1. Select **Add permissions**.
 
@@ -110,7 +111,7 @@ Apps that use application permissions authenticate as themselves by using their 
 
 For more information about configuring an app's credentials, see the [Add credentials](quickstart-register-app.md#add-credentials) section of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).Microsoft Graph, your own web API, or
 
-## Understanding API permissions and admin consent UI
+## More on API permissions and admin consent
 
 ### Configured permissions
 
