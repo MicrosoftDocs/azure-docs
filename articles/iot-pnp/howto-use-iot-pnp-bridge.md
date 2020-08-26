@@ -74,7 +74,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 ## Get the required dependencies (Environmental Sensor)
 
 ### Download the code
-Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
+Open a command prompt in the directory of your choice. Execute the following command to clone the [IoT Plug and Play bridge](aka.ms/iotplugandplaybridge) GitHub repository into this location:
 
 ```cmd
 git clone https://github.com/Azure/AzurePnPBridgePreview.git
