@@ -81,17 +81,11 @@ To change your pricing tier, follow these steps.
 
 1. On the resource **Overview** page, under **Pricing tier**, select **change**.
 
-   ![Change pricing tier](media/conditional-access-identity-protection-setup/change-pricing-tier.png)
+   ![Change pricing tier](media/billing/change-pricing-tier.png)
  
-1. Select **Azure AD Premium P2**.
-
-   ![Change pricing tier](media/conditional-access-identity-protection-setup/select-tier.png)
-
-    ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/change-pricing-tier.png)
-
-1. Under **Pricing tier**, select **change**.
-
 1. Select the pricing tier that includes the features you want to enable.
+
+   ![Change pricing tier](media/billing/select-tier.png)
 
 ## Switch to MAU billing (pre-November 2019 Azure AD B2C tenants)
 
