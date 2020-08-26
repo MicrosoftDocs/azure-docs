@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
 
-Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#data-encryption-models). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps of setting up CMK encryption.
+Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps of setting up CMK encryption.
 
 CMK encryption is dependent on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage if you [enable logging](../key-vault/general/logging.md).  
 
@@ -139,7 +139,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 1. Click on **Key permissions** and select *Get*, *Unwrap Key* and *Wrap Key*. You can use the *Azure Data Lake Storage or Azure Storage* template to quickly select the required permissions.
 
-   Azure Cognitive Search must be granted with the following [access permissions](../key-vault/general/about-keys-secrets-certificates.md#key-operations):
+   Azure Cognitive Search must be granted with the following [access permissions](../key-vault/keys/about-keys.md#key-operations):
 
    * *Get* - allows your search service to retrieve the public parts of your key in a Key Vault
    * *Wrap Key* - allows your search service to use your key to protect the internal encryption key
@@ -253,9 +253,9 @@ When a managed identity is not possible, you can create an Azure Active Director
 To accommodate such topologies, Azure Cognitive Search supports using Azure Active Directory (AAD) applications for authentication between your search service and Key Vault.    
 To create an AAD application in the portal:
 
-1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md).
 
-1. [Get the application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) as those will be required for creating an encrypted index. Values you will need to provide include **application ID** and **authentication key**.
+1. [Get the application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) as those will be required for creating an encrypted index. Values you will need to provide include **application ID** and **authentication key**.
 
 >[!Important]
 > When deciding to use an AAD application of authentication instead of a managed identity, consider the fact that Azure Cognitive Search is not authorized to manage your AAD application on your behalf, and it is up to you to manage your AAD application, such as periodic rotation of the application authentication key.
