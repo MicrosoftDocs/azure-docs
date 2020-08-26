@@ -20,11 +20,11 @@ With a Batch pool, you can access and store data on the OS and temporary disks o
 
 Batch will apply one of these disk encryption technologies on compute nodes, based on pool configuration and regional supportability. 
 
-1. [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys) 
+* [Managed disk encryption at rest with platform-managed keys](../virtual-machines/windows/disk-encryption.md#platform-managed-keys) 
 
-1. [Encryption at host using a platform-managed Key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
+* [Encryption at host using a platform-managed Key](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 
 
-1. [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) 
+* [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) 
 
 > [!IMPORTANT]
 > Support for encryption at host using a platform-managed key in Azure Batch is currently in public preview for the East US, West US 2, South Central US, US Gov Virginia, and US Gov Arizona regions.
@@ -37,8 +37,7 @@ You won't be able to specify which encryption method will be applied to the node
 
 When creating a Batch pool in the the Azure portal, select either **TemporaryDisk** or **OsAndTemporaryDisk** under **Disk Encryption Configuration**.
 
-!Screenshot of the Disk Encryption Configuration option in the Azure portal.](./media/disk-encryption/portal-view.png)
-
+![Screenshot of the Disk Encryption Configuration option in the Azure portal.](./media/disk-encryption/portal-view.png)
 
 After the pool is created, you can see the disk encryption configuration targets in the pool's **Properties** section.
 
