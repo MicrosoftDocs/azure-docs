@@ -15,13 +15,9 @@ This article describes how you can fix common issues that appear in Azure Adviso
 
 ![](media/9323ec62a7f32354b624841e9ab10e44.png)
 
-### Description
-
 This issue appears under Operational Excellence. Usually, when you encounter this issue, you get a warning message like this:
 
 "You don't have a validation environment enabled in this subscription. When you made your host pools, you selected **No** for "Validation environment" in the Properties tab. To ensure business continuity through Windows Virtual Desktop service deployments, make sure you have at least one host pool with a validation environment where you can test for potential issues.”
-
-### How to resolve the warning
 
 You can make this warning message go away by creating a validation environment in one of your host pools.
 
@@ -41,8 +37,6 @@ This won't make the warning go away immediately, but it should stop appearing wi
 
 ## “Not enough production (non-validation) environments enabled”
 
-### Description
-
 This issue appears under Operational Excellence.
 
 For this issue, the warning message appears for one of these reasons:
@@ -51,8 +45,6 @@ For this issue, the warning message appears for one of these reasons:
 - You don't have any production host pools. 
 
 We recommend users have fewer than half of their host pools in a validation environment.
-
-### How to resolve the production environment warning
 
 To resolve this warning:
 
@@ -69,8 +61,6 @@ This won't make the warning go away immediately, but it should stop appearing wi
 This issue appears under Operational Excellence.
 
 You need to unblock specific URLs to make sure that your virtual machine (VM) functions properly. You can see the list at [Safe URL list](safe-url-list.md). If the URLs aren't unblocked, then your VM won't work properly.
-
-### How to resolve the warning
 
 To solve this issue, make sure you unblock all the URLs on the [Safe URL list](safe-url-list.md). You can use Service Tag or FQDN tags to unblock URLs, too.
 
