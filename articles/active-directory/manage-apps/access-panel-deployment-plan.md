@@ -37,7 +37,7 @@ Azure AD My Apps benefits businesses in the following ways:
 
 **Provides intuitive user experience**: My Apps provides you with a single platform for all of your Azure single sign-on (SSO)-connected applications. You have a unified portal to find existing settings and new capabilities, like group management and self-service password reset, as they're added. The intuitive experience allows users to return to work faster and be more productive, while reducing their frustration.
 
-**Increases productivity**: All user applications in My Apps have SSO enabled. Enabling SSO across enterprise applications and Office 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. My Apps uses self-service and dynamic membership and improves the overall security of your identity system. It does this by ensuring that the right people manage access to the applications. My Apps serves as a coherent landing page for you to quickly find resources and continue work tasks.
+**Increases productivity**: All user applications in My Apps have SSO enabled. Enabling SSO across enterprise applications and Microsoft 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. My Apps uses self-service and dynamic membership and improves the overall security of your identity system. It does this by ensuring that the right people manage access to the applications. My Apps serves as a coherent landing page for you to quickly find resources and continue work tasks.
 
 **Manages cost**: Enabling My Apps with Azure AD can help with the divestment of on-premises infrastructures. It reduces support costs by providing you with a consistent portal to find all of your apps, request access to resources, and manage accounts.
 
@@ -92,7 +92,7 @@ The functionality of My Apps can be enabled gradually. We recommend the followin
 1. My Apps
    * App launcher
    * Self-service app management
-   * Microsoft Office 365 integration
+   * Microsoft 365 integration
 
 1. Self-service app discovery
    * Self-service password reset
@@ -119,7 +119,7 @@ The following table lists several important My Apps configurations and the typic
 | Allow users to use SSO to certain types of applications| Federated SSO, OAuth, Password SSO, App Proxy |
 | Allow users to use self-service password reset | Yes |
 | Allow users to use Multi-Factor Authentication| Yes |
-| Allow users to use self-service group management for certain types of groups| Security groups, Office 365 groups |
+| Allow users to use self-service group management for certain types of groups| Security groups, Microsoft 365 groups |
 | Allow users to use self-service app management| Yes |
 | Allow users to use access reviews| Yes |
 
@@ -187,7 +187,7 @@ A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser
 The foundation of My Apps is the application launcher portal, which users access at [https://myapps.microsoft.com](https://myapps.microsoft.com/). The My Apps page give users a single place to start their work and get to their necessary applications. Here, users find a list of all the applications they have single sign-on access to. 
 
 > [!NOTE]
-> The same applications will be shown in the Office 365 app launcher when users are using the Office 365 portal.
+> The same applications will be shown in the Microsoft 365 app launcher.
 
 Plan the order in which you'll add applications to the My Apps launcher, and decide whether you'll roll them out gradually or all at once. To do so, create an application inventory listing the type of authentication and any existing SSO integrations for each application.
 
@@ -221,7 +221,7 @@ Approval workflows are available for explicit approval to access applications. U
 
 ## Plan self-service group membership 
 
-You can enable users to create and manage their own security groups or Office 365 groups in Azure AD. The owner of the group can approve or deny membership requests and delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists.
+You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists.
 
 To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If you're allowing a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](../users-groups-roles/groups-self-service-management.md) for details on enabling these scenarios.
 
@@ -244,17 +244,17 @@ For auditing, reporting, and disaster recovery backups, document the required fr
 
 ## Deploy applications to users’ My Apps panel
 
-After an application has been configured for SSO, groups are assigned access. Users in the assigned groups will have access, and they will see the application in their My Apps and the Office 365 app launcher.
+After an application has been configured for SSO, groups are assigned access. Users in the assigned groups will have access, and they will see the application in their My Apps and the Microsoft 365 app launcher.
 
 See [Assign users and groups to an application in Active Directory](methods-for-assigning-users-and-groups.md).
 
 If during testing or deployment you want to add the groups but not yet allow the applications to show in My Apps, see [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
-### Deploy Microsoft Office 365 applications to My Apps
+### Deploy Microsoft Microsoft 365 applications to My Apps
 
-For Office 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications that are associated with the license in their My Apps page and in the Office 365 app launcher.
+For Microsoft 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications that are associated with the license in their My Apps page and in the Microsoft 365 app launcher.
 
-If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Office 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
+If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Microsoft 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
 ### Deploy application self-service capabilities
 
@@ -279,7 +279,7 @@ The following tests should be conducted with both corporate-owned devices and pe
 | User launches a federated SSO application| User is automatically signed in to the application |
 | User launches a password SSO application for the first time| User needs to install the My Apps extension |
 | User launches a password SSO application a subsequent time| User is automatically signed in to the application |
-| User launches an app from Office 365 Portal| User is automatically signed in to the application |
+| User launches an app from Microsoft 365 Portal| User is automatically signed in to the application |
 | User launches an app from the Managed Browser| User is automatically signed in to the application |
 
 
