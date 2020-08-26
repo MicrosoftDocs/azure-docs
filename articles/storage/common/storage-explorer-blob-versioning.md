@@ -18,7 +18,8 @@ Microsoft Azure Storage Explorer provides easy access and management of blob ver
 This section provides some definitions to help understand their usage in this article.
 
 - Soft delete: An alternative automatic data protection feature. You can learn more about soft delete [here](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
-- Active blobs: 
+- Active blob: A blob is created in active state. You can only operate on active blobs.
+- Soft-deleted blob: A blob marked as soft-deleted. Soft-deleted blobs are only retained for its retention period.
 - Blob version: A blob created with blob versioning enabled. Each blob version is associated with a version ID.
 - Current version: A blob version marked as the current version.
 - Previous version: A blob version that isn't the current version.
