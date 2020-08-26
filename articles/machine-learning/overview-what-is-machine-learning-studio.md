@@ -18,7 +18,7 @@ In this article you learn:
 >[!div class="checklist"]
 > - How to [author machine learning projects](#author-ml-projects) in the studio.
 > - How to [manage assets and resources](#manage-assets-and-resources) in the studio.
-> - The differences between [Azure Machine Learning studio and ML Studio (classic)](#machine-learning-studio-classic-vs-azure-machine-learning-studio).
+> - The differences between [Azure Machine Learning studio and ML Studio (classic)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
 
 ## Author ML projects

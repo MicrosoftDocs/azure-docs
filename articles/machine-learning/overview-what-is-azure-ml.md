@@ -64,7 +64,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 ## Build ML models in the studio
 
-[Azure Machine Learning studio](https://www.ml.azure.com) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-ml-studio.md).
+[Azure Machine Learning studio](https://www.ml.azure.com) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning designer (preview)**
 
