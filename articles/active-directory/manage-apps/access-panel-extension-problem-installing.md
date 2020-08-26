@@ -86,25 +86,6 @@ You can also download the extension from the appropriate browser add-on store. O
 > [!NOTE]
 > The preceding options are available only for Microsoft Edge, Chrome, and Firefox.
 
-## Set up a group policy for Internet Explorer
-
-You can set up a group policy that allows you to remotely install the My Apps extension for Internet Explorer on your users' machines.
-
-Before you set up a group policy, ensure that:
-
--   You have set up [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
-
--   To edit the Group Policy Object (GPO), you must have *Edit settings* permissions. By default, this permission is granted to members of the following security groups: domain administrators, enterprise administrators, and group policy creator owners.
-
-For step by step instructions about configuring the group policy and deploying it to users, see [Deploy the My Apps extension for Internet Explorer by using group policy](deploy-access-panel-browser-extension.md).
-
-## Troubleshoot the My Apps extension in Internet Explorer
-
-For access to a diagnostics tool and information about configuring the extension for Internet Explorer, see [Troubleshoot the My Apps extension for Internet Explorer](manage-access-panel-browser-extension.md).
-
-> [!NOTE]
-> Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
-
 ## If the preceding steps do not resolve the issue
 
 Open a support ticket with the following information, if it is available:
