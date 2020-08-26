@@ -18,20 +18,79 @@ ms.service: digital-twins
 
 # Move an Azure Digital Twins instance to a different Azure region
 
+You can't move; you have to recreate. 
+
+You will...
+* Prepare: Download old graph
+* Move: Create a new instance
+* Move: Repopulate new instance
+    - Upload old graph
+    - Recreate routes & endpoints
+    - Re-link connected Azure services
+* Clean up source resources (optional): delete old instance
+
 ## Prerequisites
+
+Understand your architecture and its pieces. including..
+* Models
+* Twins
+* Relationships
+* Endpoints
+* Routes
+* Other connections to Azure services. Some common ones include...
+    - IoT Hub
+    - Event Grid, Event Hub, Service Bus
+    - Azure functions
+    - Logic Apps
+    - TSI
+    - Maps
+    - DPS
 
 ## Prepare
 
+Get ready to run ADT Explorer
+
 ## Move
+
+### Create a new instance
+
+Can probably use the same name but needs to be in diff region (for ADT requirements) and diff resource group (for Azure requirements)
+Follow the rest of our instructions to create a new instance
+
+### Repopulate old instance
+
+#### Upload original graph using ADT Explorer
+
+#### Recreate routes & endpoints
+
+#### Re-link connected Azure services
+
+Change values in other services that link to it and reference its hostname.
+
+<!-- Anything else changing, if the name can stay the same? -->
+
+Commonly includes:
+* Client app
+* Azure function (new values & re-publish?)
 
 ## Verify
 
-## Discard target resources
+### Verify instance
 
-(optional)
+Look for it in portal, look at region.
+
+### Verify graph
+
+Use ADT Explorer
+
+### Verify endpoints and routes
+
+Look under the instance in portal
+
+### Verify other Azure services
+
+Depends on the service, but try to run them.
 
 ## Clean up source resources
 
-## Next steps
-
-(optional)
+Use the portal or the CLI to delete the instance.
