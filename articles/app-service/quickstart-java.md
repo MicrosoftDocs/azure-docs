@@ -14,10 +14,10 @@ zone_pivot_groups: app-service-platform-windows-linux
 ---
 # Quickstart: Create a Java app on Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a Java web archive (WAR) file.
 
 > [!NOTE]
-> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
+> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
 > [!NOTE]
 > The same can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -230,13 +230,13 @@ This command may take a minute to run.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL Database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Connect to Azure SQL Database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java)
+> [Connect to Azure DB for MySQL with Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java)
+> [Connect to Azure DB for PostgreSQL with Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)
@@ -245,7 +245,7 @@ This command may take a minute to run.
 > [Configure Java app](configure-language-java.md)
 
 > [!div class="nextstepaction"]
-> [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+> [CI/CD with Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)

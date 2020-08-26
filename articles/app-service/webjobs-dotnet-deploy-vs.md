@@ -50,7 +50,7 @@ Deploy a project as a WebJob by itself, or link it to a web project so that it a
 
 ### Prerequisites
 
-Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing console app project
 
