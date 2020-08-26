@@ -26,7 +26,7 @@ To view the backup and restore scenarios that we support today, refer to the [SA
 
 ![Backup architecture diagram](./media/sap-hana-db-about/backup-architecture.png)
 
-* The backup process begins by [creating a Recovery services vault](./tutorial-backup-sap-hana-db.md#create-a-recovery-service-vault) in Azure. This vault will be used to store the backups and recovery points created over time.
+* The backup process begins by [creating a Recovery Services vault](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) in Azure. This vault will be used to store the backups and recovery points created over time.
 * The Azure VM running SAP HANA server is registered with the vault, and the databases to be backed-up are [discovered](./tutorial-backup-sap-hana-db.md#discover-the-databases). To enable the Azure Backup service to discover databases, a [preregistration script](https://aka.ms/scriptforpermsonhana) must be run on the HANA server as a root user.
 * This script creates **AZUREWLBACKUPHANAUSER** DB user and a corresponding key with the same name in **hdbuserstore**. Refer to the  [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section to understand more about what the script does.
 * Azure Backup Service now installs the **Azure Backup Plugin for HANA** on the registered SAP HANA server.

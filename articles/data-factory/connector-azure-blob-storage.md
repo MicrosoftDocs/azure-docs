@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
+ms.date: 08/18/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -160,7 +160,7 @@ Data Factory supports the following properties for using shared access signature
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.windows.net/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
             }
         },
         "connectVia": {
@@ -189,7 +189,7 @@ Data Factory supports the following properties for using shared access signature
                     "referenceName": "<Azure Key Vault linked service name>", 
                     "type": "LinkedServiceReference" 
                 }, 
-                "secretName": "<secretName>" 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             }
         },
         "connectVia": {
@@ -232,7 +232,7 @@ These properties are supported for an Azure Blob storage linked service:
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!NOTE]
@@ -421,7 +421,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 
 ### Blob storage as a sink type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 The following properties are supported for Azure Blob storage under `storeSettings` settings in a format-based copy sink:
 

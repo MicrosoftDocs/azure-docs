@@ -10,9 +10,9 @@ zone_pivot_groups: programming-languages-set-eighteen
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/24/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.custom: devx-track-python
+ms.custom: "devx-track-python, devx-track-csharp"
 ---
 # Quickstart: Use the Face client library
 

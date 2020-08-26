@@ -4,7 +4,7 @@ description: Learn how to create your first Azure Function for serverless execut
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.custom: mvc, devcenter, cc996988-fb4f-47
+ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47"
 ---
 
 # Create your first function in the Azure portal

@@ -11,6 +11,7 @@ ms.subservice: computer-vision
 ms.topic: tutorial 
 ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
 
@@ -28,7 +29,7 @@ This tutorial shows you how to:
 > * Attach metadata to Azure Storage images
 > * Check image metadata using Azure Storage Explorer
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin. 
 
 ## Prerequisites
 

@@ -3,7 +3,7 @@ title: "Quickstart: Create and use learning loop with SDK - Personalizer"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
 ms.date: 07/30/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-six
 ---
 
@@ -43,4 +43,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is Personalizer?](what-is-personalizer.md)
 * [Where can you use Personalizer?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer).

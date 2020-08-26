@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
@@ -297,6 +298,6 @@ A typical response for recognition with pronunciation assessment:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

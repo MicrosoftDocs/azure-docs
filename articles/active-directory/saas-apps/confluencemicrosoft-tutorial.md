@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Confluence SAML SSO by Microsoft.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft
@@ -65,7 +58,7 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.6.1
+- Confluence: 7.0.1 to 7.7.2
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04

@@ -23,7 +23,9 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
-> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../aks/scale-cluster.md).
+> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see 
+- [Manually scale the node count in an AKS cluster](../aks/scale-cluster.md)
+- [Set up cluster autoscaler in AKS](../aks/cluster-autoscaler.md)
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
@@ -36,7 +38,7 @@ The AKS cluster and the AML workspace can be in different resource groups.
 > The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detached or deleted, you will no longer be able to deploy to the cluster.
 
 > [!IMPORTANT]
-> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> We recommend that you debug locally before deploying to the web service. For more information, see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -58,11 +60,18 @@ The AKS cluster and the AML workspace can be in different resource groups.
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- If you need a Standard Load Balancer(SLB) deployed in your cluster instead of a Basic Load Balancer(BLB), please create a cluster in the AKS portal/CLI/SDK and then attach it to the AML workspace.
+- If you need a Standard Load Balancer(SLB) deployed in your cluster instead of a Basic Load Balancer(BLB), create a cluster in the AKS portal/CLI/SDK and then attach it to the AML workspace.
 
-- If you attach an AKS cluster, which has an [authorized IP range enabled to access the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), enable the AML control plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inferencing pods on the AKS cluster. Without access to the API server, the inferencing pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) for both the [paired regions]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
+- If you have an Azure Policy that restricts the creation of Public IP's, then AKS cluster creation will fail. AKS requires a Public IP for [egress traffic](https://docs.microsoft.com/azure/aks/limit-egress-traffic). This article also provides guidance to lockdown egress traffic from the cluster through the Public IP except for a few FQDN's. There are 2 ways to enable a Public IP:
+  - The cluster can use the Public IP created by default with the BLB or SLB, Or
+  - The cluster can be created without a Public IP and then a Public IP is configured with a firewall with a user defined route as documented [here](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  The AML control plane does not talk to this Public IP. It talks to the AKS control plane for deployments. 
 
-__Authroized IP ranges only works with Standard Load Balancer.__
+- If you attach an AKS cluster, which has an [authorized IP range enabled to access the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), enable the AML contol plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inferencing pods on the AKS cluster. Without access to the API server, the inferencing pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) for both the [paired regions]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
+
+
+  Authroized IP ranges only works with Standard Load Balancer.
  
  - Compute name MUST be unique within a workspace
    - Name is required and must be between 3 to 24 characters long.
@@ -71,10 +80,6 @@ __Authroized IP ranges only works with Standard Load Balancer.__
    - Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique
    
  - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
- 
- 
-
-
 
 ## Create a new AKS cluster
 
@@ -83,7 +88,7 @@ __Authroized IP ranges only works with Standard Load Balancer.__
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
  
 Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled.
-To create a private AKS cluster follow docs [here](https://docs.microsoft.com/azure/aks/private-clusters)
+To create a private AKS cluster, follow docs [here](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
@@ -104,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -217,6 +229,10 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 
 To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
+> [!NOTE]
+> The number of models to be deployed is limited to 1,000 models per deployment (per container).
+
+
 ### Using the SDK
 
 ```python
@@ -262,7 +278,7 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 ### Understand the deployment processes
 
-The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has very different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
+The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
 
 In Azure Machine Learning, "deployment" is used in the more general sense of making available and cleaning up your project resources. The steps that Azure Machine Learning considers part of deployment are:
 

@@ -1,6 +1,6 @@
 ---
 title: Back up Azure file shares with REST API
-description: Learn how to use REST API to back up Azure file shares in the Recovery Services Vault
+description: Learn how to use REST API to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
 ms.date: 02/16/2020
 ---
@@ -9,7 +9,7 @@ ms.date: 02/16/2020
 
 This article describes how to back up an Azure File share using Azure Backup via REST API.
 
-This article assumes you've already created a recovery services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
+This article assumes you've already created a Recovery Services vault and policy for configuring backup for your file share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
 
 For this article, we'll use the following resources:
 
@@ -27,13 +27,13 @@ For this article, we'll use the following resources:
 
 ### Discover storage accounts with unprotected Azure file shares
 
-The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services Vault. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
+The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services vault. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, and `{fabricName}` parameters. In our example, the value for the different parameters would be as follows:
+The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, and `{fabricName}` parameters. In our example, the value for the different parameters will be as follows:
 
 - `{fabricName}` is *Azure*
 
@@ -49,13 +49,13 @@ Since all the required parameters are given in the URI, there's no need for a se
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### Responses
+#### Responses to the refresh operation
 
 The 'refresh' operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
-##### Example responses
+##### Example responses to the refresh operation
 
 Once the *POST* request is submitted, a 202 (Accepted) response is returned.
 
@@ -151,7 +151,7 @@ protectableContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-Since we can locate the *testvault2* storage account in the response body with the friendly name, the refresh operation performed above was successful. The recovery services vault can now successfully discover storage accounts with unprotected files shares in the same subscription.
+Since we can locate the *testvault2* storage account in the response body with the friendly name, the refresh operation performed above was successful. The Recovery Services vault can now successfully discover storage accounts with unprotected files shares in the same subscription.
 
 ### Register storage account with Recovery Services vault
 
@@ -170,7 +170,7 @@ Set the variables for the URI as follows:
    In our example, it's *StorageContainer;Storage;AzureFiles;testvault2*
 
 >[!NOTE]
-> Always take the name attribute of the response and fill it in this request. Do NOT hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
+> Always take the name attribute of the response and fill it in this request. Don't hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
 
 <br>
 
@@ -368,7 +368,7 @@ In our example, the ID of file share we want to protect is:
 Or you can refer to the **name** attribute of the protection container and protectable item responses.
 
 >[!NOTE]
->Always take the name attribute of the response and fill it in this request. Do NOT hard-code or create the container-name format or protected item name format. If you create or hard-code it, the API call will fail if the container-name format or protected item name format changes in the future.
+>Always take the name attribute of the response and fill it in this request. Don't hard-code or create the container-name format or protected item name format. If you create or hard-code it, the API call will fail if the container-name format or protected item name format changes in the future.
 
 <br>
 
@@ -482,13 +482,13 @@ Request Body example
 }
 ```
 
-### Responses
+### Responses to the on-demand backup operation
 
 Triggering an on-demand backup is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and 200 (OK) when that operation completes.
 
-### Example responses
+### Example responses to the on-demand backup operation
 
 Once you submit the *POST* request for an on-demand backup, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 

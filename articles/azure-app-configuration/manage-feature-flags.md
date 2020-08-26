@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to control feature availability in my app by using App Configuration.
 ---

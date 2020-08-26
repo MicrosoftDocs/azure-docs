@@ -50,7 +50,7 @@ The authentication and authorization module runs in a separate container, isolat
 
 ### User/Application claims
 
-For all language frameworks, App Service makes the claims in the incoming token (whether that be from an authenticated end user or a client application) available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](containers/configure-language-java.md#authenticate-users-easy-auth).
+For all language frameworks, App Service makes the claims in the incoming token (whether that be from an authenticated end user or a client application) available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java.md#authenticate-users-easy-auth).
 
 For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
 
@@ -71,7 +71,7 @@ You typically must write code to collect, store, and refresh these tokens in you
 
 The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
 
-If you don't need to work with tokens in your app, you can disable the token store.
+If you don't need to work with tokens in your app, you can disable the token store in your app's **Authentication / Authorization** page.
 
 ### Logging and tracing
 
@@ -143,7 +143,7 @@ With this option, you don't need to write any authentication code in your app. F
 
 ## More resources
 
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)  
 [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)  
 [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
 [.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)

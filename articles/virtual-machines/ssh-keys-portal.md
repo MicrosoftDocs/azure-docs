@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
 
 ---
@@ -24,7 +24,7 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. At the top of the page, type *SSH* to search. Under **Marketplace*, select **SSH keys**.
+1. At the top of the page, type *SSH* to search. Under **Marketplace**, select **SSH keys**.
 
 1. On the **SSH Key** page, select **Create**.
 
@@ -85,6 +85,20 @@ You can also upload a public SSH key to store in Azure. For information about ho
 1. After validation completes, select **Create**. 
 
 Once the key has been uploaded, you can choose to use it when you create a VM.
+
+## List keys
+
+SSH keys created in the portal are stored as resources, so you can filter your resources view to see all of them.
+
+1. In the portal, select **All resource**.
+1. In the filters, select **Type**, unselect the **Select all** option to clear the list.
+1. Type **SSH** in the filter and select **SSH key**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Screenshot of how to filter the list to see all of your SSH keys.":::
+
+## Get the public key
+
+If you need your public key, you can easily copy it from the portal page for the key. Just list your keys (using the process in the last section) then select a key from the list. The page for your key will open and you can click the **Copy to clipboard** icon next to the key to copy it.
 
 ## Next steps
 

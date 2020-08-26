@@ -21,7 +21,7 @@ The recommended way to mount an Azure file share on Linux is using SMB 3.0. By d
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
+| SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
 If you're using a Linux distribution not listed in the above table, you can check to see if your Linux distribution supports SMB 3.0 with encryption by checking the Linux kernel version. SMB 3.0 with encryption was added to Linux kernel version 4.11. The `uname` command will return the version of the Linux kernel in use:
 
