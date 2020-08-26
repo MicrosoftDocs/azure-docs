@@ -20,7 +20,7 @@ This quickstart explains how to:
 > [!div class="checklist"]
 > * Generate a basic Spring Cloud project
 > * Provision a service instance
-> * Build and deploy the app with public endpoint
+> * Build and deploy the app with a public endpoint
 > * Stream logs in real time
 
 ## Prerequisites
@@ -207,7 +207,7 @@ In this quickstart, you learned how to:
 > [!div class="checklist"]
 > * Generate a basic Spring Cloud project
 > * Provision a service instance
-> * Build and deploy the app with public endpoint
+> * Build and deploy the app with a public endpoint
 > * Streaming logs in real time
 ## Next steps
 > [!div class="nextstepaction"]

@@ -55,7 +55,7 @@ Compiling the project takes about 5 minutes. Once completed, you should have ind
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Create Spring Cloud microservices using the JAR files built in the previous step. You will create three apps: **gateway**, **auth-service**, and **account-service**.
+1. Create Azure Spring Cloud microservices using the JAR files built in the previous step. You will create three apps: **gateway**, **auth-service**, and **account-service**.
 
     ```azurecli
     az spring-cloud app create --name gateway

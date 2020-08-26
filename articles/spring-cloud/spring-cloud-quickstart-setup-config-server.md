@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Set up Azure Spring Cloud configuration server
 
-Spring Cloud Config server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the config server to deploy microservice apps to Azure Spring Cloud.
+Azure Spring Cloud Config server is centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  Set up the config server to deploy microservice apps to Azure Spring Cloud.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ The following procedure sets up the config server using the Azure portal to depl
 
 #### [CLI](#tab/Azure-CLI)
 
-The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md)
+The following procedure uses the Azure CLI to set up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-sample-app-introduction.md).
 
 Set up your config-server with the location of the git repository for the project:
 
