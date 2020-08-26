@@ -166,7 +166,7 @@ For more information on how to deploy and configure your SaaS applications, see 
 
 #### Plan to deploy the My Apps browser extension
 
-When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing My Apps browser extension](application-access-panel-extension-problem-installing.md).
+When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing My Apps browser extension](access-panel-extension-problem-installing.md).
 
 If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
