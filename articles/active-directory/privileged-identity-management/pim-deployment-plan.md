@@ -181,16 +181,16 @@ For subscriptions/resources that are not as critical, you won’t need to set up
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommends** that you manage Owner roles and User Access Administrator roles of all subscriptions/resources using Privileged Identity Management.
 
-### Decide whether to assign a group to the role
+### Decide whether to use a group to assign roles
 
-Assigning a role to a group instead of to individual users is a strategic decision. When planning, consider assigning a role to a group to manage role assignments when:
+Whether to assign a role to a group instead of to individual users is a strategic decision. When planning, consider assigning a role to a group to manage role assignments when:
 
 - A lot of users are assigned to a role
 - You want to delegate assigning the role
 
 #### A lot of users are assigned to a role
 
-Keeping track of who is assigned to a role and managing their assignments based on when they need it can take time when done manually. PIM gives you additional tools such as activation approvals and elevation event audits to efficiently manage a large number of just-in-time activations. In a privileged access group, group members activate their assignments to the group individually using the Privileged Identity Management activation request and approval process. The group isn't activated, just the group membership assignment.
+Keeping track of who is assigned to a role and managing their assignments based on when they need it can take time when done manually. PIM gives you additional tools such as activation approvals and elevation event audits to efficiently manage a large number of just-in-time activations. Group members activate their assignments to the group individually using the Privileged Identity Management activation request and approval process. The group isn't activated, just the user's group membership.
 
 #### You want to delegate assigning the role
 
