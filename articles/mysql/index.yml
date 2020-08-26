@@ -32,6 +32,8 @@ landingContent:
         links:
           - text: What is Single Server?
             url: single-server-overview.md
+          - text: View all Single server documentation
+            url: index.yml
       - linkListType: concept
         links:
           - text: Understand pricing tiers
@@ -52,7 +54,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Flexible Server?
-            url: single-server-overview.md
+            url: flexible-server/overview.md
+          - text: View all Flexible server documentation
+            url: flexible-server/index.yml
       - linkListType: concept
         links:
           - text: Understand pricing tiers

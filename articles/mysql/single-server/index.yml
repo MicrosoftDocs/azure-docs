@@ -90,11 +90,7 @@ landingContent:
             url: ../concepts-server-parameters.md
           - text: Understand Virtual Networks
             url: ../concepts-data-access-and-security-vnet.md
-          - text: Migrate using dump and restore
-            url: ../concepts-migrate-dump-restore.md
-          - text: Migrate using import and export
-            url: ../concepts-migrate-import-export.md
-          - text : Monitoring
+          - text : Enable Monitoring
             url: ../concepts-monitoring.md
       - linkListType: how-to-guide
         links:
@@ -102,6 +98,10 @@ landingContent:
             url: ../howto-server-parameters.md
           - text: Migrate using Data Migration Service
             url: ../howto-migrate-online.md
+          - text: Migrate using dump and restore
+            url: ../concepts-migrate-dump-restore.md
+          - text: Migrate using import and export
+            url: ../concepts-migrate-import-export.md
 # Card 5
   - title: Business Continuity
     linkLists:
@@ -111,7 +111,7 @@ landingContent:
             url: ../concepts-business-continuity.md
           - text: Back up and restore
             url: ../concepts-backup.md
-          - text: Understand data-in replication
+          - text: Data-in replication
             url: ../concepts-data-in-replication.md
       - linkListType: how-to-guide
         links:
