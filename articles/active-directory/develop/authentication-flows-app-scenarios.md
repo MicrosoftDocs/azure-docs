@@ -94,7 +94,7 @@ Many modern web apps are built as client-side single-page applications. These ap
 
 Single-page applications differ from traditional server-side web apps in terms of authentication characteristics. By using the Microsoft identity platform, single-page applications can sign in users and get tokens to access back-end services or web APIs. Microsoft identity platform offers two grant types for JavaScript applications: 
 
-| MSAL.js (2x) | MSAL.js (1x) |
+| MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
 | ![A single-page application auth](media/scenarios/spa-app-auth.svg) | ![A single-page application implicit](media/scenarios/spa-app.svg) |
 
