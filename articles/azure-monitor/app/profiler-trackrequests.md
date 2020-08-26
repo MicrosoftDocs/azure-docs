@@ -4,6 +4,7 @@ description: Write code to track requests with Application Insights so you can g
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
+ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 
 ms.reviewer: mbullwin
