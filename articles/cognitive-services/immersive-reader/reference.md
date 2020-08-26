@@ -101,21 +101,21 @@ Contains the content to be shown in the Immersive Reader.
 | chunks | Chunk[] | Array of chunks |
 
 ### -title
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
 ### -chunks
-```yaml
+```Parameters
 Type: Chunk[]
 Required: true
 Default value: null 
 ```
 
 ### -uiLang
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
@@ -142,21 +142,21 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 | mimeType | string | MIME type of the content (optional). Currently 'text/plain', 'application/mathml+xml', and 'text/html' are supported. Defaults to 'text/plain' if not specified. See [Supported MIME types](#supported-mime-types) |
 
 ### -content
-```yaml
+```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
 ### -lang
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
 ### -mimeType
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "text/plain"
@@ -216,28 +216,28 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | onPreferencesChanged | Function | Executes when the user's preferences have changed. |
 
 ### -uiLang
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
 ### -timeout
-```yaml
+```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
 ### -uiZIndex
-```yaml
+```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
 ### -useWebview
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -245,21 +245,21 @@ Values available: true, false
 ```
 
 ### -onExit
-```yaml
+```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
 ### -customDomain
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: null
 ```
 
 ### -allowFullscreen
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: true
@@ -267,7 +267,7 @@ Values available: true, false
 ```
 
 ### -hideExitButton
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -275,7 +275,7 @@ Values available: true, false
 ```
 
 ### -disableFirstRun
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -283,14 +283,14 @@ Values available: true, false
 ```
 
 ### -preferences
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: null
 ```
 
 ### -onPreferencesChanged
-```yaml
+```Parameters
 Type: Function
 Required: false
 Default value: null
@@ -315,7 +315,7 @@ type ReadAloudOptions = {
 | autoPlay | Boolean | Automatically start Read Aloud when the Immersive Reader loads. |
 
 ### -voice
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "Female" or "Male" (determined by language) 
@@ -323,7 +323,7 @@ Values available: "Female", "Male"
 ```
 
 ### -speed
-```yaml
+```Parameters
 Type: Number
 Required: false
 Default value: 1
@@ -331,7 +331,7 @@ Values available: 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5
 ```
 
 ### -autoPlay
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -360,7 +360,7 @@ type TranslationOptions = {
 | autoEnableWordTranslation | Boolean | Automatically enable word translation. |
 
 ### -language
-```yaml
+```Parameters
 Type: String
 Required: true
 Default value: null 
@@ -368,7 +368,7 @@ Values available: See the Supported Languages section
 ```
 
 ### -autoEnableDocumentTranslation
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -376,7 +376,7 @@ Values available: true, false
 ```
 
 ### -autoEnableWordTranslation
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -402,7 +402,7 @@ type DisplayOptions = {
 | fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
 
 ### -textSize
-```yaml
+```Parameters
 Type: Number
 Required: false
 Default value: 20, 36 or 42 (Determined by screen size)
@@ -410,7 +410,7 @@ Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
 ### -increaseSpacing
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: true
@@ -418,7 +418,7 @@ Values available: true, false
 ```
 
 ### -fontFamily
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "Calibri"
@@ -460,7 +460,7 @@ The Immersive Reader stores its settings, or user preferences, in cookies. This 
 | translationState | Object | Contains two properties: *shouldTranslateWords* and *translationLanguage*. *shouldTranslateWords* is a Boolean that sets whether text translation is toggled on or off when the Immersive Reader is loaded and a word is clicked. *translationLanguage* is a String that sets the chosen language in "ll-CC" format |
 
 ### -textSize
-```yaml
+```Parameters
 Type: Number
 Required: false
 Default value: 20, 36 or 42 (Determined by screen size)
@@ -468,7 +468,7 @@ Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
 ### -fontFamily
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "Calibri"
@@ -476,7 +476,7 @@ Values available: "Calibri", "ComicSans", "Sitka"
 ```
 
 ### -textSpacing
-```yaml
+```Parameters
 Type: Number
 Required: false
 Default value: 40
@@ -484,7 +484,7 @@ Values available: 24, 40
 ```
 
 ### -formattingEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: true
@@ -492,7 +492,7 @@ Values available: true, false
 ```
 
 ### -theme
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "Light"
@@ -500,7 +500,7 @@ Values available: "Light", "Dark", "Sepia", "Yellow", "Blue", "Green", "Rose", "
 ```
 
 ### -syllabificationEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -508,7 +508,7 @@ Values available: true, false
 ```
 
 ### -nounHighlightingEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -516,7 +516,7 @@ Values available: true, false
 ```
 
 ### -nounHighlightingColor
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "MiddleMagenta"
@@ -524,7 +524,7 @@ Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "Acce
 ```
 
 ### -verbHighlightingEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -532,7 +532,7 @@ Values available: true, false
 ```
 
 ### -verbHighlightingColor
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "MiddleRed"
@@ -540,7 +540,7 @@ Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "Acce
 ```
 
 ### -adjectiveHighlightingEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -548,7 +548,7 @@ Values available: true, false
 ```
 
 ### -adjectiveHighlightingColor
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "MiddleGreen"
@@ -556,7 +556,7 @@ Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "Acce
 ```
 
 ### -adverbHighlightingEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: false
@@ -564,7 +564,7 @@ Values available: true, false
 ```
 
 ### -adverbHighlightingColor
-```yaml
+```Parameters
 Type: String
 Required: false
 Default value: "MiddleYellow"
@@ -572,7 +572,7 @@ Values available: "AccessibleBlue", "AccessibleGreen", "AccessibleYellow", "Acce
 ```
 
 ### -pictureDictionaryEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: true
@@ -580,7 +580,7 @@ Values available: true, false
 ```
 
 ### -posLabelsEnabled
-```yaml
+```Parameters
 Type: Boolean
 Required: false
 Default value: true
@@ -588,7 +588,7 @@ Values available: true, false
 ```
 
 ### -readAloudState
-```yaml
+```Parameters
 Type: Object
 Required: false
 Properties available: 2
@@ -607,7 +607,7 @@ Property 2 values available: "Female", "Male"
 ```
 
 ### -translationState
-```yaml
+```Parameters
 Type: Object
 Required: false
 Properties available: 2
@@ -648,13 +648,13 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
 | sessionId | String | Globally unique identifier for this session, used for debugging. |
 
 ### -container
-```yaml
+```Parameters
 Type: HTMLDivElement
 Required: true
 ```
 
 ### -sessionId
-```yaml
+```Parameters
 Type: String
 Required: true
 ```
@@ -678,13 +678,13 @@ Contains information about an error.
 | message | String | Human-readable representation of the error. |
 
 ### -code
-```yaml
+```Parameters
 Type: String
 Required: true
 ```
 
 ### -message
-```yaml
+```Parameters
 Type: String
 Required: true
 ```
@@ -715,7 +715,7 @@ Options for rendering the Immersive Reader buttons.
 | elements | HTMLDivElement[] | Elements to render the Immersive Reader buttons in. |
 
 ### -elements
-```yaml
+```Parameters
 Type: HTMLDivElement[]
 Required: true
 ```
