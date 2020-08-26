@@ -24,6 +24,10 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 Choose a tab to view any SDK-specific prerequisites.
 
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
 ### [.NET](#tab/dotnet)
 
 The [.NET SDK](https://dotnet.microsoft.com/download) 
@@ -48,6 +52,20 @@ There are no additional prerequisites required to use the Node.js SDK.
 ---
 
 ## Install packages 
+
+### [PowerShell](#tab/azure-powershell)
+
+Install the Az module version 4.6.0 or higher.
+
+```powershell
+Install-Module -Name Az -Repository PSGallery -Force
+```
+
+To update from an older version of Az, run the following command:
+
+```powershell
+Update-Module -Name Az
+```
 
 ### [.NET](#tab/dotnet)
 
@@ -114,6 +132,9 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 
 ## Add statements
 
+### [PowerShell](#tab/azure-powershell)
+
+Not applicable
 
 ### [.NET](#tab/dotnet)
 
@@ -186,6 +207,21 @@ You can use SQL to specify the row filter predicates and column projections in a
 - In the SQL query, the keyword `BlobStorage` is used to denote the file that is being queried.
 
 - Column references are specified as `_N` where the first column is `_1`. If the source file contains a header row, then you can refer to columns by the name that is specified in the header row. 
+
+### [PowerShell](#tab/azure-powershell)
+
+```powershell
+$container = "data"
+
+$blob = "csv/csv-general/seattle-library.csv"
+Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Hemingway, Ernest, 1899-1961'" $false
+
+Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
+    $tempfile = New-TemporaryFile
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    Get-Content $tempfile.FullName
+```
 
 ### [.NET](#tab/dotnet)
 
@@ -283,8 +319,6 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 
 ### [Python](#tab/python)
 
-The method `BlobClient.query_blob` sends the query to the query acceleration API, and then streams the results back.
-
 ```python
 def query_hemingway(blob: BlobClient):
     query = "SELECT * FROM BlobStorage WHERE _3 = 'Hemingway, Ernest, 1899-1961'"
@@ -345,6 +379,21 @@ You can scope your results to a subset of columns. That way you retrieve only th
 
 This code retrieves only the `BibNum` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query.
 
+### [PowerShell](#tab/azure-powershell)
+
+```powershell
+$container = "data"
+
+$blob = "csv/csv-general/seattle-library-with-headers.csv"
+Get-QueryCsv $ctx $container $blob "SELECT BibNum FROM BlobStorage" $true
+
+Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
+    $tempfile = New-TemporaryFile
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    Get-Content $tempfile.FullName
+
+```
 
 ### [.NET](#tab/dotnet)
 
@@ -387,6 +436,26 @@ async function queryBibNum(blob)
 ---
 
 The following code combines row filtering and column projections into the same query. 
+
+### [PowerShell](#tab/azure-powershell)
+
+```powershell
+$container = "data"
+
+$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
+            FROM BlobStorage 
+            WHERE ItemType IN 
+                ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')"
+
+Get-QueryCsv $ctx $container $blob $query $true
+
+Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
+    $tempfile = New-TemporaryFile
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    Get-Content $tempfile.FullName
+
+```
 
 ### [.NET](#tab/dotnet)
 
