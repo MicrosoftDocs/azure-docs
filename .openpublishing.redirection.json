@@ -39869,6 +39869,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/scenario-availability.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": true
