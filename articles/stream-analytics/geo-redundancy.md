@@ -14,7 +14,7 @@ Azure Stream Analytics does not provide automatic geo-failover, but you can ac
 
 The following diagram depicts a sample geo-redundant Stream Analytics job deployment with Event Hub input and Azure Database output.
 
-:::image type="content" source="media/geo-redundancy/geo-redundant-asa.png" alt-text="diagram of geo-redundant stream analytics jobs":::
+:::image type="content" source="media/geo-redundancy/geo-redundant-jobs.png" alt-text="diagram of geo-redundant stream analytics jobs":::
 
 ## Primary/secondary strategy
 
