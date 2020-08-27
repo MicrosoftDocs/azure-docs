@@ -114,7 +114,7 @@ You can stop protecting an SAP HANA database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-* All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+* All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
 * You'll be charged for the protected instance and the consumed storage.
 * If you delete a data source without stopping backups, new backups will fail.
 

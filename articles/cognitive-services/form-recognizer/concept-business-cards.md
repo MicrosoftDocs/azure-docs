@@ -66,7 +66,7 @@ The second step is to call the [Get Analyze Business Card Result](https://westce
 
 When the **status** field has the **succeeded** value, the JSON response will include the business card understanding and text recognition results. The business card understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
-![Contoso smample results](./media/business-card-results.png)
+![sample business card output](./media/business-card-results.png)
 
 ### Sample JSON output
 
@@ -87,8 +87,8 @@ The "readResults" node contains all of the recognized text. Text is organized by
 				"width": 4032,
 				"height": 3024,
 				"unit": "pixel",
-    "lines": 
-         {
+   				"lines": 
+       					  {
 						"text": "Dr. Avery Smith",
 						"boundingBox": [
 							419.3,

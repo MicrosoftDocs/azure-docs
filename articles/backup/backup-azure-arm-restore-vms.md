@@ -156,7 +156,7 @@ The secondary region restore user experience will be similar to the primary regi
 ![Restore configuration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
 >[!NOTE]
->The virtual network in the secondary region needs to be assigned uniquely, and cannot be used for any other VMs in that resource group.
+>The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
 
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
@@ -165,8 +165,8 @@ The secondary region restore user experience will be similar to the primary regi
 
 >[!NOTE]
 >
->- After the restore is triggered and in the data transfer phase, the restore job cannot be cancelled.
->- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which are not backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
+>- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
+>- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 
 ### Monitoring secondary region restore jobs

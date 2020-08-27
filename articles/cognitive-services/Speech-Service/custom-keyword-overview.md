@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
+ms.custom: devx-track-csharp
 ---
 
 # What is a keyword?
