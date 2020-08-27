@@ -4,7 +4,7 @@
   items:
   - name: What is Traffic Manager?
     href: traffic-manager-overview.md
-- name: Quickstart
+- name: Quickstarts
   items:
   - name: Create a Traffic Manager profile - portal
     href: quickstart-create-traffic-manager-profile.md
@@ -59,7 +59,7 @@
     href: traffic-manager-how-it-works.md
   - name: FAQs
     href: traffic-manager-FAQs.md
-- name: How To
+- name: How-to guides
   items:
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
