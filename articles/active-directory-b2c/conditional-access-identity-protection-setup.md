@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. If your tenant is linked to an Azure subscription with Azure AD Premium P2, you can view Identity Protection risk events in the Azure portal. You can also use [Conditional Access](../active-directory/conditional-access/overview) policies based on these risk detections to determine actions and enforce organizational policies.
+Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. If your tenant is linked to an Azure subscription with Azure AD Premium P2, you can view Identity Protection risk events in the Azure portal. You can also use [Conditional Access](../active-directory/conditional-access/overview.md) policies based on these risk detections to determine actions and enforce organizational policies.
 
 ## Prerequisites
 
@@ -91,9 +91,9 @@ To add a conditional access policy based on the Identity Protection risk detecti
 
 1. Select **New policy** and follow the Azure AD Conditional Access documentation to create a new policy. The following are examples:
 
-   - [Sign-in risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk#enable-with-conditional-access-policy)
+   - [Sign-in risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
 
-   - [User risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk-user#enable-with-conditional-access-policy)
+   - [User risk-based Conditional Access: Enable with Conditional Access policy](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy)
 
    > [!IMPORTANT]
    > When selecting the users you want to apply the policy to, don't select **All users** only, or you could block yourself from signing in.
@@ -107,7 +107,7 @@ To add a conditional access policy based on the Identity Protection risk detecti
    - For Conditions, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
    - For **Grant**, choose **Block access**.
 
-      ![Risk detections](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+      ![Choose Block access](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 1. Enable your test conditional access policy by selecting **Create**.
 

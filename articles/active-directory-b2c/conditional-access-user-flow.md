@@ -1,6 +1,6 @@
 ---
 title: Add Conditional Access to a user flow in Azure AD B2C
-description: Learn how Conditional Access is at the heart of the new identity driven control plane.
+description: Learn how to add Conditional Access to your Azure AD B2C user flows. Configure multi-factor authentication (MFA) settings and Conditional Access policies in your user flows to enforce policies and remediate risky sign-ins.
 
 services: active-directory
 ms.service: active-directory
@@ -85,7 +85,7 @@ To test Conditional Access in your user flow, [create a Conditional Access polic
 
 ### Prerequisites
 
-- For testing purposes, you can [register the test web application](tutorial-register-applications) `https://jwt.ms`, which is a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). 
+- For testing purposes, you can [register the test web application](tutorial-register-applications.md) `https://jwt.ms`, which is a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). 
 - To simulate a risky sign-in, download the TOR Browser and attempt to sign in to the user flow endpoint.
 - Using the following settings, [create a Conditional Access policy](conditional-access-identity-protection-setup.md):
    
@@ -100,7 +100,7 @@ To test Conditional Access in your user flow, [create a Conditional Access polic
 
 1. Select the user flow you created to open its overview page, then select **Run user flow**. Under **Application**, select *webapp1*. The **Reply URL** should show `https://jwt.ms`.
 
-       ![Run user flow page in portal with Run user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+   ![Run user flow page in portal with Run user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
 1. Copy the URL under **Run user flow endpoint**.
 

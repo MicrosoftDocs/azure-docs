@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Enhance the security of Azure Active Directory B2C (Azure AD B2C) with Azure AD Identity Protection and Conditional Access. The Identity Protection risk-detection features, including risky users and risky sign-ins, are automatically detected an displayed in your Azure AD B2C tenant. You can create Conditional Access policies that use these risk detections to determine actions and enforce organizational policies. Together, these capabilities give Azure AD B2C application owners significantly greater control over risky authentications and access policies.
   
-If you're already familiar with [Identity Protection](../active-directory/identity-protection/overview-identity-protection) and [Conditional Access](../active-directory/conditional-access/overview) in Azure AD, using these capabilities with Azure AD B2C will be a familiar experience, with the minor differences discussed in this article.
+If you're already familiar with [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) and [Conditional Access](../active-directory/conditional-access/overview.md) in Azure AD, using these capabilities with Azure AD B2C will be a familiar experience, with the minor differences discussed in this article.
 
 ![Conditional Access in a B2C tenant](media/conditional-access-identity-protection-overview/conditional-access-b2c.png)
 
@@ -62,5 +62,5 @@ You can also manage Conditional Access policies in Azure AD B2C with Microsoft G
 ## Next steps
 
 - [Set up Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-setup.md)
-- [Learn about Identity Protection in Azure AD](../active-directory/identity-protection/overview-identity-protection)
+- [Learn about Identity Protection in Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 - [Learn about Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
