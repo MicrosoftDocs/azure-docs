@@ -30,7 +30,7 @@ Learn what's new with QnA Maker.
 
 ### May 2020
 
-* [Role-based access control (RBAC)](concepts/role-based-access-control.md)
+* [Azure role-based access control (Azure RBAC)](concepts/role-based-access-control.md)
 * [Rich-text editing](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) for answers
 
 ### March 2020

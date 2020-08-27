@@ -9,7 +9,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 # Python web and worker roles with Python Tools for Visual Studio

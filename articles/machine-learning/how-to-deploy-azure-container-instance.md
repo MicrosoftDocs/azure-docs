@@ -51,8 +51,9 @@ For information on quota and region availability for ACI, see [Quotas and region
 To deploy a model to Azure Container Instances, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 > [!NOTE]
-> * ACI is suitable only for small models <1GB in size. 
-> * We recommend to use single node AKS for dev-test of larger models.
+> * ACI is suitable only for small models that are under 1 GB in size. 
+> * We recommend using single-node AKS to dev-test larger models.
+> * The number of models to be deployed is limited to 1,000 models per deployment (per container). 
 
 ### Using the SDK
 
@@ -91,14 +92,12 @@ See [deploy your models with VS Code](tutorial-train-deploy-image-classification
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.
 
-## Update the web service
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
+* [Update the web service](how-to-deploy-update-web-service.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)

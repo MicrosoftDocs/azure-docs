@@ -4,6 +4,7 @@ description: Learn now to import certificate files into a Service Fabric contain
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-csharp
 ---
 
 # Import a certificate file into a container running on Service Fabric

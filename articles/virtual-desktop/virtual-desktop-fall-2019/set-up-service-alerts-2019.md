@@ -1,10 +1,7 @@
 ---
 title: Set up service alerts for Windows Virtual Desktop (classic) - Azure
 description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop (classic).
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr

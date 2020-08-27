@@ -13,9 +13,11 @@ Suspending an entity is typically done for urgent administrative reasons. One sc
 
 A suspension or reactivation can be performed either by the user or by the system. The system only suspends entities due to grave administrative reasons such as hitting the subscription spending limit. System-disabled entities cannot be reactivated by the user, but are restored when the cause of the suspension has been addressed.
 
-In the portal, the **Properties** section for the respective entity enables changing the state; the following screenshot shows the toggle for a queue:
+In the portal, the **Overview** section for the respective entity enables changing the state; the current state is displayed under **Status** as a hyperlink.
 
-![Screenshot of the Service Bus feature with the Properties setting highlighted and the Queue state option set to Active and outlined in red.][1]
+The following screenshot shows the available states to which the entity can be changed by selecting the hyperlink: 
+
+![Screenshot of the Service Bus feature within Overview to change the entity state option.][1]
 
 The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 
@@ -50,5 +52,5 @@ To learn more about Service Bus messaging, see the following topics:
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -28,6 +28,9 @@ In order to bulk create users in the administration portal, you must be signed i
 Download and fill in the bulk upload CSV template to help you successfully create Azure AD users in bulk. The CSV template you download might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
+
+> [!WARNING]
+> If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
 
 ### CSV template structure
 
@@ -55,7 +58,7 @@ The rows in a downloaded CSV template are as follows:
 
 1. Open the CSV file and add a line for each user you want to create. The only required values are **Name**, **User principal name**, **Initial password** and **Block sign in (Yes/No)**. Then save the file.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![The CSV file contains names and IDs of the users to create](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. On the **Bulk create user** page, under Upload your CSV file, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
 1. After the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
@@ -68,7 +71,7 @@ If there are errors, you can download and view the results file on the **Bulk op
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Check create status in the Bulk Operations Results page](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 

@@ -72,7 +72,7 @@ The **services available in Azure Government** are listed by category, as well a
 | Generally Available | Preview |
 | --- | --- |
 | [SQL Database](documentation-government-services-database.md#sql-database) | |
-| [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse) | |
+| [Azure Synapse Analytics](documentation-government-services-database.md#sql-data-warehouse) | |
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | |
 | [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis) | |
@@ -127,7 +127,7 @@ The **services available in Azure Government** are listed by category, as well a
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
 | [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | |
-| [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
+| [Azure portal](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
 | [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) | |
 
 ## Developer Tools

@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # What is the Translator?
 
-The Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 60 languages](languages.md), and can be used on any hardware platform with any operating system for text-to-text language translation.
+The Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [more than 70 languages](languages.md), and can be used on any hardware platform with any operating system for text-to-text language translation.
 
 The Translator is part of the [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) collection of machine learning and AI algorithms in the cloud, and is readily consumable in your development projects.
 

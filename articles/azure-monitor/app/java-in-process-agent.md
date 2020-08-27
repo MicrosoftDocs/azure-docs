@@ -122,7 +122,21 @@ Our goal in 3.0+ is to allow you to send your custom telemetry using standard AP
 
 We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the autocollected telemetry.
 
-For this reason, we're not planning to release an SDK with Application Insights 3.0 at this time.
+### Supported custom telemetry
+
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+
+|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
+|---------------------|------------|---------------------|---------|
+| **Custom Events**   |            |                     |  Yes    |
+| **Custom Metrics**  |  Yes       |                     |  Yes    |
+| **Dependencies**    |            |                     |  Yes    |
+| **Exceptions**      |            |  Yes                |  Yes    |
+| **Page Views**      |            |                     |  Yes    |
+| **Requests**        |            |                     |  Yes    |
+| **Traces**          |            |  Yes                |  Yes    |
+
+We're not planning to release an SDK with Application Insights 3.0 at this time.
 
 Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
 

@@ -4,6 +4,7 @@ description: An overview on how to set up multiple SignalR service instances to 
 author: chenkennt
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
 ---

@@ -174,7 +174,7 @@ If you choose not to use a certificate, you can create a new application secret.
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Configure access policies on resources
-Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
+Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.  
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
@@ -183,5 +183,5 @@ Keep in mind, you might need to configure additional permissions on resources th
 
 ## Next steps
 * Learn how to [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
-* To learn about specifying security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
+* To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).

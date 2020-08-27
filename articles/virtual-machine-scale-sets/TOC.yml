@@ -117,7 +117,7 @@
   - name: Images
     href: shared-image-galleries.md
   - name: VM types and sizes
-    href: ../virtual-machines/windows/sizes.md
+    href: ../virtual-machines/sizes.md
     items:
     - name: General purpose
       href: ../virtual-machines/sizes-general.md
@@ -134,7 +134,7 @@
       maintainContext: true
       items:
       - name: Constrained vCPUs
-        href: ../virtual-machines/windows/constrained-vcpu.md
+        href: ../virtual-machines/constrained-vcpu.md
         maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
@@ -173,16 +173,16 @@
   - name: Disk storage
     items:
     - name: Managed Disks
-      href: ../virtual-machines/windows/managed-disks-overview.md
+      href: ../virtual-machines/managed-disks-overview.md
       maintainContext: true
     - name: Select a disk type
-      href: ../virtual-machines/windows/disks-types.md
+      href: ../virtual-machines/disks-types.md
       maintainContext: true
     - name: Encryption
       href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
       maintainContext: true
     - name: Premium storage performance
-      href: ../virtual-machines/windows/premium-storage-performance.md
+      href: ../virtual-machines/premium-storage-performance.md
       maintainContext: true
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md
@@ -190,18 +190,18 @@
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
-      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+      href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
       maintainContext: true
   - name: Networking
-    href: ../virtual-machines/windows/network-overview.md
+    href: ../virtual-machines/network-overview.md
     maintainContext: true
   - name: Infrastructure automation
-    href: ../virtual-machines/windows/infrastructure-automation.md
+    href: ../virtual-machines/infrastructure-automation.md
     maintainContext: true
   - name: Security
     items:
     - name: Security and policy
-      href: ../virtual-machines/windows/security-policy.md
+      href: ../virtual-machines/security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Azure security baseline
@@ -378,13 +378,13 @@
   - name: Use Ansible
     items:
     - name: Create and manage scale sets
-      href: /azure/ansible/ansible-create-configure-vmss
+      href: /azure/developer/ansible/vm-scale-set-configure
       maintainContext: true
     - name: Deploy apps to scale sets
-      href: /azure/ansible/ansible-deploy-app-vmss
+      href: /azure/developer/ansible/vm-scale-set-deploy-app
       maintainContext: true
     - name: Autoscale a scale set
-      href: /azure/ansible/ansible-auto-scale-vmss
+      href: /azure/developer/ansible/vm-scale-set-auto-scale
       maintainContext: true
 - name: Reference
   items:

@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 06/04/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Track model metrics and deploy ML models with MLflow and Azure Machine Learning (preview)
