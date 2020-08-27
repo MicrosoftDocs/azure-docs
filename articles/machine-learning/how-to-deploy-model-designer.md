@@ -40,17 +40,17 @@ After the training pipeline completes:
 
 1. Select the [Train Model module](./algorithm-module-reference/train-model.md)
 1. Select the **Outputs+logs** tab in the right pane
-1. Select the **Register Model icon** ![Screenshot of the gear icon](./media/how-to-deploy-models-from-designer/register-model-icon.png).
+1. Select the **Register Model icon** ![Screenshot of the gear icon](./media/how-to-deploy-model-designer/register-model-icon.png).
 
-    ![Screenshot of right pane of Train Model module](./media/how-to-deploy-models-from-designer/train-model-right-pane.png)
+    ![Screenshot of right pane of Train Model module](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
 1. Enter a name for your model in the pop-up window, and select **Save**.
 
-    ![Screenshot of register trained model](./media/how-to-deploy-models-from-designer/register-trained-model.png)
+    ![Screenshot of register trained model](./media/how-to-deploy-model-designer/register-trained-model.png)
 
 After registering your model, you can find it in the **Models** asset page.
 
-    ![Screenshot of register model in Models asset page](./media/how-to-deploy-models-from-designer/models-asset-page.png)
+    ![Screenshot of register model in Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
 
 
 ## Download entry script file and conda dependencies file
@@ -77,7 +77,7 @@ Alternatively, you can download the files from the **Models** asset page:
 1. Select the `trained_model_outputs` folder.
 1. Download the `conda_env.yaml` file and `score.py` file.  
 
-    ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-models-from-designer/download-artifacts-in-models-page.png)
+    ![Screenshot of download files for deployment in model detail page](./media/how-to-deploy-model-designer/download-artifacts-in-models-page.png)
 
 ## Deploy your model
 
@@ -93,7 +93,7 @@ You're now ready to deploy your model.
 
 1. Select **Deploy** to deploy your model as a real-time endpoint.
 
-    ![Screenshot of deploy model in model asset page](./media/how-to-deploy-models-from-designer/deploy-model.png)
+    ![Screenshot of deploy model in model asset page](./media/how-to-deploy-model-designer/deploy-model.png)
 
 ## Consume the real-time endpoint
 
