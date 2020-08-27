@@ -37569,14 +37569,27 @@
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-password-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-password-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
     },
+
+    {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/troubleshoot-password-based-sso",
+      "redirect_document_id": false
+    },
+
+
     {
       "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
       "redirect_url": "/azure/active-directory/manage-apps/assign-user-or-group-access-portal",
