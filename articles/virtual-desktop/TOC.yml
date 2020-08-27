@@ -94,6 +94,8 @@
     href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
+  - name: Resolve recommendations
+    href: azure-advisor-recommendations.md
 - name: Concepts
   items:
   - name: Authentication
@@ -134,8 +136,6 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
-  - name: Azure Advisor recommendations
-    href: troubleshoot-azure-advisor.md
   - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration

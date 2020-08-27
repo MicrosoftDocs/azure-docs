@@ -1,28 +1,28 @@
 ---
-title: Troubleshoot Azure Advisor Windows Virtual Desktop - Azure
-description: How to resolve issues with Azure Advisor in a Windows Virtual Desktop tenant environment.
+title: Azure Advisor Windows Virtual Desktop Walkthrough - Azure
+description: How to resolve Azure Advisor recommendations for Windows Virtual Desktop.
 author: Heidilohr
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshoot Azure Advisor for Windows Virtual Desktop
+# How to resolve Azure Advisor recommendations
 
-This article describes how you can fix common issues that appear in Azure Advisor for Windows Virtual Desktop.
+This article describes how you can resolve recommendations that appear in Azure Advisor for Windows Virtual Desktop.
 
 ## “No validation environment enabled”
 
 >[!div class="mx-imgBorder"]
 >![A screenshot of the Azure Advisor Operational Excellence page. The "no validation environment enabled" recommendation is highlighted in red.](media/no-validation-environment.png)
 
-This issue appears under Operational Excellence. Usually, when you come across this issue, you get a warning message like this:
+This recommendation appears under Operational Excellence. The recommendation should also show you a warning message like this:
 
 "You don't have a validation environment enabled in this subscription. When you made your host pools, you selected **No** for "Validation environment" in the Properties tab. To ensure business continuity through Windows Virtual Desktop service deployments, make sure you have at least one host pool with a validation environment where you can test for potential issues.”
 
-You can make this warning message go away by creating a validation environment in one of your host pools.
+You can make this warning message go away by enabling a validation environment in one of your host pools.
 
-To create a validation environment:
+To enable a validation environment:
 
 1. Go to your Azure portal home page and select the host pool you want to change.
 
@@ -37,9 +37,9 @@ These changes won't make the warning go away immediately, but it should disappea
 
 ## “Not enough production (non-validation) environments enabled”
 
-This issue appears under Operational Excellence.
+This recommendation appears under Operational Excellence.
 
-For this issue, the warning message appears for one of these reasons:
+For this recommendation, the warning message appears for one of these reasons:
 
 - You have too many host pools in your validation environment.
 - You don't have any production host pools.
@@ -61,12 +61,16 @@ These changes won't make the warning go away immediately, but it should disappea
 
 ## “Not enough links are unblocked to successfully implement your VM”
 
-This issue appears under Operational Excellence.
+This recommendation appears under Operational Excellence.
 
 You need to unblock specific URLs to make sure that your virtual machine (VM) functions properly. You can see the list at [Safe URL list](safe-url-list.md). If the URLs aren't unblocked, then your VM won't work properly.
 
-To solve this issue, make sure you unblock all the URLs on the [Safe URL list](safe-url-list.md). You can use Service Tag or FQDN tags to unblock URLs, too.
+To solve this recommendation, make sure you unblock all the URLs on the [Safe URL list](safe-url-list.md). You can use Service Tag or FQDN tags to unblock URLs, too.
 
 ## Propose new recommendations
 
 You can help us improve Azure Advisor by submitting ideas for recommendations. Your recommendation could help another user out of a tough spot. To submit a suggestion, go to [our UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) and fill out the submission form. When you fill out the form, make sure to give us as much detail as possible.
+
+## Next steps
+
+If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Windows Virtual Desktop](troubleshoot-set-up-overview.md).
