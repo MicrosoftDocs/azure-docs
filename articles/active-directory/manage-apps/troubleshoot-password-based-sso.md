@@ -49,8 +49,6 @@ To resolve this issue, first try these things:
 
   * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
 
-- Have the user update the access panel browser extension by following the steps below in the [How to install the Access Panel Browser extension](#how-to-install-the-access-panel-browser-extension) section.
-
 - Ensure that the access panel browser extension is running and enabled in your user’s browser.
 
 - Ensure that your users are not trying to sign in to the application from the access panel while in **incognito, inPrivate, or Private mode**. The access panel extension is not supported in these modes.
@@ -116,8 +114,6 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 
 To manually capture sign-in fields, you must have the Access Panel browser extension installed. Also, your browser can't be running in *inPrivate*, *incognito*, or *private* mode.
 
-To install the extension, see the [Install the Access Panel Browser extension](#install-the-access-panel-browser-extension) section of this article.
-
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
@@ -158,7 +154,7 @@ You might observe the following behaviors when manual detection isn't working:
 - Manual capture appears to work, but SSO doesn’t happen when users navigate to the app from Access Panel.
 
 If you experience any of these problems, do the following things:
-- Make sure that you have the latest version of the Access Panel browser extension *installed and enabled*. See the [Install the Access Panel browser extension](#install-the-access-panel-browser-extension) section of this article.
+- Make sure that you have the latest version of the My Apps browser extension *installed and enabled*.
 - Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* mode during the capture process. The Access Panel extension isn't supported in these modes.
 - Make sure that your users aren't trying to sign in to the app from Access Panel while in *incognito*, *inPrivate*, or *Private mode*.
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
