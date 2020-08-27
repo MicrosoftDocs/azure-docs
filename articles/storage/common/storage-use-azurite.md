@@ -324,7 +324,7 @@ If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert
 
 ### Well-known storage account and key
 
-Azurite accepts the same well-known account and key used by the legacy Azure storage emulator.
+Azurite accepts the same well-known account and key used by the legacy Azure Storage Emulator.
 
 - Account name: `devstoreaccount1`
 - Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -558,5 +558,5 @@ Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub
 
 ## Next steps
 
-- [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
+- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is being superseded by Azurite.
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
