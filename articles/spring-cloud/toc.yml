@@ -113,6 +113,8 @@
   items: 
     - name: Azure CLI Plugin
       href: https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.springcloud
     - name: Resources
       href: spring-cloud-resources.md
     - name: Frequently Asked Questions

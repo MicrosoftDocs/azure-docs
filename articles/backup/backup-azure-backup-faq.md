@@ -21,7 +21,7 @@ You can register up to 1000 Azure Virtual machines per vault. If you're using th
 
 ### How many datasources/items can be protected in a vault?
 
-You can protect up to 2000 datasources/items across all workloads (IaaS VM, SQL, AFS, etc.) in a vault.
+You can protect up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) in a vault.
 For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
 
 ### How many policies can I create per vault?
