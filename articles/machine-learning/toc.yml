@@ -267,7 +267,7 @@
         - name: Access data
           items: 
             - name: Connect to Azure Storage
-              displayName: blob, get, fileshare, access, mount, download, data lake
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
             - name: Get data from a datastore
               displayName: data, data set, register, access data
