@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Deploy your first Azure Spring Cloud application
 
-This quickstart explains how to deploy a simple Spring Cloud microservice application to run on Azure. 
+This quickstart explains how to deploy a simple Azure Spring Cloud microservice application to run on Azure. 
 
 The application code used in this tutorial is a simple app built with Spring Initializr. When you've completed this example, the application will be accessible online and can be managed via the Azure portal.
 
@@ -205,7 +205,7 @@ az group delete --name <your resource group name; for example: hellospring-15584
 In this quickstart, you learned how to:
 
 > [!div class="checklist"]
-> * Generate a basic Spring Cloud project
+> * Generate a basic Azure Spring Cloud project
 > * Provision a service instance
 > * Build and deploy the app with a public endpoint
 > * Streaming logs in real time
