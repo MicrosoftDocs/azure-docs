@@ -2,7 +2,7 @@
 title: Deploy a template spec as a linked template
 description: Learn how to deploy an existing template spec in a linked deployment.
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 
 ---
 
@@ -126,7 +126,7 @@ id = $(az template-specs show --name $templateSpecName --resource-group $resourc
 ```
 
 > [!NOTE]
-> There is a known issue with getting template spec id and then assign it to a variable in Windows PowerShell.
+> There is a known issue with getting a template spec ID and assigning it to a variable in Windows PowerShell.
 
 ---
 

@@ -30,7 +30,7 @@ Preview features that transition to general availability are removed from this l
 |  [**Azure Data Lake Storage Gen2 indexer**](search-howto-index-azure-data-lake-storage.md) | Indexer data source | Index content and metadata from Data Lake Storage Gen2.| [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) is required so that support can be enabled for your subscription on the backend. Access this data source using [Create Data Source (REST)](/rest/api/searchservice/create-data-source) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Query | Finds documents that are relevant to a specific document. This feature has been in earlier previews. | Add this query parameter in [Search Documents (REST)](/rest/api/searchservice/search-documents) calls with api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, or 2017-11-11-Preview. |
 
-## Calling preview REST APIs
+## How to call a preview REST API
 
 Azure Cognitive Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
 
@@ -42,12 +42,14 @@ While some preview features might be available in the portal and .NET SDK, the R
 
 + For management operations, [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) is the current preview version.
 
-Older previews are still operational but become stale over time. If your code calls `api-version=2019-05-06-Preview` or `api-version=2016-09-01-Preview` or `api-version=2017-11-11-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements. 
+Older previews are still operational but become stale over time. If your code calls `api-version=2019-05-06-Preview` or `api-version=2016-09-01-Preview` or `api-version=2017-11-11-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements.
 
 The following example syntax illustrates a call to the preview API version.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 Azure Cognitive Search service is available in multiple versions. For more information, see [API versions](search-api-versions.md).
