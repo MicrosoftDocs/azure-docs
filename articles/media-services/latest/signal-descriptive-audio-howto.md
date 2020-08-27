@@ -10,10 +10,9 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.custom: 
+ms.custom: devx-track-csharp
 ms.date: 09/25/2019
 ms.author: juliako
-ms.custom: devx-track-csharp
 ---
 
 # Signal descriptive audio tracks

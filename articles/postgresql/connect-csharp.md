@@ -4,11 +4,11 @@ description: This quickstart provides a C# (.NET) code sample you can use to con
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: "mvc, devcenter, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.custom: devx-track-csharp
+
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Single Server

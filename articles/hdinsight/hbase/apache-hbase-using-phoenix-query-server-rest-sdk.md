@@ -6,9 +6,9 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 01/01/2020
-ms.custom: devx-track-csharp
+
 ---
 
 # Apache Phoenix Query Server REST SDK

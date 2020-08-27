@@ -6,9 +6,9 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 01/15/2020
-ms.custom: devx-track-csharp
+
 ---
 
 # Run MapReduce jobs using HDInsight .NET SDK
