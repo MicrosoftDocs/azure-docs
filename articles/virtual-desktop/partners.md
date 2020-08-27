@@ -235,6 +235,12 @@ When used with Windows Virtual Desktop, Cloudpaging further reduces costs by com
 
 - [Go to the partner website](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
 
+## Nexthink
+
+Nexthink is a Windows Virtual Desktop value-added provider that helps organizations confidently measure, manage, and improve their employees’ digital experience and productivity. With a constant read on the pulse of digital employee experience, IT can continuously improve technology’s ability to engage, empower, and delight people, no matter where they work. 
+
+By providing solutions with visible workplace resources, Nexthink gives you context and insight into your user base. Nexthink’s powerful experience management platform helps IT teams ensure that migrations to Windows Virtual Desktop are planned and put into action in a timely and successful manner.
+
 ## PolicyPak
 
 ![PolicyPak Logo](./media/partners/policypak.png)
