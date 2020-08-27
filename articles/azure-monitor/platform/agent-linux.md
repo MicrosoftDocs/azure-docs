@@ -10,7 +10,7 @@ ms.date: 08/21/2020
 ---
 
 # Install Log Analytics agent on Linux computers
-This article provides details on installing the Log Analytics agent on Windows computers using the following methods:
+This article provides details on installing the Log Analytics agent on Linux computers using the following methods:
 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
 * [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](gateway.md). 

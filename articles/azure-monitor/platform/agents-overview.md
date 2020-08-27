@@ -21,17 +21,20 @@ You may have a specific set of requirements that can't be completely met with a 
 
 ## Summary of agents
 
-The following tables provide a quick comparison of the Azure Monitor agents for Windows and Linux. Further detail on each is provided in the section below. 
+The following tables provide a quick comparison of the Azure Monitor agents for Windows and Linux. Further detail on each is provided in the section below.
+
+> [!NOTE]
+> The Azure Monitor agent is currently in preview with limited capabilities. This table will be updated 
 
 ### Windows agents
 
 | | Azure Monitor agent (preview) | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|
-| **Environments supported** | Azure<br>Other cloud<br>On-premises | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
+| **Environments supported** | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
 | **Agent requirements**  | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<IIS logs><br>File based logs<br>Insights and solutions<br>Other services | Process details and dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<br>Azure Storage<br>Event Hub | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | Metrics explorer | Azure Monitor for VMs<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor for VMs |
+| **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<br>File based logs<br>IIS logs<br>Insights and solutions<br>Other services | Process dependencies<br>Network connection metrics |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | Metrics explorer | Azure Monitor for VMs<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor for VMs<br>Service Map |
 
 ### Linux agents
 
@@ -39,13 +42,13 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 |:---|:---|:---|:---|:---|:---|
 | **Environments supported** | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Monitor Logs<br>Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
-| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | Azure Monitor for VMs<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor for VMs |
+| **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process dependencies<br>Network connection metrics |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
+| **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | Azure Monitor for VMs<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor for VMs<br>Service Map |
 
 
 ## Azure Monitor agent (preview)
-The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux virtual machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent and Telegraf agent for both Windows and Linux virtual machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
 Use the Azure Monitor agent if you need to:
 
@@ -138,7 +141,8 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
 | Windows Server 2016 Core                                 |   |   |   | X |
-| Windows Server 2012, 2012 R2                             | X | X | X | X |
+| Windows Server 2012 R2                                   | X | X | X | X |
+| Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
 | Windows 10 Enterprise<br>(including multi-session) and Pro  |   | X | X | X |
 | Windows 8 Enterprise and Pro                             |   | X | X |   |
@@ -151,24 +155,25 @@ The following tables list the operating systems that are supported by the Azure 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 7                                           | X | X |   | X |
-| CentOS Linux 7.6                                         |   |   | X |   |
+| CentOS Linux 7.6                                         | X | X | X | X |
 | CentOS Linux 6                                           | X | X |   |   |
 | CentOS Linux 6.5+                                        | X | X |   | X |
 | Debian 10                                                | X |   |   |   |
-| Debian 9                                                 | X | X |   | X |
-| Debian 8                                                 |   | X |   | X |
+| Debian 9                                                 | X | X | x | X |
+| Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
+| OpenSUSE 13.1+                                           |   |   |   | X |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           | X | X |   |   |
-| Oracle Linux 6.4                                         | X | X |   | X |
+| Oracle Linux 6.4+                                        | X | X |   | X |
 | Red Hat Enterprise Linux Server 8                        | X | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        | X | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                     | X | X | X | X |
-| SUSE Linux Enterprise Server 11                          |   | X |   |   |
-| SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | SUSE Linux Enterprise Server 15                          | X | X | X |   |
-| Ubuntu 16.04 LTS, 18.04 LTS                              | X | X | X | X |
+| SUSE Linux Enterprise Server 12                          | X | X | X | X |
+| Ubuntu 18.04 LTS                                         | X | X | X | X |
+| Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14.04 LTS                                         | X | X |   | X |
 
 
