@@ -576,20 +576,17 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 #### Connect the certification tool to a VM image
 
 1. Select the SSH Authentication mode: Password Authentication or Key File Authentication.
-1. If using password-based authentication, enter values for the **VM DNS Name**, **User name**, and **Password**. You can also change the default SSH Port number.
+2. If using password-based authentication, enter values for the **VM DNS Name**, **User name**, and **Password**. You can also change the default SSH Port number.
 
     :::image type="content" source="media/vm/azure-vm-cert-2.png" alt-text="Shows the selection of VM test information.":::
 
 3. If using key file-based authentication, enter values for the VM DNS Name, User name, and Private key location. You can also include a Passphrase or change the default SSH Port number.
-
-**Connect the certification tool to a Windows-based VM image**
-
 4. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
 5. Enter **User Name** and **Password**.
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Shows the selection of VM user name and password.":::
 
-<font color="red">1. Select Next?</font>
+6. Select **Next**.
 
 #### Run a certification test
 
