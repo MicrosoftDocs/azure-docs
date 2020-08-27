@@ -64,7 +64,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a server using ARM Template
-            url: flexible-server/quickstart-create-flexible-server-arm-template.md
+            url: flexible-server/quickstart-create-arm-template.md
 # Card 4
   - title: Connect and query
     linkLists:
@@ -88,7 +88,7 @@ landingContent:
           - text: Manage Single Server using Azure portal
             url: howto-create-manage-server-portal.md
           - text: Manage Flexible Server(Preview) using Azure portal
-            url: flexible-server/how-to-manage-flexible-server-portal.md
+            url: flexible-server/how-to-manage-portal.md
           - text: Azure Data migration guide
             url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
           - text: Migrate using dump and restore
