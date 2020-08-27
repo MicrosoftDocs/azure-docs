@@ -154,7 +154,7 @@ To configure single sign-on on **FortiGate SSL VPN** side, please follow [this](
 
 In this section, you create a user called B.Simon in FortiGate SSL VPN. Work with [FortiGate SSL VPN support team](mailto:tac_amer@fortinet.com) to add the users in the FortiGate SSL VPN platform. Users must be created and activated before you use single sign-on.
 
-## Test SSO 
+## Test Single Sign-On 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
