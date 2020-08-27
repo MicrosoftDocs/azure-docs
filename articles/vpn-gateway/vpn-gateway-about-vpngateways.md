@@ -40,15 +40,15 @@ The settings that you chose for each resource are critical to creating a success
 
 You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed.
 
-### <a name="availability"></a>Availability Zones
-
-VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. see [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
-
 ### <a name="planningtable"></a>Planning table
 
 The following table can help you decide the best connectivity option for your solution.
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
+
+## <a name="availability"></a>Availability Zones
+
+VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. see [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="gwsku"></a>Gateway SKUs
 
