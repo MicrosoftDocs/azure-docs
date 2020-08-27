@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
+ms.custom: devx-track-csharp
 ---
 
 # Use the change feed estimator
