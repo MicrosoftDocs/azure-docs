@@ -162,6 +162,8 @@
     href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+  - name: Email discovery
+    href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Resources
   items:
   - name: PowerShell
