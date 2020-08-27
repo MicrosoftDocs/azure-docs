@@ -14,9 +14,9 @@ ms.author: mbaldwin
 
 ---
 
-# Receive and respond to key vault notifications with Azure Event Grid (preview)
+# Receive and respond to key vault notifications with Azure Event Grid
 
-Azure Key Vault integration with Azure Event Grid (currently in preview) enables user notification when the status of a secret stored in a key vault has changed. For an overview of this feature, see [Monitoring Key Vault with Event Grid](event-grid-overview.md).
+Azure Key Vault integration with Azure Event Grid enables user notification when the status of a secret stored in a key vault has changed. For an overview of this feature, see [Monitoring Key Vault with Event Grid](event-grid-overview.md).
 
 This guide describes how to receive Key Vault notifications through Event Grid, and how to respond to status changes through Azure Automation.
 
@@ -118,7 +118,7 @@ Create a webhook to trigger your newly created runbook.
 
 Create an Event Grid subscription through the [Azure portal](https://portal.azure.com).
 
-1.  Go to your key vault and select the **Events** tab. If you can't see it, make sure you're using the [preview version of the portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
+1.  Go to your key vault and select the **Events** tab.
 
     ![Events tab in Azure portal](../media/image7.png)
 
@@ -191,9 +191,9 @@ If you've been using a polling-based system to search for status changes of secr
 Learn more:
 
 
-- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
+- Overview: [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
-- [Azure Event Grid event schema for Azure Key Vault (preview)](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Azure Key Vault overview](overview.md))
 - [Azure Event Grid overview](../../event-grid/overview.md)
 - [Azure Automation overview](../../automation/index.yml)

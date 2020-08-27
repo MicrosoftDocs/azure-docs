@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 In this guide you will learn how to respond to Azure Key Vault events that are received via [Azure Event Grid](../../event-grid/index.yml) by using [Azure Logic Apps](../../logic-apps/index.yml). By the end, you will have an Azure logic app set up to send a notification email every time a secret is created in Azure Key Vault.
 
-For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md).
+For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
 ## Prerequisites
 
@@ -83,8 +83,8 @@ When the secret is created, an email will be received at the configured addresse
 
 ## Next steps
 
-- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
+- Overview: [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md)
 - How to: [Route key vault notifications to Azure Automation](event-grid-tutorial.md).
-- [Azure Event Grid event schema for Azure Key Vault (preview)](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - Learn more about [Azure Event Grid](../../event-grid/index.yml).
 - Learn more about the [Logic Apps feature of Azure App Service](../../logic-apps/index.yml).
