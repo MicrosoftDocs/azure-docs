@@ -25,7 +25,7 @@ The Business Card API extracts key fields from business cards and returns them i
 
 ### Fields Extracted: 
 * Contact Names 
-  * First Names
+  * First names
   * Last Names
 * Company Names 
 * Departments 
@@ -391,5 +391,4 @@ The Business Card API also powers the [AIBuilder Business Card Processing featur
 - Follow the quickstart to get started [Business Cards API Python quickstart](./quickstarts/python-business-cards.md)
 - Learn about the [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Learn more about [Form Recognizer](overview.md)
-
 
