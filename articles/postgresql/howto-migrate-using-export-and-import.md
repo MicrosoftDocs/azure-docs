@@ -37,16 +37,16 @@ psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@ser
 ```
 This example uses psql utility and a script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on the target server **mydemoserver.postgres.database.azure.com**.
 
----
-# [Single Server](#tab/single-server)
+For **Single Server**, use this command 
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```
-# [Flexible Server (Preview)](#tab/flexible-server)
+
+For **Flexible Server**, use this command  
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin --dbname=mypgsqldb
 ```
----
+
 
 
 ## Next steps
