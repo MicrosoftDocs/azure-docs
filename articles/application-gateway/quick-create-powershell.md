@@ -19,14 +19,14 @@ The application gateway directs application web traffic to specific resources in
 
 You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or the [Azure portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-az-ps) (if you run Azure PowerShell locally).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Connect to Azure
 
