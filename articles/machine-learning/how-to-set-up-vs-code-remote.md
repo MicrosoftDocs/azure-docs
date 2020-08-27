@@ -21,8 +21,8 @@ An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a f
 
 There are two ways you can connect to a compute instance from Visual Studio Code:
 
-* Remote Jupyter Notebook server. This option allows you to run Jupyter notebooks on a remote Jupyter Notebook server hosted by a compute instance.
-* [Visual Studio Code Remote](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code Remote development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment.
+* Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
+* [Visual Studio Code remote development](https://code.visualstudio.com/docs/remote/remote-overview). Visual Studio Code remote development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment.
 
 ## Prerequisite  
 
@@ -51,7 +51,7 @@ To connect to a compute instance:
 At this point, you can continue to run cells in your Jupyter notebook.
 
 > [!TIP]
-> You can also work with Python script files containing Jupyter-like code cells. For more information, visit the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
+> You can also work with Python script files (.py) containing Jupyter-like code cells. For more information, see the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
 ## Configure Visual Studio Code remote development
 
