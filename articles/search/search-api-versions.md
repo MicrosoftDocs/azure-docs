@@ -86,7 +86,7 @@ The following  table provides links to more recent SDK versions.
 | [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Preview | released April 2019. Targets the Search REST api-version=2019-05-06-Preview.|
 | [Microsoft.Azure.Management.Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Targets the Management REST api-version=2015-08-19.  |
 
-For more information about any release not listed here, go the Nuget package for any release, scroll down to **Version History**, and expand the section to view the full list.
+For more information about earlier releases of Microsoft.Azure.Search, go a [NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search/) for any release, scroll down to **Version History**, and expand the section to view the full list of releases.
 
 ## Azure SDK for Java
 
