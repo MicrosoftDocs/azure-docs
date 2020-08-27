@@ -62,7 +62,7 @@ Determining the reward, in this quickstart is trivial. In a production system, t
 
 These code snippets show you how to do the following with the Personalizer client library for Python:
 
-* [Authenticate the client](#authenticate-a-client)
+* [Authenticate the client](#authenticate-the-client)
 * [Rank API](#request-the-best-action)
 * [Reward API](#send-a-reward)
 
