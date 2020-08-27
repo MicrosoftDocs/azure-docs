@@ -343,6 +343,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
+> | account | global | 3-31 | The name can only contain lowercase letters, numbers, and the hyphen (-) character. Globally unique. |
 > | databaseAccounts | global | 3-44 | Lowercase letters, numbers, and hyphens.<br><br>Start with lowercase letter or number. |
 
 ## Microsoft.EventGrid
