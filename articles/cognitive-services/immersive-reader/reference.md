@@ -82,7 +82,7 @@ Use the following attributes to configure the look and feel of the button.
 
 ## renderButtons
 
-The ```renderButtons``` function isn't necessary if you are using the [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) guidance.
+The ```renderButtons``` function isn't necessary if you are using the [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) guidance above.
 
 This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then this function will render buttons within ```options.elements```. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button```. To use this function, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet.
 
@@ -95,7 +95,7 @@ const btns: HTMLDivElement[] = [btn1, btn2];
 ImmersiveReader.renderButtons({elements: btns});
 ```
 
-See the above [Optional Attributes](#optional-attributes) for more rendering options.
+See the above [Optional Attributes](#optional-attributes) for more rendering options. To use these options, add any of the option attributes to each ``HTMLDivElement``` in your page HTML.
 
 ```typescript
 renderButtons(options?: RenderButtonsOptions): void;
