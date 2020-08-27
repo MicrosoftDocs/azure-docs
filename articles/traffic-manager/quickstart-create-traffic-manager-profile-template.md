@@ -30,7 +30,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-traffic-manager-external-endpoint/azuredeploy.json":::
 
-One Azure resource defined in the template:
+One Azure resource is defined in the template:
 
 * [**Microsoft.Network/trafficManagerProfiles**](/azure/templates/microsoft.network/trafficmanagerprofiles)
 
@@ -61,7 +61,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment creates a profile with two external endpoints. **Endpoint1** uses target endpoint of *w<span>ww.microsoft</span>.com* with the location in **North Europe**. **Endpoint2** uses a target endpoint of *d<span>ocs.microsoft</span>.com* with the location in **South Central US**. 
+    The template deployment creates a profile with two external endpoints. **Endpoint1** uses a target endpoint of *w<span>ww.microsoft</span>.com* with the location in **North Europe**. **Endpoint2** uses a target endpoint of *d<span>ocs.microsoft</span>.com* with the location in **South Central US**. 
 
     The resource group name is the project name with **rg** appended.
 
@@ -91,7 +91,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
     ```
     You should get a NameHost of either *w<span>ww.microsoft</span>.com* or *d<span>ocs.microsoft</span>.com* depending on which region is closer to you.
 
-1. To check if you can resolve to the other endpoint. Disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for *w<span>ww.microsoft</span>.com* or *d<span>ocs.microsoft</span>.com* respectively.
+1. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for *w<span>ww.microsoft</span>.com* or *d<span>ocs.microsoft</span>.com* respectively.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
