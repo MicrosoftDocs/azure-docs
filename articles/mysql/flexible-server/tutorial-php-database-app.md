@@ -135,7 +135,7 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 To stop PHP, type `Ctrl + C` in the terminal.
 
 ### Create a MySQL Flexible Server (Preview)
-In this step, you create a MySQL database in [Azure Database for MySQL](/azure/mysql). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../../cloud-shell/overview), create a server in Azure Database for MySQL with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
+In this step, you create a MySQL database in [Azure Database for MySQL](/azure/mysql). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), create a server in Azure Database for MySQL with the [`az flexible-server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-flexible-server-create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -556,6 +556,6 @@ az group delete --name myResourceGroup
 
 <a name="next"></a>
 
-## Next steps
+## Next steps)
 > [!div class="nextstepaction"]
-> [Configure PHP applications in App Service](../../../app-service/configure-language-php.md?pivots=platform-linux)
+> [Configure PHP applications in App Service](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux
