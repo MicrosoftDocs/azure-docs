@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Media Services v3 with Widevine license template overview

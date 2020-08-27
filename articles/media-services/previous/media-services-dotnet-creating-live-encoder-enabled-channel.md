@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
+ms.custom: devx-track-csharp
 
 ---
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
