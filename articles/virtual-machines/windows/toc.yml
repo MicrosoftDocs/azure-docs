@@ -175,7 +175,7 @@
     - name: VM sizes
       href: ../sizes.md
     - name: Generation 2 VMs
-      href: generation-2.md
+      href: ../generation-2.md
     - name: General purpose
       items:
       - name: Overview

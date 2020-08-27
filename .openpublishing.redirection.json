@@ -35329,6 +35329,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/vm-usage.md",
+      "redirect_url": "/azure/virtual-machines/vm-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/vm-usage.md",
+      "redirect_url": "/azure/virtual-machines/vm-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/generation-2.md",
+      "redirect_url": "/azure/virtual-machines/generation-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/generation-2.md",
+      "redirect_url": "/azure/virtual-machines/generation-2",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/premium-storage.md",
       "redirect_url": "/azure/virtual-machines/linux/disks-types#premium-ssd",
       "redirect_document_id": false
