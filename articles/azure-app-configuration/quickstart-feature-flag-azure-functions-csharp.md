@@ -12,7 +12,7 @@ ms.date: 8/26/2020
 ms.author: alkemper
 
 ---
-# Quickstart: Create an Azure Functions app with Azure App Configuration
+# Quickstart: Add feature flags to an Azure Functions app
 
 In this quickstart, you create an implementation of feature management in an Azure Functions app using Azure App Configuration. You will use the App Configuration service to centrally store all your feature flags and control their states. 
 
