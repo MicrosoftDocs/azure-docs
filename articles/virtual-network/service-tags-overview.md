@@ -20,7 +20,7 @@ ms.reviewer: kumud
 
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
 
-You can use service tags to define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **ApiManagement**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+You can use service tags to define network access controls on [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
@@ -49,7 +49,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureBackup** |Azure Backup.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Outbound | No | No |
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
-| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>This tag or the IP addresses covered by this tag can be used to grant indexers secure access to data sources. Refer the [indexer connection documentation](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) for more details. <br/><br/> *Note*: The IP of the search service is not included in the list of IP ranges for this service tag and **also needs to be added** to the IP firewall of data sources. | Inbound | No | No |
+| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>This tag or the IP addresses covered by this tag can be used to grant indexers secure access to data sources. Refer to the [indexer connection documentation](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) for more details. <br/><br/> *Note*: The IP of the search service is not included in the list of IP ranges for this service tag and **also needs to be added** to the IP firewall of data sources. | Inbound | No | No |
 | **AzureConnectors** | Azure Logic Apps connectors for probe/back-end connections. | Inbound | Yes | Yes |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
