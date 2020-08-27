@@ -36,7 +36,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 This section talks about the steps involved in creating and using private endpoints for Azure Backup inside your virtual networks.
 
 >[!IMPORTANT]
-> It is highly recommended that you follow steps in the same sequence as mentioned in this document. Failure to do so may lead to the vault being rendered incompatible to use private endpoints and requiring you to restart the process with a new vault.
+> It's highly recommended that you follow steps in the same sequence as mentioned in this document. Failure to do so may lead to the vault being rendered incompatible to use private endpoints and requiring you to restart the process with a new vault.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -94,7 +94,7 @@ There are two mandatory DNS zones that need to be created:
 
 ### Optional DNS zone
 
-Customers can choose to integrate their private endpoints with private DNS zones for Azure Backup (discussed in the section on creating private endpoints) for service communication. If you don't wish to integrate with the private DNS zone, you can opt to use your own DNS server or create a private DNS zone separately. This is in addition to the two mandatory private DNS zones discussed in the previous section.
+You can choose to integrate your private endpoints with private DNS zones for Azure Backup (discussed in the section [Creating and using Private Endpoints for Backup](#creating-and-using-private-endpoints-for-backup)) for service communication. If you don't wish to integrate with the private DNS zone, you can opt to use your own DNS server or create a private DNS zone separately. This is in addition to the two mandatory private DNS zones discussed in the previous section.
 
 If you wish to create a separate private DNS zone in Azure, you can do the same using the same steps used for creating mandatory DNS zones. The naming and subscription details are shared below:
 
@@ -187,7 +187,7 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 ## Adding DNS records
 
 >[!NOTE]
-> This step isn't required if you are using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
+> This step isn't required if you're using an integrated DNS zone. However, if you have created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
 
 Once you've created the optional private DNS zone and the private endpoints for your vault, you'll need to add DNS records to your DNS zone. You can do this either manually or using a PowerShell script. This needs to be done for your Backup DNS zone only, those for Blobs and Queues will automatically be updated.
 
