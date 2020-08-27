@@ -72,7 +72,7 @@ If you accidentally delete or make changes to a file, you can restore individual
 
 To restore your files, Azure Backup provides a script to run on your VM that connects your recovery point as a local drive. You can browse this local drive, restore files to the VM itself, then disconnect the recovery point. Azure Backup continues to back up your data based on the assigned policy for schedule and retention.
 
-1. To list recovery points for your VM, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). In this example, we select the most recent recovery point for the VM named *myVM* that is protected in *myRecoveryServicesVault*:
+1. To list recovery points for your VM, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). In this example, we select the most recent recovery point for the VM named *myVM* that's protected in *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -84,7 +84,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
         --output tsv
     ```
 
-2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp). The following example obtains the script for the VM named *myVM* that is protected in *myRecoveryServicesVault*.
+2. To obtain the script that connects, or mounts, the recovery point to your VM, use [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp). The following example obtains the script for the VM named *myVM* that's protected in *myRecoveryServicesVault*.
 
     Replace *myRecoveryPointName* with the name of the recovery point that you obtained in the preceding command:
 

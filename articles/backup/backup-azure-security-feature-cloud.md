@@ -158,7 +158,7 @@ Yes.
 
 ### How can I trigger the scheduled backups again for a soft-deleted resource?
 
-Undelete followed by a resume operation will protect the resource again. The resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that is past its expiration date, you're advised to do it before triggering the resume operation.
+Undelete followed by a resume operation will protect the resource again. The resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that's past its expiration date, you're advised to do it before triggering the resume operation.
 
 ### Can I delete my vault if there are soft deleted items in the vault?
 
