@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
+ms.custom: devx-track-csharp
 ---
 # Use Azure Media Video Thumbnails to Create a Video Summarization  
 

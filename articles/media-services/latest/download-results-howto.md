@@ -12,6 +12,7 @@ ms.workload:
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
 # Download the results of a job
