@@ -69,7 +69,7 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that is created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Trigger an on-demand backup for file share
 
@@ -93,7 +93,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-The **Name** attribute in the output corresponds to the name of the job that is created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your “on-demand backup” operation. To track the status of a job, use the [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
 ## Next steps
 

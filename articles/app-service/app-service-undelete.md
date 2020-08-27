@@ -9,7 +9,7 @@ ms.topic: article
 
 # Restore deleted App Service app Using PowerShell
 
-If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
 > - Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
@@ -71,4 +71,4 @@ By default `Restore-AzDeletedWebApp` will restore both your app configuration as
 > If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
 >
 
-You can find the full commandlet reference here: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+You can find the full commandlet reference here: [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).
