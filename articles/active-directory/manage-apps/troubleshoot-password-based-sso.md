@@ -59,20 +59,6 @@ While Microsoft has technologies to automatically detect when application integr
 
 In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
 
-## The extension works in Chrome and Firefox, but not in Internet Explorer
-
-There are two main causes to this issue:
-
-- Depending on the security settings enabled in Internet Explorer, if the website is not part of a **Trusted Zone**, sometimes our script be blocked from executing for the application.
-
-  *  To resolve this, instruct the user to **Add the application’s website** to the **Trusted Sites** list within their **Internet Explorer security settings**. You can send your users to the [How to add a site to my trusted sites list](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) article for detailed instructions.
-
-- In rare circumstances, Internet Explorer’s security validation can sometimes cause the page to load more slowly than the execution of our script.
-
-  * Unfortunately, this situation can vary depending on the browser version, computer speed, or site visited. In this case, we suggest that you contact support so we can fix the integration for this specific application.
-
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../azuread-dev/howto-app-gallery-listing.md) to get them started.
-
 ## Check if the application’s login page has changed recently or requires an additional field
 
 If the application’s login page has changed drastically, sometimes this causes our integrations to break. An example of this is when an application vendor adds a sign-in field, a captcha, or multi-factor authentication to their experiences. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
