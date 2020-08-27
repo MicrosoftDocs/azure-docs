@@ -23,7 +23,7 @@ This article documents the security controls built into Azure Backup.
 
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via resource logs. For more information, see [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Azure monitoring support (such as Log analytics, App insights)| Yes | Log Analytics is supported via resource logs. For more information, see [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |  |
 | Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |  |
 
@@ -48,7 +48,7 @@ This article documents the security controls built into Azure Backup.
 
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
-| Configuration management support (versioning of configuration, etc.)| Yes|  |  |
+| Configuration management support (versioning of configuration, and so on)| Yes|  |  |
 
 ## Next steps
 

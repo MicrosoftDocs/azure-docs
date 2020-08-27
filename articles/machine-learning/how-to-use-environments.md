@@ -240,7 +240,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. And setting the optional parameter `pushImageToWorkspaceAcr = True` will push the resulting image into the Azure ML workspace container registry. 
+It is useful to first build images locally using the [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) method. To build a docker image, set the optional parameter `useDocker=True`. To push the resulting image into the AzureML workspace container registry, set `pushImageToWorkspaceAcr=True`.
+
+```python
+build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
+```
 
 > [!WARNING]
 >  Changing the order of dependencies or channels in an environment will result in a new environment and will require a new image build. In addition, calling the `build()` method for an existing image will update its dependencies if there are new versions. 

@@ -528,17 +528,16 @@ Output:
 The image output will be a managed image resource.
 
 ```json
-"distribute": [
-        {
-"type":"managedImage",
+{
+       "type":"managedImage",
        "imageId": "<resource ID>",
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
             "<name": "<value>",
-             "<name>": "<value>"
-               }
-         }]
+            "<name>": "<value>"
+        }
+}
 ```
  
 Distribute properties:

@@ -1,17 +1,18 @@
 ---
-title: Export a Jupyter notebook project from the Azure Notebooks Preview
-description: Quickly export a Jupyter notebook project.
+title: Export a Jupyter Notebook project from the Azure Notebooks Preview
+description: Quickly export a Jupyter Notebook project.
 ms.topic: quickstart
 ms.date: 06/29/2020
 ---
 
-# Quickstart: Export a Jupyter notebook project in Azure Notebooks Preview
+# Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you will download an Azure Notebooks project for use in other Jupyter notebook solutions. 
+In this quickstart, you will download an Azure Notebooks project for use in other Jupyter Notebook solutions. 
 
 ## Prerequisites
+
 An existing Azure Notebooks project.
 
 ## Export an Azure Notebooks project
@@ -44,7 +45,7 @@ If you'd like to create an environment that matches that of the Azure Notebooks 
 
 ## Use Notebooks in Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a free code editor that you can use locally or connected to remote compute. Combined with the Python extension, it offers a full environment for Python development including a rich native experience for working with Jupyter notebooks. 
+[VS Code](https://code.visualstudio.com/) is a free code editor that you can use locally or connected to remote compute. Combined with the Python extension, it offers a full environment for Python development including a rich native experience for working with Jupyter Notebooks. 
 
 ![VS Code Jupyter Notebook support](media/vs-code-jupyter-notebook.png)
 
