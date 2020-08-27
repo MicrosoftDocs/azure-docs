@@ -11,7 +11,7 @@ ms.author: chuye
 
 # Azure Storage Explorer blob versioning guide
 
-Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended to read more about [blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended you read more about [blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
 
 ## Terminology
 
