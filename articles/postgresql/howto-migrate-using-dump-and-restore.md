@@ -47,6 +47,8 @@ Including the --no-owner parameter causes all objects created during the restore
 
 In this example, restore the data from the dump file **testdb.dump** into the database **mypgsqldb** on target server **mydemoserver.postgres.database.azure.com**.
 
+----
+
 # [Single Server](#tab/single-server-1)
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
@@ -55,6 +57,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin --dbname=mypgsqldb testdb.dump
 ```
+---
 
 ## Optimizing the migration process
 
@@ -78,6 +81,7 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 
 - Restore with the switches -Fc and -j *#* to parallelize the restore. *#* is the number of cores on the target server. You can also try with *#* set to twice the number of cores of the target server to see the impact. For example:
 
+---
 # [Single Server](#tab/single-server)
 ```bash
  pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -Fc -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
@@ -86,6 +90,7 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 ```bash
  pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -Fc -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
  ```
+---
 
 - You can also edit the dump file by adding the command *set synchronous_commit = off;* at the beginning and the command *set synchronous_commit = on;* at the end. Not turning it on at the end, before the apps change the data, may result in subsequent loss of data.
 
