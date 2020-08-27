@@ -8,6 +8,7 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
+ms.custom: devx-track-csharp
 
 ---
 # Azure Table storage table design guide: Scalable and performant tables

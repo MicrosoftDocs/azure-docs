@@ -8,6 +8,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
+ms.custom: devx-track-csharp
 ---
 
 # Apache Phoenix Query Server REST SDK

@@ -8,6 +8,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
+ms.custom: devx-track-csharp
 ---
 
 # Create a non-interactive authentication .NET HDInsight application

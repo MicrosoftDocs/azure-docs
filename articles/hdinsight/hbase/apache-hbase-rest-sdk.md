@@ -8,6 +8,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
+ms.custom: devx-track-csharp
 ---
 
 # Use the .NET SDK for Apache HBase

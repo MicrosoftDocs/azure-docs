@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
+ms.custom: devx-track-csharp
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query

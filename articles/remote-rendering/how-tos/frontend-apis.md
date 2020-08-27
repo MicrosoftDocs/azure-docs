@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ---
 
 # Use the Azure Frontend APIs for authentication

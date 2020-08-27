@@ -4,6 +4,7 @@ description: Introduction to creating a Microsoft Azure Service Fabric applicati
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
+ms.custom: devx-track-csharp
 ---
 # Get started with Reliable Services
 

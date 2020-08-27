@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
+ms.custom: devx-track-csharp
 
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
