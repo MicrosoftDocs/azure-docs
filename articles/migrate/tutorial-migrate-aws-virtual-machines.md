@@ -15,6 +15,7 @@ This tutorial shows you how to discover, assess, and migrate Amazon Web Services
 
 In this tutorial, you will learn how to:
 > [!div class="checklist"]
+>
 > * Verify prerequisites for migration.
 > * Prepare Azure resources with Azure Migrate: Server Migration. Set up permissions for your Azure account and resources to work with Azure Migrate.
 > * Prepare AWS EC2 instances for migration.
@@ -52,7 +53,7 @@ Although we recommend that you try out an assessment, performing an assessment i
 
 ## Prerequisites 
 
-- Ensure that the AWS VMs you want to migrate are running a supported OS version. AWS VMs are treated like physical machines for the purpose of the migration. Review the [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. We recommend you perform a test migration (test failover) to validate if the VM works as expected before proceeding with the actual migration.
+- Ensure that the AWS VMs you want to migrate are running a supported OS version. AWS VMs are treated like physical machines for the purpose of the migration. Review the [supported operating systems and kernel versions](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. You can use standard commands like *hostnamectl* or *uname -a* to check the OS and kernel versions for your Linux VMs.  We recommend you perform a test migration (test failover) to validate if the VM works as expected before proceeding with the actual migration.
 - Make sure your AWS VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
 - Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements.](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)
 - There are some changes needed on the VMs before you migrate them to Azure.
@@ -377,11 +378,23 @@ Mobility Agent is installed on the source VM to be migrated and is registered th
 **Question:** I am getting the error “Failed to fetch BIOS GUID” while trying to discover my AWS VMs   
 **Answer:** Always use root login for authentication and not any pseudo user. Also review supported operating systems for AWS VMs.  
 
-**Question:** My replication status is not progressing    
+**Question:** My replication status is not progressing   
 **Answer:** Check if your replication appliance meets the requirements. Make sure you’ve enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that there are no stale duplicate versions of the replication appliance connected to the same project.   
 
 **Question:** I am unable to Discover AWS Instances using Azure Migrate due to HTTP status code of 504 from the remote Windows management service    
-**Answer:** Make sure to review the Azure migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.   
+**Answer:** Make sure to review the Azure migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
+
+**Question:** Do i have to make any changes before I migrate my AWS VMs to Azure   
+**Answer:** You may have to make these changes before migrating your EC2 VMs to azure:
+
+- If you are using cloud-init for your VM provisioning, you may want to disable cloud-init on the VM before replicating it to Azure. The provisioning steps performed by cloud-init on the VM maybe AWS specific and won't be valid after the migration to Azure. ​
+- If the VM is a PV VM (para-virtualized) and not a HVM VM, you may not be able to run it as-is on Azure because para-virtualized VMs use a custom boot sequence in AWS. You may be able to get over this challenge by uninstalling PV drivers before you perform a migration to Azure.  
+- We always recommend you run a test migration before the final migration.  
+
+
+**Question:** Can I migrate AWS VMs running Amazon Linux Operating system  
+**Answer:** VMs running Amazon Linux cannot be migrated as-is as Amazon Linux OS is only supported on AWS.
+To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure and migrate the workload running on the AWS Linux machine using a relevant workload migration approach. For example, depending on the workload, there may be workload-specific tools to aid the migration – such as for databases or deployment tools in case of web servers.
 
 ## Next steps
 
