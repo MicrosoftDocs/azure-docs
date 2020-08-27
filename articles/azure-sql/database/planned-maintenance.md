@@ -20,6 +20,8 @@ Learn how to prepare for planned maintenance events on your database in Azure SQ
 
 ## What is a planned maintenance event?
 
+To keep Azure SQL Database and Azure SQL Managed Instance services secure, compliant, stable, and performant, updates are being performed through the service components almost continuously. Thanks to the modern and robust service architecture and innovative technologies like [hot patching](https://aka.ms/azuresqlhotpatching), majority of updates are fully transparent and non-impactful in terms of service availability. Still, few types of updates cause short service interrupts and require special treatment. 
+
 For each database, Azure SQL Database and Azure SQL Managed Instance maintain a quorum of database replicas where one replica is the primary. At all times, a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and at least one secondary replica online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
 
 ## What to expect during a planned maintenance event
