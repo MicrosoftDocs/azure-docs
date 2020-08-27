@@ -5,7 +5,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
-ms.custom: mvc, seodec18
+ms.custom: "devx-track-dotnet, mvc, seodec18"
 ---
 
 # App Service overview

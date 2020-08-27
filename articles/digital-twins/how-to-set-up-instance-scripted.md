@@ -111,6 +111,8 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 
 > [!NOTE]
 > Recall that the script currently assigns this required role to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+>
+> You can also use the portal or CLI to redo your own role assignment if there were any issues with scripted setup.
 
 ### Verify app registration
 

@@ -1,8 +1,7 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshservice | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Freshservice.
 services: active-directory
-documentationCenter: na
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,12 +10,9 @@ ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshservice
@@ -134,7 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Freshservice SSO
 
-1. Open a new web browser window and sign into your Freshservice company site as an administrator.
+1. To automate the configuration within Freshservice, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Freshservice** will direct you to the Freshservice application. From there, provide the admin credentials to sign into Freshservice. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Freshservice manually, log in to your Freshservice company site as an administrator.
 
 1. In the menu on the left, click **Admin** and select **Helpdesk Security** in the **General Settings**.
 

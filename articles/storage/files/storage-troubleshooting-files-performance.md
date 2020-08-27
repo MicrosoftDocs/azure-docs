@@ -4,7 +4,7 @@ description: Troubleshoot known performance issues with Azure file shares. Disco
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -16,9 +16,9 @@ This article lists some common problems related to Azure file shares. It provide
 
 ## High latency, low throughput, and general performance issues
 
-### Cause 1: Share experiencing throttling
+### Cause 1: Share was throttled
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) section of the planning guide.
+Requests are throttled when the IOPS, ingress or egress limits for a file share are reached. To understand the limits for standard and premium file shares, see [File share and file scale targets](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
@@ -43,7 +43,8 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 ### Solution
 
-- Increase share provisioned capacity by specifying a higher quota on your share.
+- If you are using a standard file share, enable [large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
+- If you are using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) section in the Azure Files planning guide.
 
 ### Cause 2: Metadata/namespace heavy workload
 

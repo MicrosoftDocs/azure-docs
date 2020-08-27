@@ -172,6 +172,10 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
+      - name: Create subscriptions programmatically
+        href: manage/programmatically-create-subscription.md
+      - name: Grant access to create EA subscriptions
+        href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
       - name: Change credit card
@@ -248,6 +252,8 @@
       href: manage/cost-management-budget-scenario.md
     - name: Use cost alerts
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - name: Allocate costs
+      href: costs/allocate-costs.md
     - name: Connect with Power BI Desktop
       href: /power-bi/desktop-connect-azure-cost-management
     - name: Analyze Azure costs with the Power BI template app
@@ -281,7 +287,7 @@
       - name: Data Explorer
         href: /azure/data-explorer/pricing-reserved-capacity
       - name: Disk Storage
-        href: ../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        href: ../virtual-machines/disks-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - name: Dedicated Host
         href: ../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/toc.json
       - name: Software plans

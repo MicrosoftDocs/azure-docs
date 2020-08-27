@@ -112,4 +112,5 @@ Azure SQL Database and Azure SQL Managed Instance feature a built-in high availa
 - Learn about [Azure Availability Zones](../../availability-zones/az-overview.md)
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Learn about [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)
+- Learn [How to initiate a manual failover on SQL Managed Instance](../managed-instance/user-initiated-failover.md)
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)

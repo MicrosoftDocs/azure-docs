@@ -43,7 +43,7 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
 ### Retrieve the gallery application template identifier
-Applications in the Azure AD application gallery each have an [application template](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management.
+Applications in the Azure AD application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management.
 
 #### *Request*
 
@@ -95,7 +95,7 @@ Content-type: application/json
 
 ### Create the gallery application
 
-Use the template ID retrieved for your application in the last step to [create an instance](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) of the application and service principal in your tenant.
+Use the template ID retrieved for your application in the last step to [create an instance](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta) of the application and service principal in your tenant.
 
 #### *Request*
 
@@ -164,7 +164,7 @@ Content-type: application/json
 
 ### Retrieve the template for the provisioning connector
 
-Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the ServicePrincipal. 
+Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the ServicePrincipal. 
 
 #### *Request*
 
@@ -202,7 +202,7 @@ HTTP/1.1 200 OK
 ```
 
 ### Create the provisioning job
-To enable provisioning, you'll first need to [create a job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use the request below to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
+To enable provisioning, you'll first need to [create a job](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta). Use the request below to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
 
 #### *Request*
 <!-- {
@@ -256,7 +256,7 @@ Content-type: application/json
 
 ### Test the connection to the application
 
-Test the connection with the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Applications often use BaseAddress in place of ClientSecret. To determine what credentials your app requires, navigate to the provisioning configuration page for your application and in developer mode click test connection. The network traffic will show the parameters used for credentials. The full list of credentials can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
+Test the connection with the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Applications often use BaseAddress in place of ClientSecret. To determine what credentials your app requires, navigate to the provisioning configuration page for your application and in developer mode click test connection. The network traffic will show the parameters used for credentials. The full list of credentials can be found [here](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta). 
 
 #### *Request*
 ```msgraph-interactive
@@ -280,7 +280,7 @@ HTTP/1.1 204 No Content
 
 ### Save your credentials
 
-Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
+Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta) to see the available options. 
 
 #### *Request*
 ```msgraph-interactive
@@ -305,7 +305,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## Step 4: Start the provisioning job
-Now that the provisioning job is configured, use the following command to [start the job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
+Now that the provisioning job is configured, use the following command to [start the job](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
 
 
 #### *Request*
@@ -387,7 +387,7 @@ Content-length: 2577
 
 
 ### Monitor provisioning events using the provisioning logs
-In addition to monitoring the status of the provisioning job, you can use the [provisioning logs](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
+In addition to monitoring the status of the provisioning job, you can use the [provisioning logs](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta) to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
 
 #### *Request*
 ```msgraph-interactive
@@ -521,5 +521,5 @@ Content-type: application/json
 ```
 ## Related articles
 
-- [Review the synchronization Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)

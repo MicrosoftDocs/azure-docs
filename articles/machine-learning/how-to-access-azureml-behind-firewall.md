@@ -19,9 +19,9 @@ In this article, learn how to configure Azure Firewall to  control access to you
 
 While the information in this document is based on using [Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md), you should be able to use it with other firewall products. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
-## Network rules
+## Application rules
 
-On your firewall, create a network rule allowing traffic to and from the addresses in this article.
+On your firewall, create an _application rule_ allowing traffic to and from the addresses in this article.
 
 > [!TIP]
 > When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
@@ -52,6 +52,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 | **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
 | **\*.notebooks.azure.net** | Needed by the notebooks in Azure Machine Learning studio. |
+| **graph.windows.net** | Needed for notebooks |
 
 ## Python hosts
 
@@ -73,6 +74,15 @@ The hosts in this section are used to install R packages. They are required duri
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
+
+## Azure Government region
+
+Required URLs for the Azure Government regions.
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | The US-Arizona region |
+| **usgovvirginia.api.ml.azure.us** | The US-Virginia region |
 
 ## Next steps
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 08/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -53,6 +53,7 @@ The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | IssuerUri | No | The issuer name that appears in the SAML response. The value should be the same name as configured in the relying party application. |
+| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Assertion. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Response, see [Relying party SAML metadata](relyingparty.md#metadata)|
 
 ## Cryptographic keys
 
@@ -72,15 +73,4 @@ To configure the Azure AD B2C SAML sessions between a relying party application,
 See the following article for example of using a SAML issuer technical profile:
 
 - [Register a SAML application in Azure AD B2C](connect-with-saml-service-providers.md)
-
-
-
-
-
-
-
-
-
-
-
 

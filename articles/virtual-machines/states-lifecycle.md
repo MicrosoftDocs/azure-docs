@@ -419,6 +419,8 @@ Azure Resources explorer provides a simple UI for viewing the VM running state: 
 
 Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM.
 
+To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
+
 ## Next steps
 
 To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).

@@ -64,19 +64,19 @@ void CastRay(ApiHandle<AzureSession> session)
     ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
 
     castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
-    {
-        std::vector<RayCastHit> hits = *async->Result();
-
-        if (hits.size() > 0)
         {
-            auto hitObject = hits[0].HitObject;
-            auto hitPosition = hits[0].HitPosition;
-            auto hitNormal = hits[0].HitNormal;
+            std::vector<RayCastHit> hits;
+            async->GetResult(hits);
 
-            // do something with the hit information
-        }
-    });
+            if (hits.size() > 0)
+            {
+                auto hitObject = hits[0].HitObject;
+                auto hitPosition = hits[0].HitPosition;
+                auto hitNormal = hits[0].HitNormal;
 
+                // do something with the hit information
+            }
+        });
 }
 ```
 
