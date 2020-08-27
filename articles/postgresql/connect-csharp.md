@@ -8,11 +8,6 @@ ms.custom: "mvc, devcenter, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-<<<<<<< HEAD
-
-=======
-ms.custom: devx-track-csharp
->>>>>>> 4224a25dadee2884c78a72dd85fe00c285080f5b
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Single Server

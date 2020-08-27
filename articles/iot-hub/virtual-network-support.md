@@ -7,7 +7,6 @@
  ms.topic: conceptual
  ms.date: 06/16/2020
  ms.author: jlian
-ms.custom: devx-track-csharp
 ---
 
 # IoT Hub support for virtual networks with Private Link and Managed Identity
