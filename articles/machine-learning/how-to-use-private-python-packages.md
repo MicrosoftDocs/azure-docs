@@ -32,7 +32,7 @@ The private packages are used through [Environment](https://docs.microsoft.com/p
  * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
  * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
-### Use small number of packages for development and testing
+## Use small number of packages for development and testing
 
 For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
 
@@ -48,7 +48,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Internally, Azure Machine Learning service replaces the URL by secure SAS URL, so your wheel file is kept private and secure.
 
-### Consume a repository of packages from Azure DevOps feed
+## Use a repository of packages from Azure DevOps feed
 
 If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them as a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feeds using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
 
@@ -86,18 +86,23 @@ with token based authentication, such as private GitHub repositories.
 
 The environment is now ready to be used in training runs or web service endpoint deployments. When building the environment, Azure Machine Learning service uses the PAT to authenticate against the feed with the matching base URL.
 
-### Consume a repository of packages from private storage
+## Use a repository of packages from private storage
 
 You can consume packages from an Azure storage account within your organization's firewall. Such a storage account can hold a curated set of packages for enterprise use or an internal mirror of publicly available packages.
 
 To set up such private storage:
 
- 1. [Place the Workspace inside a virtual network (VNET)](how-to-enable-virtual-network.md).
+ 1. [Place the Workspace inside a virtual network (VNet)](how-to-enable-virtual-network.md).
  2. Create a storage account and [disallow public access](https://docs.microsoft.com/azure/storage/common/storage-network-security).
  2. Place the Python packages you want to use into a container within the storage account 
- 3. [Allow the storage account access from Workspace VNET](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network) 
+ 3. [Allow the storage account access from Workspace VNet](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
+ 
+> [!IMPORTANT]
+> To use these packages for training or deployment with Azure Machine Learning, you must also put the Azure Container Registry (ACR) used by the workspace in the VNet. This allows the container registry to access the packages stored in the storage account.
+> 
+> For the configuration steps to use ACR behind a VNet, see [Network isolation during training & inference](how-to-enable-virtual-network.md#azure-container-registry).
 
-Then, you can reference the packages in the Azure Machine Learning environment definition by their full URL in Azure blob storage.
+After completing these configurations, you can reference the packages in the Azure Machine Learning environment definition by their full URL in Azure blob storage.
 
 ## Next steps
 
