@@ -12,7 +12,7 @@ ms.author: keli19
 ms.date: 06/12/2020
 ---
 # Train Wide & Deep Recommender
-This article describes how to use the **Train Wide & Deep Recommender** module in Azure Machine Learning Designer (preview), to train a recommendation model. This module is based on Wide & Deep learning, which is proposed by Google.
+This article describes how to use the **Train Wide & Deep Recommender** module in Azure Machine Learning designer, to train a recommendation model. This module is based on Wide & Deep learning, which is proposed by Google.
 
 The **Train Wide & Deep Recommender** module reads a dataset of user-item-rating triples and, optionally, some user and item features. It returns a trained Wide & Deep recommender.  You can then use the trained model to generate rating predictions or recommendations by using the [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md) module.  
 
@@ -79,7 +79,7 @@ For an example, a typical set of item features might look like this:
 
 ### Train the model
 
-1.  Add the **Train Wide and Deep Recommender** module to your experiment in the designer (preview), and connect it to the training dataset.  
+1.  Add the **Train Wide and Deep Recommender** module to your experiment in the designer, and connect it to the training dataset.  
   
 2. If you have a separate dataset of either user features and/or item features, connect them to the **Train Wide and Deep Recommender** module.  
   

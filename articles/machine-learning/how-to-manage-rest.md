@@ -418,5 +418,5 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Next steps
 
 - Explore the complete [AzureML REST API reference](https://docs.microsoft.com/rest/api/azureml/).
-- Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Learn how to use the designer to [Predict automobile price with the designer](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Explore [Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

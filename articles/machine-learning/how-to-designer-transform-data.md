@@ -1,7 +1,7 @@
 ---
-title: Transform data in the designer (preview)
+title: Transform data in the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to transform data in Azure Machine Learning designer (preview) to create your own datasets.
+description: Learn how to transform data in Azure Machine Learning designer to create your own datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Transform data in Azure Machine Learning designer (preview)
+# Transform data in Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this article, you learn how to transform and save datasets in Azure Machine Learning designer so that you can prepare your own data for machine learning.

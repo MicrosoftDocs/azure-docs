@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Apply Math Operation
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Use the Apply Math Operation to create calculations that are applied to numeric columns in the input dataset. 
 

@@ -13,7 +13,7 @@ ms.date: 07/13/2020
 ---
 # Fast Forest Quantile Regression
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a fast forest quantile regression model in a pipeline. Fast forest quantile regression is useful if you want to understand more about the distribution of the predicted value, rather than get a single mean prediction value. This method has many applications, including:  
   

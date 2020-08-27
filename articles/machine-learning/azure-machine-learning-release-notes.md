@@ -1036,7 +1036,7 @@ Access the following web-based authoring tools from the studio:
 
 ### Web experience
 
-The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio (preview).
+The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio.
 
 From the studio, you can train, test, deploy, and manage Azure Machine Learning assets such as datasets, pipelines, models, endpoints, and more.
 
@@ -1046,7 +1046,7 @@ Access the following web-based authoring tools from the studio:
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
 | [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
-| [Designer](concept-designer.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the designer | Enterprise |
+| [Designer](concept-designer.md) | Drag-and-drop machine learning modeling tool formerly known as the designer | Enterprise |
 
 
 ### Azure Machine Learning designer enhancements

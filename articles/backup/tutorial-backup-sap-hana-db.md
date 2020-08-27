@@ -100,7 +100,7 @@ Running the pre-registration script performs the following functions:
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
-  * DATABASE ADMIN (in case of MDC) and BACKUP ADMIN (in case of SDC): to create new databases during restore.
+  * DATABASE ADMIN (in the case of MDC) and BACKUP ADMIN (in the case of SDC): to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
@@ -224,7 +224,7 @@ Specify the policy settings as follows:
 
 7. Click **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
-   * **Log Backup** is by default set to **Enable**. This cannot be disabled as SAP HANA manages all log backups.
+   * **Log Backup** is by default set to **Enable**. This can't be disabled as SAP HANA manages all log backups.
    * We have set **2 hours** as the Backup schedule and **15 days** of retention period.
 
     ![Log backup policy](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)

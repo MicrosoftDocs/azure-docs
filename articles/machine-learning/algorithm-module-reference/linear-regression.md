@@ -12,7 +12,7 @@ ms.author: keli19
 ms.date: 04/22/2020
 ---
 # Linear Regression module
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a linear regression model for use in a pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
