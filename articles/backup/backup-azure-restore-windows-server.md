@@ -84,7 +84,7 @@ These steps include the following terminology:
 * *Sample vault* – The Recovery Services vault to which the source machine and target machine are registered.
 
 > [!NOTE]
-> Backups can't be restored to a target machine that is running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 7 (or later) computer. A backup taken from a Windows 8 computer can't be restored to a Windows 7 computer.
+> Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 7 (or later) computer. A backup taken from a Windows 10 computer can't be restored to a Windows 7 computer.
 >
 >
 

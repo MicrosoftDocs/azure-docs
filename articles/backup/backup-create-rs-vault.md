@@ -32,7 +32,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
 
 >[!NOTE]
->The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
+>The Storage Replication settings for the vault aren't relevant for Azure file share backup as the current solution is snapshot based and there's no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
 
 ## Set Cross Region Restore
 
