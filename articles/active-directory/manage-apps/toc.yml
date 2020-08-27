@@ -246,7 +246,7 @@
           href: application-types.md
         - name: Unexpected user assigned
           href: ways-users-get-assigned-to-applications.md
-      - name: Troubleshoot the access panel
+      - name: Troubleshoot My Apps
         items:
         - name: Manage browser extension
           href: manage-access-panel-browser-extension.md
