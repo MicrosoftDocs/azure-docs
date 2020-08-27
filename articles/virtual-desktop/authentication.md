@@ -14,7 +14,7 @@ manager: lizross
 
 In this article, we'll give you a brief overview of what kinds of authentication you can use in Windows Virtual Desktop.
 
-## NT LAN Manager (NTLM) and Kerberos
+## Session host authentication
 
 Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for authentication. However, in order to use Kerberos, the client needs to get Kerberos security tickets from a KDC service running on a domain controller. In order to get tickets, the client needs a direct connection to the domain controller. Controller.
 
