@@ -20,12 +20,12 @@ This article lists human languages supported by the Form Recognizer (Preview) se
 |Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 public preview*|
 |:-----|:----:|:-----:|:---:|:---:|
 |Chinese (Simplified) | `zh-Hans`| | ✔ |
-|Dutch | `nl` | |✔ |
-|English (printed & handwritten) | `en` |✔ |
-|French | `fr` | |✔ |
-|German | `de` | |✔ |
-|Italian | `it` | |✔ |
-|Portuguese | `pt` | |✔ |
-|Spanish | `es` | |✔ |
+|Dutch | `nl` | | ✔ |
+|English (printed & handwritten) | `en` | ✔ |
+|French | `fr` | | ✔ |
+|German | `de` | | ✔ |
+|Italian | `it` | | ✔ |
+|Portuguese | `pt` | | ✔ |
+|Spanish | `es` | | ✔ |
 
-* Form Recognizer v2.1 public preview supports these languages for Layout and Custom. Pre-built Reciept and Pre-built Buisness Card are only supported in English.
+* Form Recognizer v2.1 public preview supports these languages for Layout and Custom. Pre-built Receipt and Pre-built Business Card are only supported in English.
