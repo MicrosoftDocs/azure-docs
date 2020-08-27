@@ -15,7 +15,7 @@ ms.author: JenCook
 Start running your application in Azure confidential computing using [Fortanix Enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).  
+Fortanix is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure.
 
 > [!Note] 
  > THE PRODUCTS REFERENCED IN THIS DOCUMENT ARE NOT UNDER THE CONTROL OF MICROSOFT. MICROSOFT IS PROVIDING THIS INFORMATION TO YOU ONLY AS A CONVENIENCE, AND THE REFERENCE TO THESE NON-MICROSOFT PRODUCTS DO NOT IMPLY ENDORSEMENT BY MICROSOFT.
@@ -40,7 +40,6 @@ This tutorial shows you how to convert your application image to a confidential 
 1. Sign in to [Fortanix EM](https://fortanix.com)
 1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account. 
     
-[!div class="mx-imgBorder"]
 ![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications. 
@@ -157,7 +156,7 @@ where,
 
 When no longer needed, you can delete the resource group, virtual machine, and associated resources. Deleting the resource group will unenroll the nodes associated with your converted image. 
 
-Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.\
+Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 To delete the Fortanix Enclave Manager Account you created, go the [Accounts Page](https://em.fortanix.com/accounts) in the Enclave Manager. Hover over the account you wish to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
 
@@ -169,3 +168,4 @@ In this quickstart, you used Fortanix tooling to convert your application image 
 
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing Overview](overview.md)
 
+ Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).  

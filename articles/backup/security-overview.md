@@ -11,7 +11,7 @@ One of the most important steps you can take to protect your data is to have a r
 
 ## Management and control of identity and user access
 
-Storage accounts used by Recovery Services vaults are isolated and cannot be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure role-based access control (Azure RBAC)](./backup-rbac-rs-vault.md). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
+Storage accounts used by Recovery Services vaults are isolated and can't be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure role-based access control (Azure RBAC)](./backup-rbac-rs-vault.md). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
 Azure Backup provides three [built-in roles](../role-based-access-control/built-in-roles.md) to control backup management operations:
 
@@ -51,7 +51,7 @@ Encryption protects your data and helps you to meet your organizational security
 
 ## Protection of backup data from unintentional deletes
 
-Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
+Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to you. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
 
 ## Monitoring and alerts of suspicious activity
 

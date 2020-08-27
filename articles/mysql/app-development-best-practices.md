@@ -101,8 +101,7 @@ To calculate the percentage of your workload with queries spilling to disks, use
 
 ```(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100```
 
-Ideally, this percentage should be less than 25. If you see that the percentage is 25 or greater, we suggest modifying two server parameters, `tmp_table_size` and `max_heap_table_si`.
-
+Ideally, this percentage should be less 25%. If you see that the percentage is 25% or greater, we suggest modifying two server parameters, tmp_table_size and max_heap_table_size.
 
 ## Database schema and queries
 
