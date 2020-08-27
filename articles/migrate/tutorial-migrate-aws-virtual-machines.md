@@ -248,7 +248,7 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 4. In **Process Server**, select the name of the replication appliance. 
 5. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
  
-    ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Replicate Settings](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 7. Check each VM you want to migrate. Then click **Next: Target settings**.
 
@@ -384,11 +384,11 @@ Mobility Agent is installed on the source VM to be migrated and is registered th
 **Question:** I am unable to Discover AWS Instances using Azure Migrate due to HTTP status code of 504 from the remote Windows management service    
 **Answer:** Make sure to review the Azure migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
 
-**Question:** Do i have to make any changes before I migrate my AWS VMs to Azure   
-**Answer:** You may have to make these changes before migrating your EC2 VMs to azure:
+**Question:** Do I have to make any changes before I migrate my AWS VMs to Azure   
+**Answer:** You may have to make these changes before migrating your EC2 VMs to Azure:
 
 - If you are using cloud-init for your VM provisioning, you may want to disable cloud-init on the VM before replicating it to Azure. The provisioning steps performed by cloud-init on the VM maybe AWS specific and won't be valid after the migration to Azure. ​
-- If the VM is a PV VM (para-virtualized) and not a HVM VM, you may not be able to run it as-is on Azure because para-virtualized VMs use a custom boot sequence in AWS. You may be able to get over this challenge by uninstalling PV drivers before you perform a migration to Azure.  
+- If the VM is a PV VM (para-virtualized) and not HVM VM, you may not be able to run it as-is on Azure because para-virtualized VMs use a custom boot sequence in AWS. You may be able to get over this challenge by uninstalling PV drivers before you perform a migration to Azure.  
 - We always recommend you run a test migration before the final migration.  
 
 
