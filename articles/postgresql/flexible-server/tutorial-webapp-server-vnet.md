@@ -10,9 +10,9 @@ ms.date: 9/22/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL Flexible Server (Preview) with App Services Web App
+# Tutorial: Create an Azure Database for PostgreSQL Flexible Server (Preview) with App Services Web App in Virtual network
 
-Azure Database for PostgreSQL Flexible Server (Preview) is a managed service that enables you to run, manage, and scale highly available postgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command-line or in scripts. This tutorial shows you how create a Azure App Service Web app with postgreSQL database inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL Flexible server (Preview) inside a [Virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## Prerequisites
 
