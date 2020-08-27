@@ -24,5 +24,10 @@ Based on the information bubble next to the VM, there are different actions to t
    -	**NotAvailableForSubscription**: The region isn't yet available for your subscription. Select an available region.
    -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md). Free trial subscriptions don't have quota for confidential computing VMs. 
 
-**What code we need to write to perform the remote attestation and verification **
+**Is it possible for the relying party to share secrets with the validated Trusted Execution Environemnts (TEEs) **
+
+Public key generated within an enclave can be expressed in the “Enclave Held Data” (EHD) property of the attestation request object sent by the client to Azure Attestation. Azure Attestation validates if SHA256 hash of EHD matches the first 32 bytes in reportData field of the enclave quote. Azure Attestation includes “Enclave Held Data” in its attestation response. Relying party can use the enclave held data from the verified attestation response to encrypt the secrets beforing sharing with the enclave.
+
+
+
 
