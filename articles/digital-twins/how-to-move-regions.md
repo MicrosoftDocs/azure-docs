@@ -18,33 +18,39 @@ ms.service: digital-twins
 
 # Move an Azure Digital Twins instance to a different Azure region
 
-You can't move; you have to recreate. 
+If you need to move your Azure Digital Twins instance from one region to another, the current process is to **recreate your resources in the new region**, and then (optionally) delete the original resources. At the end of this process, you will be working with a new Azure Digital Twins instance that is identical to the first, except for the updated location.
 
-You will...
-* Prepare: Download old graph
-* Move: Create a new instance
-* Move: Repopulate new instance
-    - Upload old graph
+This article provides guidance on how to do a complete move, copying over everything you'll need to make the new instance match the original.
+
+This process includes the following steps:
+* Prepare: Download your original models, twins, and graph
+* Move: Create a new Azure Digital Twins instance, in a new region
+* Move: Repopulate the new Azure Digital Twins instance
+    - Upload original models, twins, and graph
     - Recreate routes & endpoints
     - Re-link connected Azure services
-* Clean up source resources (optional): delete old instance
+* Clean up source resources (optional): Delete original instance
 
 ## Prerequisites
 
-Understand your architecture and its pieces. including..
-* Models
-* Twins
-* Relationships
-* Endpoints
-* Routes
-* Other connections to Azure services. Some common ones include...
+Before attempting to recreate your Azure Digital Twins instance, it's a good idea to go over the components of your original instance and get a clear idea of all the pieces that will need to be recreated.
+
+Here are some questions you may want to consider:
+* What are the **models** uploaded to my instance? How many are there?
+* What are the **twins** in my instance? How many are there?
+* What is the general shape of the **graph** in my instance? How many relationships are there?
+* What **endpoints** do I have in my instance?
+* What **routes** do I have in my instance?
+* Where does my instance **connect to other Azure services**? Some common integration points include...
     - IoT Hub
-    - Event Grid, Event Hub, Service Bus
+    - Event Grid, Event Hub, or Service Bus
     - Azure functions
     - Logic Apps
-    - TSI
-    - Maps
-    - DPS
+    - Time Series Insights
+    - Azure Maps
+    - Device Provisioning Service (DPS)
+
+You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](quickstart-adt-explorer.md) sample.
 
 ## Prepare
 
