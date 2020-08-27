@@ -17,7 +17,6 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshoot self-service password reset in Azure Active Directory
 
-Are you having a problem with Azure Active Directory (Azure AD) self-service password reset (SSPR)? The following information can help you to get things working again.
 
 ## Troubleshoot self-service password reset errors that a user might see
 
