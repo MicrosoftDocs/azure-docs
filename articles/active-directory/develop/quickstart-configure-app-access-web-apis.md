@@ -85,7 +85,7 @@ Configure delegated permission to Microsoft Graph to enable your client applicat
 
 Whenever you configure permissions, users of your app are asked at sign-in for their consent to allow your app to access the resource API on their behalf.
 
-As an admin, you can also grant consent on behalf of *all* users so they're not prompted to do so. Admin consent is discussed later in the [Understanding API permissions and admin consent UI](#understanding-api-permissions-and-admin-consent-ui) section of this article.
+As an admin, you can also grant consent on behalf of *all* users so they're not prompted to do so. Admin consent is discussed later in the [More on API permissions and admin consent](#more-on-api-permissions-and-admin-consent) section of this article.
 
 ### Application permission to Microsoft Graph
 
