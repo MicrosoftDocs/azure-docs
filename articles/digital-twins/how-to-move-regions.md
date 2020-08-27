@@ -135,7 +135,7 @@ Next, you will set up the new instance so that it is a copy of the original.
 
 #### Upload original models and graph using ADT Explorer
 
-In this section, you can re-upload your models, twins, and graph to the new instance. If you don't have any models, twins, or graphs in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#recreate-routes-endpoints).
+In this section, you can re-upload your models, twins, and graph to the new instance. If you don't have any models, twins, or graphs in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#recreate-endpoints-and-routes).
 
 Otherwise, to proceed, return to the browser window running **ADT Explorer** and follow the steps below.
 
@@ -197,13 +197,13 @@ ADT Explorer will now upload the graph, including the twins and relationships, t
 
 To verify the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box to run the default query that displays all twins and relationships in the graph.
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="A button reading 'Run Query' near the top of the window is highlighted" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the same 'Run Query' button from earlier, near the top of the window" lightbox="media/how-to-move-regions/run-query.png":::
 
 You should see your graph displayed in the *GRAPH EXPLORER* box. This confirms that your graph has been re-uploaded to the new instance in the target region.
 
 #### Recreate endpoints and routes
 
-If you have **endpoints and/or routes** in your original instance, you'll need to recreate them in your new instance. If you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#relink-connected-azure-services).
+If you have **endpoints and/or routes** in your original instance, you'll need to recreate them in your new instance. If you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#re-link-connected-resources).
 
 Otherwise, proceed, follow the steps in [*How-to: Manage endpoints and routes*](how-to-manage-routes-portal.md) using the new instance, keeping these pointers in mind: 
 * You do **not need** to recreate the Event Grid, Event Hub, or Service Bus resource that you're using for the endpoint (*Prerequisite* sections in the endpoint instructions). You just need to re-create the endpoint on the Azure Digital Twins instance.
@@ -238,7 +238,7 @@ After completing this step, your new instance in the target region should be a c
 ## Verify
 
 To verify that your new instance was set up correctly, you can use the following tools:
-* The [**Azure portal**](http://portal.azure.com) (good for verifying that your new instance exists and is in the correct target region; also good for verifying endpoints and routes, and connections to other Azure services)
+* The [**Azure portal**](https://portal.azure.com) (good for verifying that your new instance exists and is in the correct target region; also good for verifying endpoints and routes, and connections to other Azure services)
 * The [Azure Digital Twins **CLI commands**](how-to-use-cli.md) (good for verifying that your new instance exists and is in the correct target region; also can be used to verify instance data)
 * [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (good for verifying instance data like models, twins, and graph)
 * The [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) (good for verifying instance data like models, twins, and graph; also good for verifying endpoints and routes)
@@ -249,9 +249,9 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can **delete the original instance** if you would like.
 
-You can do this in the [Azure portal](http://portal.azure.com), with the [CLI](how-to-use-cli.md), or with the [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
+You can do this in the [Azure portal](https://portal.azure.com), with the [CLI](how-to-use-cli.md), or with the [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
-To delete the instance using the Azure portal, [open the portal](http://portal.azure.com) in a browser window and navigate to your original Azure Digital Twins instance by searching for its name in the portal search bar.
+To delete the instance using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and navigate to your original Azure Digital Twins instance by searching for its name in the portal search bar.
 
 Hit the *Delete* button, and follow the prompts to finish the deletion.
 
