@@ -1,5 +1,5 @@
 ---
-title: Network security groups - how it works
+title: Network security group - how it works
 titlesuffix: Azure Virtual Network
 description: Learn how network security groups help you filter network traffic between Azure resources.
 services: virtual-network
@@ -15,7 +15,7 @@ ms.author: kumud
 ms.reviewer: kumud
 ---
 
-# Using network security group to filter traffic flow
+# How network security group filters network traffic
 <a name="network-security-groups"></a>
 
 You can use an Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains [security rules](https://docs.microsoft.com/azure/virtual-network/security-overview.md#security-rules) that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
