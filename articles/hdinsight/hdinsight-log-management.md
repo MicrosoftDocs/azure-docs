@@ -62,7 +62,7 @@ It's important to understand the workload types running on your HDInsight cluste
 
 * Consider how you can collect logs from the cluster, or from more than one cluster, and collate them for purposes such as auditing, monitoring, planning, and alerting. You might use a custom solution to access and download the log files on a regular basis, and combine and analyze them to provide a dashboard display. You can also add additional capabilities for alerting for security or failure detection. You can build these utilities using PowerShell, the HDInsight SDKs, or code that accesses the Azure classic deployment model.
 
-* Consider whether a monitoring solution or service would be a useful benefit. The Microsoft System Center provides an [HDInsight management pack](https://www.microsoft.com/download/details.aspx?id=42521). You can also use third-party tools such as Apache Chukwa and Ganglia to collect and centralize logs. Many companies offer services to monitor Hadoop-based big data solutions, for example: Centerity, Compuware APM, Sematext SPM, and Zettaset Orchestrator.
+* Consider whether a monitoring solution or service would be a useful benefit. The Microsoft System Center provides an [HDInsight management pack](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). You can also use third-party tools such as Apache Chukwa and Ganglia to collect and centralize logs. Many companies offer services to monitor Hadoop-based big data solutions, for example: Centerity, Compuware APM, Sematext SPM, and Zettaset Orchestrator.
 
 ## Step 2: Manage cluster service versions and view logs
 

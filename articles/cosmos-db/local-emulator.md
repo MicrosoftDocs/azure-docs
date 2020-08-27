@@ -6,6 +6,7 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 08/19/2020
+ms.custom: devx-track-csharp 
 ---
 
 # Use the Azure Cosmos Emulator for local development and testing

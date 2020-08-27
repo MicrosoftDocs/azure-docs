@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Protect your HLS content with Apple FairPlay or Microsoft PlayReady

@@ -218,10 +218,6 @@
           href: application-sign-in-other-problem-access-panel.md
         - name: Error on application sign-in page
           href: application-sign-in-problem-application-error.md
-        - name: Problem with password single sign-on - non-gallery app
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Problem with password single sign-on - gallery app
-          href: application-sign-in-problem-password-sso-gallery.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
         - name: Problem with federated single sign-on - non-gallery app
@@ -232,14 +228,12 @@
           href: application-sign-in-problem-custom-dev.md
       - name: Troubleshoot single sign-on
         items:
+        - name: Troubleshoot password-based single sign-on
+          href: troubleshoot-password-based-sso.md
         - name: Configuring federated common problems - gallery apps
           href: configure-federated-single-sign-on-gallery-applications-problems.md
         - name: Configure federated common problems - non-gallery apps
           href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configure password common problems - gallery apps
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configure password common problems - non-gallery apps
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
       - name: Troubleshoot app list and assignment
         items:
         - name: Manage the applications list for your tenant
@@ -248,8 +242,6 @@
           href: ways-users-get-assigned-to-applications.md
       - name: Troubleshoot My Apps
         items:
-        - name: Manage browser extension
-          href: manage-access-panel-browser-extension.md
         - name: App not appearing
           href: access-panel-troubleshoot-application-not-appearing.md
         - name: Unexpected app appearing

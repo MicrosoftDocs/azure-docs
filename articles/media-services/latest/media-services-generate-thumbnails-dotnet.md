@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: inhenkel
+ms.custom: devx-track-csharp
 
 ---
 # How to generate thumbnails using Encoder Standard with .NET
