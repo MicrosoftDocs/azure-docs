@@ -255,9 +255,11 @@ The following table describes the billing behavior for a blob or version when it
 
 | When blob tier is set explicitly on… | Then you are billed for this number of objects |
 |-|-|
-| A base blob with a previous version | Two objects: the base blob in the new tier and the version in the original tier.<br /><br /> Other versions in the original tier are charged based on unique blocks. |
-| A base blob with a previous version and a snapshot | Three objects: the base blob in the new tier, the version in the original tier, and the snapshot in the original tier.<br /><br /> Other versions in the original tier are charged based on unique blocks shared among versions. Other snapshots in the original tier are charged based on unique blocks shared among snapshots. |
-| A version | Two objects: the version in the new tier and the base blob in the original tier.<br /><br /> Other versions in the original tier are charged based on unique blocks shared among versions or the base blob. |
+| A base blob with a previous version | Two objects: the base blob in the new tier and the version in the original tier.<sup>1</sup> |
+| A base blob with a previous version and a snapshot | Three objects: the base blob in the new tier, the version in the original tier, and the snapshot in the original tier<sup>1</sup>. |
+| A previous version | Two objects: the version in the new tier and the base blob in the original tier.<sup>1</sup> |
+
+<sup>1</sup>If there are other previous versions or snapshots that have not been moved from their original tier, those versions or snapshots are charged based on the number of unique blocks they contain, as described in [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
 Explicitly setting the tier for a blob or version cannot be undone. If you move a blob to a new tier and then move it back to its original tier, you are charged for the full content length of the object even if it shares blocks with other objects in the original tier.
 
