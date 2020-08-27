@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Media Services v3 with PlayReady license template 
