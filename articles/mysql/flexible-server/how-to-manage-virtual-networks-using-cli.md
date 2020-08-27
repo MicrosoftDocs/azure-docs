@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Create and manage Virtual Networks for Azure Database for MySQL - Flexible Server using the Azure portal
+# Create and manage Virtual Networks for Azure Database for MySQL - Flexible Server using the Azure CLI
 
 Azure Database for MySQL Flexible Server supports two type of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -74,5 +74,5 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
 
 ## Next steps
 - Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
-- Similarly, you can [create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure Portal](howto-manage-virtual-networks-using-portal.md).
+- Similarly, you can [create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure Portal](./how-to-manage-virtual-networks-using-portal.md).
 - Understand more about [Azure Database for MySQL Flexible Server Virtual Network](./concepts-virtual-network.md).

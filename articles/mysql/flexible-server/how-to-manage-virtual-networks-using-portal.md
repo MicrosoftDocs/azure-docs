@@ -43,6 +43,6 @@ To create a flexible server in Virtual Network, you need:
 
 
 ## Next steps
-- Similarly, you can script to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](howto-manage-virtual-network-using-cli.md).
+- Similarly, you can script to [Create and manage Azure Database for MySQL Flexible Server Virtual Network using Azure CLI](how-to-manage-virtual-network-using-cli.md).
 - Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking-overview.md)
 - Understand more about [Azure Database for MySQL Flexible Server Virtual Network](./concepts-virtual-network.md).
