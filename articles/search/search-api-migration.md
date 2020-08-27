@@ -13,7 +13,7 @@ ms.date: 06/30/2020
 
 # Upgrade to the latest Azure Cognitive Search service REST API version
 
-If you're using a previous version of the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2020-06-30.
+If you're using a previous version of the [Search REST API](/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2020-06-30.
 
 Version 2020-06-30 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
 
@@ -28,7 +28,7 @@ When upgrading to new versions, you probably won't have to make any changes to y
 
 * Your code fails when unrecognized properties are returned in an API response. By default your application should ignore properties that it does not understand.
 
-* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
 
 * Your code references an API version that predates 2019-05-06 and is subject to one or more of the breaking changes in that release. The section [Upgrade to 2019-05-06](#upgrade-to-2019-05-06) provides more detail. 
 
@@ -142,4 +142,4 @@ You can update "flat" indexes to the new format with the following steps using A
 Review the Search REST API reference documentation. If you encounter problems, ask us for help on [Stack Overflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)
+> [Search service REST API Reference](/rest/api/searchservice/)

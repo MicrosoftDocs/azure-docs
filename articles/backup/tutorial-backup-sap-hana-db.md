@@ -100,7 +100,7 @@ Running the pre-registration script performs the following functions:
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
-  * DATABASE ADMIN (in case of MDC) and BACKUP ADMIN (in case of SDC): to create new databases during restore.
+  * DATABASE ADMIN (in the case of MDC) and BACKUP ADMIN (in the case of SDC): to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
@@ -120,7 +120,7 @@ The command output should display the {SID}{DBNAME} key, with the user shown as 
 >[!NOTE]
 > Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
 
-## Create a Recovery Service vault
+## Create a Recovery Services vault
 
 A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
 
@@ -144,7 +144,7 @@ To create a Recovery Services vault:
 
    ![Create Recovery Services vault](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-   * **Name**: The name is used to identify the recovery services vault and must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens. For this tutorial, we've used the name **SAPHanaVault**.
+   * **Name**: The name is used to identify the Recovery Services vault and must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens. For this tutorial, we've used the name **SAPHanaVault**.
    * **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription. Here, we have used the **SAP HANA solution lab subscription** subscription.
    * **Resource group**: Use an existing resource group or create a new one. Here, we have used **SAPHANADemo**.<br>
    To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
@@ -154,7 +154,7 @@ To create a Recovery Services vault:
 
    ![Select Review & Create](./media/tutorial-backup-sap-hana-db/review-create.png)
 
-The Recovery services vault is now created.
+The Recovery Services vault is now created.
 
 ## Discover the databases
 
@@ -224,7 +224,7 @@ Specify the policy settings as follows:
 
 7. Click **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
-   * **Log Backup** is by default set to **Enable**. This cannot be disabled as SAP HANA manages all log backups.
+   * **Log Backup** is by default set to **Enable**. This can't be disabled as SAP HANA manages all log backups.
    * We have set **2 hours** as the Backup schedule and **15 days** of retention period.
 
     ![Log backup policy](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)

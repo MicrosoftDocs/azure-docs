@@ -30,7 +30,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * [Use managed disks for VMs in an availability set]
 * [Use scheduled events to proactively respond to VM impacting events](../articles/virtual-machines/linux/scheduled-events.md)
 * [Configure each application tier into separate availability sets]
-* [Combine a Load Balancer with availability sets]
+* [Combine a load balancer with availability zones or sets]
 * [Use availability zones to protect from datacenter level failures]
 
 ## Use availability zones to protect from datacenter level failures
@@ -108,7 +108,7 @@ For a tutorial on how to load balance across availability zones, see [Load balan
 
 <!-- Link references -->
 [Configure multiple virtual machines in an availability set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Combine a Load Balancer with availability sets]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Combine a load balancer with availability zones or sets]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Use managed disks for VMs in an availability set]: #use-managed-disks-for-vms-in-an-availability-set
 [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures

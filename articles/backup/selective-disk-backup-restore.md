@@ -23,7 +23,7 @@ This solution is useful particularly in the following scenarios:
 Using PowerShell or Azure CLI, you can configure selective disk backup of the Azure VM.  Using a script, you can include or exclude data disks using their LUN numbers.  Currently, the ability to configure selective disks backup through the Azure portal is limited to the **Backup OS Disk only** option. So you can configure backup of your Azure VM with OS disk, and exclude all the data disks attached to it.
 
 >[!NOTE]
-> The OS disk is by default added to the VM backup and cannot be excluded.
+> The OS disk is by default added to the VM backup and can't be excluded.
 
 ## Using Azure CLI
 
@@ -33,7 +33,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery services vault and the VM exist:
+Sign in to the subscription ID where the Recovery Services vault and the VM exists:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -185,7 +185,7 @@ When you execute these commands, you'll see `"diskExclusionProperties": null`.
 
 ## Using PowerShell
 
-Ensure you're using Azure PS version 3.7.0 or higher.
+Ensure you're using Azure PowerShell version 3.7.0 or higher.
 
 ### Enable backup with PowerShell
 
@@ -256,7 +256,7 @@ Here you can view the backed-up disks during restore, when you select the recove
 Configuring the selective disks backup experience for a VM through the Azure portal is limited to  the **Backup OS Disk only** option. To use selective disks backup on already a backed-up VM or for advanced inclusion or exclusion of specific data disks of a VM, use PowerShell or Azure CLI.
 
 >[!NOTE]
->If data spans across disks, make sure all the dependent disks are included in the backup. If you don’t backup all the dependent disks in a volume, during restore the volume comprising of some non-backed up disks will not be created.
+>If data spans across disks, make sure all the dependent disks are included in the backup. If you don’t backup all the dependent disks in a volume, during restore the volume comprising of some non-backed up disks won't be created.
 
 ### Backup OS disk only in the Azure portal
 
@@ -272,7 +272,7 @@ Selective disk restore is an added functionality you get when you enable the sel
 - Selective disk restore is supported only for recovery points created after the disk exclusion capability is enabled.
 - Backups with the disk exclude setting **ON** only support the **Disk restore** option. **VM restore** or **Replace Existing** restore options aren't supported in this case.
 
-![The option to restore VM and replace existing are not available during the restore operation](./media/selective-disk-backup-restore/options-not-available.png)
+![The option to restore VM and replace existing aren't available during the restore operation](./media/selective-disk-backup-restore/options-not-available.png)
 
 ## Limitations
 

@@ -24,7 +24,7 @@ In this article, you will learn how to:
 * Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * [Verify internet access](install-mars-agent.md#verify-internet-access) on the machines that you want to back up.
-* If the MARS agent is not installed, learn how to install it [here](install-mars-agent.md).
+* If the MARS agent isn't installed, learn how to install it [here](install-mars-agent.md).
 
 ## Create a backup policy
 

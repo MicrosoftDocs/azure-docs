@@ -3,8 +3,8 @@
 title: Set up an Azure function for processing data
 titleSuffix: Azure Digital Twins
 description: See how to create an Azure function that can access and be triggered by digital twins.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
@@ -85,7 +85,7 @@ For more information about this, see [*Debug Event Grid trigger locally*](../azu
 
 The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). In order to use the SDK, you'll need to include the following packages in your project:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity` (version `1.1.1`)
+* `Azure.Identity`
 
 For configuration of the Azure SDK pipeline to set up properly for Azure Functions, you will also need:
 * `Azure.Net.Http`

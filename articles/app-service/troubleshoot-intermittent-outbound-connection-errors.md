@@ -7,7 +7,7 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
+ms.custom: security-recommendations,fasttrack-edit
 
 ---
 
@@ -118,7 +118,7 @@ For other environments, review provider or driver-specific documents for impleme
 * A [load test](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) should simulate real world data in a steady feeding speed. Testing apps and functions under real world stress can identify and resolve SNAT port exhaustion issues ahead of time.
 * Ensure that the back-end services can return responses quickly. For troubleshooting performance issues with Azure SQL Database, review [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Scale out the App Service plan to more instances. For more information on scaling, see [Scale an app in Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Each worker instance in an app service plan is allocated a number of SNAT ports. If you spread your usage across more instances, you might get the SNAT port usage per instance below the recommended limit of 100 outbound connections, per unique remote endpoint.
-* Consider moving to [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), where you are allotted a single outbound IP address, and the limits for connections and SNAT ports are much higher.
+* Consider moving to [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), where you are allotted a single outbound IP address, and the limits for connections and SNAT ports are much higher. In an ASE the number of SNAT ports per instance is based on the [Azure load balancer preallocation table](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) - so for example an ASE with 1-50 worker instances has 1024 preallocated ports per instance, while an ASE with 51-100 worker instances has 512 preallocated ports per instance.
 
 Avoiding the outbound TCP limits is easier to solve, as the limits are set by the size of your worker. You can see the limits in [Sandbox Cross VM Numerical Limits - TCP Connections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 

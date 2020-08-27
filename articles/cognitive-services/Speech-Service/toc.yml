@@ -3,10 +3,8 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: Speech service overview
     href: overview.md
-  - name: Try the Speech service for free
-    href: get-started.md
   - name: Language and voice support
     displayName: languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice
     href: language-support.md
@@ -522,17 +520,11 @@
         href: speech-container-faq.md
 - name: Speech SDK
   items:
-    - name: Overview
-      items:
-        - name: About the Speech SDK
-          href: speech-sdk.md
-        - name: Scenario availability
-          href: scenario-availability.md
-    - name: Quickstart
-      items:
-        - name: Setup Speech SDK
-          displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
-          href: quickstarts/setup-platform.md
+    - name: Speech SDK overview
+      href: speech-sdk.md
+    - name: Setup Speech SDK
+      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
+      href: quickstarts/setup-platform.md
     - name: How-to guides
       items:
         - name: Enable logging

@@ -8,7 +8,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
+ms.date: 08/21/2020
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps
@@ -87,7 +87,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. For *select*: Set `HotelName,Description,Address/City` as the **default value**, set **required** to *False*, and set **visibility** to *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Version parameter metadata" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Select parameter metadata" border="true":::
 
 1. For *api-version*: Set `2020-06-30` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
@@ -256,5 +256,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Power Apps enables the rapid application development of custom apps. Now that you know how to connect to a search index, learn more about creating a rich visualize experience in a custom Power App.
 
 > [!div class="nextstepaction"]
-> [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Power Apps Learning Catalog](/powerapps/learning-catalog/get-started)

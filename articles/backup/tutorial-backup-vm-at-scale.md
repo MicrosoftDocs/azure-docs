@@ -131,7 +131,7 @@ To run an on-demand backup job:
 
 1. On the Context menu, select **Backup now**.
 
-    ![Context menu](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Context menu - select Backup now](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     The Backup Now menu opens.
 
@@ -161,7 +161,7 @@ If you plan to continue on to work with subsequent tutorials, don't clean up the
 
 1. In the **Backup Items** menu, select the ellipsis to open the Context menu.
 
-    ![Context menu](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![In Backup Items menu, open Context menu](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. On the context menu, select **Stop backup** to open Stop Backup menu.
 
