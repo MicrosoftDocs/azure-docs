@@ -180,6 +180,8 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 
 * **Trouble creating AmlCompute**: There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
 
+* **Azure Container Registry doesn't currently support unicode characters in Resource Group names**: It is possible that ACR requests fail because its resource group name contains unicode characters. To mitigate this issue, we recommend creating an ACR in a differently-named resource group.
+
 ## Work with data
 
 ### Overloaded AzureFile storage
