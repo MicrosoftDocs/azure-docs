@@ -39,6 +39,7 @@ The manual QoS type feature is currently in preview. If you are using this featu
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
     ```
+You can also use Azure CLI commands [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) and [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) to register the feature and display the registration status. 
 
 ## Set up a new manual QoS capacity pool 
 
