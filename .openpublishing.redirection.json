@@ -37183,6 +37183,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/manage-apps/access-panel-extension-problem-installing.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-ie-troubleshooting.md",
       "redirect_url": "/azure/active-directory/manage-apps/manage-access-panel-browser-extension",
       "redirect_document_id": true

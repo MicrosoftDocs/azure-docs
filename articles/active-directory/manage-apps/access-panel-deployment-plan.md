@@ -85,6 +85,10 @@ The following table outlines the key use cases for a My Apps deployment:
 | User Experience| Users are aware of browser compatibility. |
 | Support| Users can find support for My Apps issues. |
 
+
+> [!TIP]
+> My Apps can be used with internal company URLs while remote using Application Proxy. To learn how to do this, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
+
 ### Best practices for deploying Azure AD My Apps
 
 The functionality of My Apps can be enabled gradually. We recommend the following order of deployment:
