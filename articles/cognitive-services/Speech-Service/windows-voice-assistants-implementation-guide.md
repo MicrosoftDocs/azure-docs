@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
+ms.custom: devx-track-csharp
 ---
 
 # Implementing Voice Assistants on Windows

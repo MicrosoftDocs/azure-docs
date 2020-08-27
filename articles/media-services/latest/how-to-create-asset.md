@@ -32,10 +32,6 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
-## [CLI Shell](#tab/clishell/)
-
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
-
 ## Example script
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]

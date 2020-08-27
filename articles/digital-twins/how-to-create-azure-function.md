@@ -3,8 +3,8 @@
 title: Set up an Azure function for processing data
 titleSuffix: Azure Digital Twins
 description: See how to create an Azure function that can access and be triggered by digital twins.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
@@ -67,7 +67,6 @@ For configuration of the Azure SDK pipeline to set up properly for Azure Functio
 * `System.Net.Http`
 * `Azure.Core.Pipeline`
 
-:::image type="content" source="media/how-to-create-azure-function/adding-packages.png" alt-text="Visual Studio: adding packages":::
 
 **Option 2. Add packages using `dotnet` command-line tool:**
 

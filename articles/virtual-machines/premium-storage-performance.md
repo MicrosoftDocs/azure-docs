@@ -26,16 +26,16 @@ This article will help answer following common questions about optimizing applic
 We have provided these guidelines specifically for Premium Storage because workloads running on Premium Storage are highly performance sensitive. We have provided examples where appropriate. You can also apply some of these guidelines to applications running on IaaS VMs with Standard Storage disks.
 
 > [!NOTE]
-> Sometimes, what appears to be a disk performance issue is actually a network bottleneck. In these situations, you should optimize your [network performance](~/articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Sometimes, what appears to be a disk performance issue is actually a network bottleneck. In these situations, you should optimize your [network performance](../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
 > If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 >
-> * For Linux: [Benchmark your application on Azure Disk Storage](./linux/disks-benchmarks.md)
-> * For Windows: [Benchmarking a disk](./windows/disks-benchmarks.md).
+> * For Linux: [Benchmark your application on Azure Disk Storage](linux/disks-benchmarks.md)
+> * For Windows: [Benchmarking a disk](windows/disks-benchmarks.md).
 >
-> If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](./linux/disks-types.md) and [Scalability targets for premium page blob storage accounts](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
+Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](disks-types.md) and [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 ## Application performance indicators
 
@@ -57,7 +57,7 @@ When you attach a premium storage disk to a high scale VM, Azure provisions thro
 
 There is a relation between throughput and IOPS as shown in the formula below.
 
-![Relation of IOPS and throughput](~/articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relation of IOPS and throughput](linux/media/premium-storage-performance/image1.png)
 
 Therefore, it is important to determine the optimal throughput and IOPS values that your application requires. As you try to optimize one, the other also gets affected. In a later section, *Optimizing Application Performance*, we will discuss in more details about optimizing IOPS and Throughput.
 
@@ -139,7 +139,7 @@ Throughout this section, refer to the application requirements checklist that yo
 
 The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput, and latency. The sections following this summary will describe each factor is much more depth.
 
-For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Linux VM sizes](~/articles/virtual-machines/linux/sizes.md) or [Windows VM sizes](~/articles/virtual-machines/windows/sizes.md).
+For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Sizes for virtual machines in Azure](sizes.md).
 
 | | **IOPS** | **Throughput** | **Latency** |
 | --- | --- | --- | --- |
@@ -201,7 +201,7 @@ High Scale VMs are available in different sizes with a different number of CPU c
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per second |4,000 IOPS and 33 MB per second |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB per second |5,000 IOPS and 50 MB per second |
 
-To view a complete list of all available Azure VM sizes, refer to [Windows VM sizes](~/articles/virtual-machines/windows/sizes.md) or [Linux VM sizes](~/articles/virtual-machines/linux/sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
+To view a complete list of all available Azure VM sizes, refer to [Sizes for virtual machines in Azure](sizes.md) or . Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
 
 *Scale Limits*  
 The maximum IOPS limits per VM and per disk are different and independent of each other. Make sure that the application is driving IOPS within the limits of the VM as well as the premium disks attached to it. Otherwise, application performance will experience throttling.
@@ -225,7 +225,7 @@ Table below summarizes the cost breakdown of this scenario for Standard and Prem
 
 *Linux Distros*  
 
-With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](~/articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
+With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
@@ -233,7 +233,7 @@ When running Linux with Premium Storage, check the latest updates about required
 
 Azure Premium Storage offers a variety of sizes so you can choose one that best suits your needs. Each disk size has a different scale limit for IOPS, bandwidth, and storage. Choose the right Premium Storage Disk size depending on the application requirements and the high scale VM size. The table below shows the disks sizes and their capabilities. P4, P6, P15, P60, P70, and P80 sizes are currently only supported for Managed Disks.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 How many disks you choose depends on the disk size chosen. You could use a single P50 disk or multiple P10 disks to meet your application requirement. Take into account considerations listed below when making the choice.
 
@@ -348,14 +348,14 @@ On Windows, you can use Storage Spaces to stripe disks together. You must config
 
 Important: Using Server Manager UI, you can set the total number of columns up to 8 for a striped volume. When attaching more than eight disks, use PowerShell to create the volume. Using PowerShell, you can set the number of columns equal to the number of disks. For example, if there are 16 disks in a single stripe set; specify 16 columns in the *NumberOfColumns* parameter of the *New-VirtualDisk* PowerShell cmdlet.
 
-On Linux, use the MDADM utility to stripe disks together. For detailed steps on striping disks on Linux refer to [Configure Software RAID on Linux](~/articles/virtual-machines/linux/configure-raid.md).
+On Linux, use the MDADM utility to stripe disks together. For detailed steps on striping disks on Linux refer to [Configure Software RAID on Linux](linux/configure-raid.md).
 
 *Stripe Size*  
 An important configuration in disk striping is the stripe size. The stripe size or block size is the smallest chunk of data that application can address on a striped volume. The stripe size you configure depends on the type of application and its request pattern. If you choose the wrong stripe size, it could lead to IO misalignment, which leads to degraded performance of your application.
 
 For example, if an IO request generated by your application is bigger than the disk stripe size, the storage system writes it across stripe unit boundaries on more than one disk. When it is time to access that data, it will have to seek across more than one stripe units to complete the request. The cumulative effect of such behavior can lead to substantial performance degradation. On the other hand, if the IO request size is smaller than stripe size, and if it is random in nature, the IO requests may add up on the same disk causing a bottleneck and ultimately degrading the IO performance.
 
-Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) to learn more.
+Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) to learn more.
 
 > [!NOTE]
 > You can stripe together a maximum of 32 premium storage disks on a DS series VM and 64 premium storage disks on a GS series VM.
@@ -409,15 +409,15 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 
-* For Linux: [Benchmark your application on Azure Disk Storage](./linux/disks-benchmarks.md)
-* For Windows: [Benchmarking a disk](./windows/disks-benchmarks.md).
+* For Linux: [Benchmark your application on Azure Disk Storage](linux/disks-benchmarks.md)
+* For Windows: [Benchmarking a disk](windows/disks-benchmarks.md).
 
 Learn more about the available disk types:
 
-* For Linux: [Select a disk type](./linux/disks-types.md)
-* For Windows: [Select a disk type](./windows//disks-types.md)
+* For Linux: [Select a disk type](disks-types.md)
+* For Windows: [Select a disk type](disks-types.md)
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
-* [Performance Best Practices for SQL Server in Azure Virtual Machines](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Performance Best Practices for SQL Server in Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [Azure Premium Storage provides highest performance for SQL Server in Azure VM](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)
