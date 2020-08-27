@@ -34,7 +34,7 @@ The IoT Edge runtime includes transparent gateway capabilities. For more informa
 
 A *protocol translation* gateway is also known as an *opaque* gateway, in contrast with the transparent gateway pattern. In this pattern, devices that do not support MQTT, AMQP, or HTTP can use a gateway device to send data to IoT Hub on their behalf. The gateway understands the protocol used by the downstream devices, and is the only device that has an identity in IoT Hub. All information looks like it is coming from one device, the gateway. Downstream devices must embed additional identifying information in their messages if cloud applications want to analyze the data on a per-device basis. Additionally, IoT Hub primitives like twins and methods are only available for the gateway device, not downstream devices.
 
-The IoT Edge runtime does not include protocol translation capabilities. This pattern requires custom or third-party modules that are often specific to the hardware and protocol used. The [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) contains several protocol translation modules to choose from.
+The IoT Edge runtime does not include protocol translation capabilities. This pattern requires custom or third-party modules that are often specific to the hardware and protocol used. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) contains several protocol translation modules to choose from.
 
 ### Identity translation pattern
 
