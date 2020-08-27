@@ -240,11 +240,11 @@ Navigate to **Peopletools > Security > User Profiles > User Profiles** to create
 
 1. Access the web profile and enter **OAMPSFT** as the public access **user ID**.
 
-    ![web profile configuration](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
+    ![User Profiles](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
 
 1. From the **PeopleTools Application Designer**, open the **FUNCLIB_LDAP** record.
 
-    ![Create a new Virtual Server](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
+    ![web profile configuration](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
 
 1. Update the user Header with **PS_SSO_UID** for **OAMSSO_AUTHENTICATION** function.
 In the **getWWWAuthConfig()** function, replace the value that is assigned to the **&defaultUserId** with the **OAMPSFT** that we defined in the Web profile. Save the record definition.
