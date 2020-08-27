@@ -28,14 +28,10 @@ This article will show you how to:
 - Use `PipelineData` objects as input to pipeline steps
 - Create new `Dataset` objects from `PipelineData` you wish to persist
 
-OR
-- Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
-- Use `OutputFileDatasetConfig` objects as input to pipeline steps
-- Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
-
 > [!NOTE]
->The `OutputFileDatasetConfig` and `OutputTabularDatasetConfig` classes are experimental preview features, and may change at any time.
+>The `OutputFileDatasetConfig` and `OutputTabularDatasetConfig` classes are experimental preview features, that provide an improved experience by allowing you to write intermediate data back to your datastores and persist this data outside your runs. See this notebook for an end to end example of this functionality. 
 >
+>As experimental preview features, these classes may change at any time.
 >For more information, see https://aka.ms/azuremlexperimental.
 
 ## Prerequisites
