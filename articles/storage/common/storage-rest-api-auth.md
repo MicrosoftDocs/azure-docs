@@ -11,6 +11,7 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Call REST API operations with Shared Key authorization

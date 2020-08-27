@@ -215,6 +215,8 @@
       href: log-query/log-query-overview.md
     - name: Simple logs experience
       href: log-query/simple-logs.md
+    - name: Audit log queries
+      href: log-query/query-audit.md
     - name: Tutorials
       items:
       - name: Log Analytics tutorial
@@ -327,6 +329,28 @@
     items:
     - name: Data collection rules
       href: platform/data-collection-rule-overview.md
+    - name: Agent data sources
+      items:
+      - name: Overview
+        href: platform/agent-data-sources.md
+      - name: Windows events
+        href: platform/data-sources-windows-events.md
+      - name: Custom JSON data
+        href: platform/data-sources-json.md
+      - name: CollectD performance data
+        href: platform/data-sources-collectd.md
+      - name: Syslog
+        href: platform/data-sources-syslog.md
+      - name: Performance counters
+        href: platform/data-sources-performance-counters.md
+      - name: Linux application performance
+        href: platform/data-sources-linux-applications.md
+      - name: IIS logs
+        href: platform/data-sources-iis-logs.md
+      - name: Custom logs
+        href: platform/data-sources-custom-logs.md
+      - name: Custom fields
+        href: platform/custom-fields.md
     - name: Custom metrics
       items:
       - name: Custom metrics
@@ -359,6 +383,24 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: platform/data-collection-rule-azure-monitor-agent.md
+    - name: Log Analytics agent
+      items:
+      - name: Overview
+        href: platform/log-analytics-agent.md
+      - name: Windows agents
+        href: platform/agent-windows.md
+      - name: Linux agents
+        href: platform/agent-linux.md
+      - name: VM Extension for Windows
+        href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+      - name: VM Extension for Linux
+        href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+      - name: Log Analytics gateway
+        href: platform/gateway.md
+      - name: Agent management
+        href: platform/agent-manage.md
+      - name: Agent Health
+        href: insights/solution-agenthealth.md
     - name: Azure Diagnostics extension
       items:
       - name: Overview
@@ -401,46 +443,6 @@
           href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
         - name: Collect metrics with Telegraf
           href: platform/collect-custom-metrics-linux-telegraf.md   
-    - name: Log Analytics agent
-      items:
-      - name: Overview
-        href: platform/log-analytics-agent.md
-      - name: Windows agents
-        href: platform/agent-windows.md
-      - name: Linux agents
-        href: platform/agent-linux.md
-      - name: VM Extension for Windows
-        href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-      - name: VM Extension for Linux
-        href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-      - name: Log Analytics gateway
-        href: platform/gateway.md
-      - name: Agent management
-        href: platform/agent-manage.md
-      - name: Agent Health
-        href: insights/solution-agenthealth.md
-      - name: Data sources
-        items:
-        - name: Overview
-          href: platform/agent-data-sources.md
-        - name: Windows events
-          href: platform/data-sources-windows-events.md
-        - name: Custom JSON data
-          href: platform/data-sources-json.md
-        - name: CollectD performance data
-          href: platform/data-sources-collectd.md
-        - name: Syslog
-          href: platform/data-sources-syslog.md
-        - name: Performance counters
-          href: platform/data-sources-performance-counters.md
-        - name: Linux application performance
-          href: platform/data-sources-linux-applications.md
-        - name: IIS logs
-          href: platform/data-sources-iis-logs.md
-        - name: Custom logs
-          href: platform/data-sources-custom-logs.md
-        - name: Custom fields
-          href: platform/custom-fields.md
     - name: Troubleshoot
       items:
       - name: Log Analytics VM Extension
