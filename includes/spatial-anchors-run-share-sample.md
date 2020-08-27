@@ -2,7 +2,7 @@
 author: ramonarguelles
 ms.service: spatial-anchors
 ms.topic: include
-ms.date: 1/30/2019
+ms.date: 8/27/2020
 ms.author: rgarcia
 ---
 
@@ -16,14 +16,14 @@ Open the file `SharedActivity.java` from the samples folder in Android Studio. E
 ## [iOS](#tab/iOS)
 
 The Objective-C iOS sample supports sharing across devices.
-Open the file `SharedDemoViewController.m` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Open the file `SharedDemoViewController.m` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedDemoViewController.m` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## [Xamarin](#tab/Xamarin)
 
 Both Xamarin Android and iOS samples support sharing across devices.
-Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl` in the `AccountDetails.cs` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
