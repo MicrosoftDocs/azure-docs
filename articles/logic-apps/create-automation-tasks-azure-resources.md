@@ -32,21 +32,31 @@ This article shows how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Currently, you can create automation tasks only at the resource level. [Azure Automation](../automation/automation-intro.md) is a more comprehensive service that 
+Currently, you can create automation tasks only at the resource level, view their run history, and edit the task templates.
+
+while [Azure Automation](../automation/automation-intro.md) is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The Azure resource that you want to manage
+* The Azure resource that you want to manage. This article uses a virtual machine as the example.
 
-## Create an automated task
+## Create an automation task
 
 1. In the [Azure portal](https://portal.azure.com), find the resource that you want to manage.
 
 1. On the resource's menu, under **Settings**, select **Automation tasks** > **Add** so that you can select a task template.
 
-1. On the **Add a Task** pane, under **Select a template**, select the task that you want to create.
+1. On the **Add a Task** pane, under **Select a template**, select the task template that you want to use.
+
+1. Under **Authentication**, asdfadfsadsfljasfd, select **Next**.
+
+1. Under **Configuration**, provide a name for the task and if necessary, the email address that you want to use for the notification. Select **Create**.
+
+1. Provide the information that's required by the task, and select **Create**.
+
+   The task is automatically live and starts running immediately.
 
 ## Review the task status and history
 
