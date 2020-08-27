@@ -26,7 +26,7 @@ Based on the information bubble next to the VM, there are different actions to t
 
 **What validations does Azure Attestation perform**
 
-**How to shift to Azure Attestation from other attestation models**
+**How to shift to Azure Attestation from the other attestation models**
 
 **How can a verifier obtain the attestation collateral supported by Azure Attestation**
 
