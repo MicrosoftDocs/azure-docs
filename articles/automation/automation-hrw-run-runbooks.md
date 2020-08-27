@@ -28,9 +28,11 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 
 ## Logging
 
-Logs are stored locally on each hybrid worker. On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes`. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs.
+Logs are stored locally on each hybrid worker to the following location:
 
-On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log` and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
+* On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` for verbose logs. High-level runbook job status events are written to the **Application and Services Logs\Microsoft-Automation\Operations** event log.
+
+* On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log`, and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
 
 ## Use runbook authentication to local resources
 
