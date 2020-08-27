@@ -1,5 +1,5 @@
 ---
-title: Plan a SaaS offer for Microsoft commercial marketplace  
+title: How to plan a SaaS offer for Microsoft commercial marketplace  
 description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/30/2020
 ---
 
-# Plan a SaaS offer for the commercial marketplace
+# How to plan a SaaS offer for the commercial marketplace
 
 This article explains the different options and requirements for publishing a software as a service (SaaS) offer to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via an online subscription instead of local installation on individual computers. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
@@ -34,8 +34,6 @@ For more information about these listing options, see [Commercial marketplace tr
 
 After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the **Contact me** and **Test drive** buttons.
 
-***Figure 1: Example of listing option buttons on an offer listing page***
-
 ![Illustrates an offer listing in the online store.](./media/listing-options.png)
 
 ## Technical requirements
@@ -52,20 +50,12 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing opti
   - [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
   - [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
 
-These additional technical requirements apply to the _Sell through Microsoft_ listing option only:
+These additional technical requirements apply to the _Sell through Microsoft_ (transactable) listing option only:
 
 - Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace and Microsoft AppSource. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
-
-### Additional requirements for selling through Microsoft
-
-To sell your SaaS offer through Microsoft, you must meet these additional requirements.
-
-| Requirement | Details |
-| ------------ | ------------- |
-| You must create at least one plan | You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. If you choose the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. We call this [metering](partner-center-portal/saas-metered-billing.md). More details about [plans](#plans) is provided later in this article. |
-| Cancellation | Your offer is cancelable by the customer at any time. |
-|||
+- You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. More details about [plans](#plans) are provided later in this article.
+- The customer can cancel your offer at any time.
 
 ### Technical information
 
@@ -86,9 +76,9 @@ If you’re creating a transactable offer, you'll need to gather the following i
   > [!NOTE]
   > Inside the Azure portal, we require that you create a single-tenant [Azure Active Directory (Azure AD) app](../active-directory/develop/howto-create-service-principal-portal.md) to enable one Azure App ID to be used to authenticate the connection between our two services. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the Directory ID number that’s listed. For example, `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Azure Active Directory application ID**: You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). To get its value, go to the [App registrations](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure Active Directory application ID**: You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). To get its value, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the Application (client) ID number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
   The Azure AD application ID is associated with your publisher ID in your Partner Center account. You must use the same application ID for all offers in that account.
 
@@ -110,7 +100,7 @@ You can add or modify a CRM connection at any time during or after offer creatio
 
 ## Selecting an online store
 
-When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the target audience. For detailed information about selecting an online store, see [Selecting a storefront](determine-your-listing-type.md#selecting-an-online-store).
+When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure Marketplace, or both. Each online store serves unique customer requirements. AppSource is for business solutions and Azure Marketplace is for IT solutions. Your offer type, transact capabilities, and categories will determine where your offer will be published. Categories and subcategories are mapped to each online store based on the target audience. For detailed information about selecting an online store, see [Selecting an online store](determine-your-listing-type.md#selecting-an-online-store).
 
 ## Legal contracts
 
@@ -123,11 +113,9 @@ If you choose to use the standard contract, you have the option to add universal
 
 ## Offer listing details
 
-When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace.
+When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.
 
-***Figure 2: Example offer listing in the commercial marketplace***
-
-:::image type="content" source="./partner-center-portal/media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="./media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 **Call-out descriptions**
 
@@ -143,9 +131,9 @@ When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, 
 10. Screenshots/videos
 11. Documents
 
-***Figure 3: Example offer listing in the Azure portal***
+The following example shows an offer listing in the Azure portal.
 
-![Illustrates an offer listing in the Azure portal.](./partner-center-portal/media/example-managed-services.png)
+![Illustrates an offer listing in the Azure portal.](./media/example-managed-services.png)
 
 **Call out descriptions**
 
@@ -256,5 +244,5 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Next steps
 
-- [Create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
+- [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

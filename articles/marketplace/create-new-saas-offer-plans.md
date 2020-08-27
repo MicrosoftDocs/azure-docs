@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/31/2020
 ---
 
 # Create plans for your SaaS offer

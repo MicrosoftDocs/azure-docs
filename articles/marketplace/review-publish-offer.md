@@ -136,7 +136,7 @@ When the offer is ready for you to review and be signed off, we’ll send you an
 
 The following screenshot shows the **Offer overview** page for a SaaS offer. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./partner-center-portal/media/publish-status-publisher-signoff.png)
+![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
 ### To preview your offer and sign off
 

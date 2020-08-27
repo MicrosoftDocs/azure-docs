@@ -1,5 +1,5 @@
 ---
-title: Configure your SaaS offer listing details in Partner Center
+title: How to configure your SaaS offer listing details in Partner Center
 description: How to configure your software as a service (SaaS) offer listing details in Microsoft commercial marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
@@ -7,10 +7,10 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/31/2020
+ms.date: 08/31/2020
 ---
 
-# Configure your SaaS offer listing details
+# Learn how to configure your SaaS offer listing details
 
 The information you provide on the **Offer listing** page for your software as a service (SaaS) offer will be displayed in the Microsoft commercial marketplace storefronts. This includes the descriptions of your offer, screenshots, and your marketing assets.
 
@@ -116,4 +116,4 @@ Select **Save draft** before continuing to the next tab: Preview audience.
 
 ## Next steps
 
-- If you’re selling your offer through Microsoft, go to [Add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). Otherwise, go to [Marketing options for your SaaS offer](create-new-saas-offer-marketing.md).
+- If you’re selling your offer through Microsoft, go to [How to add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). Otherwise, go to [How to market your SaaS offer](create-new-saas-offer-marketing.md).

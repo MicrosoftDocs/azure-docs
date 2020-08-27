@@ -1,5 +1,5 @@
 ---
-title: Add a preview audience for your SaaS offer 
+title: How to add a preview audience for your SaaS offer 
 description: How to add a preview audience for your software  as a service (SaaS) offer in Microsoft Partner Center. 
 author: mingshen-ms
 ms.author: mingshen
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/30/2020
 ---
 
-# Add a preview audience for your SaaS offer
+# How to add a preview audience for your SaaS offer
 
 As you create your software as a service (SaaS) offer in Partner Center, you need to define a preview audience who can review your offer listing before it goes live. This article explains how to configure a preview audience.
 
@@ -31,7 +31,7 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure
 1. On the **Preview Audience** page, add a single Azure AD or MSA email address and an optional description in the boxes provided.
 1. To add another email address, select the **Add another email** link.
 1. Select **Save draft** before continuing to the next tab: **Technical configuration**.
-1. Go to [Provide technical details for your SaaS offer](create-new-saas-offer-technical.md).
+1. Continue to [How to add technical details for your SaaS offer](create-new-saas-offer-technical.md).
 
 **Add email addresses using the CSV file**
 
@@ -48,4 +48,4 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure
 
 ## Next steps
 
-- [Provide technical details for your SaaS offer](create-new-saas-offer-technical.md)
+- [How to add technical details for your SaaS offer](create-new-saas-offer-technical.md)

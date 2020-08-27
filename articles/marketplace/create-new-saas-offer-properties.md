@@ -1,6 +1,6 @@
 ---
-title: Configure your SaaS offer properties 
-description: How to configure the properties for your software  as a service (SaaS) offer in Microsoft Partner Center. 
+title: How to configure your SaaS offer properties in Microsoft Partner Center
+description: Learn how to configure the properties for your software as a service (SaaS) Microsoft commercial marketplace offer in Partner Center. 
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ---
 
-# Configure your SaaS offer properties
+# How to configure your SaaS offer properties
 
 This article describes how to configure the properties for a software as a service (SaaS) offer in the Microsoft commercial marketplace.
 

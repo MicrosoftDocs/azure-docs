@@ -34,8 +34,6 @@
         href: ./marketplace-solution-templates.md
       - name: Azure apps managed applications
         href: ./marketplace-managed-apps.md
-      - name: SaaS apps
-        href: ./marketplace-saas-applications-technical-publishing-guide.md
       - name: Containers
         href: ./marketplace-containers.md
       - name: IoT Edge modules
@@ -179,11 +177,11 @@
           href: create-new-saas-offer-listing.md
         - name: Add a preview audience
           href: create-new-saas-offer-preview.md
-        - name: Provide technical details
+        - name: Add technical details
           href: create-new-saas-offer-technical.md  
         - name: Create plans
           href: create-new-saas-offer-plans.md
-        - name: Marketing options
+        - name: Market your SaaS offer
           href: create-new-saas-offer-marketing.md      
       - name: Azure AD auth for SaaS
         items:
