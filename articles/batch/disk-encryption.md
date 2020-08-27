@@ -72,7 +72,7 @@ Request body:
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "16.040-LTS"
+            "sku": "18.04-LTS"
         },
         "diskEncryptionConfiguration": {
             "targets": [
@@ -80,7 +80,7 @@ Request body:
                 "TemporaryDisk"
             ]
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
