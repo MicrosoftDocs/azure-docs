@@ -33,7 +33,7 @@ Supported sign-in methods:
     - Username and password
 
 >[!NOTE]
->Smartcard and Windows Hello can only use Kerberos to sign in.
+>Smartcard and Windows Hello can only use Kerberos to sign in and so require line of sight to the domain controller.
 
 ## Unsupported methods
 
