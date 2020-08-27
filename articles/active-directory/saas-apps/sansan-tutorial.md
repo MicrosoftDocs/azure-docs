@@ -130,7 +130,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure Sansan
 
-1. To configure single sign-on on **Sansan** side, follow the below helpsites.
+1. To configure single sign-on on **Sansan** side, follow the below helpsite.
 
    * For Japanese version, please follow the [link](https://jp-help.sansan.com/hc/ja/articles/900001551383 ).
 
