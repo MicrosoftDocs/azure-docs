@@ -122,6 +122,8 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ---
 
+
+
 ## Step 3: Add SQL Server VMs to the cluster
 
 Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command add more SQL Server VMs to the newly created cluster. 
@@ -180,6 +182,15 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## Validate the cluster 
+
+Use PowerShell to validate the cluster: 
+
+```powershell
+Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+```
 
 ## Step 4: Create the availability group
 
