@@ -38,8 +38,6 @@ landingContent:
             url: spring-cloud-quickstart.md 
           - text: Introduction to Piggy Metrics sample app
             url: spring-cloud-quickstart-sample-app-introduction.md
-          - text: Quickstart - Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
-            url: spring-cloud-quickstart-logs-metrics-tracing.md
       - linkListType: tutorial
         links:
           - text: Prepare a Java Spring app for deployment
