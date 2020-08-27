@@ -43,9 +43,6 @@ If you want to learn about updates to the Speech service, Speech SDK, Speech Dev
 * [Quickstart: Setup development environment](quickstarts/setup-platform.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md) - Added JavaScript instructions to documentation.
 * [Quickstart: Synthesize speech to a speaker](quickstarts/text-to-speech.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Translate speech-to-speech](quickstarts/translate-speech-to-speech.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Translate speech to multiple languages](quickstarts/translate-speech-to-text-multiple-languages.md) - Added JavaScript instructions to documentation.
-* [Quickstart: Translate speech-to-text](quickstarts/translate-speech-to-text.md) - Added JavaScript instructions to documentation.
 * [What is a keyword?](custom-keyword-overview.md) - Updated get started content and links.
 * [Specify source language for speech-to-text](how-to-specify-source-language.md) - Added JavaScript and Objective-C instructions to documentation.
 
