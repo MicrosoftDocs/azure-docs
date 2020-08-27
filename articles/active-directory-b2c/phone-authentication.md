@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2020
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,6 +25,31 @@ Follow the steps in this article to use the custom policies to enable your custo
 ## Pricing
 
 One-time passwords are sent to your users by using SMS text messages, and you may be charged for each message sent. For pricing information, see the **Separate Charges** section of [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## User experience for phone sign-up and sign-in
+
+With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. A message in the browser indicates that a code will be send to the user's phone. The user selects Send code:
+
+### Phone sign-up
+
+The user chooses **Sign up now**, and enters their Country and phone number and selects Continue. The user enters additional sign-up information and selects **Send Code**.  A one-time verification code is sent to their phone number. The user enters the verification code and signs in. The user retrieves the code and enters it in the sign up page and is then prompted for their phone number.
+
+![User starts phone sign-up](media/phone-authentication/phone-signup-screens.png)
+
+When the user selects Continue, additional sign-up prompts appear along with a Send Code. A one-time verification code is sent to the user’s phone. The user retrieves the code and enters it in the browser window:
+
+### Phone sign-in
+
+In the sign-in page, the user enters their phone number and selects **Continue**. Then the user enters their **Country**, selects **Continue**, and a one-time verification code is sent to their phone number. The user enters the verification code and signs in.
+
+![Phone sign-in user experience](media/phone-authentication/phone-signin-screens.png)
+
+### Recovery email entry
+
+You can require a recovery email address as an additional form of verification. The user is prompted for their email address. When the user selects Send verification code, a one-time code is sent to their inbox. The user retrieves the code and enters it in the browser window. Then the user selects **Verify code** and is signed in.
+
+![Phone sign-in user experience](media/phone-authentication/additional-email-verification.png)
+
 
 ## Prerequisites
 
