@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Sansan | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sansan.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Sansan with Azure Active Directory
@@ -136,11 +130,16 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure Sansan
 
-To configure single sign-on on **Sansan** side, you need to set on the **Sansan admin settings**.
+1. To configure single sign-on on **Sansan** side, follow the below helpsites.
+
+   * For Japanese version, please follow the [link](https://jp-help.sansan.com/hc/ja/articles/900001551383 ).
+
+   * For English version, please follow the [link](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ).
+
 
 ### Create Sansan test user
 
-In this section, you create a user called Britta Simon in Sansan. you need to create a user on the **Sansan admin settings**.
+In this section, you create a user called Britta Simon in Sansan, for that follow the [Add user steps](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users).
 
 ## Test SSO
 
