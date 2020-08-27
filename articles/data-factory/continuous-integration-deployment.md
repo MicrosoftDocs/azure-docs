@@ -621,7 +621,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
     - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
     - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production environment](#hotfix-production-environment).
 
-- By Design, Data Factory does not allow implemeting [RBAC Controls](https://docs.microsoft.com/azure/role-based-access-control/overview) on entities in a data factory (Datasets, Pipelines, etc). All developers using a single data factory should have access to all the entities inside that data factory. If you feel that you need to implement RBAC within a data factory, instead look at deploying a second data factory.
+- The Azure Data Factory team doesn’t recommend assigning RBAC controls to individual entities (pipelines, datasets, etc) in a data factory. For example, if a developer has access to a pipeline or a dataset, they should be able to access all pipelines or datasets in the data factory. If you feel that you need to implement many RBAC roles within a data factory, look at deploying a second data factory.
 
 -   You can't publish from private branches.
 
