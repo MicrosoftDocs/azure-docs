@@ -169,6 +169,7 @@ Use the following command to get real time logs from the App.
 ```azurecli
 az spring-cloud app logs -n hellospring -s <service instance name> -g <resource group name> --lines 100 -f
 ```
+Logs appear in the results:
     
     [ ![Streaming Logs](media/spring-cloud-quickstart-java/streaming-logs.png) ](media/spring-cloud-quickstart-java/streaming-logs.png#lightbox)
 
