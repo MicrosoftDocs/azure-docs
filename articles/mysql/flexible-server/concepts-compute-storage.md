@@ -41,28 +41,28 @@ Compute resources can be selected based on the tier, as well as the vCores and m
 
 The detailed specifications of the available server types are as follows:
 
-| SKU Name             | vCores | Memory Size | 
-|----------------------|--------|-------------|
+| SKU Name             | vCores | Memory Size (GiB) | 
+|----------------------|--------|-------------------|
 | **Burstable**        |        |             | 
-| B1s                  | 1      | 1 GiB       |  
-| B1ms                 | 1      | 2 GiB       | 
-| B2s                  | 2      | 4 GiB       |  
+| B1s                  | 1      | 1           |  
+| B1ms                 | 1      | 2           | 
+| B2s                  | 2      | 4           |  
 | **General Purpose**  |        |             | 
-| D2ds_v4              | 2      | 8 GiB       |  
-| D4ds_v4              | 4      | 16 GiB      | 
-| D8ds_v4              | 8      | 32 GiB      | 
-| D16ds_v4             | 16     | 64 GiB      | 
-| D32ds_v4             | 32     | 128 GiB     |  
-| D48ds_v4             | 48     | 192 GiB     |  
-| D64ds_v4             | 64     | 256 GiB     | 
+| D2ds_v4              | 2      | 8           |  
+| D4ds_v4              | 4      | 16          | 
+| D8ds_v4              | 8      | 32          | 
+| D16ds_v4             | 16     | 64          | 
+| D32ds_v4             | 32     | 128         |  
+| D48ds_v4             | 48     | 192         |  
+| D64ds_v4             | 64     | 256         | 
 | **Memory Optimized** |        |             |
-| E2ds_v4              | 2      | 16 GiB      |
-| E4ds_v4              | 4      | 32 GiB      |
-| E8ds_v4              | 8      | 64 GiB      |
-| E16ds_v4             | 16     | 128 GiB     |
-| E32ds_v4             | 32     | 256 GiB     |
-| E48ds_v4             | 48     | 384 GiB     |
-| E64ds_v4             | 64     | 504 GiB     |
+| E2ds_v4              | 2      | 16          |
+| E4ds_v4              | 4      | 32          |
+| E8ds_v4              | 8      | 64          |
+| E16ds_v4             | 16     | 128         |
+| E32ds_v4             | 32     | 256         |
+| E48ds_v4             | 48     | 384         |
+| E64ds_v4             | 64     | 504         |
 
 To get more details about the compute series available, please refer to Azure VM documentation for [Burstable (B-series)](../../virtual-machines/sizes-b-series-burstable.md), [General Purpose (Ddsv4-series)](../../virtual-machines/ddv4-ddsv4-series.md), and [Memory Optmized (Edsv4-series)](../../virtual-machines/edv4-edsv4-series.md).
 
