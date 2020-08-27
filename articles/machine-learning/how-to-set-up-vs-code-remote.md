@@ -42,7 +42,7 @@ To connect to a compute instance:
 1. Open the command palette.
 1. Enter into the text box `Python: Specify local or remote Jupyter Server for connections`.
 1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
-1. Select your subscription the list of subscriptions.
+1. Select your subscription the list of subscriptions. If you have have previously configured your default Azure Machine Learning workspace, this step is skipped.
 1. Select the workspace that contains the compute instance you want to use.
 1. Select your compute instance from the list.
 1. For the changes to take effect, you have to reload Visual Studio Code.
@@ -53,9 +53,9 @@ At this point, you can continue to run cells in your Jupyter notebook.
 > [!TIP]
 > You can also work with Python script files containing Jupyter-like code cells. For more information, visit the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
-## Configure Visual Studio Code Remote
+## Configure Visual Studio Code remote development
 
-For a full-featured remote development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed:
+For a full-featured remote development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed.
 
 ### Get the IP and SSH port for your compute instance
 
