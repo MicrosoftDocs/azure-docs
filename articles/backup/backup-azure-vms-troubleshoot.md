@@ -18,15 +18,15 @@ This section covers backup operation failure of Azure Virtual machine.
 
 * Ensure that the VM Agent (WA Agent) is the [latest version](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](./backup-support-matrix-iaas.md).
-* Verify that another backup service is not running.
+* Verify that another backup service isn't running.
   * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verify that the VM has internet connectivity.
-  * Make sure another backup service is not running.
+  * Make sure another backup service isn't running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
-  * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and aren't due to Azure Backup. Use the following steps to determine whether the issue is with Azure Backup:
+  * If there's an error with the entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
   * If Azure Backup is working, then the issue is likely with another backup solution.
-  * Here is an example of an event viewer error 517 where Azure backup was working fine but "Windows Server Backup" was failing:<br>
+  * Here is an example of an Event Viewer error 517 where Azure Backup was working fine but "Windows Server Backup" was failing:<br>
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
 
@@ -38,8 +38,8 @@ The following are common issues with backup failures on Azure virtual machines.
 
 Error code: VMRestorePointInternalError
 
-If at the time of backup, the **Event Viewer Application logs** displays the message **Faulting application name: IaaSBcdrExtension.exe** then it is confirmed that the antivirus configured in the VM is restricting the execution of backup extension.
-To resolve this issue, exclude below directories in the antivirus configuration and retry the backup operation.
+If at the time of backup, the **Event Viewer Application logs** displays the message **Faulting application name: IaaSBcdrExtension.exe** then it's confirmed that the antivirus configured in the VM is restricting the execution of backup extension.
+To resolve this issue, exclude the directories below in the antivirus configuration and retry the backup operation.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 * `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -66,7 +66,7 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
-* Unmount the devices for which the file system state was not cleaned, using the **umount** command.
+* Unmount the devices for which the file system state wasn't cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
 
@@ -85,11 +85,11 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 
 * Try starting/restarting Windows service **COM+ System Application** (from an elevated command prompt **- net start COMSysApp**).
 * Ensure **Distributed Transaction Coordinator** service is running as **Network Service** account. If not, change it to run as **Network Service** account and restart **COM+ System Application**.
-* If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the below steps:
+* If unable to restart the service, then reinstall **Distributed Transaction Coordinator** service by following the steps below:
   * Stop the MSDTC service
   * Open a command prompt (cmd)
-  * Run command "msdtc -uninstall"
-  * Run command "msdtc -install"
+  * Run the command `msdtc -uninstall`
+  * Run the command `msdtc -install`
   * Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 
@@ -109,7 +109,7 @@ Another procedure that can help is to run the following command from an elevated
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Adding this registry key will cause the threads to be not created for blob-snapshots, and prevent the time-out.
+Adding this registry key will cause the threads to not be created for blob-snapshots, and prevent the time-out.
 
 ### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
@@ -161,14 +161,14 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 Error code: ExtensionFailedSnapshotLimitReachedError  <br/>
 Error message: Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
 
-The snapshot operation failed as the snapshot limit has exceeded for some of the disks attached. Complete the below troubleshooting steps and then retry the operation.
+The snapshot operation failed as the snapshot limit has exceeded for some of the disks attached. Complete the following troubleshooting steps and then retry the operation.
 
-* Delete the disk blob-snapshots that are not required. Be cautious to not delete Disk blob, only snapshot blobs should be deleted.
-* If Soft-delete is enabled on VM disk Storage-Accounts, configure soft-delete retention such that existing snapshots are less than the maximum allowed at any point of time.
+* Delete the disk blob-snapshots that aren't required. Be careful to not delete disk blobs. Only snapshot blobs should be deleted.
+* If Soft-delete is enabled on VM disk Storage-Accounts, configure soft-delete retention so existing snapshots are less than the maximum allowed at any point of time.
 * If Azure Site Recovery is enabled in the backed-up VM, then perform the steps below:
 
   * Ensure the value of **isanysnapshotfailed** is set as false in /etc/azure/vmbackup.conf
-  * Schedule Azure Site Recovery at a different time, such that it does not conflict the backup operation.
+  * Schedule Azure Site Recovery at a different time, so it doesn't conflict the backup operation.
 
 ### ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources
 
@@ -179,7 +179,7 @@ Backup operation on the VM failed due to delay in network calls while performing
 
 **Step 1**: Create snapshot through Host
 
-From an elevated (admin) command-prompt, run the below command:
+From an elevated (admin) command-prompt, run the following command:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
@@ -188,7 +188,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 This will ensure the snapshots are taken through host instead of Guest. Retry the backup operation.
 
-**Step 2**: Try changing the backup schedule to a time when the VM is under less load (less CPU/IOps etc.)
+**Step 2**: Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOps)
 
 **Step 3**: Try [increasing the size of the VM](https://azure.microsoft.com/blog/resize-virtual-machines/) and retry the operation
 
@@ -242,7 +242,7 @@ Error code: ExtensionSnapshotFailedNoSecureNetwork <br/> Error message: The snap
 Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapshot operation failed because of failure to install Visual C++ Redistributable for Visual Studio 2012.
 
 * Navigate to `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` and install vcredist2013_x64.<br/>Make sure that the registry key value that allows the service installation is set to the correct value. That is, set the **Start** value in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** to **3** and not **4**. <br><br>If you still have issues with installation, restart the installation service by running **MSIEXEC /UNREGISTER** followed by **MSIEXEC /REGISTER** from an elevated command prompt.
-* Check the event log to verify if you are noticing access related issues. For example: *Product: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Error 1401.Could not create key: Software\Classes.  System error 5.  Verify that you have sufficient access to that key, or contact your support personnel.* <br><br> Ensure the administrator or user account has sufficient permissions to update the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Provide sufficient permissions and restart the Windows Azure Guest Agent.<br><br> <li> If you have antivirus products in place, ensure they have the right exclusion rules to allow the installation.
+* Check the event log to verify if you're noticing access related issues. For example: *Product: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Error 1401.Could not create key: Software\Classes.  System error 5.  Verify that you have sufficient access to that key, or contact your support personnel.* <br><br> Ensure the administrator or user account has sufficient permissions to update the registry key **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Provide sufficient permissions and restart the Windows Azure Guest Agent.<br><br> <li> If you have antivirus products in place, ensure they have the right exclusion rules to allow the installation.
 
 ### UserErrorRequestDisallowedByPolicy - An invalid policy is configured on the VM which is preventing Snapshot operation
 
@@ -286,23 +286,23 @@ If your backup takes more than 12 hours, or restore takes more than 6 hours, rev
 
 Typically, the VM Agent is already present in VMs that are created from the Azure gallery. But virtual machines that are migrated from on-premises datacenters won't have the VM Agent installed. For those VMs, the VM Agent needs to be installed explicitly.
 
-#### Windows VMs
+#### Windows VMs - Set up the agent
 
 * Download and install the [agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to finish the installation.
 * For virtual machines created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
 
-#### Linux VMs
+#### Linux VMs - Set up the agent
 
 * Install the latest version of the agent from the distribution repository. For details on the package name, see the [Linux Agent repository](https://github.com/Azure/WALinuxAgent).
 * For VMs created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
 
 ### Update the VM Agent
 
-#### Windows VMs
+#### Windows VMs - Update the agent
 
 * To update the VM Agent, reinstall the [VM Agent binaries](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Before you update the agent, make sure no backup operations occur during the VM Agent update.
 
-#### Linux VMs
+#### Linux VMs - Update the agent
 
 * To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

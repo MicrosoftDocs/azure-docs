@@ -45,7 +45,7 @@ For a full image list, run `az vm image list --publisher redhat --all` using the
 
 ### Images connected to non-EUS repositories
 
-If you provision a VM from a RHEL image that is connected to non-EUS repositories, you will be upgraded to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from an RHEL 7.4 PAYG image and run `sudo yum update`, you end up with an RHEL 7.7 VM (the latest minor version in the RHEL7 family).
+If you provision a VM from a RHEL image that is connected to non-EUS repositories, you will be upgraded to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from an RHEL 7.4 PAYG image and run `sudo yum update`, you end up with an RHEL 7.8 VM (the latest minor version in the RHEL7 family).
 
 Images that are connected to non-EUS repositories will not contain a minor version number in the SKU. The SKU is the third element in the URN (full name of the image). For example, all of the following images come attached to non-EUS repositories:
 

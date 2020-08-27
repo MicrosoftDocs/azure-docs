@@ -442,7 +442,7 @@ In this case, we recommend installing/locating Oracle home, stage, saptrace, sap
 
 The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](../../managed-disks-overview.md).
 
-For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](../../windows/premium-storage-performance.md#disk-caching).
+For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](../../premium-storage-performance.md#disk-caching).
 
 It is highly recommended to use [Azure managed disks](../../managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../disks-types.md) for your Oracle Database deployments.
 

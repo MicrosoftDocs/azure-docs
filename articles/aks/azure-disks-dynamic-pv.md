@@ -38,7 +38,7 @@ Each AKS cluster includes four pre-created storage classes, two of them configur
     
 If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create you own custom storage class. Note that it's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class by using the `kubectl edit sc` command. 
 
-For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
 

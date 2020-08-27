@@ -134,7 +134,7 @@
       maintainContext: true
       items:
       - name: Constrained vCPUs
-        href: ../virtual-machines/windows/constrained-vcpu.md
+        href: ../virtual-machines/constrained-vcpu.md
         maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
@@ -182,7 +182,7 @@
       href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
       maintainContext: true
     - name: Premium storage performance
-      href: ../virtual-machines/windows/premium-storage-performance.md
+      href: ../virtual-machines/premium-storage-performance.md
       maintainContext: true
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md

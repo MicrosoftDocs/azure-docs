@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 # SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows OS][Logo_Windows] Windows
 >
 
 You can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. 
@@ -60,6 +60,7 @@ _**Figure 1:** An SAP ASCS/SCS instance and SOFS deployed in two clusters_
 > * Different SAP Global Hosts file shares belonging to different SAP SIDs must share the same SOFS cluster.
 > * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.
 > * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
+> * A mix of Enqueue Replication Server 1 and Enqueue Replication Server 2 in the same cluster is not supported.  
 
 ## SAP ASCS/SCS multi-SID architecture with file share
 
