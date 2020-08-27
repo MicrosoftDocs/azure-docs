@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    1. In the **Identifier (Entity ID)** text box, type the URL:  
    `https://ap.sansan.com/saml2/<company name>`
 
-   1. In the **Reply URL** text box, type any one of the URL using the following pattern:
+   1. In the **Reply URL** text box, type any one of the URLs using the following pattern:
 
     
 	   | Environment | URL |
@@ -130,7 +130,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ## Configure Sansan
 
-1. To configure single sign-on on **Sansan** side, follow the below helpsite.
+1. To configure single sign-on on **Sansan** side,
 
    * For Japanese version, please follow the [link](https://jp-help.sansan.com/hc/ja/articles/900001551383 ).
 
