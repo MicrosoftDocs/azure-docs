@@ -119,11 +119,11 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 
    1. In the Request trigger, select **Use sample payload to generate schema**.
 
-      ![Generate schema from payload](./media/connectors-native-reqres/generate-from-sample-payload.png)
+      ![Screenshot with "Use sample payload to generate schema" selected](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
    1. Enter the sample payload, and select **Done**.
 
-      ![Generate schema from payload](./media/connectors-native-reqres/enter-payload.png)
+      ![Enter sample payload to generate schema](./media/connectors-native-reqres/enter-payload.png)
 
       Here is the sample payload:
 
