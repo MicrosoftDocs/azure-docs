@@ -88,7 +88,7 @@ The environment is now ready to be used in training runs or web service endpoint
 
 ## Use a repository of packages from private storage
 
-You can consume packages from an Azure storage account within your organization's firewall. Such a storage account can hold a curated set of packages for enterprise use or an internal mirror of publicly available packages.
+You can consume packages from an Azure storage account within your organization's firewall. The storage account can hold a curated set of packages or an internal mirror of publicly available packages.
 
 To set up such private storage:
 
