@@ -28,7 +28,7 @@ For more details about these settings, see [Technical configuration](plan-saas-o
   > [!IMPORTANT]
   > The landing page you configure here should be up and running 24/7. This is the only way you will be notified about new purchases of your SaaS offers made in the commercial marketplace, or configuration requests of an active subscription of an offer.
 
-- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been cancelled), we require you to provide a connection webhook URL. We will call this URL to notify you of the event.
+- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you of the event.
 
   > [!IMPORTANT]
   > The webhook you provide should be up and running 24/7 as this is the only way you will be notified about updates about your customers' SaaS subscriptions that are purchased via the comercial marketplace.

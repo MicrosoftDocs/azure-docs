@@ -59,7 +59,7 @@ To learn about the standard contract and optional amendments, see [Standard Cont
 
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
 
-**To use the Standard contract**
+#### To use the Standard contract
 
 1. Select the **Use the Standard Contract for Microsoft's commercial marketplace** checkbox.
 
@@ -74,14 +74,14 @@ To simplify the procurement process for customers and reduce legal complexity fo
 
 There are two kinds of amendments available: *universal* and *custom*.
 
-**To add universal amendment terms**
+#### To add universal amendment terms
 
 - In the **Universal amendment terms to the standard contract for Microsoft's commercial marketplace** box, enter your universal amendment terms.
 
    > [!NOTE]
    > You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or Azure portal during the discovery and purchase flow.
 
-**To add one or more custom amendments**
+#### To add one or more custom amendments
 
 1. Under **Custom amendments terms to the Standard Contract for Microsoft's commercial marketplace**, select the **Add custom amendment term (Max 10)** link.
 1. In the **Custom amendment terms** box, enter your amendment terms.
@@ -101,7 +101,7 @@ There are two kinds of amendments available: *universal* and *custom*.
 
 You can choose to provide your own terms and conditions, instead of the standard contract. Customers must accept these terms before they can try your offer.
 
-**To use your own custom terms and conditions**
+#### To use your own custom terms and conditions
 
 1. Under **Legal**, make sure the **Use the Standard Contract for Microsoft's commercial marketplace** check box is cleared.
 1. In the **Terms and conditions** box, enter up to 10,000 characters of text.

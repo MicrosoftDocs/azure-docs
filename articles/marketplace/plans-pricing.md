@@ -42,14 +42,14 @@ Plans are not supported for the following offer types:
 
 ## Plan information
 
-Each offer type requires different information when you create a new plan. You can find links to offer-specific articles in [Publishing guide by offer type](publisher-guide-by-offer-type.md). Once you create a new plan in the Plan overview page, you will see different tabs, such as Plan listing or Pricing and availability) to configure different details for your plan. Each tab will show a status of incomplete or complete as you work through these fields.
+Each offer type requires different information when you create a new plan. You can find links to offer-specific articles in [Publishing guide by offer type](publisher-guide-by-offer-type.md). Once you create a new plan in the **Plan overview** page, you will see different tabs, such as **Plan listing** or **Pricing and availability** to configure different details for your plan. Each tab will show a status of incomplete or complete as you work through these fields.
 
 ![Illustrates the plan listing page in Partner Center. The Plan name, Plan summary, and Plan description fields are highlighted.](./media/commercial-marketplace-plans/plan-listing-tab.png)
 
 There are a few common details to complete for a new plan:
 
 -  **Plan ID**: Create a unique ID for each plan in this offer. Use a maximum of 50 characters: only lowercase, alphanumeric characters, dashes, and underscores. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). You can’t change this ID after you publish the offer.
--  **Plan Name**: (Callout 1 in the image above.) Create a unique name for each plan in this offer. Use a maximum of 50 characters. The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Standard plan, Enterprise plan). Customers will see this name when deciding which plan to select within your offer.
+-  **Plan Name**: (Callout 1 in the image above.) Create a unique name for each plan in this offer. Use a maximum of 50 characters. The plan name is used to differentiate software plans that may be a part of the same offer (for example, Offer name: Standard plan, and Enterprise plan). Customers will see this name when deciding which plan to select within your offer.
 -  **Plan summary**: (Callout 2 in the image above.) This summary appears in Azure Marketplace search results and can contain up to 100 characters.
    > [!NOTE]
    > This field doesn't apply to SaaS offers.
@@ -108,8 +108,6 @@ Review your prices carefully before publishing, as there are some restrictions o
 
 Prices set in United States Dollars (USD) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market you selected.
 
-**To validate and set custom prices**
-
 1.  You must first save your pricing changes to enable export of pricing data. Near the bottom of the **Pricing and availability** tab, select **Save draft**.
 1.	Under **Pricing**, select the **Export pricing data** link.
 1.	Open the exportedPrice.xlsx file in Microsoft Excel.
@@ -160,7 +158,7 @@ You can enable a free trial on plans for transactable Azure virtual machine and 
 > -  Dynamics 365 for Customer Engagement & PowerApps
 > -  Dynamics 365 for Operations
 > 
-> For more information about listing options, see [Determine your publishing option](/determine-your-listing-type.md).
+> For more information about listing options, see [Determine your publishing option](determine-your-listing-type.md).
 
 Free trials are supported for all billing models except metered plans. SaaS plans allow for 1-month free trials. Azure virtual machine plans allow for 1, 3, or 6-month free trials.
 
