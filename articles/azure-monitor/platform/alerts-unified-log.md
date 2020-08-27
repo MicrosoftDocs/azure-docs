@@ -19,7 +19,7 @@ Log alerts run queries on Log Analytics data. First you should start [collecting
 [Azure Monitoring Contributor](./roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
 > [!NOTE]
-> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
+> Log data from a [Log Analytics workspace](../log-query/get-started-portal.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). [Learn more about switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
@@ -36,7 +36,7 @@ The [Log Analytics](../log-query/get-started-portal.md) query used to evaluate t
 - Multiple resources using [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
-> Alert queries have constricts to ensure optimal performance and the relevance of the results. [Learn more here](./alerts-log-query.md).
+> Alert queries have constraints to ensure optimal performance and the relevance of the results. [Learn more here](./alerts-log-query.md).
 
 > [!IMPORTANT]
 > Resource centric and [cross-resource query](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) are only supported using the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md)
@@ -127,7 +127,7 @@ For example, you want to monitor error code 500 (Internal Server Error) for mult
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
-- **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules isn't available currently for workspaces and Application Insights)
+- **Resource ID Column:** _ResourceId (Splitting by resource ID column in alert rules is only available for subscriptions and resource groups currently)
 - **Dimensions / Aggregated on:**
   - Computer = VM1, VM2 (Filtering values in alert rules definition isn't available currently for workspaces and Application Insights. Filter in the query text.)
 - **Time period:** 15 minutes
