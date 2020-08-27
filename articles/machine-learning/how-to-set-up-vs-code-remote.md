@@ -33,7 +33,7 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 > [!Note]
 > PuTTY is not supported on Windows since the ssh command must be in the path. 
 
-## Configure compute instance as remote Jupyter Notebook server
+## Configure compute instance as remote notebook server
 
 In order to configure a compute instance as a remote Jupyter Notebook server you'll need to have the Azure Machine Learning Visual Studio Code extension installed. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](tutorial-setup-vscode-extension.md).
 
@@ -53,7 +53,7 @@ At this point, you can continue to run cells in your Jupyter notebook.
 > [!TIP]
 > You can also work with Python script files (.py) containing Jupyter-like code cells. For more information, see the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
-## Configure Visual Studio Code remote development
+## Configure compute instance remote development
 
 For a full-featured remote development experience, you'll need to have the [Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) installed.
 
@@ -98,7 +98,7 @@ For a full-featured remote development experience, you'll need to have the [Remo
 
 ### Add instance as a host
 
-Open the file `~/.ssh/config` (Linux) or `C:\Users<username>.ssh\config` (Windows) in an editor and add a new entry similar to this:
+Open the file `~/.ssh/config` (Linux) or `C:\Users<username>.ssh\config` (Windows) in an editor and add a new entry similar to the content below:
 
 ```
 Host azmlci1 
