@@ -49,7 +49,6 @@ storage-size | 6144 | The storage capacity of the server (unit is megabytes). Mi
 
 > [!Important]
 > - Storage can be scaled up (however, you cannot scale storage down)
-> - Scaling up from Basic to General purpose or Memory optimized pricing tier is not supported. You can manually scale up with either  [using a bash script](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404) or [using MySQL Workbench](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-scale-up-azure-database-for-mysql-from-basic-tier-to/ba-p/369134)
 
 
 ## Manage MySQL databases on a server.
