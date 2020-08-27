@@ -58,6 +58,7 @@ These observations make it straightforward to use connections brokered by the el
 
 This code example (from the accompanying sample) illustrates the approach where the sharding key is provided by the application to the library to broker the connection to the right shard.   
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1,
                      connectionString: connStrBldr.ConnectionString,
@@ -70,6 +71,7 @@ This code example (from the accompanying sample) illustrates the approach where 
                             VALUES (@name)", new { name = blog.Name }
                         );
     }
+```
 
 The call to the [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) API replaces the default creation and opening of a SQL Client connection. The [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) call takes the arguments that are required for data-dependent routing: 
 
@@ -81,6 +83,7 @@ The shard map object creates a connection to the shard that holds the shardlet f
 
 Queries work very much the same way - you first open the connection using [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) from the client API. Then you use the regular Dapper extension methods to map the results of your SQL query into .NET objects:
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,
                     connectionString: connStrBldr.ConnectionString,
@@ -98,6 +101,7 @@ Queries work very much the same way - you first open the connection using [OpenC
                 Console.WriteLine(item.Name);
             }
     }
+```
 
 Note that the **using** block with the DDR connection scopes all database operations within the block to the one shard where tenantId1 is kept. The query only returns blogs stored on the current shard, but not the ones stored on any other shards. 
 
@@ -106,6 +110,7 @@ Dapper comes with an ecosystem of additional extensions that can provide further
 
 Using DapperExtensions in your application does not change how database connections are created and managed. It is still the application’s responsibility to open connections, and regular SQL Client connection objects are expected by the extension methods. We can rely on the [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) as outlined above. As the following code samples show, the only change is that you no longer have to write the T-SQL statements:
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
                     connectionString: connStrBldr.ConnectionString,
@@ -114,9 +119,11 @@ Using DapperExtensions in your application does not change how database connecti
            var blog = new Blog { Name = name2 };
            sqlconn.Insert(blog);
     }
+```
 
 And here is the code sample for the query: 
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
                     connectionString: connStrBldr.ConnectionString,
@@ -130,12 +137,14 @@ And here is the code sample for the query:
                Console.WriteLine(item.Name);
            }
     }
+```
 
 ### Handling transient faults
 The Microsoft Patterns & Practices team published the [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680934.aspx) to help application developers mitigate common transient fault conditions encountered when running in the cloud. For more information, see [Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx).
 
 The code sample relies on the transient fault library to protect against transient faults. 
 
+```csharp
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
        using (SqlConnection sqlconn =
@@ -145,6 +154,7 @@ The code sample relies on the transient fault library to protect against transie
               sqlconn.Insert(blog);
           }
     });
+```
 
 **SqlDatabaseUtils.SqlRetryPolicy** in the code above is defined as a **SqlDatabaseTransientErrorDetectionStrategy** with a retry count of 10, and 5 seconds wait time between retries. If you are using transactions, make sure that your retry scope goes back to the beginning of the transaction in the case of a transient fault.
 

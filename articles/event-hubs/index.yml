@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/13/2020 #Required; mm/dd/yyyy format.
+  ms.date: 06/23/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -158,7 +158,7 @@ landingContent:
           - text: Process Event Hubs for Apache Kafka events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md
           - text: Stream data into Azure Databricks using Event Hubs
-            url: ../azure-databricks/databricks-stream-from-eventhubs.md            
+            url: /azure/databricks/scenarios/databricks-stream-from-eventhubs
 
 
   # Card

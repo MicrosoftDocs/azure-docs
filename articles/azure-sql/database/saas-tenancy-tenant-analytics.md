@@ -1,6 +1,6 @@
 ---
 title: Cross-tenant analytics using extracted data
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Databases in a single tenant app."
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL databases in a single tenant app."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -38,7 +38,7 @@ Multi-tenant SaaS applications typically have a vast amount of tenant data store
 
 Accessing data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across potentially thousands of databases. One way to tame the complexity and to minimize the impact of analytics queries on transactional data is to extract data into a purpose designed analytics database or data warehouse.
 
-This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is recommended.
+This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL pool. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is recommended.
 
 Next, the aggregated data is transformed into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables.  For Wingtip Tickets:
 
@@ -83,8 +83,8 @@ Often there are numerous transactional databases that together hold all tenant d
 In the following steps, you deploy the analytics store, which is called **tenantanalytics**. You also deploy predefined tables that are populated later in the tutorial:
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Set the $DemoScenario variable in the script to match your choice of analytics store:
-    - To use SQL database without column store, set **$DemoScenario** = **2**
-    - To use SQL database with column store, set **$DemoScenario** = **3**  
+    - To use SQL Database without column store, set **$DemoScenario** = **2**
+    - To use SQL Database with column store, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics\<XX>.ps1* script) which creates the tenant analytics store. 
 
 Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P\@ssword1*. See the [introductory tutorial](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) for more guidance.

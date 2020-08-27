@@ -1,7 +1,7 @@
 ---
 title: Plan your app - LUIS
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/14/2020
 ---
 

@@ -3,9 +3,10 @@ title: Configure Azure Private Link for an Azure Cosmos account
 description: Learn how to set up Azure Private Link to access an Azure Cosmos account by using a private IP address in a virtual network. 
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/27/2020
-ms.author: thweiss
+ms.topic: how-to
+ms.date: 07/10/2020
+ms.author: thweiss 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure Private Link for an Azure Cosmos account
@@ -26,7 +27,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
 
 1. Select **Private Endpoint Connections** from the list of settings, and then select **Private endpoint**:
 
-   ![Selections for create a private endpoint in the Azure portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selections for create a private endpoint in the Azure portal":::
 
 1. In the **Create a private endpoint - Basics** pane, enter or select the following details:
 
@@ -89,7 +90,7 @@ After the private endpoint is provisioned, you can query the IP addresses. To vi
 1. Search for the private endpoint that you created earlier. In this case, it's **cdbPrivateEndpoint3**.
 1. Select the **Overview** tab to see the DNS settings and IP addresses.
 
-![Private IP addresses in the Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Private IP addresses in the Azure portal":::
 
 Multiple IP addresses are created per private endpoint:
 
@@ -402,7 +403,7 @@ For those accounts, you must create one private endpoint for each API type. The 
 
 After the template is deployed successfully, you can see an output similar to what the following image shows. The `provisioningState` value is `Succeeded` if the private endpoints are set up correctly.
 
-![Deployment output for the Resource Manager template](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Deployment output for the Resource Manager template":::
 
 After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 
@@ -623,6 +624,10 @@ The following situations and outcomes are possible when you use Private Link in 
 
 As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
 
+## Port range when using direct mode
+
+When you're using Private Link with an Azure Cosmos account through a direct mode connection, you need to ensure that the full range of TCP ports (0 - 65535) is open.
+
 ## Update a private endpoint when you add or remove a region
 
 Adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
@@ -637,15 +642,15 @@ You can use the same steps when you remove a region. After removing the region, 
 
 The following limitations apply when you're using Private Link with an Azure Cosmos account:
 
-* When you're using Private Link with an Azure Cosmos account by using a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not currently supported.
+* You can't have more than 200 private endpoints on a single Azure Cosmos account.
+
+* When you're using Private Link with an Azure Cosmos account through a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not currently supported.
 
 * When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
 
 * When you're using an Azure Cosmos DB's API for MongoDB account that has Private Link, some tools or libraries may not work as they automatically strip out the `appName` parameter from the connection string. This parameter is required to connect to the account over a private endpoint. Some tools, like Visual Studio Code, do not remove this parameter from the connection string and are therefore compatible.
 
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
-
-* Direct mode isn't currently supported in China-based Azure regions.
 
 ### Limitations to private DNS zone integration
 

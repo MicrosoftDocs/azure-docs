@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 3/27/2020
+ms.topic: how-to
+ms.date: 3/27/2020 
+ms.custom: devx-track-azurecli
 ---
 # How to back up and restore a server in Azure Database for MariaDB using the Azure CLI
 

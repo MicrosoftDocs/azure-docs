@@ -1,6 +1,6 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Import an API | Microsoft Docs
-description: Azure PowerShell Script Sample - Import an API
+description: Learn how to import an API and add it to an API Management product. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -39,6 +39,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure PowerShell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).

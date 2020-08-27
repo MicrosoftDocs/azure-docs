@@ -1,24 +1,26 @@
 ---
-title: Use Python API to run an Azure Batch job
-description: Quickly run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
+title: Quickstart - Use Python API to run an Azure Batch job
+description: In this quickstart, you run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
 ms.topic: quickstart
-ms.date: 11/27/2018
-ms.custom: [seo-python-october2019, mvc]
+ms.date: 08/17/2020
+ms.custom: [seo-python-october2019, mvc, devx-track-python]
 ---
 
 # Quickstart: Use Python API to run an Azure Batch job
 
-In this quickstart, you use the Python API to run an Azure Batch job from an app. The app uploads input data files to Azure Storage and creates a *pool* of Batch compute nodes (virtual machines). It then creates a *job* that runs *tasks* to process each input file in the pool using a basic command.
+Get started with Azure Batch by using the Python API to run an Azure Batch job from an app. The app uploads input data files to Azure Storage and creates a pool of Batch compute nodes (virtual machines). It then creates a job that runs tasks to process each input file in the pool using a basic command.
 
-Here you'll learn key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+After completing this quickstart, you'll understand key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
 ![Overview of the Azure Batch workflow](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An **Azure Batch** account and linked **Azure Storage** account. Use the [Azure portal](quick-create-portal.md) or [CLI](quick-create-cli.md) to create these accounts.
-- [Python](https://python.org/downloads), version 2.7 or 3.3 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+
+- [Python](https://python.org/downloads) version 2.7 or 3.3 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager
 
 ## Sign in to Azure
 
@@ -60,7 +62,7 @@ To see the Batch workflow in action, run the script:
 python python_quickstart_client.py
 ```
 
-After running the script, review the code to learn what each part of the application does. 
+After running the script, review the code to learn what each part of the application does.
 
 When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
 
@@ -94,9 +96,9 @@ Typical execution time is approximately 3 minutes when you run the application i
 
 The Python app in this quickstart does the following:
 
-* Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
-* Creates a pool of two compute nodes running Ubuntu 18.04 LTS.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Bash shell command line.
+- Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch tasks.
+- Creates a pool of two compute nodes running Ubuntu 18.04 LTS.
+- Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Bash shell command line.
 * Displays files returned by the tasks.
 
 See the file `python_quickstart_client.py` and the following sections for details.
@@ -174,7 +176,7 @@ batch_service_client.job.add(job)
 
 The app creates a list of task objects using the [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter) class. Each task processes an input `resource_files` object using a `command_line` parameter. In the sample, the command line runs the Bash shell `cat` command to display the text file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
 
-Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues them to run on the compute nodes. 
+Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues them to run on the compute nodes.
 
 ```python
 tasks = list()

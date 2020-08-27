@@ -9,6 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/12/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 
@@ -63,7 +64,7 @@ In the following example, you replace these values:
 - `<application-ID>` - The application identifier of the web application that you registered to support the user flow.
 - `<redirect-uri>` - The **Redirect URI** that you entered when you registered the client application.
 
-```HTTP
+```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
@@ -80,7 +81,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 After successfully receiving the authorization code, you can use it to request an access token:
 
-```HTTP
+```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -95,7 +96,7 @@ grant_type=authorization_code
 
 You should see something similar to the following response:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -109,7 +110,7 @@ You should see something similar to the following response:
 
 When using https://jwt.ms to examine the access token that was returned, you should see something similar to the following example:
 
-```JSON
+```json
 {
   "typ": "JWT",
   "alg": "RS256",

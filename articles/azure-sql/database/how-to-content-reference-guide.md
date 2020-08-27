@@ -12,7 +12,7 @@ ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
 ---
-# Configure & manage content reference - Azure SQL Database
+# Configure and manage content reference - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article you can find a content reference of various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. 
@@ -20,7 +20,7 @@ In this article you can find a content reference of various guides, scripts, and
 ## Load data
 
 - [Migrate to SQL Database](migrate-to-database-from-sql-server.md)
-- Learn how to [manage SQL database after migration](manage-data-after-migrating-to-database.md).
+- Learn how to [manage SQL Database after migration](manage-data-after-migrating-to-database.md).
 - [Copy a database](database-copy.md)
 - [Import a DB from a BACPAC](database-import.md)
 - [Export a DB to BACPAC](database-export.md)
@@ -29,10 +29,10 @@ In this article you can find a content reference of various guides, scripts, and
 
 ## Configure features
 
-- [Configure Azure AD auth](authentication-aad-configure.md)
+- [Configure Azure Active Directory (Azure AD) auth](authentication-aad-configure.md)
 - [Configure Conditional Access](conditional-access-configure.md)
-- [Multi-factor AAD auth](authentication-mfa-ssms-overview.md)
-- [Configure multi-factor auth](authentication-mfa-ssms-configure.md)
+- [Multi-factor Azure AD auth](authentication-mfa-ssms-overview.md)
+- [Configure Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
 - [Configure temporal retention policy](temporal-tables-retention-policy.md)
 - [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md)
 - [Rotate TDE BYOK keys](transparent-data-encryption-byok-key-rotation.md)
@@ -82,7 +82,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [Best practices for Data Sync](sql-data-sync-best-practices.md)
 - [Troubleshoot Data Sync](sql-data-sync-troubleshoot.md)
 
-## Elastic Database Jobs
+## Elastic Database jobs
 
 - [Create and manage](elastic-jobs-powershell-create.md) Elastic Database Jobs using PowerShell.
 - [Create and manage](elastic-jobs-tsql-create-manage.md) Elastic Database Jobs using Transact-SQL.
@@ -122,11 +122,12 @@ In this article you can find a content reference of various guides, scripts, and
 - [Design for elastic pools](disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Design for app upgrades](manage-application-rolling-upgrade.md)
 
-### Design Multi-tenant SaaS applications
+### Design Multi-tenant software as a service (SaaS) applications
 
 - [SaaS design patterns](saas-tenancy-app-design-patterns.md)
 - [SaaS video indexer](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [SaaS app security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## Next steps
-- Learn more about [How-to guides for SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)
+
+- Learn more about [How-to guides for Azure SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

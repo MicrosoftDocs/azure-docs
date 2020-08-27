@@ -1,12 +1,12 @@
 ---
-title: Usage dashboard in Microsoft commercial marketplace analytics
+title: Usage dashboard in Microsoft commercial marketplace analytics, Azure Marketplace and Microsoft AppSource
 description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Usage dashboard in Microsoft commercial marketplace analytics
@@ -27,14 +27,13 @@ In the VM usage tab, there are graphical representations of the following items:
 - [Usage summary](#usage-summary)
 - [Usage by geography](#usage-by-geography)
 - [Usage by offers](#usage-by-offers)
-- [Usage trend by offers and SKUs](#usage-trend-by-offers-and-skus)
+- [Usage trend by offers and plans](#usage-trend-by-offers-and-plans)
 - [Usage by offer type](#usage-by-offer-type)
 - [Usage by VM size](#usage-by-vm-size)
 - [Usage by sales channel](#usage-by-sales-channel)
 - [Detailed usage data](#detailed-usage-data)
 
-> [!NOTE]
-> Analytics reports display differently in Cloud Partner Portal (CPP) and Partner Center. **Seller insights** in CPP has an orders and usage tab, which displays data for both usage-based offers and non-usage-based offers. In Partner Center, the usage metrics are displayed on a separate page.
+The maximum latency between usage event generation and reporting in Partner Center is 48 hours.
 
 ### Usage summary
 
@@ -49,7 +48,7 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 ### Usage by geography
 
-The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
+The **normalized usage by geography** heat-map displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
 
 ### Usage by offers
 
@@ -57,9 +56,9 @@ The **normalized usage by geography** heatmap displays usage hours mapped accord
 - The bar chart depicts a month-by-month growth trend for the selected date range. The month columns represent usage hours from the offers with the highest usage hours for the respective month. The line chart depicts the growth percentage trend plotted on the secondary Y-axis.
 - Use the slider at the top of the chart to scroll right to left along the x-axis and/or focus on specific data points.
 
-### Usage trend by offers and SKUs
+### Usage trend by offers and plans
 
-This chart displays the trend of normalized usage for the selected SKUs of an offer. The offer leaderboard displays the top 50 offers with the highest usage, sorted by usage hours. The SKU leaderboard displays the top 50 SKUs with the highest usage for the selected offer.
+This chart displays the trend of normalized usage for the selected plans (formerly called SKUs) of an offer. The offer leaderboard displays the top 50 offers with the highest usage, sorted by usage hours. The plan leaderboard displays the top 50 plans with the highest usage for the selected offer.
 
 ### Usage by offer type
 
@@ -69,7 +68,7 @@ This chart displays the trend of normalized usage for the selected SKUs of an of
 
 ### Usage by VM size
 
-This chart represents the usage trend for selected VM Sizes (max 5) of all your offers/SKUs. The column chart is stacked with the usage hours of the selected VM Sizes.
+This chart represents the usage trend for selected VM sizes (max five) of all your offers/plans. The column chart is stacked with the usage hours of the selected VM sizes.
 
 The leaderboard displays the top 50 VM sizes with highest usage and sorted by usage hours.
 
@@ -87,7 +86,7 @@ The **usage details table** displays a numbered list of the top 1000 usage recor
 - Each column in the grid is sortable.
 - The data can be extracted to a CSV file if the count of the records is less than 1000.
 - If records count is over 1000, export data will be asynchronously placed in a downloads page that will be available for the next 30 days.
-- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
+- Apply filters to **detailed usage data** to display only the data you are interested in. Filter data by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
 
 > [!NOTE]
 > Select the **Usage type** in the page filter to view charts on the page in either "Normalized view" or "Raw view." The default view for these charts is "Normalized view."
@@ -104,9 +103,11 @@ The **Usage page filters** are applied at the page level. You can select multipl
 The **Metered billing usage** tab presents usage info for offer types where usage is measured by per meter dimension. SaaS offer type overage is presented currently. The tab presents graphical representations of overage trends for SaaS metered billing usage:
 
 - **Overage trend by meter dimension**: Displays the monthly overage trend for the selected meter dimension of an offer. The X-Axis represents the month and the Y-Axis represents the usage quantity. The unit of measurement of the custom meter is also displayed on the Y-Axis.
-- **Overage trend by SKU**: Represents the trend of usage quantity of the selected meter dimension by SKUs. The SKUs displayed will represent the top 5 SKUs with the highest amount of usage for the offer selected.
+- **Overage trend by plan**: Represents the trend of usage quantity of the selected meter dimension by plans. The plans displayed will represent the top five plans with the highest amount of usage for the offer selected.
 - **Overage trend by Top 50 Customers**: The top 50 offers with the highest usage hours are displayed on a ***leader board*** and are ranked by the highest usage of the custom meter. Select a customer in the leaderboard to view the usage trend of a selected meter dimension.
 - **Overage trend by top customers**: Presents top customer percentile(s) that contribute to the % of overall usage. The top customer percentile is displayed along the X-axis and is determined by the customer's usage quantity. The Y-axis displays the usage quantity. You can display details by hovering over points along the line chart.
+
+If you have multiple offers that use custom meters, the metered billing usage report shows usage information for all your offers, according to their custom meter dimensions.
 
 > [!NOTE]
 > The usage details and all charts on this page are displayed for whichever meter dimension is selected for the page filter.

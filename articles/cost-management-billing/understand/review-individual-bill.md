@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -95,7 +96,7 @@ The **Usage Charges** section of your invoice shows the total value (cost) for e
 
 ![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
 
-In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example.
+In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example that focuses on the meter name (P10 disks) that corresponds to the same line item on the invoice.
 
 ![Usage file summed value for MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

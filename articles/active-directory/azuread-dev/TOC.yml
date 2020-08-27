@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Concepts
   items:
+  - name: Evolution of Microsoft identity platform
+    href: about-microsoft-identity-platform.md
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
   - name: Application types
@@ -147,7 +149,7 @@
     - name: Publish to Azure AD App Gallery
       href: howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
   - name: Azure Access Control Service
     displayName: ACS
     items:
@@ -158,7 +160,7 @@
   - name: Use the Microsoft Graph API
     href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: AD FS for developers
-    href: https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview
+    href: /windows-server/identity/ad-fs/ad-fs-overview
 - name: References
   items:
   - name: Authentication libraries
@@ -190,4 +192,4 @@
     displayName: support, help options
     href: ../develop/developer-support-help-options.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Managed identities for Azure resources
-    href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
+    href: ../managed-identities-azure-resources/overview.md

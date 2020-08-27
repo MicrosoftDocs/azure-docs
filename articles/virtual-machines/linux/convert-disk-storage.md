@@ -3,7 +3,7 @@ title: Convert managed disks storage between standard and premium SSD
 description: How to convert Azure managed disks storage from standard to premium or premium to standard by using the Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
@@ -25,7 +25,7 @@ This article shows how to convert managed disks from Standard to Premium or Prem
 
 ## Switch all managed disks of a VM between Premium and Standard
 
-This example shows how to convert all of a VM's disks from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports Premium storage.
+This example shows how to convert all of a VM's disks from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](../sizes.md) that supports Premium storage. This example also switches to a size that supports Premium storage.
 
  ```azurecli
 
@@ -62,7 +62,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## Switch individual managed disks between Standard and Premium
 
-For your dev/test workload, you might want to have a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](sizes.md) that supports Premium storage. This example also switches to a size that supports Premium storage.
+For your dev/test workload, you might want to have a mix of Standard and Premium disks to reduce your costs. You can choose to upgrade only those disks that need better performance. This example shows how to convert a single VM disk from Standard to Premium storage or from Premium to Standard storage. To use Premium managed disks, your VM must use a [VM size](../sizes.md) that supports Premium storage. This example also switches to a size that supports Premium storage.
 
  ```azurecli
 

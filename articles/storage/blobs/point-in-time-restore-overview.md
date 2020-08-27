@@ -7,9 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Point-in-time restore for block blobs (preview)
@@ -92,6 +93,7 @@ The preview includes the following limitations:
 To register for the preview, run the following commands:
 
 # [PowerShell](#tab/powershell)
+
 ```powershell
 # Register for the point-in-time restore preview
 Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
@@ -105,7 +107,9 @@ Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
+
 # [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
 az feature register --namespace Microsoft.Storage --name Changefeed
@@ -117,16 +121,17 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### Check registration status
 
-To check the status of your registration, run the following commands:
+Registration for Point in time restore is automatic and should take less than 10 minutes. To check the status of your registration, run the following commands:
 
 # [PowerShell](#tab/powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName RestoreBlobRanges
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
-    
+
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
 ```
@@ -140,7 +145,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 ```
 
 ---
-
 
 ## Pricing and billing
 

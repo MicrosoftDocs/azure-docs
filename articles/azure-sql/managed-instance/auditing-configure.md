@@ -2,7 +2,7 @@
 title: SQL Managed Instance auditing
 description: Learn how to get started with Azure SQL Managed Instance auditing using T-SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
@@ -108,7 +108,7 @@ The following section describes the configuration of auditing on your managed in
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
-        TO URL ( PATH ='<container_url>' [, RETENTION_DAYS =  integer ])
+        TO URL ( PATH ='<container_url>' , RETENTION_DAYS =  integer )
         GO
         ```
 

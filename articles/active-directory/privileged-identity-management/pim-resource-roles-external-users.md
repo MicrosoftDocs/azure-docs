@@ -7,7 +7,7 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
@@ -40,7 +40,7 @@ Here are a couple examples of when you might invite guests to your organization:
 
 ## How does collaboration using B2B guests work?
 
-When you use B2B collaboration, you can invite an external user to your organization as a guest. The guest can be managed as a user in your organization, but a guest has to be authenticated in their home organization and not in your Azure AD organization. This means that if the guest no longer has access to their home organization, they also lose access to your organization. For example, if the guest leaves their organization, they automatically lose access to any resources you shared with them in Azure AD without you having to do anything. For more information about B2B collaboration, see [What is guest user access in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+When you use B2B collaboration, you can invite an external user to your organization as a guest. The guest can be managed as a user in your organization, but a guest has to be authenticated in their home organization and not in your Azure AD organization. This means that if the guest no longer has access to their home organization, they also lose access to your organization. For example, if the guest leaves their organization, they automatically lose access to any resources you shared with them in Azure AD without you having to do anything. For more information about B2B collaboration, see [What is guest user access in Azure Active Directory B2B?](../external-identities/what-is-b2b.md).
 
 ![Diagram showing how a guest user is authenticated in their home directory](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
@@ -161,4 +161,4 @@ You can view audit logs to keep track of what guests are doing.
 ## Next steps
 
 - [Assign Azure AD admin roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [What is guest user access in Azure AD B2B collaboration?](../b2b/what-is-b2b.md)
+- [What is guest user access in Azure AD B2B collaboration?](../external-identities/what-is-b2b.md)

@@ -35,7 +35,7 @@ This document contains a list of the most common import and export file formats 
 | Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes |
 | AVI (Uncompressed 8bit/10bit) (.avi) |Yes |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Yes |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Yes |
 | Matroska/WebM (.mkv) |Yes |
 | WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Yes |
@@ -112,4 +112,3 @@ The following table lists the codecs and file formats that are supported for exp
 [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md)
 
 [How to encode with Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-

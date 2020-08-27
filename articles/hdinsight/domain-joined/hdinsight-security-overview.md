@@ -13,7 +13,7 @@ ms.date: 04/20/2020
 
 # Overview of enterprise security in Azure HDInsight
 
-Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions aren't activated by default. This flexibility allows you to choose the security features that are most important to you. And helps you to avoid paying for features that you don't want. This flexibility also means it's your responsibility to make sure correct solutions are enabled for your setup and environment.
+Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions aren't activated by default. This flexibility allows you to choose the security features that are most important to you and helps you to avoid paying for features that you don't want. This flexibility also means it's your responsibility to make sure correct solutions are enabled for your setup and environment.
 
 This article looks at security solutions by dividing security solutions into four traditional security pillars: perimeter security, authentication, authorization, and encryption.
 
@@ -49,7 +49,7 @@ Auditing cluster resource access is necessary to track unauthorized or unintenti
 
 The admin can view and report all access to the HDInsight cluster resources and data. The admin can view and report changes to the access control policies.
 
-To access Apache Ranger and Ambari audit logs, and ssh access logs, [enable Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing). And view the tables that provide auditing records.
+To access Apache Ranger and Ambari audit logs, and ssh access logs, [enable Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) and view the tables that provide auditing records.
 
 ### Encryption
 
@@ -77,6 +77,7 @@ The following table provides links to resources for each type of security soluti
 |  | Configure [Azure virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Cosmos DB and [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
 |  | Ensure [TLS encryption](../../storage/common/storage-security-tls.md) is enabled for data in transit. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption | Customer |
+|  | Control access to your data by Azure support using [Customer lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
 | Application and middleware security | Integrate with AAD-DS and [Configure Authentication](apache-domain-joined-configure-using-azure-adds.md) | Customer |
 |  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies | Customer |
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |

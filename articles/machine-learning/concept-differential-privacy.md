@@ -1,10 +1,10 @@
 ---
-title: Implement differential privacy with the WhiteNoise package
+title: Implement differential privacy with the WhiteNoise package (preview)
 titleSuffix: Azure Machine Learning
 description: Learn what differential privacy is and how the WhiteNoise package can help you implement differential private systems that preserve data privacy.
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 05/03/2020
+ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,11 +12,14 @@ ms.topic: conceptual
 #intent: As a data scientist, I want to know what differential privacy is and how WhiteNoise can help me implement a differentially private system.
 ---
 
-# Preserve data privacy by using differential privacy and the WhiteNoise package
+# Preserve data privacy by using differential privacy and the WhiteNoise package (preview)
 
 Learn what differential privacy is and how the WhiteNoise package can help you implement differentially private systems.
 
 As the amount of data that an organization collects and uses for analyses increases, so do concerns of privacy and security. Analyses require data. Typically, the more data used to train models, the more accurate they are. When personal information is used for these analyses, it's especially important that the data remains private throughout its use.
+
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
 
 ## How differential privacy works
 
@@ -75,4 +78,6 @@ The system library provides the following tools and services for working with ta
 
 ## Next steps
 
-To learn how to use the components of WhiteNoise, check out the GitHub repositories for [WhiteNoise Core package](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise System package](https://github.com/opendifferentialprivacy/whitenoise-system) and [WhiteNoise samples](https://github.com/opendifferentialprivacy/whitenoise-samples).
+[Preserve data privacy](how-to-differential-privacy.md) in Azure Machine Learning.
+
+To learn more about the components of WhiteNoise, check out the GitHub repositories for [WhiteNoise Core package](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise System package](https://github.com/opendifferentialprivacy/whitenoise-system) and [WhiteNoise samples](https://github.com/opendifferentialprivacy/whitenoise-samples).

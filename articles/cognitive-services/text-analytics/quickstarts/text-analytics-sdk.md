@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 07/27/2020
 ms.author: aahi
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
@@ -27,7 +28,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * The latest stable version the Text Analytics client library is `3.0`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
@@ -38,7 +39,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * The latest stable version the Text Analytics client library is `3.0`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -48,7 +49,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * The latest stable version the Text Analytics client library is `3.0`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 > * You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -60,7 +61,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * The latest stable version the Text Analytics client library is `3.0`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
 

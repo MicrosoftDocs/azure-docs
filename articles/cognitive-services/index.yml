@@ -20,6 +20,9 @@ highlightedContent:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
       url: ./welcome.md
+    - title: What's new in docs?
+      itemType: whats-new
+      url: whats-new-docs.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
@@ -35,9 +38,6 @@ highlightedContent:
     - title: Virtual networks for Cognitive Services
       itemType: architecture
       url: cognitive-services-virtual-networks.md
-    - title: Custom subdomains for Cognitive Services
-      itemType: how-to-guide
-      url: cognitive-services-custom-subdomains.md
     - title: Cognitive Services security
       itemType: concept
       url: cognitive-services-security.md
@@ -59,7 +59,7 @@ conceptualContent:
           text: Face
         - url: ./form-recognizer/index.yml
           itemType: overview
-          text: Form Recognizer (Preview)
+          text: Form Recognizer
         - url: ./ink-recognizer/index.yml
           itemType: overview
           text: Ink Recognizer (Preview)
@@ -71,7 +71,7 @@ conceptualContent:
       links:
         - url: ./immersive-reader/index.yml
           itemType: overview
-          text: Immersive Reader (Preview)
+          text: Immersive Reader
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)

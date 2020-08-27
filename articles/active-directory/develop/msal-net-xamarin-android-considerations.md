@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin Android and MSAL.NET so that I can decide if this platform meets my application development needs.
 ---
 
@@ -89,7 +89,7 @@ The *AndroidManifest.xml* file should contain the following values:
 
 Substitute the package name that you registered in the Azure portal for the `android:host=` value. Substitute the key hash that you registered in the Azure portal for the `android:path=` value. The signature hash should *not* be URL encoded. Ensure that a leading forward slash (`/`) appears at the beginning of your signature hash.
 
-Alternatively, [create the activity in code](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) rather than manually editing *AndroidManifest.xml*. To create the activity in code, first create a class that includes the `Activity` attribute and the `IntentFilter` attribute. 
+Alternatively, [create the activity in code](/xamarin/android/platform/android-manifest#the-basics) rather than manually editing *AndroidManifest.xml*. To create the activity in code, first create a class that includes the `Activity` attribute and the `IntentFilter` attribute. 
 
 Here's an example of a class that represents the values of the XML file:
 

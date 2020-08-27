@@ -4,6 +4,7 @@ description: Introduction to the WebJobs SDK for event-driven background process
 author: ggailey777
 
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
@@ -184,7 +185,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 ## Create a storage account
 
-The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
+The Azure Storage Emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
 
 1. Open **Server Explorer** in Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
 
@@ -307,7 +308,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 ### Create App Service app and Application Insights instance
 
-1. If you don't already have an App Service app that you can use, [create one](app-service-web-get-started-dotnet-framework.md). When you create your app, you can also create a connected Application Insights resource. When you do this, the `APPINSIGHTS_INSTRUMENTATIONKEY` is set for you in your app.
+1. If you don't already have an App Service app that you can use, [create one](quickstart-dotnet-framework.md). When you create your app, you can also create a connected Application Insights resource. When you do this, the `APPINSIGHTS_INSTRUMENTATIONKEY` is set for you in your app.
 
 1. If you don't already have an Application Insights resource that you can use, [create one](../azure-monitor/app/create-new-resource.md ). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 

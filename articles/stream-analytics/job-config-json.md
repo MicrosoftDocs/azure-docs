@@ -4,7 +4,7 @@ description: This article lists the supported fields for the Azure Stream Analyt
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ---
 

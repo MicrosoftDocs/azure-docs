@@ -62,3 +62,40 @@ No.
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It is not configurable. SignalR Service will handle connections and transports for all client connections.
 
 You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+
+## What is the meaning of metrics like message count or connection count showed in Azure portal? Which kind of aggregation type should I choose?
+
+You can find the details about how do we calculate these metrics [here](signalr-concept-messages-and-connections.md).
+
+In the overview blade of Azure SignalR Service resources, we have already chosen the appropriate aggregation type for you. And if you go to the Metrics blade, you can
+take the aggregation type [here](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+
+## What is the meaning of service mode `Default`/`Serverless`/`Classic`? How can I choose?
+
+Modes:
+* `Default` mode *requires* hub server. In this mode, Azure SignalR routes the client traffic to its connected hub server connections. Azure SignalR checks for a connected hub server. If a connected hub server isn't found, Azure SignalR rejects the incoming client connections. You also can use **Management Api** in this mode to manage the connected clients directly through Azure SignalR.
+* `Serverless` mode does *not* allow any server connection, i.e. it will reject all server connections. All clients must be in serverless mode.	Clients connect to Azure SignalR, and users usually use serverless technologies such as **Azure Function** to handle hub logics. See a [simple example](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) that uses Azure SignalR's Serverless mode.
+* `Classic` mode is a mixed status. When a hub has server connection, the new client will be routed to hub server, if not, client will enter serverless mode.
+
+  This may cause some problem, for example, all of server connections are lost for a moment, some clients will enter serverless mode, instead of route to hub server.
+
+Choosing:
+1. No hub server, choose `Serverless`.
+1. All of hubs have hub servers, choose `Default`.
+1. Some of hubs have hub servers, others not, choose `Classic`, but this may cause some problem, the better way is create two instances, one is `Serverless`, another is `Default`.
+
+## Any feature differences when using Azure SignalR for ASP.NET SignalR?
+When using Azure SignalR, some APIs and features of ASP.NET SignalR are no longer supported:
+- The ability to pass arbitrary state between clients and the hub (often called `HubState`) is not supported when using Azure SignalR
+- `PersistentConnection` class is not yet supported when using Azure SignalR
+- **Forever Frame transport** is not supported  when using Azure SignalR
+- Azure SignalR no longer replays messages sent to client when client is offline
+- When using Azure SignalR, the traffic for one client connection is always routed (aka. **sticky**) to one app server instance for the duration of the connection
+
+The support for ASP.NET SignalR is focused on compatibility, so not all new features from ASP.NET Core SignalR are supported. For example, **MessagePack**, **Streaming**, etc., are only available for ASP.NET Core SignalR applications.
+
+SignalR Service can be configured for different service mode: `Classic`/`Default`/`Serverles`s. In this ASP.NET support, the `Serverless` mode is not supported. The data-plane REST API is also not supported.
+
+## Where do my data reside?
+
+Azure SignalR Service is working as a data processor service. It will not store any customer content and data residency is promised by design. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, please check [here](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.

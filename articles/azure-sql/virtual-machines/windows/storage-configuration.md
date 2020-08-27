@@ -1,10 +1,9 @@
 ---
 title: Storage configuration for SQL Server VMs | Microsoft Docs
-description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
+description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Azure Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
@@ -20,7 +19,7 @@ ms.author: mathoma
 # Storage configuration for SQL Server VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-When you configure a SQL Server virtual machine image in Azure, the Portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
+When you configure a SQL Server virtual machine (VM) image in Azure, the Azure portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
 
 This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](performance-guidelines-best-practices.md) for Azure VMs running SQL Server.
 
@@ -32,7 +31,7 @@ To use the automated storage configuration settings, your virtual machine requir
 
 * Provisioned with a [SQL Server gallery image](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Uses the [Resource Manager deployment model](../../../azure-resource-manager/management/deployment-models.md).
-* Uses [premium SSDs](../../../virtual-machines/windows/disks-types.md).
+* Uses [premium SSDs](../../../virtual-machines/disks-types.md).
 
 ## New VMs
 
@@ -54,7 +53,7 @@ Additionally, you have the ability to set the caching for the disks. Azure VMs h
 
 Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*. 
 
-- *ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. *ReadOnly* caching brings low read latency, high read IOPS, and throughput as, reads are performed from cache, which is within the VM memory and local SSD. These reads are much faster than reads from data disk, which is from the Azure blob storage. Premium storage does not count the reads served from cache towards the disk IOPS and throughput. Therefore, your applicable is able to achieve higher total IOPS and throughput. 
+- *ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. *ReadOnly* caching brings low read latency, high read IOPS, and throughput as, reads are performed from cache, which is within the VM memory and local SSD. These reads are much faster than reads from data disk, which is from Azure Blob storage. Premium storage does not count the reads served from cache towards the disk IOPS and throughput. Therefore, your applicable is able to achieve higher total IOPS and throughput. 
 - *None* cache configuration should be used for the disks hosting SQL Server Log file as the log file is written sequentially and does not benefit from *ReadOnly* caching. 
 - *ReadWrite* caching should not be used to host SQL Server files as SQL Server does not support data consistency with the *ReadWrite* cache. Writes waste capacity of the *ReadOnly* blob cache and latencies slightly increase if writes go through *ReadOnly* blob cache layers. 
 
@@ -73,7 +72,7 @@ Based on your choices, Azure performs the following storage configuration tasks 
 
 For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-### Resource Manage templates
+### Resource Manager templates
 
 If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
 
@@ -110,10 +109,10 @@ You can modify the disk settings for the drives that were configured during the 
 
 ## Storage configuration
 
-This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure portal.
+This section provides a reference for the storage configuration changes that Azure automatically performs during SQL Server VM provisioning or configuration in the Azure portal.
 
 * Azure configures a storage pool from storage selected from your VM. The next section of this topic provides details about storage pool configuration.
-* Automatic storage configuration always uses [premium SSDs](../../../virtual-machines/windows/disks-types.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
+* Automatic storage configuration always uses [premium SSDs](../../../virtual-machines/disks-types.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
 
 For pricing information, see the [Storage pricing](https://azure.microsoft.com/pricing/details/storage) page on the **Disk Storage** tab.
 
@@ -145,7 +144,7 @@ The following table describes the three workload type options available and thei
 | **Data warehousing** |Optimizes the storage for analytic and reporting workloads |Trace Flag 610<br/>Trace Flag 1117 |
 
 > [!NOTE]
-> You can only specify the workload type when you provision a SQL virtual machine by selecting it in the storage configuration step.
+> You can only specify the workload type when you provision a SQL Server virtual machine by selecting it in the storage configuration step.
 
 ## Next steps
 

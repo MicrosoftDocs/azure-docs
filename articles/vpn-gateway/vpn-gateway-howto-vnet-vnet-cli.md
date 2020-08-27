@@ -6,9 +6,10 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2018
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurecli
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using Azure CLI

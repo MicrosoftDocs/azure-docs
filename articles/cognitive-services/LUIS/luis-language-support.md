@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
 ---
@@ -110,8 +110,8 @@ The following cultures have custom tokenizer versions:
 |--|--|--|
 |German<br>`de-de`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ich fahre einen krankenwagen` as an utterance, it is turned to `Ich fahre einen kranken wagen`. Allowing the marking of `kranken` and `wagen` independently as different entities.|
 |German<br>`de-de`|1.0.2|Tokenizes words by splitting them on spaces.<br> If a user enters `Ich fahre einen krankenwagen` as an utterance, it remains a single token. Thus `krankenwagen` is marked as a single entity. |
-|Dutch<br>`de-de`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ik ga naar de kleuterschool` as an utterance, it is turned to `Ik ga naar de kleuter school`. Allowing the marking of `kleuter` and `school` independently as different entities.|
-|Dutch<br>`de-de`|1.0.1|Tokenizes words by splitting them on spaces.<br> If a user enters `Ik ga naar de kleuterschool` as an utterance, it remains a single token. Thus `kleuterschool` is marked as a single entity. |
+|Dutch<br>`nl-nl`|1.0.0|Tokenizes words by splitting them using a machine learning-based tokenizer that tries to break down composite words into their single components.<br>If a user enters `Ik ga naar de kleuterschool` as an utterance, it is turned to `Ik ga naar de kleuter school`. Allowing the marking of `kleuter` and `school` independently as different entities.|
+|Dutch<br>`nl-nl`|1.0.1|Tokenizes words by splitting them on spaces.<br> If a user enters `Ik ga naar de kleuterschool` as an utterance, it remains a single token. Thus `kleuterschool` is marked as a single entity. |
 
 
 ### Migrating between tokenizer versions

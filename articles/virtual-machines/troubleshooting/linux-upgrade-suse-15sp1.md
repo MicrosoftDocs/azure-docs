@@ -3,7 +3,7 @@ title: Upgrade an Azure VM with SUSE Linux Enterprise Server to SUSE 15 SP1 | Mi
 description: This article provides general steps about how to use SUSE Distribution Migration System to upgrade SUSE Linux Enterprise server to SUSE 15 SP1 for an Azure virtual machine.
 services: virtual-machines-linux
 documentationcenter: ''
-author: genlin
+author: amkarmak
 manager: dcscontentpm
 editor: ''
 tags: virtual-machines
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
-ms.author: genli
+ms.author: arremana
 
 ---
 

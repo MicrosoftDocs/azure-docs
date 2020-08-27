@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and 8x8.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with 8x8
@@ -36,13 +30,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * An 8x8 subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * 8x8 supports **SP and IDP** initiated SSO
 
-* Once you configure 8x8 you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure 8x8 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -58,7 +55,7 @@ To configure the integration of 8x8 into Azure AD, you need to add 8x8 from the 
 1. In the **Add from the gallery** section, type **8x8** in the search box.
 1. Select **8x8** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for 8x8
+## Configure and test Azure AD SSO for 8x8
 
 Configure and test Azure AD SSO with 8x8 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in 8x8.
 
@@ -133,7 +130,15 @@ The next part of the tutorial depends on what kind of subscription you have with
 
 ### Configure 8x8 Configuration Manager
 
-1. Log in to 8x8 [Configuration Manager](https://vo-cm.8x8.com/).
+1. To automate the configuration within 8x8, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up 8x8** will direct you to the 8x8 application. From there, provide the admin credentials to sign into 8x8. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup 8x8 manually, sign in to 8x8 [Configuration Manager](https://vo-cm.8x8.com/) as an administrator.
 
 1. From the home page click **Identity Management**.
 

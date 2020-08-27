@@ -2,7 +2,7 @@
 title: SQL Managed Instance security with Azure AD server principals (logins)
 description: Learn about techniques and features to secure Azure SQL Managed Instance, and use Azure AD server principals (logins)
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial

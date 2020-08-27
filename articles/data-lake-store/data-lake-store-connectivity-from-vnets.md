@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Data Lake Storage Gen1 from VNETs | Microsoft Docs
-description: Connect to Azure Data Lake Storage Gen1 from Azure VNETs
+description: Learn how to enable access to Azure Data Lake Storage Gen1 from Azure virtual machines that have restricted access to resources.
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
@@ -10,7 +10,7 @@ editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
 
@@ -28,14 +28,18 @@ In this article, you will learn how to enable access to Azure Data Lake Storage 
 ## Enabling connectivity to Azure Data Lake Storage Gen1 from VMs with restricted connectivity
 To access Azure Data Lake Storage Gen1 from such VMs, you must configure them to access the IP address for the region where the Azure Data Lake Storage Gen1 account is available. You can identify the IP addresses for your Data Lake Storage Gen1 account regions by resolving the DNS names of your accounts (`<account>.azuredatalakestore.net`). To resolve DNS names of your accounts, you can use tools such as **nslookup**. Open a command prompt on your computer and run the following command:
 
-    nslookup mydatastore.azuredatalakestore.net
+```console
+nslookup mydatastore.azuredatalakestore.net
+```
 
 The output resembles the following. The value against **Address** property is the IP address associated with your Data Lake Storage Gen1 account.
 
-    Non-authoritative answer:
-    Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
-    Address:  104.44.88.112
-    Aliases:  mydatastore.azuredatalakestore.net
+```output
+Non-authoritative answer:
+Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
+Address:  104.44.88.112
+Aliases:  mydatastore.azuredatalakestore.net
+```
 
 
 ### Enabling connectivity from VMs restricted by using NSG

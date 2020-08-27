@@ -27,7 +27,7 @@ This article describes Media Services diagnostic logs schemas.
 
 ## Top-level diagnostic logs schema
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../azure-monitor/platform/tutorial-dashboards.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../azure-monitor/platform/resource-logs-schema.md).
 
 ## Key delivery log schema
 

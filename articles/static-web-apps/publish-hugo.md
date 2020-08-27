@@ -11,7 +11,7 @@ ms.author: aapowell
 
 # Tutorial: Publish a Hugo site to Azure Static Web Apps Preview
 
-This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Azure Static Web Apps](overview.md). The final result is a new Azure Static Web Apps with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web App with associated GitHub Actions that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 
@@ -48,7 +48,7 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
    cd static-app
    ```
 
-1. Initialize a git repo.
+1. Initialize a Git repo.
 
    ```bash
     git init
@@ -128,9 +128,9 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click the **Next: Build >** button to edit the build configuration
 
-1. Set _App location_ to **public**.
+1. Set _App location_ to **/**.
 
-1. Leave the _App artifact location_ blank.
+1. Set _App artifact location_ to **public**.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
@@ -139,39 +139,6 @@ Next, you add configuration settings that the build process uses to build your a
 1. Click the **Review + Create** button to verify the details are all correct.
 
 1. Click **Create** to start the creation of the Azure Static Web Apps and provision a GitHub Action for deployment.
-
-1. Once the deployment completes, navigate to your terminal and pull the commit with the GitHub Action to your machine.
-
-   ```bash
-   git pull
-   ```
-
-1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
-
-1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application. If you require Hugo Extended, uncomment `extended: true`.
-
-   ```yml
-   - uses: actions/checkout@v2
-     with:
-       submodules: true
-
-   - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.8
-     with:
-       hugo-version: "latest"
-       # extended: true
-
-   - name: Build
-     run: hugo
-   ```
-
-1. Commit the updated workflow and push to GitHub.
-
-   ```bash
-   git add -A
-   git commit -m "Updating GitHub Actions workflow"
-   git push
-   ```
 
 1. Wait for the GitHub Action to complete.
 

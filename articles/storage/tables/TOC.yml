@@ -1,5 +1,5 @@
-- name: Azure Table storage Documentation
-  href: /azure/storage/
+- name: Azure Table storage documentation
+  href: /azure/storage/tables/
 - name: Overview
   expanded: true
   items: 
@@ -111,6 +111,8 @@
           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Enable infrastructure encryption for a storage account
+        href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Configure client-side encryption
       items:
       - name: .NET
@@ -125,8 +127,12 @@
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Require secure transfer
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      - name: Enable Transport Layer Security
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Manage Transport Layer Security (TLS)
+        items:
+        - name: Enforce minimum TLS version for incoming requests
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+        - name: Configure TLS version for a client application
+          href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Manage data redundancy
     items:
     - name: Change how data is replicated
@@ -149,6 +155,18 @@
     items:
     - name: Latency issues
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Azure Storage on Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-table-storage.html
+  - name: Azure Storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Pricing for Table storage
+    href: https://azure.microsoft.com/en-us/pricing/details/storage/tables/
+  - name: Azure pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference
   items:
   - name: Scalability and performance targets

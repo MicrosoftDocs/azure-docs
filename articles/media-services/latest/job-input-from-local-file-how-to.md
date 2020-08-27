@@ -3,15 +3,15 @@ title: Create an Azure Media Services job input from a local file | Microsoft Do
 description: This article demonstrates how to create an Azure Media Services job input from a local file.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/26/2020
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ---
 
 # Create a job input from a local file
@@ -20,15 +20,14 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 ## Prerequisites 
 
-* [Create a Media Services account](create-account-cli-how-to.md).
-* Review [manage assets](manage-asset-concept.md).
+* [Create a Media Services account](./create-account-howto.md).
 
 ## .NET sample
 
 The following code shows how to create an input asset and use it as the input for the job. The CreateInputAsset function performs the following actions:
 
 * Creates the Asset
-* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Gets a writable [SAS URL](../../storage/common/storage-sas-overview.md) to the Asset’s [container in storage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Uploads the file into the container in storage using the SAS URL
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -43,7 +42,7 @@ The following code snippet submits an encoding job:
 
 ## Job error codes
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Next steps
 

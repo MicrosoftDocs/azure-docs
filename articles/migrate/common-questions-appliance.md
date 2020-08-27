@@ -2,7 +2,7 @@
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ---
 
 # Azure Migrate appliance: Common questions
@@ -56,7 +56,7 @@ The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-acce
 
 See the following articles for information about data that the Azure Migrate appliance collects on VMs:
 
-- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data. [
+- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
 - **Hyper-V VM**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
 
 ## How is data stored?
@@ -102,7 +102,7 @@ Yes. You can add both the Azure Migrate appliance (used for assessment and agent
 
 ## How many VMs or servers can I discover with an appliance?
 
-You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers with a single appliance. If you have more machines in your on-premises environment, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), and [scaling a physical server assessment](scale-physical-assessment.md).
+You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 1000 physical servers with a single appliance. If you have more machines in your on-premises environment, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), and [scaling a physical server assessment](scale-physical-assessment.md).
 
 ## Can I delete an appliance?
 

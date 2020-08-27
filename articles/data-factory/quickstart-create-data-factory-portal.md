@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory by using the Azure Data Factory UI
@@ -37,8 +37,6 @@ Watching this video helps you understand the Data Factory UI:
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. From the Azure portal menu, select **Create a resource**.
-   
-   ![Select Create a resource from Azure portal menu](./media/doc-common-process/create-a-resource.png)
 1. Select **Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -75,9 +73,12 @@ Watching this video helps you understand the Data Factory UI:
 ## Create a linked service
 In this procedure, you create a linked service to link your Azure Storage account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
-1. Select **Connections**, and then select the **New** button on the toolbar (**Connections** button is located
-at the bottom of the left column under **Factory Resources**). 
+1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
 
+1. On the Linked services page, select **+New** to create a new linked service.
+
+   ![New linked service](./media/doc-common-process/new-linked-service.png)
+   
 1. On the **New Linked Service** page, select **Azure Blob Storage**, and then select **Continue**. 
 
 1. On the New Linked Service (Azure Blob Storage) page, complete the following steps: 

@@ -5,8 +5,8 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.topic: conceptual
-ms.date: 04/21/2020
+ms.topic: how-to
+ms.date: 08/10/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -15,7 +15,7 @@ ms.reviewer: prishet
 
 This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
-[Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
+[Reference](https://docs.microsoft.com/powershell/module/Az.Storage/?view=azps-4.5.0) | [Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites
 
@@ -76,22 +76,22 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>
 $ctx = $storageAccount.Context
 ```
 
-## Create a file system
+## Create a container
 
-A file system acts as a container for your files. You can create one by using the `New-AzDatalakeGen2FileSystem` cmdlet. 
+A container acts as a file system for your files. You can create one by using the `New-AzStorageContainer` cmdlet. 
 
-This example creates a file system named `my-file-system`.
+This example creates a container named `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
-New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
+New-AzStorageContainer -Context $ctx -Name $filesystemName
 ```
 
 ## Create a directory
 
 Create a directory reference by using the `New-AzDataLakeGen2Item` cmdlet. 
 
-This example adds a directory named `my-directory` to a file system.
+This example adds a directory named `my-directory` to a container.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -197,7 +197,7 @@ $properties.Group
 $properties.Owner
 ```
 
-To list the contents of a file system, omit the `-Path` parameter from the command.
+To list the contents of a container, omit the `-Path` parameter from the command.
 
 ## Upload a file to a directory
 
@@ -256,7 +256,7 @@ You can use the `-Force` parameter to remove the file without a prompt.
 
 ## Manage access permissions
 
-You can get, set, and update access permissions of file systems, directories and files. These permissions are captured in access control lists (ACLs).
+You can get, set, and update access permissions of directories and files. These permissions are captured in access control lists (ACLs).
 
 > [!NOTE]
 > If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -265,7 +265,7 @@ You can get, set, and update access permissions of file systems, directories and
 
 Get the ACL of a directory or file by using the `Get-AzDataLakeGen2Item`cmdlet.
 
-This example gets the ACL of a **file system** and then prints the ACL to the console.
+This example gets the ACL of the root directory of a **container** and then prints the ACL to the console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -300,7 +300,7 @@ In this example, the owning user has read, write, and execute permissions. The o
 
 Use the `set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
 
-This example sets the ACL on a **file system** for the owning user, owning group, or other users, and then prints the ACL to the console.
+This example sets the ACL on the root directory of a **container** for the owning user, owning group, or other users, and then prints the ACL to the console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -344,9 +344,9 @@ The following image shows the output after setting the ACL of a file.
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### Set ACLs on all items in a file system
+### Set ACLs on all items in a container
 
-You can use the `Get-AzDataLakeGen2Item` and the `-Recurse` parameter together with the `Update-AzDataLakeGen2Item` cmdlet to recursively to set the ACL for directories and files in a file system. 
+You can use the `Get-AzDataLakeGen2Item` and the `-Recurse` parameter together with the `Update-AzDataLakeGen2Item` cmdlet to recursively to set the ACL for directories and files in a container. 
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -358,7 +358,7 @@ $Token = $Null
 do
 {
      $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Length -le 0) { Break;}
+     if($items.Count -le 0) { Break;}
      $items | Update-AzDataLakeGen2Item -Acl $acl
      $Token = $items[$items.Count -1].ContinuationToken;
 }

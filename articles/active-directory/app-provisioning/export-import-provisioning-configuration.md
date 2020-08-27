@@ -2,15 +2,16 @@
 title: Export provisioning configuration and roll back to a known good state for disaster recovery
 description: Learn how to export your provisioning configuration and roll back to a known good state for disaster recovery.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
-ms.author: chmutali
+ms.author: kenwith
 ---
+
 # How-to: Export provisioning configuration and roll back to a known good state
 
 In this article, you'll learn how to:
@@ -33,8 +34,8 @@ To export your configuration:
 
 Exporting and saving your configuration allows you to roll back to a previous version of your configuration. We recommend exporting your provisioning configuration and saving it for later use anytime you make a change to your attribute mappings or scoping filters. All you need to do is open up the JSON file that you downloaded in the steps above, copy the entire contents of the JSON file, replace the entire contents of the JSON payload in the schema editor, and then save. If there is an active provisioning cycle, it will complete and the next cycle will use the updated schema. The next cycle will also be an initial cycle, which reevaluates every user and group based on the new configuration. Consider the following when rolling back to a previous configuration:
 
-- Users will be evaluated again to determine if they should be in scope. If the scoping filters have changed a user is not in scope any more they will be disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) functionality. 
-- Changing your provisioning configuration restarts the service and triggers an [initial cycle](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Users will be evaluated again to determine if they should be in scope. If the scoping filters have changed a user is not in scope any more they will be disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
+- Changing your provisioning configuration restarts the service and triggers an [initial cycle](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## Export and import your provisioning configuration by using the Microsoft Graph API
 

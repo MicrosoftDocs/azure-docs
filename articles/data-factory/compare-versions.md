@@ -128,14 +128,14 @@ The SDKs that are updated in the current version are not backward-compatible wit
 
 ## Authoring experience
 
-| &nbsp; | V2 | V1 |
+| | Version 2 | Version 1 |
 | ------ | -- | -- | 
-| Azure portal | [Yes](quickstart-create-data-factory-portal.md) | No |
-| Azure PowerShell | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
-| .NET SDK | [Yes](quickstart-create-data-factory-dot-net.md) | [Yes](data-factory-build-your-first-pipeline-using-vs.md) |
-| REST API | [Yes](quickstart-create-data-factory-rest-api.md) | [Yes](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [Yes](quickstart-create-data-factory-python.md) | No |
-| Resource Manager template | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Azure portal** | [Yes](quickstart-create-data-factory-portal.md) | No |
+| **Azure PowerShell** | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **.NET SDK** | [Yes](quickstart-create-data-factory-dot-net.md) | [Yes](data-factory-build-your-first-pipeline-using-vs.md) |
+| **REST API** | [Yes](quickstart-create-data-factory-rest-api.md) | [Yes](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Python SDK** | [Yes](quickstart-create-data-factory-python.md) | No |
+| **Resource Manager template** | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## Roles and permissions
 

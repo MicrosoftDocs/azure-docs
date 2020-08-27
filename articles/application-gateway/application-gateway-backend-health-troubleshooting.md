@@ -4,8 +4,8 @@ description: Describes how to troubleshoot backend health issues for Azure Appli
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
 ---
 
@@ -204,7 +204,7 @@ here:
 
 | **Error** | **Actions** |
 | --- | --- |
-| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication at this point. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
+| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
 | Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. | |
 | Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. | |
 | Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. | |
@@ -243,7 +243,7 @@ Learn more about [Application Gateway probe matching](https://docs.microsoft.com
 #### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by
-a well-known Certificate Authority (CA). Whitelist the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
+a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
