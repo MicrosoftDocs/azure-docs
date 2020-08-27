@@ -16,7 +16,7 @@ In this article, you learn about Azure Machine Learning studio, the web portal f
 
 In this article you learn:
 >[!div class="checklist"]
-> - How to [author machine learning projects](#author-ml-projects) in the studio.
+> - How to [author machine learning projects](#author-machine-learning-projects) in the studio.
 > - How to [manage assets and resources](#manage-assets-and-resources) in the studio.
 > - The differences between [Azure Machine Learning studio and ML Studio (classic)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
@@ -63,7 +63,7 @@ Even if you're an experienced developer, the studio can simplify how you manage 
 
 ## ML Studio (classic) vs Azure Machine Learning studio
 
-Released in 2015, ML **Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
 
 **Azure Machine Learning** is a separate and modernized service that delivers a complete data science platform. It supports both code-first and low-code experiences.
 
