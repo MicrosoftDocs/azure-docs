@@ -105,8 +105,10 @@ object result = await client.GetDigitalTwin(id);
 
 This call returns twin data as a JSON string. 
 
-> [!TIP]
-> Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+
+>[!TIP]
+>The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
 
 To retrieve multiple twins using a single API call, see the query API examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
 

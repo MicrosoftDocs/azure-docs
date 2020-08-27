@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 07/25/2020
+ms.date: 08/13/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -44,6 +44,11 @@ With Azure Resource Graph, you can:
   each resource provider.
 - View the last 14 days of change history made to the resource to see what properties changed and
   when. (preview)
+
+> [!NOTE]
+> As a _preview_ feature, some `type` objects have additional non-Resource Manager properties
+> available. For more information, see
+> [Extended properties (preview)](./concepts/query-language.md#extended-properties).
 
 ## How Resource Graph is kept current
 

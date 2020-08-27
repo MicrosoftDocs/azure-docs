@@ -47,7 +47,7 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **Q: How does Azure Spatial Anchors store data?**
 
-**A:** All data is stored encrypted with a Microsoft managed data encryption key.
+**A:** All data is stored encrypted with a Microsoft managed data encryption key and all data is stored regionally for each of the resources.
 
 **Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?**
 
