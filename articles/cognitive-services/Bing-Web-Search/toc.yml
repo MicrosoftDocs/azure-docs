@@ -88,7 +88,7 @@
 - name: Resources
   items:
   - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Bing Web Search endpoint
     href: web-search-endpoints.md
   - name: Pricing

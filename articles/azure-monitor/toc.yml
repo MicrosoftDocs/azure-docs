@@ -454,18 +454,16 @@
       href: platform/autoscale-resource-log-schema.md 
   - name: Alerts
     items:
-    - name: Application alert rules
-      items:
-      - name: Availability
-        href: app/monitor-web-app-availability.md
-      - name: Metric alerts
-        href: ./platform/alerts-log.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
         href: platform/alerts-metric.md
+      - name: Availability
+        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: platform/alerts-dynamic-thresholds.md
+      - name: Single alerts for many time series
+        href: platform/alerts-metric-multiple-time-series-single-rule.md
       - name: Metric alerts on logs
         href: platform/alerts-metric-logs.md
       - name: Using Resource Manager template
@@ -624,13 +622,19 @@
           href: app/opencensus-python-dependency.md
         - name: Requests 
           href: app/opencensus-python-request.md
-      - name: Web pages
+      - name: JavaScript
         items:
         - name: Client-side JavaScript
           displayname: SPA, Single Page Applications, React, JS, Angular
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
+        - name: Plugins
+          items:
+          - name: React plugin
+            href: app/javascript-react-plugin.md
+          - name: React Native plugin
+            href: app/javascript-react-native-plugin.md 
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -1100,24 +1104,28 @@
       href: platform/workbooks-visualizations.md
     - name: Data sources
       href: platform/workbooks-data-sources.md
-    - name: Deploy with Azure Resource Manager
-      href: platform/workbooks-automate.md
+    - name: Parameters
+      items:
+      - name: Parameter summary
+        href: platform/workbooks-parameters.md
+      - name: Drop down parameters
+        href: platform/workbooks-dropdowns.md
+      - name: Interactive parameters
+        href: platform/workbooks-interactive.md
+      - name: Time parameters
+        href: platform/workbooks-time.md
+      - name: Text parameters
+        href: platform/workbooks-text.md
     - name: Configuration
       items:
       - name: Access control
         href: platform/workbooks-access-control.md
-      - name: Parameters
-        items:
-        - name: Parameter summary
-          href: platform/workbooks-parameters.md
-        - name: Drop down parameters
-          href: platform/workbooks-dropdowns.md
-        - name: Interactive parameters
-          href: platform/workbooks-interactive.md
-        - name: Time parameters
-          href: platform/workbooks-time.md
-        - name: Text parameters
-          href: platform/workbooks-text.md
+      - name: Deploy with Azure Resource Manager
+        href: platform/workbooks-automate.md
+      - name: Move Workbooks to another region
+        href: platform/workbooks-move-region.md
+      - name: Move Workbook Templates to another region
+        href: platform/workbook-templates-move-region.md
     - name: Convert views to workbooks
       items:
       - name: Conversion overview

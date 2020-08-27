@@ -11,9 +11,9 @@ ms.reviewer: sngun
 
 # Reading Azure Cosmos DB change feed
 
-You can work with the Azure Cosmos DB change feed using either a push model or a pull model. With a push model, a client requests work from a server and has business logic for processing a change. However, the complexity in checking for changes and storing state for the last processed changes is handled on the server.
+You can work with the Azure Cosmos DB change feed using either a push model or a pull model. With a push model, a server (the change feed) pushes work to a client that has business logic for processing this work. However, the complexity in checking for work and storing state for the last processed work is handled on the server.
 
-With a pull model, a server requests work, often requesting it from a central work queue. The client, in this case, not only has business logic for processing changes but also storing state for the last processed change, handling load balancing across multiple clients processing changes in parallel, and handling errors.
+With a pull model, the client has to pull the work from the server. The client, in this case, not only has business logic for processing work but also storing state for the last processed work, handling load balancing across multiple clients processing work in parallel, and handling errors.
 
 When reading from the Azure Cosmos DB change feed, we usually recommend using a push model because you won't need to worry about:
 

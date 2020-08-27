@@ -1,16 +1,12 @@
 ---
 title: 'Tutorial: Configure Workday inbound provisioning in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure inbound provisioning from Workday to Azure AD 
+description: Learn how to configure inbound provisioning from Workday to Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: fac4f61e-d942-4429-a297-9ba74db95077
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali

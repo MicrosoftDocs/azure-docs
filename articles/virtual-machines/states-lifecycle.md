@@ -18,137 +18,195 @@ Azure Virtual Machines (VMs) go through different states that can be categorized
 
 The power state represents the last known state of the VM.
 
-![VM power state diagram](./media/vm-power-states.png)
+![VM power state diagram](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
 
-<table>
-<tr>
-<th>
-State
-</th>
-<th>
-Description
-</th>
-<th>
-Instance usage billing
-</th>
-</tr>
-<tr>
-<td>
-<p><b>Starting</b></p>
-</td>
-<td>
-<p>VM is starting up.</p>
-<code>"statuses": [<br>
-   {<br>
-      "code": "PowerState/starting",<br>
-       "level": "Info",<br>
-        "displayStatus": "VM starting"<br>
-    }<br>
-    ]</code><br>
-</td>
-<td>
-<p><b>Not billed</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Running</b></p>
-</td>
-<td>
-<p>Normal working state for a VM</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/running",<br>
- "level": "Info",<br>
- "displayStatus": "VM running"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Billed</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Stopping</b></p>
-</td>
-<td>
-<p>This is a transitional state. When completed, it will show as **Stopped**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopping",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopping"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Billed</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Stopped</b></p>
-</td>
-<td>
-<p>The VM has been shut down from within the guest OS or using the PowerOff APIs.</p>
-<p>Hardware is still allocated to the VM and it remains on the host. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopped",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopped"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Billed&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Deallocating</b></p>
-</td>
-<td>
-<p>Transitional state. When completed, the VM will show as **Deallocated**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocating",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocating"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Not billed&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Deallocated</b></p>
-</td>
-<td>
-<p>The VM has been stopped successfully and removed from the host. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocated",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocated"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Not billed</b></p>
-</td>
-</tr>
-</tbody>
-</table>
+:::row:::
+   :::column span="":::
+
+   **State**
+   
+   :::column-end:::
+   :::column span="":::
+
+   **Description**
+
+   :::column-end:::
+   :::column span="":::
+
+   **Instance usage billed**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Starting**
+
+   :::column-end:::
+   :::column span="":::
+
+   VM is starting up.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/starting",
+    "level": "Info",
+    "displayStatus": "VM starting"
+    }
+   ]
+   ```
+   :::column-end:::
+   :::column span="":::
+
+   **Not billed**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Running**
+
+   :::column-end:::
+   :::column span="":::
+
+   Normal working state for a VM
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/running",
+    "level": "Info",
+    "displayStatus": "VM running"
+    }
+  ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Billed**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stopping**
+
+   :::column-end:::
+   :::column span="":::
+
+   This is a transitional state. When completed, it will show as **Stopped**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopping",
+    "level": "Info",
+    "displayStatus": "VM stopping"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Billed**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stopped**
+
+   :::column-end:::
+   :::column span="":::
+
+   The VM has been shut down from within the guest OS or using the PowerOff APIs.
+
+   Hardware is still allocated to the VM and it remains on the host.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopped",
+    "level": "Info",
+    "displayStatus": "VM stopped"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Billed***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Deallocating**
+
+   :::column-end:::
+   :::column span="":::
+
+   Transitional state. When completed, the VM will show as **Deallocated**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocating",
+    "level": "Info",
+    "displayStatus": "VM deallocating"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Not billed***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Deallocated**
+
+   :::column-end:::
+   :::column span="":::
+
+   The VM has been stopped successfully and removed from the host.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocated",
+    "level": "Info",
+    "displayStatus": "VM deallocated"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Not billed**
+
+   :::column-end:::
+:::row-end:::
 
 
-&#42;Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
+&#42; Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
 
 ## Provisioning states
 
@@ -166,86 +224,159 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 
 Here are the transitional operation states after the platform has accepted a user-initiated action:
 
-<br>
+:::row:::
+   :::column span="":::
 
-<table>
-<tbody>
-<tr>
-<td width="162">
-<p><b>States</b></p>
-</td>
-<td width="366">
-<p>Description</p>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Creating</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating",<br>
- "level": "Info",<br>
- "displayStatus": "Creating"<br>
- }</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Updating</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/updating",<br>
- "level": "Info",<br>
- "displayStatus": "Updating"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Deleting</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/deleting",<br>
- "level": "Info",<br>
- "displayStatus": "Deleting"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>OS provisioning states</b></p>
-</td>
-<td width="366">
-<p>If a VM is created with an OS image and not with a specialized image, then following substates can be observed:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; The VM is running, and installation of guest OS is in progress. <p /> 
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning In progress"<br>
- }<br>
-]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state. The VM quickly transitions to **Success** unless any extensions need to be installed. Installing extensions can take time. <br />
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning Complete"<br>
- }<br>
-]</code><br>
-<p><b>Note</b>: OS Provisioning can transition to **Failed** if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
-</td>
-</tr>
-</table>
+   **State**
+   
+   :::column-end:::
+   :::column span="2":::
 
+   **Description**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Creating**
+
+   :::column-end:::
+   :::column span="2":::
+
+  ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating",
+    "level": "Info",
+    "displayStatus": "Creating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Updating**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/updating",
+    "level": "Info",
+    "displayStatus": "Updating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Deleting**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/deleting",
+    "level": "Info",
+    "displayStatus": "Deleting"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OS provisioning states**
+   
+   :::column-end:::
+   :::column span="2":::
+
+   **Description**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+
+
+   :::column-end:::
+   :::column span="2":::
+
+   If a VM is created with an OS image and not with a specialized image, then following substates can be observed:
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningInprogress**
+
+   :::column-end:::
+   :::column span="2":::
+
+   The VM is running, and installation of guest OS is in progress.
+ 
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningInprogress",
+    "level": "Info",
+    "displayStatus": "OS Provisioning In progress"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningComplete**
+
+   :::column-end:::
+   :::column span="2":::
+   
+   Short-lived state. The VM quickly transitions to **Success** unless any extensions need to be installed. Installing extensions can take time.
+   
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningComplete",
+    "level": "Info",
+    "displayStatus": "OS Provisioning Complete"
+    }
+   [
+   ```
+   
+   **Note**: OS Provisioning can transition to **Failed** if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.
+
+   :::column-end:::
+
+:::row-end:::
 
 Once the operation is complete, the VM will transition into one of the following states:
 
@@ -287,6 +418,8 @@ The instance view API provides VM running-state information. For more informatio
 Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer](https://resources.azure.com/).
 
 Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM.
+
+To retrieve the power state of all the VMs in your subscription, use the [Virtual Machines - List All API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) with parameter **statusOnly** set to *true*.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure an App Service app in the Azure portal
@@ -39,7 +39,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 App settings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> App settings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
+> App settings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
 
 ### Show hidden values
 
@@ -110,7 +110,7 @@ For example, a MySql connection string named *connectionstring1* can be accessed
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> Connection strings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
+> Connection strings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
 
 ### Show hidden values
 

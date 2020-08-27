@@ -189,4 +189,4 @@ The following view is from the **Datasets** pane under **Assets**. Select the da
 ## Next steps
 
 * [Train with datasets](how-to-train-with-datasets.md)
-* [More sample dataset notebooks](https://aka.ms/dataset-tutorial)
+* [More sample dataset notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

@@ -6,7 +6,7 @@ ms.author: sudbalas
 ms.date: 06/08/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 
 ---
 # Authenticate to Azure Key Vault
@@ -107,14 +107,9 @@ At this point you have a registered service principal. You can view it by select
 1. Create a certificate
 
     * Option 1: Create a certificate using [OpenSSL](https://www.openssl.org/) (for test purposes only, do not use self-signed certificates in production)
-
-    ```console
-    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-    ```
-
     * Option 2: Create a certificate using key vault. [Create a certificate in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
 
-1. Download the certificate in the PEM format
+1. Download the certificate in the PEM/PFX format
 1. Log in to the Azure portal and navigate to Azure Active Directory
 1. Click "App Registrations"
 1. Select the service principal you created in Part 1.

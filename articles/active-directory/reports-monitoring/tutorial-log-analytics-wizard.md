@@ -151,7 +151,7 @@ Look at the sign-ins where the Conditional Access was a success
 
 Count how many successes there have been
 
-`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count'
+`SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count`
 
 
 Aggregate count of successful sign-ins by user by day:
