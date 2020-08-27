@@ -1021,7 +1021,7 @@
         - name: Always On availability group
           items:
           - name: Azure portal
-            href: virtual-machines/windows/availability-group-az-portal-configure.md
+            href: virtual-machines/windows/availability-group-azure-portal-configure.md
           - name: PowerShell or Az CLI
             href: virtual-machines/windows/availability-group-az-commandline-configure.md
           - name: Azure Quickstart templates

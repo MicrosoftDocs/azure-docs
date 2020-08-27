@@ -22,7 +22,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-az-portal-configure.md). This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. | 
+| **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-azure-portal-configure.md). This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. | 
 
 
 ## July 2020
