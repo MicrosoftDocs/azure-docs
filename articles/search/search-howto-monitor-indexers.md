@@ -10,6 +10,7 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
+ms.custom: devx-track-csharp
 ---
 
 # How to monitor Azure Cognitive Search indexer status and results

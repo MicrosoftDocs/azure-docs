@@ -100,7 +100,7 @@ Hit the *Sign in* button at the top of the window to configure ADT Explorer to w
 Enter the important information you gathered earlier in the [Prerequisites](#prerequisites) section:
 * Application (client) ID
 * Directory (tenant) ID
-* ADT URL, in the format *https://<instance host name>*
+* ADT URL, in the format *https://{instance host name}*
 
 >[!NOTE]
 > You can revisit/edit this information at any time by selecting the same icon to pull up the Sign In box again. It will keep the values that you passed in.

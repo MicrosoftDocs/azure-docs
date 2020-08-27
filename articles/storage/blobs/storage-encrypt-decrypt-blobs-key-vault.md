@@ -11,6 +11,7 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial - Encrypt and decrypt blobs using Azure Key Vault
