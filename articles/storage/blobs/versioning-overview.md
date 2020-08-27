@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli
@@ -106,7 +106,7 @@ To automate the process of moving block blobs to the appropriate tier, use blob 
 
 ## Enable or disable blob versioning
 
-To learn how to enable or disable blob versioning, see [Enable or disable blob versioning](versioning-enable.md).
+To learn how to enable or disable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 Disabling blob versioning does not delete existing blobs, versions, or snapshots. When you turn off blob versioning, any existing versions remain accessible in your storage account. No new versions are subsequently created.
 
@@ -213,7 +213,7 @@ For more information about billing details for blob snapshots, see [Blob snapsho
 
 If you have not explicitly set the blob tier for a base blob or any of its versions, then you are charged for unique blocks or pages across the blob and its versions. Data that is shared across a blob and its versions is charged only once. When a blob is updated, then data in a base blob diverges from the data stored in its versions, and the unique data is charged per block or page.
 
-When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the version. After the block is committed again, it diverges from its counterpart in any version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
+When you replace a block within a block blob, that block is subsequently charged as a unique block. This is true even if the block has the same block ID and the same data as it has in the version. After the block is committed again, it diverges from its counterpart in any existing version, and you will be charged for its data. The same holds true for a page in a page blob that's updated with identical data.
 
 Blob storage does not have a means to determine whether two blocks contain identical data. Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID. Because charges accrue for unique blocks, it's important to consider that updating a blob when versioning is enabled will result in additional unique blocks and additional charges.
 
@@ -253,17 +253,17 @@ If you have explicitly set the blob tier for a blob or version (or snapshot), th
 
 The following table describes the billing behavior for a blob or version when it is moved to a new tier.
 
-| When blob tier is set explicitly on… | Then you are billed for this number of objects |
+| When blob tier is set explicitly on… | Then you are billed for... |
 |-|-|
-| A base blob with a previous version | Two objects: the base blob in the new tier and the version in the original tier.<sup>1</sup> |
-| A base blob with a previous version and a snapshot | Three objects: the base blob in the new tier, the version in the original tier, and the snapshot in the original tier<sup>1</sup>. |
-| A previous version | Two objects: the version in the new tier and the base blob in the original tier.<sup>1</sup> |
+| A base blob with a previous version | The base blob in the new tier and the oldest version in the original tier, plus any unique blocks in other versions.<sup>1</sup> |
+| A base blob with a previous version and a snapshot | The base blob in the new tier, the oldest version in the original tier, and the oldest snapshot in the original tier, plus any unique blocks in other versions or snapshots<sup>1</sup>. |
+| A previous version | The version in the new tier and the base blob in the original tier, plus any unique blocks in other versions.<sup>1</sup> |
 
 <sup>1</sup>If there are other previous versions or snapshots that have not been moved from their original tier, those versions or snapshots are charged based on the number of unique blocks they contain, as described in [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
-Explicitly setting the tier for a blob or version cannot be undone. If you move a blob to a new tier and then move it back to its original tier, you are charged for the full content length of the object even if it shares blocks with other objects in the original tier.
+Explicitly setting the tier for a blob, version, or snapshot cannot be undone. If you move a blob to a new tier and then move it back to its original tier, you are charged for the full content length of the object even if it shares blocks with other objects in the original tier.
 
-Operations that explicitly set the tier of a blob or version include:
+Operations that explicitly set the tier of a blob, version, or snapshot include:
 
 - [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 - [Put Blob](/rest/api/storageservices/put-blob) with tier specified
@@ -274,15 +274,15 @@ Operations that explicitly set the tier of a blob or version include:
 
 If you delete or overwrite a base blob that has had its tier explicitly set when blob soft delete is enabled, then any previous versions of the soft-deleted blob are billed at full content length. For more information about how blob versioning and soft delete work together, see [Blob versioning and soft delete](#blob-versioning-and-soft-delete).
 
-The following table describes the billing behavior for a blob that is soft-deleted, depending on whether versioning is enabled or disabled.
+The following table describes the billing behavior for a blob that is soft-deleted, depending on whether versioning is enabled or disabled. When versioning is enabled, a version is created when a blob is soft-deleted. When versioning is disabled, soft-deleting a blob creates a soft-delete snapshot.
 
-| When you overwrite a base blob with its tier explicitly set… | Billing behavior |
+| When you overwrite a base blob with its tier explicitly set… | Then you are billed for... |
 |-|-|
-| If blob soft delete and versioning are both enabled | All existing versions are billed at full content length regardless of tier. |
-| If blob soft delete is enabled but versioning is disabled | All existing soft-delete snapshots are billed at full content length regardless of tier. |
+| If blob soft delete and versioning are both enabled | All existing versions at full content length regardless of tier. |
+| If blob soft delete is enabled but versioning is disabled | All existing soft-delete snapshots at full content length regardless of tier. |
 
 ## See also
 
-- [Enable blob versioning](versioning-enable.md)
+- [Enable and manage blob versioning](versioning-enable.md)
 - [Creating a snapshot of a blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Soft delete for Azure Storage Blobs](storage-blob-soft-delete.md)

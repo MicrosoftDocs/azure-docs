@@ -157,5 +157,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## Next steps
 
 - [Blob snapshots](snapshots-overview.md)
-- [Blob versions (preview)](versioning-overview.md)
+- [Blob versions](versioning-overview.md)
 - [Soft delete for blobs](storage-blob-soft-delete.md)

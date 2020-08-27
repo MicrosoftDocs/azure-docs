@@ -30,7 +30,7 @@ A storage account can serve as the source account for up to two destination acco
 Before you begin, make sure that you have registered for the following feature previews:
 
 - [Object replication (preview)](object-replication-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)
 - [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
 
 # [Azure portal](#tab/portal)
