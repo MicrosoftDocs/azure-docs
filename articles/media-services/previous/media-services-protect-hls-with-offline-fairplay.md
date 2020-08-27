@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/07/2020
 ms.author: willzhan
 ms.reviewer: dwgeo
+ms.custom: devx-track-csharp
 
 ---
 # Offline FairPlay Streaming for iOS 

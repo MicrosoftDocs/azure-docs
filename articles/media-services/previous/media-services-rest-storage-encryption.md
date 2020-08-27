@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Encrypting your content with storage encryption 
