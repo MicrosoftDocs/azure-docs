@@ -44,7 +44,7 @@ This command performs the following actions, which may take a few minutes:
 - Generates a server name if it is not provided.
 - Create a new virtual network for your new MySQL server. Make a note of virtual network name and subnet name created for your server since you need to add the web app to the same virtual network.
 - Creates admin username , password for your server if not provided.
-- Creates an empty database called **postgres**
+- Creates an empty database called **flexibleserverdb**
 
 > [!NOTE]
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
@@ -99,4 +99,3 @@ Clean up all resources you created in the tutorial using the following command. 
 ```azurecli
 az group delete -n myresourcegroup
 ```
-
