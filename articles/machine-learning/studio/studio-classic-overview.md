@@ -1,5 +1,5 @@
 ---
-title: What can I do with Studio (classic) - Azure 
+title: What can I do with Machine Learning Studio (classic) - Azure 
 description: Machine Learning Studio (classic) is a drag-and-drop tool for quickly building models from a library of ready-to-use algorithms and modules.
 
 services: machine-learning
