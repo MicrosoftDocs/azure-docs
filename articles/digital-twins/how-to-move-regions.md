@@ -229,7 +229,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Time Series Insights
 * Azure Maps
 * Device Provisioning Service (DPS)
-* Personal or company apps outside of Azure, such as the **client app** created in [*Tutorial: Code a client app*](tutorial-code.md)
+* Personal or company apps outside of Azure, such as the **client app** created in [*Tutorial: Code a client app*](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs
 
 <!-- Is it correct that you should re-publish the Azure function? -->
 
