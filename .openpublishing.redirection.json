@@ -56206,7 +56206,7 @@
     },
     {
       "source_path": "articles/cognitive-services/personalizer/sdk-learning-loop.md",
-      "redirect_url": "azure/cognitive-services/personalizer/quickstart-personalizer-sdk",
+      "redirect_url": "/azure/cognitive-services/personalizer/quickstart-personalizer-sdk",
       "redirect_document_id": true
     },
     {

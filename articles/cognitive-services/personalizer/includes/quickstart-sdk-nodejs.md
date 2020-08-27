@@ -83,7 +83,7 @@ Determining the reward, in this quickstart is trivial. In a production system, t
 
 These code snippets show you how to do the following with the Personalizer client library for Node.js:
 
-* [Create a Personalizer client](#create-a-personalizer-client)
+* [Create a Personalizer client](#authenticate-a-client)
 * [Rank API](#request-the-best-action)
 * [Reward API](#send-a-reward)
 
