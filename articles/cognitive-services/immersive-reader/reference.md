@@ -180,7 +180,7 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 | Name | Type | Description |
 | ---- | ---- |------------ |
 | content | String | The string that contains the content sent to the Immersive Reader. |
-| lang | String | Language of the text, e.g. en, es-ES (optional). Language will be detected automatically if not specified. See [Supported Languages](#supported-languages). |
+| lang | String | Language of the text, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Language will be detected automatically if not specified. See [Supported Languages](#supported-languages). |
 | mimeType | string | Plain text, MathML, HTML & Microsoft Word DocX formats are supported. See [Supported MIME types](#supported-mime-types) for more details. |
 
 ### -content
