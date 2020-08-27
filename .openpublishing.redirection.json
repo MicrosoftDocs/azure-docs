@@ -27775,7 +27775,7 @@
     },
     {
       "source_path": "articles/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": true
     },
     {
@@ -27805,7 +27805,7 @@
     },
     {
       "source_path": "articles/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
-      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
+      "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
       "redirect_document_id": true
     },
     {
