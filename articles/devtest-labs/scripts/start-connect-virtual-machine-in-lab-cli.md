@@ -1,20 +1,9 @@
 ---
 title: Azure CLI Script Sample - Start a virtual machine in a lab | Microsoft Docs
 description: This Azure CLI script starts a virtual machine in a lab in Azure DevTest Labs. 
-services: lab-services
-author: spelluru
-manager: 
-editor: 
-
-ms.assetid:
-ms.service: lab-services
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/12/2018
-ms.author: spelluru
-ms.custom: mvc
+ms.date: 08/11/2020
 ---
 
 # Use Azure CLI to start a virtual machine in a lab in Azure DevTest Labs

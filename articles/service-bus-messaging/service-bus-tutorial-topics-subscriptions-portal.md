@@ -405,7 +405,7 @@ For more examples of sending and receiving messages, get started with the [Servi
 Advance to the next tutorial to learn more about using the publish/subscribe capabilities of Service Bus.
 
 > [!div class="nextstepaction"]
-> [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Respond to events via Event Grid](service-bus-to-event-grid-integration-example.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

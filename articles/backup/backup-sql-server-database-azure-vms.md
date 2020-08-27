@@ -1,10 +1,10 @@
 ---
-title: Back up SQL Server databases in Azure VMs
-description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup.
+title: Back up multiple SQL Server VMs from the vault
+description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: conceptual
 ms.date: 09/11/2019
 ---
-# Back up SQL Server databases in Azure VMs
+# Back up multiple SQL Server VMs from the Recovery Services vault
 
 SQL Server databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
@@ -104,7 +104,7 @@ Avoid using the following elements in database names:
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 >[!NOTE]
->The **Configure Protection** operation for databases with special characters like "+" or "&" in their name is not supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
+>The **Configure Protection** operation for databases with special characters like "+" or "&" in their name isn't supported. You can either change the database name or enable **Auto Protection**, which can successfully protect these databases.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -248,7 +248,7 @@ To create a backup policy:
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 ## Enable auto-protection  
 

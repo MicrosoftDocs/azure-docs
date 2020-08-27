@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: devx-track-python
 #Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
@@ -21,7 +21,7 @@ In this quickstart, you'll use the Azure Face REST API with Python to detect hum
 
 ![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../images/labelled-faces-python.png)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 
 ## Prerequisites

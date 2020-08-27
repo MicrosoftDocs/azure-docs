@@ -1,7 +1,7 @@
 ---
 title: Managing concurrency
 titleSuffix: Azure Storage
-description: Learn how to manage concurrency for the Blob, Queue, Table, and File services.
+description: Learn how to manage concurrency in Azure Storage for the Blob, Queue, Table, and File services. Understand the three main data concurrency strategies used.
 services: storage
 author: tamram
 

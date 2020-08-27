@@ -32,7 +32,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 ## Language
 
-* [Immersive Reader (Preview)](./immersive-reader/language-support.md)
+* [Immersive Reader](./immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
 * [Text Analytics](./text-analytics/text-analytics-supported-languages.md)

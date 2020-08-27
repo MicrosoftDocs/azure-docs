@@ -1,6 +1,6 @@
 ﻿---
 title: Grant permission to applications to access an Azure key vault - Azure Key Vault | Microsoft Docs
-description: Learn how to grant permission to many applications to access a key vault
+description: Learn how to register a service principal manually and provide access to Azure Key Vault using an access control policy, which may be necessary in some cases.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/27/2019
 ms.author: mbaldwin
 
@@ -151,7 +151,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <ApplicationID-of-yo
 With Azure PowerShell, this is done by passing the objectId to the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. 
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <Id>
+Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <Id>
 
 ```
 

@@ -51,7 +51,8 @@ In Example 2 above, a volume from a capacity pool with the Premium storage tier 
 
 ## Next steps
 
-- See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
-- See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) for the calculation of the capacity consumption in a capacity pool 
+- [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) 
 - [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-- See [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 

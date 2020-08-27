@@ -1,6 +1,6 @@
 ---
-title: Migrate AWS VMs to Azure with the Azure Site Recovery service | Microsoft Docs
-description: This article describes how to migrate Windows VMs running in Amazon Web Services (AWS) to Azure using Azure Site Recovery.
+title: Migrate AWS VMs to Azure with Azure Migrate
+description: This article describes options for migrating AWS instances to Azure, and recommends Azure Migrate.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -17,7 +17,7 @@ This article describes options for migrating Amazon Web Services (AWS) instances
 
 ## Migrate with Azure Migrate
 
-We recommend that you migrate AWS instances to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate provides a centralized hub for assessment and migration of on-premises machines to Azure, using Azure Migrate, other Azure services, and third-party tools.
+We recommend that you migrate AWS EC2 instances to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate is purpose-built for server migration. Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure.
 
 [Learn how](../migrate/tutorial-migrate-aws-virtual-machines.md) to migrate AWS instances with Azure Migrate. 
 

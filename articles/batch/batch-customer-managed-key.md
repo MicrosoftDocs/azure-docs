@@ -15,7 +15,7 @@ By default Azure Batch uses platform-managed keys to encrypt all the customer da
 The keys you provide must be generated in [Azure Key Vault](../key-vault/general/basic-concepts.md), and the Batch accounts you want to configure with customer-managed keys have to be enabled with [Azure Managed Identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Support for customer-managed keys in Azure Batch is currently in public preview for the West Central US, East US, South Central US, West US 2, US Gov Virginia, and US Gov Arizona regions.
+> Support for customer-managed keys in Azure Batch is currently in public preview for the West Europe, North Europe, Switzerland North, Central US, South Central US, West Central US, East US, East US 2, West US 2, US Gov Virginia, and US Gov Arizona regions.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -78,7 +78,7 @@ In the **Select** field under **Principal**, fill in the `principalId` that you 
 
 ### Generate a key in Azure Key Vault
 
-In the Azure portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **Key Size** to be `2048`.
+In the Azure portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **RSA Key Size** to be at least `2048` bits. `EC` key types are currently not supported as a customer-managed key on a Batch account.
 
 ![Create a key](./media/batch-customer-managed-key/create-key.png)
 
@@ -138,6 +138,7 @@ az batch account set \
 ```
 ## Frequently asked questions
   * **Are customer-managed keys supported for existing Batch accounts?** No. Customer-managed keys are only supported for new Batch accounts.
+  * **Can I select RSA key sizes larger than 2048 bits?** Yes, RSA key sizes of `3072` and `4096` bits are also supported.
   * **What operations are available after a customer-managed key is revoked?** The only operation allowed is account deletion if Batch loses access to the customer-managed key.
   * **How should I restore access to my Batch account if I accidentally delete the Key Vault key?** Since purge protection and soft delete are enabled, you could restore the existing keys. For more information, see [Recover an Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **Can I disable customer-managed keys?** You can set the encryption type of the Batch Account back to "Microsoft managed key" at any time. After this, you are free to delete or change the key.

@@ -143,7 +143,7 @@ Here, you can view all the policies that impacted the sign-in and the result for
 
 * **Not Applied**: This means that there was no CA policy with the user and app in scope. 
 * **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
-* **Failure**: This means that there was a CA policy with the user and app in scope and CA policies were not satisfied. 
+* **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
     
 **Q: What are all possible values for the Conditional Access policy result?**
 

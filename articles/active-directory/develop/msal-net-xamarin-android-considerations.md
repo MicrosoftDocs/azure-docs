@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about special requirements for using Xamarin Android and MSAL.NET.
 ---
 
@@ -160,7 +160,6 @@ For more information, see the sample of a [Xamarin mobile application that uses 
 | Sample | Platform | Description |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.iOS, Android, UWP | A simple Xamarin.Forms app that shows how to use MSAL to authenticate Microsoft personal accounts and Azure AD through the Azure AD 2.0 endpoint. The app also shows how to access Microsoft Graph and shows the resulting token. <br>![Topology](media/msal-net-xamarin-android-considerations/topology.png) |
-
 
 <!-- REF LINKS -->
 [PublicClientApplication]: /dotnet/api/microsoft.identity.client.publicclientapplication

@@ -18,12 +18,12 @@ Requests made by a security principal to access an App Configuration resource mu
 
 The authentication step requires that an application request contains an OAuth 2.0 access token at runtime.  If an application is running within an Azure entity, such as an Azure Functions app, an Azure Web App, or an Azure VM, it can use a managed identity to access the resources.  To learn how to authenticate requests made by a managed identity to Azure App Configuration, see [Authenticate access to Azure App Configuration resources with Azure Active Directory and managed identities for Azure Resources](howto-integrate-azure-managed-service-identity.md).
 
-The authorization step requires that one or more RBAC roles be assigned to the security principal. Azure App Configuration provides RBAC roles that encompass sets of permissions for App Configuration resources. The roles that are assigned to a security principal determine the permissions provided to the principal. For more information about RBAC roles, see [Azure built-in roles for Azure App Configuration](#azure-built-in-roles-for-azure-app-configuration). 
+The authorization step requires that one or more Azure roles be assigned to the security principal. Azure App Configuration provides Azure roles that encompass sets of permissions for App Configuration resources. The roles that are assigned to a security principal determine the permissions provided to the principal. For more information about Azure roles, see [Azure built-in roles for Azure App Configuration](#azure-built-in-roles-for-azure-app-configuration). 
 
-## Assign RBAC roles for access rights
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../role-based-access-control/overview.md).
+## Assign Azure roles for access rights
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
-When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access is scoped to the App Configuration resource. An Azure AD security principal may be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access is scoped to the App Configuration resource. An Azure AD security principal may be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Azure built-in roles for Azure App Configuration
 Azure provides the following Azure built-in roles for authorizing access to App Configuration data using Azure AD and OAuth:

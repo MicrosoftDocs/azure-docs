@@ -1,12 +1,9 @@
 ---
 title: Windows Virtual Desktop FAQ - Azure
 description: Frequently asked questions and best practices for Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -20,7 +17,7 @@ If you want to create host pools and other objects, you must be assigned the Con
 
 You must be assigned the User Access Admin role on an app group to publish app groups to users or user groups.
 
-To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example: 
+To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example:
 
 ```powershell
 "actions": [
@@ -41,11 +38,9 @@ To restrict an admin to only manage user sessions, such as sending messages to u
 
 ## Does Windows Virtual Desktop support split Azure Active Directory models?
 
-When a user is assigned to an app group, the service does a simple Azure role-based access control (RBAC) role assignment. As a result, the user’s Azure Active Directory (AD) and the app group’s Azure AD must be in the same location. All service objects, such as host pools, app groups, and workspaces, also must be in the same Azure AD as the user.
+When a user is assigned to an app group, the service does a simple Azure role assignment. As a result, the user’s Azure Active Directory (AD) and the app group’s Azure AD must be in the same location. All service objects, such as host pools, app groups, and workspaces, also must be in the same Azure AD as the user.
 
 You can create virtual machines (VMs) in a different Azure AD as long as you sync the Active Directory with the user's Azure AD in the same virtual network (VNET).
-
-Azure Lighthouse doesn't fully support managing the Windows Virtual Desktop environment. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
 
 ## What are location restrictions?
 
@@ -111,7 +106,7 @@ Once you create a host pool, you can't change its type. However, you can move an
 
 Limitations or quotas in FSLogix depend on the storage fabric used to store user profile VHD(X) files.
 
-The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile. 
+The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
 
 | Resource | Requirement |
 |---|---|
@@ -129,3 +124,11 @@ These factors can affect scale limit for host pools:
 - There are restrictions on how many cores you can create per region and per subscription. For example, if you have an Enterprise Agreement subscription, you can create 350 cores. You'll need to divide 350 by either the default number of cores per VM or your own core limit to determine how many VMs you can create each time you run the template. Learn more at [Virtual Machines limits - Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - The VM prefix name and the number of VMs is fewer than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## Can I manage Windows Virtual Desktop environments with Azure Lighthouse?
+
+Azure Lighthouse doesn't fully support managing Windows Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
+
+You also can't use CSP sandbox subscriptions with the Windows Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.

@@ -9,7 +9,7 @@ author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
 ms.topic: conceptual
-ms.custom: how-to, designer, tracking-python
+ms.custom: how-to, designer, devx-track-python
 ---
 
 # Run Python code in Azure Machine Learning designer

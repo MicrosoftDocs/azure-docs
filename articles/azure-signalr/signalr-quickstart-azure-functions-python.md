@@ -7,7 +7,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using Python
 

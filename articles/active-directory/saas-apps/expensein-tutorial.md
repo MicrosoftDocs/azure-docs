@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ExpenseIn | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ExpenseIn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 6ac8053b-a216-45d8-bf5e-ecd37d808e57
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate ExpenseIn with Azure Active Directory
@@ -125,7 +119,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ExpenseIn SSO
 
-1. Open a new web browser window and sign into your ExpenseIn company site as an administrator.
+1. To automate the configuration within ExpenseIn, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up ExpenseIn** will direct you to the ExpenseIn application. From there, provide the admin credentials to sign into ExpenseIn. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup ExpenseIn manually, log in to your ExpenseIn company site as an administrator.
 
 1. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
 
