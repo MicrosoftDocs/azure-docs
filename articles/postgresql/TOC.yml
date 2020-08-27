@@ -8,10 +8,10 @@
     items:
 - name: Migration
   items:
-      - name: Migrate data with mysqldump or phpmyadmin
+      - name: Migrate data with pg_dump and pg_restore
         href: howto-migrate-using-dump-and-restore.md
         displayName: pg_dump, pg_restore
-      - name: Migrate data with MySQL Workbench
+      - name: Migrate data with pg_dump and psql 
         href: howto-migrate-using-export-and-import.md
         displayName: import , export
       - name: Minimal-downtime migration with DMS
