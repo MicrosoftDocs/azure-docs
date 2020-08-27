@@ -50,7 +50,8 @@ Create the resources required to run an ML pipeline:
 * Set up a datastore used to access the data needed in the pipeline steps.
 
 * Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure a `PipelineData` object for temporary data passed between pipeline steps. 
-    > [!NOTE]
+
+    > [!TIP]
     > An improved experience for passing temporary data between pipeline steps is available in the public preview class,  `OutputFileDatasetConfig`.  This class is an experimental preview feature, and may change at any time.
     > 
     >For more information about experimental features, see https://aka.ms/azuremlexperimental.
@@ -101,9 +102,8 @@ output_data1 = PipelineData(
 
 ```
 
-> [!NOTE]
-> You can also use the `OutputFileDatasetConfig` class forthe abilitiy to persist intermediate data between steps and write back to datastores more easily. 
->More details and sample code for working with OutputFileConfig objects are in [this notebook]().
+> [!TIP]
+> Persisting intermediate data between pipeline steps is also possible with the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
 ## Set up a compute target
 
@@ -212,9 +212,11 @@ It's possible to create a pipeline with a single step, but almost always you'll 
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = OutputFileDatasetConfig(name = "training_results", 
-                                           destination=def_blob_store)
+training_results = PipelineData(name = "training_results", 
+                                datastore=def_blob_store,
+                                output_name="training_results")
 
+    
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
@@ -228,8 +230,8 @@ train_step = PythonScriptStep(
 The above code is very similar to that for the data preparation step. The training code is in a directory separate from that of the data preparation code. The `PipelineData` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `PipelineData` object, `training_results` is created to hold the results for a subsequent comparison or deployment step. 
 
 
-> [!NOTE]
-> For an improved experience and the ability to write intermediate data back to your datastores, use the public preview class, `OutputFileDatasetConfig`. For a code example, see [this notebook](). 
+> [!TIP]
+> For an improved experience, and the ability to write intermediate data back to your datastores at the end of your pipeline run, use the public preview class, `OutputFileDatasetConfig`. Learn more about `OutputFileDatasetConfig` design patterns and methods in [the SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py).
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 
@@ -251,7 +253,9 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py), or if you want to write data to a specific datastore use [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Writing output data back to a datastore using PipelineData is only supported for Azure Blob and Azure File share datastores. To write output data back to Azure Blob, Azure File share, ADLS Gen 1 and ADLS Gen 2 datastores use the **public preview** class [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py).
+> Writing output data back to a datastore using PipelineData is only supported for Azure Blob and Azure File share datastores. 
+>
+> To write output data back to Azure Blob, Azure File share, ADLS Gen 1 and ADLS Gen 2 datastores use the public preview class, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py).
 
 ```python
 dataset_consuming_step = PythonScriptStep(
