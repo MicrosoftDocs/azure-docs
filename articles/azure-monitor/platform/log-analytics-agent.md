@@ -210,9 +210,6 @@ For the Linux agent, the proxy server is specified during installation or [after
 
 `[protocol://][user:password@]proxyhost[:port]`
 
-> [!NOTE]
-> If your proxy server does not require you to authenticate, the Linux agent still requires providing a pseudo user/password. This can be any username or password.
-
 |Property| Description |
 |--------|-------------|
 |Protocol | https |
