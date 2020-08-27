@@ -9,6 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 # Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 

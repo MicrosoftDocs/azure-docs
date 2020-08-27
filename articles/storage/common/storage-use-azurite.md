@@ -8,6 +8,7 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ---
 
 # Use the Azurite emulator for local Azure Storage development
