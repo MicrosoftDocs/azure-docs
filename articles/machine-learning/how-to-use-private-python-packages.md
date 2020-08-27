@@ -92,15 +92,14 @@ You can consume packages from an Azure storage account within your organization'
 
 To set up such private storage:
 
- 1. [Place the Workspace inside a virtual network (VNet)](how-to-enable-virtual-network.md).
- 2. Create a storage account and [disallow public access](https://docs.microsoft.com/azure/storage/common/storage-network-security).
- 2. Place the Python packages you want to use into a container within the storage account 
- 3. [Allow the storage account access from Workspace VNet](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
- 
-> [!IMPORTANT]
-> To use these packages for training or deployment with Azure Machine Learning, you must also put the Azure Container Registry (ACR) used by the workspace in the VNet. This allows the container registry to access the packages stored in the storage account.
-> 
-> For the configuration steps to use ACR behind a VNet, see [Network isolation during training & inference](how-to-enable-virtual-network.md#azure-container-registry).
+1. [Place the Workspace inside a virtual network (VNet)](how-to-enable-virtual-network.md).
+1. Create a storage account and [disallow public access](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+1. Place the Python packages you want to use into a container within the storage account 
+1. [Allow the storage account access from Workspace VNet](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
+1. [Place the Azure Container Registry (ACR) for the workspace behind the VNet](how-to-enable-virtual-network.md#azure-container-registry).
+
+    > [!IMPORTANT]
+    > You must complete this step to be able to train or deploy models using the private package repository.
 
 After completing these configurations, you can reference the packages in the Azure Machine Learning environment definition by their full URL in Azure blob storage.
 
