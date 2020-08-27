@@ -30,7 +30,7 @@ Based on the information bubble next to the VM, there are different actions to t
 
 **How can a verifier obtain the attestation collateral supported by Azure Attestation**
 
-**Does Azure Attestation support nodes in environments other than Azure**
+**Does Azure Attestation support the attestation of enclaves in environments other than Azure**
 
 **How can the relying party verify the integrity of attestation token**
 
