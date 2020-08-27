@@ -283,9 +283,9 @@ This command provides a detailed output that contains the status of kernel featu
 
 ## Install runtime using release assets
 
-Use the steps in this section if you want to install a specific version of Moby and the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
-Using curl commands, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to install libiothsm and the IoT Edge security daemon. Moby engine and CLI should be installed using a package manager as detailed in the [Install a container runtime](#install-a-container-runtime) section.
+Using curl commands, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to install libiothsm and the IoT Edge security daemon. Install Moby engine and CLI using steps in [Install a container runtime](#install-a-container-runtime) section.
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target.
 
