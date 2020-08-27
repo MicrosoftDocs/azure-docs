@@ -181,7 +181,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         > The Azure Maps Android SDK is regularly upgraded and enhanced. You can see the [Getting started with Android map control](how-to-use-android-map-control-library.md) to get the latest Azure Maps version number. Also, you can set the version number from "0.2" to "0+" to have your code always point to the latest version.
     
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
-3. Add a map fragment to the main activity (resources \> layout \> activity\_main.xml):
+3. Add a map fragment to the main activity (resources pwd\> layout \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
