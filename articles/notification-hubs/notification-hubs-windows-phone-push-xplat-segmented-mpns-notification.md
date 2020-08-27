@@ -18,7 +18,11 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+<<<<<<< HEAD
 
+=======
+ms.custom: devx-track-csharp
+>>>>>>> 4224a25dadee2884c78a72dd85fe00c285080f5b
 ---
 
 # Tutorial: Send push notifications to specific Windows Phones using Azure Notification Hubs

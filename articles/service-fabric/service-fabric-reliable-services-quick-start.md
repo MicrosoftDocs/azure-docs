@@ -3,8 +3,13 @@ title: Create your first Service Fabric application in C#
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 ms.topic: conceptual
 ms.date: 07/10/2019
+<<<<<<< HEAD
 ms.custom: "sfrev, devx-track-csharp"
 
+=======
+ms.custom: sfrev
+ms.custom: devx-track-csharp
+>>>>>>> 4224a25dadee2884c78a72dd85fe00c285080f5b
 ---
 # Get started with Reliable Services
 

@@ -8,7 +8,6 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 12/24/2019
-
 ---
 
 # Run Apache Hive queries using HDInsight .NET SDK

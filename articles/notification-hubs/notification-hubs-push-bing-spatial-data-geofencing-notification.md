@@ -19,7 +19,6 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-
 ---
 
 # Tutorial: Send location-based push notifications with Notification Hubs and Bing Spatial Data

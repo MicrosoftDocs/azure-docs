@@ -8,7 +8,6 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, hdiseo17may2017, devx-track-csharp"
 ms.date: 01/14/2020
-
 ---
 
 # Run Apache Sqoop jobs by using .NET SDK for Apache Hadoop in HDInsight

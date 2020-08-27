@@ -8,7 +8,6 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, seoapr2020, devx-track-csharp"
 ms.date: 04/28/2020
-
 ---
 
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
