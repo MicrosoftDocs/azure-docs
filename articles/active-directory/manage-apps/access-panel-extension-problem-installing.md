@@ -17,7 +17,7 @@ ms.reviewer: japere,asteen
 
 My Apps is a web-based portal. If you have a work or school account in Azure Active Directory (Azure AD), you can use My Apps to view and start cloud-based applications that an Azure AD administrator has granted you access to. 
 
-If you're using Azure AD editions, you can also use self-service group and app management capabilities through My Apps. 
+You can also use self-service group and app management capabilities through My Apps. 
 
 My Apps is separate from the Azure portal. It does not require you to have an Azure subscription.
 
@@ -36,18 +36,12 @@ For password-based SSO, you can use any of the following browsers:
 To install the My Apps browser extension:
 
 1.  In one of the supported browsers, open [My Apps](https://myapps.microsoft.com), and then sign in as a user in your Azure AD account.
-
 2.  Select a password-based SSO application.
-
 3.  When you are prompted, select **Install Now**.  
     You are directed to the download link for your selected browser. 
-    
 4.  Select **Add**.
-
 5.  If you are prompted, either **Enable** or **Allow** the extension.
-
 6.  After installation is complete, restart your browser.
-
 7.  Sign in to My Apps, and check to see whether you can start your password-based SSO applications.
 
 You can also download the extension from the appropriate browser add-on store. On the appropriate store, search for **My Apps Secure Sign-in Extension**. 
