@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 08/28/2020
 ms.author: ryanwi
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
@@ -35,7 +35,7 @@ In this scenario, you grant a client app access to your own web API, both of whi
 
 This diagram shows how the two app registrations relate to one another. In this section, you add permissions to the client app's registration.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left showing those scopes selected as permissions" border="false":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.png" alt-text="Line diagram showing a web API with exposed scopes on the right and a client app on the left with those scopes selected as permissions" border="false":::
 
 Once you've registered both your client app and web API and you've exposed the API by creating scopes, you can configure the client's permissions to the API by following these steps:
 
@@ -113,17 +113,19 @@ For more information about configuring an app's credentials, see the [Add creden
 
 ## More on API permissions and admin consent
 
+The **API permissions** pane of an app registration contains a [Configured permissions](#configured-permissions) table, and might also contain an [Other permissions granted](#other-permissions-granted) table. Both tables and the [Admin consent button](#admin-consent-button) are described in the following sections.
+
 ### Configured permissions
 
-The **Configured permissions** section shows the permissions that have been explicitly configured on the application object. These permissions are part of the app's required resource access list.
+The **Configured permissions** table on the **API permissions** pane shows the permissions that have been explicitly configured on the application object. These permissions are part of the app's required resource access list.
 
-You can add or remove the permissions that appear in this table. As an admin, you can also grant or revoke admin consent for a set of an API's permissions or for individual permissions.
+You can add or remove the permissions that appear in this table by using the steps outlined above or from [Other permissions granted](#other-permissions-granted) (described in the next section). As an admin, you can grant admin consent for the full set of an API's permissions that appear in the table, and revoke consent for individual permissions.
 
 ### Other permissions granted
 
-You might also see the **Other permissions granted for {your tenant}** section in addition to **Configured permissions**. The **Other permissions granted for {your tenant}** section shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to. This section appears only if there is at least one permission that applies.
+You might also see a table entitled **Other permissions granted for {your tenant}** on the **API permissions** pane. The **Other permissions granted for {your tenant}** table shows permissions granted for the tenant that haven't been explicitly configured on the application object. These permissions were dynamically requested and consented to. This section appears only if there is at least one permission that applies.
 
-You can add a set of an API's permissions or individual permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
+You can add the full set of an API's permissions or individual permissions appearing this table to the **Configured permissions** table. As an admin, you can revoke admin consent for APIs or individual permissions in this section.
 
 ### Admin consent button
 
