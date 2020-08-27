@@ -89,7 +89,7 @@ az webapp config appsettings set --settings DBHOST="<postgres-server-name>.postg
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named DBHOST, DBNAME, DBUSER, and DBPASS. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
 
-Now you are ready to [deploy your application code](../../../app-service/deploy-best-practices) to the web app.
+Now you are ready to [deploy your application code](../../app-service/deploy-best-practices) to the web app.
 
 ## Clean up resources
 
