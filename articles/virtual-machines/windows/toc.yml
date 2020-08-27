@@ -82,7 +82,7 @@
       - name: Copy a managed disk
         href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
-        href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+        href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
       - name: Export the VHD of a managed disk to a storage account
         href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
       - name: Create a snapshot from a VHD
@@ -124,7 +124,7 @@
       - name: Copy managed disk
         href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as VHD to a storage account
-        href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+        href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
       - name: Export the VHD of a managed disk to a storage account
         href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
       - name: Copy snapshot
