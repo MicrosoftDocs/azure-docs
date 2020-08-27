@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-two-with-js
 ---
 

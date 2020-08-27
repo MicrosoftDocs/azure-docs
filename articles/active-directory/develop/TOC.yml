@@ -48,7 +48,7 @@
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
-      href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+      href: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/
   - name: Mobile and desktop apps
     items:
     - name: Android
