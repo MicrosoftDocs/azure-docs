@@ -30,7 +30,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge of Google Chrome as a workaround.
 
 > [!TIP]
-> Azure Machine Learning compute instance can be used with a workspace and private endpoint in the **US East**, **US South Central** and **US West 2** regions.
+> Azure Machine Learning compute instance can be used with a workspace and private endpoint. This capability is currently in public preview in the **US East**, **US South Central** and **US West 2** regions.
 
 ## Create a workspace that uses a private endpoint
 
