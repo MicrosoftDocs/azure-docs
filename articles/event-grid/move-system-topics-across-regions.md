@@ -10,10 +10,10 @@ ms.date: 08/20/2020
 # Move Azure Event Grid system topics to another region
 You might want to move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 
-Here's are the high-level steps covered in this article: 
+Here are the high-level steps covered in this article: 
 
-- **Export the resource group** that contains the Azure Storage account and its associated system topic to a Resource Manager template. You can also export a template for just the system topic. If you go this route, remember to move the Azure event source (in this example, an Azure Storage account) to the other region before moving the system topic. Then, in the exported template for the system topic, update the external ID for the storage account in the target region. 
-- **Modify the template** to add the `endpointUrl` property to point to a webhook that subscribes to the system topic. When the system topic is exported, its subscription (in this case, it's a webhook) is also exported to the template, but the `endpointUrl` property isn't included. Also, update the value of the `location` property to the new location or region. For other types of event handlers, you just need to the update the location. 
+- **Export the resource group** that contains the Azure Storage account and its associated system topic to a Resource Manager template. You can also export a template only for the system topic. If you go this route, remember to move the Azure event source (in this example, an Azure Storage account) to the other region before moving the system topic. Then, in the exported template for the system topic, update the external ID for the storage account in the target region. 
+- **Modify the template** to add the `endpointUrl` property to point to a webhook that subscribes to the system topic. When the system topic is exported, its subscription (in this case, it's a webhook) is also exported to the template, but the `endpointUrl` property isn't included. So, you need to update it to point to the endpoint that subscribes to the topic. Also, update the value of the `location` property to the new location or region. For other types of event handlers, you need to the update only the location. 
 - **Use the template to deploy resources** to the target region. You'll specify names for the storage account and the system topic to be created in the target region. 
 - **Verify the deployment**. Verify that the webhook is invoked when you upload a file to the blob storage in the target region. 
 - To **complete the move**, delete resources from the source region. 
