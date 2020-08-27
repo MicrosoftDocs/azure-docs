@@ -227,7 +227,7 @@ Close out the try/catch block and the method definition.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_catch)]
 
-## Get Read results
+### Get Read results
 
 Then, add a definition for the helper method. This method uses the operation ID from the previous step to query the read operation and get OCR results when they're available.
 
