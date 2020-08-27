@@ -18,7 +18,7 @@ ms.date: 07/28/2020
 In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. 
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US South Central** and **US West 2** regions. 
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -27,9 +27,10 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > [!IMPORTANT]
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
 >
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
->
 > You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge of Google Chrome as a workaround.
+
+> [!TIP]
+> Azure Machine Learning compute instance can be used with a workspace and private endpoint in the **US East**, **US South Central** and **US West 2** regions.
 
 ## Create a workspace that uses a private endpoint
 
