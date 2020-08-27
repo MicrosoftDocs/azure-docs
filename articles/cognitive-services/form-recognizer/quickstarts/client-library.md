@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-ten
 ---
 
@@ -24,10 +24,6 @@ Use the Form Recognizer client library to:
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Manage your custom models](#manage-your-custom-models)
-
-> [!NOTE]
-> The client libraries support the latest version of Form Recognizer in general availability, v2.0. 
-
 
 ::: zone pivot="programming-language-csharp"
 

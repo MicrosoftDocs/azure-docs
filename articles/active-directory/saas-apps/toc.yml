@@ -926,6 +926,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kemp LoadMaster
+        href: kemp-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1660,7 +1662,7 @@
         href: tickitlms-learn-tutorial.md
       - name: Tidemark
         href: tidemark-tutorial.md
-      - name: TigerText Secure Messenger
+      - name: TigerConnect Secure Messenger
         href: tigertext-tutorial.md
       - name: TimeLive
         href: timelive-tutorial.md
@@ -2043,6 +2045,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Analytics Cloud
+        href: sap-analytics-cloud-provisioning-tutorial.md
       - name: SAP Cloud Platform Identity Authentication
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory

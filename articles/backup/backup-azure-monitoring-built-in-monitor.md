@@ -25,10 +25,10 @@ Jobs from the following Azure Backup solutions are shown here:
 - Azure workload back up such as SQL and SAP HANA
 - Microsoft Azure Recovery Services (MARS) agent
 
-Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed.
+Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed.
 
 > [!NOTE]
-> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations are NOT displayed.
+> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations aren't displayed.
 
 ## Backup Alerts in Recovery Services vault
 
@@ -50,7 +50,7 @@ The following scenarios are defined by service as alertable scenarios.
 - Microsoft Azure Recovery Services (MARS) agent
 
 > [!NOTE]
-> Alerts from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed here.
+> Alerts from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) aren't displayed here.
 
 ### Consolidated Alerts
 
@@ -78,7 +78,7 @@ Based on alert severity, alerts can be defined in three types:
 ## Notification for Backup Alerts
 
 > [!NOTE]
-> Configuration of notification can be done only through the Azure portal. PS/CLI/REST API/Azure Resource Manager Template support is not supported.
+> Configuration of notification can be done only through the Azure portal. PS/CLI/REST API/Azure Resource Manager Template support isn't supported.
 
 Once an alert is raised, users are notified. Azure Backup provides an inbuilt notification mechanism via e-mail. One can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose whether to get notified for each individual alert or to group them in an hourly digest and then get notified.
 
@@ -90,7 +90,7 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 
 > [!NOTE]
 >
-> - If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recovery Services vault.
+> - If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications aren't configured for the Recovery Services vault.
 > - To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## Inactivating alerts

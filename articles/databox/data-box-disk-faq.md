@@ -52,13 +52,13 @@ A.  To see where the Data Box Disks are currently available, go to the [Region a
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
-### Q. Will my Data Box Disk cross country/region borders during shipping?
-A. Data Box Disk are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country/region.
+### Q. Which regions can I store data in with Data Box Disks?
+A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
-### Q. How can I import my on-premises source data in one country/region to an Azure region in a different country/region?
-A. Data Box Disk supports data ingestion only within the same region (commerce boundary). In all other cases, you may need to take additional action. 
+### Q. How can I import source data present at my location in one country/region to an Azure region in a different country?
+A. Data Box Disk supports data ingestion only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country/region.
 
-For example, if you had on-premises data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
+For example, if you wanted to move data at your location in Canada to an Azure WestUS storage account, then you could achieve it in the following way:
 
 ### Option 1: 
 
