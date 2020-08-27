@@ -84,7 +84,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
-   > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent.
+   > The vault credentials must be saved only to a location that's local to the Windows Server on which you intend to use the agent.
    >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -92,7 +92,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 ## Install and register the agent
 
 > [!NOTE]
-> Enabling backup through the Azure portal is not available, yet. Use the Microsoft Azure Recovery Services Agent to back up Windows Server System State.
+> Enabling backup through the Azure portal isn't available. Use the Microsoft Azure Recovery Services Agent to back up Windows Server System State.
 >
 
 1. Locate and double-click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
@@ -110,7 +110,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
    * Save the encryption passphrase in a secure location.
 
      > [!NOTE]
-     > If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Save the file in a secure location. It is required to restore a backup.
+     > If you lose or forget the passphrase, Microsoft can't help recover the backup data. Save the file in a secure location. It's required to restore a backup.
      >
      >
 
@@ -126,7 +126,7 @@ The initial backup includes two tasks:
 To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
 > [!NOTE]
-> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up is not supported on client SKUs. System State is not shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
+> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up isn't supported on client SKUs. System State isn't shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
 >
 >
 

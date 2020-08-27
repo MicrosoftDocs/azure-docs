@@ -43,7 +43,7 @@ See the [how to choose between provisioned throughput and serverless](throughput
 
 ## Using serverless resources
 
-Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md).
+Serverless is a new Azure Cosmos account type, which means that you have to choose between **provisioned throughput** and **serverless** when creating a new account. You must create a new serverless account to get started with serverless. During the preview release, the only supported way to create a new serverless account is by [using the Azure portal](create-cosmosdb-resources-portal.md). Migrating existing accounts to/from serverless mode is not currently supported.
 
 > [!NOTE]
 > Serverless is currently supported on the Azure Cosmos DB Core (SQL) API only.
@@ -77,7 +77,7 @@ You can find the same chart when using Azure Monitor, as described [here](monito
 Serverless resources yield specific performance characteristics that are different from what provisioned throughput resources deliver:
 
 - **Availability**: After the serverless offer becomes generally available, the availability of serverless containers will be covered by a Service Level Agreement (SLA) of 99.9% when Availability Zones (zone redundancy) aren't used. The SLA is 99.99% when Availability Zones are used.
-- **Latency**: After the serverless offer becomes generally available, the latency of serverless containers will be covered by a Service Level Objective (SLO) of 10 milliseconds or less for point-reads and 30 milliseconds or less for writes. A point-read operations consists in fetching a single item by its ID and partition key value.
+- **Latency**: After the serverless offer becomes generally available, the latency of serverless containers will be covered by a Service Level Objective (SLO) of 10 milliseconds or less for point-reads and 30 milliseconds or less for writes. A point-read operation consists in fetching a single item by its ID and partition key value.
 - **Burstability**: After the serverless offer becomes generally available, the burstability of serverless containers will be covered by a Service Level Objective (SLO) of 95%. This means the maximum burstability can be attained at least 95% of the time.
 
 > [!NOTE]

@@ -244,6 +244,9 @@
             - name: DateTimeToTicks
               displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
               href: sql-query-datetimetoticks.md
+            - name: DateTimeToTimestamp
+              displayName: DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp
+              href: sql-query-datetimetotimestamp.md
             - name: GetCurrentDateTime
               displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
               href: sql-query-getcurrentdatetime.md
@@ -253,6 +256,12 @@
             - name: GetCurrentTimestamp
               displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
               href: sql-query-getcurrenttimestamp.md
+            - name: TicksToDateTime
+              displayName: TicksToDateTime, ticks to date time, date and time functions, datetime, ticks
+              href: sql-query-tickstodatetime.md
+            - name: TimestampToDateTime
+              displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
+              href: sql-query-timestamptodatetime.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
@@ -501,6 +510,8 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
+      - name: Attachments
+        href: attachments.md
     - name: Change feed
       items:
       - name: Change feed overview

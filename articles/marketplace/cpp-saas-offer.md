@@ -16,4 +16,4 @@ The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports t
 
 ## Next steps
 
-Before you create a new SaaS app offer, you should read the [SaaS applications Offer Publishing Guide](marketplace-saas-applications-technical-publishing-guide.md) and review the Partner Center portal steps listed in the [Offer creation checklist](offer-creation-checklist.md). 
+Before you create a new SaaS app offer, you should read [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). 

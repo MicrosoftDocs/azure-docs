@@ -1,26 +1,50 @@
 ---
-title: Downloads dashboard in Microsoft commercial marketplace analytics on Partner Center
+title: Downloads dashboard in Microsoft commercial marketplace analytics on Partner Center - Azure Marketplace
 description: Learn how to access download requests for your marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
 ---
 
-# Downloads Dashboard in commercial marketplace analytics
+# Downloads dashboard in commercial marketplace analytics
 
 This article provides information on the Downloads dashboard in Partner Center. This dashboard displays a list of your download requests over the last 30 days.
 
-To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under the commercial marketplace.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ## Downloads dashboard
 
-The **Downloads** dashboard of the **Analyze** menu displays requests for any downloads that contain over 1000 rows of customer or order data. These data downloads will be available for 30 days and then removed.
+The **Downloads** dashboard of the **Analyze** menu displays requests for any downloads that contain over 1000 rows of customer or order data.
+
+You will receive a pop-up notification containing a link to the **Downloads** dashboard whenever you request a download with over 1000 rows of data. These data downloads will be available for a 30-day period and then removed.
+
+## Lifetime export of commercial marketplace Analytics reports
+
+On the Downloads page, end user can do the following:
+
+- Lifetime export of commercial marketplace Analytics reports in csv and tsv format.
+- Export of commercial marketplace Analytics reports for any date range.
+- Export of commercial marketplace Analytics reports for 6- or 12-month duration.
+
+Support for Lifetime Export Capability of Analytics reports:
+
+| Report | Lifetime export | Any duration based on date |
+| - | - | - |
+| Orders | ![Green check mark](media/check-green-yes.png) | ![Green check mark](media/check-green-yes.png) |
+| Customers | ![Green check mark](media/check-green-yes.png) | ![Green check mark](media/check-green-yes.png) |
+| Marketplace Insights | ![Green check mark](media/check-green-yes.png) | ![Green check mark](media/check-green-yes.png) |
+| Usage | ![Black X mark](media/check-black-no.png) | Maximum of one year |
+|
+
+A user can schedule asynchronous downloads of reports from the Downloads section:
+
+[![scheduling asynchronous downloads of reports from the Downloads section](media/download-reports.png)](media/download-reports.png#lightbox)
 
 ## Next steps
 

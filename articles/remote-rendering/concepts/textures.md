@@ -64,7 +64,7 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
     ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
     textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
     {
-        if (res->IsRanToCompletion())
+        if (res->GetIsRanToCompletion())
         {
             //use res->Result()
         }

@@ -96,7 +96,7 @@ The Windows Azure Guest Agent has an auto-update feature. It will automatically 
 
 1. Move any folders that are named Packages or GuestAgent into the OLD folder.
 
-1. Download and install the latest version of the agent installation package from [here](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). You must have Administrator rights to complete the installation.
+1. Download and install the latest version of the agent installation package from [here](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 
 1. Install Guest Agent by using the following command:
 

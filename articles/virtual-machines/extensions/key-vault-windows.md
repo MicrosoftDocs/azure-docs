@@ -85,7 +85,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | string |
+| certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
@@ -126,6 +126,8 @@ The JSON configuration for a virtual machine extension must be nested inside the
 
 
 ## Azure PowerShell deployment
+> [!WARNING]
+> PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
 
