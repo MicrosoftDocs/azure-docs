@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET
 
-There are several configuration changes you're required to make in your code when using Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET). The following sections describe the required modifications, followed by a [Troubleshooting](#troubleshooting) section to help you avoid the most common issues.
+There are several configuration changes you're required to make in your code when using Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET). The following sections describe the required modifications, followed by a [Troubleshooting](#troubleshooting) section to help you avoid some of the most common issues.
 
 ## Set the parent activity
 
@@ -137,12 +137,12 @@ For more information, see [Use web browsers for MSAL.NET](msal-net-web-browsers.
 - Verify that Xamarin.Android.Support.v4 is on the latest version.
 - Ensure all the Xamarin.Android.Support packages target the latest version.
 - Clean or rebuild the application.
-- In Visual Studio, try setting the maximum number of parallel project builds to 1. To do that, select **Options** > **Projects and Solutions** > **Build and Run** > **Maximum number of parallel projects builds**.
+- In Visual Studio, try setting the maximum number of parallel project builds to **1**. To do that, select **Options** > **Projects and Solutions** > **Build and Run** > **Maximum number of parallel projects builds**.
 - If you're building from the command line and your command uses `/m`, try removing this element from the command.
 
 ### Error: The name AuthenticationContinuationHelper doesn't exist in the current context
 
-If an error indicates that `AuthenticationContinuationHelper` doesn't exist in the current context, Visual Studio might have incorrectly updated the Android.csproj* file. Sometimes the file path in the `<HintPath>` element incorrectly contains *netstandard13* instead of *monoandroid90*.
+If an error indicates that `AuthenticationContinuationHelper` doesn't exist in the current context, Visual Studio might have incorrectly updated the *Android.csproj\** file. Sometimes the file path in the `<HintPath>` element incorrectly contains `netstandard13` instead of `monoandroid90`.
 
 This example contains a correct file path:
 
@@ -159,7 +159,7 @@ For more information, see the sample of a [Xamarin mobile application that uses 
 
 | Sample | Platform | Description |
 | ------ | -------- | ----------- |
-|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.iOS, Android, UWP | A simple Xamarin.Forms app that shows how to use MSAL to authenticate Microsoft personal accounts and Azure AD through the Azure AD 2.0 endpoint. The app also shows how to access Microsoft Graph and shows the resulting token. <br>![Topology](media/msal-net-xamarin-android-considerations/topology.png) |
+|[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin.iOS, Android, UWP | A simple Xamarin.Forms app that shows how to use MSAL to authenticate Microsoft personal accounts and Azure AD through the Azure AD 2.0 endpoint. The app also shows how to access Microsoft Graph and shows the resulting token. <br>![Diagram of authentication flow](media/msal-net-xamarin-android-considerations/topology.png) |
 
 <!-- REF LINKS -->
 [PublicClientApplication]: /dotnet/api/microsoft.identity.client.publicclientapplication
