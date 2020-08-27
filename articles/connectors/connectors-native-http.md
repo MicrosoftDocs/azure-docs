@@ -256,5 +256,6 @@ For more information about trigger and action parameters, see these sections:
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Connectors for Logic Apps](../connectors/apis-list.md)
 

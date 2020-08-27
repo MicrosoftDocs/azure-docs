@@ -132,11 +132,7 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
    Now, when this action runs, your logic app calls the subscribe endpoint on the target service and registers the callback URL. The logic app then pauses the workflow and waits for the target service to send an `HTTP POST` request to the callback URL. When this event happens, the action passes any data in the request along to the workflow. If the operation completes successfully, the action unsubscribes from the endpoint, and your logic app continues running the remaining workflow.
 
-## Connector reference
-
-For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-### Output details
+## Trigger and action outputs
 
 Here is more information about the outputs from an HTTP Webhook trigger or action, which returns this information:
 
@@ -158,6 +154,11 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | 500 | Internal server error. Unknown error occurred. |
 |||
 
+## Connector reference
+
+For more information about trigger and action parameters, which are similar to each other, see [HTTP Webhook parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Connectors for Logic Apps](../connectors/apis-list.md)

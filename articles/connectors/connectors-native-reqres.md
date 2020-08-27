@@ -262,5 +262,5 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 
 ## Next steps
 
-* [Secure access and data in Azure Logic Apps - Access - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Connectors for Logic Apps](../connectors/apis-list.md)
