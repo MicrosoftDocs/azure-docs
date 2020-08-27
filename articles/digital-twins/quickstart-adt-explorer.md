@@ -174,7 +174,7 @@ In the *GRAPH VIEW* box, hit the *Import Graph* icon.
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing into a cloud." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-In the file selector box, navigate again to the *client/examples* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
+In the file selector box, navigate to the *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* folder and choose the _**buildingScenario.xlsx**_ spreadsheet file. This file contains a description of the sample graph. Hit OK.
 
 After a few seconds, ADT Explorer will open an *Import* view displaying a preview of the graph that is going to be loaded.
 
