@@ -41,4 +41,4 @@ PostgreSQL provides the ability to extend the functionality of your database usi
 - [Postgres 9.6 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
 - [Postgres 9.5 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
 
-Fore more details, see [How to use PostgreSQL extensions on Single server](concepts-extensions.md)|
+Fore more details, see [How to use PostgreSQL extensions on Single server](concepts-extensions.md).
