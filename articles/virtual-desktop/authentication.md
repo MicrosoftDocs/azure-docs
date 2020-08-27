@@ -37,7 +37,7 @@ Supported sign-in methods:
 
 ## Single sign-on (SSO)
 
-Windows Virtual Desktop currently doesn't support the following authentication methods:
+Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) for authentication or SSO.
 
 - Active Directory Federation Services (ADFS)
 - Single sign-on (SSO)
