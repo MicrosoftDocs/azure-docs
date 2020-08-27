@@ -17334,6 +17334,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/what-is-ml-studio.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/compare-azure-ml-to-studio-classic.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning-studio#ml-studio-classic-vs-azure-machine-learning-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -37194,8 +37204,18 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-group-policy.md",
-      "redirect_url": "/azure/active-directory/manage-apps/deploy-access-panel-browser-extension",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/deploy-access-panel-browser-extension.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/access-panel-extension-problem-installing.md",
+      "redirect_url": "/azure/active-directory/manage-apps/access-panel-deployment-plan",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ie-troubleshooting.md",
@@ -42491,6 +42511,16 @@
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
       "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems",
+      "redirect_url": "/azure/azure-monitor/platform/agent-linux#supported-operating-system",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems",
+      "redirect_url": "/azure/azure-monitor/platform/agent-windows#supported-operating-system",
       "redirect_document_id": false
     },
     {
