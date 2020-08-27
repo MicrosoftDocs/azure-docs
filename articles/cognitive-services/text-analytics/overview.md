@@ -10,11 +10,13 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 08/27/2020
 ms.author: aahi
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is the Text Analytics API?
 
-The Text Analytics API is a cloud-based service that provides Natural Language Processing (NLP) features for mining raw text, including: sentiment analysis, opinion mining, key phrase extraction, language detection, and named entity recognition.
+The Text Analytics API is a cloud-based service that provides Natural Language Processing (NLP) features for mining text, including: sentiment analysis, opinion mining, key phrase extraction, language detection, and named entity recognition.
 
 The API is a part of [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), or the [client library](quickstarts/text-analytics-sdk.md).
 
