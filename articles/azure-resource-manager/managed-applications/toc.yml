@@ -107,6 +107,8 @@
         href: microsoft-common-checkbox.md
       - name: DropDown
         href: microsoft-common-dropdown.md
+      - name: EditableGrid
+        href: microsoft-common-editablegrid.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
       - name: InfoBox
