@@ -21,13 +21,13 @@ The Immersive Reader SDK contains a JavaScript library that allows you to integr
 
 The SDK exposes the functions:
 
-- [`ImmersiveReader.launchAsync(token, subdomain, content, options)`](#launchasync())
+- [`ImmersiveReader.launchAsync(token, subdomain, content, options)`](#launchasync)
 
-- [`ImmersiveReader.close()`](#close())
+- [`ImmersiveReader.close()`](#close)
 
-- [`ImmersiveReader.renderButtons(options)`](#renderbuttons())
+- [`ImmersiveReader.renderButtons(options)`](#renderbuttons)
 
-## launchAsync()
+## launchAsync
 
 Launches the Immersive Reader within an `iframe` in your web application. Note that the size of your content is limited to a maximum of 50 MB.
 
@@ -35,7 +35,7 @@ Launches the Immersive Reader within an `iframe` in your web application. Note t
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
-### launchAsync() Parameters
+### launchAsync Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
@@ -54,7 +54,7 @@ The returned `Promise` will be rejected with an [`Error`](#error) object if the 
 
 ---
 
-## close()
+## close
 
 Closes the Immersive Reader.
 
@@ -84,11 +84,11 @@ Use the following attributes to configure the look and feel of the button.
 | `data-locale` | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
 | `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20px. |
 
-## renderButtons()
+## renderButtons
 
 The ```renderButtons``` function isn't necessary if you are using the [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) guidance above.
 
-This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then the buttons will be rendered within each element provided in ```options.elements```. Using the ```options.elements``` parameter is useful when you have multiple sections in your document on which to launch the Immersive Reader, and want a simplified way to render multiple buttons with the same styling, or want to render the buttons with a simple and consistent design pattern. To use this function with the [RenderButtonOptions](#RenderButtonOptions) parameter, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button``` as shown in [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) .
+This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then the buttons will be rendered within each element provided in ```options.elements```. Using the ```options.elements``` parameter is useful when you have multiple sections in your document on which to launch the Immersive Reader, and want a simplified way to render multiple buttons with the same styling, or want to render the buttons with a simple and consistent design pattern. To use this function with the [RenderButtonOptions](#renderButtonOptions) parameter, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button``` as shown in [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) .
 
 ```typescript
 // This snippet assumes there are two empty div elements in
@@ -105,7 +105,7 @@ See the above [Optional Attributes](#optional-attributes) for more rendering opt
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### renderButtons() Parameters
+### renderButtons Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
@@ -321,7 +321,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | Name | Type | Description |
 | ---- | ---- |------------ |
 | uiLang | String | Language of the UI, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Defaults to browser language if not specified. |
-| timeout | Number | Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms). This timeout only applies to the initial launch of the Reader page, where success is observed when the Reader page opens and the spinner starts. Adjustment of the timeout should not be necessary. |
+| timeout | Number | Duration (in milliseconds) before [launchAsync](#launchAsync) fails with a timeout error (default is 15000 ms). This timeout only applies to the initial launch of the Reader page, where success is observed when the Reader page opens and the spinner starts. Adjustment of the timeout should not be necessary. |
 | uiZIndex | Number | Z-index of the iframe that will be created (default is 1000). |
 | useWebview | Boolean| Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false). |
 | onExit | Function | Executes when the Immersive Reader exits. |
