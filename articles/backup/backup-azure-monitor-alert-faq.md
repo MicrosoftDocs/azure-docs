@@ -33,7 +33,7 @@ After you create an LA Workspace, you can choose to retain data for a maximum of
 
 ### Will I see all my data in reports after I configure the LA Workspace?
 
- All the data generated after you configure diagnostics settings is pushed to the LA Workspace and is available in reports. In-progress jobs aren't pushed for reporting. After the job finishes or fails, it is sent to reports.
+ All the data generated after you configure diagnostics settings is pushed to the LA Workspace and is available in reports. In-progress jobs aren't pushed for reporting. After the job finishes or fails, it's sent to reports.
 
 ### Can I view reports across vaults and subscriptions?
 
@@ -41,7 +41,7 @@ Yes, you can view reports across vaults and subscriptions as well as regions. Yo
 
 ### Can I view reports across tenants?
 
-If you are an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or LA Workspaces, you can use Backup Reports to view data across all your tenants.
+If you're an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or LA Workspaces, you can use Backup Reports to view data across all your tenants.
 
 ## Recovery Services vault
 
