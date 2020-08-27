@@ -73,7 +73,7 @@ The storage you provision is the amount of storage capacity available to your fl
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-You can monitor the your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. <!-- add link to metrics doc>
+You can monitor the your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. <!-- add link to metrics doc-->
 
 ### Reaching the storage limit
 
