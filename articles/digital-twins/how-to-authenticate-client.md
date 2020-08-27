@@ -36,7 +36,7 @@ To proceed, you will need a client app project in which you write your code. If 
 
 First, include the following packages in your project in order to use the .NET SDK and authentication tools for this how-to:
 * `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
-* `Azure.Identity` (version `1.1.1`)
+* `Azure.Identity`
 
 Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
 
