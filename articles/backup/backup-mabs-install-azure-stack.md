@@ -88,7 +88,7 @@ When choosing a server for Azure Backup Server, start with a Windows Server 2012
 Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 
 > [!NOTE]
-> Azure Backup Server is designed to run on a dedicated, single-purpose virtual machine. You cannot install Azure Backup Server on:
+> Azure Backup Server is designed to run on a dedicated, single-purpose virtual machine. You can't install Azure Backup Server on:
 >
 > - A computer running as a domain controller
 > - A computer on which the Application Server role is installed
@@ -222,7 +222,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
 4. Microsoft Azure Backup Server requires SQL Server. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries. If you want to use your own SQL installation, you can. However, the recommended choice is let the installer add a new instance of SQL Server. To ensure your choice works with your environment, select **Check and Install**.
 
    > [!NOTE]
-   > Azure Backup Server will not work with a remote SQL Server instance. The instance used by Azure Backup Server must be local.
+   > Azure Backup Server won't work with a remote SQL Server instance. The instance used by Azure Backup Server must be local.
    >
 
     ![Azure Backup Server - SQL settings](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)

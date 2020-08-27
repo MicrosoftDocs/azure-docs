@@ -91,7 +91,7 @@ Assume an SDC HANA instance "H21" is backed up. The backup items page will show 
 Note the following points:
 
 - By default, the restored db name will be populated with the backup item name. In this case, h21(sdc).
-- Selecting the target as H11 will NOT change the restored db name automatically. **It should be edited to h11(sdc)**. Regarding SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
+- Selecting the target as H11 won't change the restored db name automatically. **It should be edited to h11(sdc)**. Regarding SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
 - Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
 - Linux is case-sensitive. So be careful to preserve the case.
 

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 8/13/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: "include file, devx-track-dotnet"
 ms.author: diberry
 ---
 

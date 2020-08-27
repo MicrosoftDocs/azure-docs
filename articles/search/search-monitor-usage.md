@@ -55,7 +55,7 @@ You can use the following APIs to retrieve the same information found in the Mon
 
 ### Activity logs and service health
 
-The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
+The [**Activity log**](../azure-monitor/platform/activity-log.md#view-the-activity-log) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
 Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
 
@@ -71,13 +71,13 @@ The following illustration is for the free service, which is capped at 3 objects
  "Usage status relative to tier limits")
 
 > [!NOTE]
-> Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](../azure-monitor/insights/solutions-creating.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
+> Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](../azure-monitor/insights/solutions.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
 
 <a name="add-azure-monitor"></a>
 
 ## Add-on monitoring with Azure Monitor
 
-Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
+Many services, including Azure Cognitive Search, integrate with [Azure Monitor](../azure-monitor/index.yml) for additional alerts, metrics, and logging diagnostic data. 
 
 [Enable diagnostic logging](search-monitor-logs.md) for a search service if you want control over data collection and storage. 
 Logged events captured by Azure Monitor are stored in the **AzureDiagnostics** table and consists of operational data related to queries and indexing.
@@ -104,4 +104,4 @@ There is no way to log this information separately from the query string that in
 Fluency with Azure Monitor is essential for oversight of any Azure service, including resources like Azure Cognitive Search. If you are not familiar with Azure Monitor, take the time to review articles related to resources. In addition to tutorials, the following article is a good place to start.
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
