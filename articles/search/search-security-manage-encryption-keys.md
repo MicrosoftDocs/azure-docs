@@ -174,10 +174,12 @@ Using the **key vault Uri**, **key name** and the **key version** of your Key va
   }
 }
 ```
-> [!Note] 
+
+> [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
 
-If you are using an Azure Active Directory application for Key Vault authentication instead of using a managed identity, add the Azure AD application **access credentials** to your encryption key:
+If you are using an Azure Active Directory (AD) application for Key Vault authentication instead of using a managed identity, add the Azure AD application **access credentials** to your encryption key:
+
 ```json
 {
   "encryptionKey": {
