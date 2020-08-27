@@ -33,21 +33,12 @@ For password-based SSO, you can use any of the following browsers:
 
 ## Install the My Apps browser extension
 
-To install the My Apps browser extension:
+Download the extension from the [Edge extensions](https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home), [Firefox extensions](https://addons.mozilla.org/firefox/), or [Chrome extensions](https://chrome.google.com/webstore/category/extensions) add-on store. To find it, search for **My Apps Secure Sign-in Extension**.
 
-1.  In one of the supported browsers, open [My Apps](https://myapps.microsoft.com), and then sign in as a user in your Azure AD account.
-2.  Select a password-based SSO application.
-3.  When you are prompted, select **Install Now**.  
-    You are directed to the download link for your selected browser. 
-4.  Select **Add**.
-5.  If you are prompted, either **Enable** or **Allow** the extension.
-6.  After installation is complete, restart your browser.
-7.  Sign in to My Apps, and check to see whether you can start your password-based SSO applications.
+Alternatively, a user will be prompted to install the extension the first time they select a password-based SSO app in [My Apps](https://myapps.microsoft.com).
 
-You can also download the extension from the appropriate browser add-on store. On the appropriate store, search for **My Apps Secure Sign-in Extension**. 
-- [Edge extensions](https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home)
-- [Firefox extensions](https://addons.mozilla.org/firefox/)
-- [Chrome extensions](https://chrome.google.com/webstore/category/extensions)
+> [!TIP]
+> Modern browsers are usually smart, but sometimes it helps to restart the browser after you install the extension.
 
 ## Use the My Apps Secure Sign-in Extension
 * If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL:
