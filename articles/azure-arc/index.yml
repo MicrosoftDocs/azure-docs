@@ -38,7 +38,7 @@ highlightedContent:
     # Card
     - title: About Azure Arc
       itemType: overview
-      url:  arc-overview.md
+      url:  overview.md
 
 # productDirectory section (optional)
 productDirectory:

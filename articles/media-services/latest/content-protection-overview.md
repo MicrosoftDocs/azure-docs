@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
 ---
 # Protect your content with Media Services dynamic encryption
