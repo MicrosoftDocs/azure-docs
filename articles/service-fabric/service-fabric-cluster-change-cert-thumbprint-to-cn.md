@@ -8,10 +8,6 @@ ms.date: 09/06/2019
 # Change cluster from certificate thumbprint to common name
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler. This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
 
->[!NOTE]
-> If you have two thumbprint's declared in your template, you need to perform two deployments.  The first deployment is done before following the steps in this article.  The first deployment sets your **thumbprint** property in the template to the certificate being used and removes the **thumbprintSecondary** property.  For the second deployment, follow the steps in this article.
- 
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Get a certificate
@@ -23,7 +19,7 @@ For testing purposes, you could get a CA signed certificate from a free or open 
 > Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported. 
 
 ## Upload the certificate and install it in the scale set
-In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on.
+In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on. This can also be done for a certifciate already in Key Vault by [updating the ARM definition of the virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-securely-ship-a-certificate-to-the-vm).
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -85,6 +81,33 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 >[!NOTE]
 > Scale set secrets do not support the same resource ID for two separate secrets, as each secret is a versioned, unique resource. 
 
+## Bring cluster to a valid starting state
+An upgrade from thumbprint-based certificate declaration to common-name based certificate declaration represents a change in both how nodes in the cluster choose which certificate to present to each other, and how they validate those certificates. It is recommended to review the [presentation and validation rules for both cases](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificates#certificate-configuration-rules) before proceeding. A misconfigured upgrade can cause a partition in the cluster. For instructions on how to carry out any of the upgrades described below, please see [this document](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure).
+
+There are multipe valid starting states before the conversion, but the important similarity is that the cluster is already using the goal-state certificate, as declared by thumbprint, before the upgrade begins. We consider `GoalCert`, `OldCert1`, `OldCert2`.
+
+#### Valid States
+- `Thumbprint: GoalCert ThumbprintSecondary: None`
+- `Thumbprint: GoalCert ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
+- `Thumbprint: OldCert1 ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
+
+#### Invalid States
+- `Thumbprint: OldCert1 ThumbprintSecondary: None`
+  - If `GoalCert` has a later `NotAfter` date than `OldCert1`, upgrade to `Thumbprint: OldCert1 ThumbprintSecondary: GoalCert`
+  - Otherwise upgrade to `Thumbprint: GoalCert ThumbprintSecondary: OldCert1`, then to `Thumbprint: GoalCert ThumbprintSecondary: None`
+
+- `Thumbprint: OldCert1 ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotAfter` date than `GoalCert`
+  - Ugrade to `Thumbprint: GoalCert ThumbprintSecondary: None`
+
+- `Thumbprint: GoalCert ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotAfter` date than `GoalCert`
+  - Ugrade to `Thumbprint: GoalCert ThumbprintSecondary: None`
+
+- `Thumbprint: OldCert1 ThumbprintSecondary: OldCert2`
+  - Remove one of `OldCert1` or `OldCert2` to get to state `Thumbprint: OldCertx ThumbprintSecondary: None`, then proceed as described above
+
+## Decide between Common-name validation or Common-name validation with Issuer Pinning
+The difference is described [here](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificates#common-name-based-certificate-validation-declarations) and determines whether to populate the parameter `certificateIssuerThumbprintList` below, or leave it empty.
+
 ## Download and update the template from the portal
 The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and its common name.  Now, download the template for your cluster deployment.  Sign in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
 
@@ -96,6 +119,9 @@ First, open the parameters file in a text editor and add the following parameter
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
+},
+"certificateIssuerThumbprintList": {
+    "value": ""
 },
 ```
 
@@ -109,9 +135,15 @@ Next, open the template file in a text editor and make three updates to support 
             "description": "Certificate Commonname"
         }
     },
+    "certificateIssuerThumbprintList": {
+        "type": "string",
+        "metadata": {
+            "description": "A comma-delimited list that includes the direct issuer of the cert, and all other trusted possible direct issuers of the cluster cert"
+        }
+    },
     ```
 
-    Also consider removing the *certificateThumbprint*, it may no longer be referenced in the Resource Manager template.
+Also consider removing the *certificateThumbprint*, it may no longer be referenced in the Resource Manager template.
 
 2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
@@ -166,7 +198,7 @@ Next, open the template file in a text editor and make three updates to support 
                 "commonNames": [
                     {
                         "certificateCommonName": "[parameters('certificateCommonName')]",
-                        "certificateIssuerThumbprint": ""
+                        "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprintList')]"
                     }
                 ],
                 "x509StoreName": "[parameters('certificateStoreValue')]"
@@ -188,7 +220,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 ## Next steps
 * Learn about [cluster security](service-fabric-cluster-security.md).
-* Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
-* [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
+* Learn how to [rollover a cluster certificate by common name](service-fabric-cluster-rollover-cert-cn.md)
+* Learn how to [configure a cluster for touchless auto-rollover]()
 
 [image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png
