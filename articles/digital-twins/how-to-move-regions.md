@@ -50,11 +50,63 @@ Here are some questions you may want to consider:
     - Azure Maps
     - Device Provisioning Service (DPS)
 
-You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](quickstart-adt-explorer.md) sample.
+You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 ## Prepare
 
-Get ready to run ADT Explorer
+In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. You will do this using the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+
+>[!NOTE]
+>You may already have files containing the models and/or the graph in your instance. If so, you do not need to download everything again—just the pieces you are missing or things that may have changed since you originally uploaded these files (such as twins that may have been updated with new data).
+
+### Set up ADT Explorer application
+
+First, download the sample application code and set it up to run on your machine. 
+
+Navigate to the sample here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
+
+Next, set up permissions for ADT Explorer to run on your machine. To do this, follow the steps in the [*Set ADT Explorer permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) section of the Azure Digital Twins quickstart.
+
+Finally, run and configure ADT Explorer to connect to your original Azure Digital Twins instance. Follow the steps in the [*Run and configure ADT Explorer*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) section of the quickstart.
+
+Now you should have the ADT Explorer sample app running in a browser on your machine. The sample should be connected to your original Azure Digital Twins instance.
+
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Browser window showing an app running at localhost:3000. The app is called ADT Explorer and contains boxes for a Query Explorer, Model View, Graph View, and Property Explorer. There is no onscreen data yet." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+
+To verify the connection, you can hit the *Run query* button to run the default query that displays all twins and relationships in the graph in the *GRAPH EXPLORER* box.
+
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="A button reading 'Run Query' near the top of the window is highlighted" lightbox="media/quickstart-adt-explorer/run-query.png":::
+
+### Download models, twins, and graph
+
+Next, download the various components of your solution to your machine.
+
+<!-- Model download possibly not necessary if included with graph download -->
+To download your **models**, use the *Download models* icon in the *MODEL VIEW* box.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-move-regions/download-models.png" alt-text="In the Model View box, the first icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/download-models.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+To download your **twins and graph**, make sure the full graph is showing in the *GRAPH VIEW* box (you can do this by rerunning the default query of `SELECT * FROM digitaltwins` in the *QUERY EXPLORER* box).
+ 
+Then, hit the *Export graph* icon in the *GRAPH VIEW* box.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="In the Graph View box, an icon is highlighted. It shows an arrow pointing down out of a cloud." lightbox="media/how-to-move-regions/export-graph.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+This will enable a *Download* link in the *GRAPH VIEW*. Select it to download a JSON-based representation of the query result, including your models, twins, and relationships.
+
+<!-- Does it export models? Need to verify. -->
 
 ## Move
 
