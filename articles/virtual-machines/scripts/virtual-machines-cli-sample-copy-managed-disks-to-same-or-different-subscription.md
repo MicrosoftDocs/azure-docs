@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Copy managed disks to same or different subscription with CLI
 
-This script copies a managed disk to same or different subscription but in the same region. The copy works only when the subscriptions are part of same AAD tenant.
+This script copies a managed disk to same or different subscription but in the same region. The copy works only when the subscriptions are part of same Azure AD tenant.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
