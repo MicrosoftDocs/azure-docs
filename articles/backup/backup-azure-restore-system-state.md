@@ -67,7 +67,7 @@ The terminology used in these steps includes:
 * *Sample vault* – The Recovery Services vault to which the *Source machine* and *Target machine* are registered.
 
 > [!NOTE]
-> Backups taken from one machine cannot be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
+> Backups taken from one machine can't be restored to a machine running an earlier version of the operating system. For example, backups taken from a Windows Server 2016 machine can't be restored to Windows Server 2012 R2. However, the inverse is possible. You can use backups from Windows Server 2012 R2 to restore Windows Server 2016.
 >
 
 1. Open the **Microsoft Azure Backup** snap-in on the *Target machine*.
@@ -148,7 +148,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
     ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
     >[!NOTE]
-    >Do not select the **Automatically reboot the server** option if you are performing the restore in DSRM mode.
+    >Don't select the **Automatically reboot the server** option if you're performing the restore in DSRM mode.
 
 1. After you've successfully completed a restore,  you need to restart the server in normal mode. Open a command prompt and type the following: `bcdedit /deletevalue safeboot`
 1. Reboot the server.
@@ -175,7 +175,7 @@ This article will only be discussing the first scenario, which calls for a nonau
     * Follow the instructions above to [apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
 
         >[!NOTE]
-        >If you are restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
+        >If you're restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
 
     * Use the [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
 

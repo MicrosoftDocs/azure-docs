@@ -30,7 +30,7 @@ If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-ha
 * backed-up database/item named *saphanadatabase;hxe;hxe*
 * resources in the *westus2* region
 
-Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM that is backed-up using Azure Backup. This tutorial details each of the management operations.
+Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM that's backed-up using Azure Backup. This tutorial details each of the management operations.
 
 ## Monitor backup and restore jobs
 
@@ -114,7 +114,7 @@ You can stop protecting an SAP HANA database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-* All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+* All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
 * You'll be charged for the protected instance and the consumed storage.
 * If you delete a data source without stopping backups, new backups will fail.
 
