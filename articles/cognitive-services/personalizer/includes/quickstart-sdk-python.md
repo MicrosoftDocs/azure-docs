@@ -33,11 +33,17 @@ pip install azure-cognitiveservices-personalizer
 
 ### Create a new python application
 
-Create a new Python file and create variables for your resource's Azure endpoint and subscription key.
+Create a new Python file and create variables for your resource's endpoint and subscription key.
 
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
+[!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
 
 ```python
+from azure.cognitiveservices.personalizer import PersonalizerClient
+from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
+from msrest.authentication import CognitiveServicesCredentials
+
+import datetime, json, os, time, uuid
+
 key = "<paste-your-personalizer-key-here>"
 endpoint = "<paste-your-personalizer-endpoint-here>"
 ```
@@ -65,12 +71,6 @@ These code snippets show you how to do the following with the Personalizer clien
 Instantiate the `PersonalizerClient` with your `key` and `endpoint` which you created earlier.
 
 ```python
-from azure.cognitiveservices.personalizer import PersonalizerClient
-from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
-from msrest.authentication import CognitiveServicesCredentials
-
-import datetime, json, os, time, uuid
-
 # Instantiate a Personalizer client
 client = PersonalizerClient(endpoint, CognitiveServicesCredentials(key))
 ```

@@ -97,6 +97,8 @@ In this section you'll do two things:
 
 Start by adding the following lines to your Program class. Make sure to add your key and endpoint from your Personalizer resource.
 
+[!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
+
 ```csharp
 private static readonly string ApiKey = "REPLACE-WITH-YOUR-PERSONALIZER-KEY";
 private static readonly string ServiceEndpoint = "https://REPLACE-WITH-YOUR-PERSONALIZER-RESOURCE-NAME.cognitiveservices.azure.com";
@@ -213,35 +215,26 @@ static void Main(string[] args)
     int iteration = 1;
     bool runLoop = true;
 
-    // Get the actions list to choose from personalizer with their features.
     IList<RankableAction> actions = GetActions();
 
-    // Initialize Personalizer client.
     PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
 
     do
     {
         Console.WriteLine("\nIteration: " + iteration++);
 
-        // Get context information from the user.
         string timeOfDayFeature = GetUsersTimeOfDay();
         string tasteFeature = GetUsersTastePreference();
 
-        // Create current context from user specified data.
         IList<object> currentContext = new List<object>() {
             new { time = timeOfDayFeature },
             new { taste = tasteFeature }
         };
 
-        // Exclude an action for personalizer ranking. This action will be held at its current position.
-        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
-        // As juice is excluded, the return of the API will always be with a probability of 0.
         IList<string> excludeActions = new List<string> { "juice" };
 
-        // Generate an ID to associate with the request.
         string eventId = Guid.NewGuid().ToString();
 
-        // Rank the actions
         var request = new RankRequest(actions, currentContext, excludeActions, eventId);
         RankResponse response = client.Rank(request);
 
@@ -271,7 +264,6 @@ static void Main(string[] args)
             Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
         }
 
-        // Send the reward for the action based on user response.
         client.Reward(response.EventId, new RewardRequest(reward));
 
         Console.WriteLine("\nPress q to break, any other key to continue:");
@@ -295,25 +287,18 @@ To complete the Rank request, the program asks the user's preferences to create 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
 ```csharp
-// Get context information from the user.
 string timeOfDayFeature = GetUsersTimeOfDay();
 string tasteFeature = GetUsersTastePreference();
 
-// Create current context from user specified data.
 IList<object> currentContext = new List<object>() {
     new { time = timeOfDayFeature },
     new { taste = tasteFeature }
 };
 
-// Exclude an action for personalizer ranking. This action will be held at its current position.
-// This simulates a business rule to force the action "juice" to be ignored in the ranking.
-// As juice is excluded, the return of the API will always be with a probability of 0.
 IList<string> excludeActions = new List<string> { "juice" };
 
-// Generate an ID to associate with the request.
 string eventId = Guid.NewGuid().ToString();
 
-// Rank the actions
 var request = new RankRequest(actions, currentContext, excludeActions, eventId);
 RankResponse response = client.Rank(request);
 ```
