@@ -13,7 +13,9 @@ ms.date: 09/20/2020
 
 Flexible server (Preview) is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use ARM templates to provision a PostgreSQL Flexible server to deploy multiple servers or multiple databases on a server.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+
+To learn about Azure Resource Manager templates, see [Template deployment overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
 ## Prerequisites
 
