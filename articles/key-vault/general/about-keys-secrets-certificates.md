@@ -13,6 +13,7 @@ ms.author: mbaldwin
 ---
 
 # Azure Key Vault REST API overview
+
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two types of containers: vaults and managed HSM pools.
 
 ## DNS suffixes for base URL
@@ -25,7 +26,6 @@ Azure China Cloud | .vault.azure.cn | Not supported
 Azure US Government | .vault.usgovcloudapi.net | Not supported
 Azure German Cloud | .vault.microsoftazure.de | Not supported
 |||
-
 
 
 ## Object types
@@ -82,7 +82,8 @@ An object identifier has the following general format (depending on container ty
 - **For Managed HSM pools**:
 `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
-> [!NOTE] See [Object type support](#object-types) for types of objects supported by each container type.
+> [!NOTE]
+> See [Object type support](#object-types) for types of objects supported by each container type.
 
 Where:  
 
