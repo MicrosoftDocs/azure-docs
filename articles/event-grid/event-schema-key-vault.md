@@ -26,7 +26,7 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
 | Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when a secret is expired. |
-| Microsoft.KeyVault.VaultAccessPolicyChanged | Vault Access Policy Changed | Triggered when an access policy on Key Vault changed. It includes when Key Vault permission model is changed to/from RBAC  |
+| Microsoft.KeyVault.VaultAccessPolicyChanged | Vault Access Policy Changed | Triggered when an access policy on Key Vault changed. It includes a scenario when Key Vault permission model is changed to/from Azure RBAC  |
 
 ### Event examples
 
