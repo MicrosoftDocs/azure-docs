@@ -1,5 +1,5 @@
 ---
-title: 'Connect compute instance Visual Studio Code (preview)'
+title: 'Visual Studio Code - Connect to compute instance  (preview)'
 titleSuffix: Azure Machine Learning
 description: Learn how to connect to an Azure Machine Learning compute instance in Visual Studio Code
 services: machine-learning
