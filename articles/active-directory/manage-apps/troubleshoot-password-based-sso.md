@@ -160,11 +160,6 @@ If you experience any of these problems, do the following things:
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 - If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*&lt;the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
-
-
-
-
-
 ## Request support 
 If you get an error message when you set up SSO and assign users, open a support ticket. Include as much of the following information as possible:
 
@@ -174,7 +169,6 @@ If you get an error message when you set up SSO and assign users, open a support
 -   Browser type
 -   Time zone and time/time frame when the error occurred
 -   Fiddler traces
-
 
 ### View portal notification details
 
