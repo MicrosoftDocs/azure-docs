@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 # Use IntelliJ to deploy Azure Spring Cloud applications
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart).
+
 ## Prerequisites
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)

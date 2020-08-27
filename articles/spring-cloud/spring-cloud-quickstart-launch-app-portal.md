@@ -13,6 +13,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This quickstart shows you how to deploy an existing Spring Cloud application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
 
+Before running this example, you can try the [basic quickstart](spring-cloud-quickstart).
+
 You can find the sample application code used in this tutorial in our [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
 
 Following this quickstart, you will learn how to:

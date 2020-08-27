@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Quickstart: Launch a Java Spring application using the Azure CLI
 
-Azure Spring Cloud enables you to easily run a Spring Boot based microservices application on Azure.
+Azure Spring Cloud enables you to easily run a Spring Boot based microservices application on Azure.  Before running this example, you can try the [basic quickstart](spring-cloud-quickstart).
 
 This quickstart shows you how to deploy an existing Java Spring Cloud application to Azure. When you're finished, you can continue to manage the application via the Azure CLI or switch to using the Azure portal.
 
