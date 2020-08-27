@@ -163,4 +163,4 @@ If you would like to optimize for your server, you can consider following
 ## Next steps
 
 <!--- Learn how to [create a MySQL server in the portal](quickstart-create-flexible-server-portal.md).-->
-- Learn about [service limitations](concepts-flexible-limitations.md).
+- Learn about [service limitations](concepts-limitations.md).
