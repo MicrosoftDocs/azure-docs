@@ -39,19 +39,19 @@ To resolve this issue, first try these things:
 
 - Have the user first try to **sign in to the application website directly** with the credentials stored for them.
 
-  * If sign-in works, then have the user click the **Update credentials** button on the **Application Tile** in the **Apps** section of the [Application Access Panel](https://myapps.microsoft.com/) to update them to the latest known working username and password.
+  * If sign-in works, then have the user click the **Update credentials** button on the **Application Tile** in the **Apps** section of [My Apps](https://myapps.microsoft.com/) to update them to the latest known working username and password.
 
   * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
 
 - If the user assigned their own credentials, have the user **check to be sure that their password has not expired in the application** and if so, **update their expired password** by signing in to the application directly.
 
-  * After the password has been updated in the application, request the user to click the **Update credentials** button on the **Application Tile** in the **Apps** section of the [Application Access Panel](https://myapps.microsoft.com/) to update them to the latest known working username and password.
+  * After the password has been updated in the application, request the user to click the **Update credentials** button on the **Application Tile** in the **Apps** section of [My Apps](https://myapps.microsoft.com/) to update them to the latest known working username and password.
 
   * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
 
-- Ensure that the access panel browser extension is running and enabled in your user’s browser.
+- Ensure that the My Apps browser extension is running and enabled in your user’s browser.
 
-- Ensure that your users are not trying to sign in to the application from the access panel while in **incognito, inPrivate, or Private mode**. The access panel extension is not supported in these modes.
+- Ensure that your users are not trying to sign in to the application from My Apps while in **incognito, inPrivate, or Private mode**. The My Apps extension is not supported in these modes.
 
 In case the previous suggestions do not work, it could be the case that a change has occurred on the application side that has temporarily broken the application’s integration with Azure AD. For example, this can occur when the application vendor introduces a script on their page which behaves differently for manual vs automated input, which causes automated integration, like our own, to break. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
 
@@ -94,11 +94,11 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 8. Select **Password-based Sign-on** mode.
 9. Enter the **Sign-on URL**, which is the URL of the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
 10. Select **Save**.
-    The page is automatically scraped for the user name and password input boxes. You can now use Azure AD to securely transmit passwords to that app by using the Access Panel browser extension.
+    The page is automatically scraped for the user name and password input boxes. You can now use Azure AD to securely transmit passwords to that app by using the My Apps browser extension.
 
 ### Manually capture sign-in fields for an app
 
-To manually capture sign-in fields, you must have the Access Panel browser extension installed. Also, your browser can't be running in *inPrivate*, *incognito*, or *private* mode.
+To manually capture sign-in fields, you must have the My Apps browser extension installed. Also, your browser can't be running in *inPrivate*, *incognito*, or *private* mode.
 
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
@@ -116,7 +116,7 @@ To configure password-based SSO for an app by using manual sign-in field capture
 11. Select **Manually detect sign-in fields**.
 14. Select **Ok**.
 15. Select **Save**.
-16. Follow the instructions to use Access Panel.
+16. Follow the instructions to use My Apps.
 
 
 ## Troubleshoot problems
@@ -137,12 +137,12 @@ You might observe the following behaviors when manual detection isn't working:
 - The manual capture process appeared to work, but the captured fields aren't correct.
 - The correct fields don’t get highlighted when the capture process runs.
 - The capture process takes you to the app’s sign-in page as expected, but nothing happens.
-- Manual capture appears to work, but SSO doesn’t happen when users navigate to the app from Access Panel.
+- Manual capture appears to work, but SSO doesn’t happen when users navigate to the app from My Apps.
 
 If you experience any of these problems, do the following things:
 - Make sure that you have the latest version of the My Apps browser extension *installed and enabled*.
-- Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* mode during the capture process. The Access Panel extension isn't supported in these modes.
-- Make sure that your users aren't trying to sign in to the app from Access Panel while in *incognito*, *inPrivate*, or *Private mode*.
+- Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* mode during the capture process. The My Apps extension isn't supported in these modes.
+- Make sure that your users aren't trying to sign in to the app from My Apps while in *incognito*, *inPrivate*, or *Private mode*.
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 - If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*&lt;the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
