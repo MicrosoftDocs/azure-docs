@@ -4,7 +4,7 @@ description: Step-by-step instructions for configuring system and user-assigned 
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: barclayn
+manager: daveba
 editor: 
 
 ms.service: active-directory

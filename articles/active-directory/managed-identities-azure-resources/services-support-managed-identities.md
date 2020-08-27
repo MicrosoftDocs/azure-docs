@@ -8,7 +8,7 @@ ms.date: 07/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: barclayn
+manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
 ---
