@@ -16,7 +16,7 @@ ms.author: sudbalas
 
 Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
->[!NOTE] This guide applies to vaults. Managed HSM pools use a different high availability and disaster recovery model. See [Managed HSM Disaster Recovery Guide](../managed-hsm/disaster-recovery-guide.md) for more information.
+> [!NOTE] This guide applies to vaults. Managed HSM pools use a different high availability and disaster recovery model. See [Managed HSM Disaster Recovery Guide](../managed-hsm/disaster-recovery-guide.md) for more information.
 
 The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography to maintain high durability of your keys and secrets. See the [Azure paired regions](../../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 

@@ -120,7 +120,7 @@ conceptualContent:
           itemType: overview
           text: Fetch SAS tokens in code
 
-    - title: Managed HSM pools
+    - title: Managed HSM pools (preview)
       links:
         - url: ./managed-hsm/overview.md
           itemType: overview

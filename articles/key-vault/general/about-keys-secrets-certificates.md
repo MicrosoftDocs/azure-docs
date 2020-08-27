@@ -41,7 +41,7 @@ Secrets|/secrets|Supported|Not supported
 Certificates|/certificates|Supported|Not supported
 Storage account keys|/storageaccount|Supported|Not supported
 |||
-- **Cryptographic keys**: Supports multiple key types and algorithms, and enables the use of software-protected and HSM-protected keys. For more information, see [About keys](about-keys.md).
+- **Cryptographic keys**: Supports multiple key types and algorithms, and enables the use of software-protected and HSM-protected keys. For more information, see [About keys](../keys/about-keys.md).
 - **Secrets**: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md).
 - **Certificates**: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../certificates/about-certificates.md).
 - **Azure Storage account keys**: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
@@ -82,7 +82,7 @@ An object identifier has the following general format (depending on container ty
 - **For Managed HSM pools**:
 `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
->[!NOTE] See [Object type support](#object-type-support) for types of objects supported by each container type.
+> [!NOTE] See [Object type support](#object-types) for types of objects supported by each container type.
 
 Where:  
 
@@ -95,7 +95,7 @@ Where:
 
 ## Next steps
 
-- [About keys](about-keys.md)
+- [About keys](../keys/about-keys.md)
 - [About secrets](../secrets/about-secrets.md)
 - [About certificates](../certificates/about-certificates.md)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
