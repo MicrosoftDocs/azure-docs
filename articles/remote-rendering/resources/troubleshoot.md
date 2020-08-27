@@ -30,6 +30,14 @@ Check that your GPU supports hardware video decoding. See [Development PC](../ov
 
 If you are working on a laptop with two GPUs, it is possible that the GPU you are running on by default, does not provide hardware video decoding functionality. If so, try to force your app to use the other GPU. This is often possible in the GPU driver settings.
 
+## Retrieve session/conversion status fails
+
+Sending REST API commands too frequently will cause the server to throttle and return failure eventually. The http status code in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+
+Note this this not only affects the REST API calls when called directly but also their C#/C++ counterparts, such as `Session.GetPropertiesAsync`, `Session.RenewAsync`, or `Frontend.GetAssetConversionStatusAsync`.
+
+If you experience server side throttling, change the code to do the calls less frequently. The server will reset the throttling state after a minute, so it is safe to try again.
+
 ## H265 codec not available
 
 There are two reasons why the server might refuse to connect with a `codec not available` error.
