@@ -165,7 +165,7 @@ To add users to your Partner Center account that already exist in your company's
 
 ### Create new users
 
-To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions. 
+To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 
@@ -275,7 +275,7 @@ To remove an application from your work account (Azure AD tenant), go to **Users
 
 If your Azure AD application reads and writes data in Microsoft Azure AD, it will need a key. You can create keys for an Azure AD application by editing its information in Partner Center. You can also remove keys that are no longer needed.
 
-1. From the **Users** page (under **Account settings**), select the name of the Azure AD application. You'll see all of the active keys for the Azure AD application, including the date on which the key was created and when it will expire.
+1. From the **Users** page (under **Account settings**), select the name of the Azure AD application. You'll see all of the active keys for the Azure AD application, including the date on which the key was created and when it will expire 50.
 2. To remove a key that is no longer needed, select **Remove**.
 3. To add a new key, select **Add new key**.
 4. You will see a screen showing the **Client ID** and **Key values**. Be sure to print or copy this information, as you won't be able to access it again after you leave this page.
@@ -286,7 +286,7 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 Your company's users can be assigned the following roles and permissions for the commercial marketplace program on Partner Center:
 
 - **Owner**
-  - This is the person who first created the account. This is the only person with complete access to the account, including the ability to delete offers, create and edit all account users, and change all financial and account settings. An account usually has only one owner.
+  - "This is the person who first created the account and has complete access to it, including the ability to create and edit all account users and change all financial and account settings. An account usually has only one owner."
 - **Manager**
   - Can access all Microsoft account features except tax and payout settings
   - Can manage users, roles, and work accounts (tenants)
