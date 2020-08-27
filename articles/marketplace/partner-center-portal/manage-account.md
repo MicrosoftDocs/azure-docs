@@ -1,12 +1,12 @@
 ---
-title: How to manage a commercial marketplace account in Microsoft Partner Center 
-description: Learn how to manage a commercial marketplace account in Microsoft Partner Center. 
+title: How to manage a commercial marketplace account in Microsoft Partner Center
+description: Learn how to manage a commercial marketplace account in Microsoft Partner Center.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 04/27/2020
+ms.date: 08/27/2020
 ---
 
 # Manage your commercial marketplace account in Partner Center
