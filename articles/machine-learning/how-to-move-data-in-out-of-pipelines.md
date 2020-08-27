@@ -24,6 +24,11 @@ This article will show you how to:
 - Use `Dataset` objects for pre-existing data
 - Access data within your steps
 - Split `Dataset` data into subsets, such as training and validation subsets
+- Create `PipelineData` objects to transfer data to the next pipeline step
+- Use `PipelineData` objects as input to pipeline steps
+- Create new `Dataset` objects from `PipelineData` you wish to persist
+
+OR
 - Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
 - Use `OutputFileDatasetConfig` objects as input to pipeline steps
 - Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
@@ -147,6 +152,31 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
+## Use `PipelineData` for intermediate data
+
+While `Dataset` objects represent persistent data, [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) objects are used for temporary data that is output from pipeline steps. Because the lifespan of a `PipelineData` object is longer than a single pipeline step, you define them in the pipeline definition script. When you create a `PipelineData` object, you must provide a name and a datastore at which the data will reside. Pass your `PipelineData` object(s) to your `PythonScriptStep` using _both_ the `arguments` and the `outputs` arguments:
+
+```python
+
+default_datastore = workspace.get_default_datastore()
+dataprep_output = PipelineData("clean_data", datastore=default_datastore)
+
+dataprep_step = PythonScriptStep(
+    name="prep_data",
+    script_name="dataprep.py",
+    compute_target=cluster,
+    arguments=["--output-path", dataprep_output]
+    inputs=[Dataset.get_by_name(workspace, 'raw_data')],
+    outputs=[dataprep_output]
+)
+
+```
+
+You may choose to create your `PipelineData` object using an access mode that provides an immediate upload. In that case, when you create your `PipelineData`, set the `upload_mode` to `"upload"` and use the `output_path_on_compute` argument to specify the path to which you'll be writing the data:
+
+```python
+PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
+```
 ## Use `OutputFileDatasetConfig` for intermediate data
 
 While `Dataset` objects represent only persistent data, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) object(s) can be used for temporary data  output from pipeline steps **and** persistent output data. 
@@ -174,6 +204,21 @@ blob_store= ws.datastores['my_blob_store']
 OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(overwrite=False)
 ```
 
+### Use `PipelineData` as outputs of a training step
+Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this step is the first and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `PipelineData`.
+
+```python
+parser = argparse.ArgumentParser()
+parser.add_argument('--output_path', dest='output_path', required=True)
+args = parser.parse_args()
+# Make directory for file
+os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
+with open(args.output_path, 'w') as f:
+    f.write("Step 1's output")
+```
+
+If you created your `PipelineData` with the `is_directory` argument set to `True`, it would be enough to just perform the `os.makedirs()` call and then you would be free to write whatever files you wished to the path. For more details, see the [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) reference documentation.
+
 ### Use `OutputFileDatasetConfig` as outputs of a training step
 
 Within your pipeline's `PythonScriptStep`, you can retrieve the available output paths using the program's arguments. If this step is the first and will initialize the output data, you must create the directory at the specified path. You can then write whatever files you wish to be contained in the `OutputFileDatasetConfig`.
@@ -187,6 +232,44 @@ args = parser.parse_args()
 os.makedirs(os.path.dirname(args.output_path), exist_ok=True)
 with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
+```
+
+### Read `PipelineData` as inputs to non-initial steps
+After the initial pipeline step writes some data to the `PipelineData` path and it becomes an output of that initial step, it can be used as an input to a later step:
+
+```python
+step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
+# get adls gen 2 datastore already registered with the workspace
+datastore = workspace.datastores['my_adlsgen2']
+step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=datastore).as_upload()
+step1 = PythonScriptStep(
+    name="generate_data",
+    script_name="step1.py",
+    runconfig = aml_run_config,
+    arguments = ["--output_path", step1_output_data],
+    inputs=[],
+    outputs=[step1_output_data]
+)
+
+step2 = PythonScriptStep(
+    name="read_pipeline_data",
+    script_name="step2.py",
+    compute_target=compute,
+    runconfig = aml_run_config,
+    arguments = ["--pd", step1_output_data],
+    inputs=[step1_output_data]
+)
+pipeline = Pipeline(workspace=ws, steps=[step1, step2])
+```
+
+The value of a `PipelineData` input is the path to the previous output. If, as shown previously, the first step wrote a single file, consuming it might look like: 
+
+```python
+parser = argparse.ArgumentParser()
+parser.add_argument('--pd', dest='pd', required=True)
+args = parser.parse_args()
+with open(args.pd) as f:
+    print(f.read())
 ```
 
 ### Read `OutputFileDatasetConfig` as inputs to non-initial steps
@@ -221,6 +304,15 @@ step2 = PythonScriptStep(
 )
 
 pipeline = Pipeline(workspace=ws, steps=[step1, step2])
+```
+## Convert `PipelineData` objects to `Dataset`s
+
+If you'd like to make your `PipelineData` available for longer than the duration of a run, use its `as_dataset()` function to convert it to a `Dataset`. You may then register the `Dataset`, making it a first-class citizen in your workspace. Since your `PipelineData` object will have a different path every time the pipeline runs, it's highly recommended that you set `create_new_version` to `True` when registering a `Dataset` created from a `PipelineData` object.
+
+```python
+step1_output_ds = step1_output_data.as_dataset()
+step1_output_ds.register(name="processed_data", create_new_version=True)
+
 ```
 
 ## Register `OutputFileDatasetConfig` objects for reuse
