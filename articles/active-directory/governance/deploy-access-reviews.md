@@ -181,7 +181,7 @@ Typical targets for review include:
 
 * Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synchronized to Azure AD, or created in Azure AD or Office 365, including Microsoft Teams).
 
-* [Access Package](/entitlement-management-overview.md) that group resources (groups, apps, and sites) into a single package to manage access.
+* [Access Package](/azure/active-directory/governance/entitlement-management-overview) that group resources (groups, apps, and sites) into a single package to manage access.
 
 * [Azure AD roles​ and Azure Resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in Privileged Identity Management.
 
