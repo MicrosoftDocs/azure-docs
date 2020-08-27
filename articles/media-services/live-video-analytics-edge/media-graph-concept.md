@@ -42,9 +42,9 @@ The graph instance will be in the `Inactive` (idle) state.
 
 When you are ready to send the live video feed into the graph instance, you [activate](direct-methods.md#graphinstanceactivate) it. The graph instance will briefly go through a transitionary `Activating` state, and if successful, go into an `Active` state. In the `Active` state, media will be processed (if the graph instance receives input data).
 
-    > [!NOTE]
-    >  A graph instance can be active without data flowing through it (for example, the camera goes offline).
-    >  Your Azure subscription will be billed when the graph instance is in the active state.
+> [!NOTE]
+>  A graph instance can be active without data flowing through it (for example, the camera goes offline).
+>  Your Azure subscription will be billed when the graph instance is in the active state.
 
 You can repeat the process of creating and activating other graph instances for the same topology, if you have other live video feeds to process.
 
