@@ -227,7 +227,7 @@ from pyspark.sql.types import *
 account_name = "Your account name"
 container_name = "Your container name"
 relative_path = "Your path"
-adls_path = 'abfss://%s@%s.dfs.core.windows.net/%s' % (blob_container_name, blob_account_name,  blob_relative_path)
+adls_path = 'abfss://%s@%s.dfs.core.windows.net/%s' % (container_name, account_name,  blob_relative_path)
 
 spark.conf.set("fs.azure.account.auth.type.%s.dfs.core.windows.net" %account_name, "SharedKey")
 spark.conf.set("fs.azure.account.key.%s.dfs.core.windows.net" %account_name ,"Your ADLSg2 Primary Key")
