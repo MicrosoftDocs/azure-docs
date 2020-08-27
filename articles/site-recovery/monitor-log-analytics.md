@@ -15,7 +15,7 @@ This article describes how to monitor machines replicated by Azure [Site Recover
 
 Azure Monitor Logs provide a log data platform that collects activity and resource logs, along with other monitoring data. Within Azure Monitor Logs, you use Log Analytics to write and test log queries, and to interactively analyze log data. You can visualize and query log results, and configure alerts to take actions based on monitored data.
 
-For Site Recovery, you can Azure Monitor Logs to help you do the following:
+For Site Recovery, you can use Azure Monitor Logs to help you do the following:
 
 - **Monitor Site Recovery health and status**. For example, you can monitor replication health, test failover status, Site Recovery events, recovery point objectives (RPOs) for protected machines, and disk/data change rates.
 - **Set up alerts for Site Recovery**. For example, you can configure alerts for machine health, test failover status, or Site Recovery job status.
