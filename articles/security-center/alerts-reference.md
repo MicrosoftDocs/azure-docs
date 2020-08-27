@@ -267,7 +267,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 |                                                    |                                                                                                                                                                                                                                                                                                            |                                    |          |
 
 
-## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and SQL Data Warehouse
+## <a name="alerts-sql-db-and-warehouse"></a>Alerts for SQL Database and Azure Synapse Analytic
 
 [Further details and notes](threat-protection.md#data-sql)
 
