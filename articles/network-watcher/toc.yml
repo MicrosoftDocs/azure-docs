@@ -61,6 +61,12 @@
       href: connection-monitor-preview-create-using-portal.md
     - name: Using ARMClient
       href: connection-monitor-preview-create-using-arm-client.md 
+  - name: Migrate to Connection Monitor (Preview)
+    items:
+    - name: From Network Performance Monitor
+      href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+    - name: From Connection Monitor
+      href: migrate-to-connection-monitor-preview-from-connection-monitor.md
   - name: Diagnose VM network problems
     items:
     - name: Install VM extension

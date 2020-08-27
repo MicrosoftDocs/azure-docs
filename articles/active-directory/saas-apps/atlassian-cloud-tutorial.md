@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Atlassian Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Atlassian Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
 
@@ -45,7 +39,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Atlassian Cloud supports **SP and IDP** initiated SSO
 * Atlassian Cloud supports [Automatic user provisioning and deprovisioning](atlassian-cloud-provisioning-tutorial.md)
-* Once you configure Atlassian Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Atlassian Cloud you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Atlassian Cloud from the gallery
 
@@ -73,6 +67,16 @@ To configure and test Azure AD SSO with Atlassian Cloud, complete the following 
 ### Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
+
+1. To automate the configuration within Atlassian Cloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+    ![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Atlassian Cloud** will direct you to the Atlassian Cloud application. From there, provide the admin credentials to sign into Atlassian Cloud. The browser extension will automatically configure the application for you.
+
+    ![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Atlassian Cloud manually, log in to your Atlassian Cloud company site as an administrator and perform the following steps.
 
 1. Before you start go to your Atlassian product instance and copy/save the Instance URL
    > [!NOTE]
@@ -159,7 +163,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
       ![image](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user’s email (**user.email**). Edit the **Source attribute** and change it to **user.mail**. Save the changes to the claim.
+      b. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user's email (**user.email**). Edit the **Source attribute** and change it to **user.mail**. Save the changes to the claim.
 
       ![image](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -169,11 +173,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
       
    1. Attribute mapping for an Azure AD tenant without an Office 365 license 
 
-      a. Click on the **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** claim.
+      a. Click on the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` claim.
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Office 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user’s email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
+      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Office 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user's email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -205,7 +209,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](./media/atlassian-cloud-tutorial/add-assign-user.png)
+    ![The Add User link](./media/atlassian-cloud-tutorial/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -217,15 +221,15 @@ To enable Azure AD users to sign in to Atlassian Cloud, provision the user accou
 
 1. In the **Administration** pane, select **Users**.
 
-	![The Atlassian Cloud Users link](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
+    ![The Atlassian Cloud Users link](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-14.png)
 
 1. To create a user in Atlassian Cloud, select **Invite user**.
 
-	![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
+    ![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-15.png)
 
 1. In the **Email address** box, enter the user's email address, and then assign the application access.
 
-	![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
+    ![Create an Atlassian Cloud user](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-16.png)
 
 1. To send an email invitation to the user, select **Invite users**. An email invitation is sent to the user and, after accepting the invitation, the user is active in the system.
 

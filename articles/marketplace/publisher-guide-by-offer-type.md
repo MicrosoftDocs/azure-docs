@@ -17,7 +17,7 @@ Before you can create an offer, and after you [decide on a publishing option](de
 
 A single offer type can be configured in different ways to enable different publishing options, calls-to-action, provisioning, or pricing. The publishing option and configuration of the offer type also align to the offer eligibility and technical requirements.
 
-Be sure to review the storefront and offer type eligibility requirements and the technical publishing requirements before creating your offer.
+Be sure to review the online store and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
 ## List of offer types
 
@@ -40,4 +40,4 @@ For information on single sign-on requirements by listing options and offer type
 ## Next steps
 
 - Review the eligibility requirements in the corresponding article for your offer type (following sections) to finalize the selection and configuration of your offer.
-- Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
+- Review the publishing patterns by online store for examples on how your solution maps to an offer type and configuration.

@@ -2,22 +2,15 @@
 title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 1b9e59e3-e7ae-4e74-b16c-8c1a7ccfdef3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver

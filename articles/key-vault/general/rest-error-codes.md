@@ -85,7 +85,7 @@ Tokens are base64 encoded and the values can be decoded at websites such as [htt
 
 We can see many important parts in this token:
 
-- aud (audience): The resource of the token. Notice that this is <https://vault.azure.net>. This token will NOT work for any resource that does not explicitly match this value, such as graph.
+- aud (audience): The resource of the token. Notice that this is `https://vault.azure.net`. This token will NOT work for any resource that does not explicitly match this value, such as graph.
 - iat (issued at): The number of ticks since the start of the epoch when the token was issued.
 - nbf (not before): The number of ticks since the start of the epoch when this token becomes valid.
 - exp (expiration): The number of ticks since the start of the epoch when this token expires.

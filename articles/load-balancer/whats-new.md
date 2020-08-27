@@ -4,7 +4,7 @@ description: Learn what's new with Azure Load Balancer, such as the latest relea
 services: load-balancer
 author: anavinahar
 ms.service: load-balancer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
 ---

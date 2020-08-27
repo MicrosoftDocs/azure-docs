@@ -22,4 +22,4 @@ the subscription or the [management group](../articles/governance/management-gro
 | Initiative definition | Parameters | 100 |
 | Policy or initiative assignments | Exclusions (notScopes) | 400 |
 | Policy rule | Nested conditionals | 512 |
-| Remediation task | Resources | 1000 |
+| Remediation task | Resources | 500 |

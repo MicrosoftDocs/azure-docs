@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Integrate with Time Series Insights
+title: Integrate with Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: See how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
 author: alexkarcher-msft
