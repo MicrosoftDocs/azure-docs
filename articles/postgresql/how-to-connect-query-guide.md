@@ -36,9 +36,9 @@ Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or
 ## PostgreSQL Extensions
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
 
-- [Postgres 11 extenstions](https://docs.microsoft.com/en-us/azure/postgresql/concepts-extensions#postgres-11-extensions)
-- [Postgres 10 extensions](https://docs.microsoft.com/en-us/azure/postgresql/concepts-extensions#postgres-10-extensions)
-- [Postgres 9.6 extensions](https://docs.microsoft.com/en-us/azure/postgresql/concepts-extensions#postgres-96-extensions)
-- [Postgres 9.5 extensions](https://docs.microsoft.com/en-us/azure/postgresql/concepts-extensions#postgres-95-extensions)
+- [Postgres 11 extenstions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-11-extensions)
+- [Postgres 10 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-10-extensions)
+- [Postgres 9.6 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-96-extensions)
+- [Postgres 9.5 extensions](https://docs.microsoft.com/azure/postgresql/concepts-extensions#postgres-95-extensions)
 
 Fore more details, see [How to use PostgreSQL extensions on Single server](concepts-extensions.md)|
