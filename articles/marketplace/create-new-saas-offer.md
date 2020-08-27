@@ -42,7 +42,7 @@ If you haven’t already done so, read [Plan a SaaS offer for the commercial mar
 
 ## Configure your SaaS offer setup details
 
-On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_, which means that Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. For more information on these options, see [Plan a SaaS offer](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
+On the **Offer setup** tab, under **Setup details**, you’ll choose whether to sell your offer through Microsoft or manage your transactions independently. Offers sold through Microsoft are referred to as _transactable offers_, which means that Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. For more information on these options, see [Listing options](plan-saas-offer.md#listing-options) and [Determine your publishing option](determine-your-listing-type.md).
 
 1. To sell through Microsoft and have us host transactions for you, select **Yes**. Continue to [Enable a test drive](#enable-a-test-drive-optional).
 
@@ -53,7 +53,7 @@ On the **Offer setup** tab, under **Setup details**, you’ll choose whether to 
 
 ### Enable a test drive (optional)
 
-A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To Learn more about test drives, see [Learn about test drive for your offer](partner-center-portal/test-drive.md).
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To Learn more about test drives, see [What is a test drive?](partner-center-portal/test-drive.md).
 
 > [!TIP]
 > A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
@@ -69,7 +69,8 @@ Connect your customer relationship management (CRM) system with your commercial 
 > [!NOTE]
 > You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Lead management for the commercial marketplace](lead-management-for-cloud-marketplace.md).
 
-**To configure the connection details in Partner Center**
+#### To configure the connection details in Partner Center
+
 1.	Under **Customer leads**, select the **Connect** link.
 1. In the **Connection details** dialog box, select a lead destination from the list.
 1. Complete the fields that appear. For detailed steps, see the following articles:
