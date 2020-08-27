@@ -83,11 +83,11 @@ You grant a security principal access to execute specific key operations by assi
 
 ## Example
 
-In this example, we're developing an application that uses Azure Storage account to store data and an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). The Storage account is configured to [encrypt data at rest with customer-managed key](../../storage/common/encryption-customer-managed-keys.md). Both the RSA key used for signing and the master key used to encryption storage account data are stored in our managed HSM pool.
+In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Both the RSA key used for signing is stored in our managed HSM pool.
 
 We have identified following roles who manage, deploy, and audit our application:
-- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of secrets. The secrets can include TLS/SSL certificates, RSA keys for signing, connection strings, and storage account keys.
-- **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like TLS/SSL certificates and RSA keys. Only the application that they deploy should have access to sensitive data.
+- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys RSA or EC keys for signing, and RSA or AES keys for data encryption.
+- **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like RSA keys. Only the application that they deploy should have access to this sensitive data.
 - **Auditors**: This role is for contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
 
 There's another role that's outside the scope of our application: the subscription (or resource group) administrator. The subscription admin sets up initial access permissions for the security team. They grant access to the security team by using a resource group that has the resources required by the application.
@@ -96,17 +96,20 @@ We need to authorize the following operations for our roles:
 
 **Security team**
 - Create Managed HSM pool.
-- Turn on Managed HSM logging.
+- Download Managed HSM pool security domain (for disaster recovery)
+- Turn on logging.
 - Generate or import keys
 - Create HSM pool backups for disaster recovery.
 - Set Managed HSM local RBAC to grant permissions to users and applications for specific operations.
 - Roll the keys periodically.
 
 **Developers and operators**
-- Get references from the security team for master key to encrypt storage account (key URI), and RSA key (key URI) for signing.
-- Develop and deploy the application to access keys and secrets programmatically.
+- Get reference (key URI) from the security team the RSA key used for signing.
+- Develop and deploy the application that accesses the key programmatically.
 
 **Auditors**
+- Review keys expiry dates to ensure keys are up-to-date
+- Monitor role assignments to ensure keys can only be accessed by authorized users/applications
 - Review the HSM pool logs to confirm proper use of keys in compliance with data security standards.
 
 The following table summarizes the role assignments to teams and resources to access the HSM pool.
@@ -114,8 +117,8 @@ The following table summarizes the role assignments to teams and resources to ac
 | Role | Management plane role | Data plane role |
 | --- | --- | --- |
 | Security team | Managed HSM Contributor | Managed HSM Administrator |
-| Developers and&nbsp;operators | None | None |
-| Auditors | None | Managed HSM Auditor |
+| Developers and operators | None | None |
+| Auditors | None | Managed HSM Crypto Auditor |
 | Managed identify of the VM used by the Application| None | Managed HSM Crypto User |
 | Managed identity of the Storage account used by the Application| None| Managed HSM Service Encryption |
 
@@ -131,46 +134,59 @@ The Azure CLI snippets in this section are built with the following assumptions:
 - The HSM pool logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** HSM pool and the **contosologstorage** storage account are in the same Azure location.
 
-The subscription admin assigns the `Managed HSM Contributor` and `User Access Administrator` roles to the security team. These roles allow the security team to manage access to other resources and key vaults, both of which in the **ContosoAppRG** resource group.
+The subscription admin assigns the `Managed HSM Contributor`role to the security team. This role allows the security team to manage existing HSM pools and create new ones. If there are existing Managed HSM pools, they will need to be assigned the "Managed HSM Administrator" role to be able to mange them.
+
+# [Azure CLI](#tab/azure-cli)
 
 ```AzureCLI
-New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
-New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
+# This role assignment allows Contoso Security Team to create new Managed HSM pools
+az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
+
+# This role assignment allows Contoso Security Team to become administrator of existing Managed HSM pool
+az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso Security Team' --query 'objectId' -o tsv) --scope / --role "Managed HSM Administrator"
+
+
+
 ```
 
-The security team creates an HSM pool and sets up logging and assigns roles.
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "Managed HSM Contributor" -ResourceGroupName ContosoAppRG
+```
+
+---
+
+The security team sets up logging and assigns roles to auditors and the VM application.
+
+# [Azure CLI](#tab/azure-cli)
+
+```AzureCLI
+# Enable logging
+hsmresource=$(az keyvault show --hsm-name contosomhsm --query id -o tsv)
+storageresource=$(az storage account show --name contosologstorage --query id -o tsv)
+az monitor diagnostic-settings create --name MHSM-Diagnostics --resource $hsmresource --logs    '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
+
+# Grant the Contoso App Auditors group read permissions to MHSM
+az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az ad group show -g 'Contoso App Auditors' --query 'objectId' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
+
+# Grant the Crypto User role to the VM's managed identity
+az keyvault role assignment create  --hsm-name contosomhsm --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
+
+
+```
+
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```AzureCLI
 # Create a Managed HSM pool and enable logging
 $sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+$kv = Get-AzKeyVault -HSMName ContosoMHSM
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
-
-# Set up data plane permissions for the Contoso Security Team role
-Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
-
-# Set up management plane permissions for the Contoso App DevOps role
-# Create the new role from an existing role
-$devopsrole = Get-AzRoleDefinition -Name "Virtual Machine Contributor"
-$devopsrole.Id = $null
-$devopsrole.Name = "Contoso App DevOps"
-$devopsrole.Description = "Can deploy VMs that need secrets from a key vault"
-$devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
-
-# Add permissions for the Contoso App DevOps role so members can deploy VMs with secrets deployed from key vaults
-$devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzRoleDefinition -Role $devopsrole
-
-# Assign the new role to the Contoso App DevOps security group
-New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
-
-# Set up data plane permissions for the Contoso App Auditors role
-Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
-Our defined custom roles are assignable only to the subscription where the **ContosoAppRG** resource group is created. To use a custom role for other projects in other subscriptions, add other subscriptions to the scope for the role.
 
-For our DevOps staff, the custom role assignment for the key vault `deploy/action` permission is scoped to the resource group. Only VMs created in the **ContosoAppRG** resource group are allowed access to the secrets (TLS/SSL and bootstrap certificates). VMs created in other resource groups by a DevOps member can't access these secrets, even if the VM has the secret URIs.
 
 Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../../storage/blobs/security-recommendations.md), and other Azure resources.
 
