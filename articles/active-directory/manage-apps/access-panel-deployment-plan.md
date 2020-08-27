@@ -14,7 +14,7 @@ ms.author: kenwith
 
 # Plan an Azure Active Directory My Apps deployment
 
-Azure Active Directory (Azure AD) My Apps is a web-based portal that helps lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when you access the system and notifies administrators of misuse or abuse. To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access).
+Azure Active Directory (Azure AD) My Apps is a web-based portal that helps lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when you access the system and notifies administrators of misuse or abuse. To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access.md).
 
 By using Azure AD My Apps, you can:
 
