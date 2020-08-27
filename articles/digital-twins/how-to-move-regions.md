@@ -245,6 +245,14 @@ To verify that your new instance was set up correctly, you can use the following
 
 You can also try running any custom apps or end-to-end flows that you had running with your original instance, to help you verify that they're working with the new instance correctly.
 
-## Clean up source resources
+## Clean up source resources (optional)
 
-Use the portal or the CLI to delete the instance.
+Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can **delete the original instance** if you would like.
+
+You can do this in the [Azure portal](http://portal.azure.com), with the [CLI](how-to-use-cli.md), or with the [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
+
+To delete the instance using the Azure portal, [open the portal](http://portal.azure.com) in a browser window and navigate to your original Azure Digital Twins instance by searching for its name in the portal search bar.
+
+Hit the *Delete* button, and follow the prompts to finish the deletion.
+
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="View of the Azure Digital Twins instance details in the Azure portal, on the Overview tab. The Delete button is highlighted":::
