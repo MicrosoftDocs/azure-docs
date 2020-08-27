@@ -63,9 +63,13 @@ In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/d
 
 ### Networking
 - The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create.
+- SSL is enabled by default and cannot be disabled.
+- The minimum TLS version supported on the server is TLS1.2.
 
 ### Start/stop operation
 - Start/stop for servers with Zone Redundant HA is currently not supported
+- Primary servers configured with replicas do not support start/stop. 
+- Replicas do not support start/stop.
 
 ### Scale operations
 - Decreasing server storage size is currently not supported.
@@ -78,7 +82,7 @@ In Azure Database for MySQL, the [mysql system database](https://dev.mysql.com/d
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a dump and restore <!--  [dump and restore](./howto-migrate-using-dump-and-restore.md)--> it to a server that was created with the new engine version.
 
 ### Restoring a server
-- When using the point-in-time-restore feature, the new server is created with the same compute and storage configurations as the source server it is based on.
+- When using the point-in-time-restore feature, the new server is created with the same compute and storage configurations as the source server it is based on. The restored server's compute can be scaled down after the server is created.
 - Restoring a deleted server is not supported.
 
 ## Next steps
