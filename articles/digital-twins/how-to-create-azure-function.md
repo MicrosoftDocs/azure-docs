@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create an Azure function that can access and be triggered by digital twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/17/2020
+ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -84,7 +84,6 @@ using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
-
 ## Add authentication code to the Azure function
 
 You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins. You will add the following to your Azure function in the {your function name}.cs file.
