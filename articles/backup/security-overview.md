@@ -51,7 +51,7 @@ Encryption protects your data and helps you to meet your organizational security
 
 ## Protection of backup data from unintentional deletes
 
-Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to the customer. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
+Azure Backup provides security features to help protect backup data even after deletion. With soft delete, if user deletes the backup of a VM, the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the "soft delete" state doesn't incur any cost to you. [Learn more about soft delete](backup-azure-security-feature-cloud.md).
 
 ## Monitoring and alerts of suspicious activity
 

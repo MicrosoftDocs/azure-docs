@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Core Tools development
               href: functions-run-local.md
+              displayName: local, runtime
         - name: Create functions
           items:
             - name: HTTP trigger
