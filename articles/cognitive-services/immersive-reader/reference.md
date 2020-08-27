@@ -92,7 +92,7 @@ This function styles and updates the document's Immersive Reader button elements
 const btn1: HTMLDivElement = document.getElementById('theButton1');
 const btn2: HTMLDivElement = document.getElementById('theButton2');
 const btns: HTMLDivElement[] = [btn1, btn2];
-ImmersiveReader.renderButtons(elements: btns);
+ImmersiveReader.renderButtons({elements: btns});
 ```
 
 See the above [Optional Attributes](#optional-attributes) for more rendering options.
