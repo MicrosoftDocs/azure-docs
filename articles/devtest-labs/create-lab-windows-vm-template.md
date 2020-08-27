@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
 
-:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
+:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json":::
 
 The resources defined in the template include:
 

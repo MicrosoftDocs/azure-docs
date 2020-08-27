@@ -60,8 +60,14 @@
     href: ../../postgresql/postgresql-hyperscale-security-baseline.md
   - name: Azure Databricks security baseline
     href: ../../azure-databricks/security-baseline.md
+  - name: Azure DNS security baseline
+    href: ../../dns/security-baseline.md
+  - name: Azure Firewall security baseline
+    href: ../../firewall/security-baseline.md
   - name: Azure Functions security baseline
     href: ../../azure-functions/security-baseline.md
+  - name: Azure Machine Learning security baseline
+    href: ../../machine-learning/security-baseline.md
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Resource Graph security baseline
@@ -86,6 +92,8 @@
     href: ../../data-lake-analytics/security-baseline.md  
   - name: DDOS Protection security baseline
     href: ../fundamentals/ddos-protection-security-baseline.md
+  - name: Event Grid security baseline
+    href: ../../event-grid/security-baseline.md
   - name: Event Hubs security baseline
     href: ../../event-hubs/security-baseline.md
   - name: ExpressRoute security baseline
@@ -98,6 +106,8 @@
     href: ../../logic-apps/security-baseline.md
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
+  - name: Security Center baseline
+    href: ../../security-center/security-baseline.md
   - name: Service Fabric baseline
     href: ../../service-fabric/security-baseline.md
   - name: Stream Analytics baseline

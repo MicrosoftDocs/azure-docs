@@ -32,7 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
 
 A single [Microsoft.AnalysisServices/servers](/azure/templates/microsoft.analysisservices/servers) resource with a firewall rule is defined in the template.
 

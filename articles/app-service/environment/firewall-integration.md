@@ -57,7 +57,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a ptocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority, and set Allow. In the Rules section under IP addresses, provide a name, select a protocol of **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues. 
 
    ![Add NTP network rule][3]
    

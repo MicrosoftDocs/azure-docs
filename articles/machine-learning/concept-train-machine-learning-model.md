@@ -9,7 +9,7 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Train models with Azure Machine Learning
@@ -85,7 +85,7 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
-* [Examples: Pipeline with estimators](https://aka.ms/pl-estimator)
+* [Examples: Pipeline with estimators](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### Understand what happens when you submit a training job
 

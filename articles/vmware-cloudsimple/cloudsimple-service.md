@@ -1,6 +1,6 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Service 
-description: Provides an overview of CloudSimple service and concepts. 
+description: Learn about the CloudSimple service with his overview. Creating the service allows you to purchase nodes, reserve nodes, and create Private Clouds.
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/20/2019 

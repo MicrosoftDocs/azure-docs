@@ -4,6 +4,7 @@ description: Get started with your updated Azure billing account to understand c
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
@@ -94,8 +95,12 @@ In the new experience, your invoice will be generated around the ninth day of ea
 
 **New billing and cost management APIs**
 
-If you are using Cost Management or Billing APIs to query and update your billing or cost data, then you must use new APIs. 
-<!-- Todo - Add link to the API doc -->
+If you are using Cost Management or Billing APIs to query and update your billing or cost data, then you must use new APIs. The table below lists the APIs that won't work with the new billing account and the changes that you need to make in your new billing account.
+
+|API | Changes  |
+|---------|---------|
+|[Billing Accounts - List](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | In the Billing Accounts - List API, your old billing account has agreementType **MicrosoftOnlineServiceProgram**, your new billing account would have agreementType **MicrosoftCustomerAgreement**. If you take a dependency on agreementType, please update it. |
+|[Invoices - List By Billing Subscription](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | This API will only return invoices that were generated before your account was updated. You would have to use [Invoices - List By Billing Account](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API to get invoices that are generated in your new billing account. |
 
 ## Additional information
 

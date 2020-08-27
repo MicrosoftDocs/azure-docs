@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
+ms.date: 08/07/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -237,20 +237,24 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
-#### Store logos
+#### Azure Marketplace logos
 
-Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-All three logo sizes are required for use in different places in the listing:
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (between 216 x 216 and 350 x 350)
+These logos are used in different places in the listing:
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -283,6 +287,8 @@ Select **Save draft** before you proceed to the next section.
 ## Plan overview
 
 You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 

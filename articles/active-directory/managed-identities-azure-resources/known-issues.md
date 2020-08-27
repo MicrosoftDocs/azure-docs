@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 08/06/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref

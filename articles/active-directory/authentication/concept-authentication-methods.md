@@ -38,12 +38,14 @@ The following table outlines what methods are available for primary or secondary
 | [Microsoft Authenticator app](#microsoft-authenticator-app) | Yes (preview) | MFA and SSPR |
 | [FIDO2 security keys (preview)](#fido2-security-keys) | Yes | MFA-only |
 | [OATH software tokens](#oath-software-tokens) | No | MFA |
-| [OATH hardware tokens (preview)](#oath-hardware-tokens-preview) | Yes | MFA |
+| [OATH hardware tokens (preview)](#oath-hardware-tokens-preview) | No | MFA |
 | [SMS](#phone-options) | Yes (preview) | MFA and SSPR |
 | [Voice call](#phone-options) | No | MFA and SSPR |
 | [Security questions](#security-questions) | No | SSPR-only |
 | [Email address](#email-address) | No | SSPR-only |
 | [App passwords](#app-passwords) | No | MFA only in certain cases |
+
+These authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 This article outlines these different authentication and verification methods available in Azure AD and any specific limitations or restrictions.
 
@@ -296,6 +298,8 @@ To get started, see the [tutorial for self-service password reset (SSPR)][tutori
 To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
 To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
+
+Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

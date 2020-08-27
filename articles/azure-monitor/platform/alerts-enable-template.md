@@ -8,9 +8,9 @@ ms.date: 03/09/2020
 ms.subservice: alerts
 ---
 # Create a classic metric alert with a Resource Manager template
+
 > [!WARNING]
-> 
-> This article describes creating **classic metric alerts** using Resource Manager templates. Classic alerts were retired in August 2019 and set to be fully deprecated in June 2020. You cannot create new classic alerts public Azure. Some regional versions of Azure may still have the option, but we suggest you instead create [newer metric alerts](./alerts-metric-near-real-time.md) using templates if at all possible. [This article](alerts-metric-create-templates.md) provides the details.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts.
 >
 
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.

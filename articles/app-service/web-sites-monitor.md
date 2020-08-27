@@ -63,6 +63,10 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 > [!IMPORTANT]
 > **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
 
+> [!NOTE]
+> Metrics for an app include the requests to the app's SCM site(Kudu).  This includes requests to view the site's logstream using Kudu.  Logstream requests may span several minutes, which will affect the Request Time metrics.  Users should be aware of this relationship when using these metrics with autoscale logic.
+> 
+
 Metrics provide information about the app or the App Service plan's behavior.
 
 For an app, the available metrics are:

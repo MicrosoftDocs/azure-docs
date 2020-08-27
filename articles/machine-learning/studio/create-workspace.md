@@ -66,7 +66,7 @@ If you encounter a problem creating your workspace, see [Troubleshooting guide: 
 
 
 ## Share an Azure Machine Learning Studio (classic) workspace
-Once a Machine Learning Studio (classic) workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
+Once a Machine Learning Studio (classic) workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, etc. You can add users in one of two roles:
 
 * **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.
 * **Owner** - An owner can invite and remove users in the workspace, in addition to what a user can do.

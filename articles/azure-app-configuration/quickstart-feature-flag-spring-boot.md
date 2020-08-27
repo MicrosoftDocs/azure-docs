@@ -61,12 +61,12 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.2</version>
+        <version>1.1.5</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -80,12 +80,12 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.7</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>

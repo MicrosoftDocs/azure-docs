@@ -33,9 +33,14 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
     This page displays the metrics for your Azure Digital Twins instance. You can also create custom views of your metrics by selecting the ones you want to see from the list.
     
-3. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings** from the menu, then **Add diagnostic setting**.
+3. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by selecting **Diagnostics settings** from the menu, then **Add diagnostic setting**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+
+    For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
+
+4. You can choose to set up alerts for your metrics data by selecting **Alerts** from the menu, then **+ New alert rule**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot showing the Alerts page and button to add":::
 
     For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
 
@@ -84,9 +89,9 @@ Metrics having to do with routing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Messages Routed (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+| MessagesRouted | Messages Routed (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
 
 ## Dimensions
 
@@ -96,7 +101,7 @@ Dimensions help identify more details about the metrics. Some of the routing met
 | --- | --- |
 | Authentication | OAuth |
 | Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
-| Operation (for Routing) | Event Grid, <br>Event Hub, <br>Service Bus |
+| Endpoint Type | Event Grid, <br>Event Hub, <br>Service Bus |
 | Protocol | HTTPS |
 | Result | Success, <br>Failure |
 | Status Code | 200, 404, 500, and so on. |

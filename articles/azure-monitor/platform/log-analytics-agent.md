@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
+ms.date: 08/06/2020
 
 ---
 
@@ -118,11 +118,19 @@ Starting with versions released after August 2018, we are making the following c
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to "python" using the following command:
+The python2 executable must be aliased to *python* using the following procedure:
 
-```
-alternatives --set python `which python2`
-```
+1. Run the following command to view any current python alias, if one exists. If it does, then take note of the priority for the next step.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Run the following command. Replace *\<priority\>* with a number greater than any existing link's priority, or 1 if no links currently exist.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
 
 ### Supported distros
 
@@ -162,7 +170,7 @@ To ensure the security of data in transit to Azure Monitor logs, we strongly enc
 
 
 ## SHA-2 Code Signing Support Requirement for Windows
-The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+The Windows agent will begin to exclusively use SHA-2 signing on November 2, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before November 2, 2020 or their agents will stop sending data to their Log Analytics workspaces:
 
 1. Install the latest Service Pack for your OS. The required service pack versions are:
     - Windows 7 SP1
@@ -190,7 +198,7 @@ The following table lists the proxy and firewall configuration information that'
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |
 |*.azure-automation.net |Port 443 |Outbound|Yes |
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

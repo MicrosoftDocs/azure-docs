@@ -270,7 +270,7 @@ To set this property, the network interface must exist. Therefore, you need a de
 
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
    
-- [size](sizes.md)
+- [size](../sizes.md)
 - [name](/azure/architecture/best-practices/resource-naming) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
 - [network interface](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -349,7 +349,7 @@ If you want to create a virtual machine from a managed image, change the imageRe
 
 ### Attach data disks
 
-You can optionally add data disks to the VMs. The [number of disks](sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
+You can optionally add data disks to the VMs. The [number of disks](../sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
 ```json
 "dataDisks": [

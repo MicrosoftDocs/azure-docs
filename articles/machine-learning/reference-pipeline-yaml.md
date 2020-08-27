@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Define machine learning pipelines in YAML

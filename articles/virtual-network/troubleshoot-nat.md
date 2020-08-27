@@ -191,14 +191,6 @@ It's not necessary to reboot a virtual machine configuring a subnet for a NAT ga
 
 If you are still having trouble, open a support case for further troubleshooting.
 
-### Connection setup time
-
-Because Load Balancer Outbound Rules statically assign pools of SNAT ports to specific virtual machines, creating new outbound flows is faster than using Virtual Network NAT. Therefore, when you switch from Load Balancer Outbound Rules, you might see increased latency when creating a new outbound connection. As explained earlier, to maximize the performance of your application, you should use long-lived flows (for example, reused TCP connections).
-
-_**Solution:**_
-
-If you're primarily interested in minimal connnection setup latency, use Load Balancer Outbound Rules.
-
 ## Next steps
 
 * Learn about [Virtual Network NAT](nat-overview.md)

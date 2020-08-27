@@ -10,7 +10,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Monitor and collect data from ML web service endpoints

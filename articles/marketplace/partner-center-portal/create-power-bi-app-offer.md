@@ -24,7 +24,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
    ![Illustrates the left-navigation menu.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 > [!IMPORTANT]
 > If **Power BI Service App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](create-power-bi-app-overview.md) for this offer type, including registering for a developer account.
@@ -197,19 +197,23 @@ Provide at least one and up to three related marketing documents in PDF format. 
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 
 #### Store logos
 
-Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image.
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
 
-Both logo sizes are required for use in different places in the listing:
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
 
-- **Small** (48 x 48)
-- **Large** (between 216 x 216 and 350 x 350)
+These logos are used in different places in the listing:
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 

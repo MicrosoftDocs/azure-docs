@@ -25,7 +25,7 @@ Azure AD join is intended for organizations that want to be cloud-first or cloud
 | **Primary audience** | Suitable for both cloud-only and hybrid organizations. |
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
-| **Operating Systems** | All Windows 10 devices |
+| **Operating Systems** | All Windows 10 devices except Windows 10 Home |
 |   | [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core is not supported) |
 | **Provisioning** | Self-service: Windows OOBE or Settings |
 |   | Bulk enrollment |
@@ -59,7 +59,7 @@ While Azure AD join is primarily intended for organizations that do not have an 
 - You want to manage a group of users in Azure AD instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
 - You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
 
-You can configure Azure AD joined devices for Windows 10 devices.
+You can configure Azure AD joined devices for all Windows 10 devices with the exception of Windows 10 Home.
 
 The goal of Azure AD joined devices is to simplify:
 

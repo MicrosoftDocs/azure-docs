@@ -3,13 +3,13 @@ title: Create a SaaS offer, Azure Marketplace and Microsoft AppSource
 description: How to create a Software as a Service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
 
-# Create a SaaS offer
+# Create a SaaS offer in the commercial marketplace
 
 To begin creating Software as a Service (SaaS) offers in the commercial marketplace, ensure that you first [create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
@@ -25,7 +25,7 @@ To begin creating Software as a Service (SaaS) offers in the commercial marketpl
    ![Illustrates the left-navigation menu.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
@@ -78,7 +78,7 @@ With SaaS solutions running in the publisher's Azure subscription, license fees 
 
 SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
-This is a sample breakdown of costs and payouts to demonstrate the agency model (any listed prices are for example purposes only and not intended to reflect actual costs):
+This is a sample breakdown of costs and payouts to demonstrate the agency model (any listed prices are for example, purposes only and not intended to reflect actual costs):
 
 |**Your license cost**|**$100 per month**|
 |:---|:---|
@@ -180,7 +180,7 @@ Your offer will be published to AppSource or Azure Marketplace depending on the 
 - At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
-See the full list of categories and subcategories applicable to each Storefront in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
+See the full list of categories and subcategories applicable to each online store in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industries
 
@@ -229,7 +229,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 
 #### Terms and conditions
 
-If you want to provide your own custom terms and conditions, you can elect to enter them in the terms and conditions field. You can enter up to 10,000 characters of text in this field. If your terms and conditions require a longer description, enter a single URL link into this field where your terms and conditions can be found. It will display to customers as an active link.
+If you want to provide your own custom terms and conditions, you can elect to enter them in the terms and conditions field. You can enter up to 10,000 characters of text in this field. If your terms and conditions require a longer description, enter a single URL link into this field where your terms and conditions can be found.
 
 Customers are required to accept these terms before they can try your offer.
 
@@ -274,19 +274,22 @@ This field is required.
   - **Engineering contact** (required) – For technical questions.
   - **Channel Manager contact** (required) – For reseller questions related to the CSP program.
 
-#### Files and Images
+#### Files and images
 
 - **Documents** (required) – Add related marketing documents for your offer, in PDF format, of at least one and up to three documents per offer.
-- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images. Adding a **Wide** logo is optional.
+- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-    Three logo sizes are required for use in different places in the listing; one is optional:
+  - **Large** (from 216 x 216 to 350 x 350 px, required)
+  - **Medium** (90 x 90 px, optional)
+  - **Small** (48 x 48 px, optional)
+  
+  These logos are used in different places in the listing:
 
-    - **Small** (48 x 48)
-    - **Medium** (90 x 90)
-    - **Large** (between 216 x 216 and 350 x 350)
-    - **Wide** (255 x 115), *optional*
+   - The large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+   - The medium logo appears when you create a new resource in Microsoft Azure.
+   - The small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
@@ -344,6 +347,8 @@ Select **Save draft** before continuing.
 ## Plan overview
 
 This page lets you provide a variety of plan options within the same offer. These plans (sometimes referred to as SKUs) could differ in terms of version, monetization, or tiers of service. You must set up at least one plan in order to sell your offer in the marketplace.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 

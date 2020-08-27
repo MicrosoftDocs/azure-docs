@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -110,7 +110,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## Identity
 
@@ -131,8 +131,8 @@ Image Builder support for a User-Assigned Identity:
 * Supports a single identity only
 * Does not support custom domain names
 
-To learn more, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## Properties: source
 
@@ -145,10 +145,10 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../windows/image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -367,7 +367,7 @@ Customize properties:
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
-    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
 
 
 ### File customizer
@@ -429,7 +429,8 @@ Customize properties:
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
 - **updateLimit** – Optional, defines how many updates can be installed, default 1000.
  
- 
+> [!NOTE]
+> The Windows Update customizer can fail if there are any outstanding Windows restarts, or application installations still running, typically you may see this error in the customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. We strongly advise you consider adding in a Windows Restart, and/or allowing applications enough time to complete their installations using [sleep] or wait commands(https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) in the inline commands or scripts before running Windows Update.
 
 ### Generalize 
 By default, Azure Image Builder will also run ‘deprovision’ code at the end of each image customization phase, to ‘generalize’ the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs ‘waagent -deprovision’. 
@@ -527,17 +528,16 @@ Output:
 The image output will be a managed image resource.
 
 ```json
-"distribute": [
-        {
-"type":"managedImage",
+{
+       "type":"managedImage",
        "imageId": "<resource ID>",
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
             "<name": "<value>",
-             "<name>": "<value>"
-               }
-         }]
+            "<name>": "<value>"
+        }
+}
 ```
  
 Distribute properties:
@@ -561,7 +561,7 @@ A Shared Image Gallery is made up of:
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](shared-images.md). 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../shared-images-cli.md). 
 
 ```json
 {

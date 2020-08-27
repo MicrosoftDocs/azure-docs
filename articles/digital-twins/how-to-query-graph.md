@@ -133,6 +133,22 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
+### Query with multiple JOINs
+
+Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
+
+Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
+
+```sql
+SELECT LightBulb 
+FROM DIGITALTWINS Room 
+JOIN LightPanel RELATED Room.contains 
+JOIN LightBulb RELATED LightPanel.contains 
+WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
+AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
+AND Room.$dtId IN [‘room1’, ‘room2’] 
+```
+
 ## Run queries with an API call
 
 Once you have decided on a query string, you execute it by making a call to the **Query API**.
@@ -208,7 +224,6 @@ Below are some tips for querying with Azure Digital Twins.
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Property names and values are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
-
 
 ## Next steps
 

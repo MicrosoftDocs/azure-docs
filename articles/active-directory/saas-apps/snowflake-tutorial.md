@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Snowflake | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Snowflake.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Snowflake
 

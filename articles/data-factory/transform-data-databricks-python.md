@@ -12,7 +12,7 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: anandsub
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 # Transform data by running a Python activity in Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

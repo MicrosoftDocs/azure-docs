@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Dynamic membership rules for groups in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
+In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
@@ -264,7 +264,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom an Office 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom an Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 
@@ -336,13 +336,13 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
 * [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
 * [Attribute] is the name of the property as it was created
@@ -388,7 +388,7 @@ The following device attributes can be used.
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
-> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) for more details. 
+> For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
 
 ## Next steps
 

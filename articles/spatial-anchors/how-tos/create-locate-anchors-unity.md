@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
@@ -235,7 +235,7 @@ Learn more about the [GetAnchorPropertiesAsync](https://docs.microsoft.com/dotne
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
-    if (anchor != nullptr)
+    if (anchor != null)
     {
         anchor.AppProperties[@"last-user-access"] = @"just now";
         await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);

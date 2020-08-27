@@ -10,7 +10,7 @@ author: mesameki
 ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
@@ -29,7 +29,7 @@ In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.gi
 ## Azure Machine Learning Fairness SDK 
 
 The Azure Machine Learning Fairness SDK, `azureml-contrib-fairness`, integrates the open-source Python package, [Fairlearn](http://fairlearn.github.io),
-within Azure Machine Learning. To learn more about Fairlearn's integration within Azure Machine Learning, check out these [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). For more information on Fairlearn, see the [example guide](https://fairlearn.github.io/auto_examples/notebooks/index.html) and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+within Azure Machine Learning. To learn more about Fairlearn's integration within Azure Machine Learning, check out these [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). For more information on Fairlearn, see the [example guide](https://fairlearn.github.io/auto_examples/) and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Use the following commands to install the `azureml-contrib-fairness` and `fairlearn` packages:
 ```bash

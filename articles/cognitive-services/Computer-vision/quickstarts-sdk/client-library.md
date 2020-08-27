@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
 zone_pivot_groups: programming-languages-set-one
 ---
 

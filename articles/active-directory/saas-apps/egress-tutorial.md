@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Egress | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Egress.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d1a3c6b6-af9a-440a-8451-c77f83ceacd4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Egress
@@ -42,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Egress supports **SP and IDP** initiated SSO
 * Egress supports **Just In Time** user provisioning
-* Once you configure Egress you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Egress you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Egress from the gallery
 
@@ -128,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the following page.
 
-    ![Egress Configuration](./media/egress-tutorial/configure1.PNG)
+    ![Egress Configuration](./media/egress-tutorial/configure-1.PNG)
 
     a. In the left side menu, click on **SSO Configuration**.
 
@@ -148,11 +142,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Invite Users** in the left side menu and click on **Invite Single User** to add the user.
 
-    ![Egress create test user](./media/egress-tutorial/createuser1.PNG)
+    ![Egress create test user](./media/egress-tutorial/create-user-1.PNG)
 
 1. Fill the required fields and click on **Invite**.
 
-    ![Egress create test user](./media/egress-tutorial/createuser2.PNG)
+    ![Egress create test user](./media/egress-tutorial/create-user-2.PNG)
 
 ## Test SSO 
 

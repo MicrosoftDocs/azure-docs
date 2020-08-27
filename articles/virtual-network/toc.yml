@@ -1,4 +1,4 @@
-- name: Virtual Network Documentation
+- name: Virtual Network documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,6 +12,8 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
+  - name: Create virtual network - ARM template
+    href: quick-create-template.md
   expanded: true
 - name: Tutorials
   items:
