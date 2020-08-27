@@ -85,7 +85,7 @@ A data disk is a managed disk that's attached to a virtual machine to store appl
 
 Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume.
 
-This disk has a maximum capacity of 2,048 GiB.
+This disk has a maximum capacity of 4,095 GiB.
 
 ### Temporary disk
 
