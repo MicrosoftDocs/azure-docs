@@ -26,14 +26,6 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 * Configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). 
 * Specify a Run As account to provide a user context for all runbooks.
 
-## Logging
-
-Logs are stored locally on each hybrid worker to the following location:
-
-* On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes`. High-level runbook job status events are written to the **Application and Services Logs\Microsoft-Automation\Operations** event log.
-
-* On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log`, and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
-
 ## Use runbook authentication to local resources
 
 If preparing a runbook that provides its own authentication to resources, use [credential](./shared-resources/credentials.md) and [certificate](./shared-resources/certificates.md) assets in your runbook. There are several cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the `Restart-Computer` cmdlet.
@@ -306,6 +298,14 @@ When starting a runbook using PowerShell, use the `RunOn` parameter with the [St
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
+
+## Logging
+
+To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:
+
+* On Windows at `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` for detailed job runtime process logging. High-level runbook job status events are written to the **Application and Services Logs\Microsoft-Automation\Operations** event log.
+
+* On Linux, the user hybrid worker logs can be found at `/home/nxautomation/run/worker.log`, and system runbook worker logs can be found at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
 
 ## Next steps
 
