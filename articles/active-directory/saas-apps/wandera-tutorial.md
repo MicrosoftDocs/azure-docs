@@ -58,8 +58,8 @@ To configure and test Azure AD SSO with Wandera RADAR Admin, complete the follow
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Wandera RADAR Admin SSO](#configure-wandera-sso)** - to configure the Single Sign-On settings on application side.
-   * **[Create Wandera RADAR Admin test user](#create-wandera-test-user)** - to have a counterpart of B.Simon in Wandera RADAR Admin that is linked to the Azure AD representation of user.
+1. **[Configure Wandera RADAR Admin SSO](#configure-wandera-radar-admin-sso)** - to configure the Single Sign-On settings on application side.
+   * **[Create Wandera RADAR Admin test user](#create-wandera-radar-admin-test-user)** - to have a counterpart of B.Simon in Wandera RADAR Admin that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
