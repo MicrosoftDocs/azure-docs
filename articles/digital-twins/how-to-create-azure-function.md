@@ -88,7 +88,7 @@ using Azure.Core.Pipeline;
 
 ## Add authentication code to the Azure function
 
-You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins.
+You will now declare class level variables and add authentication code that will allow the function to access Azure Digital Twins. You will add the following to your Azure function in the {your function name}.cs file.
 
 * Read ADT service URL as an environment variable. It is a good practice to read the service URL from an environment variable, rather than hard-coding it in the function.
 ```csharp     
