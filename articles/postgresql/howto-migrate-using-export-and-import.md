@@ -32,8 +32,9 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 
 ## Import the data on target Azure Database for PostgreSQL
 You can use the psql command line and the --dbname parameter (-d) to import the data into the Azure Database for PostgreSQL server and load data from the sql file.
+
 ```bash
-psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
+psql --file=<database>.sql --host=<server name> --port=5432 --username=<user> --dbname=<target database name>
 ```
 This example uses psql utility and a script file named **testdb.sql** from previous step to import data into the database **mypgsqldb** on the target server **mydemoserver.postgres.database.azure.com**.
 
